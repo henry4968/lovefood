@@ -1,4 +1,10 @@
 # lovefood
+
+## username
+|文婷:yuria1215
+|維宜:weiyi-li00
+|
+
 ## Git command
 
 |  git 命令  |  說明  |
