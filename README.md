@@ -8,6 +8,13 @@
 |維宜:weiyi-li00 |
 |于傑:j23063519 |
 
+## 共同規定
+| 大家檔案名稱不要一樣
+| 我在img、js、mysql、php、scss都放了各位的以學號命名的資料夾
+| ，之後各位就在自己的資料夾做更動
+| .html檔案放在lovefood資料夾底下
+| class、id名稱以駝峰式命名
+| git只放程式和圖片影片等相關檔案，不放文件EX:.pdf、.ppt等等
 
 ## Git command
 
