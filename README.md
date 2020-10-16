@@ -2,15 +2,16 @@
 
 ## Username
 | 名字 | username |
-| ----- | ------ |
-|煥強:Jiang-Chiang |
-|怡欣:jeanshr682688 |
-|文婷:yuria1215 |
-|廷翰:joshtinhan |
-|維宜:weiyi-li00 |
-|于傑:j23063519 |
+| ----- | --------------- |
+| 煥強: | Jiang-Chiang |
+| 怡欣: | jeanshr682688 |
+| 文婷: | yuria1215 |
+| 廷翰: | joshtinhan |
+| 維宜: | weiyi-li00 |
+| 于傑: | j23063519 |
 
 ## 共同規定
+* 大家只需要上傳就好，整合交給我
 | 1.因為上傳空資料夾，在github不會顯示，所以我先放上一個test.html在各位裡面你們之後可以自行刪除
 
 | 2.大家檔案名稱不要一樣
