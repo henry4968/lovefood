@@ -1,9 +1,13 @@
 # lovefood
 
-## username
+## Username
+|煥強:Jiang-Chiang
+|怡欣:jeanshr682688
 |文婷:yuria1215
+|廷翰:joshtinhan
 |維宜:weiyi-li00
-|
+|于傑:j23063519
+
 
 ## Git command
 
