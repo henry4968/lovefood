@@ -1,7 +1,7 @@
 # lovefood
 
 ## Username
-|煥強:Jiang-Chiang |
+|  煥強 |  Jiang-Chiang  |
 |怡欣:jeanshr682688 |
 |文婷:yuria1215 |
 |廷翰:joshtinhan |
