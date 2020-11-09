@@ -25,6 +25,10 @@
 
 | 6.php放在lovefood底下的資料夾就好
 
+| 7.scss目前按照老師的樣子規劃
+
+| 8.現在大家只能自己用自己的分支然後，git checkout dev至dev分支裡面，在用git merge 自己分支名稱，最後用dev這個分支push上去，所以自己本身的分支不能push上去喔，github只能有master及dev這兩個分支
+
 ## Git上傳步驟
 1. git add .:把所有資料傳去站存區 小貼心:新增、修改、刪除都可以用
 2. git commit --m "提示":把資料傳去本地端 注意:提式一定要輸入
