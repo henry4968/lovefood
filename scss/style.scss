@@ -30,6 +30,7 @@
         height: 50px;
         position: absolute;
         display: flex;
+        align-items: center;
         right: 376px;
         top: 38px;
         a{
@@ -38,8 +39,10 @@
         }
         .navGeneralAnchors{
             color: #FDFBBA;
-            margin-right: 26px;
         }
+        :nth-child(2),:nth-child(3){
+            margin-left: 25px;
+        } 
         .navSepcialAnchors{
             color: #858585;
             div{
@@ -47,9 +50,11 @@
                 height: 100%;
                 text-align: center;
                 background-color: #FFFF9B;
+                margin: 0px 28px;
             }
         }
-
-
+        a[data-id="navIcons02"], a[data-id="navIcons03"]{
+            margin-left: 20px;
+        }
     }
 }

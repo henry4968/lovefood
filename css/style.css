@@ -32,6 +32,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   right: 376px;
   top: 38px;
 }
@@ -43,7 +46,10 @@
 
 #header #navigation .navGeneralAnchors {
   color: #FDFBBA;
-  margin-right: 26px;
+}
+
+#header #navigation :nth-child(2), #header #navigation :nth-child(3) {
+  margin-left: 25px;
 }
 
 #header #navigation .navSepcialAnchors {
@@ -55,5 +61,10 @@
   height: 100%;
   text-align: center;
   background-color: #FFFF9B;
+  margin: 0px 28px;
+}
+
+#header #navigation a[data-id="navIcons02"], #header #navigation a[data-id="navIcons03"] {
+  margin-left: 20px;
 }
 /*# sourceMappingURL=style.css.map */
