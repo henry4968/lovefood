@@ -1,0 +1,11 @@
+// mixin
+@import './mixin/mixins';
+
+// page
+@import './page/index/all';
+
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
