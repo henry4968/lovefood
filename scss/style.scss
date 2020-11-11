@@ -70,11 +70,10 @@ body{
 }
 
 #chapter01{
-    width: 100%;
-    height: 100%;
     position: relative;
-    .chapter01Bg{
+    #chapter01BgContainer{
         position: relative;
+        height: 1080px;
         img{
             position: absolute;
             z-index: 1;
@@ -97,4 +96,41 @@ body{
             margin-right: 49px;
         }
     }
+}
+
+#chapter02{
+    position: relative;
+    #chapter02BgContainer{
+        position: relative;
+        height: 1080px;
+        img{
+            position: absolute;
+        }
+        img[data-id="chapter02Bg02"]{
+            bottom: 0;
+        }
+    }
+    .mainTitleBlock{
+        position: absolute;
+        left: 640px;
+        top: 226px;
+        z-index: 2;
+        font-size: 40px;
+        color: #FFFADF;
+    }
+    #conversionUnitIconBlock{
+        width: 148px;
+        height: 556px;
+        position: absolute;
+        top: 206px;
+        left: 87px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+#chapter03{
+    height: 1080px;
+    background-color: orange;
 }
