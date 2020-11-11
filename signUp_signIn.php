@@ -10,20 +10,42 @@
     <h1 class="memberTitle">會員中心</h1>
   </div>
   <div class="wrap">
+
     <div class="signUpsignIn">
+
       <div class="signUp">
-
+        <div class="member">
+          <form method="post" action="#">
+            
+          </form>
+        </div>
+        <div class="seller">
+          <form method="post" action="#">
+            
+          </form>
+        </div>
       </div>
+
       <div class="signIn">
-
+        <form method="post" action="#">
+          
+        </form>
       </div>
-      <div class="signUpR">
 
-      </div>
-      <div class="signInL">
+      <div class="overlayContainer">
+        <div class="container">
+          <div class="signUpR">
+          
+          </div>
+          <div class="signInL">
+    
+          </div>
 
+        </div>
       </div>
+
     </div>
+
   </div>
 </body>
 </html>
