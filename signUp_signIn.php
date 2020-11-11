@@ -14,6 +14,9 @@
     <div class="signUpsignIn">
 
       <div class="signUp">
+        <h1 class="signUp">註冊</h1>
+        <button class="buyBtn">買家</button>
+        <button class="selBtn">賣家</button>
         <div class="member">
           <form method="post" action="#">
             
