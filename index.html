@@ -6,14 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love food│散播食物 ‧ 散播愛</title>
     <link rel="stylesheet" href="./css/style.css">
+    <!-- 全屏滾動套件 -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet" />
     <script src="./js/22/jquery-3.5.1.js"></script>
     <script src="./js/22/vue.js"></script>
+    <!-- 全屏滾動套件 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.jss"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
+    <!-- 自訂 -->
+    <script src="./js/22/index.js"></script>
 </head>
 
 <body>
+
+    <!-- 標頭開始 -->
     <header id="header">
         <div id="headerContentContainer">
             <img id="lightLogo" src="./img/22/index/header_logo_light.png">
+
+            <!-- 導覽列開始 -->
             <nav id="navigation">
                 <a href="#" class="navGeneralAnchors">樂腹商城</a>
                 <a href="#" class="navGeneralAnchors">賣家專區</a>
@@ -34,11 +46,18 @@
                 </a>
 
             </nav>
+            <!-- 導覽列結束 -->
+
         </div>
     </header>
+    <!-- 標頭結束 -->
+
+    <!-- 主要內容開始 -->
     <main id="main">
-        <article id="chapter01">
-            <div class="chapter01Bg">
+
+        <!-- 第一章：「組織訴求」開始 -->
+        <article id="chapter01" class="section">
+            <div id="chapter01BgContainer">
                 <img src="./img/22/index/ch1_bg_green_screen.png" data-id="chapter01Bg01">
                 <img src="./img/22/index/ch1_bg_fruit_and_table.png" data-id="chapter01Bg02">
                 <img src="./img/22/index/ch1_bg_fruit_and_light.png" data-id="chapter01Bg03">
@@ -59,10 +78,51 @@
                 </div>
             </section>
         </article>
+        <!-- 第一章：「組織訴求」結束 -->
+
+        <!-- 第二章：「浪費換算」開始 -->
+        <article id="chapter02" class="section">
+            <div id="chapter02BgContainer">
+                <img src="./img/22/index/ch2_bg_green_screen.png" data-id="chapter02Bg01">
+                <img src="./img/22/index/ch2_bg_elephants.png" data-id="chapter02Bg02">
+            </div>
+            <div id="conversionUnitIconBlock">
+                <a href="#">
+                    <img src="./img/22/index/ch2_icon_elephant_dark.png">
+                </a>
+                <a href="#">
+                    <img src="./img/22/index/ch2_icon_cruise_ship_dark.png">
+                </a>
+                <a href="#">
+                    <img src="./img/22/index/ch2_icon_plane_dark.png">
+                </a>
+                <a href="#">
+                    <img src="./img/22/index/ch2_icon_car_dark.png">
+                </a>
+            </div>
+            <div class="mainTitleBlock">
+                台灣每年浪費的食物高達359萬噸，重量相當於
+            </div>
+        </article>
+        <!-- 第二章：「浪費換算」結束 -->
+
+        <!-- 第三章：「測試」開始 -->
+        <article id="chapter03" class="section">
+
+        </article>
+        <!-- 第三章：「測試」結束 -->
+
+
     </main>
     <article>
 
     </article>
+    <script>
+        $("#main").fullpage({
+            navigation: true, // 顯示導行列
+            navigationPosition: "right" // 導行列位置
+        });
+    </script>
     <script>
         // new Vue({
         //     el:,
