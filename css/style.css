@@ -1,5 +1,16 @@
 * {
   box-sizing: border-box;
+<<<<<<< HEAD
+=======
+}
+
+.wrap {
+  border: 1px solid black;
+}
+
+* {
+  box-sizing: border-box;
+>>>>>>> e3c1b972acad5e7351ee4f9706be0561cf86843e
   padding: 0;
   margin: 0;
   text-decoration: none;
