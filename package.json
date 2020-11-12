@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/j23063519/lovefood#readme",
   "dependencies": {
+    "bootstrap": "^4.5.3",
     "fullpage.js": "^3.0.9",
     "jquery": "^3.5.1",
     "vue": "^2.6.12"
