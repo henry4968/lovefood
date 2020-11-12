@@ -1,0 +1,25 @@
+{
+  "name": "Lovefood",
+  "version": "1.0.0",
+  "description": "| 名字 | username |\r | ----- | --------------- |\r | 煥強: | Jiang-Chiang |\r | 怡欣: | jeanshr682688 |\r | 文婷: | yuria1215 |\r | 廷翰: | joshtinhan |\r | 維宜: | weiyi-li00 |\r | 于傑: | j23063519 |",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/j23063519/lovefood.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/j23063519/lovefood/issues"
+  },
+  "homepage": "https://github.com/j23063519/lovefood#readme",
+  "dependencies": {
+    "fullpage.js": "^3.0.9",
+    "jquery": "^3.5.1",
+    "vue": "^2.6.12"
+  }
+}

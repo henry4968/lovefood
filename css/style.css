@@ -6,6 +6,10 @@
   text-decoration: none;
 }
 
+body {
+  overflow: hidden;
+}
+
 #header {
   border: 1px solid black;
   width: 100%;
