@@ -82,12 +82,12 @@
   position: relative;
 }
 
-#chapter01 #chapter01BgContainer {
+#chapter01 #ch01BgContainer {
   position: relative;
   height: 1080px;
 }
 
-#chapter01 #chapter01BgContainer img {
+#chapter01 #ch01BgContainer img {
   position: absolute;
   z-index: 1;
 }
@@ -113,10 +113,41 @@
   margin-right: 49px;
 }
 
-#chapter01 .slide {
-  width: 1920px;
-  height: 1080px;
-  background-color: yellow;
+#chapter01 .subSlogan {
+  width: 1066px;
+  height: 425px;
+  background-color: #F7F7F7;
+  position: absolute;
+  z-index: 3;
+  top: 317px;
+  left: 734px;
+  padding: 61px 99px 53px 61px;
+}
+
+#chapter01 .subSlogan h3 {
+  font-size: 30px;
+  line-height: 48px;
+  color: #C2B891;
+}
+
+#chapter01 .subSlogan h2 {
+  font-size: 48px;
+  line-height: 64px;
+  margin: 20px 0px 40px 0px;
+  color: #5F695C;
+}
+
+#chapter01 .subSlogan p {
+  width: 662px;
+  height: 148px;
+  font-size: 25px;
+  color: #5F695C;
+}
+
+#chapter01 .subSlogan img {
+  position: absolute;
+  left: 689px;
+  top: 67px;
 }
 
 #ch01slide01 {
