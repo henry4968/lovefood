@@ -1,0 +1,289 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+#header {
+  border: 1px solid black;
+  width: 100%;
+  height: 123px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  background: transparent;
+  z-index: 99;
+}
+
+#header #headerContentContainer {
+  border: 1px solid blue;
+  width: 1180px;
+  height: 50px;
+  position: absolute;
+  left: 364px;
+  top: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#header #headerContentContainer #lightLogo {
+  width: 264px;
+  height: 46px;
+}
+
+#header #headerContentContainer #navigation {
+  border: 1px solid red;
+  width: 762px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header #headerContentContainer #navigation a {
+  font-size: 30px;
+}
+
+#header #headerContentContainer #navigation .navGeneralAnchors {
+  color: #FDFBBA;
+}
+
+#header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+  margin-left: 25px;
+}
+
+#header #headerContentContainer #navigation .navSepcialAnchors {
+  color: #858585;
+}
+
+#header #headerContentContainer #navigation .navSepcialAnchors div {
+  width: 139px;
+  height: 100%;
+  text-align: center;
+  background-color: #FFFF9B;
+  margin: 0px 28px;
+}
+
+#header #headerContentContainer #navigation a[data-id="navIcons02"], #header #headerContentContainer #navigation a[data-id="navIcons03"] {
+  margin-left: 20px;
+}
+
+#chapter01 {
+  position: relative;
+}
+
+#chapter01 #chapter01BgContainer {
+  position: relative;
+  height: 1080px;
+}
+
+#chapter01 #chapter01BgContainer img {
+  position: absolute;
+  z-index: 1;
+}
+
+#chapter01 #mainSlogan {
+  position: absolute;
+  left: 177px;
+  top: 388px;
+  z-index: 2;
+  color: #FDFBBA;
+}
+
+#chapter01 #mainSlogan h3 {
+  font-size: 25px;
+}
+
+#chapter01 #mainSlogan h2 {
+  font-size: 50px;
+  margin-bottom: 23px;
+}
+
+#chapter01 #mainSlogan a[data-id="mainSloganIcon01"], #chapter01 #mainSlogan a[data-id="mainSloganIcon02"] {
+  margin-right: 49px;
+}
+
+#chapter01 .slide {
+  width: 1920px;
+  height: 1080px;
+  background-color: yellow;
+}
+
+#ch01slide01 {
+  width: 1920px;
+  height: 1080px;
+  background-color: blue;
+}
+
+#chapter02 {
+  position: relative;
+}
+
+#chapter02 #chapter02BgContainer {
+  position: relative;
+  height: 1080px;
+}
+
+#chapter02 #chapter02BgContainer img {
+  position: absolute;
+}
+
+#chapter02 #chapter02BgContainer img[data-id="chapter02Bg02"] {
+  bottom: 0;
+}
+
+#chapter02 .mainTitleBlock {
+  position: absolute;
+  left: 640px;
+  top: 226px;
+  z-index: 2;
+  font-size: 40px;
+  color: #FFFADF;
+}
+
+#chapter02 #conversionUnitIconBlock {
+  width: 148px;
+  height: 556px;
+  position: absolute;
+  top: 206px;
+  left: 87px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter03 {
+  border: 1px solid blue;
+  height: 1080px;
+  position: relative;
+  background-color: #C8DED2;
+  text-align: center;
+}
+
+#chapter03 #ch03MainSolgan {
+  font-size: 36px;
+  font-weight: 600;
+  color: #727272;
+  line-height: 55px;
+  margin: 185px 0px 68px 0px;
+}
+
+#chapter03 #solganCardsContainer {
+  border: 1px solid black;
+  width: 1421px;
+  height: 640px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter03 #solganCardsContainer .solganCard {
+  border: 1px solid red;
+  width: 422px;
+  height: 100%;
+  position: relative;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame {
+  width: 422px;
+  height: 492px;
+  border: 4px solid #FEFA9C;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  margin-top: calc(640px - 490px);
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame {
+  width: 293px;
+  height: 293px;
+  border-radius: 293px;
+  border-bottom: 46px;
+  background-color: #A7BBA9;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
+  width: 267px;
+  height: 267px;
+  border-radius: 267px;
+  background-color: #fff;
+  margin: auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock img {
+  height: 100%;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardTitle {
+  font-size: 30px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-top: 220px;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardParagraph {
+  width: 330px;
+  height: 95px;
+  font-size: 22px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03Shelter {
+  width: 275px;
+  height: 125px;
+  background-color: #C8DED2;
+  margin: auto;
+  margin-top: 35px;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
+  -webkit-transform: translate(0%, -15%);
+          transform: translate(0%, -15%);
+}
+
+#chapter04 {
+  height: 1080px;
+  background-color: orange;
+}
+/*# sourceMappingURL=index.css.map */
