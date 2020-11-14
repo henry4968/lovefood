@@ -66,6 +66,7 @@
         position: relative;
         height: 1080px;
         img{
+            width: 100%;
             position: absolute;
             z-index: 1;
         }
@@ -133,6 +134,7 @@
         position: relative;
         height: 1080px;
         img{
+            width: 100%;
             position: absolute;
         }
         img[data-id="chapter02Bg02"]{
@@ -247,6 +249,113 @@
 #chapter04{
     height: 1080px;
     background-image: url(../../../img/22/index/ch04_bg.jpg);
+    position: relative;
+    text-align: center;
+    padding: 190px 0px 0px 0px;
+    h3{
+        font-size: 36px;
+        font-weight: 600;
+        color: #605F5F;
+        margin-bottom: 67px;
+    }
+    #productCarouselContainer{
+        width: 1200px;
+        height: 465px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .productCard{
+            border: 1px solid lightgray;
+            border-radius: 20px;
+            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+            background-color: #F3E9C0;
+            width: 328px;
+            height: 457px;
+            display: flex;
+            flex-direction: column;
+            .countdown{
+                width: 100%;
+                height: 53px;
+                border-radius: 20px 20px 0px 0px;
+                background-color: #FBFFE0;
+                font-size: 18px;
+                color: #707070;
+                line-height: 53px;
+                span{
+                    font-size: 30px;
+                    color: #9A0202;
+                }
+            }
+            .productAvatarBlock{
+                width: 100%;
+                height: calc(457px - 53px - 53px);
+                background-color: #F2F0D7;
+                .productAvatar{
+                    width: 282px;
+                    height: 282px;
+                    margin: auto;
+                    margin-top: 19px;
+                    background-color: #FFFFFF;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 5px;
+                    img{
+                        object-fit: contain;
+                    }
+                }
+            }
+            .productMainInfo, .productSubInfo{
+                width: 282px;
+                margin: auto;
+                color: #707070;
+                display: flex;
+                justify-content: space-between;
+                .productName{
+                    font-size: 24px;
+                    line-height: 33px;
+                }
+                .productSellingPrice{
+                    font-size: 30px;
+                    font-weight: 600;
+                    line-height: 34px;
+                    color: #9A0202;
+                }
+            }
+            .productSubInfo{
+                background-color: #F3E9C0;
+                .ProductCategory, .productOriginalPrice{
+                    font-size: 20PX;
+                    line-height: 28px;
+                }
+                .productOriginalPrice{
+                    text-decoration: line-through;
+                }
+            }
+        }
+
+    }
+    h4{
+        font-size: 26px;
+        color: #666464;
+        margin: 87px 0px 34px 0px;
+    }
+    #suppliersList{
+        width: 1480px;
+        height: 102px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .supplierLogoBlock{
+            width: 240px;
+            height: 100%;
+            img{
+                width: 100%;
+            }
+
+        }
+    }
 }
 
 #chapter05{
