@@ -8,14 +8,13 @@
 }
 
 #header {
-  width: 100%;
   height: 123px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: transparent;
-  z-index: 99;
+  z-index: 9;
 }
 
 #header #headerContentContainer {
@@ -76,19 +75,15 @@
   margin-left: 20px;
 }
 
+#chapter01, #chapter02, #chapter03,
+#chapter04, #chapter05, #chapter06 {
+  height: 1080px;
+  overflow: hidden;
+}
+
 #chapter01 {
   position: relative;
-}
-
-#chapter01 #ch01BgContainer {
-  position: relative;
-  height: 1080px;
-}
-
-#chapter01 #ch01BgContainer img {
-  width: 100%;
-  position: absolute;
-  z-index: 1;
+  background-image: url(../../../img/22/index/ch01_bg_fruit_and_table.png), url(../../../img/22/index/ch01_bg_green_screen.png);
 }
 
 #chapter01 #mainSlogan {
@@ -149,28 +144,12 @@
   top: 67px;
 }
 
-#ch01slide01 {
-  width: 1920px;
-  height: 1080px;
-  background-color: blue;
-}
-
 #chapter02 {
   position: relative;
-}
-
-#chapter02 #chapter02BgContainer {
-  position: relative;
-  height: 1080px;
-}
-
-#chapter02 #chapter02BgContainer img {
-  width: 100%;
-  position: absolute;
-}
-
-#chapter02 #chapter02BgContainer img[data-id="chapter02Bg02"] {
-  bottom: 0;
+  background-color: #B0BAA4;
+  background-image: url(../../../img/22/index/ch02_bg_elephants.png);
+  background-repeat: no-repeat;
+  background-position: bottom;
 }
 
 #chapter02 .mainTitleBlock {
@@ -201,11 +180,10 @@
 }
 
 #chapter03 {
-  height: 1080px;
   position: relative;
   background-color: #C8DED2;
   text-align: center;
-  padding: 185px 0px 68px 0px;
+  overflow: hidden;
 }
 
 #chapter03 #ch03MainSolgan {
@@ -213,11 +191,12 @@
   font-weight: 600;
   color: #727272;
   line-height: 55px;
+  margin-bottom: 50px;
 }
 
 #chapter03 #solganCardsContainer {
-  width: 1421px;
-  height: 640px;
+  width: 1420px;
+  height: 420px;
   margin: auto;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -311,11 +290,9 @@
 }
 
 #chapter04 {
-  height: 1080px;
   background-image: url(../../../img/22/index/ch04_bg.jpg);
   position: relative;
   text-align: center;
-  padding: 190px 0px 0px 0px;
 }
 
 #chapter04 h3 {
@@ -468,9 +445,7 @@
 }
 
 #chapter05 {
-  height: 1080px;
   background-color: #D8E6D9;
-  padding: 125px 0px 0px 0px;
   position: relative;
   overflow: hidden;
 }
@@ -625,32 +600,34 @@
 }
 
 #chapter06 {
-  height: 1080px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  overflow: hidden;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #F6EEE5;
 }
 
-#chapter06 #ch06LeftArea {
+#chapter06 #ch06contactUsArea {
   width: 960px;
   background-image: url(../../../img/22/index/ch06_bg01.png);
+  padding: 273px 140px;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer {
+#chapter06 #ch06contactUsArea #contactUsContainer {
   width: 653px;
   height: 695px;
   background-color: #F6EEE5;
   border: 6px solid #CEC6BD;
   -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
-  margin: 273px 140px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame {
   width: 604px;
   height: 639px;
   border: 5px solid #CEC6BD;
@@ -662,20 +639,20 @@
   padding: 80px 135px 55px 135px;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame h3 {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame h3 {
   font-size: 35px;
   line-height: 49px;
   color: #D0C37F;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
   width: 275px;
   margin: auto;
   margin-bottom: 5px;
   border-bottom: 1px solid #D0C37F;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
   width: 100%;
   height: 235px;
   display: -webkit-box;
@@ -691,22 +668,22 @@
   margin: 60px 0px 80px 0px;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
   margin-right: 20px;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
   font-size: 25px;
   color: #D0C37F;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
   width: 245px;
   height: 40px;
   border: 2px solid #D0C37F;
@@ -722,7 +699,7 @@
   padding: 0px 0px 0px 10px;
 }
 
-#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #ch06IconContainer {
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -732,26 +709,26 @@
           justify-content: space-between;
 }
 
-#chapter06 #ch06RightArea {
-  width: 960px;
-  background-color: #F6EEE5;
-  padding: 238px 0px 0px 0px;
+#chapter06 #ch06GuideArea {
+  width: 495px;
+  height: 700px;
+  margin: auto;
   text-align: center;
 }
 
-#chapter06 #ch06RightArea #ch06ImgBlock {
+#chapter06 #ch06GuideArea #ch06ImgBlock {
   width: 401px;
   height: 464px;
   margin: auto;
 }
 
-#chapter06 #ch06RightArea h2 {
+#chapter06 #ch06GuideArea h2 {
   font-size: 65px;
   color: #D0C37F;
   margin: 70px 0px 60px 0px;
 }
 
-#chapter06 #ch06RightArea #ch06GuideBlock {
+#chapter06 #ch06GuideArea #ch06GuideBlock {
   width: 495px;
   height: 75px;
   margin: auto;
@@ -763,18 +740,19 @@
           justify-content: space-between;
 }
 
-#chapter06 #ch06RightArea #ch06GuideBlock span {
+#chapter06 #ch06GuideArea #ch06GuideBlock span {
   font-size: 30px;
   color: #D0C37F;
 }
 
-#chapter06 #ch06RightArea #ch06GuideBlock #ch06GuideButton {
+#chapter06 #ch06GuideArea #ch06GuideBlock #ch06GuideButton {
   width: 166px;
   height: 50px;
   border-radius: 4px;
   color: #FFFFFF;
   background-color: #D0C37F;
   font-size: 30px;
-  line-height: 42px;
+  line-height: 50px;
+  text-align: center;
 }
 /*# sourceMappingURL=index.css.map */

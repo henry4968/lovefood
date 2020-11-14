@@ -7,12 +7,11 @@
 }
 
 #header{
-    width: 100%;
     height: 123px;
     display: flex;
     position: fixed;
     background: transparent;
-    z-index: 99;
+    z-index: 9;
     #headerContentContainer{
         width: 1180px;
         height: 50px;
@@ -57,17 +56,17 @@
     }
 }
 
+#chapter01, #chapter02, #chapter03,
+#chapter04, #chapter05, #chapter06{
+    height: 1080px;
+    overflow: hidden;
+}
+
 #chapter01{
     position: relative;
-    #ch01BgContainer{
-        position: relative;
-        height: 1080px;
-        img{
-            width: 100%;
-            position: absolute;
-            z-index: 1;
-        }
-    }
+    background-image: 
+    url(../../../img/22/index/ch01_bg_fruit_and_table.png),
+    url(../../../img/22/index/ch01_bg_green_screen.png);
     #mainSlogan{
         position: absolute;
         left: 177px;
@@ -119,25 +118,12 @@
     }
 }
 
-#ch01slide01{
-    width: 1920px;
-    height: 1080px;
-    background-color: blue;
-}
-
 #chapter02{
     position: relative;
-    #chapter02BgContainer{
-        position: relative;
-        height: 1080px;
-        img{
-            width: 100%;
-            position: absolute;
-        }
-        img[data-id="chapter02Bg02"]{
-            bottom: 0;
-        }
-    }
+    background-color: #B0BAA4;
+    background-image: url(../../../img/22/index/ch02_bg_elephants.png);
+    background-repeat: no-repeat;
+    background-position: bottom;
     .mainTitleBlock{
         position: absolute;
         left: 640px;
@@ -159,20 +145,20 @@
 }
 
 #chapter03{
-    height: 1080px;
     position: relative;
     background-color: #C8DED2;
     text-align: center;
-    padding: 185px 0px 68px 0px;
+    overflow: hidden;
     #ch03MainSolgan{
         font-size: 36px;
         font-weight: 600;
         color: #727272;
         line-height: 55px;
+        margin-bottom: 50px;
     }
     #solganCardsContainer{
-        width: 1421px;
-        height: 640px;
+        width: 1420px;
+        height: 420px;
         margin: auto;
         display: flex;
         flex-direction: row;
@@ -241,11 +227,9 @@
 }
 
 #chapter04{
-    height: 1080px;
     background-image: url(../../../img/22/index/ch04_bg.jpg);
     position: relative;
     text-align: center;
-    padding: 190px 0px 0px 0px;
     h3{
         font-size: 36px;
         font-weight: 600;
@@ -353,9 +337,7 @@
 }
 
 #chapter05{
-    height: 1080px;
     background-color: #D8E6D9;
-    padding: 125px 0px 0px 0px;
     position: relative;
     overflow: hidden;
     .ch05BgFlower{
@@ -480,19 +462,19 @@
 }
 
 #chapter06{
-    height: 1080px;
     display: flex;
-    overflow: hidden;
-    #ch06LeftArea{
+    align-items: center;
+    background-color: #F6EEE5;
+    #ch06contactUsArea{
         width: 960px;
         background-image: url(../../../img/22/index/ch06_bg01.png);
+        padding: 273px 140px;
         #contactUsContainer{
             width: 653px;
             height: 695px;
             background-color: #F6EEE5;
             border: 6px solid #CEC6BD;
             box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
-            margin: 273px 140px;
             display: flex;
             #contactUsFrame{
                 width: 604px;
@@ -548,10 +530,10 @@
             }
         }
     }
-    #ch06RightArea{
-        width: 960px;
-        background-color: #F6EEE5;
-        padding: 238px 0px 0px 0px;
+    #ch06GuideArea{
+        width: 495px;
+        height: 700px;
+        margin: auto;
         text-align: center;
         #ch06ImgBlock{
             width: 401px;
@@ -580,7 +562,8 @@
                 color: #FFFFFF;
                 background-color: #D0C37F;
                 font-size: 30px;
-                line-height: 42px;
+                line-height: 50px;
+                text-align: center;
             }
         }
 
