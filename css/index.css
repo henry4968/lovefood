@@ -8,7 +8,6 @@
 }
 
 #header {
-  border: 1px solid black;
   width: 100%;
   height: 123px;
   display: -webkit-box;
@@ -20,7 +19,6 @@
 }
 
 #header #headerContentContainer {
-  border: 1px solid blue;
   width: 1180px;
   height: 50px;
   position: absolute;
@@ -40,7 +38,6 @@
 }
 
 #header #headerContentContainer #navigation {
-  border: 1px solid red;
   width: 762px;
   height: 50px;
   display: -webkit-box;
@@ -204,11 +201,11 @@
 }
 
 #chapter03 {
-  border: 1px solid blue;
   height: 1080px;
   position: relative;
   background-color: #C8DED2;
   text-align: center;
+  padding: 185px 0px 68px 0px;
 }
 
 #chapter03 #ch03MainSolgan {
@@ -216,11 +213,9 @@
   font-weight: 600;
   color: #727272;
   line-height: 55px;
-  margin: 185px 0px 68px 0px;
 }
 
 #chapter03 #solganCardsContainer {
-  border: 1px solid black;
   width: 1421px;
   height: 640px;
   margin: auto;
@@ -237,7 +232,6 @@
 }
 
 #chapter03 #solganCardsContainer .solganCard {
-  border: 1px solid red;
   width: 422px;
   height: 100%;
   position: relative;
@@ -477,6 +471,23 @@
   height: 1080px;
   background-color: #D8E6D9;
   padding: 125px 0px 0px 0px;
+  position: relative;
+  overflow: hidden;
+}
+
+#chapter05 .ch05BgFlower {
+  position: absolute;
+  z-index: 2;
+}
+
+#chapter05 img[data-id="ch05BgFlower01"] {
+  left: -180px;
+  bottom: -150px;
+}
+
+#chapter05 img[data-id="ch05BgFlower02"] {
+  right: -300px;
+  top: 40px;
 }
 
 #chapter05 #ch05MemoContainer {
@@ -615,6 +626,155 @@
 
 #chapter06 {
   height: 1080px;
-  background-color: orange;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+#chapter06 #ch06LeftArea {
+  width: 960px;
+  background-image: url(../../../img/22/index/ch06_bg01.png);
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer {
+  width: 653px;
+  height: 695px;
+  background-color: #F6EEE5;
+  border: 6px solid #CEC6BD;
+  -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  margin: 273px 140px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame {
+  width: 604px;
+  height: 639px;
+  border: 5px solid #CEC6BD;
+  margin: auto;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  text-align: center;
+  padding: 80px 135px 55px 135px;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame h3 {
+  font-size: 35px;
+  line-height: 49px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
+  width: 275px;
+  margin: auto;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #D0C37F;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
+  width: 100%;
+  height: 235px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 60px 0px 80px 0px;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
+  margin-right: 20px;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
+  font-size: 25px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
+  width: 245px;
+  height: 40px;
+  border: 2px solid #D0C37F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 0px 0px 10px;
+}
+
+#chapter06 #ch06LeftArea #contactUsContainer #contactUsFrame #ch06IconContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter06 #ch06RightArea {
+  width: 960px;
+  background-color: #F6EEE5;
+  padding: 238px 0px 0px 0px;
+  text-align: center;
+}
+
+#chapter06 #ch06RightArea #ch06ImgBlock {
+  width: 401px;
+  height: 464px;
+  margin: auto;
+}
+
+#chapter06 #ch06RightArea h2 {
+  font-size: 65px;
+  color: #D0C37F;
+  margin: 70px 0px 60px 0px;
+}
+
+#chapter06 #ch06RightArea #ch06GuideBlock {
+  width: 495px;
+  height: 75px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter06 #ch06RightArea #ch06GuideBlock span {
+  font-size: 30px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06RightArea #ch06GuideBlock #ch06GuideButton {
+  width: 166px;
+  height: 50px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  background-color: #D0C37F;
+  font-size: 30px;
+  line-height: 42px;
 }
 /*# sourceMappingURL=index.css.map */

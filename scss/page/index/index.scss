@@ -7,7 +7,6 @@
 }
 
 #header{
-    border: 1px solid black;
     width: 100%;
     height: 123px;
     display: flex;
@@ -15,7 +14,6 @@
     background: transparent;
     z-index: 99;
     #headerContentContainer{
-        border: 1px solid blue;
         width: 1180px;
         height: 50px;
         position: absolute;
@@ -28,7 +26,6 @@
             height: 46px;
         }
         #navigation{
-            border: 1px solid red;
             width: 762px;
             height: 50px;
             display: flex;
@@ -162,20 +159,18 @@
 }
 
 #chapter03{
-    border: 1px solid blue;
     height: 1080px;
     position: relative;
     background-color: #C8DED2;
     text-align: center;
+    padding: 185px 0px 68px 0px;
     #ch03MainSolgan{
         font-size: 36px;
         font-weight: 600;
         color: #727272;
         line-height: 55px;
-        margin: 185px 0px 68px 0px;
     }
     #solganCardsContainer{
-        border: 1px solid black;
         width: 1421px;
         height: 640px;
         margin: auto;
@@ -183,7 +178,6 @@
         flex-direction: row;
         justify-content: space-between;
         .solganCard{
-            border: 1px solid red;
             width: 422px;
             height: 100%;
             position: relative;
@@ -362,6 +356,20 @@
     height: 1080px;
     background-color: #D8E6D9;
     padding: 125px 0px 0px 0px;
+    position: relative;
+    overflow: hidden;
+    .ch05BgFlower{
+        position: absolute;
+        z-index: 2;
+    }
+    img[data-id="ch05BgFlower01"]{
+        left: -180px;
+        bottom: -150px;
+    }
+    img[data-id="ch05BgFlower02"]{
+        right: -300px;
+        top: 40px;
+    }
     #ch05MemoContainer{
         width: 1643px;
         height: 872px;
@@ -473,5 +481,108 @@
 
 #chapter06{
     height: 1080px;
-    background-color: orange;
+    display: flex;
+    overflow: hidden;
+    #ch06LeftArea{
+        width: 960px;
+        background-image: url(../../../img/22/index/ch06_bg01.png);
+        #contactUsContainer{
+            width: 653px;
+            height: 695px;
+            background-color: #F6EEE5;
+            border: 6px solid #CEC6BD;
+            box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+            margin: 273px 140px;
+            display: flex;
+            #contactUsFrame{
+                width: 604px;
+                height: 639px;
+                border: 5px solid #CEC6BD;
+                margin: auto;
+                align-self: center;
+                text-align: center;
+                padding: 80px 135px 55px 135px;
+                h3{
+                    font-size: 35px;
+                    line-height: 49px;
+                    color: #D0C37F;
+                }
+                .ch06TtileDecoration{
+                    width: 275px;
+                    margin: auto;
+                    margin-bottom: 5px;
+                    border-bottom: 1px solid #D0C37F;
+                }
+                #connectionInfoContainer{
+                    width: 100%;
+                    height: 235px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin: 60px 0px 80px 0px;
+                    .connectionInfo{
+                        display: flex;
+                        img{
+                            margin-right: 20px;
+                        }
+                        span{
+                            font-size: 25px;
+                            color: #D0C37F;
+                        }
+                        #ch06SearchBar{
+                            width: 245px;
+                            height: 40px;
+                            border: 2px solid #D0C37F;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 0px 0px 0px 10px;
+                        }
+                    }
+                }
+                #ch06IconContainer{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    #ch06RightArea{
+        width: 960px;
+        background-color: #F6EEE5;
+        padding: 238px 0px 0px 0px;
+        text-align: center;
+        #ch06ImgBlock{
+            width: 401px;
+            height: 464px;
+            margin: auto;
+        }
+        h2{
+            font-size: 65px;
+            color: #D0C37F;
+            margin: 70px 0px 60px 0px;
+        }
+        #ch06GuideBlock{
+            width: 495px;
+            height: 75px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            span{
+                font-size: 30px;
+                color: #D0C37F;
+            }
+            #ch06GuideButton{
+                width: 166px;
+                height: 50px;
+                border-radius: 4px;
+                color: #FFFFFF;
+                background-color: #D0C37F;
+                font-size: 30px;
+                line-height: 42px;
+            }
+        }
+
+    }
 }
