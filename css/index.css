@@ -475,6 +475,146 @@
 
 #chapter05 {
   height: 1080px;
+  background-color: #D8E6D9;
+  padding: 125px 0px 0px 0px;
+}
+
+#chapter05 #ch05MemoContainer {
+  width: 1643px;
+  height: 872px;
+  border: 13px solid #E6ECE2;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  position: relative;
+}
+
+#chapter05 #ch05MemoContainer #ch05MainTtile {
+  width: 217px;
+  height: 51px;
+  border-bottom: 3px solid #F5EFD0;
+  font-size: 36px;
+  line-height: 48px;
+  color: #605F5F;
+  text-align: center;
+  margin: auto;
+  margin-top: 75px;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo {
+  width: 358px;
+  height: 337px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  background-color: #FDFDF9;
+  padding: 55px 0px 0px 45px;
+  position: relative;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo .ch05MemoTape {
+  position: absolute;
+  opacity: 80%;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo h3 {
+  font-size: 30px;
+  line-height: 42px;
+  color: #646464;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo p {
+  width: 250px;
+  height: 100px;
+  font-size: 20px;
+  line-height: 35px;
+  color: #646464;
+  margin-top: 10px;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo img {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] {
+  position: absolute;
+  top: 213px;
+  left: 109px;
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] div[data-id="ch05MemoTape01"] {
+  width: 120px;
+  height: 30px;
+  background-color: #EDBEBE;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: -40px;
+  top: 5px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] {
+  position: absolute;
+  top: 327px;
+  left: 604px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] div[data-id="ch05MemoTape02"] {
+  width: 140px;
+  height: 25px;
+  background-color: #B4E3E3;
+  left: 30px;
+  top: -12.5px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] {
+  position: absolute;
+  top: 219px;
+  left: 1062px;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] div[data-id="ch05MemoTape03"] {
+  width: 130px;
+  height: 35px;
+  background-color: #F4EACA;
+  -webkit-transform: rotate(95deg);
+          transform: rotate(95deg);
+  left: -10px;
+  top: -35px;
+}
+
+#chapter05 #ch05MemoContainer #ch05learnMoreButton {
+  width: 276px;
+  height: 80px;
+  background-color: #DDBCBC;
+  border-radius: 13px;
+  padding: 0px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 130px;
+  bottom: 103px;
+}
+
+#chapter05 #ch05MemoContainer #ch05learnMoreButton span {
+  font-size: 40px;
+  line-height: 56px;
+  color: #FFFFFF;
+}
+
+#chapter06 {
+  height: 1080px;
   background-color: orange;
 }
 /*# sourceMappingURL=index.css.map */
