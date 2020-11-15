@@ -7,6 +7,8 @@
 }
 
 #header{
+    border: 2px solid black;
+    width: 100%;
     height: 123px;
     display: flex;
     position: fixed;
@@ -58,26 +60,25 @@
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06{
+    width: 100%;
     height: 100vh;
-    // overflow: hidden;
-    border: 10px splid red;
-    margin: ;
+    overflow: hidden;
 }
-
-// #chapter03,#chapter04, #chapter05, 
-// #chapter06{
-//     padding: 185px 0px 0px 0px;
-// }
 
 #chapter01{
     position: relative;
     background-image: 
     url(../../../img/22/index/ch01_bg_fruit_and_table.png),
     url(../../../img/22/index/ch01_bg_green_screen.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
     #mainSlogan{
+        width: 450px;
+        height: 200px;
         position: absolute;
         left: 177px;
-        top: 388px;
+        top: 308px;
         z-index: 2;
         color: #FDFBBA;
         h3{
@@ -97,7 +98,7 @@
         background-color: #F7F7F7;
         position: absolute;
         z-index: 3;
-        top: 317px;
+        top: 237px;
         left: 734px;
         padding: 61px 99px 53px 61px;
         h3{
@@ -129,12 +130,15 @@
     position: relative;
     background-color: #B0BAA4;
     background-image: url(../../../img/22/index/ch02_bg_elephants.png);
+    background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: bottom;
     .mainTitleBlock{
+        width: 850px;
+        height: 53px;
         position: absolute;
         left: 640px;
-        top: 226px;
+        top: 186px;
         z-index: 2;
         font-size: 40px;
         color: #FFFADF;
@@ -155,17 +159,20 @@
     position: relative;
     background-color: #C8DED2;
     text-align: center;
-    overflow: hidden;
     #ch03MainSolgan{
+        width: 581px;
+        height: 103px;
+        margin: auto;
         font-size: 36px;
         font-weight: 600;
         color: #727272;
         line-height: 55px;
-        margin-bottom: 50px;
+        margin-top: -150px;
+        margin-bottom: 40px;
     }
     #solganCardsContainer{
         width: 1420px;
-        height: 420px;
+        height: 320px;
         margin: auto;
         display: flex;
         flex-direction: row;
@@ -177,7 +184,7 @@
         }
         .cardDecorativeFrame{
             width: 422px;
-            height: 492px;
+            height: 422px;
             border: 4px solid #FEFA9C;
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
             margin-top: calc(640px - 490px);
@@ -210,7 +217,7 @@
                 font-size: 30px;
                 font-weight: 600;
                 color: #FFFFFF;
-                margin-top: 220px;
+                margin-top: 180px;
             }
             .ch03CardParagraph{
                 width: 330px;
@@ -224,10 +231,11 @@
                 height: 125px;
                 background-color: #C8DED2;
                 margin: auto;
-                margin-top: 35px;
+                margin-top: 25px;
+                transform: translate(0%, -15%)
             }
             #ch03Shelter03{
-                transform: translate(0%, -15%);
+                transform: translate(0%, -25%);
             }
         }
     }
@@ -241,7 +249,8 @@
         font-size: 36px;
         font-weight: 600;
         color: #605F5F;
-        margin-bottom: 67px;
+        margin-top: 165px;
+        margin-bottom: 40px;
     }
     #productCarouselContainer{
         width: 1200px;
@@ -323,7 +332,7 @@
     h4{
         font-size: 26px;
         color: #666464;
-        margin: 87px 0px 34px 0px;
+        margin: 40px 0px 30px 0px;
     }
     #suppliersList{
         width: 1480px;
@@ -346,25 +355,25 @@
 #chapter05{
     background-color: #D8E6D9;
     position: relative;
-    overflow: hidden;
     .ch05BgFlower{
         position: absolute;
         z-index: 2;
     }
     img[data-id="ch05BgFlower01"]{
-        left: -180px;
-        bottom: -150px;
+        left: -150px;
+        bottom: -250px;
     }
     img[data-id="ch05BgFlower02"]{
         right: -300px;
         top: 40px;
     }
     #ch05MemoContainer{
-        width: 1643px;
-        height: 872px;
+        width: 1550px;
+        height: 720px;
         border: 13px solid #E6ECE2;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
         margin: auto;
+        margin-top: 165px;
         position: relative;
         #ch05MainTtile{
             width: 217px;
@@ -409,7 +418,7 @@
         }
         div[data-id="ch05Memo01"]{
             position: absolute;
-            top: 213px;
+            top: 183px;
             left: 109px;
             transform: rotate(-2deg);
             div[data-id="ch05MemoTape01"]{
@@ -423,7 +432,7 @@
         }
         div[data-id="ch05Memo02"]{
             position: absolute;
-            top: 327px;
+            top: 297px;
             left: 604px;
             div[data-id="ch05MemoTape02"]{
                 width: 140px;
@@ -435,7 +444,7 @@
         }
         div[data-id="ch05Memo03"]{
             position: absolute;
-            top: 219px;
+            top: 159px;
             left: 1062px;
             transform: rotate(2deg);
             div[data-id="ch05MemoTape03"]{
@@ -457,8 +466,8 @@
             justify-content: space-between;
             align-items: center;
             position: absolute;
-            right: 130px;
-            bottom: 103px;
+            right: 50px;
+            bottom: 30px;
             span{
                 font-size: 40px;
                 line-height: 56px;
@@ -469,28 +478,27 @@
 }
 
 #chapter06{
-    display: flex;
-    align-items: center;
+    position: relative;
     background-color: #F6EEE5;
     #ch06contactUsArea{
         width: 960px;
+        height: 100vh;
         background-image: url(../../../img/22/index/ch06_bg01.png);
-        padding: 273px 140px;
+        padding-top: 165px;
         #contactUsContainer{
-            width: 653px;
-            height: 695px;
+            width: 600px;
+            height: 655px;
             background-color: #F6EEE5;
             border: 6px solid #CEC6BD;
             box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+            margin: auto;
             display: flex;
             #contactUsFrame{
-                width: 604px;
-                height: 639px;
+                width: 550px;
+                height: 600px;
                 border: 5px solid #CEC6BD;
                 margin: auto;
-                align-self: center;
-                text-align: center;
-                padding: 80px 135px 55px 135px;
+                padding: 30px 85px 30px 85px;
                 h3{
                     font-size: 35px;
                     line-height: 49px;
@@ -538,41 +546,48 @@
         }
     }
     #ch06GuideArea{
-        width: 495px;
-        height: 700px;
-        margin: auto;
-        text-align: center;
-        #ch06ImgBlock{
-            width: 401px;
-            height: 464px;
-            margin: auto;
-        }
-        h2{
-            font-size: 65px;
-            color: #D0C37F;
-            margin: 70px 0px 60px 0px;
-        }
-        #ch06GuideBlock{
+        width: 960px;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        #ch06GuideContainer{
             width: 495px;
-            height: 75px;
+            height: 700px;
             margin: auto;
-            display: flex;
-            justify-content: space-between;
-            span{
-                font-size: 30px;
-                color: #D0C37F;
+            margin-top: 165px;
+            text-align: center;
+            #ch06ImgBlock{
+                width: 401px;
+                height: 464px;
+                margin: auto;
             }
-            #ch06GuideButton{
-                width: 166px;
-                height: 50px;
-                border-radius: 4px;
-                color: #FFFFFF;
-                background-color: #D0C37F;
-                font-size: 30px;
-                line-height: 50px;
-                text-align: center;
+            h2{
+                font-size: 65px;
+                color: #D0C37F;
+                margin: 40px 0px 30px 0px;
+            }
+            #ch06GuideBlock{
+                width: 495px;
+                height: 75px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                span{
+                    font-size: 30px;
+                    color: #D0C37F;
+                }
+                #ch06GuideButton{
+                    width: 166px;
+                    height: 50px;
+                    border-radius: 4px;
+                    color: #FFFFFF;
+                    background-color: #D0C37F;
+                    font-size: 30px;
+                    line-height: 50px;
+                    text-align: center;
+                }
             }
         }
-
     }
-}
+}    
