@@ -77,8 +77,8 @@
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06 {
-  height: 1080px;
-  overflow: hidden;
+  height: 100vh;
+  border: 10px splid red;
 }
 
 #chapter01 {

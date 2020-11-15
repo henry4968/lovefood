@@ -58,9 +58,16 @@
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06{
-    height: 1080px;
-    overflow: hidden;
+    height: 100vh;
+    // overflow: hidden;
+    border: 10px splid red;
+    margin: ;
 }
+
+// #chapter03,#chapter04, #chapter05, 
+// #chapter06{
+//     padding: 185px 0px 0px 0px;
+// }
 
 #chapter01{
     position: relative;
