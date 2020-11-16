@@ -1,6 +1,70 @@
 .navBar {
   width: 100%;
   height: 123px;
-  background-color: green;
+  background-color: palegreen;
+}
+
+.wrap {
+  background-color: #8e8bb7;
+}
+
+#search {
+  background-color: #d4d4d4;
+  width: 60%;
+  margin: 0 auto;
+  display: flex;
+}
+
+#span {
+  background-color: purple;
+  display: flex;
+  padding: 20px;
+  font-size: 22px;
+}
+
+.selector_ul {
+  display: flex;
+  padding: 20px;
+  font-size: 22px;
+  justify-content: space-evenly;
+  width: 75%;
+}
+
+.selector_ul .areaName .searchName {
+  font-size: 20px;
+}
+
+.selector_ul #btnMap {
+  font-size: 16px;
+}
+
+.itemArea {
+  width: 60%;
+  margin: 0 auto;
+  display: none;
+  cursor: pointer;
+}
+
+.itemArea .itemName {
+  border: 4px solid red;
+  display: flex;
+  font-size: 22px;
+  flex-grow: 1;
+  width: 20%;
+  padding: 10px;
+}
+
+div.btn #btn {
+  font-size: 16px;
+  margin: 0 auto;
+  display: block;
+  border: 2px solid #d4d4d4;
+}
+
+.group {
+  border: 1px solid green;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
 }
 /*# sourceMappingURL=07.css.map */

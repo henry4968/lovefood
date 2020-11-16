@@ -1,0 +1,62 @@
+//寬度 ％,px
+$Wth:(
+    100: 100%,
+    80: 80%,
+    75: 75%,
+    65: 65%,
+    60: 60%,
+    50: 50%,
+    30: 30%,
+    20: 20%,
+    10: 10%
+    
+);
+$wthPX:(
+    100:100px,
+    50:50px,
+
+
+);
+//字體大小
+$font:(
+    16: 16px,
+    18: 18px,
+    20: 20px,
+    22: 22px,
+    25: 25px,
+    28: 28px,
+    30: 30px,
+    35: 35px,
+    40: 40px
+
+);
+//線
+    $bd1:1px;
+    $bd2:2px;
+    $bd3:3px;
+    $bd4:4px;
+    $bd5:5px;
+
+//顏色
+$R:red;
+$G:green;
+$B:blue;
+$P:purple;
+$g:#d4d4d4; //不要用
+$b:#8e8bb7; ////不要用
+$d4:#d4d4d4;
+$cf:#8e8bb7;
+//位置,左右
+$left:left;
+$right:right;
+$cntr:center;
+//spacers _margin,_padding
+$pdng:(
+    10:10px,
+    20:20px,
+    0 :0px
+);
+//RWD 裝置
+$desktop:1200px;
+$medium:768px;
+$small:576px;

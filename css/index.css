@@ -1,6 +1,5 @@
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: PingFangTC-Regular, sans-serif;
@@ -11,8 +10,6 @@
   border: 2px solid black;
   width: 100%;
   height: 123px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: transparent;
@@ -25,12 +22,8 @@
   position: absolute;
   left: 364px;
   top: 38px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 #header #headerContentContainer #lightLogo {
@@ -41,12 +34,8 @@
 #header #headerContentContainer #navigation {
   width: 762px;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 #header #headerContentContainer #navigation a {
@@ -178,16 +167,9 @@
   position: absolute;
   top: 206px;
   left: 87px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 #chapter03 {
@@ -212,16 +194,9 @@
   width: 1420px;
   height: 320px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #chapter03 #solganCardsContainer .solganCard {
@@ -234,8 +209,7 @@
   width: 422px;
   height: 422px;
   border: 4px solid #FEFA9C;
-  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
   margin-top: calc(640px - 490px);
 }
 
@@ -246,11 +220,8 @@
   border-bottom: 46px;
   background-color: #A7BBA9;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -260,14 +231,9 @@
   border-radius: 267px;
   background-color: #fff;
   margin: auto;
-  -ms-flex-item-align: center;
-      align-self: center;
-  display: -webkit-box;
-  display: -ms-flexbox;
+  align-self: center;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   overflow: hidden;
 }
 
@@ -296,13 +262,11 @@
   background-color: #C8DED2;
   margin: auto;
   margin-top: 25px;
-  -webkit-transform: translate(0%, -15%);
-          transform: translate(0%, -15%);
+  transform: translate(0%, -15%);
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
-  -webkit-transform: translate(0%, -25%);
-          transform: translate(0%, -25%);
+  transform: translate(0%, -25%);
 }
 
 #chapter04 {
@@ -323,33 +287,20 @@
   width: 1200px;
   height: 465px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #chapter04 #productCarouselContainer .productCard {
   border: 1px solid lightgray;
   border-radius: 20px;
-  -webkit-box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
   background-color: #F3E9C0;
   width: 328px;
   height: 457px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 #chapter04 #productCarouselContainer .productCard .countdown {
@@ -379,30 +330,21 @@
   margin: auto;
   margin-top: 19px;
   background-color: #FFFFFF;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-bottom: 5px;
 }
 
 #chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar img {
-  -o-object-fit: contain;
-     object-fit: contain;
+  object-fit: contain;
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo, #chapter04 #productCarouselContainer .productCard .productSubInfo {
   width: 282px;
   margin: auto;
   color: #707070;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo .productName, #chapter04 #productCarouselContainer .productCard .productSubInfo .productName {
@@ -440,16 +382,9 @@
   width: 1480px;
   height: 102px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 #chapter04 #suppliersList .supplierLogoBlock {
@@ -485,8 +420,7 @@
   width: 1550px;
   height: 720px;
   border: 13px solid #E6ECE2;
-  -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
   margin-top: 165px;
   position: relative;
@@ -507,8 +441,7 @@
 #chapter05 #ch05MemoContainer .ch05Memo {
   width: 358px;
   height: 337px;
-  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   background-color: #FDFDF9;
   padding: 55px 0px 0px 45px;
   position: relative;
@@ -544,16 +477,14 @@
   position: absolute;
   top: 183px;
   left: 109px;
-  -webkit-transform: rotate(-2deg);
-          transform: rotate(-2deg);
+  transform: rotate(-2deg);
 }
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] div[data-id="ch05MemoTape01"] {
   width: 120px;
   height: 30px;
   background-color: #EDBEBE;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   right: -40px;
   top: 5px;
 }
@@ -576,16 +507,14 @@
   position: absolute;
   top: 159px;
   left: 1062px;
-  -webkit-transform: rotate(2deg);
-          transform: rotate(2deg);
+  transform: rotate(2deg);
 }
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] div[data-id="ch05MemoTape03"] {
   width: 130px;
   height: 35px;
   background-color: #F4EACA;
-  -webkit-transform: rotate(95deg);
-          transform: rotate(95deg);
+  transform: rotate(95deg);
   left: -10px;
   top: -35px;
 }
@@ -596,15 +525,9 @@
   background-color: #DDBCBC;
   border-radius: 13px;
   padding: 0px 25px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
   position: absolute;
   right: 50px;
   bottom: 30px;
@@ -633,11 +556,8 @@
   height: 655px;
   background-color: #F6EEE5;
   border: 6px solid #CEC6BD;
-  -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
-          box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -665,22 +585,13 @@
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
   width: 100%;
   height: 235px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: column;
+  justify-content: space-between;
   margin: 60px 0px 80px 0px;
 }
 
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
 
@@ -697,26 +608,16 @@
   width: 245px;
   height: 40px;
   border: 2px solid #D0C37F;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
   padding: 0px 0px 0px 10px;
 }
 
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 #chapter06 #ch06GuideArea {
@@ -751,12 +652,8 @@
   width: 495px;
   height: 75px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 #chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock span {
