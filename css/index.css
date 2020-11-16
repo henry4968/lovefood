@@ -1,0 +1,777 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: PingFangTC-Regular, sans-serif;
+  text-decoration: none;
+}
+
+#header {
+  border: 2px solid black;
+  width: 100%;
+  height: 123px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: fixed;
+  background: transparent;
+  z-index: 9;
+}
+
+#header #headerContentContainer {
+  width: 1180px;
+  height: 50px;
+  position: absolute;
+  left: 364px;
+  top: 38px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#header #headerContentContainer #lightLogo {
+  width: 264px;
+  height: 46px;
+}
+
+#header #headerContentContainer #navigation {
+  width: 762px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+#header #headerContentContainer #navigation a {
+  font-size: 30px;
+}
+
+#header #headerContentContainer #navigation .navGeneralAnchors {
+  color: #FDFBBA;
+}
+
+#header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+  margin-left: 25px;
+}
+
+#header #headerContentContainer #navigation .navSepcialAnchors {
+  color: #858585;
+}
+
+#header #headerContentContainer #navigation .navSepcialAnchors div {
+  width: 139px;
+  height: 100%;
+  text-align: center;
+  background-color: #FFFF9B;
+  margin: 0px 28px;
+}
+
+#header #headerContentContainer #navigation a[data-id="navIcons02"], #header #headerContentContainer #navigation a[data-id="navIcons03"] {
+  margin-left: 20px;
+}
+
+#chapter01, #chapter02, #chapter03,
+#chapter04, #chapter05, #chapter06 {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#chapter01 {
+  position: relative;
+  background-image: url(../../../img/22/index/ch01_bg_fruit_and_table.png), url(../../../img/22/index/ch01_bg_green_screen.png);
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#chapter01 #mainSlogan {
+  width: 450px;
+  height: 200px;
+  position: absolute;
+  left: 177px;
+  top: 308px;
+  z-index: 2;
+  color: #FDFBBA;
+}
+
+#chapter01 #mainSlogan h3 {
+  font-size: 25px;
+}
+
+#chapter01 #mainSlogan h2 {
+  font-size: 50px;
+  margin-bottom: 23px;
+}
+
+#chapter01 #mainSlogan a[data-id="mainSloganIcon01"], #chapter01 #mainSlogan a[data-id="mainSloganIcon02"] {
+  margin-right: 49px;
+}
+
+#chapter01 .subSlogan {
+  width: 1066px;
+  height: 425px;
+  background-color: #F7F7F7;
+  position: absolute;
+  z-index: 3;
+  top: 237px;
+  left: 734px;
+  padding: 61px 99px 53px 61px;
+}
+
+#chapter01 .subSlogan h3 {
+  font-size: 30px;
+  line-height: 48px;
+  color: #C2B891;
+}
+
+#chapter01 .subSlogan h2 {
+  font-size: 48px;
+  line-height: 64px;
+  margin: 20px 0px 40px 0px;
+  color: #5F695C;
+}
+
+#chapter01 .subSlogan p {
+  width: 662px;
+  height: 148px;
+  font-size: 25px;
+  color: #5F695C;
+}
+
+#chapter01 .subSlogan img {
+  position: absolute;
+  left: 689px;
+  top: 67px;
+}
+
+#chapter02 {
+  position: relative;
+  background-color: #B0BAA4;
+  background-image: url(../../../img/22/index/ch02_bg_elephants.png);
+  background-attachment: scroll;
+  background-repeat: no-repeat;
+  background-position: bottom;
+}
+
+#chapter02 .mainTitleBlock {
+  width: 850px;
+  height: 53px;
+  position: absolute;
+  left: 640px;
+  top: 186px;
+  z-index: 2;
+  font-size: 40px;
+  color: #FFFADF;
+}
+
+#chapter02 #conversionUnitIconBlock {
+  width: 148px;
+  height: 556px;
+  position: absolute;
+  top: 206px;
+  left: 87px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter03 {
+  position: relative;
+  background-color: #C8DED2;
+  text-align: center;
+}
+
+#chapter03 #ch03MainSolgan {
+  width: 581px;
+  height: 103px;
+  margin: auto;
+  font-size: 36px;
+  font-weight: 600;
+  color: #727272;
+  line-height: 55px;
+  margin-top: -150px;
+  margin-bottom: 40px;
+}
+
+#chapter03 #solganCardsContainer {
+  width: 1420px;
+  height: 320px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter03 #solganCardsContainer .solganCard {
+  width: 422px;
+  height: 100%;
+  position: relative;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame {
+  width: 422px;
+  height: 422px;
+  border: 4px solid #FEFA9C;
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  margin-top: calc(640px - 490px);
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame {
+  width: 293px;
+  height: 293px;
+  border-radius: 293px;
+  border-bottom: 46px;
+  background-color: #A7BBA9;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
+  width: 267px;
+  height: 267px;
+  border-radius: 267px;
+  background-color: #fff;
+  margin: auto;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  overflow: hidden;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock img {
+  height: 100%;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardTitle {
+  font-size: 30px;
+  font-weight: 600;
+  color: #FFFFFF;
+  margin-top: 180px;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardParagraph {
+  width: 330px;
+  height: 95px;
+  font-size: 22px;
+  margin: auto;
+  margin-top: 10px;
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03Shelter {
+  width: 275px;
+  height: 125px;
+  background-color: #C8DED2;
+  margin: auto;
+  margin-top: 25px;
+  -webkit-transform: translate(0%, -15%);
+          transform: translate(0%, -15%);
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
+  -webkit-transform: translate(0%, -25%);
+          transform: translate(0%, -25%);
+}
+
+#chapter04 {
+  background-image: url(../../../img/22/index/ch04_bg.jpg);
+  position: relative;
+  text-align: center;
+}
+
+#chapter04 h3 {
+  font-size: 36px;
+  font-weight: 600;
+  color: #605F5F;
+  margin-top: 165px;
+  margin-bottom: 40px;
+}
+
+#chapter04 #productCarouselContainer {
+  width: 1200px;
+  height: 465px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter04 #productCarouselContainer .productCard {
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  -webkit-box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  background-color: #F3E9C0;
+  width: 328px;
+  height: 457px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+#chapter04 #productCarouselContainer .productCard .countdown {
+  width: 100%;
+  height: 53px;
+  border-radius: 20px 20px 0px 0px;
+  background-color: #FBFFE0;
+  font-size: 18px;
+  color: #707070;
+  line-height: 53px;
+}
+
+#chapter04 #productCarouselContainer .productCard .countdown span {
+  font-size: 30px;
+  color: #9A0202;
+}
+
+#chapter04 #productCarouselContainer .productCard .productAvatarBlock {
+  width: 100%;
+  height: calc(457px - 53px - 53px);
+  background-color: #F2F0D7;
+}
+
+#chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar {
+  width: 282px;
+  height: 282px;
+  margin: auto;
+  margin-top: 19px;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 5px;
+}
+
+#chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar img {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+#chapter04 #productCarouselContainer .productCard .productMainInfo, #chapter04 #productCarouselContainer .productCard .productSubInfo {
+  width: 282px;
+  margin: auto;
+  color: #707070;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter04 #productCarouselContainer .productCard .productMainInfo .productName, #chapter04 #productCarouselContainer .productCard .productSubInfo .productName {
+  font-size: 24px;
+  line-height: 33px;
+}
+
+#chapter04 #productCarouselContainer .productCard .productMainInfo .productSellingPrice, #chapter04 #productCarouselContainer .productCard .productSubInfo .productSellingPrice {
+  font-size: 30px;
+  font-weight: 600;
+  line-height: 34px;
+  color: #9A0202;
+}
+
+#chapter04 #productCarouselContainer .productCard .productSubInfo {
+  background-color: #F3E9C0;
+}
+
+#chapter04 #productCarouselContainer .productCard .productSubInfo .ProductCategory, #chapter04 #productCarouselContainer .productCard .productSubInfo .productOriginalPrice {
+  font-size: 20PX;
+  line-height: 28px;
+}
+
+#chapter04 #productCarouselContainer .productCard .productSubInfo .productOriginalPrice {
+  text-decoration: line-through;
+}
+
+#chapter04 h4 {
+  font-size: 26px;
+  color: #666464;
+  margin: 40px 0px 30px 0px;
+}
+
+#chapter04 #suppliersList {
+  width: 1480px;
+  height: 102px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter04 #suppliersList .supplierLogoBlock {
+  width: 240px;
+  height: 100%;
+}
+
+#chapter04 #suppliersList .supplierLogoBlock img {
+  width: 100%;
+}
+
+#chapter05 {
+  background-color: #D8E6D9;
+  position: relative;
+}
+
+#chapter05 .ch05BgFlower {
+  position: absolute;
+  z-index: 2;
+}
+
+#chapter05 img[data-id="ch05BgFlower01"] {
+  left: -150px;
+  bottom: -250px;
+}
+
+#chapter05 img[data-id="ch05BgFlower02"] {
+  right: -300px;
+  top: 40px;
+}
+
+#chapter05 #ch05MemoContainer {
+  width: 1550px;
+  height: 720px;
+  border: 13px solid #E6ECE2;
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  margin-top: 165px;
+  position: relative;
+}
+
+#chapter05 #ch05MemoContainer #ch05MainTtile {
+  width: 217px;
+  height: 51px;
+  border-bottom: 3px solid #F5EFD0;
+  font-size: 36px;
+  line-height: 48px;
+  color: #605F5F;
+  text-align: center;
+  margin: auto;
+  margin-top: 75px;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo {
+  width: 358px;
+  height: 337px;
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  background-color: #FDFDF9;
+  padding: 55px 0px 0px 45px;
+  position: relative;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo .ch05MemoTape {
+  position: absolute;
+  opacity: 80%;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo h3 {
+  font-size: 30px;
+  line-height: 42px;
+  color: #646464;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo p {
+  width: 250px;
+  height: 100px;
+  font-size: 20px;
+  line-height: 35px;
+  color: #646464;
+  margin-top: 10px;
+}
+
+#chapter05 #ch05MemoContainer .ch05Memo img {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] {
+  position: absolute;
+  top: 183px;
+  left: 109px;
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] div[data-id="ch05MemoTape01"] {
+  width: 120px;
+  height: 30px;
+  background-color: #EDBEBE;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  right: -40px;
+  top: 5px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] {
+  position: absolute;
+  top: 297px;
+  left: 604px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] div[data-id="ch05MemoTape02"] {
+  width: 140px;
+  height: 25px;
+  background-color: #B4E3E3;
+  left: 30px;
+  top: -12.5px;
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] {
+  position: absolute;
+  top: 159px;
+  left: 1062px;
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
+}
+
+#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] div[data-id="ch05MemoTape03"] {
+  width: 130px;
+  height: 35px;
+  background-color: #F4EACA;
+  -webkit-transform: rotate(95deg);
+          transform: rotate(95deg);
+  left: -10px;
+  top: -35px;
+}
+
+#chapter05 #ch05MemoContainer #ch05learnMoreButton {
+  width: 276px;
+  height: 80px;
+  background-color: #DDBCBC;
+  border-radius: 13px;
+  padding: 0px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  right: 50px;
+  bottom: 30px;
+}
+
+#chapter05 #ch05MemoContainer #ch05learnMoreButton span {
+  font-size: 40px;
+  line-height: 56px;
+  color: #FFFFFF;
+}
+
+#chapter06 {
+  position: relative;
+  background-color: #F6EEE5;
+}
+
+#chapter06 #ch06contactUsArea {
+  width: 960px;
+  height: 100vh;
+  background-image: url(../../../img/22/index/ch06_bg01.png);
+  padding-top: 165px;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer {
+  width: 600px;
+  height: 655px;
+  background-color: #F6EEE5;
+  border: 6px solid #CEC6BD;
+  -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame {
+  width: 550px;
+  height: 600px;
+  border: 5px solid #CEC6BD;
+  margin: auto;
+  padding: 30px 85px 30px 85px;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame h3 {
+  font-size: 35px;
+  line-height: 49px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
+  width: 275px;
+  margin: auto;
+  margin-bottom: 5px;
+  border-bottom: 1px solid #D0C37F;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
+  width: 100%;
+  height: 235px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 60px 0px 80px 0px;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
+  margin-right: 20px;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
+  font-size: 25px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
+  width: 245px;
+  height: 40px;
+  border: 2px solid #D0C37F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 0px 0px 0px 10px;
+}
+
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter06 #ch06GuideArea {
+  width: 960px;
+  height: 100vh;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer {
+  width: 495px;
+  height: 700px;
+  margin: auto;
+  margin-top: 165px;
+  text-align: center;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer #ch06ImgBlock {
+  width: 401px;
+  height: 464px;
+  margin: auto;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer h2 {
+  font-size: 65px;
+  color: #D0C37F;
+  margin: 40px 0px 30px 0px;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock {
+  width: 495px;
+  height: 75px;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock span {
+  font-size: 30px;
+  color: #D0C37F;
+}
+
+#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock #ch06GuideButton {
+  width: 166px;
+  height: 50px;
+  border-radius: 4px;
+  color: #FFFFFF;
+  background-color: #D0C37F;
+  font-size: 30px;
+  line-height: 50px;
+  text-align: center;
+}
+/*# sourceMappingURL=index.css.map */
