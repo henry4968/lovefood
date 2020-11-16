@@ -1,0 +1,593 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: PingFangTC-Regular, sans-serif;
+    text-decoration: none;
+}
+
+#header{
+    border: 2px solid black;
+    width: 100%;
+    height: 123px;
+    display: flex;
+    position: fixed;
+    background: transparent;
+    z-index: 9;
+    #headerContentContainer{
+        width: 1180px;
+        height: 50px;
+        position: absolute;
+        left: 364px;
+        top: 38px;
+        display: flex;
+        justify-content: space-between;
+        #lightLogo{
+            width: 264px;
+            height: 46px;
+        }
+        #navigation{
+            width: 762px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            a{
+                font-size: 30px;
+            }
+            .navGeneralAnchors{
+                color: #FDFBBA;
+            }
+            :nth-child(2),:nth-child(3){
+                margin-left: 25px;
+            } 
+            .navSepcialAnchors{
+                color: #858585;
+                div{
+                    width: 139px;
+                    height: 100%;
+                    text-align: center;
+                    background-color: #FFFF9B;
+                    margin: 0px 28px;
+                }
+            }
+            a[data-id="navIcons02"], a[data-id="navIcons03"]{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+#chapter01, #chapter02, #chapter03,
+#chapter04, #chapter05, #chapter06{
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#chapter01{
+    position: relative;
+    background-image: 
+    url(../../../img/22/index/ch01_bg_fruit_and_table.png),
+    url(../../../img/22/index/ch01_bg_green_screen.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    #mainSlogan{
+        width: 450px;
+        height: 200px;
+        position: absolute;
+        left: 177px;
+        top: 308px;
+        z-index: 2;
+        color: #FDFBBA;
+        h3{
+            font-size: 25px;
+        }
+        h2{
+            font-size: 50px;
+            margin-bottom: 23px;
+        }
+        a[data-id="mainSloganIcon01"], a[data-id="mainSloganIcon02"]{
+            margin-right: 49px;
+        }
+    }
+    .subSlogan{
+        width: 1066px;
+        height: 425px;
+        background-color: #F7F7F7;
+        position: absolute;
+        z-index: 3;
+        top: 237px;
+        left: 734px;
+        padding: 61px 99px 53px 61px;
+        h3{
+            font-size: 30px;
+            line-height: 48px;
+            color: #C2B891;
+        }
+        h2{
+            font-size: 48px;
+            line-height: 64px;
+            margin: 20px 0px 40px 0px;
+            color: #5F695C;
+        }
+        p{
+            width: 662px;
+            height: 148px;
+            font-size: 25px;
+            color: #5F695C;
+        }
+        img{
+            position: absolute;
+            left: 689px;
+            top: 67px;
+        }
+    }
+}
+
+#chapter02{
+    position: relative;
+    background-color: #B0BAA4;
+    background-image: url(../../../img/22/index/ch02_bg_elephants.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    .mainTitleBlock{
+        width: 850px;
+        height: 53px;
+        position: absolute;
+        left: 640px;
+        top: 186px;
+        z-index: 2;
+        font-size: 40px;
+        color: #FFFADF;
+    }
+    #conversionUnitIconBlock{
+        width: 148px;
+        height: 556px;
+        position: absolute;
+        top: 206px;
+        left: 87px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+#chapter03{
+    position: relative;
+    background-color: #C8DED2;
+    text-align: center;
+    #ch03MainSolgan{
+        width: 581px;
+        height: 103px;
+        margin: auto;
+        font-size: 36px;
+        font-weight: 600;
+        color: #727272;
+        line-height: 55px;
+        margin-top: -150px;
+        margin-bottom: 40px;
+    }
+    #solganCardsContainer{
+        width: 1420px;
+        height: 320px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .solganCard{
+            width: 422px;
+            height: 100%;
+            position: relative;
+        }
+        .cardDecorativeFrame{
+            width: 422px;
+            height: 422px;
+            border: 4px solid #FEFA9C;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+            margin-top: calc(640px - 490px);
+            .avatarDecorativeFrame{
+                width: 293px;
+                height: 293px;
+                border-radius: 293px;
+                border-bottom: 46px;
+                background-color: #A7BBA9;
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+                display: flex;
+                .avatarBlock{
+                    width: 267px;
+                    height: 267px;
+                    border-radius: 267px;
+                    background-color: #fff;
+                    margin: auto;
+                    align-self: center;
+                    display: flex;
+                    justify-content: center;
+                    overflow: hidden;
+                    img{
+                        height: 100%;
+                    }
+                }
+            }
+            .ch03CardTitle{
+                font-size: 30px;
+                font-weight: 600;
+                color: #FFFFFF;
+                margin-top: 180px;
+            }
+            .ch03CardParagraph{
+                width: 330px;
+                height: 95px;
+                font-size: 22px;
+                margin: auto;
+                margin-top: 10px;
+            }
+            .ch03Shelter{
+                width: 275px;
+                height: 125px;
+                background-color: #C8DED2;
+                margin: auto;
+                margin-top: 25px;
+                transform: translate(0%, -15%)
+            }
+            #ch03Shelter03{
+                transform: translate(0%, -25%);
+            }
+        }
+    }
+}
+
+#chapter04{
+    background-image: url(../../../img/22/index/ch04_bg.jpg);
+    position: relative;
+    text-align: center;
+    h3{
+        font-size: 36px;
+        font-weight: 600;
+        color: #605F5F;
+        margin-top: 165px;
+        margin-bottom: 40px;
+    }
+    #productCarouselContainer{
+        width: 1200px;
+        height: 465px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .productCard{
+            border: 1px solid lightgray;
+            border-radius: 20px;
+            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+            background-color: #F3E9C0;
+            width: 328px;
+            height: 457px;
+            display: flex;
+            flex-direction: column;
+            .countdown{
+                width: 100%;
+                height: 53px;
+                border-radius: 20px 20px 0px 0px;
+                background-color: #FBFFE0;
+                font-size: 18px;
+                color: #707070;
+                line-height: 53px;
+                span{
+                    font-size: 30px;
+                    color: #9A0202;
+                }
+            }
+            .productAvatarBlock{
+                width: 100%;
+                height: calc(457px - 53px - 53px);
+                background-color: #F2F0D7;
+                .productAvatar{
+                    width: 282px;
+                    height: 282px;
+                    margin: auto;
+                    margin-top: 19px;
+                    background-color: #FFFFFF;
+                    display: flex;
+                    justify-content: center;
+                    margin-bottom: 5px;
+                    img{
+                        object-fit: contain;
+                    }
+                }
+            }
+            .productMainInfo, .productSubInfo{
+                width: 282px;
+                margin: auto;
+                color: #707070;
+                display: flex;
+                justify-content: space-between;
+                .productName{
+                    font-size: 24px;
+                    line-height: 33px;
+                }
+                .productSellingPrice{
+                    font-size: 30px;
+                    font-weight: 600;
+                    line-height: 34px;
+                    color: #9A0202;
+                }
+            }
+            .productSubInfo{
+                background-color: #F3E9C0;
+                .ProductCategory, .productOriginalPrice{
+                    font-size: 20PX;
+                    line-height: 28px;
+                }
+                .productOriginalPrice{
+                    text-decoration: line-through;
+                }
+            }
+        }
+
+    }
+    h4{
+        font-size: 26px;
+        color: #666464;
+        margin: 40px 0px 30px 0px;
+    }
+    #suppliersList{
+        width: 1480px;
+        height: 102px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .supplierLogoBlock{
+            width: 240px;
+            height: 100%;
+            img{
+                width: 100%;
+            }
+
+        }
+    }
+}
+
+#chapter05{
+    background-color: #D8E6D9;
+    position: relative;
+    .ch05BgFlower{
+        position: absolute;
+        z-index: 2;
+    }
+    img[data-id="ch05BgFlower01"]{
+        left: -150px;
+        bottom: -250px;
+    }
+    img[data-id="ch05BgFlower02"]{
+        right: -300px;
+        top: 40px;
+    }
+    #ch05MemoContainer{
+        width: 1550px;
+        height: 720px;
+        border: 13px solid #E6ECE2;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        margin-top: 165px;
+        position: relative;
+        #ch05MainTtile{
+            width: 217px;
+            height: 51px;
+            border-bottom: 3px solid #F5EFD0;
+            font-size: 36px;
+            line-height: 48px;
+            color: #605F5F;
+            text-align: center;
+            margin: auto;
+            margin-top: 75px;
+        }
+        .ch05Memo{
+            width: 358px;
+            height: 337px;
+            box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+            background-color: #FDFDF9;
+            padding: 55px 0px 0px 45px;
+            position: relative;
+            .ch05MemoTape{
+                position: absolute;
+                opacity: 80%;
+            }
+            h3{
+                font-size: 30px;
+                line-height: 42px;
+                color: #646464;
+            }
+            p{
+                width: 250px;
+                height: 100px;
+                font-size: 20px;
+                line-height: 35px;
+                color: #646464;
+                margin-top: 10px;
+            }
+            img{
+                position: absolute;
+                right: 20px;
+                bottom: 20px;
+            }
+        }
+        div[data-id="ch05Memo01"]{
+            position: absolute;
+            top: 183px;
+            left: 109px;
+            transform: rotate(-2deg);
+            div[data-id="ch05MemoTape01"]{
+                width: 120px;
+                height: 30px;
+                background-color: #EDBEBE;
+                transform: rotate(45deg);
+                right: -40px;
+                top: 5px;
+            }
+        }
+        div[data-id="ch05Memo02"]{
+            position: absolute;
+            top: 297px;
+            left: 604px;
+            div[data-id="ch05MemoTape02"]{
+                width: 140px;
+                height: 25px;
+                background-color: #B4E3E3;
+                left: 30px;
+                top: -12.5px;
+            }
+        }
+        div[data-id="ch05Memo03"]{
+            position: absolute;
+            top: 159px;
+            left: 1062px;
+            transform: rotate(2deg);
+            div[data-id="ch05MemoTape03"]{
+                width: 130px;
+                height: 35px;
+                background-color: #F4EACA;
+                transform: rotate(95deg);
+                left: -10px;
+                top: -35px;
+            }
+        }
+        #ch05learnMoreButton{
+            width: 276px;
+            height: 80px;
+            background-color: #DDBCBC;
+            border-radius: 13px;
+            padding: 0px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            right: 50px;
+            bottom: 30px;
+            span{
+                font-size: 40px;
+                line-height: 56px;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
+
+#chapter06{
+    position: relative;
+    background-color: #F6EEE5;
+    #ch06contactUsArea{
+        width: 960px;
+        height: 100vh;
+        background-image: url(../../../img/22/index/ch06_bg01.png);
+        padding-top: 165px;
+        #contactUsContainer{
+            width: 600px;
+            height: 655px;
+            background-color: #F6EEE5;
+            border: 6px solid #CEC6BD;
+            box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+            margin: auto;
+            display: flex;
+            #contactUsFrame{
+                width: 550px;
+                height: 600px;
+                border: 5px solid #CEC6BD;
+                margin: auto;
+                padding: 30px 85px 30px 85px;
+                h3{
+                    font-size: 35px;
+                    line-height: 49px;
+                    color: #D0C37F;
+                }
+                .ch06TtileDecoration{
+                    width: 275px;
+                    margin: auto;
+                    margin-bottom: 5px;
+                    border-bottom: 1px solid #D0C37F;
+                }
+                #connectionInfoContainer{
+                    width: 100%;
+                    height: 235px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    margin: 60px 0px 80px 0px;
+                    .connectionInfo{
+                        display: flex;
+                        img{
+                            margin-right: 20px;
+                        }
+                        span{
+                            font-size: 25px;
+                            color: #D0C37F;
+                        }
+                        #ch06SearchBar{
+                            width: 245px;
+                            height: 40px;
+                            border: 2px solid #D0C37F;
+                            display: flex;
+                            align-items: center;
+                            justify-content: space-between;
+                            padding: 0px 0px 0px 10px;
+                        }
+                    }
+                }
+                #ch06IconContainer{
+                    width: 100%;
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
+        }
+    }
+    #ch06GuideArea{
+        width: 960px;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        top: 0;
+        #ch06GuideContainer{
+            width: 495px;
+            height: 700px;
+            margin: auto;
+            margin-top: 165px;
+            text-align: center;
+            #ch06ImgBlock{
+                width: 401px;
+                height: 464px;
+                margin: auto;
+            }
+            h2{
+                font-size: 65px;
+                color: #D0C37F;
+                margin: 40px 0px 30px 0px;
+            }
+            #ch06GuideBlock{
+                width: 495px;
+                height: 75px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                span{
+                    font-size: 30px;
+                    color: #D0C37F;
+                }
+                #ch06GuideButton{
+                    width: 166px;
+                    height: 50px;
+                    border-radius: 4px;
+                    color: #FFFFFF;
+                    background-color: #D0C37F;
+                    font-size: 30px;
+                    line-height: 50px;
+                    text-align: center;
+                }
+            }
+        }
+    }
+}    
