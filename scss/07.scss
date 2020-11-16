@@ -1,6 +1,92 @@
-.navBar{
-    width: 100%;
-    height: 123px;
-    background-color: green;
+@import'./link';
 
+.navBar{
+    width: map-get($Wth, 100 );
+    height: 123px;
+    background-color: palegreen;
+}
+.wrap{
+    background-color:$b;
+    
+}
+
+#search{
+    background-color: $g;
+    width: map-get($Wth, 60 );
+    margin: 0 auto;
+    display: flex;
+    // padding: 20px
+    
+    
+}
+#span{
+    // border: 1px solid $R;
+    background-color:$P;
+    display: flex;
+    padding: 20px;
+    font-size: 22px;
+    // @extend .selector_ul
+    
+}
+.selector_ul{
+    display:flex;
+    // border: 2px solid $G;   
+    padding: 20px; 
+    font-size: map-get($font , 22 );
+    justify-content: space-evenly;
+    width: 75%;
+    
+    
+}
+.selector_ul{
+            .areaName{
+                // border: 2px solid $G;
+                // margin: 0 15px;
+                .searchName{
+                    font-size: map-get($font , 20 );
+                }
+            }
+            #btnMap{
+                font-size: map-get($font , 16);
+            }
+    
+}
+
+.itemArea{
+    // border: $bd4 solid $R;
+    width: map-get($Wth, 60 );
+    margin: 0 auto;
+    // display: flex;
+    display: none;
+    cursor: pointer;
+    
+    .itemName{
+        @include B();
+        display:flex;
+        font-size: map-get($font , 22 );
+        flex-grow: 1;
+        width: map-get($Wth, 20 );
+        padding: 10px;
+        // margin: 0 auto;
+    }
+}
+div.btn{
+
+
+    #btn{
+        // width:map-get($wthPX,50);
+        font-size: map-get($font , 16 );
+        margin: 0 auto;
+        display: block;
+        // width: 100%;
+        border: 2px solid $d4;
+    }
+}
+.group{
+    border: 1px solid $G;
+    width: 120px;
+    display: flex;
+    flex-direction: column;
+    // flex-wrap: nowrap;
+    // margin: 0 auto;
 }
