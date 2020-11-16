@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,11 +7,124 @@
     <link rel="stylesheet" href="./css/07.css">
 </head>
 <body>
-   <div class="navBar"></div>
+    <div class="navBar"></div>
+    <div class="wrap">
+        <form action="#" method="get" id="fm">
+            <div id="search">
+                <span id="span"><img src="" alt="">條件篩選</span>
+                <ul class="selector_ul">
+                    
+                    <span class="span">分類</span>
+                    <li class="areaName"><input type="checkbox" name="Name" value="1" id="" class="searchName">區域
 
-    
+                    </li>
+                    <li class="areaName"><input type="checkbox" name="Name" value="2" id="" class="searchName">商家
 
+                    </li>
+                    <li class="areaName"><input type="checkbox" name="Name" value="3" id="" class="searchName">食品種類
+                    </li>
+                    <button class="btnMap" id="btnMap" type="button">
+                        地圖搜尋
+                    </button>
+                </ul>
+            </div>
+            <div class="searchInner">        
+                <div class="itemArea" id="itemArea">
+                    <div class="itemName">
+                    <div class="group" id="group1">
+                        <span><input type="checkbox" name="Item" value="">中正區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">南港區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">文山區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">萬華區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">大同區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">信義區
+                        </span>
+                    </div>
+                    <div class="group" id="group2">
+                        <span><input type="checkbox" name="Item" value="">中山區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">松山區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">大安區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">北投區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">內湖區
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">士林區
+                        </span>
+                    </div>    
+                    </div>
+                    <div class="itemName">
+                    <div class="group" id="group3">
+                        <span><input type="checkbox" name="Item" value="">全家
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">ＯＫ
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">7-11
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">萊爾富
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">全聯
+                        </span>
+                    </div>
+                    <div class="group">
+                        <span><input type="checkbox" name="Item" value="">家樂福
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">頂好
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">愛買
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">美廉社
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">農會
+                        </span>
+                    </div>
+                    </div>    
+                    <div class="itemName">
+                    <div class="group">
+                        <span><input type="checkbox" name="Item" value="">主食
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">水果
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">輕食
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">麵包
+                        </span>
+                    </div>
+                    <div class="group">
+                        <span><input type="checkbox" name="Item" value="">罐頭類
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">零食
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">飲料
+                        </span>
+                        <span><input type="checkbox" name="Item" value="">冷凍食品
+                        </span>
+                    </div>        
+
+                    </div>
+                </div>    
+                <div class="btn">
+                    <button  id="btn" type="submit">
+                        查詢
+                    </button>
+                </div>    
+
+            </div>
+                
+                
+            
+        
+        </form>
     </div>
-</header>
+<!-- js連結 -->
+<script src="./js/jsLink/jquery-3.5.1.min.js"></script>
+<script src="./js/07.js"></script>
 </body>
 </html>
