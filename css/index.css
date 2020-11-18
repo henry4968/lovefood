@@ -1,5 +1,6 @@
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 0;
   margin: 0;
   font-family: PingFangTC-Regular, sans-serif;
@@ -7,9 +8,11 @@
 }
 
 #header {
-  border: 2px solid black;
+  border: 3px solid black;
   width: 100%;
   height: 123px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: transparent;
@@ -17,13 +20,41 @@
 }
 
 #header #headerContentContainer {
+  border: 1px solid red;
   width: 1180px;
   height: 50px;
-  position: absolute;
-  left: 364px;
-  top: 38px;
+  margin: 38px 0px 0px 364px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer {
+    width: 970px;
+    margin: auto;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+@media all and (min-width: 552px) and (max-width: 767px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 551px) {
+  #header #headerContentContainer {
+    display: none;
+  }
 }
 
 #header #headerContentContainer #lightLogo {
@@ -31,15 +62,42 @@
   height: 46px;
 }
 
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #lightLogo {
+    width: 216px;
+    height: 38px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
 #header #headerContentContainer #navigation {
+  border: 1px solid blue;
   width: 762px;
   height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation {
+    width: 625px;
+  }
 }
 
 #header #headerContentContainer #navigation a {
   font-size: 30px;
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation a {
+    font-size: 20px;
+  }
 }
 
 #header #headerContentContainer #navigation .navGeneralAnchors {
@@ -48,6 +106,12 @@
 
 #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
   margin-left: 25px;
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+    margin-left: 20px;
+  }
 }
 
 #header #headerContentContainer #navigation .navSepcialAnchors {
@@ -60,6 +124,18 @@
   text-align: center;
   background-color: #FFFF9B;
   margin: 0px 28px;
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation .navSepcialAnchors div {
+    width: 114px;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation .navIcons img {
+    width: 30px;
+  }
 }
 
 #header #headerContentContainer #navigation a[data-id="navIcons02"], #header #headerContentContainer #navigation a[data-id="navIcons03"] {
@@ -167,9 +243,16 @@
   position: absolute;
   top: 206px;
   left: 87px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter03 {
@@ -194,9 +277,16 @@
   width: 1420px;
   height: 320px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter03 #solganCardsContainer .solganCard {
@@ -209,7 +299,8 @@
   width: 422px;
   height: 422px;
   border: 4px solid #FEFA9C;
-  box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
   margin-top: calc(640px - 490px);
 }
 
@@ -220,8 +311,11 @@
   border-bottom: 46px;
   background-color: #A7BBA9;
   position: absolute;
-  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
   left: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -231,9 +325,14 @@
   border-radius: 267px;
   background-color: #fff;
   margin: auto;
-  align-self: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   overflow: hidden;
 }
 
@@ -262,11 +361,13 @@
   background-color: #C8DED2;
   margin: auto;
   margin-top: 25px;
-  transform: translate(0%, -15%);
+  -webkit-transform: translate(0%, -15%);
+          transform: translate(0%, -15%);
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
-  transform: translate(0%, -25%);
+  -webkit-transform: translate(0%, -25%);
+          transform: translate(0%, -25%);
 }
 
 #chapter04 {
@@ -287,20 +388,33 @@
   width: 1200px;
   height: 465px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter04 #productCarouselContainer .productCard {
   border: 1px solid lightgray;
   border-radius: 20px;
-  box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
   background-color: #F3E9C0;
   width: 328px;
   height: 457px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #chapter04 #productCarouselContainer .productCard .countdown {
@@ -330,21 +444,30 @@
   margin: auto;
   margin-top: 19px;
   background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-bottom: 5px;
 }
 
 #chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar img {
-  object-fit: contain;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo, #chapter04 #productCarouselContainer .productCard .productSubInfo {
   width: 282px;
   margin: auto;
   color: #707070;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo .productName, #chapter04 #productCarouselContainer .productCard .productSubInfo .productName {
@@ -382,9 +505,16 @@
   width: 1480px;
   height: 102px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter04 #suppliersList .supplierLogoBlock {
@@ -417,13 +547,26 @@
 }
 
 #chapter05 #ch05MemoContainer {
-  width: 1550px;
-  height: 720px;
   border: 13px solid #E6ECE2;
-  box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
   margin-top: 165px;
   position: relative;
+}
+
+@media all and (min-width: 1600px) {
+  #chapter05 #ch05MemoContainer {
+    width: 1550px;
+    height: 720px;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1599px) {
+  #chapter05 #ch05MemoContainer {
+    width: 970px;
+    height: 720px;
+  }
 }
 
 #chapter05 #ch05MemoContainer #ch05MainTtile {
@@ -441,7 +584,8 @@
 #chapter05 #ch05MemoContainer .ch05Memo {
   width: 358px;
   height: 337px;
-  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   background-color: #FDFDF9;
   padding: 55px 0px 0px 45px;
   position: relative;
@@ -477,14 +621,16 @@
   position: absolute;
   top: 183px;
   left: 109px;
-  transform: rotate(-2deg);
+  -webkit-transform: rotate(-2deg);
+          transform: rotate(-2deg);
 }
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] div[data-id="ch05MemoTape01"] {
   width: 120px;
   height: 30px;
   background-color: #EDBEBE;
-  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
   right: -40px;
   top: 5px;
 }
@@ -507,14 +653,16 @@
   position: absolute;
   top: 159px;
   left: 1062px;
-  transform: rotate(2deg);
+  -webkit-transform: rotate(2deg);
+          transform: rotate(2deg);
 }
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] div[data-id="ch05MemoTape03"] {
   width: 130px;
   height: 35px;
   background-color: #F4EACA;
-  transform: rotate(95deg);
+  -webkit-transform: rotate(95deg);
+          transform: rotate(95deg);
   left: -10px;
   top: -35px;
 }
@@ -525,9 +673,15 @@
   background-color: #DDBCBC;
   border-radius: 13px;
   padding: 0px 25px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   position: absolute;
   right: 50px;
   bottom: 30px;
@@ -556,8 +710,11 @@
   height: 655px;
   background-color: #F6EEE5;
   border: 6px solid #CEC6BD;
-  box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+          box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -585,13 +742,22 @@
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
   width: 100%;
   height: 235px;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   margin: 60px 0px 80px 0px;
 }
 
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 
@@ -608,16 +774,26 @@
   width: 245px;
   height: 40px;
   border: 2px solid #D0C37F;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0px 0px 0px 10px;
 }
 
 #chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter06 #ch06GuideArea {
@@ -652,8 +828,12 @@
   width: 495px;
   height: 75px;
   margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  justify-content: space-between;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 #chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock span {

@@ -1,6 +1,6 @@
 {
     "version": 3,
-    "mappings": "AACA,AAAA,GAAG,CAAA;EACC,KAAK,EAAE,KAAK;CAIf;;AALD,AAEI,GAFD,CAEC,EAAE,CAAA;EACE,SAAS,EAAE,IAAI;CAClB",
+    "mappings": "AACA,AAAA,GAAG,CAAA;EACC,KAAK,EAAE,KAAK;CAIf;;AALD,AAEI,GAFD,CAEC,EAAE,CAAA;EACE,SAAS,EAAE,IAAI;CAClB;;AAGL,AAAA,MAAM,CAAA;EACF,KAAK,EAAE,IAAI;CACd",
     "sources": [
         "../scss/page/donation_description/donation_description.scss"
     ],

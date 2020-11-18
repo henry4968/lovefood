@@ -1,6 +1,3 @@
-
-
-
 @mixin box-sizing(){
     box-sizing: border-box;
 }
@@ -16,4 +13,32 @@
 @mixin B {
     border: $bd4 solid $R;
     @content;
+}
+
+@mixin rwd($breakpoint) {
+    @if $breakpoint=="desktop" {
+        @media all and (min-width: $desktop) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="laptop" {
+        @media all and (min-width: $laptop ) and (max-width: $desktop - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="pad" {
+        @media all and (min-width: $pad ) and (max-width: $laptop - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="bigPhone" {
+        @media all and (min-width: $bigPhone ) and (max-width: $pad - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="smallPhone" {
+        @media all and (min-width: $smallPhone ) and (max-width: $bigPhone - 1) {
+            @content;
+        }
+    }
 }
