@@ -26,7 +26,8 @@
         justify-content: space-between;
         @include rwd("laptop"){
             width: 970px;
-            margin: auto
+            margin: auto;
+            align-items: center;
         }
         @include rwd("pad"){
             display: none;
@@ -54,6 +55,7 @@
             align-items: center;
             @include rwd("laptop"){
                 width: 625px;
+                align-items: center;
             }
             a{
                 font-size: 30px;
@@ -87,6 +89,7 @@
                 img{
                     @include rwd("laptop"){
                         width: 30px;
+                        
                     }
                 }
             }

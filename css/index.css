@@ -36,6 +36,9 @@
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
@@ -87,6 +90,9 @@
 @media all and (min-width: 992px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 }
 
