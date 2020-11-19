@@ -9,6 +9,7 @@ $(function () {
         navigationPosition: 'right',
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
+        scrollBar: true,
         controlArrowColor: '',
 
         easing: 'easeInOutCubic',
@@ -16,4 +17,4 @@ $(function () {
     });
 });
 
-滾動header變色
+// 滾動header變色
