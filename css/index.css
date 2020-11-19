@@ -32,7 +32,7 @@
           justify-content: space-between;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
@@ -42,19 +42,25 @@
   }
 }
 
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
 @media all and (min-width: 768px) and (max-width: 991px) {
   #header #headerContentContainer {
     display: none;
   }
 }
 
-@media all and (min-width: 552px) and (max-width: 767px) {
+@media all and (min-width: 576px) and (max-width: 767px) {
   #header #headerContentContainer {
     display: none;
   }
 }
 
-@media all and (min-width: 320px) and (max-width: 551px) {
+@media all and (min-width: 320px) and (max-width: 575px) {
   #header #headerContentContainer {
     display: none;
   }
@@ -65,7 +71,7 @@
   height: 46px;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #lightLogo {
     width: 216px;
     height: 38px;
@@ -87,7 +93,7 @@
           align-items: center;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
     -webkit-box-align: center;
@@ -100,7 +106,7 @@
   font-size: 30px;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation a {
     font-size: 20px;
   }
@@ -114,7 +120,7 @@
   margin-left: 25px;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
     margin-left: 20px;
   }
@@ -132,13 +138,13 @@
   margin: 0px 28px;
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation .navSepcialAnchors div {
     width: 114px;
   }
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation .navIcons img {
     width: 30px;
   }
@@ -568,7 +574,7 @@
   }
 }
 
-@media all and (min-width: 992px) and (max-width: 1599px) {
+@media all and (min-width: 1200px) and (max-width: 1599px) {
   #chapter05 #ch05MemoContainer {
     width: 970px;
     height: 720px;

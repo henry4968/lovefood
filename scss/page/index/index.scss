@@ -35,6 +35,9 @@
         @include rwd("bigPhone"){
             display: none;
         }
+        @include rwd("mediumPhone"){
+            display: none;
+        }
         @include rwd("smallPhone"){
             display: none;
         }

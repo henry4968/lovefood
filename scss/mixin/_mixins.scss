@@ -36,8 +36,13 @@
             @content;
         }
     }
+    @else if $breakpoint=="mediumPhone" {
+        @media all and (min-width: $mediumPhone ) and (max-width: $bigPhone - 1) {
+            @content;
+        }
+    }
     @else if $breakpoint=="smallPhone" {
-        @media all and (min-width: $smallPhone ) and (max-width: $bigPhone - 1) {
+        @media all and (min-width: $smallPhone ) and (max-width: $mediumPhone - 1) {
             @content;
         }
     }
