@@ -41,7 +41,7 @@
         @include rwd("smallPhone"){
             display: none;
         }
-        #lightLogo{
+        #logo{
             width: 264px;
             height: 46px;
             @include rwd("laptop"){
@@ -75,7 +75,7 @@
                     margin-left: 20px;
                 }
             } 
-            .navSepcialAnchors{
+            #navSepcialAnchor{
                 color: #858585;
                 div{
                     width: 139px;
@@ -96,7 +96,7 @@
                     }
                 }
             }
-            a[data-id="navIcons02"], a[data-id="navIcons03"]{
+            #navIcons02, #navIcons03{
                 margin-left: 20px;
             }
         }

@@ -66,13 +66,13 @@
   }
 }
 
-#header #headerContentContainer #lightLogo {
+#header #headerContentContainer #logo {
   width: 264px;
   height: 46px;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
-  #header #headerContentContainer #lightLogo {
+  #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
     -ms-flex-item-align: center;
@@ -126,11 +126,11 @@
   }
 }
 
-#header #headerContentContainer #navigation .navSepcialAnchors {
+#header #headerContentContainer #navigation #navSepcialAnchor {
   color: #858585;
 }
 
-#header #headerContentContainer #navigation .navSepcialAnchors div {
+#header #headerContentContainer #navigation #navSepcialAnchor div {
   width: 139px;
   height: 100%;
   text-align: center;
@@ -139,7 +139,7 @@
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
-  #header #headerContentContainer #navigation .navSepcialAnchors div {
+  #header #headerContentContainer #navigation #navSepcialAnchor div {
     width: 114px;
   }
 }
@@ -150,7 +150,7 @@
   }
 }
 
-#header #headerContentContainer #navigation a[data-id="navIcons02"], #header #headerContentContainer #navigation a[data-id="navIcons03"] {
+#header #headerContentContainer #navigation #navIcons02, #header #headerContentContainer #navigation #navIcons03 {
   margin-left: 20px;
 }
 
