@@ -1,4 +1,4 @@
-// fullpage控制項目
+// fullpage.js控制項目
 $(function () {
     $('#main').fullpage({
         autoScrolling: true,
@@ -10,16 +10,16 @@ $(function () {
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
         controlArrowColor: '',
-
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
-        // 滾動至該章節時變化header色彩
+
+        // 滾動至該章節時變化header樣式及色彩
         onLeave: function (origin, destination, direction) {
             console.log(destination);
             switch (destination.index) {
                 case 0:
                     $('#logo').attr('src', '../img/22/index/ch01_header_logo.png');
-                    $('#header').css('background-color', 'transparent');
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#FDFBBA');
                     $('#navSepcialAnchor').css('color', '#858585');
                     $('#navSepcialAnchor div').css('background-color', '#FFFF9B');
@@ -29,7 +29,7 @@ $(function () {
                     break;
                 case 1:
                     $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
-                    $('#header').css('background-color', 'transparent');
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#5C6254');
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
@@ -40,6 +40,7 @@ $(function () {
                 case 2:
                     $('#logo').attr('src', '../img/22/index/ch03_header_logo.png');
                     $('#header').css('background-color', 'transparent');
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#808F87');
                     $('#navSepcialAnchor').css('color', '#F7F7F7');
                     $('#navSepcialAnchor div').css('background-color', '#96B3A3');
@@ -49,7 +50,7 @@ $(function () {
                     break;
                 case 3:
                     $('#logo').attr('src', '../img/22/index/ch04_header_logo.png');
-                    $('#header').css('background-color', '#D3E4C6');
+                    $('#header').css({ 'background-color': '#D3E4C6', 'border-bottom': '1px solid #707070', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#8F8770');
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#887664');
@@ -59,7 +60,7 @@ $(function () {
                     break;
                 case 4:
                     $('#logo').attr('src', '../img/22/index/ch05_header_logo.png');
-                    $('#header').css('background-color', 'transparent');
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#887664');
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
@@ -69,7 +70,7 @@ $(function () {
                     break;
                 case 5:
                     $('#logo').attr('src', '../img/22/index/ch06_header_logo.png');
-                    $('#header').css('background-color', '#F6EEE5');
+                    $('#header').css({ 'background-color': '#F6EEE5', 'border-bottom': '1px solid #707070', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#96908A');
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#B6ADA5');
