@@ -1,4 +1,4 @@
-// fullpage.js控制項目
+fullpage.js控制項目
 $(function () {
     $('#main').fullpage({
         autoScrolling: true,
@@ -13,14 +13,24 @@ $(function () {
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
 
-        // 滾動至該章節時變化header樣式及色彩
-        onLeave: function (origin, destination, direction) {
+        // 滾動至該章節時，header樣式及色彩的各種變化
+        afterLoad: function (origin, destination, direction) {
             console.log(destination);
             switch (destination.index) {
                 case 0:
                     $('#logo').attr('src', '../img/22/index/ch01_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_header_logo.png');
+                    });
                     $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#FDFBBA');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#FFE45E');
+                    }, function () {
+                        $(this).css('color', '#FDFBBA');
+                    });
                     $('#navSepcialAnchor').css('color', '#858585');
                     $('#navSepcialAnchor div').css('background-color', '#FFFF9B');
                     $('#navIcons01 img').attr('src', '../img/22/index/ch01_nav_search.png');
@@ -29,13 +39,27 @@ $(function () {
                     break;
                 case 1:
                     $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo.png');
+                    });
                     $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#5C6254');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#FFFFFF');
+                    }, function () {
+                        $(this).css('color', '#5C6254');
+                    });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
                     $('#navIcons01 img').attr('src', '../img/22/index/ch02_nav_search.png');
                     $('#navIcons02 img').attr('src', '../img/22/index/ch02_nav_cart.png');
                     $('#navIcons03 img').attr('src', '../img/22/index/ch02_nav_member.png');
+                    $('.conversionNum').counterUp({
+                        delay: 10,
+                        time: 1500
+                    });
                     break;
                 case 2:
                     $('#logo').attr('src', '../img/22/index/ch03_header_logo.png');
@@ -82,3 +106,35 @@ $(function () {
         }
     });
 });
+
+// 食物浪費體積換算
+const counters = document.querySelectorAll('.counter');
+const speed = 200; // The lower the slower
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        const target = +counter.getAttribute('data-target');
+        const count = +counter.innerText;
+
+        // Lower inc to slow and higher to slow
+        const inc = target / speed;
+
+        // console.log(inc);
+        // console.log(count);
+
+        // Check if target is reached
+        if (count < target) {
+            // Add inc to count and output in counter
+            counter.innerText = count + inc;
+            // Call function every ms
+            setTimeout(updateCount, 1);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    updateCount();
+});
+
+
+// conversionNum

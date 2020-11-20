@@ -115,6 +115,10 @@
   color: #FDFBBA;
 }
 
+#header #headerContentContainer #navigation .navGeneralAnchors:hover {
+  color: #FFE45E;
+}
+
 #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
   margin-left: 25px;
 }
@@ -135,6 +139,10 @@
   text-align: center;
   background-color: #FFFF9B;
   margin: 0px 28px;
+}
+
+#header #headerContentContainer #navigation #navSepcialAnchor div:hover {
+  background-color: #FFE45E;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
@@ -237,7 +245,7 @@
   background-position: bottom;
 }
 
-#chapter02 .mainTitleBlock {
+#chapter02 .conversionTitle {
   width: 850px;
   height: 53px;
   position: absolute;
@@ -246,6 +254,27 @@
   z-index: 2;
   font-size: 40px;
   color: #FFFADF;
+}
+
+#chapter02 .conversionNumBlock {
+  width: 1320px;
+  margin-left: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+
+#chapter02 .conversionNumBlock .conversionNum {
+  font-size: 300px;
+  color: #F7F5F5;
+}
+
+#chapter02 .conversionNumBlock .conversionUnit {
+  font-size: 40px;
+  color: #F7F5F5;
 }
 
 #chapter02 #conversionUnitIconBlock {
