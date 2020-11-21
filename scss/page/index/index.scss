@@ -118,14 +118,43 @@
     overflow: hidden;
 }
 
+@keyframes fadeInOut {
+    0%   { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; }
+  }
+
+
 #chapter01{
     position: relative;
-    background-image: 
-    url(../../../img/22/index/ch0101_bg_fruit_and_table.png),
-    url(../../../img/22/index/ch0101_bg_green_screen.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: bottom;
+    .ch01Bg01, #ch01BgImg0102, #ch01BgImg0103, #ch01BgImg0104{
+        position: absolute;
+        bottom: -80px;
+    }
+    #ch01BgImg0101Shining01,#ch01BgImg0101Shining02{
+        z-index: 7;
+    }
+    #ch01BgImg0101{
+        z-index: 6;
+    }
+    #ch01BgImg0102{
+        z-index: 5;
+    }
+    #ch01BgImg0103{
+        z-index: 4;
+    }
+    #ch01BgImg0104{
+        z-index: 3;
+    }
+    #ch01BgImg0101Shining01{
+        animation: fadeInOut 7s infinite ease-in-out ;
+    }
+    #ch01BgImg0101Shining02{
+        animation: fadeInOut 9s infinite ease-in-out ;
+    }
     #mainSlogan{
         width: 450px;
         height: 200px;

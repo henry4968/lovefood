@@ -168,12 +168,70 @@
   overflow: hidden;
 }
 
+@-webkit-keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInOut {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
 #chapter01 {
   position: relative;
-  background-image: url(../../../img/22/index/ch0101_bg_fruit_and_table.png), url(../../../img/22/index/ch0101_bg_green_screen.png);
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-position: bottom;
+}
+
+#chapter01 .ch01Bg01, #chapter01 #ch01BgImg0102, #chapter01 #ch01BgImg0103, #chapter01 #ch01BgImg0104 {
+  position: absolute;
+  bottom: -80px;
+}
+
+#chapter01 #ch01BgImg0101Shining01, #chapter01 #ch01BgImg0101Shining02 {
+  z-index: 7;
+}
+
+#chapter01 #ch01BgImg0101 {
+  z-index: 6;
+}
+
+#chapter01 #ch01BgImg0102 {
+  z-index: 5;
+}
+
+#chapter01 #ch01BgImg0103 {
+  z-index: 4;
+}
+
+#chapter01 #ch01BgImg0104 {
+  z-index: 3;
+}
+
+#chapter01 #ch01BgImg0101Shining01 {
+  -webkit-animation: fadeInOut 7s infinite ease-in-out;
+          animation: fadeInOut 7s infinite ease-in-out;
+}
+
+#chapter01 #ch01BgImg0101Shining02 {
+  -webkit-animation: fadeInOut 9s infinite ease-in-out;
+          animation: fadeInOut 9s infinite ease-in-out;
 }
 
 #chapter01 #mainSlogan {

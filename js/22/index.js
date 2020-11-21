@@ -147,92 +147,117 @@ $(function () {
         }
     });
 });
-
 // 首頁輪播（非滑動）間隔控制
 $(function () {
 
-    var chapter01BgImages = ["ch0101_bg_fruit_and_table.png", "ch0101_bg_green_screen.png",
-        "ch0102_bg_bottle_and_potato.png", "ch0102_bg_yellow_screen.png", "ch0103_bg_bread.png", "ch0103_bg_pink_screen.png",
-        "ch0103_bg_spoon.png", "ch0104_bg_blue_screen.png"];
+    var chapter01BgImages = [".ch01Bg01", "#ch01BgImg0102", "#ch01BgImg0103", "#ch01BgImg0104"];
 
-    var subSlogans = ["null", "#subSlogan01", "#subSlogan02", "#subSlogan03"];
+    let i = 0;
 
-    $(function () {
-
-        let i = 0;
+    setInterval(function () {
         let j = i + 1;
 
-        $("#chapter01").css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
+        console.log(i);
+        console.log(j);
 
-        setInterval(function () {
-            i = i + 2;
-            j = j + 2;
+        $(chapter01BgImages[i]).css('z-index', '1');
+        $(chapter01BgImages[j]).css('z-index', '8');
+        i++;
 
-            if (j == chapter01BgImages.length + 1) {
-                i = 0;
-                j = i + 1;
-            }
+        if (i == chapter01BgImages.length) {
+            i = 0;
+            $(chapter01BgImages[i]).css('z-index', '8');
+            $(chapter01BgImages[chapter01BgImages.length - 1]).css('z-index', '1');
+        }
 
-            $("#chapter01").fadeOut("slow", function () {
-                $(this).css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
-                $(this).fadeIn("slow");
-            });
-
-        }, 5000);
-
-        let k = 0;
-        let l = k - 1;
-
-        setInterval(function () {
-            k++;
-            l = k - 1;
-
-            if (k == subSlogans.length) {
-                k = 0;
-
-                // $(subSlogans[subSlogans.length - 1]).css("display", "none");
-
-                // setInterval(function () {
-                //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
-                // }, 1000);
-
-            }
-
-            $(subSlogans[k]).fadeOut("slow", function () {
-                $(this).fadeIn("slow");
-            });
-
-            // $(subSlogans[l]).css("display", "none");
-
-            // setInterval(function () {
-            //     $(subSlogans[l]).css("display", "none");
-            // }, 1000);
-
-        }, 5500);
-
-        setInterval(function () {
-            k++;
-            l = k - 1;
-
-            if (k == subSlogans.length) {
-                // k = 0;
-
-                $(subSlogans[subSlogans.length - 1]).css("display", "none");
-
-                // setInterval(function () {
-                //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
-                // }, 1000);
-
-            }
-
-            $(subSlogans[l]).css("display", "none");
-
-            // setInterval(function () {
-            //     $(subSlogans[l]).css("display", "none");
-            // }, 1000);
-
-        }, 5000);
-
-    });
+    }, 2000);
 
 });
+
+
+
+
+
+// 首頁輪播（非滑動）間隔控制
+// $(function () {
+
+//     var chapter01BgImages = ["ch0101_bg_fruit_and_table.png", "ch0101_bg_green_screen.png",
+//         "ch0102_bg_bottle_and_potato.png", "ch0102_bg_yellow_screen.png", "ch0103_bg_bread.png", "ch0103_bg_pink_screen.png",
+//         "ch0103_bg_spoon.png", "ch0104_bg_blue_screen.png"];
+
+//     var subSlogans = ["null", "#subSlogan01", "#subSlogan02", "#subSlogan03"];
+
+// let i = 0;
+// let j = i + 1;
+
+// setInterval(function () {
+//     i = i + 2;
+//     j = j + 2;
+
+//     if (i == chapter01BgImages.length) {
+//         i = 0;
+//         j = i + 1;
+//     }
+
+//     $("#chapter01").fadeOut("fast", function () {
+//         $(this).css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
+//         $(this).fadeIn("fast");
+//     });
+
+// }, 5000);
+
+//     let k = 0;
+//     let l = k - 1;
+
+//     setInterval(function () {
+//         k++;
+//         l = k - 1;
+
+//         if (k == subSlogans.length) {
+//             k = 0;
+
+//             // $(subSlogans[subSlogans.length - 1]).css("display", "none");
+
+//             // setInterval(function () {
+//             //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
+//             // }, 1000);
+
+//         }
+
+//         $(subSlogans[k]).fadeOut("slow", function () {
+//             $(this).fadeIn("slow");
+//         });
+
+//         // $(subSlogans[l]).css("display", "none");
+
+//         // setInterval(function () {
+//         //     $(subSlogans[l]).css("display", "none");
+//         // }, 1000);
+
+//     }, 5500);
+
+//     setInterval(function () {
+//         k++;
+//         l = k - 1;
+
+//         if (k == subSlogans.length) {
+//             // k = 0;
+
+//             $(subSlogans[subSlogans.length - 1]).css("display", "none");
+
+//             setInterval(function () {
+//                 $(subSlogans[subSlogans.length - 1]).css("display", "none");
+//             }, 5000);
+
+//         }
+
+//         $(subSlogans[l]).css("display", "none");
+
+//         setInterval(function () {
+//             $(subSlogans[l]).css("display", "none");
+//         }, 5000);
+
+//     }, 5000);
+
+
+// });

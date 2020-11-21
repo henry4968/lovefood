@@ -15,6 +15,8 @@
     @content;
 }
 
+
+// RWD六斷點
 @mixin rwd($breakpoint) {
     @if $breakpoint=="desktop" {
         @media all and (min-width: $desktop) {
@@ -47,3 +49,4 @@
         }
     }
 }
+
