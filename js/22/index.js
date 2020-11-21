@@ -33,6 +33,11 @@ $(function () {
                     });
                     $('#navSepcialAnchor').css('color', '#858585');
                     $('#navSepcialAnchor div').css('background-color', '#FFFF9B');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#FFE45E');
+                    }, function () {
+                        $(this).css('background-color', '#FFFF9B');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch01_nav_search.png');
                     $('#navIcons01 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_search_hover.png');
@@ -68,6 +73,11 @@ $(function () {
                     });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#CDD3C3');
+                    }, function () {
+                        $(this).css('background-color', '#717E5B');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch02_nav_search.png');
                     $('#navIcons01 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch02_nav_search_hover.png');
@@ -86,6 +96,7 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch02_nav_member.png');
                     });
+                    // 食物浪費體積換算動畫
                     $('.conversionNum').counterUp({
                         delay: 10,
                         time: 2000
@@ -137,7 +148,91 @@ $(function () {
     });
 });
 
-// 食物浪費體積換算
+// 首頁輪播（非滑動）間隔控制
+$(function () {
 
+    var chapter01BgImages = ["ch0101_bg_fruit_and_table.png", "ch0101_bg_green_screen.png",
+        "ch0102_bg_bottle_and_potato.png", "ch0102_bg_yellow_screen.png", "ch0103_bg_bread.png", "ch0103_bg_pink_screen.png",
+        "ch0103_bg_spoon.png", "ch0104_bg_blue_screen.png"];
 
-// conversionNum
+    var subSlogans = ["null", "#subSlogan01", "#subSlogan02", "#subSlogan03"];
+
+    $(function () {
+
+        let i = 0;
+        let j = i + 1;
+
+        $("#chapter01").css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
+
+        setInterval(function () {
+            i = i + 2;
+            j = j + 2;
+
+            if (j == chapter01BgImages.length + 1) {
+                i = 0;
+                j = i + 1;
+            }
+
+            $("#chapter01").fadeOut("slow", function () {
+                $(this).css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
+                $(this).fadeIn("slow");
+            });
+
+        }, 5000);
+
+        let k = 0;
+        let l = k - 1;
+
+        setInterval(function () {
+            k++;
+            l = k - 1;
+
+            if (k == subSlogans.length) {
+                k = 0;
+
+                // $(subSlogans[subSlogans.length - 1]).css("display", "none");
+
+                // setInterval(function () {
+                //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
+                // }, 1000);
+
+            }
+
+            $(subSlogans[k]).fadeOut("slow", function () {
+                $(this).fadeIn("slow");
+            });
+
+            // $(subSlogans[l]).css("display", "none");
+
+            // setInterval(function () {
+            //     $(subSlogans[l]).css("display", "none");
+            // }, 1000);
+
+        }, 5500);
+
+        setInterval(function () {
+            k++;
+            l = k - 1;
+
+            if (k == subSlogans.length) {
+                // k = 0;
+
+                $(subSlogans[subSlogans.length - 1]).css("display", "none");
+
+                // setInterval(function () {
+                //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
+                // }, 1000);
+
+            }
+
+            $(subSlogans[l]).css("display", "none");
+
+            // setInterval(function () {
+            //     $(subSlogans[l]).css("display", "none");
+            // }, 1000);
+
+        }, 5000);
+
+    });
+
+});

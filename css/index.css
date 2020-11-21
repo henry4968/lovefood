@@ -170,7 +170,7 @@
 
 #chapter01 {
   position: relative;
-  background-image: url(../../../img/22/index/ch01_bg_fruit_and_table.png), url(../../../img/22/index/ch01_bg_green_screen.png);
+  background-image: url(../../../img/22/index/ch0101_bg_fruit_and_table.png), url(../../../img/22/index/ch0101_bg_green_screen.png);
   background-attachment: scroll;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -208,6 +208,7 @@
   top: 237px;
   left: 734px;
   padding: 61px 99px 53px 61px;
+  display: none;
 }
 
 #chapter01 .subSlogan h3 {
