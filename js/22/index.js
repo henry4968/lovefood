@@ -34,8 +34,23 @@ $(function () {
                     $('#navSepcialAnchor').css('color', '#858585');
                     $('#navSepcialAnchor div').css('background-color', '#FFFF9B');
                     $('#navIcons01 img').attr('src', '../img/22/index/ch01_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch01_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch01_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member.png');
+                    });
                     break;
                 case 1:
                     $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
@@ -54,11 +69,26 @@ $(function () {
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
                     $('#navIcons01 img').attr('src', '../img/22/index/ch02_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch02_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch02_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member.png');
+                    });
                     $('.conversionNum').counterUp({
                         delay: 10,
-                        time: 1500
+                        time: 2000
                     });
                     break;
                 case 2:
@@ -108,33 +138,6 @@ $(function () {
 });
 
 // 食物浪費體積換算
-const counters = document.querySelectorAll('.counter');
-const speed = 200; // The lower the slower
-
-counters.forEach(counter => {
-    const updateCount = () => {
-        const target = +counter.getAttribute('data-target');
-        const count = +counter.innerText;
-
-        // Lower inc to slow and higher to slow
-        const inc = target / speed;
-
-        // console.log(inc);
-        // console.log(count);
-
-        // Check if target is reached
-        if (count < target) {
-            // Add inc to count and output in counter
-            counter.innerText = count + inc;
-            // Call function every ms
-            setTimeout(updateCount, 1);
-        } else {
-            counter.innerText = target;
-        }
-    };
-
-    updateCount();
-});
 
 
 // conversionNum
