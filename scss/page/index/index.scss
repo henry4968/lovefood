@@ -124,16 +124,9 @@
     100% { opacity: 0; }
   }
 
-
 #chapter01{
-    #ch01Slide01{
-    position: relative;
-    background-image: 
-    url(../../../img/22/index/ch0101_bg_fruit_and_table_light.png),
-    url(../../../img/22/index/ch0101_bg_green_screen.png);
-    background-attachment: scroll;
-    background-repeat: no-repeat;
-    background-position: bottom;
+    .slide{
+        position: relative;
         .mainSlogan{
             width: 450px;
             height: 200px;
@@ -153,33 +146,11 @@
                 margin-right: 49px;
             }
         }
-    }
-    #ch01Slide02{
-        background-image: url(../../../img/22/index/ch0102_bg_yellow_screen.png);
-        position: relative;
-        #mainSlogan02{
-            width: 450px;
-            height: 200px;
-            position: absolute;
-            left: 177px;
-            top: 308px;
-            z-index: 2;
-            color: #E4C962;
-            h3{
-                font-size: 25px;
-            }
-            h2{
-                font-size: 50px;
-                margin-bottom: 23px;
-            }
-            a[data-id="mainSloganIcon01"], a[data-id="mainSloganIcon02"]{
-                margin-right: 49px;
-            }
-        }
         .subSlogan{
             width: 1066px;
             height: 425px;
             background-color: #F7F7F7;
+            opacity: 70%;
             position: absolute;
             top: 237px;
             left: 734px;
@@ -208,12 +179,31 @@
             }
         }
     }
+    #ch01Slide01{
+    position: relative;
+    background-image: 
+    url(../../../img/22/index/ch0101_bg_fruit_and_table_light.png),
+    url(../../../img/22/index/ch0101_bg_green_screen.png);
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    }
+    #ch01Slide02{
+        background-image: url(../../../img/22/index/ch0102_bg.jpg);
+        #mainSlogan02{
+            color: #E4C962;
+        }
+    }
     #ch01Slide03{
-        background-image: url(../../../img/22/index/ch0103_bg_pink_screen.png);
+        background-image: url(../../../img/22/index/ch0103_bg.jpg);
     }
     #ch01Slide04{
-        background-image: url(../../../img/22/index/ch0104_bg_blue_screen.png);
+        background-image: url(../../../img/22/index/ch0104_bg.jpg);
+        #mainSlogan04{
+            color: #E4C962;
+        }
     }
+
 }
 
 #chapter02{
