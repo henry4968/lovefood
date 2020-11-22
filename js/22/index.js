@@ -1,4 +1,4 @@
-fullpage.js控制項目
+// fullpage.js控制項目
 $(function () {
     $('#main').fullpage({
         autoScrolling: true,
@@ -146,33 +146,123 @@ $(function () {
                     break;
                 case 3:
                     $('#logo').attr('src', '../img/22/index/ch04_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_header_logo.png');
+                    });
                     $('#header').css({ 'background-color': '#D3E4C6', 'border-bottom': '1px solid #707070', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#8F8770');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#F2F0D7');
+                    }, function () {
+                        $(this).css('color', '#8F8770');
+                    });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#887664');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#F2F0D7');
+                    }, function () {
+                        $(this).css('background-color', '#887664');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch04_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch04_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_member.png');
+                    });
                     break;
                 case 4:
                     $('#logo').attr('src', '../img/22/index/ch05_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_header_logo.png');
+                    });
                     $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': 'none' });
                     $('.navGeneralAnchors').css('color', '#887664');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#CEC2B6');
+                    }, function () {
+                        $(this).css('color', '#887664');
+                    });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#717E5B');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#CEC2B6');
+                    }, function () {
+                        $(this).css('background-color', '#717E5B');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch05_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch05_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch05_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_member.png');
+                    });
                     break;
                 case 5:
                     $('#logo').attr('src', '../img/22/index/ch06_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_header_logo.png');
+                    });
                     $('#header').css({ 'background-color': '#F6EEE5', 'border-bottom': '1px solid #707070', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#96908A');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#DAD1C8');
+                    }, function () {
+                        $(this).css('color', '#96908A');
+                    });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
                     $('#navSepcialAnchor div').css('background-color', '#B6ADA5');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#D9D0C7');
+                    }, function () {
+                        $(this).css('background-color', '#B6ADA5');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch06_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch06_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch06_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_member.png');
+                    });
                     break;
             }
         },
