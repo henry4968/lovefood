@@ -136,6 +136,7 @@
 #header #headerContentContainer #navigation #navSepcialAnchor div {
   width: 139px;
   height: 100%;
+  border-radius: 3px;
   text-align: center;
   background-color: #FFFF9B;
   margin: 0px 28px;
@@ -261,7 +262,22 @@
   background-image: url(../../../img/22/index/ch0101_bg_fruit_and_table_light.png), url(../../../img/22/index/ch0101_bg_green_screen.png);
   background-attachment: scroll;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: 0% 50%;
+}
+
+#chapter01 #ch01Slide01 .ch01BgShining {
+  position: absolute;
+  top: 0;
+}
+
+#chapter01 #ch01Slide01 #ch01BgShining01 {
+  -webkit-animation: fadeInOut 5s infinite ease-in-out;
+          animation: fadeInOut 5s infinite ease-in-out;
+}
+
+#chapter01 #ch01Slide01 #ch01BgShining02 {
+  -webkit-animation: fadeInOut 7s infinite ease-in-out;
+          animation: fadeInOut 7s infinite ease-in-out;
 }
 
 #chapter01 #ch01Slide02 {
@@ -290,7 +306,7 @@
   background-image: url(../../../img/22/index/ch02_bg_elephants.png);
   background-attachment: scroll;
   background-repeat: no-repeat;
-  background-position: bottom;
+  background-position: 0% 125%;
 }
 
 #chapter02 .conversionTitle {

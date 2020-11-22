@@ -191,169 +191,124 @@ $(function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_member.png');
                     });
                     break;
-
-                // 測試
                 case 1:
-                    $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
+                    $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
                     $('#logo').hover(function () {
-                        $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
+                        $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch02_header_logo.png');
                     });
-                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
-                    $('.navGeneralAnchors').css('color', '#5C6254');
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none' });
+                    $('.navGeneralAnchors').css('color', '#946C1E');
                     $('.navGeneralAnchors').hover(function () {
-                        $(this).css('color', '#FFFFFF');
+                        $(this).css('color', '#E0C38B');
                     }, function () {
-                        $(this).css('color', '#5C6254');
+                        $(this).css('color', '#946C1E');
                     });
                     $('#navSepcialAnchor').css('color', '#FFFFFF');
-                    $('#navSepcialAnchor div').css('background-color', '#717E5B');
+                    $('#navSepcialAnchor div').css('background-color', '#946C1E');
                     $('#navSepcialAnchor div').hover(function () {
-                        $(this).css('background-color', '#CDD3C3');
+                        $(this).css('background-color', '#E0C38B');
                     }, function () {
-                        $(this).css('background-color', '#717E5B');
+                        $(this).css('background-color', '#946C1E');
                     });
-                    $('#navIcons01 img').attr('src', '../img/22/index/ch02_nav_search.png');
+                    $('#navIcons01 img').attr('src', '../img/22/index/ch0102_nav_search.png');
                     $('#navIcons01 img').hover(function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_search_hover.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search_hover.png');
                     }, function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_search.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search.png');
                     });
-                    $('#navIcons02 img').attr('src', '../img/22/index/ch02_nav_cart.png');
+                    $('#navIcons02 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
                     $('#navIcons02 img').hover(function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart_hover.png');
                     }, function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_cart.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
                     });
-                    $('#navIcons03 img').attr('src', '../img/22/index/ch02_nav_member.png');
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                     $('#navIcons03 img').hover(function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
                     }, function () {
-                        $(this).attr('src', '../img/22/index/ch02_nav_member.png');
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
                     });
-
+                case 2:
+                    $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo.png');
+                    });
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none' });
+                    $('.navGeneralAnchors').css('color', '#946C1E');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#E0C38B');
+                    }, function () {
+                        $(this).css('color', '#946C1E');
+                    });
+                    $('#navSepcialAnchor').css('color', '#FFFFFF');
+                    $('#navSepcialAnchor div').css('background-color', '#946C1E');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#E0C38B');
+                    }, function () {
+                        $(this).css('background-color', '#946C1E');
+                    });
+                    $('#navIcons01 img').attr('src', '../img/22/index/ch0102_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search.png');
+                    });
+                    $('#navIcons02 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
+                    });
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
+                    });
+                case 3:
+                    $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo.png');
+                    });
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none' });
+                    $('.navGeneralAnchors').css('color', '#946C1E');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#E0C38B');
+                    }, function () {
+                        $(this).css('color', '#946C1E');
+                    });
+                    $('#navSepcialAnchor').css('color', '#FFFFFF');
+                    $('#navSepcialAnchor div').css('background-color', '#946C1E');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#E0C38B');
+                    }, function () {
+                        $(this).css('background-color', '#946C1E');
+                    });
+                    $('#navIcons01 img').attr('src', '../img/22/index/ch0102_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_search.png');
+                    });
+                    $('#navIcons02 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
+                    });
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
+                    });
             }
-
-
-
         },
-
-
     });
 });
-
-// 首頁輪播（非滑動）間隔控制
-// $(function () {
-
-//     var chapter01BgImages = [".ch01Bg01", "#ch01BgImg0102", "#ch01BgImg0103", "#ch01BgImg0104"];
-
-//     let i = 0;
-
-//     setInterval(function () {
-//         let j = i + 1;
-
-//         console.log(i);
-//         console.log(j);
-
-//         $(chapter01BgImages[i]).css('z-index', '1');
-//         $(chapter01BgImages[j]).css('z-index', '8');
-//         i++;
-
-//         if (i == chapter01BgImages.length) {
-//             i = 0;
-//             $(chapter01BgImages[i]).css('z-index', '8');
-//             $(chapter01BgImages[chapter01BgImages.length - 1]).css('z-index', '1');
-//         }
-
-//     }, 2000);
-
-// });
-
-
-
-
-
-// 首頁輪播（非滑動）間隔控制
-// $(function () {
-
-//     var chapter01BgImages = ["ch0101_bg_fruit_and_table.png", "ch0101_bg_green_screen.png",
-//         "ch0102_bg_bottle_and_potato.png", "ch0102_bg_yellow_screen.png", "ch0103_bg_bread.png", "ch0103_bg_pink_screen.png",
-//         "ch0103_bg_spoon.png", "ch0104_bg_blue_screen.png"];
-
-//     var subSlogans = ["null", "#subSlogan01", "#subSlogan02", "#subSlogan03"];
-
-// let i = 0;
-// let j = i + 1;
-
-// setInterval(function () {
-//     i = i + 2;
-//     j = j + 2;
-
-//     if (i == chapter01BgImages.length) {
-//         i = 0;
-//         j = i + 1;
-//     }
-
-//     $("#chapter01").fadeOut("fast", function () {
-//         $(this).css("background-image", "url(../../../img/22/index/" + chapter01BgImages[i] + "),url(../../../img/22/index/" + chapter01BgImages[j] + ")");
-//         $(this).fadeIn("fast");
-//     });
-
-// }, 5000);
-
-//     let k = 0;
-//     let l = k - 1;
-
-//     setInterval(function () {
-//         k++;
-//         l = k - 1;
-
-//         if (k == subSlogans.length) {
-//             k = 0;
-
-//             // $(subSlogans[subSlogans.length - 1]).css("display", "none");
-
-//             // setInterval(function () {
-//             //     $(subSlogans[subSlogans.length - 1]).css("display", "none");
-//             // }, 1000);
-
-//         }
-
-//         $(subSlogans[k]).fadeOut("slow", function () {
-//             $(this).fadeIn("slow");
-//         });
-
-//         // $(subSlogans[l]).css("display", "none");
-
-//         // setInterval(function () {
-//         //     $(subSlogans[l]).css("display", "none");
-//         // }, 1000);
-
-//     }, 5500);
-
-//     setInterval(function () {
-//         k++;
-//         l = k - 1;
-
-//         if (k == subSlogans.length) {
-//             // k = 0;
-
-//             $(subSlogans[subSlogans.length - 1]).css("display", "none");
-
-//             setInterval(function () {
-//                 $(subSlogans[subSlogans.length - 1]).css("display", "none");
-//             }, 5000);
-
-//         }
-
-//         $(subSlogans[l]).css("display", "none");
-
-//         setInterval(function () {
-//             $(subSlogans[l]).css("display", "none");
-//         }, 5000);
-
-//     }, 5000);
-
-
-// });

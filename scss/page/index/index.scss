@@ -85,6 +85,7 @@
                 div{
                     width: 139px;
                     height: 100%;
+                    border-radius: 3px;
                     text-align: center;
                     background-color: #FFFF9B;
                     &:hover{
@@ -186,7 +187,17 @@
     url(../../../img/22/index/ch0101_bg_green_screen.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: 0% 50%;
+    .ch01BgShining{
+        position: absolute;
+        top: 0;
+        }
+        #ch01BgShining01{
+            animation: fadeInOut 5s infinite ease-in-out;
+        }
+        #ch01BgShining02{
+            animation: fadeInOut 7s infinite ease-in-out;
+        }
     }
     #ch01Slide02{
         background-image: url(../../../img/22/index/ch0102_bg.jpg);
@@ -212,7 +223,7 @@
     background-image: url(../../../img/22/index/ch02_bg_elephants.png);
     background-attachment: scroll;
     background-repeat: no-repeat;
-    background-position: bottom;
+    background-position: 0% 125%;
     .conversionTitle{
         width: 850px;
         height: 53px;
