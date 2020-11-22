@@ -105,14 +105,44 @@ $(function () {
                     break;
                 case 2:
                     $('#logo').attr('src', '../img/22/index/ch03_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_header_logo.png');
+                    });
                     $('#header').css('background-color', 'transparent');
                     $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#808F87');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#FFFFFF');
+                    }, function () {
+                        $(this).css('color', '#808F87');
+                    });
                     $('#navSepcialAnchor').css('color', '#F7F7F7');
                     $('#navSepcialAnchor div').css('background-color', '#96B3A3');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#BFD4C8');
+                    }, function () {
+                        $(this).css('background-color', '#96B3A3');
+                    });
                     $('#navIcons01 img').attr('src', '../img/22/index/ch03_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_nav_search.png');
+                    });
                     $('#navIcons02 img').attr('src', '../img/22/index/ch03_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_nav_cart.png');
+                    });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch03_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_nav_member.png');
+                    });
                     break;
                 case 3:
                     $('#logo').attr('src', '../img/22/index/ch04_header_logo.png');
