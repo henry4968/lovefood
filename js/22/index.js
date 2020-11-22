@@ -4,7 +4,7 @@ $(function () {
         autoScrolling: true,
         scrollHorizontally: true,
         menu: true,
-        anchors: ['firstPage', 'secondPage', 'thirdPage'],
+        anchors: ['WhatIsLoveFood', 'HowMuchWeWasted', 'WasteHarmsTheEarth', 'CherishFromThisMeal', 'DonateToUs', 'ContactUs'],
         navigation: true,
         navigationPosition: 'right',
         slidesNavigation: true,
@@ -12,8 +12,9 @@ $(function () {
         controlArrowColor: '',
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
+        responsiveSlides: true,
 
-        // 滾動至該章節時，header樣式及色彩的各種變化
+        // 垂直滾動至該章節時，header樣式及色彩的各種變化
         afterLoad: function (origin, destination, direction) {
             console.log(destination);
             switch (destination.index) {
@@ -144,35 +145,130 @@ $(function () {
                     $('#navIcons03 img').attr('src', '../img/22/index/ch06_nav_member.png');
                     break;
             }
-        }
+        },
+
+        // 水平滑動至該頁面時，header樣式及色彩的各種變化
+        afterSlideLoad: function (section, origin, destination, direction) {
+            console.log(destination);
+            switch (destination.index) {
+                case 0:
+                    $('#logo').attr('src', '../img/22/index/ch01_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_header_logo.png');
+                    });
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': 'none' });
+                    $('.navGeneralAnchors').css('color', '#FDFBBA');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#FFE45E');
+                    }, function () {
+                        $(this).css('color', '#FDFBBA');
+                    });
+                    $('#navSepcialAnchor').css('color', '#858585');
+                    $('#navSepcialAnchor div').css('background-color', '#FFFF9B');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#FFE45E');
+                    }, function () {
+                        $(this).css('background-color', '#FFFF9B');
+                    });
+                    $('#navIcons01 img').attr('src', '../img/22/index/ch01_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_search.png');
+                    });
+                    $('#navIcons02 img').attr('src', '../img/22/index/ch01_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart.png');
+                    });
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch01_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member.png');
+                    });
+                    break;
+
+                // 測試
+                case 1:
+                    $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
+                    $('#logo').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_header_logo.png');
+                    });
+                    $('#header').css({ 'background-color': 'transparent', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
+                    $('.navGeneralAnchors').css('color', '#5C6254');
+                    $('.navGeneralAnchors').hover(function () {
+                        $(this).css('color', '#FFFFFF');
+                    }, function () {
+                        $(this).css('color', '#5C6254');
+                    });
+                    $('#navSepcialAnchor').css('color', '#FFFFFF');
+                    $('#navSepcialAnchor div').css('background-color', '#717E5B');
+                    $('#navSepcialAnchor div').hover(function () {
+                        $(this).css('background-color', '#CDD3C3');
+                    }, function () {
+                        $(this).css('background-color', '#717E5B');
+                    });
+                    $('#navIcons01 img').attr('src', '../img/22/index/ch02_nav_search.png');
+                    $('#navIcons01 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_search_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_search.png');
+                    });
+                    $('#navIcons02 img').attr('src', '../img/22/index/ch02_nav_cart.png');
+                    $('#navIcons02 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart.png');
+                    });
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch02_nav_member.png');
+                    $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member.png');
+                    });
+
+            }
+
+
+
+        },
+
+
     });
 });
+
 // 首頁輪播（非滑動）間隔控制
-$(function () {
+// $(function () {
 
-    var chapter01BgImages = [".ch01Bg01", "#ch01BgImg0102", "#ch01BgImg0103", "#ch01BgImg0104"];
+//     var chapter01BgImages = [".ch01Bg01", "#ch01BgImg0102", "#ch01BgImg0103", "#ch01BgImg0104"];
 
-    let i = 0;
+//     let i = 0;
 
-    setInterval(function () {
-        let j = i + 1;
+//     setInterval(function () {
+//         let j = i + 1;
 
-        console.log(i);
-        console.log(j);
+//         console.log(i);
+//         console.log(j);
 
-        $(chapter01BgImages[i]).css('z-index', '1');
-        $(chapter01BgImages[j]).css('z-index', '8');
-        i++;
+//         $(chapter01BgImages[i]).css('z-index', '1');
+//         $(chapter01BgImages[j]).css('z-index', '8');
+//         i++;
 
-        if (i == chapter01BgImages.length) {
-            i = 0;
-            $(chapter01BgImages[i]).css('z-index', '8');
-            $(chapter01BgImages[chapter01BgImages.length - 1]).css('z-index', '1');
-        }
+//         if (i == chapter01BgImages.length) {
+//             i = 0;
+//             $(chapter01BgImages[i]).css('z-index', '8');
+//             $(chapter01BgImages[chapter01BgImages.length - 1]).css('z-index', '1');
+//         }
 
-    }, 2000);
+//     }, 2000);
 
-});
+// });
 
 
 
