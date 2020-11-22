@@ -378,7 +378,7 @@
 }
 
 #chapter03 #solganCardsContainer {
-  width: 1420px;
+  width: 1300px;
   height: 320px;
   margin: auto;
   display: -webkit-box;
@@ -394,14 +394,14 @@
 }
 
 #chapter03 #solganCardsContainer .solganCard {
-  width: 422px;
+  width: 350px;
   height: 100%;
   position: relative;
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame {
-  width: 422px;
-  height: 422px;
+  width: 320x;
+  height: 380px;
   border: 4px solid #FEFA9C;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
@@ -409,9 +409,9 @@
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame {
-  width: 293px;
-  height: 293px;
-  border-radius: 293px;
+  width: 250px;
+  height: 250px;
+  border-radius: 250px;
   border-bottom: 46px;
   background-color: #A7BBA9;
   position: absolute;
@@ -424,9 +424,9 @@
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
-  width: 267px;
-  height: 267px;
-  border-radius: 267px;
+  width: 220px;
+  height: 220px;
+  border-radius: 220px;
   background-color: #fff;
   margin: auto;
   -ms-flex-item-align: center;
@@ -445,22 +445,22 @@
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardTitle {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   color: #FFFFFF;
   margin-top: 180px;
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .ch03CardParagraph {
-  width: 330px;
+  width: 280px;
   height: 95px;
-  font-size: 22px;
+  font-size: 20px;
   margin: auto;
   margin-top: 10px;
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .ch03Shelter {
-  width: 275px;
+  width: 260px;
   height: 125px;
   background-color: #C8DED2;
   margin: auto;
@@ -469,9 +469,17 @@
           transform: translate(0%, -15%);
 }
 
+#chapter03 #solganCardsContainer .cardDecorativeFrame .ch03Shelter img {
+  width: 170px;
+}
+
 #chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
   -webkit-transform: translate(0%, -25%);
           transform: translate(0%, -25%);
+}
+
+#chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 img {
+  width: 120px;
 }
 
 #chapter04 {
@@ -481,15 +489,15 @@
 }
 
 #chapter04 h3 {
-  font-size: 36px;
+  font-size: 34px;
   font-weight: 600;
   color: #605F5F;
-  margin-top: 165px;
+  margin-top: 120px;
   margin-bottom: 40px;
 }
 
 #chapter04 #productCarouselContainer {
-  width: 1200px;
+  width: 1100px;
   height: 465px;
   margin: auto;
   display: -webkit-box;
@@ -510,8 +518,8 @@
   -webkit-box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
   background-color: #F3E9C0;
-  width: 328px;
-  height: 457px;
+  width: 280px;
+  height: 420px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -523,30 +531,30 @@
 
 #chapter04 #productCarouselContainer .productCard .countdown {
   width: 100%;
-  height: 53px;
+  height: 45px;
   border-radius: 20px 20px 0px 0px;
   background-color: #FBFFE0;
   font-size: 18px;
   color: #707070;
-  line-height: 53px;
+  line-height: 45px;
 }
 
 #chapter04 #productCarouselContainer .productCard .countdown span {
-  font-size: 30px;
+  font-size: 28px;
   color: #9A0202;
 }
 
 #chapter04 #productCarouselContainer .productCard .productAvatarBlock {
   width: 100%;
-  height: calc(457px - 53px - 53px);
+  height: calc(420px - 45px - 45px);
   background-color: #F2F0D7;
 }
 
 #chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar {
-  width: 282px;
-  height: 282px;
+  width: 250px;
+  height: 250px;
   margin: auto;
-  margin-top: 19px;
+  margin-top: 20px;
   background-color: #FFFFFF;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -563,7 +571,7 @@
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo, #chapter04 #productCarouselContainer .productCard .productSubInfo {
-  width: 282px;
+  width: 255px;
   margin: auto;
   color: #707070;
   display: -webkit-box;
@@ -575,12 +583,12 @@
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo .productName, #chapter04 #productCarouselContainer .productCard .productSubInfo .productName {
-  font-size: 24px;
-  line-height: 33px;
+  font-size: 22px;
+  line-height: 30px;
 }
 
 #chapter04 #productCarouselContainer .productCard .productMainInfo .productSellingPrice, #chapter04 #productCarouselContainer .productCard .productSubInfo .productSellingPrice {
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 600;
   line-height: 34px;
   color: #9A0202;
@@ -591,8 +599,8 @@
 }
 
 #chapter04 #productCarouselContainer .productCard .productSubInfo .ProductCategory, #chapter04 #productCarouselContainer .productCard .productSubInfo .productOriginalPrice {
-  font-size: 20PX;
-  line-height: 28px;
+  font-size: 18px;
+  line-height: 26px;
 }
 
 #chapter04 #productCarouselContainer .productCard .productSubInfo .productOriginalPrice {
@@ -602,7 +610,7 @@
 #chapter04 h4 {
   font-size: 26px;
   color: #666464;
-  margin: 40px 0px 30px 0px;
+  margin: 0px 0px 30px 0px;
 }
 
 #chapter04 #suppliersList {
@@ -636,17 +644,18 @@
 }
 
 #chapter05 .ch05BgFlower {
+  width: 530px;
   position: absolute;
   z-index: 2;
 }
 
 #chapter05 img[data-id="ch05BgFlower01"] {
-  left: -150px;
+  left: -100px;
   bottom: -250px;
 }
 
 #chapter05 img[data-id="ch05BgFlower02"] {
-  right: -300px;
+  right: -150px;
   top: 40px;
 }
 
@@ -655,14 +664,14 @@
   -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
-  margin-top: 165px;
+  margin-top: 120px;
   position: relative;
 }
 
 @media all and (min-width: 1600px) {
   #chapter05 #ch05MemoContainer {
-    width: 1550px;
-    height: 720px;
+    width: 1500px;
+    height: 650px;
   }
 }
 
@@ -686,8 +695,8 @@
 }
 
 #chapter05 #ch05MemoContainer .ch05Memo {
-  width: 358px;
-  height: 337px;
+  width: 330px;
+  height: 300px;
   -webkit-box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   background-color: #FDFDF9;
@@ -701,7 +710,7 @@
 }
 
 #chapter05 #ch05MemoContainer .ch05Memo h3 {
-  font-size: 30px;
+  font-size: 26px;
   line-height: 42px;
   color: #646464;
 }
@@ -709,7 +718,7 @@
 #chapter05 #ch05MemoContainer .ch05Memo p {
   width: 250px;
   height: 100px;
-  font-size: 20px;
+  font-size: 18px;
   line-height: 35px;
   color: #646464;
   margin-top: 10px;
@@ -723,8 +732,8 @@
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] {
   position: absolute;
-  top: 183px;
-  left: 109px;
+  top: 163px;
+  left: 139px;
   -webkit-transform: rotate(-2deg);
           transform: rotate(-2deg);
 }
@@ -741,8 +750,8 @@
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] {
   position: absolute;
-  top: 297px;
-  left: 604px;
+  top: 267px;
+  left: 594px;
 }
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] div[data-id="ch05MemoTape02"] {
@@ -755,8 +764,8 @@
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] {
   position: absolute;
-  top: 159px;
-  left: 1062px;
+  top: 129px;
+  left: 1032px;
   -webkit-transform: rotate(2deg);
           transform: rotate(2deg);
 }
@@ -772,8 +781,8 @@
 }
 
 #chapter05 #ch05MemoContainer #ch05learnMoreButton {
-  width: 276px;
-  height: 80px;
+  width: 240px;
+  height: 70px;
   background-color: #DDBCBC;
   border-radius: 13px;
   padding: 0px 25px;
@@ -791,29 +800,44 @@
   bottom: 30px;
 }
 
+#chapter05 #ch05MemoContainer #ch05learnMoreButton:hover {
+  background-color: #DD9E9E;
+}
+
+#chapter05 #ch05MemoContainer #ch05learnMoreButton div img {
+  width: 40px;
+}
+
 #chapter05 #ch05MemoContainer #ch05learnMoreButton span {
-  font-size: 40px;
+  font-size: 35px;
   line-height: 56px;
   color: #FFFFFF;
 }
 
 #chapter06 {
-  position: relative;
   background-color: #F6EEE5;
+  border: 5px solid black;
 }
 
-#chapter06 #ch06contactUsArea {
-  width: 960px;
+#chapter06 #ch06FlexArea {
+  width: 100%;
   height: 100vh;
-  background-image: url(../../../img/22/index/ch06_bg01.png);
-  padding-top: 165px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer {
-  width: 600px;
-  height: 655px;
+#chapter06 #ch06FlexArea #ch06contactUsArea {
+  width: 50%;
+  background-image: url(../../../img/22/index/ch06_bg01.png);
+  padding: 235px 0px 0px 0px;
+}
+
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer {
+  width: 550px;
+  height: 630px;
   background-color: #F6EEE5;
-  border: 6px solid #CEC6BD;
+  border: 5px solid #CEC6BD;
   -webkit-box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
@@ -822,28 +846,29 @@
   display: flex;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame {
-  width: 550px;
-  height: 600px;
-  border: 5px solid #CEC6BD;
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame {
+  width: 500px;
+  height: 580px;
+  border: 4px solid #CEC6BD;
   margin: auto;
   padding: 30px 85px 30px 85px;
+  text-align: center;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame h3 {
-  font-size: 35px;
-  line-height: 49px;
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame h3 {
+  font-size: 30px;
+  line-height: 40px;
   color: #D0C37F;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame .ch06TtileDecoration {
   width: 275px;
   margin: auto;
   margin-bottom: 5px;
   border-bottom: 1px solid #D0C37F;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer {
   width: 100%;
   height: 235px;
   display: -webkit-box;
@@ -859,22 +884,28 @@
   margin: 60px 0px 80px 0px;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo img {
   margin-right: 20px;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
-  font-size: 25px;
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo span {
+  font-size: 24px;
   color: #D0C37F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo #ch06SearchBar {
   width: 245px;
   height: 40px;
   border: 2px solid #D0C37F;
@@ -890,7 +921,15 @@
   padding: 0px 0px 0px 10px;
 }
 
-#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer #address {
+  text-align: left;
+}
+
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer #address img {
+  height: 40px;
+}
+
+#chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #ch06IconContainer {
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -900,36 +939,37 @@
           justify-content: space-between;
 }
 
-#chapter06 #ch06GuideArea {
-  width: 960px;
-  height: 100vh;
-  position: absolute;
-  right: 0;
-  top: 0;
+#chapter06 #ch06FlexArea #ch06GuideArea {
+  width: 50%;
+  display: inline-block;
+  padding: 235px 0px 0px 0px;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer {
-  width: 495px;
-  height: 700px;
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer {
+  width: 500px;
+  height: 630px;
   margin: auto;
-  margin-top: 165px;
   text-align: center;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer #ch06ImgBlock {
-  width: 401px;
-  height: 464px;
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06ImgBlock {
+  width: 350px;
+  height: 400px;
   margin: auto;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer h2 {
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06ImgBlock img {
+  width: 100%;
+}
+
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer h2 {
   font-size: 65px;
   color: #D0C37F;
   margin: 40px 0px 30px 0px;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock {
-  width: 495px;
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06GuideBlock {
+  width: 465px;
   height: 75px;
   margin: auto;
   display: -webkit-box;
@@ -940,12 +980,12 @@
           justify-content: space-between;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock span {
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06GuideBlock span {
   font-size: 30px;
   color: #D0C37F;
 }
 
-#chapter06 #ch06GuideArea #ch06GuideContainer #ch06GuideBlock #ch06GuideButton {
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06GuideBlock #ch06GuideButton {
   width: 166px;
   height: 50px;
   border-radius: 4px;
@@ -954,5 +994,9 @@
   font-size: 30px;
   line-height: 50px;
   text-align: center;
+}
+
+#chapter06 #ch06FlexArea #ch06GuideArea #ch06GuideContainer #ch06GuideBlock #ch06GuideButton:hover {
+  background-color: #E3DAA9;
 }
 /*# sourceMappingURL=index.css.map */

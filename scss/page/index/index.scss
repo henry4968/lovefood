@@ -9,6 +9,7 @@
     text-decoration: none;
 }
 
+// 標頭開始
 #header{
     width: 100%;
     height: 123px;
@@ -111,6 +112,7 @@
         }
     }
 }
+// 標投結束
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06{
@@ -119,12 +121,15 @@
     overflow: hidden;
 }
 
+// 第一章背景動畫
 @keyframes fadeInOut {
     0%   { opacity: 0; }
     50% { opacity: 1; }
     100% { opacity: 0; }
   }
 
+
+// 第一章開始
 #chapter01{
     .slide{
         position: relative;
@@ -216,7 +221,9 @@
     }
 
 }
+// 第一章結束
 
+// 第二章開始
 #chapter02{
     position: relative;
     background-color: #B0BAA4;
@@ -259,7 +266,9 @@
         justify-content: space-between;
         }
 }
+// 第二章結束
 
+// 第三章開始
 #chapter03{
     position: relative;
     background-color: #C8DED2;
@@ -276,27 +285,27 @@
         margin-bottom: 40px;
     }
     #solganCardsContainer{
-        width: 1420px;
+        width: 1300px;
         height: 320px;
         margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         .solganCard{
-            width: 422px;
+            width: 350px;
             height: 100%;
             position: relative;
         }
         .cardDecorativeFrame{
-            width: 422px;
-            height: 422px;
+            width: 320x;
+            height: 380px;
             border: 4px solid #FEFA9C;
             box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
             margin-top: calc(640px - 490px);
             .avatarDecorativeFrame{
-                width: 293px;
-                height: 293px;
-                border-radius: 293px;
+                width: 250px;
+                height: 250px;
+                border-radius: 250px;
                 border-bottom: 46px;
                 background-color: #A7BBA9;
                 position: absolute;
@@ -304,9 +313,9 @@
                 left: 50%;
                 display: flex;
                 .avatarBlock{
-                    width: 267px;
-                    height: 267px;
-                    border-radius: 267px;
+                    width: 220px;
+                    height: 220px;
+                    border-radius: 220px;
                     background-color: #fff;
                     margin: auto;
                     align-self: center;
@@ -319,46 +328,54 @@
                 }
             }
             .ch03CardTitle{
-                font-size: 30px;
+                font-size: 28px;
                 font-weight: 600;
                 color: #FFFFFF;
                 margin-top: 180px;
             }
             .ch03CardParagraph{
-                width: 330px;
+                width: 280px;
                 height: 95px;
-                font-size: 22px;
+                font-size: 20px;
                 margin: auto;
                 margin-top: 10px;
             }
             .ch03Shelter{
-                width: 275px;
+                width: 260px;
                 height: 125px;
                 background-color: #C8DED2;
                 margin: auto;
                 margin-top: 25px;
-                transform: translate(0%, -15%)
+                transform: translate(0%, -15%);
+                img{
+                    width: 170px;
+                }
             }
             #ch03Shelter03{
                 transform: translate(0%, -25%);
+                img{
+                    width: 120px;
+                }
             }
         }
     }
 }
+// 第三章結束
 
+// 第四章開始
 #chapter04{
     background-image: url(../../../img/22/index/ch04_bg.jpg);
     position: relative;
     text-align: center;
     h3{
-        font-size: 36px;
+        font-size: 34px;
         font-weight: 600;
         color: #605F5F;
-        margin-top: 165px;
+        margin-top: 120px;
         margin-bottom: 40px;
     }
     #productCarouselContainer{
-        width: 1200px;
+        width: 1100px;
         height: 465px;
         margin: auto;
         display: flex;
@@ -369,32 +386,32 @@
             border-radius: 20px;
             box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
             background-color: #F3E9C0;
-            width: 328px;
-            height: 457px;
+            width: 280px;
+            height: 420px;
             display: flex;
             flex-direction: column;
             .countdown{
                 width: 100%;
-                height: 53px;
+                height: 45px;
                 border-radius: 20px 20px 0px 0px;
                 background-color: #FBFFE0;
                 font-size: 18px;
                 color: #707070;
-                line-height: 53px;
+                line-height: 45px;
                 span{
-                    font-size: 30px;
+                    font-size: 28px;
                     color: #9A0202;
                 }
             }
             .productAvatarBlock{
                 width: 100%;
-                height: calc(457px - 53px - 53px);
+                height: calc(420px - 45px - 45px);
                 background-color: #F2F0D7;
                 .productAvatar{
-                    width: 282px;
-                    height: 282px;
+                    width: 250px;
+                    height: 250px;
                     margin: auto;
-                    margin-top: 19px;
+                    margin-top: 20px;
                     background-color: #FFFFFF;
                     display: flex;
                     justify-content: center;
@@ -405,17 +422,17 @@
                 }
             }
             .productMainInfo, .productSubInfo{
-                width: 282px;
+                width: 255px;
                 margin: auto;
                 color: #707070;
                 display: flex;
                 justify-content: space-between;
                 .productName{
-                    font-size: 24px;
-                    line-height: 33px;
+                    font-size: 22px;
+                    line-height: 30px;
                 }
                 .productSellingPrice{
-                    font-size: 30px;
+                    font-size: 28px;
                     font-weight: 600;
                     line-height: 34px;
                     color: #9A0202;
@@ -424,20 +441,19 @@
             .productSubInfo{
                 background-color: #F3E9C0;
                 .ProductCategory, .productOriginalPrice{
-                    font-size: 20PX;
-                    line-height: 28px;
+                    font-size: 18px;
+                    line-height: 26px;
                 }
                 .productOriginalPrice{
                     text-decoration: line-through;
                 }
             }
         }
-
     }
     h4{
         font-size: 26px;
         color: #666464;
-        margin: 40px 0px 30px 0px;
+        margin: 0px 0px 30px 0px;
     }
     #suppliersList{
         width: 1480px;
@@ -456,26 +472,29 @@
         }
     }
 }
+// 第四章結束
 
+// 第五章開始
 #chapter05{
     background-color: #D8E6D9;
     position: relative;
     .ch05BgFlower{
+        width: 530px;
         position: absolute;
         z-index: 2;
     }
     img[data-id="ch05BgFlower01"]{
-        left: -150px;
+        left: -100px;
         bottom: -250px;
     }
     img[data-id="ch05BgFlower02"]{
-        right: -300px;
+        right: -150px;
         top: 40px;
     }
     #ch05MemoContainer{
         @include rwd("desktop"){
-            width: 1550px;
-            height: 720px;
+            width: 1500px;
+            height: 650px;
         }
         @include rwd("laptop"){
             width: 970px;
@@ -484,7 +503,7 @@
         border: 13px solid #E6ECE2;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
         margin: auto;
-        margin-top: 165px;
+        margin-top: 120px;
         position: relative;
         #ch05MainTtile{
             width: 217px;
@@ -498,8 +517,8 @@
             margin-top: 75px;
         }
         .ch05Memo{
-            width: 358px;
-            height: 337px;
+            width: 330px;
+            height: 300px;
             box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
             background-color: #FDFDF9;
             padding: 55px 0px 0px 45px;
@@ -509,14 +528,14 @@
                 opacity: 80%;
             }
             h3{
-                font-size: 30px;
+                font-size: 26px;
                 line-height: 42px;
                 color: #646464;
             }
             p{
                 width: 250px;
                 height: 100px;
-                font-size: 20px;
+                font-size: 18px;
                 line-height: 35px;
                 color: #646464;
                 margin-top: 10px;
@@ -529,8 +548,8 @@
         }
         div[data-id="ch05Memo01"]{
             position: absolute;
-            top: 183px;
-            left: 109px;
+            top: 163px;
+            left: 139px;
             transform: rotate(-2deg);
             div[data-id="ch05MemoTape01"]{
                 width: 120px;
@@ -543,8 +562,8 @@
         }
         div[data-id="ch05Memo02"]{
             position: absolute;
-            top: 297px;
-            left: 604px;
+            top: 267px;
+            left: 594px;
             div[data-id="ch05MemoTape02"]{
                 width: 140px;
                 height: 25px;
@@ -555,8 +574,8 @@
         }
         div[data-id="ch05Memo03"]{
             position: absolute;
-            top: 159px;
-            left: 1062px;
+            top: 129px;
+            left: 1032px;
             transform: rotate(2deg);
             div[data-id="ch05MemoTape03"]{
                 width: 130px;
@@ -568,8 +587,8 @@
             }
         }
         #ch05learnMoreButton{
-            width: 276px;
-            height: 80px;
+            width: 240px;
+            height: 70px;
             background-color: #DDBCBC;
             border-radius: 13px;
             padding: 0px 25px;
@@ -579,126 +598,153 @@
             position: absolute;
             right: 50px;
             bottom: 30px;
+            &:hover{
+                background-color: #DD9E9E;
+            }
+            div{
+                img{
+                    width: 40px;
+                }
+            }
             span{
-                font-size: 40px;
+                font-size: 35px;
                 line-height: 56px;
                 color: #FFFFFF;
             }
         }
     }
 }
+// 第五章結束
 
+// 第六章開始
 #chapter06{
-    position: relative;
     background-color: #F6EEE5;
-    #ch06contactUsArea{
-        width: 960px;
+    border: 5px solid black;
+    #ch06FlexArea{
+        width: 100%;
         height: 100vh;
-        background-image: url(../../../img/22/index/ch06_bg01.png);
-        padding-top: 165px;
-        #contactUsContainer{
-            width: 600px;
-            height: 655px;
-            background-color: #F6EEE5;
-            border: 6px solid #CEC6BD;
-            box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
-            margin: auto;
-            display: flex;
-            #contactUsFrame{
+        display: flex;
+        #ch06contactUsArea{
+            width: 50%;
+            background-image: url(../../../img/22/index/ch06_bg01.png);
+            padding: 235px 0px 0px 0px;
+            #contactUsContainer{
                 width: 550px;
-                height: 600px;
+                height: 630px;
+                background-color: #F6EEE5;
                 border: 5px solid #CEC6BD;
+                box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 margin: auto;
-                padding: 30px 85px 30px 85px;
-                h3{
-                    font-size: 35px;
-                    line-height: 49px;
-                    color: #D0C37F;
-                }
-                .ch06TtileDecoration{
-                    width: 275px;
+                display: flex;
+                #contactUsFrame{
+                    width: 500px;
+                    height: 580px;
+                    border: 4px solid #CEC6BD;
                     margin: auto;
-                    margin-bottom: 5px;
-                    border-bottom: 1px solid #D0C37F;
-                }
-                #connectionInfoContainer{
-                    width: 100%;
-                    height: 235px;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: space-between;
-                    margin: 60px 0px 80px 0px;
-                    .connectionInfo{
+                    padding: 30px 85px 30px 85px;
+                    text-align: center;
+                    h3{
+                        font-size: 30px;
+                        line-height: 40px;
+                        color: #D0C37F;
+                    }
+                    .ch06TtileDecoration{
+                        width: 275px;
+                        margin: auto;
+                        margin-bottom: 5px;
+                        border-bottom: 1px solid #D0C37F;
+                    }
+                    #connectionInfoContainer{
+                        width: 100%;
+                        height: 235px;
                         display: flex;
-                        img{
-                            margin-right: 20px;
-                        }
-                        span{
-                            font-size: 25px;
-                            color: #D0C37F;
-                        }
-                        #ch06SearchBar{
-                            width: 245px;
-                            height: 40px;
-                            border: 2px solid #D0C37F;
+                        flex-direction: column;
+                        justify-content: space-between;
+                        margin: 60px 0px 80px 0px;
+                        .connectionInfo{
                             display: flex;
-                            align-items: center;
-                            justify-content: space-between;
-                            padding: 0px 0px 0px 10px;
+                            img{
+                                margin-right: 20px;
+                            }
+                            span{
+                                font-size: 24px;
+                                color: #D0C37F;
+                                display: flex;
+                                align-items: center;
+                            }
+                            #ch06SearchBar{
+                                width: 245px;
+                                height: 40px;
+                                border: 2px solid #D0C37F;
+                                display: flex;
+                                align-items: center;
+                                justify-content: space-between;
+                                padding: 0px 0px 0px 10px;
+                            }
+                        }
+                        #address{
+                            text-align: left;
+                            img{
+                                height: 40px;
+                            }
+                        }
+                    }
+                    #ch06IconContainer{
+                        width: 100%;
+                        display: flex;
+                        justify-content: space-between;
+                    }
+                }
+            }
+        }
+        #ch06GuideArea{
+            width: 50%;
+            display: inline-block;
+            padding: 235px 0px 0px 0px;
+            #ch06GuideContainer{
+                width: 500px;
+                height: 630px;
+                margin: auto;
+                text-align: center;
+                #ch06ImgBlock{
+                    width: 350px;
+                    height: 400px;
+                    margin: auto;
+                    img{
+                        width: 100%;
+                    }
+                }
+                h2{
+                    font-size: 65px;
+                    color: #D0C37F;
+                    margin: 40px 0px 30px 0px;
+                }
+                #ch06GuideBlock{
+                    width: 465px;
+                    height: 75px;
+                    margin: auto;
+                    display: flex;
+                    justify-content: space-between;
+                    span{
+                        font-size: 30px;
+                        color: #D0C37F;
+                    }
+                    #ch06GuideButton{
+                        width: 166px;
+                        height: 50px;
+                        border-radius: 4px;
+                        color: #FFFFFF;
+                        background-color: #D0C37F;
+                        font-size: 30px;
+                        line-height: 50px;
+                        text-align: center;
+                        &:hover{
+                            background-color: #E3DAA9;
                         }
                     }
                 }
-                #ch06IconContainer{
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                }
             }
         }
     }
-    #ch06GuideArea{
-        width: 960px;
-        height: 100vh;
-        position: absolute;
-        right: 0;
-        top: 0;
-        #ch06GuideContainer{
-            width: 495px;
-            height: 700px;
-            margin: auto;
-            margin-top: 165px;
-            text-align: center;
-            #ch06ImgBlock{
-                width: 401px;
-                height: 464px;
-                margin: auto;
-            }
-            h2{
-                font-size: 65px;
-                color: #D0C37F;
-                margin: 40px 0px 30px 0px;
-            }
-            #ch06GuideBlock{
-                width: 495px;
-                height: 75px;
-                margin: auto;
-                display: flex;
-                justify-content: space-between;
-                span{
-                    font-size: 30px;
-                    color: #D0C37F;
-                }
-                #ch06GuideButton{
-                    width: 166px;
-                    height: 50px;
-                    border-radius: 4px;
-                    color: #FFFFFF;
-                    background-color: #D0C37F;
-                    font-size: 30px;
-                    line-height: 50px;
-                    text-align: center;
-                }
-            }
-        }
-    }
-}    
+}
+// 第六章結束    
