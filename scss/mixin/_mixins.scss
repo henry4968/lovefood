@@ -16,41 +16,41 @@
 }
 
 // RWD六斷點（舊）
-// @mixin rwd($breakpoint) {
-//     @if $breakpoint=="desktop" {
-//         @media all and (min-width: $desktop) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="laptop" {
-//         @media all and (min-width: $laptop ) and (max-width: $desktop - 1) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="pad" {
-//         @media all and (min-width: $pad ) and (max-width: $laptop - 1) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="bigPhone" {
-//         @media all and (min-width: $bigPhone ) and (max-width: $pad - 1) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="mediumPhone" {
-//         @media all and (min-width: $mediumPhone ) and (max-width: $bigPhone - 1) {
-//             @content;
-//         }
-//     }
-//     @else if $breakpoint=="smallPhone" {
-//         @media all and (min-width: $smallPhone ) and (max-width: $mediumPhone - 1) {
-//             @content;
-//         }
-//     }
-// }
+@mixin rwd($breakpoint) {
+    @if $breakpoint=="desktop" {
+        @media all and (min-width: $desktop) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="laptop" {
+        @media all and (min-width: $laptop ) and (max-width: $desktop - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="pad" {
+        @media all and (min-width: $pad ) and (max-width: $laptop - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="bigPhone" {
+        @media all and (min-width: $bigPhone ) and (max-width: $pad - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="mediumPhone" {
+        @media all and (min-width: $mediumPhone ) and (max-width: $bigPhone - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="smallPhone" {
+        @media all and (min-width: $smallPhone ) and (max-width: $mediumPhone - 1) {
+            @content;
+        }
+    }
+}
 
 // RWD五斷點（新）
-@mixin rwd($breakpoint) {
+@mixin newrwd($breakpoint) {
     @if $breakpoint=="laptop" {
         @media all and (max-width: $desktop - 1) {
             @content;

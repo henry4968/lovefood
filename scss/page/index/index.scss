@@ -19,23 +19,22 @@
     background: transparent;
     z-index: 9;
     #headerContentContainer{
-        border: 1px solid red;
         width: 1180px;
         height: 50px;
         margin: 38px 0px 0px 364px;
         display: flex;
         justify-content: space-between;
-        @include rwd("laptop"){
+        @include newrwd("laptop"){
             width: 970px;
             margin: auto;
             align-items: center;
         }
-        @include rwd("pad"){
+        @include newrwd("pad"){
             width: 920px;
             margin: auto;
             align-items: center;
         }
-        @include rwd("bigPhone"){
+        @include newrwd("bigPhone"){
             display: none;
         }
         #logo{
@@ -44,12 +43,12 @@
             // &:hover{
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
-            @include rwd("laptop"){
+            @include newrwd("laptop"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
             }
-            @include rwd("pad"){
+            @include newrwd("pad"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
@@ -61,16 +60,16 @@
             height: 50px;
             display: flex;
             align-items: center;
-            @include rwd("laptop"){
+            @include newrwd("laptop"){
                 width: 625px;
                 align-items: center;
             }
             a{
                 font-size: 30px;
-                @include rwd("laptop"){
+                @include newrwd("laptop"){
                     font-size: 20px;
                 }
-                @include rwd("pad"){
+                @include newrwd("pad"){
                     font-size: 20px;
                 }
             }
@@ -82,7 +81,7 @@
             }
             :nth-child(2),:nth-child(3){
                 margin-left: 25px;
-                @include rwd("laptop"){
+                @include newrwd("laptop"){
                     margin-left: 20px;
                 }
             } 
@@ -98,14 +97,14 @@
                         background-color: #FFE45E;
                     }
                     margin: 0px 28px;
-                    @include rwd("laptop"){
+                    @include newrwd("laptop"){
                         width: 114px;
                     }
                 }
             }
             .navIcons{
                 img{
-                    @include rwd("laptop"){
+                    @include newrwd("laptop"){
                         width: 30px;
                         
                     }
@@ -156,12 +155,14 @@
             a[data-id="mainSloganIcon01"], a[data-id="mainSloganIcon02"]{
                 margin-right: 49px;
             }
-            @include rwd("bigPhone"){
+        }
+        #mainSlogan01{
+            @include newrwd("bigPhone"){
                 position: static;
                 text-align: center;
                 margin: auto;
             }
-            @include rwd("mediumPhone"){
+            @include newrwd("mediumPhone"){
                 width: 285px;
                 height: 320px;
                 position: static;
@@ -186,6 +187,20 @@
                             height: 45px;
                         }
                     }
+                }
+            }
+        }
+        #mainSlogan02, #mainSlogan03, #mainSlogan04{
+            @include newrwd("laptop"){
+                text-align: center;
+                transform: translate(-50%, -50%);
+                top: 35%;
+                left: 50%;
+                h2{
+                    margin: 15px 0px 50px 0px;
+                }
+                a{
+                    display: none;
                 }
             }
         }
@@ -220,6 +235,11 @@
                 left: 689px;
                 top: 67px;
             }
+            @include newrwd('laptop'){
+                transform: translate(-50%, -50%);
+                top: 65%;
+                left: 50%;
+            }
         }
     }
     #ch01Slide01{
@@ -243,7 +263,7 @@
             position: absolute;
             bottom: -120px;
             z-index: -1;
-            @include rwd("smallPhone"){
+            @include newrwd("smallPhone"){
                 width: 750px;
                 bottom: 0;
             }
@@ -537,11 +557,11 @@
         top: 40px;
     }
     #ch05MemoContainer{
-        @include rwd("desktop"){
+        @include newrwd("desktop"){
             width: 1500px;
             height: 650px;
         }
-        @include rwd("laptop"){
+        @include newrwd("laptop"){
             width: 970px;
             height: 720px;
         }

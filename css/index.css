@@ -115,7 +115,6 @@
 }
 
 #header #headerContentContainer {
-  border: 1px solid red;
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
@@ -325,7 +324,7 @@
 }
 
 @media all and (max-width: 991px) {
-  #chapter01 .slide .mainSlogan {
+  #chapter01 .slide #mainSlogan01 {
     position: static;
     text-align: center;
     margin: auto;
@@ -333,21 +332,21 @@
 }
 
 @media all and (max-width: 767px) {
-  #chapter01 .slide .mainSlogan {
+  #chapter01 .slide #mainSlogan01 {
     width: 285px;
     height: 320px;
     position: static;
     text-align: center;
     margin: auto;
   }
-  #chapter01 .slide .mainSlogan h3 {
+  #chapter01 .slide #mainSlogan01 h3 {
     font-size: 16px;
   }
-  #chapter01 .slide .mainSlogan h2 {
+  #chapter01 .slide #mainSlogan01 h2 {
     font-size: 30px;
     margin: 15px 0px 50px 0px;
   }
-  #chapter01 .slide .mainSlogan div {
+  #chapter01 .slide #mainSlogan01 div {
     height: 190px;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -360,12 +359,28 @@
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  #chapter01 .slide .mainSlogan div a {
+  #chapter01 .slide #mainSlogan01 div a {
     margin: 0 auto !important;
   }
-  #chapter01 .slide .mainSlogan div a img {
+  #chapter01 .slide #mainSlogan01 div a img {
     border: 1px solid red;
     height: 45px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 35%;
+    left: 50%;
+  }
+  #chapter01 .slide #mainSlogan02 h2, #chapter01 .slide #mainSlogan03 h2, #chapter01 .slide #mainSlogan04 h2 {
+    margin: 15px 0px 50px 0px;
+  }
+  #chapter01 .slide #mainSlogan02 a, #chapter01 .slide #mainSlogan03 a, #chapter01 .slide #mainSlogan04 a {
+    display: none;
   }
 }
 
@@ -404,6 +419,15 @@
   position: absolute;
   left: 689px;
   top: 67px;
+}
+
+@media all and (max-width: 1599px) {
+  #chapter01 .slide .subSlogan {
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    top: 65%;
+    left: 50%;
+  }
 }
 
 #chapter01 #ch01Slide01 {
