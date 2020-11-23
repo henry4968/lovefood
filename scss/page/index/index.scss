@@ -1,11 +1,12 @@
 @import "../../base/var";
 @import "../../mixin/mixins";
+@import "../../base/fonts";
 
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: PingFangTC-Regular, sans-serif;
+    font-family: Fuji-Extended Bold, sans-serif;
     text-decoration: none;
 }
 
@@ -30,15 +31,11 @@
             align-items: center;
         }
         @include rwd("pad"){
-            display: none;
+            width: 920px;
+            margin: auto;
+            align-items: center;
         }
         @include rwd("bigPhone"){
-            display: none;
-        }
-        @include rwd("mediumPhone"){
-            display: none;
-        }
-        @include rwd("smallPhone"){
             display: none;
         }
         #logo{
@@ -48,6 +45,11 @@
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
             @include rwd("laptop"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+            @include rwd("pad"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
@@ -66,6 +68,9 @@
             a{
                 font-size: 30px;
                 @include rwd("laptop"){
+                    font-size: 20px;
+                }
+                @include rwd("pad"){
                     font-size: 20px;
                 }
             }
@@ -112,7 +117,7 @@
         }
     }
 }
-// 標投結束
+// 標頭結束
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06{
@@ -151,6 +156,38 @@
             a[data-id="mainSloganIcon01"], a[data-id="mainSloganIcon02"]{
                 margin-right: 49px;
             }
+            @include rwd("bigPhone"){
+                position: static;
+                text-align: center;
+                margin: auto;
+            }
+            @include rwd("mediumPhone"){
+                width: 285px;
+                height: 320px;
+                position: static;
+                text-align: center;
+                margin: auto;
+                h3{
+                    font-size: 16px;
+                }
+                h2{
+                    font-size: 30px;
+                    margin: 15px 0px 50px 0px;
+                }
+                div{
+                    height: 190px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    a{
+                        margin: 0 auto !important;
+                        img{
+                            border: 1px solid red;
+                            height: 45px;
+                        }
+                    }
+                }
+            }
         }
         .subSlogan{
             width: 1066px;
@@ -187,21 +224,29 @@
     }
     #ch01Slide01{
     position: relative;
+    z-index: -2;
     background-image: 
-    url(../../../img/22/index/ch0101_bg_fruit_and_table_light.png),
     url(../../../img/22/index/ch0101_bg_green_screen.png);
-    background-attachment: scroll;
     background-repeat: no-repeat;
-    background-position: 0% 50%;
     .ch01BgShining{
         position: absolute;
         top: 0;
+        z-index: 2;
         }
         #ch01BgShining01{
-            animation: fadeInOut 5s infinite ease-in-out;
+            animation: fadeInOut 3s infinite ease-in-out;
         }
         #ch01BgShining02{
-            animation: fadeInOut 7s infinite ease-in-out;
+            animation: fadeInOut 5s infinite ease-in-out;
+        }
+        #ch01BgFruit{
+            position: absolute;
+            bottom: -120px;
+            z-index: -1;
+            @include rwd("smallPhone"){
+                width: 750px;
+                bottom: 0;
+            }
         }
     }
     #ch01Slide02{
