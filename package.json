@@ -4,7 +4,10 @@
   "description": "| 名字 | username |\r | ----- | --------------- |\r | 煥強: | Jiang-Chiang |\r | 怡欣: | jeanshr682688 |\r | 文婷: | yuria1215 |\r | 廷翰: | joshtinhan |\r | 維宜: | weiyi-li00 |\r | 于傑: | j23063519 |",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "安裝套件": "npm install",
+    "開發": "gulp",
+    "打包": "gulp package",
+    "gulp結構": "gulp --tasks"
   },
   "repository": {
     "type": "git",
@@ -17,8 +20,17 @@
     "url": "https://github.com/j23063519/lovefood/issues"
   },
   "homepage": "https://github.com/j23063519/lovefood#readme",
+  "devDependencies": {
+    "bootstrap-sass": "^3.4.1",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-zip": "^5.0.2",
+    "node-sass": "^5.0.0",
+    "normalize-scss": "^7.0.1"
+  },
   "dependencies": {
-    "bootstrap": "^4.5.3",
     "counterup": "^1.0.2",
     "fullpage.js": "^3.0.9",
     "jquery": "^3.5.1",

@@ -7,3 +7,6 @@ css/reset/*.css
 css/reset/*.css.map
 node_modules
 fonts
+css/backend
+node_modules
+backend/temp.html
