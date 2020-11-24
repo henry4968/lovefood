@@ -18,23 +18,68 @@
     position: fixed;
     background: transparent;
     z-index: 9;
+    @include newRwd("bigPhone"){
+        width: 100%;
+        height: 55px;
+    }
+    // 漢堡選單開始
+    #hamburgerMenuToggle{
+        opacity: 0;
+    }
+    #hamburgerMenuButton{
+        width: 50px;
+        height: 35px;
+        background-color: black;
+        align-self: center;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        display: none;
+        span{
+            display: block;
+        }
+        span, span::before, span::after{
+            content: '';
+            display: block;
+            width: 50px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #FDFBBA;
+            position: absolute;
+            }
+        span{
+            top: 45%;
+            &::before{
+                content: '';
+                top: -15px;
+            }
+            &::after{
+                content: '';
+                top: 15px;
+            } 
+        }
+        @include newRwd("bigPhone"){
+            display: block;
+        }
+    }
+    // 漢堡選單結束
     #headerContentContainer{
         width: 1180px;
         height: 50px;
         margin: 38px 0px 0px 364px;
         display: flex;
         justify-content: space-between;
-        @include newrwd("laptop"){
+        @include newRwd("laptop"){
             width: 970px;
             margin: auto;
             align-items: center;
         }
-        @include newrwd("pad"){
+        @include newRwd("pad"){
             width: 920px;
             margin: auto;
             align-items: center;
         }
-        @include newrwd("bigPhone"){
+        @include newRwd("bigPhone"){
             display: none;
         }
         #logo{
@@ -43,12 +88,12 @@
             // &:hover{
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
-            @include newrwd("laptop"){
+            @include newRwd("laptop"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
             }
-            @include newrwd("pad"){
+            @include newRwd("pad"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
@@ -60,16 +105,16 @@
             height: 50px;
             display: flex;
             align-items: center;
-            @include newrwd("laptop"){
+            @include newRwd("laptop"){
                 width: 625px;
                 align-items: center;
             }
             a{
                 font-size: 30px;
-                @include newrwd("laptop"){
+                @include newRwd("laptop"){
                     font-size: 20px;
                 }
-                @include newrwd("pad"){
+                @include newRwd("pad"){
                     font-size: 20px;
                 }
             }
@@ -81,7 +126,7 @@
             }
             :nth-child(2),:nth-child(3){
                 margin-left: 25px;
-                @include newrwd("laptop"){
+                @include newRwd("laptop"){
                     margin-left: 20px;
                 }
             } 
@@ -97,14 +142,14 @@
                         background-color: #FFE45E;
                     }
                     margin: 0px 28px;
-                    @include newrwd("laptop"){
+                    @include newRwd("laptop"){
                         width: 114px;
                     }
                 }
             }
             .navIcons{
                 img{
-                    @include newrwd("laptop"){
+                    @include newRwd("laptop"){
                         width: 30px;
                         
                     }
@@ -157,12 +202,12 @@
             }
         }
         #mainSlogan01{
-            @include newrwd("bigPhone"){
+            @include newRwd("bigPhone"){
                 position: static;
                 text-align: center;
                 margin: auto;
             }
-            @include newrwd("mediumPhone"){
+            @include newRwd("mediumPhone"){
                 width: 285px;
                 height: 320px;
                 position: static;
@@ -191,7 +236,7 @@
             }
         }
         #mainSlogan02, #mainSlogan03, #mainSlogan04{
-            @include newrwd("laptop"){
+            @include newRwd("laptop"){
                 text-align: center;
                 transform: translate(-50%, -50%);
                 top: 35%;
@@ -235,7 +280,7 @@
                 left: 689px;
                 top: 67px;
             }
-            @include newrwd('laptop'){
+            @include newRwd('laptop'){
                 transform: translate(-50%, -50%);
                 top: 65%;
                 left: 50%;
@@ -263,7 +308,7 @@
             position: absolute;
             bottom: -120px;
             z-index: -1;
-            @include newrwd("smallPhone"){
+            @include newRwd("smallPhone"){
                 width: 750px;
                 bottom: 0;
             }
@@ -557,11 +602,11 @@
         top: 40px;
     }
     #ch05MemoContainer{
-        @include newrwd("desktop"){
+        @include newRwd("desktop"){
             width: 1500px;
             height: 650px;
         }
-        @include newrwd("laptop"){
+        @include newRwd("laptop"){
             width: 970px;
             height: 720px;
         }
