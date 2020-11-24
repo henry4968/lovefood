@@ -1002,6 +1002,8 @@
 }
 
 #chapter05 #ch05MemoContainer {
+  width: 1500px;
+  height: 650px;
   border: 13px solid #E6ECE2;
   -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
