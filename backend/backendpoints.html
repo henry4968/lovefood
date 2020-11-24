@@ -84,39 +84,47 @@
                     </ul>
                 </div>
             </aside>
-        </div>
-        <main>
-            <div id="pointsDataFilterArea">
-                <div id="pointsDataFilterTabsBlock">
-                    <div id="pointsDataFilterTab01">全部</div>
-                    <div id="pointsDataFilterTab02">批次發放</div>
-                    <div id="pointsDataFilterTab02">單筆發放</div>
-                </div>
-                <div id="pointsDataFilter">
-                    <div id="pointsDataFilterLeftUpperBlock">
-                        訂單編號
-                        <input type="text">
-                        會員編號
-                        <input type="text">
-                        會員帳號
-                        <input type="text">
-                        會員手機
-                        <input type="text">
+            <main>
+                <div id="pointsDataFilterArea">
+                    <div id="pointsDataFilterTabsBlock">
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">全部</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次發放</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">單筆發放</div>
                     </div>
-                    <div id="pointsDataFilterLeftDownerBlock">
-                        點數狀態：
-                        <input type="checkbox" name="" id="">已發放
-                        <input type="checkbox" name="" id="">已使用
-                    </div>
-                    <div id="pointsDataFilterRightUpperBlock">
-                        <div>
-                            查詢區間<input type="datetime-local" name="" id="">
-                            <img src="" alt="">
+                    <div id="pointsDataFilter">
+                        <div id="pointsDataFilterLeftUpperBlock">
+                            <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
+                                訂單編號
+                                <input type="text">
+                                會員編號
+                                <input type="text">
+                            </div>
+                            <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
+                                會員帳號
+                                <input type="text">
+                                會員手機
+                                <input type="text">
+                            </div>
                         </div>
-                        <div>
-                            特殊會員狀態：
-                            <div>查詢</div>
-                            <div>新增</div>
+                        <div id="pointsDataFilterLeftDownerBlock">
+                            點數狀態：
+                            <input type="checkbox" name="" id="">已發放
+                            <input type="checkbox" name="" id="">已使用
+                        </div>
+                        <div id="pointsDataFilterRightBlock">
+                            <div>
+                                查詢區間<input type="datetime-local" name="" id="">
+                                <img src="" alt="">
+                            </div>
+                            <div id="membersPointsActionBlock">
+                                特殊會員狀態：
+                                <a href="#0">
+                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
+                                </a>
+                                <a href="#0">
+                                    <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -132,27 +140,27 @@
                             <th>功能鍵</th>
                         </tr>
                         <tr>
-                            <td>00002</td>
+                            <td>00001</td>
                             <td>AA2020103000001</td>
                             <td>jabida@gmail.com</td>
                             <td>2020110100001</td>
                             <td>2020-11-01 13:30</td>
                             <td>-54</td>
-                            <td>
-                                <div>編輯</div>
-                                <div>查詢</div>
+                            <td class="pointsDataActionBlock">
+                                <div class="pointsDataActionButton">編輯</div>
+                                <div class="pointsDataActionButton">查詢</div>
                             </td>
                         </tr>
                         <tr>
-                            <td>00001</td>
+                            <td>00002</td>
                             <td>AA2020103000001</td>
                             <td>jabida@gmail.com</td>
                             <td></td>
                             <td>2020-10-31 13:30</td>
                             <td>+1000</td>
-                            <td>
-                                <div>編輯</div>
-                                <div>查詢</div>
+                            <td class="pointsDataActionBlock">
+                                <div class="pointsDataActionButton">編輯</div>
+                                <div class="pointsDataActionButton">查詢</div>
                             </td>
                         </tr>
                     </table>
@@ -167,8 +175,8 @@
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
-            </div>
-        </main>
+            </main>
+        </div>
     </div>
 </body>
 
