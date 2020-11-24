@@ -167,21 +167,42 @@ main{
                 font-size: 14px;
                 text-align: center;
                 .pointsDataActionBlock{
-                    height: 100%;
                     display: flex;
                     justify-content: space-around;
-                    .pointsDataActionButton{
-                        width: 45px;
-                        height: 26px;
-                        border-radius: 3px;
-                        background-color: #D3E4C6;
-                        font-size: 14px;
-                        text-align: center;
-                        color: #707070;
-                        
+                    height: 50px;
+                    a{
+                        display: block;
+                        align-self: center;
+                        .pointsDataActionButton{
+                            width: 45px;
+                            height: 26px;
+                            border-radius: 3px;
+                            background-color: #D3E4C6;
+                            font-size: 14px;
+                            text-align: center;
+                            color: #707070;
+                            line-height: 26px;
+                            
+                        }
+                    }
                 }
-            }
         
+            }
+        }
+    }
+    #pagination{
+        position: absolute;
+        transform: translate(-50% , 50%);
+        left: 55%;
+        bottom: 27px;
+        font-size: 27px;
+        a{
+            color: #887664;
+            text-decoration: none;
+            &:hover{
+                background-color: #887664;
+                color: #FFFFFF;
+            }
         }
     }
 }

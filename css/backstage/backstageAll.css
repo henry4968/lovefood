@@ -6465,13 +6465,29 @@ main {
         text-align: center; }
         main #pointsDataArea table tr .pointsDataActionBlock {
           display: flex;
-          justify-content: space-around; }
-          main #pointsDataArea table tr .pointsDataActionBlock .pointsDataActionButton {
-            width: 45px;
-            height: 26px;
-            border-radius: 3px;
-            background-color: #D3E4C6;
-            font-size: 14px;
-            text-align: center;
-            color: #707070;
+          justify-content: space-around;
+          height: 50px; }
+          main #pointsDataArea table tr .pointsDataActionBlock a {
+            display: block;
             align-self: center; }
+            main #pointsDataArea table tr .pointsDataActionBlock a .pointsDataActionButton {
+              width: 45px;
+              height: 26px;
+              border-radius: 3px;
+              background-color: #D3E4C6;
+              font-size: 14px;
+              text-align: center;
+              color: #707070;
+              line-height: 26px; }
+  main #pagination {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    left: 55%;
+    bottom: 27px;
+    font-size: 27px; }
+    main #pagination a {
+      color: #887664;
+      text-decoration: none; }
+      main #pagination a:hover {
+        background-color: #887664;
+        color: #FFFFFF; }
