@@ -1,0 +1,28 @@
+@import "../../layout/_backstageNav.scss";
+@import "../../layout/_backstageSidebar.scss";
+
+
+
+.asideMainWrapper{
+    position: relative;
+    padding-top:110px;
+    display: flex;
+    width:1200px;
+    margin:0 auto;
+    .headerMainWrapper{
+        .headerWrapper{
+            background-color: $y;
+        }
+    }
+}
+.sideNav div:nth-child(1){    //會員管理
+    background-color: $brown;
+    svg{
+       Path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+}

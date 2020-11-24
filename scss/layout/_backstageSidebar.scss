@@ -1,0 +1,106 @@
+aside{
+    background-color: $y;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    div{
+       width:100%;
+            .member{
+                padding:0;
+                list-style: none;
+                li{
+                    list-style: none;
+                    font-size: 15px;
+                    padding:5px;
+                }
+                
+            }
+            .sideNav{
+                padding:0;
+                list-style: none;
+                div{
+                    text-align:center;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    svg{
+                        position: relative;
+                        width:30px;
+                        height:30px;
+                        right:15px;
+                }
+                li{
+                    line-height: 3;
+                    list-style: none;
+                    font-size: 20px;
+                    span{
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+                
+            
+        }
+    }
+
+    // =====變色在該頁面複製過去即可=====
+
+// .sideNav div:nth-child(1){    //會員管理
+//     background-color: $brown;
+//     svg{
+//        path{
+//          fill:#fff;
+//        } 
+//     }
+//     li{ 
+//         color:#fff;
+//     }
+// }
+// .sideNav div:nth-child(2){   //訂單管理
+//     background-color: $brown;
+//     svg{
+//         path{
+//           fill:#fff;
+//         } 
+//      }
+//     li{
+//         color:#fff;
+//     }
+// }
+// .sideNav div:nth-child(3){   //商品管理
+//     background-color: $brown;
+//     svg{
+//         path{
+//           fill:#fff;
+//         } 
+//      }
+//     li{
+//         color:#fff;
+//     }
+// }
+// .sideNav div:nth-child(4){   //財務管理
+//     background-color: $brown;
+//     svg{
+//         path{
+//           fill:#fff;
+//         } 
+//      }
+//     li{
+//         color:#fff;
+//     }
+// }
+// .sideNav div:nth-child(5){    //點數管理
+//     background-color: $brown;
+//     svg{
+//         path{
+//           fill:#fff;
+//         } 
+//      }
+//     li{
+//         color:#fff;
+//     }
+// }

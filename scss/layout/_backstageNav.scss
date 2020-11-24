@@ -1,0 +1,32 @@
+body{
+    background-image: url("../../img/23/fullScreen.jpg");
+}
+.navWrapper{
+    position:fixed;
+    width:100%;
+    background-color: $pg;
+    z-index: 99;
+    nav{
+        width:1200px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .navLeft{
+        display: flex;
+        align-items: center;
+        img{
+            position: relative;
+            top:-3px;
+        }
+        h1{
+            padding-left:2vw;
+            color:$t;
+        }
+    }
+    img{
+        display: block;
+
+    }
+}
