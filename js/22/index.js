@@ -19,6 +19,7 @@ $(function () {
             console.log(destination);
             switch (destination.index) {
                 case 0:
+                    $('#hamburgerMenuButton').css('color', '#FDFBBA');
                     $('#logo').attr('src', '../img/22/index/ch01_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch01_header_logo_hover.png');
@@ -59,6 +60,7 @@ $(function () {
                     });
                     break;
                 case 1:
+                    $('#hamburgerMenuButton').css('color', '#FFFFFF');
                     $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
