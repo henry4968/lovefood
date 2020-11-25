@@ -13,6 +13,20 @@
                 $(".financeDataFilterTab").removeClass("tabActive");
                 $(this).addClass("tabActive");
             });
+
+            $("#financeDataFilterTab01").click(function () {
+                $("#financeShowSellingPage").css("display", "block");
+                $("#supplierID").css("display", "block");
+                $("#financeShowDonationPage").css("display", "none");
+
+            });
+
+            $("#financeDataFilterTab02").click(function () {
+                $("#financeShowSellingPage").css("display", "none");
+                $("#supplierID").css("display", "none");
+                $("#financeShowDonationPage").css("display", "block");
+
+            });
         });
     </script>
 </head>
@@ -106,8 +120,10 @@
                             <a href="#0">
                                 <img src="../img/22/backend/backend_icon_calendar.png" alt="">
                             </a>
-                            賣家編號
-                            <input type="text">
+                            <div id="supplierID">
+                                賣家編號
+                                <input type="text">
+                            </div>
                         </div>
                         <div id="financeFilterDownload">下載：</div>
                         <a href="">
@@ -116,13 +132,129 @@
                     </div>
                 </div>
                 <div id="financeDataArea">
-                    <div id="financeShowPage">
-                        <div id="financeShowDataBlock">
-                            查詢時間： 2020-10-21～2020-10-31<br>
-                            訂單筆數：<div class=""></div>筆<br>
-                            銷售總額：<div></div>元
+                    <div id="financeShowSellingPage">
+                        <div id="financeShowResultBlock">
+                            <div class="financeShowResultRow">
+                                查詢時間： 2020-10-21～2020-10-31
+                            </div>
+                            <div class="financeShowResultRow">
+                                訂單筆數：<input type="text" class="financeSearchResult">筆
+                            </div>
+                            <div class="financeShowResultRow">
+                                銷售總額：<input type="text" class="financeSearchResult">元
+                            </div>
                         </div>
-                        <div id="financeDiagram"></div>
+                        <div id="financeDiagram">
+                            <img src="../img/22/backend/temp_diagram.png" alt="">
+                        </div>
+                    </div>
+                    <div id="financeShowDonationPage">
+                        <div id="donationDate">
+                            查詢時間：2020-10-21～2020-10-31
+                        </div>
+                        <div id="donationAmount">
+                            捐款總額：<input type="text">元
+                        </div>
+                        <table id="donationTable">
+                            <tr id="donationTableHeader">
+                                <th>序號</th>
+                                <th>捐款單號</th>
+                                <th>捐款姓名</th>
+                                <th>捐款金額</th>
+                                <th>捐款時間</th>
+                                <th>狀態</th>
+                                <th>功能鍵</th>
+                            </tr>
+                            <tr>
+                                <td>00001</td>
+                                <td>2020110100001</td>
+                                <td>張互賓</td>
+                                <td>10000</td>
+                                <td>2020-11-01 13:30</td>
+                                <td>成功</td>
+                                <td class="pointsDataActionBlock">
+                                    <a href="">
+                                        <div class="pointsDataActionButton">編輯</div>
+                                    </a>
+                                    <a href="">
+                                        <div class="pointsDataActionButton">查詢</div>
+                                    </a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>00002</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00003</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00004</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00005</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00006</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00007</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td>00008</td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                        </table>
+                        <div id="pagination">
+                            <a href="#0">＜</a>
+                            <a href="#0">1</a>
+                            <a href="#0">2</a>
+                            <a href="#0">3</a>
+                            <a href="#0">4</a>
+                            <a href="#0">5</a>
+                            <a href="#0">＞</a>
+                            <a href="#0">最末頁</a>
+                        </div>
                     </div>
                 </div>
             </main>
