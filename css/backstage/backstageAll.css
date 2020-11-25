@@ -6491,3 +6491,137 @@ main {
       main #pagination a:hover {
         background-color: #887664;
         color: #FFFFFF; }
+
+body {
+  background-image: url("../../img/23/fullScreen.jpg"); }
+
+.navWrapper {
+  position: fixed;
+  width: 100%;
+  background-color: #d2e4c9;
+  z-index: 99; }
+  .navWrapper nav {
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .navWrapper .navLeft {
+    display: flex;
+    align-items: center; }
+    .navWrapper .navLeft img {
+      position: relative;
+      top: -3px; }
+    .navWrapper .navLeft h1 {
+      padding-left: 2vw;
+      color: #8c7a6b; }
+  .navWrapper img {
+    display: block; }
+
+aside {
+  background-color: #f3e8c4;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  aside div {
+    width: 100%; }
+    aside div .member {
+      padding: 0;
+      list-style: none; }
+      aside div .member li {
+        list-style: none;
+        font-size: 15px;
+        padding: 5px; }
+    aside div .sideNav {
+      padding: 0;
+      list-style: none; }
+      aside div .sideNav div {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        aside div .sideNav div svg {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          right: 15px; }
+        aside div .sideNav div li {
+          line-height: 3;
+          list-style: none;
+          font-size: 20px; }
+          aside div .sideNav div li span {
+            display: inline-block; }
+
+.asideMainWrapper {
+  position: relative;
+  padding-top: 110px;
+  width: 1200px;
+  margin: 0 auto; }
+  .asideMainWrapper .headerMainWrapper .headerWrapper {
+    background-color: #f3e8c4; }
+
+.sideNav div:nth-child(5) {
+  background-color: #897666; }
+  .sideNav div:nth-child(5) svg Path {
+    fill: #fff; }
+  .sideNav div:nth-child(5) li {
+    color: #fff; }
+
+main {
+  box-sizing: border-box;
+  width: 980px; }
+  main #financeDataFilterArea, main #financeDataArea {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #F3E9C0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    margin-left: 15px; }
+  main #financeDataFilterArea {
+    padding: 27px 30px 27px 30px;
+    height: 209px; }
+    main #financeDataFilterArea #financeDataFilterBlock {
+      box-sizing: border-box;
+      width: 365px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      main #financeDataFilterArea #financeDataFilterBlock .financeDataFilterTab {
+        width: 180px;
+        height: 100%;
+        font-size: 24px;
+        line-height: 55px;
+        color: #8F8770;
+        text-align: center;
+        background-color: #FAFDDD;
+        box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+        cursor: pointer; }
+      main #financeDataFilterArea #financeDataFilterBlock .tabActive {
+        background-color: #EDEBD8; }
+    main #financeDataFilterArea #financeFilter {
+      width: 920px;
+      height: 110px;
+      background-color: #EBECE3;
+      border-radius: 13px;
+      box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2); }
+  main #financeDataArea {
+    height: 578px;
+    margin-top: 20px;
+    padding: 27px 17px 27px 17px; }
+  main #pagination {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    left: 55%;
+    bottom: 27px;
+    font-size: 27px; }
+    main #pagination a {
+      color: #887664;
+      text-decoration: none; }
+      main #pagination a:hover {
+        background-color: #887664;
+        color: #FFFFFF; }
