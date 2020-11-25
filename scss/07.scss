@@ -5,88 +5,683 @@
     height: 123px;
     background-color: palegreen;
 }
-.wrap{
-    background-color:$b;
+
+*{
+    color: #545454;
+}
+
+#header{
+    width: 100%;
+    height: 123px;
+    display: flex;
+    position: fixed;
+    background: transparent;
+    z-index: 9;
+    @include newRwd("bigPhone"){
+        width: 100%;
+        height: 55px;
+    }
+    // 漢堡選單開始
+    #hamburgerMenuToggle{
+        opacity: 0;
+        &:checked + #hamburgerMenuButton > span{
+            transform: rotate(45deg);
+            &::before{
+                top: 0;
+                transform: rotate(0deg);
+            }
+            &::after{
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+        &:checked ~ #navigationForMobile{
+            left: 0;
+        }
+    }
+    #hamburgerMenuButton{
+        width: 45px;
+        height: 35px;
+        align-self: center;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        display: none;
+        span{
+            display: block;
+        }
+        span, span::before, span::after{
+            content: '';
+            display: block;
+            width: 45px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #FDFBBA;
+            position: absolute;
+            transition-duration: .35s;
+            }
+        span{
+            top: 45%;
+            &::before{
+                content: '';
+                top: -15px;
+            }
+            &::after{
+                content: '';
+                top: 15px;
+            } 
+        }
+        @include newRwd("bigPhone"){
+            display: block;
+        }
+    }
+    // 漢堡選單結束
+    // 行動版導覽列開始
+    #navigationForMobile{
+        display: none;
+        @include newRwd("bigPhone"){
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 55px;
+            left: -100%;
+            background-color: white;
+            opacity:80%;
+            transition-duration: .35s;
+            #searchBarForMobile{
+                width: 100%;
+                height: 70px;
+                background-color: lightgrey;
+                display: flex;
+                #searchInputForMobile{
+                    width: 80%;
+                    height: 60%;
+                    border-radius: 20px;
+                    background-color: #FFFFFF;
+                    display: block;
+                    margin: auto;
+                    align-self: center;
+                }
+            }
+            li{
+                list-style: none;
+                text-align: center;
+                font-size: 24px;
+                margin: 30px 0px 0px 0px;
+                a{
+                    color: #515151;
+                }
+            }
+        }
+    }
+    // 行動版導覽列結束
+    #headerContentContainer{
+        width: 1180px;
+        height: 50px;
+        margin: 38px 0px 0px 364px;
+        display: flex;
+        justify-content: space-between;
+        @include newRwd("laptop"){
+            width: 970px;
+            margin: auto;
+            align-items: center;
+        }
+        @include newRwd("pad"){
+            width: 920px;
+            margin: auto;
+            align-items: center;
+        }
+        #logo{
+            width: 264px;
+            height: 46px;
+            // 首頁由js控制代替的hover變色
+            // &:hover{
+            //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
+            // }
+            @include newRwd("laptop"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+            @include newRwd("pad"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+            @include newRwd("bigPhone"){
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+            }
+        }
+        // 桌機版導覽列開始
+        #navigationForPC{
+            width: 762px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            @include newRwd("laptop"){
+                width: 625px;
+                align-items: center;
+            }
+            a{
+                font-size: 30px;
+                @include newRwd("laptop"){
+                    font-size: 20px;
+                }
+                @include newRwd("pad"){
+                    font-size: 20px;
+                }
+                @include newRwd("bigPhone"){
+                    display: none;
+                }
+            }
+            .navGeneralAnchors{
+                color: #FDFBBA;
+                &:hover{
+                    color: #FFE45E;
+                }
+            }
+            :nth-child(2),:nth-child(3){
+                margin-left: 25px;
+                @include newRwd("laptop"){
+                    margin-left: 20px;
+                }
+            } 
+            #navSepcialAnchor{
+                color: #858585;
+                div{
+                    width: 139px;
+                    height: 100%;
+                    border-radius: 3px;
+                    text-align: center;
+                    background-color: #FFFF9B;
+                    &:hover{
+                        background-color: #FFE45E;
+                    }
+                    margin: 0px 28px;
+                    @include newRwd("laptop"){
+                        width: 114px;
+                    }
+                }
+            }
+            .navIcons{
+                img{
+                    @include newRwd("laptop"){
+                        width: 30px;
+                        
+                    }
+                }
+            }
+            #navIcons02, #navIcons03{
+                margin-left: 20px;
+            }
+        }
+        // 桌機版導覽列結束
+        // 行動版次導覽列開始
+        #subNavigationForMobile{
+            display: none;
+            @include newRwd("bigPhone"){
+                display: block;
+                border: 1px solid red;
+                width: 96px;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                right: 10px;
+            }
+        }
+        // 行動版次導覽列結束
+    }
+}
+// 標頭結束
+
+
+.banner{
+    width: map-get($Wth, 100 );
+    height: 70vh;
+    background-color: $D3;
+    position: relative;
+    background-image: url(../img/07/banner_new.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    
+    .lovefood{
+        width: map-get($Wth, 100 );
+        transform: translate(-10px,50px);
+        position: absolute;
+    }
+}
+.apple{
+    position: absolute;
+    top: 30%;
+    left: 20%;
+
+    .apple{
+        position: absolute;
+        width: 40%;
+        top: 12%;
+        left:19%;
+        
+    }
+    // .spantext{
+    //     // border: 1px solid fuchsia;
+    // }
+}
+/////////apple_RWD
+@media screen and (max-width:585px){
+    .span{
+        font-size: 22px;
+    }
+}
+@include store('bigPhone'){
+    .banner{
+        height: 50vh;
+    }
+    .apple{
+        top: 27%;
+        left: 10%;
+    }
     
 }
 
+@include store ('mediumPhone'){
+    .apple{
+        top: 25%;
+        left: -2%;
+    }
+}
+
+@include rwd ('smallPhone'){
+    .span span.span1{
+        font-size: 30px;
+    }
+    .span span.span2{
+        font-size: 14px;
+    }
+}
+
+
+.span{
+    // border: 1px solid firebrick;
+    display: flex;
+    flex-direction: column;
+    width: map-get($Wth, 100 );
+    position: relative;
+    left: map-get($Wth, 50 );
+    margin-top: 14%;
+    .span1,.span2{
+        // border: 1px solid $P;
+        color: $D7;
+    }
+    .span1{
+        font-size: 40px;
+        margin-bottom: 10px;
+    }
+    .span2{
+        font-size: 24px;
+
+    }
+}
+/////////benner結束//////////
+
+////////搜尋區///////////////
+/////////800px以上//////////
+
+#fm1{
+    background-color: $FB;
+}
 #search{
-    background-color: $g;
-    width: map-get($Wth, 60 );
+    background-color: $FB;
+    // border: 2px solid red;
+    width: 98%;
     margin: 0 auto;
     display: flex;
+    justify-content: center;
     // padding: 20px
     
     
 }
+    
 #span{
     // border: 1px solid $R;
-    background-color:$P;
-    display: flex;
-    padding: 20px;
+    background-color:$F3;
+    // display: inline-block;
+    // width: 110px;
+    padding: 15px;
     font-size: 22px;
-    // @extend .selector_ul
+    // height: 26px;
+//     @extend .selector_ul
     
-}
-.selector_ul{
+ }
+ .selector_ul{
     display:flex;
-    // border: 2px solid $G;   
-    padding: 20px; 
+    border: 2px solid $G; 
+    align-items: center;
+    // justify-content: center;
     font-size: map-get($font , 22 );
-    justify-content: space-evenly;
-    width: 75%;
+    cursor: pointer;
+    width: 1200px;
+
+        .areaName{
+            // border: 2px solid $G;
+            margin: 0 15px;
     
-    
-}
+   }
+}  
+
 .selector_ul{
-            .areaName{
-                // border: 2px solid $G;
-                // margin: 0 15px;
-                .searchName{
-                    font-size: map-get($font , 20 );
+        #btnMap{
+            text-decoration: none;
+            color: #545454;
+            display: inline-block;
+            background-color:$F3;
+            border-radius: 10px;
+            padding: 5px;
+            &:hover,&:active{
+                color: $ff;
+                background-color: $C9;
+                border: $C9;
+            }
+            .iconMap{
+                width: 20%;
+                margin-right: 5px;
+            }
+            span.mapText{
+                &:hover{
+                    color: $ff;
+            
                 }
             }
-            #btnMap{
-                font-size: map-get($font , 16);
-            }
-    
+        }            
 }
 
-.itemArea{
-    // border: $bd4 solid $R;
-    width: map-get($Wth, 60 );
-    margin: 0 auto;
-    // display: flex;
-    display: none;
-    cursor: pointer;
-    
-    .itemName{
-        @include B();
-        display:flex;
-        font-size: map-get($font , 22 );
-        flex-grow: 1;
-        width: map-get($Wth, 20 );
+///////////799以下/////////////////
+@media screen and (min-width:320px) and (max-width:799px){
+    #fm1{
+        display: flex; 
+        justify-content: center;
+    }
+    #search{
+        display: flex;
+        margin: 0  !important; 
+        padding: 0  !important;
+        width: 100%;
+    }
+    #span{
+        display: none;
+    }
+    .selector_ul{
+        display: flex;
         padding: 10px;
-        // margin: 0 auto;
+        width: 100%;
+        justify-content: center;
+        .areaName{
+            margin: 0 3px !important;
+            
+            &:nth-child(4){
+                margin: 0px -2px !important;
+            }
+        }
+        #selectAll{
+            display: none;
+        }
+        
+    }
+    .btnMap{
+        .mapText{
+            display: none;
+
+        }
+        .iconMap{
+            float: right;
+            width: 60% !important;
+        }
+    }
+    #selectBlock,#BTN{
+        display: none;
     }
 }
-div.btn{
+.wrap{
+    // background-image: url(../img/bi2.png);
+    background-image: url(../img/07/backgroud.png);
+    background-repeat: repeat;
+    // background-color:$D3;
+}
+//////////次級選單////////////
+.itemArea{
+    // border: 2px solid $P;
+    display: flex;
+    width: 100%;
+   
+    justify-content: center;
+
+    .itemName{
+        justify-content: center;
+        width: 385px;
+        // flex-grow: 1;
+        padding: 10px;
+        border-right: 1px solid #F3E9C0;
+        background-color: $FB;
+        font-size: map-get($font, 22 );
+        p{
+            padding: 8px;
+            // width: 50px;
+            // margin: 0 auto;
+            display: flex;
+        }   
+        .pText{
+            @extend p ;
+            margin: 0 auto;
+        }
+                
+    }
+    #itemName6,#itemName5,#itemName7{
+        width: 1200px;
+
+    }
+}
+@media screen and (min-width:320px) and (max-width:799px){
+        .itemName{
+            p{
+                width: 50px;
+                margin: 0 auto;
+            }
+        }
+
+}
+#nth3{
+    // @extend p ;
+    width: 100px;
+    margin: 0 auto;
+}
 
 
+    .itemName2Wth{
+        display: flex;
+        justify-content: center;
+        #group3,#group4,#group5,#group6{
+            width: 160px;
+        }
+    }
+
+.btn{
+    display: flex;
+    justify-content: center;
     #btn{
-        // width:map-get($wthPX,50);
-        font-size: map-get($font , 16 );
-        margin: 0 auto;
-        display: block;
-        // width: 100%;
-        border: 2px solid $d4;
+        background-color: $C9;
+        color: $ff;
+        font-size: map-get($font, 22 );
     }
 }
-.group{
-    border: 1px solid $G;
-    width: 120px;
+
+
+.context{
+    // display: flex;
+    // border: 1px solid $P;
+    // width: 100%;
+    // height: 200px;
+    // background-color: $D7;
+        // width: 1200px;
+    .productArea{
+        // background-color: $d4;
+        // width: 65%;
+        width: 1200px;
+        margin: 0 auto;
+        // border: 1px solid goldenrod;
+
+        // display: flex;
+        // flex-wrap: wrap;
+        // justify-content: center;
+        
+    }
+}
+///////////1200px以下時////////////////
+@media screen and (max-width: $laptop ){
+    .context .productArea{
+        width: 100%;
+    }
+
+}
+
+.width_2P{
+    display: flex;
+    flex-wrap: wrap;
+    // width: 100%;
+    // justify-content: space-between;
+    justify-content: center;
+    .product{
+        // width: 25%;
+        // margin-right: 18px;
+        margin-bottom: 20px;
+        // padding: 20px;
+        margin: 0 15px 20px 0;
+        font-size: 22px;
+        // border: 1px solid $P;
+        .pdtText{
+            // width: 190px;//(190px)/2
+            margin: 0 auto;
+            // margin-bottom: 10px;
+            padding: 20px;
+            border-radius: 30px 30px 0 0;
+            background-color: $FB;
+            .pdtTime{
+                font-size: 30px;
+                margin: 3px;
+                color: red;
+            }
+        }
+
+        
+
+        .productBottom{
+        display: flex;
+        padding: 20px;
+        background-color: $F3;
+        border-radius: 0 0 30px 30px;
+        position: relative;
+            .carImg{
+                padding: 12px;
+                width: 35px;
+                border-radius: 30px;
+                background-color: #C9BE9F;
+                position: absolute;
+                bottom: 20px;
+                left: 217px;
+            }
+            .pdtExplanation{
+                .pdtTime{
+                    padding: 10px;
+                    li{
+                        &::before{
+                            margin: 10px 0px 10px;
+                        }
+                    }
+                }
+
+                
+            }
+        }
+    }
+}
+.productCenter{
+    .pdtExplanation{
+        padding: 15px 0px 15px 15px;
+        display: flex;
+        // border: 1px solid $cf;
+        background-color:$F2;
+
+        
+            .pdtTitle{
+                margin-right: 20px;
+            }
+            #liM{
+               margin: 10px 0;
+                
+            }
+        
+    }
+    .pdtImg{
+        padding: 13px;
+        background-color:$F2;
+        // cursor: pointer;
+    }
+}
+.much{
     display: flex;
     flex-direction: column;
-    // flex-wrap: nowrap;
-    // margin: 0 auto;
+    // padding: 10px;
+    .muchSpan{
+            display: flex;
+            flex-direction: column;
+            font-size: 28px;
+            color: $R;
+            margin-bottom: 10px;
+            
+
+    }
+    del{
+        font-size: 20px;
+    }
 }
+.pdtQuantity{
+    button{
+        background-color: #C9BE9F;
+
+    }
+    button.left{
+        margin-right: -7px;
+
+    }
+    button.right{
+        margin-left: -7px;
+    }
+}
+
+svg.pdtsvg{
+    font-size: 10px;
+    width: 10px;
+    height: 10px;
+}
+    
+    .pdtValue{
+        width: 50px;
+        // height: 32px;
+        // border-left: none;
+        // border-right: none;
+        font-size: 16px;
+        font-weight: 400;
+        // -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        text-align: center;
+        cursor: text;
+        border-radius: 0;
+        border: none;
+        color: #C9BE9F;
+        // -webkit-appearance: none;
+    }
+
