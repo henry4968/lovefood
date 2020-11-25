@@ -15,7 +15,7 @@
     height: 123px;
     display: flex;
     position: fixed;
-    background: transparent;
+    background:$D3;
     z-index: 9;
     @include newRwd("bigPhone"){
         width: 100%;
@@ -515,7 +515,8 @@
     #btn{
         background-color: $C9;
         color: $ff;
-        font-size: map-get($font, 22 );
+        // font-size: map-get($font, 22 );
+        font-size: 22px;
     }
 }
 
