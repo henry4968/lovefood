@@ -4,9 +4,10 @@ body{
 .navWrapper{
     position:fixed;
     width:100%;
-    background-color: $pg;
+    background-color: $ny;
     z-index: 99;
     nav{
+        position:relative;
         width:1200px;
         margin: 0 auto;
         display: flex;

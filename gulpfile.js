@@ -1,9 +1,10 @@
-var gulp = require("gulp");
-var sass = require("gulp-sass");
 
-function watch(){
-    gulp.watch(['scss/page/backstage/*.scss',], style)
-}
+const {
+    src , dest , watch
+} = require('gulp');
+const sass = require("gulp-sass");
+
+
 
 var paths = {
     styles: {
@@ -16,13 +17,11 @@ var paths = {
 };
 
 function style() {
-
-    watch();
-
-    return gulp
-        .src(paths.styles.src)
+    return src(paths.styles.src)
         .pipe(sass())
         .on("error", sass.logError)
-        .pipe(gulp.dest(paths.styles.dest));
+        .pipe(dest(paths.styles.dest));
 }
-exports.default = style;
+exports.default = function watchs(){
+    watch(['scss/page/backstage/*.scss',], style)
+}

@@ -2285,9 +2285,10 @@ body {
 .navWrapper {
   position: fixed;
   width: 100%;
-  background-color: #d2e4c9;
+  background-color: #f6f7dd;
   z-index: 99; }
   .navWrapper nav {
+    position: relative;
     width: 1200px;
     margin: 0 auto;
     display: flex;
@@ -2341,6 +2342,26 @@ aside {
           font-size: 20px; }
           aside div .sideNav div li span {
             display: inline-block; }
+      aside div .sideNav button {
+        width: 60px;
+        line-height: 20px;
+        font-size: 16px;
+        background-color: transparent;
+        border-radius: 5px;
+        border: 1px solid #897666;
+        color: #897666;
+        cursor: pointer; }
+
+.headerMainWrapper {
+  position: relative;
+  margin-left: 10px; }
+  .headerMainWrapper .headerWrapper {
+    margin-bottom: 10px; }
+    .headerMainWrapper .headerWrapper header form div {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 5px; }
 
 .asideMainWrapper {
   position: relative;
@@ -2357,3 +2378,45 @@ aside {
     fill: #fff; }
   .sideNav div:nth-child(1) li {
     color: #fff; }
+
+.headerMainWrapper {
+  position: relative;
+  margin-left: 10px;
+  flex-grow: 1; }
+  .headerMainWrapper .headerWrapper {
+    margin-bottom: 10px; }
+    .headerMainWrapper .headerWrapper header form div {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 5px; }
+      .headerMainWrapper .headerWrapper header form div span {
+        padding: 5px; }
+        .headerMainWrapper .headerWrapper header form div span input {
+          margin-left: 8px;
+          border-radius: 8px;
+          border: 1px solid gray;
+          font-size: 12px;
+          line-height: 20px; }
+      .headerMainWrapper .headerWrapper header form div svg {
+        top: 3px;
+        position: relative; }
+      .headerMainWrapper .headerWrapper header form div button {
+        right: 3px; }
+    .headerMainWrapper .headerWrapper header form .pageSwitch span {
+      background-color: RGB(246, 247, 215);
+      width: 100px;
+      height: 40px;
+      margin: 1px;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #897666; }
+    .headerMainWrapper .headerWrapper header div:nth-child(2) {
+      justify-content: space-between; }
+    .headerMainWrapper .headerWrapper header div:nth-child(3) {
+      padding: 0;
+      justify-content: space-between; }
+      .headerMainWrapper .headerWrapper header div:nth-child(3) div span input {
+        text-align: right; }
