@@ -11,7 +11,7 @@ var paths = {
 
         src: "scss/backstage/*.scss",
 
-        dest: "css/backstage/"
+        dest: "css/_backstage/"
     }
  
 };
@@ -23,5 +23,5 @@ function style() {
         .pipe(dest(paths.styles.dest));
 }
 exports.default = function watchs(){
-    watch(['scss/page/backstage/*.scss',], style)
+    watch(['scss/page/backstage/*.scss'], style)
 }
