@@ -9,7 +9,7 @@ const sass = require("gulp-sass");
 var paths = {
     styles: {
 
-        src: "scss/backstage/*.scss",
+        src:["scss/backstage/*.scss","scss/layout/*.scss","scss/page/backstage/*.scss"] ,
 
         dest: "css/backstage/"
     }
