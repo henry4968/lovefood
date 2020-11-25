@@ -529,7 +529,7 @@
   justify-content: center;
 }
 
-.btn #btn {
+.btn #btn1, .btn #btn2, .btn #btn3, .btn #btn4, .btn #btn5 {
   background-color: #C9BE9F;
   color: #ffffff;
   font-size: 22px;
