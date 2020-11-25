@@ -57,64 +57,15 @@ aside{
         }
     }
 
-    // =====變色在該頁面複製過去即可=====
-
-// .sideNav div:nth-child(1){    //會員管理
-//     background-color: $brown;
-//     svg{
-//        path{
-//          fill:#fff;
-//        } 
-//     }
-//     li{ 
-//         color:#fff;
-//     }
-// }
-
-// .sideNav div:nth-child(2){   //訂單管理
-//     background-color: $brown;
-//     svg{
-//         path{
-//           fill:#fff;
-//         } 
-//      }
-//     li{
-//         color:#fff;
-//     }
-// }
-
-// .sideNav div:nth-child(3){   //商品管理
-//     background-color: $brown;
-//     svg{
-//         path{
-//           fill:#fff;
-//         } 
-//      }
-//     li{
-//         color:#fff;
-//     }
-// }
-
-// .sideNav div:nth-child(4){   //財務管理
-//     background-color: $brown;
-//     svg{
-//         path{
-//           fill:#fff;
-//         } 
-//      }
-//     li{
-//         color:#fff;
-//     }
-// }
-
-// .sideNav div:nth-child(5){    //點數管理
-//     background-color: $brown;
-//     svg{
-//         path{
-//           fill:#fff;
-//         } 
-//      }
-//     li{
-//         color:#fff;
-//     }
-// }
+    // =====變色在svg外層div加上class="currentPage"即可=====
+    .sideNav .currentPage{
+        background-color: $brown;
+    svg{
+       path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+    }
