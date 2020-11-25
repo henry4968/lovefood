@@ -25,11 +25,24 @@
     // 漢堡選單開始
     #hamburgerMenuToggle{
         opacity: 0;
+        &:checked + #hamburgerMenuButton > span{
+            transform: rotate(45deg);
+            &::before{
+                top: 0;
+                transform: rotate(0deg);
+            }
+            &::after{
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+        &:checked ~ #navigationForMobile{
+            left: 0;
+        }
     }
     #hamburgerMenuButton{
-        width: 50px;
+        width: 45px;
         height: 35px;
-        background-color: black;
         align-self: center;
         margin-left: 10px;
         position: relative;
@@ -41,11 +54,12 @@
         span, span::before, span::after{
             content: '';
             display: block;
-            width: 50px;
+            width: 45px;
             height: 5px;
             border-radius: 10px;
             background-color: #FDFBBA;
             position: absolute;
+            transition-duration: .35s;
             }
         span{
             top: 45%;
@@ -63,6 +77,46 @@
         }
     }
     // 漢堡選單結束
+    // 行動版導覽列開始
+    #navigationForMobile{
+        display: none;
+        @include newRwd("bigPhone"){
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 55px;
+            left: -100%;
+            background-color: white;
+            opacity:80%;
+            transition-duration: .35s;
+            #searchBarForMobile{
+                width: 100%;
+                height: 70px;
+                background-color: lightgrey;
+                display: flex;
+                #searchInputForMobile{
+                    width: 80%;
+                    height: 60%;
+                    border-radius: 20px;
+                    background-color: #FFFFFF;
+                    display: block;
+                    margin: auto;
+                    align-self: center;
+                }
+            }
+            li{
+                list-style: none;
+                text-align: center;
+                font-size: 24px;
+                margin: 30px 0px 0px 0px;
+                a{
+                    color: #515151;
+                }
+            }
+        }
+    }
+    // 行動版導覽列結束
     #headerContentContainer{
         width: 1180px;
         height: 50px;
@@ -79,12 +133,10 @@
             margin: auto;
             align-items: center;
         }
-        @include newRwd("bigPhone"){
-            display: none;
-        }
         #logo{
             width: 264px;
             height: 46px;
+            // 首頁由js控制代替的hover變色
             // &:hover{
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
@@ -98,9 +150,14 @@
                 height: 38px;
                 align-self: center;
             }
+            @include newRwd("bigPhone"){
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+            }
         }
-        #navigation{
-            border: 1px solid blue;
+        // 桌機版導覽列開始
+        #navigationForPC{
             width: 762px;
             height: 50px;
             display: flex;
@@ -116,6 +173,9 @@
                 }
                 @include newRwd("pad"){
                     font-size: 20px;
+                }
+                @include newRwd("bigPhone"){
+                    display: none;
                 }
             }
             .navGeneralAnchors{
@@ -159,6 +219,22 @@
                 margin-left: 20px;
             }
         }
+        // 桌機版導覽列結束
+        // 行動版次導覽列開始
+        #subNavigationForMobile{
+            display: none;
+            @include newRwd("bigPhone"){
+                display: block;
+                border: 1px solid red;
+                width: 96px;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                right: 10px;
+            }
+        }
+        // 行動版次導覽列結束
     }
 }
 // 標頭結束
@@ -602,10 +678,8 @@
         top: 40px;
     }
     #ch05MemoContainer{
-        @include newRwd("desktop"){
-            width: 1500px;
-            height: 650px;
-        }
+        width: 1500px;
+        height: 650px;
         @include newRwd("laptop"){
             width: 970px;
             height: 720px;

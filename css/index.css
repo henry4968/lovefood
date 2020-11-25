@@ -125,10 +125,30 @@
   opacity: 0;
 }
 
+#header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+#header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::before {
+  top: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+#header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+#header #hamburgerMenuToggle:checked ~ #navigationForMobile {
+  left: 0;
+}
+
 #header #hamburgerMenuButton {
-  width: 50px;
+  width: 45px;
   height: 35px;
-  background-color: black;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -145,11 +165,13 @@
 #header #hamburgerMenuButton span, #header #hamburgerMenuButton span::before, #header #hamburgerMenuButton span::after {
   content: '';
   display: block;
-  width: 50px;
+  width: 45px;
   height: 5px;
   border-radius: 10px;
   background-color: #FDFBBA;
   position: absolute;
+  -webkit-transition-duration: .35s;
+          transition-duration: .35s;
 }
 
 #header #hamburgerMenuButton span {
@@ -169,6 +191,53 @@
 @media all and (max-width: 991px) {
   #header #hamburgerMenuButton {
     display: block;
+  }
+}
+
+#header #navigationForMobile {
+  display: none;
+}
+
+@media all and (max-width: 991px) {
+  #header #navigationForMobile {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 55px;
+    left: -100%;
+    background-color: white;
+    opacity: 80%;
+    -webkit-transition-duration: .35s;
+            transition-duration: .35s;
+  }
+  #header #navigationForMobile #searchBarForMobile {
+    width: 100%;
+    height: 70px;
+    background-color: lightgrey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  #header #navigationForMobile #searchBarForMobile #searchInputForMobile {
+    width: 80%;
+    height: 60%;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    display: block;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+  #header #navigationForMobile li {
+    list-style: none;
+    text-align: center;
+    font-size: 24px;
+    margin: 30px 0px 0px 0px;
+  }
+  #header #navigationForMobile li a {
+    color: #515151;
   }
 }
 
@@ -204,12 +273,6 @@
   }
 }
 
-@media all and (max-width: 991px) {
-  #header #headerContentContainer {
-    display: none;
-  }
-}
-
 #header #headerContentContainer #logo {
   width: 264px;
   height: 46px;
@@ -235,8 +298,16 @@
   }
 }
 
-#header #headerContentContainer #navigation {
-  border: 1px solid blue;
+@media all and (max-width: 991px) {
+  #header #headerContentContainer #logo {
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    left: 50%;
+  }
+}
+
+#header #headerContentContainer #navigationForPC {
   width: 762px;
   height: 50px;
   display: -webkit-box;
@@ -248,7 +319,7 @@
 }
 
 @media all and (max-width: 1599px) {
-  #header #headerContentContainer #navigation {
+  #header #headerContentContainer #navigationForPC {
     width: 625px;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -256,45 +327,51 @@
   }
 }
 
-#header #headerContentContainer #navigation a {
+#header #headerContentContainer #navigationForPC a {
   font-size: 30px;
 }
 
 @media all and (max-width: 1599px) {
-  #header #headerContentContainer #navigation a {
+  #header #headerContentContainer #navigationForPC a {
     font-size: 20px;
   }
 }
 
 @media all and (max-width: 1199px) {
-  #header #headerContentContainer #navigation a {
+  #header #headerContentContainer #navigationForPC a {
     font-size: 20px;
   }
 }
 
-#header #headerContentContainer #navigation .navGeneralAnchors {
+@media all and (max-width: 991px) {
+  #header #headerContentContainer #navigationForPC a {
+    display: none;
+  }
+}
+
+#header #headerContentContainer #navigationForPC .navGeneralAnchors {
   color: #FDFBBA;
 }
 
-#header #headerContentContainer #navigation .navGeneralAnchors:hover {
+#header #headerContentContainer #navigationForPC .navGeneralAnchors:hover {
   color: #FFE45E;
 }
 
-#header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+#header #headerContentContainer #navigationForPC :nth-child(2), #header #headerContentContainer #navigationForPC :nth-child(3) {
   margin-left: 25px;
 }
 
 @media all and (max-width: 1599px) {
-  #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+  #header #headerContentContainer #navigationForPC :nth-child(2), #header #headerContentContainer #navigationForPC :nth-child(3) {
     margin-left: 20px;
   }
 }
 
-#header #headerContentContainer #navigation #navSepcialAnchor {
+#header #headerContentContainer #navigationForPC #navSepcialAnchor {
   color: #858585;
 }
 
-#header #headerContentContainer #navigation #navSepcialAnchor div {
+#header #headerContentContainer #navigationForPC #navSepcialAnchor div {
   width: 139px;
   height: 100%;
   border-radius: 3px;
@@ -303,24 +380,45 @@
   margin: 0px 28px;
 }
 
-#header #headerContentContainer #navigation #navSepcialAnchor div:hover {
+#header #headerContentContainer #navigationForPC #navSepcialAnchor div:hover {
   background-color: #FFE45E;
 }
 
 @media all and (max-width: 1599px) {
-  #header #headerContentContainer #navigation #navSepcialAnchor div {
+  #header #headerContentContainer #navigationForPC #navSepcialAnchor div {
     width: 114px;
   }
 }
 
 @media all and (max-width: 1599px) {
-  #header #headerContentContainer #navigation .navIcons img {
+  #header #headerContentContainer #navigationForPC .navIcons img {
     width: 30px;
   }
 }
 
-#header #headerContentContainer #navigation #navIcons02, #header #headerContentContainer #navigation #navIcons03 {
+#header #headerContentContainer #navigationForPC #navIcons02, #header #headerContentContainer #navigationForPC #navIcons03 {
   margin-left: 20px;
+}
+
+#header #headerContentContainer #subNavigationForMobile {
+  display: none;
+}
+
+@media all and (max-width: 991px) {
+  #header #headerContentContainer #subNavigationForMobile {
+    display: block;
+    border: 1px solid red;
+    width: 96px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    right: 10px;
+  }
 }
 
 #chapter01, #chapter02, #chapter03,
@@ -904,6 +1002,8 @@
 }
 
 #chapter05 #ch05MemoContainer {
+  width: 1500px;
+  height: 650px;
   border: 13px solid #E6ECE2;
   -webkit-box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);

@@ -1,0 +1,102 @@
+@import "../../layout/_backstageNav.scss";
+@import "../../layout/_backstageSidebar.scss";
+
+.asideMainWrapper{
+    position: relative;
+    padding-top:110px;
+    width:1200px;
+    margin:0 auto;
+    .headerMainWrapper{
+        .headerWrapper{
+            background-color: $y;
+        }
+    }
+}
+.sideNav div:nth-child(5){    //財務管理
+    background-color: $brown;
+    svg{
+       Path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+}
+
+main{
+    box-sizing: border-box;
+    width: 980px;
+    #financeDataFilterArea, #financeDataArea{
+        border: 1px solid black;
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #F3E9C0;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        margin-left: 15px;
+    }
+    #financeDataFilterArea{
+        padding: 27px 30px 27px 30px;
+        height: 209px;
+        #financeDataFilterBlock{
+            box-sizing: border-box;
+            width: 365px;
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            .financeDataFilterTab{
+                width: 180px;
+                height: 100%;
+                font-size: 24px;
+                line-height: 55px;
+                color: #8F8770;
+                text-align: center;
+                background-color: #FAFDDD;
+                box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+                cursor: pointer;
+            }
+            .tabActive{
+                background-color: #EDEBD8;
+            }
+        }
+        #financeFilter{
+            width: 920px;
+            height: 110px;
+            background-color: #EBECE3;
+            border-radius: 13px;
+            box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+            #financeDataFilterBlock{
+                width: 621px;
+            }
+        }
+        
+
+    }
+    #financeDataArea{
+        height: 578px;
+        margin-top: 20px;
+        padding: 27px 17px 27px 17px;
+
+    }
+
+
+
+
+    #pagination{
+        position: absolute;
+        transform: translate(-50% , 50%);
+        left: 55%;
+        bottom: 27px;
+        font-size: 27px;
+        a{
+            color: #887664;
+            text-decoration: none;
+            &:hover{
+                background-color: #887664;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

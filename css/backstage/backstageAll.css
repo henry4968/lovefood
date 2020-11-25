@@ -2420,3 +2420,382 @@ aside {
       justify-content: space-between; }
       .headerMainWrapper .headerWrapper header div:nth-child(3) div span input {
         text-align: right; }
+
+body {
+  background-image: url("../../img/23/fullScreen.jpg"); }
+
+.navWrapper {
+  position: fixed;
+  width: 100%;
+  background-color: #f6f7dd;
+  z-index: 99; }
+  .navWrapper nav {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .navWrapper .navLeft {
+    display: flex;
+    align-items: center; }
+    .navWrapper .navLeft img {
+      position: relative;
+      top: -3px; }
+    .navWrapper .navLeft h1 {
+      padding-left: 2vw;
+      color: #8c7a6b; }
+  .navWrapper img {
+    display: block; }
+
+aside {
+  background-color: #f3e8c4;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  aside div {
+    width: 100%; }
+    aside div .member {
+      padding: 0;
+      list-style: none; }
+      aside div .member li {
+        list-style: none;
+        font-size: 15px;
+        padding: 5px; }
+    aside div .sideNav {
+      padding: 0;
+      list-style: none; }
+      aside div .sideNav div {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        aside div .sideNav div svg {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          right: 15px; }
+        aside div .sideNav div li {
+          line-height: 3;
+          list-style: none;
+          font-size: 20px; }
+          aside div .sideNav div li span {
+            display: inline-block; }
+      aside div .sideNav button {
+        width: 60px;
+        line-height: 20px;
+        font-size: 16px;
+        background-color: transparent;
+        border-radius: 5px;
+        border: 1px solid #897666;
+        color: #897666;
+        cursor: pointer; }
+
+.asideMainWrapper {
+  position: relative;
+  padding-top: 110px;
+  width: 1200px;
+  margin: 0 auto; }
+  .asideMainWrapper .headerMainWrapper .headerWrapper {
+    background-color: #f3e8c4; }
+
+.sideNav div:nth-child(4) {
+  background-color: #897666; }
+  .sideNav div:nth-child(4) svg Path {
+    fill: #fff; }
+  .sideNav div:nth-child(4) li {
+    color: #fff; }
+
+main {
+  box-sizing: border-box;
+  width: 980px; }
+  main #pointsDataFilterArea, main #pointsDataArea {
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #F3E9C0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    margin-left: 15px; }
+  main #pointsDataFilterArea {
+    padding: 27px 29px 18px 31px;
+    height: 267px; }
+    main #pointsDataFilterArea #pointsDataFilterTabsBlock {
+      width: 550px;
+      height: 50px;
+      display: flex;
+      flex-direction: row; }
+      main #pointsDataFilterArea #pointsDataFilterTabsBlock .pointsDataFilterTab {
+        width: 180px;
+        height: 50px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        font-size: 24px;
+        background-color: #E6E6E6;
+        color: #8F8770;
+        text-align: center;
+        line-height: 50px; }
+      main #pointsDataFilterArea #pointsDataFilterTabsBlock #pointsDataFilterTab01 {
+        background-color: #FAFDDD; }
+    main #pointsDataFilterArea #pointsDataFilter {
+      width: 920px;
+      height: 172px;
+      border-radius: 13px;
+      background-color: #EBECE3;
+      padding: 24px 17px 22px 18px;
+      position: relative; }
+      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock {
+        border: 1px solid red;
+        width: 560px;
+        height: 80px;
+        font-size: 16px;
+        color: #7B807D;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap; }
+        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow {
+          display: flex;
+          flex-direction: row;
+          justify-items: center; }
+          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow input {
+            width: 200px;
+            height: 30px;
+            border: .5px solid #BFBCBC;
+            border-radius: 10px;
+            background-color: #FFFFFF;
+            margin-left: 5px; }
+      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock {
+        width: 253px;
+        height: 25px;
+        font-size: 16px;
+        color: #707070;
+        margin-top: 30px; }
+        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock input {
+          border: 1px solid #B9AF94;
+          border-radius: 3px;
+          background-color: #FFFFFF; }
+      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock {
+        border: 1px solid blue;
+        width: 290px;
+        height: 140px;
+        position: absolute;
+        right: 22px;
+        top: 17px;
+        font-size: 16px;
+        color: #707070; }
+        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock a .pointsDataFilterButton {
+          width: 60px;
+          height: 26px;
+          border-radius: 5px;
+          background-color: #887664;
+          color: #FFFFFF;
+          box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+          text-align: center;
+          line-height: 26px; }
+        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock {
+          margin-top: 15px;
+          position: relative; }
+          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock .pointsDataFilterButton {
+            position: absolute;
+            top: 35px; }
+          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton01 {
+            left: 80px; }
+          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton02 {
+            left: 160px; }
+  main #pointsDataArea {
+    height: 578px;
+    margin-top: 20px;
+    padding: 27px 17px 27px 17px; }
+    main #pointsDataArea table tr, main #pointsDataArea tr td {
+      border: 1px solid #D3D3D3; }
+    main #pointsDataArea table {
+      width: 945px;
+      height: 120px; }
+      main #pointsDataArea table tr:nth-child(2n) {
+        background-color: #FFFFFF; }
+      main #pointsDataArea table tr:nth-child(2n+1) {
+        background-color: #EBE8E8; }
+      main #pointsDataArea table #pointsDataHeader th {
+        background-color: #887664;
+        color: #FFFFFF;
+        font-size: 14px;
+        text-align: center; }
+      main #pointsDataArea table tr {
+        color: #A0754A;
+        font-size: 14px;
+        text-align: center; }
+        main #pointsDataArea table tr .pointsDataActionBlock {
+          display: flex;
+          justify-content: space-around;
+          height: 50px; }
+          main #pointsDataArea table tr .pointsDataActionBlock a {
+            display: block;
+            align-self: center; }
+            main #pointsDataArea table tr .pointsDataActionBlock a .pointsDataActionButton {
+              width: 45px;
+              height: 26px;
+              border-radius: 3px;
+              background-color: #D3E4C6;
+              font-size: 14px;
+              text-align: center;
+              color: #707070;
+              line-height: 26px; }
+  main #pagination {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    left: 55%;
+    bottom: 27px;
+    font-size: 27px; }
+    main #pagination a {
+      color: #887664;
+      text-decoration: none; }
+      main #pagination a:hover {
+        background-color: #887664;
+        color: #FFFFFF; }
+
+body {
+  background-image: url("../../img/23/fullScreen.jpg"); }
+
+.navWrapper {
+  position: fixed;
+  width: 100%;
+  background-color: #f6f7dd;
+  z-index: 99; }
+  .navWrapper nav {
+    position: relative;
+    width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center; }
+  .navWrapper .navLeft {
+    display: flex;
+    align-items: center; }
+    .navWrapper .navLeft img {
+      position: relative;
+      top: -3px; }
+    .navWrapper .navLeft h1 {
+      padding-left: 2vw;
+      color: #8c7a6b; }
+  .navWrapper img {
+    display: block; }
+
+aside {
+  background-color: #f3e8c4;
+  width: 200px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  aside div {
+    width: 100%; }
+    aside div .member {
+      padding: 0;
+      list-style: none; }
+      aside div .member li {
+        list-style: none;
+        font-size: 15px;
+        padding: 5px; }
+    aside div .sideNav {
+      padding: 0;
+      list-style: none; }
+      aside div .sideNav div {
+        text-align: center;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+        aside div .sideNav div svg {
+          position: relative;
+          width: 30px;
+          height: 30px;
+          right: 15px; }
+        aside div .sideNav div li {
+          line-height: 3;
+          list-style: none;
+          font-size: 20px; }
+          aside div .sideNav div li span {
+            display: inline-block; }
+      aside div .sideNav button {
+        width: 60px;
+        line-height: 20px;
+        font-size: 16px;
+        background-color: transparent;
+        border-radius: 5px;
+        border: 1px solid #897666;
+        color: #897666;
+        cursor: pointer; }
+
+.asideMainWrapper {
+  position: relative;
+  padding-top: 110px;
+  width: 1200px;
+  margin: 0 auto; }
+  .asideMainWrapper .headerMainWrapper .headerWrapper {
+    background-color: #f3e8c4; }
+
+.sideNav div:nth-child(5) {
+  background-color: #897666; }
+  .sideNav div:nth-child(5) svg Path {
+    fill: #fff; }
+  .sideNav div:nth-child(5) li {
+    color: #fff; }
+
+main {
+  box-sizing: border-box;
+  width: 980px; }
+  main #financeDataFilterArea, main #financeDataArea {
+    border: 1px solid black;
+    box-sizing: border-box;
+    width: 100%;
+    background-color: #F3E9C0;
+    border-radius: 10px;
+    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+    margin-left: 15px; }
+  main #financeDataFilterArea {
+    padding: 27px 30px 27px 30px;
+    height: 209px; }
+    main #financeDataFilterArea #financeDataFilterBlock {
+      box-sizing: border-box;
+      width: 365px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between; }
+      main #financeDataFilterArea #financeDataFilterBlock .financeDataFilterTab {
+        width: 180px;
+        height: 100%;
+        font-size: 24px;
+        line-height: 55px;
+        color: #8F8770;
+        text-align: center;
+        background-color: #FAFDDD;
+        box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+        cursor: pointer; }
+      main #financeDataFilterArea #financeDataFilterBlock .tabActive {
+        background-color: #EDEBD8; }
+    main #financeDataFilterArea #financeFilter {
+      width: 920px;
+      height: 110px;
+      background-color: #EBECE3;
+      border-radius: 13px;
+      box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2); }
+      main #financeDataFilterArea #financeFilter #financeDataFilterBlock {
+        width: 621px; }
+  main #financeDataArea {
+    height: 578px;
+    margin-top: 20px;
+    padding: 27px 17px 27px 17px; }
+  main #pagination {
+    position: absolute;
+    transform: translate(-50%, 50%);
+    left: 55%;
+    bottom: 27px;
+    font-size: 27px; }
+    main #pagination a {
+      color: #887664;
+      text-decoration: none; }
+      main #pagination a:hover {
+        background-color: #887664;
+        color: #FFFFFF; }
