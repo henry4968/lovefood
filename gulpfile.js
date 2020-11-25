@@ -11,7 +11,7 @@ var paths = {
 
         src: "scss/backstage/*.scss",
 
-        dest: "css/_backstage/"
+        dest: "css/backstage/"
     }
  
 };
