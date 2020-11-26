@@ -2389,88 +2389,6 @@ input[type="button"].btn-block {
       .headerMainWrapper .headerWrapper header div:nth-child(3) div span input {
         text-align: right; }
 
-body {
-  background-image: url("../../img/23/fullScreen.jpg"); }
-
-.navWrapper {
-  position: fixed;
-  width: 100%;
-  background-color: #f6f7dd;
-  z-index: 99; }
-  .navWrapper nav {
-    position: relative;
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-  .navWrapper .navLeft {
-    display: flex;
-    align-items: center; }
-    .navWrapper .navLeft img {
-      position: relative;
-      top: -3px; }
-    .navWrapper .navLeft h1 {
-      padding-left: 2vw;
-      color: #8c7a6b; }
-  .navWrapper img {
-    display: block; }
-
-aside {
-  background-color: #f3e8c4;
-  width: 200px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  aside div {
-    width: 100%; }
-    aside div .member {
-      padding: 0;
-      list-style: none; }
-      aside div .member li {
-        list-style: none;
-        font-size: 15px;
-        padding: 5px; }
-    aside div .sideNav {
-      padding: 0;
-      list-style: none; }
-      aside div .sideNav div {
-        text-align: center;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; }
-        aside div .sideNav div svg {
-          position: relative;
-          width: 30px;
-          height: 30px;
-          right: 15px; }
-        aside div .sideNav div li {
-          line-height: 3;
-          list-style: none;
-          font-size: 20px; }
-          aside div .sideNav div li span {
-            display: inline-block; }
-      aside div .sideNav button {
-        width: 60px;
-        line-height: 20px;
-        font-size: 16px;
-        background-color: transparent;
-        border-radius: 5px;
-        border: 1px solid #897666;
-        color: #897666;
-        cursor: pointer;
-        top: 20px;
-        position: relative; }
-
-.sideNav .currentPage {
-  background-color: #897666; }
-  .sideNav .currentPage svg path {
-    fill: #fff; }
-  .sideNav .currentPage li {
-    color: #fff; }
-
 .asideMainWrapper {
   position: relative;
   padding-top: 110px;
@@ -2478,13 +2396,6 @@ aside {
   margin: 0 auto; }
   .asideMainWrapper .headerMainWrapper .headerWrapper {
     background-color: #f3e8c4; }
-
-.sideNav div:nth-child(4) {
-  background-color: #897666; }
-  .sideNav div:nth-child(4) svg Path {
-    fill: #fff; }
-  .sideNav div:nth-child(4) li {
-    color: #fff; }
 
 main {
   box-sizing: border-box;
@@ -2631,88 +2542,6 @@ main {
         background-color: #887664;
         color: #FFFFFF; }
 
-body {
-  background-image: url("../../img/23/fullScreen.jpg"); }
-
-.navWrapper {
-  position: fixed;
-  width: 100%;
-  background-color: #f6f7dd;
-  z-index: 99; }
-  .navWrapper nav {
-    position: relative;
-    width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center; }
-  .navWrapper .navLeft {
-    display: flex;
-    align-items: center; }
-    .navWrapper .navLeft img {
-      position: relative;
-      top: -3px; }
-    .navWrapper .navLeft h1 {
-      padding-left: 2vw;
-      color: #8c7a6b; }
-  .navWrapper img {
-    display: block; }
-
-aside {
-  background-color: #f3e8c4;
-  width: 200px;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center; }
-  aside div {
-    width: 100%; }
-    aside div .member {
-      padding: 0;
-      list-style: none; }
-      aside div .member li {
-        list-style: none;
-        font-size: 15px;
-        padding: 5px; }
-    aside div .sideNav {
-      padding: 0;
-      list-style: none; }
-      aside div .sideNav div {
-        text-align: center;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: center; }
-        aside div .sideNav div svg {
-          position: relative;
-          width: 30px;
-          height: 30px;
-          right: 15px; }
-        aside div .sideNav div li {
-          line-height: 3;
-          list-style: none;
-          font-size: 20px; }
-          aside div .sideNav div li span {
-            display: inline-block; }
-      aside div .sideNav button {
-        width: 60px;
-        line-height: 20px;
-        font-size: 16px;
-        background-color: transparent;
-        border-radius: 5px;
-        border: 1px solid #897666;
-        color: #897666;
-        cursor: pointer;
-        top: 20px;
-        position: relative; }
-
-.sideNav .currentPage {
-  background-color: #897666; }
-  .sideNav .currentPage svg path {
-    fill: #fff; }
-  .sideNav .currentPage li {
-    color: #fff; }
-
 .asideMainWrapper {
   position: relative;
   padding-top: 110px;
@@ -2720,13 +2549,6 @@ aside {
   margin: 0 auto; }
   .asideMainWrapper .headerMainWrapper .headerWrapper {
     background-color: #f3e8c4; }
-
-.sideNav div:nth-child(5) {
-  background-color: #897666; }
-  .sideNav div:nth-child(5) svg Path {
-    fill: #fff; }
-  .sideNav div:nth-child(5) li {
-    color: #fff; }
 
 main {
   box-sizing: border-box;

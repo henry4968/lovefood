@@ -1,6 +1,4 @@
 @import "../../base/var";
-@import "../../layout/_backstageNav.scss";
-@import "../../layout/_backstageSidebar.scss";
 
 .asideMainWrapper{
     position: relative;
@@ -11,17 +9,6 @@
         .headerWrapper{
             background-color: $y;
         }
-    }
-}
-.sideNav div:nth-child(4){    //點數管理
-    background-color: $brown;
-    svg{
-       Path{
-         fill:#fff;
-       } 
-    }
-    li{ 
-        color:#fff;
     }
 }
 
