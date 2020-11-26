@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>signUp_signIn</title>
+  <link rel="stylesheet" href="../css/member.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+</head>
+
+<body>
+  <component id="memheader" :is="headId"></component>
+  <main id="memWrap" class="memWrap">
+    <div class="memBigborder">
+      <div class="leftBorder">
+        <div class="title">
+          <h1 class="title">
+            會員中心
+          </h1>
+        </div>
+        <div class="contentBorder">
+          <div class="nameBorder">
+            <h1 class="username">
+              甲必丹 你好!
+            </h1>
+          </div>
+          <div class="memInfoBorder">
+            <h1 class="memInfo">
+              會員資料
+            </h1>
+          </div>
+          <div class="orderBorder">
+            <h1 class="order">
+              訂單查詢
+            </h1>
+          </div>
+          <div class="pointsBorder">
+            <h1 class="points">
+              我的點數
+            </h1>
+          </div>
+          <div class="memapplyBorder">
+            <h1 class="memapply">
+              特殊會員申請
+            </h1>
+          </div>
+          <div class="logoutBorder">
+            <button type="reset" class="logout">
+              登出
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="rightBorder">
+        <!-- <component id="member" :is="member"></component>
+        <component id="order" :is="order"></component>
+        <component id="points" :is="points"></component>
+        <component id="memberApply" :is="memberApply"></component> -->
+        
+      </div>
+    </div>
+  </main>
+  <component id="memfooter" :is="footerId"></component>
+
+  <script src="../js/03/memheader.js"></script>
+  <script src="../js/03/memberInformation.js"></script>
+  <script src="../js/03/memfooter.js"></script>
+</body>
+
+</html>

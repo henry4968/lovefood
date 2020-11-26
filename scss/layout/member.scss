@@ -1,0 +1,55 @@
+$maxw700:700px;
+$minw700:701px;
+@mixin rwd($breakpoint){
+  @if($breakpoint == "w700min"){
+    @media all and (min-width: $minw700){
+      @content;
+    }
+  }
+  @if($breakpoint == "w700"){
+    @media all and (max-width: $maxw700){
+      @content;
+    }
+  }
+}
+
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: PingFangTC-Regular-2, sans-serif;
+  font-weight: lighter;
+}
+body{
+  @import 'memheader';
+  main.memWrap{
+    width: 100%;
+    min-height: 640px;
+    height: 70vh;
+    // border: 1px solid black;
+    background-image: url('../../img/03/bgrev1.png');  
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    div.memBigborder{
+      width: 1200px;
+      height: 585px;
+      display: flex;
+      justify-content: space-around;
+      div.leftBorder{
+        width: 25%;
+        border: 1px solid green;
+      }
+      div.rightBorder{
+        width: 70%;
+        border: 1px solid red;
+      }
+    }
+  }
+  @import 'memfooter';
+}
