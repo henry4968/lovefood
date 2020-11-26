@@ -1861,72 +1861,145 @@ input[type="button"].btn-block {
 .pageLabel-others {
   background-color: RGB(237, 235, 218); }
 
-.asideMainWrapper {
+.input-xl, .input-l, .input-ld {
+  margin: 0 8px;
+  border-radius: 8px;
+  border: 1px solid gray;
+  font-size: 12px;
+  line-height: 20px; }
+
+.input-xl {
+  size: 25px; }
+
+.input-l, .input-ld {
+  size: 15px; }
+
+.input-ld {
+  text-align: right;
+  line-height: 20px; }
+
+.input-checkbox {
+  width: 20px;
+  height: 20px;
+  vertical-align: bottom;
+  margin: 0 5px; }
+
+tr:nth-child(odd) {
+  background-color: #fff; }
+  tr:nth-child(odd) th {
+    color: white;
+    background-color: #897666; }
+  tr:nth-child(odd) td {
+    color: #897666; }
+
+tr:nth-child(even) {
+  background-color: RGB(244, 242, 242); }
+
+td {
+  color: #897666; }
+
+a {
+  text-decoration: none; }
+
+.a-sideLink {
+  color: #897666; }
+  .a-sideLink:hover {
+    color: #fff; }
+
+.containerIndex .asideMainWrapper {
   position: relative;
   padding-top: 110px;
   display: flex;
   width: 1200px;
   margin: 0 auto; }
-  .asideMainWrapper .headerMainWrapper .headerWrapper {
+  .containerIndex .asideMainWrapper .headerMainWrapper .headerWrapper {
     background-color: #f3e8c4; }
 
-.headerMainWrapper {
+.containerIndex .headerMainWrapper {
   position: relative;
   margin-left: 10px;
   flex-grow: 1; }
-  .headerMainWrapper .headerWrapper {
+  .containerIndex .headerMainWrapper .headerWrapper {
     margin-bottom: 10px; }
-    .headerMainWrapper .headerWrapper header form div {
+    .containerIndex .headerMainWrapper .headerWrapper header form div {
       position: relative;
       display: flex;
       flex-direction: row;
       padding: 5px; }
-      .headerMainWrapper .headerWrapper header form div span input {
+      .containerIndex .headerMainWrapper .headerWrapper header form div span input {
         margin-left: 8px;
         border-radius: 8px;
         border: 1px solid gray;
         font-size: 12px;
         line-height: 20px; }
-      .headerMainWrapper .headerWrapper header form div svg {
+      .containerIndex .headerMainWrapper .headerWrapper header form div svg {
         top: 3px;
         position: relative; }
-      .headerMainWrapper .headerWrapper header form div button {
+      .containerIndex .headerMainWrapper .headerWrapper header form div button {
         right: 3px; }
-    .headerMainWrapper .headerWrapper header div:nth-child(2) {
+    .containerIndex .headerMainWrapper .headerWrapper header div:nth-child(2) {
       justify-content: space-between; }
-    .headerMainWrapper .headerWrapper header div:nth-child(3) {
+    .containerIndex .headerMainWrapper .headerWrapper header div:nth-child(3) {
       padding: 0;
       justify-content: space-between; }
-      .headerMainWrapper .headerWrapper header div:nth-child(3) div span input {
+      .containerIndex .headerMainWrapper .headerWrapper header div:nth-child(3) div span input {
         text-align: right; }
 
-.asideMainWrapper {
+.containerOrder .asideMainWrapper {
   position: relative;
   padding-top: 110px;
+  display: flex;
   width: 1200px;
   margin: 0 auto; }
-  .asideMainWrapper .headerMainWrapper .headerWrapper {
+  .containerOrder .asideMainWrapper .headerMainWrapper .headerWrapper {
     background-color: #f3e8c4; }
 
-main {
+.containerOrder .headerMainWrapper {
+  position: relative;
+  margin-left: 10px;
+  flex-grow: 1; }
+  .containerOrder .headerMainWrapper .headerWrapper {
+    margin-bottom: 10px; }
+    .containerOrder .headerMainWrapper .headerWrapper header form .headerMiddle, .containerOrder .headerMainWrapper .headerWrapper header form .headerTop, .containerOrder .headerMainWrapper .headerWrapper header form .headerBottom {
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      padding: 5px; }
+      .containerOrder .headerMainWrapper .headerWrapper header form .headerMiddle span, .containerOrder .headerMainWrapper .headerWrapper header form .headerTop span, .containerOrder .headerMainWrapper .headerWrapper header form .headerBottom span {
+        margin: 0 20px; }
+      .containerOrder .headerMainWrapper .headerWrapper header form .headerMiddle button, .containerOrder .headerMainWrapper .headerWrapper header form .headerTop button, .containerOrder .headerMainWrapper .headerWrapper header form .headerBottom button {
+        right: 3px; }
+    .containerOrder .headerMainWrapper .headerWrapper header form .headerBottom {
+      justify-content: space-between; }
+
+.containerPoints .asideMainWrapper {
+  position: relative;
+  padding-top: 110px;
+  display: flex;
+  width: 1200px;
+  margin: 0 auto; }
+  .containerPoints .asideMainWrapper .headerMainWrapper .headerWrapper {
+    background-color: #f3e8c4; }
+
+.containerPoints main {
   box-sizing: border-box;
   width: 980px; }
-  main #pointsDataFilterArea, main #pointsDataArea {
+  .containerPoints main #pointsDataFilterArea, .containerPoints main #pointsDataArea {
     box-sizing: border-box;
     width: 100%;
     background-color: #F3E9C0;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
     margin-left: 15px; }
-  main #pointsDataFilterArea {
+  .containerPoints main #pointsDataFilterArea {
     padding: 27px 29px 18px 31px;
     height: 267px; }
-    main #pointsDataFilterArea #pointsDataFilterTabsBlock {
+    .containerPoints main #pointsDataFilterArea #pointsDataFilterTabsBlock {
       width: 550px;
       height: 50px;
       display: flex;
       flex-direction: row; }
-      main #pointsDataFilterArea #pointsDataFilterTabsBlock .pointsDataFilterTab {
+      .containerPoints main #pointsDataFilterArea #pointsDataFilterTabsBlock .pointsDataFilterTab {
         width: 180px;
         height: 50px;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
@@ -1935,16 +2008,16 @@ main {
         color: #8F8770;
         text-align: center;
         line-height: 50px; }
-      main #pointsDataFilterArea #pointsDataFilterTabsBlock #pointsDataFilterTab01 {
+      .containerPoints main #pointsDataFilterArea #pointsDataFilterTabsBlock #pointsDataFilterTab01 {
         background-color: #FAFDDD; }
-    main #pointsDataFilterArea #pointsDataFilter {
+    .containerPoints main #pointsDataFilterArea #pointsDataFilter {
       width: 920px;
       height: 172px;
       border-radius: 13px;
       background-color: #EBECE3;
       padding: 24px 17px 22px 18px;
       position: relative; }
-      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock {
+      .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock {
         border: 1px solid red;
         width: 560px;
         height: 80px;
@@ -1953,28 +2026,28 @@ main {
         display: flex;
         flex-direction: row;
         flex-wrap: wrap; }
-        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow {
+        .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow {
           display: flex;
           flex-direction: row;
           justify-items: center; }
-          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow input {
+          .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftUpperBlock .pointsDataFilterLeftUpperBlockRow input {
             width: 200px;
             height: 30px;
             border: .5px solid #BFBCBC;
             border-radius: 10px;
             background-color: #FFFFFF;
             margin-left: 5px; }
-      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock {
+      .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock {
         width: 253px;
         height: 25px;
         font-size: 16px;
         color: #707070;
         margin-top: 30px; }
-        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock input {
+        .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterLeftDownerBlock input {
           border: 1px solid #B9AF94;
           border-radius: 3px;
           background-color: #FFFFFF; }
-      main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock {
+      .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock {
         border: 1px solid blue;
         width: 290px;
         height: 140px;
@@ -1983,7 +2056,7 @@ main {
         top: 17px;
         font-size: 16px;
         color: #707070; }
-        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock a .pointsDataFilterButton {
+        .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock a .pointsDataFilterButton {
           width: 60px;
           height: 26px;
           border-radius: 5px;
@@ -1992,46 +2065,46 @@ main {
           box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
           text-align: center;
           line-height: 26px; }
-        main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock {
+        .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock {
           margin-top: 15px;
           position: relative; }
-          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock .pointsDataFilterButton {
+          .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock .pointsDataFilterButton {
             position: absolute;
             top: 35px; }
-          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton01 {
+          .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton01 {
             left: 80px; }
-          main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton02 {
+          .containerPoints main #pointsDataFilterArea #pointsDataFilter #pointsDataFilterRightBlock #membersPointsActionBlock #pointsDataFilterButton02 {
             left: 160px; }
-  main #pointsDataArea {
+  .containerPoints main #pointsDataArea {
     height: 578px;
     margin-top: 20px;
     padding: 27px 17px 27px 17px; }
-    main #pointsDataArea table tr, main #pointsDataArea tr td {
+    .containerPoints main #pointsDataArea table tr, .containerPoints main #pointsDataArea tr td {
       border: 1px solid #D3D3D3; }
-    main #pointsDataArea table {
+    .containerPoints main #pointsDataArea table {
       width: 945px;
       height: 120px; }
-      main #pointsDataArea table tr:nth-child(2n) {
+      .containerPoints main #pointsDataArea table tr:nth-child(2n) {
         background-color: #FFFFFF; }
-      main #pointsDataArea table tr:nth-child(2n+1) {
+      .containerPoints main #pointsDataArea table tr:nth-child(2n+1) {
         background-color: #EBE8E8; }
-      main #pointsDataArea table #pointsDataHeader th {
+      .containerPoints main #pointsDataArea table #pointsDataHeader th {
         background-color: #887664;
         color: #FFFFFF;
         font-size: 14px;
         text-align: center; }
-      main #pointsDataArea table tr {
+      .containerPoints main #pointsDataArea table tr {
         color: #A0754A;
         font-size: 14px;
         text-align: center; }
-        main #pointsDataArea table tr .pointsDataActionBlock {
+        .containerPoints main #pointsDataArea table tr .pointsDataActionBlock {
           display: flex;
           justify-content: space-around;
           height: 50px; }
-          main #pointsDataArea table tr .pointsDataActionBlock a {
+          .containerPoints main #pointsDataArea table tr .pointsDataActionBlock a {
             display: block;
             align-self: center; }
-            main #pointsDataArea table tr .pointsDataActionBlock a .pointsDataActionButton {
+            .containerPoints main #pointsDataArea table tr .pointsDataActionBlock a .pointsDataActionButton {
               width: 45px;
               height: 26px;
               border-radius: 3px;
@@ -2040,48 +2113,49 @@ main {
               text-align: center;
               color: #707070;
               line-height: 26px; }
-  main #pagination {
+  .containerPoints main #pagination {
     position: absolute;
     transform: translate(-50%, 50%);
     left: 55%;
     bottom: 27px;
     font-size: 27px; }
-    main #pagination a {
+    .containerPoints main #pagination a {
       color: #887664;
       text-decoration: none; }
-      main #pagination a:hover {
+      .containerPoints main #pagination a:hover {
         background-color: #887664;
         color: #FFFFFF; }
 
-.asideMainWrapper {
+.containerFinance .asideMainWrapper {
   position: relative;
   padding-top: 110px;
+  display: flex;
   width: 1200px;
   margin: 0 auto; }
-  .asideMainWrapper .headerMainWrapper .headerWrapper {
+  .containerFinance .asideMainWrapper .headerMainWrapper .headerWrapper {
     background-color: #f3e8c4; }
 
-main {
+.containerFinance main {
   box-sizing: border-box;
   width: 980px; }
-  main #financeDataFilterArea, main #financeDataArea {
+  .containerFinance main #financeDataFilterArea, .containerFinance main #financeDataArea {
     box-sizing: border-box;
     width: 100%;
     background-color: #F3E9C0;
     border-radius: 10px;
     box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
     margin-left: 15px; }
-  main #financeDataFilterArea {
+  .containerFinance main #financeDataFilterArea {
     padding: 27px 30px 27px 30px;
     height: 209px; }
-    main #financeDataFilterArea #financeDataFilterBlock {
+    .containerFinance main #financeDataFilterArea #financeDataFilterBlock {
       box-sizing: border-box;
       width: 365px;
       height: 50px;
       display: flex;
       flex-direction: row;
       justify-content: space-between; }
-      main #financeDataFilterArea #financeDataFilterBlock .financeDataFilterTab {
+      .containerFinance main #financeDataFilterArea #financeDataFilterBlock .financeDataFilterTab {
         width: 180px;
         height: 100%;
         font-size: 24px;
@@ -2091,9 +2165,9 @@ main {
         background-color: #FAFDDD;
         box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
         cursor: pointer; }
-      main #financeDataFilterArea #financeDataFilterBlock .tabActive {
+      .containerFinance main #financeDataFilterArea #financeDataFilterBlock .tabActive {
         background-color: #EDEBD8; }
-    main #financeDataFilterArea #financeFilter {
+    .containerFinance main #financeDataFilterArea #financeFilter {
       width: 920px;
       height: 110px;
       padding: 18px 280px 18px 18px;
@@ -2101,27 +2175,27 @@ main {
       border-radius: 13px;
       box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
       position: relative; }
-      main #financeDataFilterArea #financeFilter #financeDateFilterBlock {
+      .containerFinance main #financeDataFilterArea #financeFilter #financeDateFilterBlock {
         width: 621px;
         height: 37px;
         font-size: 16px;
         color: #7B807D;
         display: flex;
         align-items: center; }
-        main #financeDataFilterArea #financeFilter #financeDateFilterBlock input {
+        .containerFinance main #financeDataFilterArea #financeFilter #financeDateFilterBlock input {
           width: 200px;
           height: 30px;
           border-radius: 10px;
           border: 1px solid #BFBCBC;
           background-color: #FFFFFF;
           margin: 0px 10px 0px 5px; }
-        main #financeDataFilterArea #financeFilter #financeDateFilterBlock img {
+        .containerFinance main #financeDataFilterArea #financeFilter #financeDateFilterBlock img {
           margin-right: 15px; }
-      main #financeDataFilterArea #financeFilter #financeFilterDownload {
+      .containerFinance main #financeDataFilterArea #financeFilter #financeFilterDownload {
         margin-top: 20px;
         font-size: 16px;
         color: #707070; }
-      main #financeDataFilterArea #financeFilter #financeFilterButton {
+      .containerFinance main #financeDataFilterArea #financeFilter #financeFilterButton {
         width: 60px;
         height: 26px;
         border-radius: 5px;
@@ -2133,15 +2207,15 @@ main {
         position: absolute;
         left: 540px;
         top: 70px; }
-  main #financeDataArea {
+  .containerFinance main #financeDataArea {
     height: 578px;
     margin-top: 20px;
     padding: 27px 17px 27px 17px;
     position: relative; }
-    main #financeDataArea #financeShowSellingPage {
+    .containerFinance main #financeDataArea #financeShowSellingPage {
       width: 100%;
       height: 100%; }
-      main #financeDataArea #financeShowSellingPage #financeShowResultBlock {
+      .containerFinance main #financeDataArea #financeShowSellingPage #financeShowResultBlock {
         width: 300px;
         height: 115px;
         font-size: 16px;
@@ -2150,68 +2224,68 @@ main {
         display: flex;
         flex-direction: column;
         justify-content: space-between; }
-        main #financeDataArea #financeShowSellingPage #financeShowResultBlock .financeShowResultRow {
+        .containerFinance main #financeDataArea #financeShowSellingPage #financeShowResultBlock .financeShowResultRow {
           width: 100%;
           height: 30px;
           display: flex; }
-          main #financeDataArea #financeShowSellingPage #financeShowResultBlock .financeShowResultRow .financeSearchResult {
+          .containerFinance main #financeDataArea #financeShowSellingPage #financeShowResultBlock .financeShowResultRow .financeSearchResult {
             width: 150px;
             height: 30px;
             border: 1px solid #B9AF94;
             border-radius: 10px;
             background-color: #FFFFFF;
             margin: 0px 20px 0px 0px; }
-      main #financeDataArea #financeShowSellingPage #financeDiagram {
+      .containerFinance main #financeDataArea #financeShowSellingPage #financeDiagram {
         width: 530px;
         height: 511px;
         position: absolute;
         right: 40px;
         top: 20px; }
-    main #financeDataArea #financeShowDonationPage {
+    .containerFinance main #financeDataArea #financeShowDonationPage {
       width: 100%;
       height: 100%;
       border: 1px sold red;
       display: none; }
-      main #financeDataArea #financeShowDonationPage #donationDate, main #financeDataArea #financeShowDonationPage #donationAmount {
+      .containerFinance main #financeDataArea #financeShowDonationPage #donationDate, .containerFinance main #financeDataArea #financeShowDonationPage #donationAmount {
         font-size: 16px;
         color: #707070;
         display: inline-block; }
-      main #financeDataArea #financeShowDonationPage #donationDate {
+      .containerFinance main #financeDataArea #financeShowDonationPage #donationDate {
         margin: 0px 10px 0px 0px; }
-      main #financeDataArea #financeShowDonationPage #donationAmount input {
+      .containerFinance main #financeDataArea #financeShowDonationPage #donationAmount input {
         width: 150px;
         height: 30px;
         border: 1px solid #B9AF94;
         border-radius: 10px;
         background-color: #FFFFFF;
         margin: 0px 20px 0px 0px; }
-      main #financeDataArea #financeShowDonationPage table tr, main #financeDataArea #financeShowDonationPage tr td {
+      .containerFinance main #financeDataArea #financeShowDonationPage table tr, .containerFinance main #financeDataArea #financeShowDonationPage tr td {
         border: 1px solid #D3D3D3; }
-      main #financeDataArea #financeShowDonationPage #donationTable {
+      .containerFinance main #financeDataArea #financeShowDonationPage #donationTable {
         width: 945px;
         height: 350px;
         margin: 30px 0px 0px 0px; }
-        main #financeDataArea #financeShowDonationPage #donationTable tr:nth-child(2n) {
+        .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr:nth-child(2n) {
           background-color: #FFFFFF; }
-        main #financeDataArea #financeShowDonationPage #donationTable tr:nth-child(2n+1) {
+        .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr:nth-child(2n+1) {
           background-color: #EBE8E8; }
-        main #financeDataArea #financeShowDonationPage #donationTable #donationTableHeader th {
+        .containerFinance main #financeDataArea #financeShowDonationPage #donationTable #donationTableHeader th {
           background-color: #887664;
           color: #FFFFFF;
           font-size: 14px;
           text-align: center; }
-        main #financeDataArea #financeShowDonationPage #donationTable tr {
+        .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr {
           color: #A0754A;
           font-size: 14px;
           text-align: center; }
-          main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock {
+          .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock {
             display: flex;
             justify-content: space-around;
             height: 100%; }
-            main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock a {
+            .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock a {
               display: block;
               align-self: center; }
-              main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock a .pointsDataActionButton {
+              .containerFinance main #financeDataArea #financeShowDonationPage #donationTable tr .pointsDataActionBlock a .pointsDataActionButton {
                 width: 45px;
                 height: 26px;
                 border-radius: 3px;
@@ -2220,16 +2294,16 @@ main {
                 text-align: center;
                 color: #707070;
                 line-height: 26px; }
-  main #pagination {
+  .containerFinance main #pagination {
     position: absolute;
     transform: translate(-50%, 50%);
     left: 50%;
     bottom: 27px;
     font-size: 27px; }
-    main #pagination a {
+    .containerFinance main #pagination a {
       color: #887664;
       text-decoration: none; }
-      main #pagination a:hover {
+      .containerFinance main #pagination a:hover {
         background-color: #887664;
         color: #FFFFFF; }
 

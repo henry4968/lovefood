@@ -1,0 +1,30 @@
+%input-common{
+    margin:0 8px;
+    
+    border-radius: 8px;
+    border: 1px solid gray;
+    font-size: 12px;
+    line-height: 20px;
+}
+//input text
+.input-xl{ //最大
+    @extend %input-common;
+    size: 25px;
+}
+.input-l{ //次大
+    @extend %input-common;
+    size: 15px;
+}
+.input-ld{ //日期輸入
+    @extend .input-l;
+    text-align: right;
+    line-height:20px;
+}
+
+//input checkbox
+.input-checkbox{
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    margin: 0 5px;
+}

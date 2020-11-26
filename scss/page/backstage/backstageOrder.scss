@@ -1,4 +1,4 @@
-.containerIndex{
+.containerOrder{
     .asideMainWrapper{
         position: relative;
         padding-top:110px;
@@ -19,45 +19,24 @@
             margin-bottom: 10px;
             header{
                 form{
-                    div{
+                    .headerMiddle, .headerTop, .headerBottom{
                         position: relative;
                         display: flex;
                         flex-direction: row;
                         padding:5px;
                         span{
-                            input{
-                                margin-left:8px;
-                                border-radius: 8px;
-                                border: 1px solid gray;
-                                font-size: 12px;
-                                line-height: 20px;
-                            }
-                        }
-                        svg{
-                            top: 3px;
-                            position: relative;
+                            margin:0 20px;
                         }
                         button{
-    
                             right:3px;
                         }
                     }
-                 
-                }
-                div:nth-child(2){
-                    justify-content: space-between;
-                }
-                div:nth-child(3){
-                    padding: 0;
-                    justify-content: space-between;
-                    div span input{
-                        text-align: right;
+                    .headerBottom{
+                        justify-content: space-between;
                     }
+                    
                 }
             }
         }
     }
 }
-
-
-
