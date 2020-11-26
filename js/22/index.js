@@ -9,7 +9,7 @@ $(function () {
         navigationPosition: 'right',
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
-        controlArrowColor: '',
+        controlArrowColor: '#FFFFFF',
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
         responsiveSlides: true,
@@ -432,5 +432,34 @@ $(function () {
                     });
             }
         },
+    });
+});
+
+// lightslider控制項目
+$(document).ready(function () {
+    $('#productCarouselList').lightSlider({
+        item: 3,
+        loop: true,
+        slideMove: 1,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed: 1000,
+        auto: true,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    item: 3,
+                    slideMove: 1,
+                    slideMargin: 6,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    item: 2,
+                    slideMove: 1
+                }
+            }
+        ]
     });
 });

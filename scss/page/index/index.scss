@@ -254,7 +254,7 @@
   }
 
 
-// 第一章開始
+// 第一章：「組織訴求」開始
 #chapter01{
     .slide{
         position: relative;
@@ -407,9 +407,9 @@
     }
 
 }
-// 第一章結束
+// 第一章：「組織訴求」開始結束
 
-// 第二章開始
+// 第二章：「浪費換算」開始開始
 #chapter02{
     position: relative;
     background-color: #B0BAA4;
@@ -452,9 +452,9 @@
         justify-content: space-between;
         }
 }
-// 第二章結束
+// 第二章：「浪費換算」開始結束
 
-// 第三章開始
+// 第三章：「浪費影響」
 #chapter03{
     position: relative;
     background-color: #C8DED2;
@@ -546,9 +546,9 @@
         }
     }
 }
-// 第三章結束
+// 第三章：「浪費影響」結束
 
-// 第四章開始
+// 第四章：「樂腹商城」開始
 #chapter04{
     background-image: url(../../../img/22/index/ch04_bg.jpg);
     position: relative;
@@ -567,28 +567,33 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        .productCard{
-            border: 1px solid lightgray;
-            border-radius: 20px;
-            box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
-            background-color: #F3E9C0;
-            width: 280px;
-            height: 420px;
-            display: flex;
-            flex-direction: column;
-            .countdown{
-                width: 100%;
-                height: 45px;
-                border-radius: 20px 20px 0px 0px;
-                background-color: #FBFFE0;
-                font-size: 18px;
-                color: #707070;
-                line-height: 45px;
-                span{
-                    font-size: 28px;
-                    color: #9A0202;
-                }
+        #productCarouselList{
+            .productCarouseItem{
+                .productCard{
+                    border: 1px solid lightgray;
+                    border-radius: 20px;
+                    box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                    background-color: #F3E9C0;
+                    width: 280px;
+                    height: 420px;
+                    display: flex;
+                    flex-direction: column;
+                    margin: auto;
+                    .countdown{
+                        width: 100%;
+                        height: 45px;
+                        border-radius: 20px 20px 0px 0px;
+                        background-color: #FBFFE0;
+                        font-size: 18px;
+                        color: #707070;
+                        line-height: 45px;
+                        span{
+                            font-size: 28px;
+                            color: #9A0202;
+                        }
+                    }
             }
+        }
             .productAvatarBlock{
                 width: 100%;
                 height: calc(420px - 45px - 45px);
@@ -658,9 +663,9 @@
         }
     }
 }
-// 第四章結束
+// 第四章：「樂腹商城」結束
 
-// 第五章開始
+// 第五章：「捐款說明」開始
 #chapter05{
     background-color: #D8E6D9;
     position: relative;
@@ -687,7 +692,6 @@
         border: 13px solid #E6ECE2;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
         margin: auto;
-        margin-top: 120px;
         position: relative;
         #ch05MainTtile{
             width: 217px;
@@ -798,12 +802,11 @@
         }
     }
 }
-// 第五章結束
+// 第五章：「捐款說明」結束
 
-// 第六章開始
+// 第六章：「聯絡我們」開始
 #chapter06{
     background-color: #F6EEE5;
-    border: 5px solid black;
     #ch06FlexArea{
         width: 100%;
         height: 100vh;
@@ -931,4 +934,4 @@
         }
     }
 }
-// 第六章結束    
+// 第六章：「聯絡我們」結束    
