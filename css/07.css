@@ -665,6 +665,11 @@ footer .footerBlock div .info a img {
   margin-right: 20px;
 }
 
+.productCenter .pdtExplanation .pdtTitle a {
+  font-size: 25px;
+  text-decoration: none;
+}
+
 .productCenter .pdtExplanation #liM {
   margin: 10px 0;
 }
@@ -693,6 +698,7 @@ footer .footerBlock div .info a img {
 
 .pdtQuantity button {
   background-color: #C9BE9F;
+  cursor: pointer;
 }
 
 .pdtQuantity button.left {
