@@ -324,7 +324,9 @@
     }
 }
 /////////benner結束//////////
-
+.main{
+    background-image: url(../img/07/bgc_yellowFruit.png);
+}
 .contents{
     // display: flex;
     width: 1200px;
@@ -589,5 +591,22 @@ svg.pdtsvg{
 
         }
 
+    }
+}
+//////////輪播／／／／／／／／
+.slidePanelText{
+    font-size: 30px;
+    margin: 130px 0 30px 0;
+    padding-bottom: 20px;
+    width: 185px;
+    border-bottom: 5px solid #C9BE9F;
+}
+.slidePanel{
+    display: flex;
+    align-items: center;
+    .btnPrev{
+        width: 30px;
+        height: 30px;
+        
     }
 }
