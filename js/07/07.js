@@ -5,8 +5,7 @@ $(function(){
     });
 }); 
 //////////////輪播////////////
-<script type="text/javascript">
-        $(document).ready(function() {
+$(document).ready(function() {
     $('#lightSlider').lightSlider({
         auto: true,
         item:3,
@@ -32,5 +31,4 @@ $(function(){
             }
         ]
     });  
-  });
-      </script>
+});
