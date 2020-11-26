@@ -690,6 +690,85 @@ footer div .info a img {
 .much {
   display: flex;
   flex-direction: column;
+@media screen and (max-width: 1200px) {
+  .context .productArea {
+    width: 100%;
+  }
+}
+
+.width_2P {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.width_2P .product {
+  margin-bottom: 20px;
+  margin: 0 15px 20px 0;
+  font-size: 22px;
+}
+
+.width_2P .product .pdtText {
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 30px 30px 0 0;
+  background-color: #FBFFE0;
+}
+
+.width_2P .product .pdtText .pdtTime {
+  font-size: 30px;
+  margin: 3px;
+  color: red;
+}
+
+.width_2P .product .productBottom {
+  display: flex;
+  padding: 20px;
+  background-color: #F3E9C0;
+  border-radius: 0 0 30px 30px;
+  position: relative;
+}
+
+.width_2P .product .productBottom .carImg {
+  padding: 12px;
+  width: 35px;
+  border-radius: 30px;
+  background-color: #C9BE9F;
+  position: absolute;
+  bottom: 20px;
+  left: 217px;
+}
+
+.width_2P .product .productBottom .pdtExplanation .pdtTime {
+  padding: 10px;
+}
+
+.width_2P .product .productBottom .pdtExplanation .pdtTime li::before {
+  margin: 10px 0px 10px;
+}
+
+.productCenter .pdtExplanation {
+  padding: 15px 0px 15px 15px;
+  display: flex;
+  background-color: #F2F0D7;
+}
+
+.productCenter .pdtExplanation .pdtTitle {
+  margin-right: 20px;
+}
+
+.productCenter .pdtExplanation #liM {
+  margin: 10px 0;
+}
+
+.productCenter .pdtImg {
+  padding: 13px;
+  background-color: #F2F0D7;
+}
+
+.much {
+  display: flex;
+  flex-direction: column;
 }
 
 .much .muchSpan {
