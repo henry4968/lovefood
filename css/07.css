@@ -56,12 +56,6 @@ footer .footerBlock div .info a img {
   padding-right: 10px;
 }
 
-.navBar {
-  width: 100%;
-  height: 123px;
-  background-color: palegreen;
-}
-
 * {
   color: #545454;
 }
@@ -338,7 +332,6 @@ footer .footerBlock div .info a img {
 @media all and (max-width: 991px) {
   #header #headerContentContainer #subNavigationForMobile {
     display: block;
-    border: 1px solid red;
     width: 96px;
     height: 40px;
     display: flex;
@@ -348,12 +341,16 @@ footer .footerBlock div .info a img {
   }
 }
 
+* {
+  color: #545454;
+}
+
 .banner {
   width: 100%;
   height: 70vh;
   background-color: #D3E4C6;
   position: relative;
-  background-image: url(../img/07/banner_new.png);
+  background-image: url(../img/banner_new.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100%;
@@ -371,17 +368,11 @@ footer .footerBlock div .info a img {
   left: 20%;
 }
 
-.apple .apple {
+.apple img {
   position: absolute;
   width: 40%;
   top: 12%;
   left: 19%;
-}
-
-@media screen and (max-width: 585px) {
-  .span {
-    font-size: 22px;
-  }
 }
 
 @media screen and (max-width: 768px) {
@@ -529,7 +520,7 @@ footer .footerBlock div .info a img {
 }
 
 .wrap {
-  background-image: url(../img/07/backgroud.png);
+  background-image: url(../img/backgroud.png);
   background-repeat: repeat;
 }
 
@@ -550,6 +541,7 @@ footer .footerBlock div .info a img {
 
 .itemArea .itemName p, .itemArea .itemName .pText {
   padding: 8px;
+  width: 50px;
   display: flex;
 }
 
@@ -591,6 +583,10 @@ footer .footerBlock div .info a img {
   background-color: #C9BE9F;
   color: #ffffff;
   font-size: 22px;
+}
+
+.wrap {
+  background-image: url(../img/07/backgroud.png);
 }
 
 .context .productArea {
@@ -639,12 +635,12 @@ footer .footerBlock div .info a img {
 
 .width_2P .product .productBottom .carImg {
   padding: 12px;
-  width: 35px;
   border-radius: 30px;
   background-color: #C9BE9F;
   position: absolute;
   bottom: 20px;
-  left: 217px;
+  left: 202px;
+  cursor: pointer;
 }
 
 .width_2P .product .productBottom .pdtExplanation .pdtTime {
@@ -666,7 +662,6 @@ footer .footerBlock div .info a img {
 }
 
 .productCenter .pdtExplanation .pdtTitle a {
-  font-size: 25px;
   text-decoration: none;
 }
 
