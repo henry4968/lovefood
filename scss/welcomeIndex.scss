@@ -1,0 +1,39 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#background{
+    width: 100vw;
+    height: 100vh;
+    background-image: url("/img/22/welcomeIndex/bgimg.png");
+    padding: 120px 0px 0px 0px;
+
+    #buttonContainer{
+        width: 1200px;
+        height: 500px;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        a{
+            text-decoration: none;
+            color: #707070;
+            font-size: 90px;
+            text-align: center;
+            line-height: 300px;
+            .welcomeButton{
+                width: 500px;
+                height: 300px;
+                border-radius: 50px;
+                margin: 100px 0px 0px 0px;
+                background-color: #FFFF9B;
+                box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+                &:hover{
+                    background-color: #FFE45E;
+                }
+            }
+        }
+    }
+}
