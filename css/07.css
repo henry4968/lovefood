@@ -5,44 +5,45 @@ footer {
   cursor: pointer;
   font-size: 18px;
   color: #D3E4C6;
-  display: flex;
-  justify-content: flex-end;
 }
 
-footer div {
-  width: 550px;
+footer .footerBlock {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footerBlock div {
   height: 80px;
   display: flex;
   justify-content: flex-end;
 }
 
-footer div .footer_logo {
+footer .footerBlock div .footer_logo {
   margin-top: 50px;
   display: block;
-  width: 200px;
+  width: 190px;
   border-right: 1px solid #D3E4C6;
   text-align: left;
-  padding-right: 10px;
 }
 
-footer div .footer_logo img {
-  width: 182px;
-  padding-top: 15px;
+footer .footerBlock div .footer_logo img {
+  width: 162px;
+  padding-top: 13px;
 }
 
-footer div .footer_logo .copyright {
+footer .footerBlock div .footer_logo .copyright {
   margin-top: 6px;
   font-size: 10px;
 }
 
-footer div .info {
+footer .footerBlock div .info {
   display: block;
   text-align: left;
   width: 330px;
   margin-top: 50px;
 }
 
-footer div .info a {
+footer .footerBlock div .info a {
   width: 280px;
   margin: 20px;
   text-decoration: none;
@@ -51,7 +52,7 @@ footer div .info a {
   line-height: 1.5;
 }
 
-footer div .info a img {
+footer .footerBlock div .info a img {
   padding-right: 10px;
 }
 
