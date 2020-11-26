@@ -610,3 +610,70 @@ svg.pdtsvg{
         
     }
 }
+
+//////外層/////
+.slidePanel{
+    border: 4px solid forestgreen;
+    height: 250px;
+    width: 1200px;
+	margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+	// text-align: left;
+
+}
+//////內層 ul/////
+#lightSlider{
+    border: 2px saddlebrown;
+    top: 0;
+    overflow: hidden;
+	// left:0;
+	position: absolute;
+    
+        li{
+            padding: 0 10px;
+	        // width: 90%;
+	        text-align: center;
+	        display: inline;
+	        box-sizing: border-box;
+        }
+}
+.btnPrev{
+    background-image: url(../img/07/btnPrev.png);
+    background-repeat: no-repeat;
+    transition: all 0.2s ease-in-out;
+    position: absolute;
+    left: -35px;
+    
+}
+.btnNext{
+    background-image: url(../img/07/btnNext.png);
+    border: 1px solid darkgoldenrod;
+    position: absolute;
+    right: -35px;
+    width: 30px;
+    height: 30px;
+    transition: all 0.2s ease-in-out;
+
+}
+.btnPrev,.btnNext{
+	opacity: 0.6;
+
+}
+.slidePanel ul:before,
+.slidePanel ul:after {
+	content: " ";
+	display: table;
+}
+.slidePanel ul:after {clear: both;}
+.slidePanel ul {*zoom: 1;}
+
+@media screen and (max-width: 1200px -1){
+    .slidePanel{
+        width: none !important;
+        padding: 0;
+        ul{
+            width: none !important;
+        }
+    }
+}

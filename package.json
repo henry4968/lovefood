@@ -35,6 +35,7 @@
     "fullpage.js": "^3.0.9",
     "jquery": "^3.5.1",
     "lightslider": "^1.1.6",
+    "uikit": "^3.5.10-dev.aab2b26c6",
     "vue": "^2.6.12",
     "waypoints": "^4.0.1"
   }
