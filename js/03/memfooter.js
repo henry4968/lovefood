@@ -4,7 +4,7 @@ Vue.component('memfooter', {
       <footer id="memfooter">
         <div class="footerborder">
             <div class="footer_logo">
-                <a href="#0"><img src="../img/03/memlogofooter.png"></a>
+                <a href="./index.html"><img src="../img/03/memlogofooter.png"></a>
                 <p class="copyright">&copyLOVE FOOD All right reserved</p>
             </div>
             <div class="info">

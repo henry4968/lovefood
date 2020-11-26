@@ -1,6 +1,6 @@
 // header
 Vue.component('memhead', {
-  template: `
+    template: `
        <!-- 標頭開始 -->
     <header id="memheader">
         <div id="headerContentContainer">
@@ -10,10 +10,10 @@ Vue.component('memhead', {
 
             <!-- 導覽列開始 -->
             <nav id="navigation">
-                <a href="#0" class="navGeneralAnchors">樂腹商城</a>
-                <a href="#0" class="navGeneralAnchors">賣家專區</a>
-                <a href="#0" class="navGeneralAnchors">捐款說明</a>
-                <a href="#0" id="navSepcialAnchor">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a href="../backend/backendIndex.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
                         立即捐款
                     </div>
@@ -37,8 +37,8 @@ Vue.component('memhead', {
       `,
 });
 new Vue({
-  el: '#memheader',
-  data: {
-    headId: 'memhead',
-  },
+    el: '#memheader',
+    data: {
+        headId: 'memhead',
+    },
 });
