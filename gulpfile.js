@@ -9,7 +9,7 @@ const sass = require("gulp-sass");
 var paths = {
     styles: {
 
-        src:["scss/backstage/*.scss","scss/layout/*.scss","scss/page/backstage/*.scss"] ,
+        src:["scss/backStage/backstageAll.scss"] ,
 
         dest: "css/backstage/"
     }
@@ -23,5 +23,5 @@ function style() {
         .pipe(dest(paths.styles.dest));
 }
 exports.default = function watchs(){
-    watch(['scss/page/backstage/*.scss'], style)
+    watch(["scss/page/backstage/*.scss"], style)
 }

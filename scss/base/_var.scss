@@ -62,6 +62,13 @@ $t:#8c7a6b; //logo咖啡
 $y:#f3e8c4; //main黃
 $brown:#897666;//main咖啡
 $hy:RGB(246,247,215);;//header 鵝黃
+
+//按鈕顏色map
+$btn_color: (none: transparent, brown: #897666, green: RGB(210,228,201));
+//頁籤顏色map
+$pageLabel_color:(current: $ny,others:RGB(237,235,218));
+
+
 //位置,左右
 $left:left;
 $right:right;

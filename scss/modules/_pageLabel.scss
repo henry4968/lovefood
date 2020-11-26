@@ -1,0 +1,20 @@
+%pageLabel-common{
+    @include get_pageLabelsize(40px, 20px);
+    color:$brown;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.pageLabel-current{    //直接加在當前頁籤的class
+    @extend %pageLabel-common;
+    cursor: pointer;
+}
+.pageLabel-others{     //直接加在其它頁籤的class
+    @extend %pageLabel-common;
+}
+
+@each $name, $color in $pageLabel_color{   
+    @include pageLabel($name, map-get($pageLabel_color,$name));
+}
