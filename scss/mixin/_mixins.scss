@@ -78,7 +78,7 @@
     }
 }
 
-//取size
+//button取size
 
 @mixin get_size($height, $font){
     $padding: floor(($height - ($font * 1.4)) / 2);
@@ -87,9 +87,18 @@
     font-size: $font;
 }
 
+//頁籤取size
+
+@mixin get_pageLabelsize($height, $font){
+    $padding: floor(($height - ($font * 1.4)) / 2);
+    padding: $padding $font;
+    height: $height;
+    font-size: $font;
+}
+
 //button
 @mixin btn_xl{
-@include get_size(56px, 32px);
+@include get_size(56px, 16px);
 }
 @mixin btn_m{
 @include get_size(44px, 16px);
@@ -101,3 +110,35 @@
 @mixin btn_xs{
 @include get_size(24px, 12px);
 }
+
+@mixin btn_classic($name, $color){
+    .btn-#{$name}{
+        background-color: $color;
+        border: 1px solid $color;
+        color: #fff;
+        // &.is-active{
+        //     background-color: $color;
+        //     border-color: $color;
+        //     color: #fff;
+        // }
+        // &:disabled{
+        //     background-color: transparent;
+        //     border: 1px solid $color;
+        //     color: $color;
+        //     opacity: 0.33;
+        // }        
+         
+    }
+   
+}
+@mixin pageLabel($name,$color){  //用法請到modules/pageLabel看
+    .pageLabel-#{$name}{
+        background-color: $color;
+    }
+    
+}
+
+
+
+
+ 

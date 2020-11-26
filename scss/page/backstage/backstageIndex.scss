@@ -1,6 +1,5 @@
-@import "../../layout/_backstageNav.scss";
-@import "../../layout/_backstageSidebar.scss";
-@import "../../layout/_backstageHeader.scss";
+
+@import "../../base/var";
 
 
 .asideMainWrapper{
@@ -13,17 +12,6 @@
         .headerWrapper{
             background-color: $y;
         }
-    }
-}
-.sideNav div:nth-child(1){    //會員管理
-    background-color: $brown;
-    svg{
-       Path{
-         fill:#fff;
-       } 
-    }
-    li{ 
-        color:#fff;
     }
 }
 .headerMainWrapper{
@@ -40,7 +28,6 @@
                     flex-direction: row;
                     padding:5px;
                     span{
-                        padding:5px;
                         input{
                             margin-left:8px;
                             border-radius: 8px;
@@ -58,19 +45,7 @@
                         right:3px;
                     }
                 }
-                .pageSwitch{
-                    span{
-                        background-color: $hy;
-                        width: 100px;
-                        height: 40px;
-                        margin: 1px;
-                        font-size: 20px;
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        color:$brown;
-                    }
-                }
+             
             }
             div:nth-child(2){
                 justify-content: space-between;
@@ -85,3 +60,4 @@
         }
     }
 }
+

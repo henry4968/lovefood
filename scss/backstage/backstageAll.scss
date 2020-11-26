@@ -2,6 +2,13 @@
 @import "../../node_modules/normalize-scss/sass/normalize/import-now"; //reset
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap'; //更改請至此支檔案選擇需要的功能
 @import "../base/var";
+@import "../modules/button";
+@import "../modules/pageLabel";
 @import "../page/backstage/backstageIndex"; //Backstage homepage
 @import "../page/backstage/backstagePoints.scss"; //點數管理
 @import "../page/backstage/backstageFinance.scss"; //財務管理
+
+//layout
+@import "../layout/_backstageNav.scss";
+@import "../layout/_backstageSidebar.scss";
+@import "../layout/_backstageHeader.scss";
