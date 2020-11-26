@@ -5,44 +5,45 @@ footer {
   cursor: pointer;
   font-size: 18px;
   color: #D3E4C6;
-  display: flex;
-  justify-content: flex-end;
 }
 
-footer div {
-  width: 550px;
+footer .footerBlock {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footerBlock div {
   height: 80px;
   display: flex;
   justify-content: flex-end;
 }
 
-footer div .footer_logo {
+footer .footerBlock div .footer_logo {
   margin-top: 50px;
   display: block;
-  width: 200px;
+  width: 190px;
   border-right: 1px solid #D3E4C6;
   text-align: left;
-  padding-right: 10px;
 }
 
-footer div .footer_logo img {
-  width: 182px;
-  padding-top: 15px;
+footer .footerBlock div .footer_logo img {
+  width: 162px;
+  padding-top: 13px;
 }
 
-footer div .footer_logo .copyright {
+footer .footerBlock div .footer_logo .copyright {
   margin-top: 6px;
   font-size: 10px;
 }
 
-footer div .info {
+footer .footerBlock div .info {
   display: block;
   text-align: left;
   width: 330px;
   margin-top: 50px;
 }
 
-footer div .info a {
+footer .footerBlock div .info a {
   width: 280px;
   margin: 20px;
   text-decoration: none;
@@ -51,7 +52,7 @@ footer div .info a {
   line-height: 1.5;
 }
 
-footer div .info a img {
+footer .footerBlock div .info a img {
   padding-right: 10px;
 }
 
@@ -444,9 +445,6 @@ footer div .info a img {
 }
 
 #span {
-  background-color: purple;
-  display: flex;
-  padding: 20px;
   background-color: #F3E9C0;
   padding: 15px;
   font-size: 22px;
@@ -457,8 +455,6 @@ footer div .info a img {
   border: 2px solid green;
   align-items: center;
   font-size: 22px;
-  justify-content: space-evenly;
-  width: 75%;
   cursor: pointer;
   width: 1200px;
 }
@@ -544,7 +540,6 @@ footer div .info a img {
 }
 
 .itemArea .itemName {
-  border: 4px solid red;
   justify-content: center;
   width: 385px;
   padding: 10px;
@@ -596,9 +591,6 @@ footer div .info a img {
   background-color: #C9BE9F;
   color: #ffffff;
   font-size: 22px;
-  flex-grow: 1;
-  width: 20%;
-  padding: 10px;
 }
 
 .context .productArea {
@@ -606,90 +598,6 @@ footer div .info a img {
   margin: 0 auto;
 }
 
-.group {
-  border: 1px solid green;
-  width: 120px;
-  display: flex;
-  flex-direction: column;
-@media screen and (max-width: 1200px) {
-  .context .productArea {
-    width: 100%;
-  }
-}
-
-.width_2P {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.width_2P .product {
-  margin-bottom: 20px;
-  margin: 0 15px 20px 0;
-  font-size: 22px;
-}
-
-.width_2P .product .pdtText {
-  margin: 0 auto;
-  padding: 20px;
-  border-radius: 30px 30px 0 0;
-  background-color: #FBFFE0;
-}
-
-.width_2P .product .pdtText .pdtTime {
-  font-size: 30px;
-  margin: 3px;
-  color: red;
-}
-
-.width_2P .product .productBottom {
-  display: flex;
-  padding: 20px;
-  background-color: #F3E9C0;
-  border-radius: 0 0 30px 30px;
-  position: relative;
-}
-
-.width_2P .product .productBottom .carImg {
-  padding: 12px;
-  width: 35px;
-  border-radius: 30px;
-  background-color: #C9BE9F;
-  position: absolute;
-  bottom: 20px;
-  left: 217px;
-}
-
-.width_2P .product .productBottom .pdtExplanation .pdtTime {
-  padding: 10px;
-}
-
-.width_2P .product .productBottom .pdtExplanation .pdtTime li::before {
-  margin: 10px 0px 10px;
-}
-
-.productCenter .pdtExplanation {
-  padding: 15px 0px 15px 15px;
-  display: flex;
-  background-color: #F2F0D7;
-}
-
-.productCenter .pdtExplanation .pdtTitle {
-  margin-right: 20px;
-}
-
-.productCenter .pdtExplanation #liM {
-  margin: 10px 0;
-}
-
-.productCenter .pdtImg {
-  padding: 13px;
-  background-color: #F2F0D7;
-}
-
-.much {
-  display: flex;
-  flex-direction: column;
 @media screen and (max-width: 1200px) {
   .context .productArea {
     width: 100%;

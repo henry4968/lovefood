@@ -1,9 +1,19 @@
 @import'./base/var';
 @import'mixin/mixins';
-@import'./layout/header';
 @import'./base/reset';
+// @import'./modules/button';
+@import'./base/fonts';
 
 // 標頭開始
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    text-decoration: none;
+}
+
+
 #header{
     width: 100%;
     height: 123px;
@@ -12,6 +22,7 @@
     background: transparent;
     background-color: #D3E4C6;
     z-index: 9;
+    font-family: "Times New Roman","Pc","NotoSansCJKtc-Thin","sans-serif";
     #headerContentContainer{
         // border: 1px solid red;
         width: 1180px;
@@ -83,9 +94,11 @@
                     height: 100%;
                     border-radius: 3px;
                     text-align: center;
-                    background-color: #FBFFE0;
+                    background-color: #B8AD91;
+                    color: #ffffff;
                     &:hover{
                         background-color: #F2F0D7;
+                        color: #CEC2B6;
                     }
                     margin: 0px 28px;
                     @include rwd("laptop"){
@@ -127,6 +140,7 @@
             left: 216px;
             top:84px;
             align-items: center;
+            font-family: "PingFang-TC-Regular-thin","sans-serif";
 
 
 
@@ -140,22 +154,20 @@
                 position: absolute;
                 left: 150px;
                 top: 50px;
-
-                
-                
+ 
                 h1{
                     
                     font-size: 70px;
                     padding: 5px;
                     color:  #7D7765;
-                    font-family: 'PingFang-TC-Regular-2.otf';
+                    font-family:"Pc", "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
                 }
                 p{
 
                     font-size: 24px;
                     padding: 5px;
                     color:  #7D7765;
-                    font-family: 'PingFang-TC-Regular-2.otf';
+                    font-family: "PingFang-TC-thin","sans-serif";
                 }
             }        
         }
@@ -176,6 +188,7 @@
         
         color:#7D7765;
         font-size: 30px; 
+        font-family: "PingFang-TC-thin","sans-serif";
         margin:27px auto;
         }
     
@@ -211,6 +224,7 @@
                 position: relative;
                 top: 23px;
                 font-size: 30px;
+                font-family: "PingFang-TC-thin","sans-serif";
                 color:#7D7765;
                 margin:23px 30px;
                 
@@ -229,9 +243,11 @@
                 height: 60px;
                 color: #ffffff;
                 font-size: 24px;
+                font-family: "PingFang-TC-thin","sans-serif";
 
                 margin: 50px auto 0px auto;
                 border-radius: 13px 13px 0px 0px;
+                box-shadow:3px 3px 6px rgba(0,0,0,0.2);
                 display: flex;
                 flex-direction: row;
                 align-items: stretch;
@@ -248,6 +264,7 @@
                 li:first-child{
                     margin: 18px 30px;
                     width:30px;
+                  
                 }
                 li:nth-child(2){
                     width: 450px;
@@ -272,13 +289,14 @@
                         // border: 1px solid goldenrod;
                         width: 960px;
                         margin: 0 auto;
-
                         display: flex;
                        
                         .imgBlock{
                             width:180px;
-                            border:1px solid #707070;
+                            border:2px solid #C9BE9F;
+                            border-radius: 5px;
                             margin: 20px;
+                            box-shadow: 3px 3px 6px rgba(0,0,0,0.2);
                             img{
                                 width: 100%;
                                 overflow: hidden;
@@ -288,16 +306,19 @@
                             margin-top: 20px;
                             .productName{
                                 font-size: 24px;
+                                font-family: "PingFang-TC-thin","sans-serif";
                                 color:#707070;
                                 margin: 20px;
                                 text-align: left;
                             }
                             ul{
                                 display: flex;
+                                font-family: "PingFang-TC-thin","sans-serif";
                                 .exp{
                                     font-size: 20px;
-                                    color:#707070;
+                                    color:#c00202;
                                     margin: 20px;
+
                                 }
                                 .price{
                                     font-size: 24px;
@@ -326,8 +347,7 @@
                         // border: 1px solid blue;
                         width: 950px;
                         margin: 30px;
-                        
-
+                        font-family: "PingFang-TC-thin","sans-serif";
                         p{
                             font-size: 20px;
                             color: #707070;
@@ -335,20 +355,26 @@
                         }
                         div{
                             display: flex;
-                        
-
+                            .mapIcon{
+                                width: 15px;
+                                height: 20px;
+                                margin-top: 6px;
+                            }
                             li{ 
-                                // width: 400px; 
+                                
                                 margin: 50px 20px 20px 20px;
                                 font-size: 18px;
                                 color: #707070;
-                            
-                            
-                                img{
-                                    height: 30px;
+                                .locationIcon{
+                                    width: 30px;
+                                    vertical-align: middle;
                                     margin-right: 10px;
                                 }
+                                
 
+                            }
+                            li:first-child{
+                                color: #c00202;
                             }
                             input{
                             margin-left: 65px;
@@ -387,6 +413,7 @@
             }
         }
      .cart_16FinalCount{
+         
          background-color: #FBFFE0;
         
          .cart_16FinalCount_Main{
@@ -394,7 +421,12 @@
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
+            .keepShop{
+                // border: 1px solid red;
+                margin-top: 100px;
 
+
+            }
             div{
                 margin: 20px 0px;
                 justify-content: flex-start;
@@ -452,6 +484,7 @@
                             color: #ffffff;
                             font-size: 16px;
                             cursor: pointer;
+                            line-height: 30px;
     
                         }
                      }
@@ -464,10 +497,14 @@
         background-color: #F2F0D7;
         height: 100px;
         div{
+            // border: 1px solid red;
             font-size: 24px;
             color: #4E4D4D;
             display: flex;
             justify-content: flex-end;
+            margin: 0 auto;
+            width: 1050px;
+            
         
             button{
                 width: 110px;
@@ -477,8 +514,17 @@
                 background-color: #C9BE9F;
                 border-radius: 13px;
                 font-size: 24px;
-                margin-right: 100px;
-                margin-top: 25px;
+                margin: 24px 20px;
+                outline: none;
+                cursor: pointer;
+                &:hover{
+                       background-color: #c0b28d;
+                       }
+                a{
+                 &:visited{
+                    color: #ffffff;
+                    }
+                }
             }
      }
     }
@@ -541,6 +587,7 @@ footer{
          } 
     }  
 }
+
 //FOOTER結束
 
 
