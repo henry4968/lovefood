@@ -1842,9 +1842,9 @@ input[type="button"].btn-block {
   font-size: 12px; }
 
 .pageLabel-current, .pageLabel-others {
-  padding: 6px 20px;
-  height: 40px;
-  font-size: 20px;
+  padding: 0 79px;
+  height: 55px;
+  font-size: 24px;
   color: #897666;
   margin: 1px;
   display: flex;

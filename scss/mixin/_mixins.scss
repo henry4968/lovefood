@@ -155,8 +155,8 @@
 //頁籤取size
 
 @mixin get_pageLabelsize($height, $font){
-    $padding: floor(($height - ($font * 1.4)) / 2);
-    padding: $padding $font;
+    $padding: floor(($height + $font));
+    padding: 0 $padding;
     height: $height;
     font-size: $font;
 }
