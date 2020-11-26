@@ -203,6 +203,15 @@
     
 }
 
+@mixin linx($link,$hover) { //a labels 第一個參數是本來文字顏色 
+    .a-sideLink{
+        color: $link;
+        &:hover {
+            color: $hover;   
+          }
+    }
+  }
+
 
 
 
