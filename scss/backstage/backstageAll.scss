@@ -1,10 +1,18 @@
+@import "../base/var";
 @import "../mixin/mixins";
 @import "../../node_modules/normalize-scss/sass/normalize/import-now"; //reset
 @import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap'; //更改請至此支檔案選擇需要的功能
-@import "../base/var";
+
+//modules
 @import "../modules/button";
 @import "../modules/pageLabel";
-@import "../page/backstage/backstageIndex"; //Backstage homepage
+@import "../modules/input";
+@import "../modules/table";
+
+
+//頁面
+@import "../page/backstage/backstageIndex"; //Backstage homepage 會員管理
+@import "../page/backstage/backstageOrder";
 @import "../page/backstage/backstagePoints.scss"; //點數管理
 @import "../page/backstage/backstageFinance.scss"; //財務管理
 
