@@ -1,0 +1,33 @@
+@import "../mixin/mixins";
+
+%button-common{
+    width: 60px;
+    line-height: 20px;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid $brown;
+    color: $brown;
+    cursor: pointer;
+}
+
+.btn-xl{
+    @extend %btn-common;
+    @include btn_xl;
+}
+  
+.btn-m{
+    @extend %btn-common;
+    @include btn_m;
+}
+  
+.btn-s{
+    @extend %btn-common;
+    @include btn_s;
+}
+  
+.btn-xs{
+    @extend %btn-common;
+    @include btn_xs;
+}
+  

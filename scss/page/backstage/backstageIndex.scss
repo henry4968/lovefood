@@ -1,0 +1,87 @@
+@import "../../layout/_backstageNav.scss";
+@import "../../layout/_backstageSidebar.scss";
+@import "../../layout/_backstageHeader.scss";
+
+
+.asideMainWrapper{
+    position: relative;
+    padding-top:110px;
+    display: flex;
+    width:1200px;
+    margin:0 auto;
+    .headerMainWrapper{
+        .headerWrapper{
+            background-color: $y;
+        }
+    }
+}
+.sideNav div:nth-child(1){    //會員管理
+    background-color: $brown;
+    svg{
+       Path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+}
+.headerMainWrapper{
+    position: relative;
+    margin-left:10px;
+    flex-grow: 1;
+    .headerWrapper{
+        margin-bottom: 10px;
+        header{
+            form{
+                div{
+                    position: relative;
+                    display: flex;
+                    flex-direction: row;
+                    padding:5px;
+                    span{
+                        padding:5px;
+                        input{
+                            margin-left:8px;
+                            border-radius: 8px;
+                            border: 1px solid gray;
+                            font-size: 12px;
+                            line-height: 20px;
+                        }
+                    }
+                    svg{
+                        top: 3px;
+                        position: relative;
+                    }
+                    button{
+
+                        right:3px;
+                    }
+                }
+                .pageSwitch{
+                    span{
+                        background-color: $hy;
+                        width: 100px;
+                        height: 40px;
+                        margin: 1px;
+                        font-size: 20px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        color:$brown;
+                    }
+                }
+            }
+            div:nth-child(2){
+                justify-content: space-between;
+            }
+            div:nth-child(3){
+                padding: 0;
+                justify-content: space-between;
+                div span input{
+                    text-align: right;
+                }
+            }
+        }
+    }
+}

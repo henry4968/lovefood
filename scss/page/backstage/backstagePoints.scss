@@ -1,0 +1,207 @@
+@import "../../layout/_backstageNav.scss";
+@import "../../layout/_backstageSidebar.scss";
+
+.asideMainWrapper{
+    position: relative;
+    padding-top:110px;
+    width:1200px;
+    margin:0 auto;
+    .headerMainWrapper{
+        .headerWrapper{
+            background-color: $y;
+        }
+    }
+}
+.sideNav div:nth-child(4){    //點數管理
+    background-color: $brown;
+    svg{
+       Path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+}
+
+main{
+    box-sizing: border-box;
+    width: 980px;
+    #pointsDataFilterArea, #pointsDataArea{
+        box-sizing: border-box;
+        width: 100%;
+        background-color: #F3E9C0;
+        border-radius: 10px;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        margin-left: 15px;
+    }
+    #pointsDataFilterArea{
+        padding: 27px 29px 18px 31px;
+        height: 267px;
+        #pointsDataFilterTabsBlock{
+            width: 550px;
+            height: 50px;
+            display: flex;
+            flex-direction: row;
+            .pointsDataFilterTab{
+                width: 180px;
+                height: 50px;
+                box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                font-size: 24px;
+                background-color: #E6E6E6;
+                color: #8F8770;
+                text-align: center;
+                line-height: 50px;
+            }
+            #pointsDataFilterTab01{
+                background-color: #FAFDDD;
+            }
+        }
+        #pointsDataFilter{
+            width: 920px;
+            height: 172px;
+            border-radius: 13px;
+            background-color: #EBECE3;
+            padding: 24px 17px 22px 18px;
+            position: relative;
+            #pointsDataFilterLeftUpperBlock{
+                border: 1px solid red;
+                width: 560px;
+                height: 80px;
+                font-size: 16px;
+                color: #7B807D;
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                .pointsDataFilterLeftUpperBlockRow{
+                    display: flex;
+                    flex-direction: row;
+                    justify-items: center;
+                    input{
+                        width: 200px;
+                        height: 30px;
+                        border: .5px solid #BFBCBC;
+                        border-radius: 10px;
+                        background-color: #FFFFFF;
+                        margin-left: 5px;
+                    }
+                }
+            }
+            #pointsDataFilterLeftDownerBlock{
+                width: 253px;
+                height: 25px;
+                font-size: 16px;
+                color: #707070;
+                margin-top: 30px;
+                input{
+                    border: 1px solid #B9AF94;
+                    border-radius: 3px;
+                    background-color: #FFFFFF;
+                }
+            }
+            #pointsDataFilterRightBlock{
+                border: 1px solid blue;
+                width: 290px;
+                height: 140px;
+                position: absolute;
+                right: 22px;
+                top: 17px;
+                font-size: 16px;
+                color: #707070;
+                a{
+                    .pointsDataFilterButton{
+                        width: 60px;
+                        height: 26px;
+                        border-radius: 5px;
+                        background-color: #887664;
+                        color: #FFFFFF;
+                        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                        text-align: center;
+                        line-height: 26px;
+                    } 
+                }
+                #membersPointsActionBlock{
+                    margin-top: 15px;
+                    position: relative;
+                    .pointsDataFilterButton{
+                        position: absolute;
+                        top: 35px;
+                    }
+                    #pointsDataFilterButton01{
+                        left: 80px;
+                    }
+                    #pointsDataFilterButton02{
+                        left: 160px;
+                    }
+
+                }
+            }
+        }
+    }
+    #pointsDataArea{
+        height: 578px;
+        margin-top: 20px;
+        padding: 27px 17px 27px 17px;
+        table tr, tr td{
+            border: 1px solid #D3D3D3;
+        }
+        table{
+            width: 945px;
+            height: 120px;
+            tr:nth-child(2n){
+                background-color: #FFFFFF;
+            }
+            tr:nth-child(2n+1){
+                background-color: #EBE8E8;
+            }
+            #pointsDataHeader{
+                th{
+                    background-color: #887664;
+                    color: #FFFFFF;
+                    font-size: 14px;
+                    text-align: center;
+                }
+            }
+            tr{
+                color: #A0754A;
+                font-size: 14px;
+                text-align: center;
+                .pointsDataActionBlock{
+                    display: flex;
+                    justify-content: space-around;
+                    height: 50px;
+                    a{
+                        display: block;
+                        align-self: center;
+                        .pointsDataActionButton{
+                            width: 45px;
+                            height: 26px;
+                            border-radius: 3px;
+                            background-color: #D3E4C6;
+                            font-size: 14px;
+                            text-align: center;
+                            color: #707070;
+                            line-height: 26px;
+                            
+                        }
+                    }
+                }       
+            }
+        }
+    }
+    #pagination{
+        position: absolute;
+        transform: translate(-50% , 50%);
+        left: 55%;
+        bottom: 27px;
+        font-size: 27px;
+        a{
+            color: #887664;
+            text-decoration: none;
+            &:hover{
+                background-color: #887664;
+                color: #FFFFFF;
+            }
+        }
+    }
+}
