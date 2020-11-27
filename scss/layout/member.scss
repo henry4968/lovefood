@@ -171,7 +171,7 @@ body{
               display: flex;
               flex-direction: column;
               div{
-                margin: 1% 0%;
+                margin: 1.3% 0%;
                 input{
                   width: 240px;
                   outline: none;
@@ -233,8 +233,36 @@ body{
         }
         div.rightPicborder{
           width: 22%;
-          border: 1px solid black;
+          // border: 1px solid black;
           margin: 4% 2% 4% 0%;
+          .uploadBorder{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .imageBorder{
+              width: 180px;
+              height: 180px;
+              border-radius: 50%;
+              background-color: #fff;
+              background-image: url('../../img/03/uploadpicture.png'),url('../../img/03/person.png');
+              background-repeat: no-repeat;
+              background-position: center top 80%,center;
+              background-size: 70%;
+              display: flex;
+              justify-content: center;
+              overflow: hidden;
+            }
+            .fileBorder{
+              margin-top: 5%;
+              input#theFile{
+                width: 85px;
+                overflow: hidden;
+                border: #707070 !important;
+                outline: none !important;
+                background-color: #fff !important;
+              }
+            }
+          }
         }
       }
     }

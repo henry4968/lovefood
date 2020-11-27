@@ -14,6 +14,10 @@
 @each $name, $color in $btn_color{
     @include btn_classic($name, map-get($btn_color, $name));
 }
+.btn-2xl{
+    @extend %btn-common;
+    @include btn_2xl;
+}
 
 .btn-xl{
     @extend %btn-common;

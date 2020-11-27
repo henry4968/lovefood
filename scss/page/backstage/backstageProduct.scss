@@ -51,6 +51,9 @@
                         flex-direction: column;
                         span{
                             margin:8px 20px;
+                            .plusMinor{
+                                margin:0 6px;
+                            }
                         }
                     }
                     .eachOneRight{

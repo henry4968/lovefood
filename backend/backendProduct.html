@@ -5,13 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心--會員管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
 </head>
 <body>
      <div class="containerProduct">
         <div class="navWrapper">
             <nav>
                 <div class="navLeft">
-                    <img src="/img/23/loveFood_logo1.png" alt="">
+                    <img src="../img/23/loveFood_logo1.png" alt="">
                     <h1>管理中心</h1>
                 </div>
                 <svg xmlns="http://www.w3.org/2000/svg" width="36" height="35.965" viewBox="0 0 36 35.965">
@@ -98,7 +99,13 @@
                                 <span>商品編號<input class="input-l" type="text"></span>
                                 <span>上架區間<input class="input-l" type="date">至<input class="input-l" type="date"></span>
                                 <span>有效期限<input class="input-l" type="text"></span>
-                                <span>數量<input class="input-l" type="text"></span>
+                                <span>商品數量
+                                    <span class="plusMinor">
+                                    <button id="minus" class="btn-brown">-</button><input class="input-quantity" type="text" value="1"><button id="plus" class="btn-brown">+</button>
+                                    </span>
+                                </span>
+                                    
+                                
                                 <span>取貨點:
                                     <input class="input-checkbox" type="checkbox">皆可
                                     <input class="input-checkbox" type="checkbox">到店自取
@@ -134,5 +141,23 @@
             </div>
         </div>    
     </div>
+    <script>
+        $(document).ready(function() {
+                  $('#minus').click(function () {
+                      var $input = $(this).parent().find('input');
+                      var count = parseInt($input.val()) - 1;
+                      count = count < 1 ? 1 : count;
+                      $input.val(count);
+                      $input.change();
+                      return false;
+                  });
+                  $('#plus').click(function () {
+                      var $input = $(this).parent().find('input');
+                      $input.val(parseInt($input.val()) + 1);
+                      $input.change();
+                      return false;
+                  });
+              });
+      </script>
 </body>
 </html>
