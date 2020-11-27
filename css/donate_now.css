@@ -1,15 +1,13 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #header {
   width: 100%;
   height: 123px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: #DCE5C3;
@@ -21,21 +19,15 @@
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -76,29 +68,21 @@
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
   }
 }
 
 #header #headerContentContainer #navigation {
   width: 762px;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -214,28 +198,27 @@
   width: 100%;
   margin: 0 auto;
   background-color: #FEFEFA;
+  box-shadow: 5px 5px 10px #00000024;
+}
+
+.donateNowBg .donateForm form .donateItem .dottedLine {
+  border: 1px dashed #B2C6A6;
+  margin: -20px auto 60px;
+  max-width: 860px;
 }
 
 .donateNowBg .donateForm form .donateItem .donateLine {
   border: 4px solid #B2C6A6;
   background-color: #B2C6A6;
   height: 70px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 .donateNowBg .donateForm form .donateItem .donateLine .donateTitle {
   display: inline-block;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin: 10px;
 }
 
@@ -259,45 +242,123 @@
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  justify-content: center;
+  align-content: center;
   max-width: 860px;
   width: 100%;
   margin: 0 auto 25px;
-  height: 45px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .starTxt {
+  color: #F7B3B3;
+  font-size: 26px;
+  transform: translateY(-13%);
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabelMessage {
+  width: 30%;
+  text-align: right;
+  display: flex;
+  justify-content: flex-end;
+  align-content: center;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabel {
   width: 30%;
   text-align: right;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  justify-content: flex-end;
+  align-content: center;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabel .starTxt {
   color: #F7B3B3;
   font-size: 26px;
-  -webkit-transform: translateY(-13%);
-          transform: translateY(-13%);
+  transform: translateY(-13%);
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton {
+  margin-top: -20px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton .Button {
+  width: 150px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  margin: 0 20px;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px #00000024;
+  outline: none;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #cleanButton {
+  background-color: #DEDEDE;
+  color: #707070;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #cleanButton:hover {
+  background-color: #d1d1d1;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #sendButton {
+  background-color: #B2C6A6;
+  color: #ffffff;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #sendButton:hover {
+  background-color: #a3b699;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   width: 70%;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-message {
+  width: 494px;
+  margin: 0 20px;
+  height: 100%;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-message #message {
+  border: solid 2px #B2C6A6;
+  border-radius: 3px;
+  width: 100%;
+  outline-color: #B2C6A6;
+  resize: none;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-message #message:focus {
+  border: 3px solid #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four {
+  margin: 0 20px;
+  display: flex;
+  align-content: center;
+  max-width: 494px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .form-text-input-four {
+  width: 25%;
+  height: 43px;
+  border: solid 2px #B2C6A6;
+  border-radius: 3px;
+  outline-color: #B2C6A6;
+  font-size: 26px;
+  padding: 0 5px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .form-text-input-four:focus {
+  border: 3px solid #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .cardNumberLine {
+  margin: 4px 5px 0 5px;
+  color: #B2C6A6;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-radio {
@@ -314,15 +375,14 @@
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text {
   margin: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
+  width: 494px;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text .form-text-input {
-  width: 150px;
+  max-width: 150px;
+  width: 100%;
   height: 43px;
   border: solid 2px #B2C6A6;
   border-radius: 3px;
@@ -343,16 +403,14 @@
   padding: 5px 0 0 0;
 }
 
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text .labelTxt {
+  margin: 0 20px 0 10px;
+}
+
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-money-box {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: 0 20px;
 }
 
@@ -375,15 +433,13 @@
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long {
   margin: 0 20px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-line-pack: center;
-      align-content: center;
+  align-content: center;
+  width: 494px;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long {
-  width: 494px;
+  width: 100%;
   height: 43px;
   border: solid 2px #B2C6A6;
   border-radius: 3px;
@@ -394,6 +450,51 @@
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long:focus {
   border: 3px solid #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::placeholder {
+  /* CSS 3 標準 */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::-webkit-input-placeholder {
+  /* Chrome, Safari */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #cfcdcc;
+  opacity: 1;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long input {
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox {
+  width: 22px;
+  height: 22px;
+  border: #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox-label .checkInfo {
+  color: #E28181;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox-label .checkInfo:hover {
+  color: #e43838;
 }
 
 .donateFooter footer {
@@ -413,12 +514,8 @@
 
 .donateFooter footer .footerBlock div {
   height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 .donateFooter footer .footerBlock div .footer_logo {

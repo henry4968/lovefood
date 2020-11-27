@@ -189,12 +189,19 @@
         margin: 0 auto;
         // height: 2355px;
         background-color: #FEFEFA;
+        box-shadow: 5px 5px 10px #00000024;
 
             .donateItem{
                 // width: 100%;
                 // max-width: 1000px;
                 // height: 300px;
                 // border: 1px solid #0b0fff;
+                .dottedLine{
+                    border: 1px dashed #B2C6A6;
+                    margin: -20px auto 60px;
+                    // text-align: center;
+                    max-width: 860px;
+                }
 
                 .donateLine{
                     // width: 100%;
@@ -222,7 +229,12 @@
                             font-weight: bold;
                         }
                     }
+
                 }
+
+                // #donateLine2{
+                //     transform: translateY(-23%);
+                // }
 
                 .formRowGorup{
                     // border: 1px solid #300bff;
@@ -233,6 +245,10 @@
                     color: #616161;
                     white-space: nowrap;
 
+                    .formRowMessage{
+                        
+                    }
+
                     .formRow{
                         // border: 1px solid #1eb4f0;
                         display: flex;
@@ -241,8 +257,22 @@
                         max-width: 860px;
                         width: 100%;
                         margin: 0 auto 25px;
-                        height: 45px;
+                        // height: 45px;
 
+                        .starTxt{
+                            color: #F7B3B3;
+                            font-size: 26px;
+                            // margin: -8px 0 0 0;
+                            transform: translateY(-13%);
+                        }
+
+                        .formlabelMessage{
+                            width: 30%;
+                            text-align: right;
+                            display: flex;
+                            justify-content: flex-end;
+                            align-content: center;
+                        }
                         .formlabel{
                             // border: 1px solid #f0591e;
                             width: 30%;
@@ -256,6 +286,37 @@
                                 font-size: 26px;
                                 // margin: -8px 0 0 0;
                                 transform: translateY(-13%);
+                            }
+                        }
+
+                        .checkButton{
+                            // border: 1px solid #f0591e;
+                            margin-top: -20px;
+                            .Button{
+                                width: 150px;
+                                height: 45px;
+                                border: none;
+                                border-radius: 3px;
+                                margin: 0 20px;
+                                font-size: 26px;
+                                cursor: pointer; 
+                                box-shadow: 3px 3px 6px #00000024;
+                                outline:none;
+                            }
+
+                            #cleanButton{
+                                background-color: #DEDEDE;
+                                color: #707070;
+                                &:hover{
+                                    background-color: rgb(209, 209, 209);
+                                }
+                            }
+                            #sendButton{
+                                background-color:#B2C6A6;
+                                color: #ffffff;
+                                &:hover{
+                                    background-color: #a3b699;
+                                }
                             }
                         }
 
@@ -273,6 +334,65 @@
                             // border: 1px solid #ff0b69;
                             display: flex;
                             width: 70%;
+
+                            .form-text-message{
+                                // border: solid 2px #B2C6A6;
+                                width: 494px;
+                                margin: 0 20px;
+                                height: 100%;
+                                #message{
+                                    border: solid 2px #B2C6A6;
+                                    border-radius: 3px;
+                                    width: 100%;
+                                    outline-color:#B2C6A6;
+                                    resize : none;
+                                    &:focus{
+                                        border: 3px solid #B2C6A6;
+                                    }
+                                }
+                            }
+
+                            // 信用卡四格卡號
+                            .form-text-four{
+                                margin: 0 20px;
+                                display: flex;
+                                // justify-content: center;
+                                align-content: center;
+                                max-width: 494px;
+                                // align-items: flex-end;
+                                
+                                .form-text-input-four{
+                                    // width: 494px;
+                                    width: 25%;
+                                    height: 43px;
+                                    border: solid 2px #B2C6A6;
+                                    border-radius: 3px;
+                                    outline-color:#B2C6A6;
+                                    // outline-style: 3px solid;
+                                    font-size: 26px;
+                                    // border-style: solid;
+                                    // border-color: #B2C6A6;
+                                    padding: 0 5px;
+                                    
+                                    &:focus{
+                                        border: 3px solid #B2C6A6;
+                                        // padding: 0 5px;
+                                    }
+                                }
+
+                                .cardNumberLine{
+                                    // border: 1px solid red;
+                                    // margin: 0 5px;
+                                    // text-align: center;
+                                    // display: flex;
+                                    // align-items:center;
+                                    margin: 4px 5px 0 5px;
+                                    // transform: translateY(-13%);
+                                    color: #B2C6A6;
+
+                                }
+
+                            }
 
                             .form-radio{
                                 // border: 1px solid #0ebfeb;
@@ -298,9 +418,11 @@
                                 // justify-content: center;
                                 align-content: center;
                                 // align-items: flex-end;
-                                
+                                width: 494px;
+
                                 .form-text-input{
-                                    width: 150px;
+                                    max-width: 150px;
+                                    width: 100%;
                                     height: 43px;
                                     border: solid 2px #B2C6A6;
                                     border-radius: 3px;
@@ -321,6 +443,9 @@
                                     color: #9E1F1F;
                                     margin: 0 20px;
                                     padding: 5px 0 0 0;
+                                }
+                                .labelTxt{
+                                    margin: 0 20px 0 10px;
                                 }
                             }
 
@@ -360,9 +485,9 @@
                                 // justify-content: center;
                                 align-content: center;
                                 // align-items: flex-end;
-                                
+                                width: 494px;
                                 .form-text-input-long{
-                                    width: 494px;
+                                    width: 100%;
                                     height: 43px;
                                     border: solid 2px #B2C6A6;
                                     border-radius: 3px;
@@ -372,14 +497,62 @@
                                     // border-style: solid;
                                     // border-color: #B2C6A6;
                                     padding: 0 5px;
+                                    
                                     &:focus{
                                         border: 3px solid #B2C6A6;
                                     }
+                                    &::placeholder { /* CSS 3 標準 */
+                                        color: rgb(207, 205, 204);
+                                        font-size: 23px;
+                                        // padding: 0 5px;
+                                    }
+                                    &::-webkit-input-placeholder { /* Chrome, Safari */
+                                        // padding: 0 5px;
+                                        color: rgb(207, 205, 204);
+                                        font-size: 23px;
+                                    }
+                                    &:-ms-input-placeholder { /* IE 10+ */
+                                        color: rgb(207, 205, 204);
+                                        // padding: 0 5px;
+                                        font-size: 23px;
+                                    }
+                                    &::-moz-placeholder { /* Firefox 19+ */
+                                        color: rgb(207, 205, 204);
+                                        opacity: 1;
+                                        // padding: 0 5px;
+                                        font-size: 23px;
+                                    }
+                                }
+                                input{
+                                    font-size: 23px;
                                 }
                             }
+                        }
 
-                            
-                            
+                        .form-check{
+                            // border: 1px solid red;
+
+                            .form-checkbox{
+                                // border: 1px solid rgb(57, 149, 202);
+                                width: 22px;
+                                height: 22px;
+                                // zoom:180%;
+                                border: #B2C6A6;
+                            }
+
+                            .form-checkbox-label{
+                                .checkInfo{
+                                    // border: 1px solid red;
+                                    color: #E28181;
+                                    text-decoration: none;
+                                    white-space: nowrap;
+                                    // color: #000;
+                        
+                                    &:hover{
+                                        color: #e43838;
+                                    }
+                                }
+                            }
                         }
 
                     }  

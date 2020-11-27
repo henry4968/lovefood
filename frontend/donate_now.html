@@ -197,7 +197,7 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>國籍：
+                                    國籍：
                                 </label>
 
                                 <div class="inputArea">
@@ -235,7 +235,7 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>生日：
+                                    生日：
                                 </label>
 
                                 <div class="inputArea">
@@ -268,7 +268,7 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>* Email：
+                                    <div class="starTxt">*</div>Email：
                                 </label>
 
                                 <div class="inputArea">
@@ -285,7 +285,7 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>性別：
+                                    性別：
                                 </label>
 
                                 <div class="inputArea">
@@ -324,9 +324,23 @@
                                 </div>
                             </div> -->
 
+                            <!-- message -->
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    備註：
+                                </label>
+
+                                <div class="inputArea">
+                                    <div class="form-text-message">
+                                        <textarea name="" id="message" cols="30" rows="10"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
 
-                        <div class="donateLine">
+                        <div class="donateLine" id="donateLine2">
                             <div class="donateTitle">
                                 <img src="/img/21/donation_now/form_icon.png" alt="">
                                 <span>信用卡資料</span>
@@ -375,6 +389,30 @@
                                     </div>
                                 </div>
                             </div>
+
+
+                            <!-- * 信用卡卡號： -->
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>信用卡卡號：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 信用卡卡號表單 -->
+                                    <div class="form-text-four">
+                                        <input type="card" class="form-text-input-four" id="">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="">
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="formRow">
                                 <!-- 選單標題 -->
@@ -480,12 +518,39 @@
 
                         </div>
 
+
+
+
+                        <div class="dottedLine"></div>
+
+                        <!-- 詳閱確認 -->
+                        <div class="formRowGorup">
+                            <div class="formRow">
+                                <div class="starTxt">*</div>
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-checkbox" id="checkbox1">
+                                    <label class="form-checkbox-label" for="checkbox1">我已詳閱並同意本協會捐款規章，詳細聲明
+                                        <a class="checkInfo" href="">請參閱</a>。</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 確認按鈕 -->
+                        <div class="formRowGorup">
+                            <div class="formRow">
+
+                                <div class="checkButton">
+                                    <input type="submit" class="Button" id="cleanButton" value=清除重填>
+                                    <input type="submit" class="Button" id="sendButton" value=確認送出>
+                                </div>
+
+
+                            </div>
+
+                        </div>
                     </div>
 
 
-                    <!-- <label for="message">MESSAGE</label>
-                    <textarea name="message" id="" cols="30" rows="10"></textarea>
-                    <input type="submit" value=SEND> -->
 
 
 
@@ -494,21 +559,25 @@
 
         </div>
     </main>
-    <footer>
-        <div class="footerBlock">
-            <div>
-                <div class="footer_logo">
-                    <a href="index.html"><img src="../img/21/donation_description/footer_logo.png"></a>
-                    <p class="copyright">&copy LOVE FOOD All right reserved</p>
-                </div>
-                <div class="info">
-                    <a href="#"><img src="../img/21/donation_description/footer_map.png">台北市南京東路三段215號5樓</a><br>
-                    <a href="#"><img src="../img/21/donation_description/footer_tel.png">02-24708053</a><br>
-                    <a href="#"><img src="../img/21/donation_description/footer_mail.png">service@lovefood.com</a>
+
+
+    <div class="donateFooter">
+        <footer>
+            <div class="footerBlock">
+                <div>
+                    <div class="footer_logo">
+                        <a href="index.html"><img src="../img/21/donation_description/footer_logo.png"></a>
+                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                    </div>
+                    <div class="info">
+                        <a href="#"><img src="../img/21/donation_description/footer_map.png">台北市南京東路三段215號5樓</a><br>
+                        <a href="#"><img src="../img/21/donation_description/footer_tel.png">02-24708053</a><br>
+                        <a href="#"><img src="../img/21/donation_description/footer_mail.png">service@lovefood.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 
 </html>

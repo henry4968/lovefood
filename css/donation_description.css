@@ -1,15 +1,12 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 #header {
   width: 100%;
   height: 123px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: #EFECB9;
@@ -21,21 +18,15 @@
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -76,29 +67,21 @@
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
   }
 }
 
 #header #headerContentContainer #navigation {
   width: 762px;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -179,23 +162,16 @@
 
 .fullPageBg .bannerTitle {
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   top: 50%;
   left: 50%;
   z-index: 5;
   background-color: #EFECB9;
   width: 500px;
   height: 300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   margin: auto;
   font-size: 25px;
   line-height: 75px;
@@ -219,12 +195,8 @@
   bottom: 0;
   width: 100%;
   background-color: #EFECB9;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   height: 61px;
   padding: 0 30px;
 }
@@ -233,12 +205,8 @@
   font-size: 30px;
   max-width: 1200px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
   z-index: 5;
 }
 
@@ -291,13 +259,9 @@
 }
 
 .projectDetails .projectDetailsBg .projectDetailsIn .area1 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap-reverse;
-      flex-wrap: wrap-reverse;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
 }
 
 .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt {
@@ -323,15 +287,9 @@
 }
 
 .projectDetails .area2 .area2Txt {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .projectDetails .area2 .area2Txt img {
@@ -359,12 +317,8 @@
   background-position: center;
   width: 100%;
   height: 1900px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   position: relative;
 }
 
@@ -402,29 +356,15 @@
 }
 
 .projectDetails .area3 .howDo .stepArea_1, .projectDetails .area3 .howDo .stepArea_2 {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
   max-width: 360px;
   margin: 0 20px 150px;
   z-index: 3;
@@ -503,35 +443,22 @@
 }
 
 .operationResult .txt {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 .operationResult .txt .txtTxt {
   max-width: 330px;
   font-size: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  flex-direction: row;
   margin: 0 30px;
 }
 
 .operationResult .txt .txtTxt p {
   font-size: 40px;
-  -webkit-transform: translateY(-9%);
-          transform: translateY(-9%);
+  transform: translateY(-9%);
 }
 
 .operationResult .goal {
@@ -584,23 +511,15 @@
 
 .operationResult .goal .txtTxt {
   font-size: 30px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  justify-content: center;
   margin: 0 30px;
 }
 
 .operationResult .goal .txtTxt p {
   font-size: 40px;
-  -webkit-transform: translateY(-9%);
-          transform: translateY(-9%);
+  transform: translateY(-9%);
 }
 
 .operationResult .enjoyFood {
@@ -609,15 +528,9 @@
 }
 
 .operationResult .enjoyFood .enjoyFoodTitle {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  align-items: center;
+  justify-content: center;
   margin: 0 auto 60px;
 }
 
@@ -628,15 +541,9 @@
   width: 100%;
   height: 150px;
   line-height: 60px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   font-weight: bold;
   margin: 20px;
 }
@@ -646,11 +553,8 @@
 }
 
 .operationResult .enjoyFood .mapAndShop {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
 }
 
 .operationResult .enjoyFood .mapAndShop .mapImg {
@@ -680,12 +584,8 @@
   background-position: center;
   width: 100%;
   height: 1662px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .thankYou .thankYouArea {
@@ -715,25 +615,15 @@
 }
 
 .thankYou .thankYouArea .heartArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .thankYou .thankYouArea .heartArea .heart {
   position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 .thankYou .thankYouArea .heartArea .heart .donationData {
@@ -779,15 +669,9 @@
 }
 
 .thankYou .thankYouArea .storyArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .thankYou .thankYouArea .storyArea .story {
@@ -795,8 +679,7 @@
   height: 523px;
   background-color: #FFF8DD;
   border-radius: 10px;
-  -webkit-box-shadow: 3px 3px 6px #00000024;
-          box-shadow: 3px 3px 6px #00000024;
+  box-shadow: 3px 3px 6px #00000024;
 }
 
 .thankYou .thankYouArea .storyArea .story .storyImg {
@@ -842,17 +725,10 @@
   background-color: #EADBB2;
   border-radius: 10px;
   margin: auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-shadow: 3px 3px 6px #00000024;
-          box-shadow: 3px 3px 6px #00000024;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 6px #00000024;
 }
 
 .thankYou .thankYouArea .storyArea .story .readMpreButton img {
@@ -895,12 +771,8 @@
   background-size: cover;
   background-position: center;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
   margin-bottom: 50px;
 }
 
@@ -963,29 +835,16 @@
 .foodItem .loveFoodLife .loveFoodArea {
   max-width: 1200px;
   width: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
   margin: 0 auto;
 }
 
 .foodItem .loveFoodLife .loveFoodArea .loveFood {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
   margin: 20px;
 }
@@ -1042,28 +901,15 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
 .joinUs .joinUsArea .join {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -1085,8 +931,7 @@
   background-color: #CAD4B0;
   border-radius: 10px;
   margin: auto;
-  -webkit-box-shadow: 3px 3px 6px #00000024;
-          box-shadow: 3px 3px 6px #00000024;
+  box-shadow: 3px 3px 6px #00000024;
 }
 
 .joinUs .joinUsArea .join .joinButton:hover {
@@ -1099,15 +944,9 @@
   width: 257px;
   height: 80px;
   border-radius: 10px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .joinUs .joinUsArea .join .joinButton a img {
@@ -1120,16 +959,9 @@
 }
 
 .joinUs .joinUsArea .donation {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  justify-content: center;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -1151,8 +983,7 @@
   background-color: #DDBCBC;
   border-radius: 10px;
   margin: auto;
-  -webkit-box-shadow: 3px 3px 6px #00000024;
-          box-shadow: 3px 3px 6px #00000024;
+  box-shadow: 3px 3px 6px #00000024;
 }
 
 .joinUs .joinUsArea .donation .donationButton:hover {
@@ -1160,15 +991,9 @@
 }
 
 .joinUs .joinUsArea .donation .donationButton a {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
   white-space: nowrap;
   width: 257px;
@@ -1201,12 +1026,8 @@ footer .footerBlock {
 
 footer .footerBlock div {
   height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 footer .footerBlock div .footer_logo {
