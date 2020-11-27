@@ -14,7 +14,7 @@ function fileChange() {
   message += `最後更新日期: ${file.lastModifiedDate}\n`;
   // message += `最後更新日期: ${file.lastModifiedDate.toTimeString()}\n`;
 
-  document.getElementById('fileInfo').value = message;
+  // document.getElementById('fileInfo').value = message;
 
   //==============
 
@@ -23,8 +23,10 @@ function fileChange() {
   readFile.addEventListener('load', function () {
     image = document.getElementById('image');
     image.src = this.result;
-    image.style.maxWidth = '400px';
-    image.style.maxHeight = '400px';
+    image.style.maxWidth = '180px';
+    image.style.maxHeight = '180px';
+    bg = document.getElementsByClassName('imageBorder')[0];
+    bg.style.backgroundImage = "url('')";
   });
 }
 window.addEventListener('load', doFirst);

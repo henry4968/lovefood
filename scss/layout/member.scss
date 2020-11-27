@@ -244,6 +244,13 @@ body{
               height: 180px;
               border-radius: 50%;
               background-color: #fff;
+              background-image: url('../../img/03/uploadpicture.png'),url('../../img/03/person.png');
+              background-repeat: no-repeat;
+              background-position: center top 80%,center;
+              background-size: 70%;
+              display: flex;
+              justify-content: center;
+              overflow: hidden;
             }
             .fileBorder{
               margin-top: 5%;
