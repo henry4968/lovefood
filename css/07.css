@@ -595,10 +595,13 @@ footer .footerBlock div .info a img {
   background-color: #C9BE9F;
   color: #ffffff;
   font-size: 22px;
+<<<<<<< HEAD
 }
 
 .wrap {
   background-image: url(../img/07/backgroud.png);
+=======
+>>>>>>> jean
 }
 
 .context .productArea {
@@ -657,12 +660,20 @@ footer .footerBlock div .info a img {
 
 .width_2P .product .productBottom .carImg {
   padding: 12px;
+<<<<<<< HEAD
+=======
+  width: 35px;
+>>>>>>> jean
   border-radius: 30px;
   background-color: #C9BE9F;
   position: absolute;
   bottom: 20px;
+<<<<<<< HEAD
   left: 202px;
   cursor: pointer;
+=======
+  left: 217px;
+>>>>>>> jean
 }
 
 .width_2P .product .productBottom .pdtExplanation .pdtTime {
@@ -681,10 +692,13 @@ footer .footerBlock div .info a img {
 
 .productCenter .pdtExplanation .pdtTitle {
   margin-right: 20px;
+<<<<<<< HEAD
 }
 
 .productCenter .pdtExplanation .pdtTitle a {
   text-decoration: none;
+=======
+>>>>>>> jean
 }
 
 .productCenter .pdtExplanation #liM {

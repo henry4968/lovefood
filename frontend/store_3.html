@@ -19,10 +19,10 @@
 
             <!-- 導覽列開始 -->
             <nav id="navigation">
-                <a href="#0" class="navGeneralAnchors">樂腹商城</a>
-                <a href="#0" class="navGeneralAnchors">賣家專區</a>
-                <a href="#0" class="navGeneralAnchors">捐款說明</a>
-                <a href="#0" id="navSepcialAnchor">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a href="./signUp_signIn.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
                         立即捐款
                     </div>
@@ -33,7 +33,7 @@
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </a>
-                <a href="#0" id="navIcons03" class="navIcons">
+                <a href="./signUp_signIn.html" id="navIcons03" class="navIcons">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
 
@@ -102,14 +102,15 @@
                                 <p>取貨資訊</p>
                                 <div>
                                     <ul>
-                                        <li><img src="../img/16/locationIcon.png">
+                                        <li><img src="../img/16/locationIcon.png" class="locationIcon">
                                             取貨區間：2020/10/20 18:00~21:00
                                         </li>
-                                        <li><img src="../img/16/locationIcon2.png">
+                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">
                                             取貨地點：</li>
                                         <input type="checkbox" checked>
                                         <span>到店自取</span>
-                                        <div>台北市 松山區 南京東路三段253號<img src="../img/16/Icon awesome-map-marker-alt.png">
+                                        <div>台北市 松山區 南京東路三段253號<img src="../img/16/Icon awesome-map-marker-alt.png"
+                                                class="mapIcon">
                                         </div>
                                         <br>
                                         <input type="checkbox">
@@ -179,17 +180,19 @@
                                 <p>取貨資訊</p>
                                 <div>
                                     <ul>
-                                        <li><img src="../img/16/locationIcon.png">取貨區間：2020/10/20 18:00~21:00</li>
-                                        <li><img src="../img/16/locationIcon2.png">取貨地點：</li>
+                                        <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：2020/10/20
+                                            18:00~21:00</li>
+                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：</li>
                                         <input type="checkbox">
                                         <span>到店自取</span>
-                                        <div style="display: none;">台北市 松山鎮, 南京東路三段253號<img
+                                        <div style="display: none;">台北市 松山區 南京東路三段253號<img
                                                 src="../img/16/Icon awesome-map-marker-alt.png">
                                         </div>
                                         <br>
                                         <input type="checkbox" checked>
                                         <span>捷運站取貨</span>
-                                        <div>南京復興捷運站 8號出口<img src="../img/16/Icon awesome-map-marker-alt.png"></div>
+                                        <div>南京復興捷運站 8號出口<img src="../img/16/Icon awesome-map-marker-alt.png"
+                                                class="mapIcon"></div>
                                     </ul>
                                     <div>
                                         <img src="../img/16/MRT.jpg" class="imgMRT">
@@ -212,7 +215,7 @@
                 </section>
                 <div class="cart_16FinalCount">
                     <div class="cart_16FinalCount_Main">
-                        <div>
+                        <div class="keepShop">
                             <a href="#"><img src="../img/16/backArrow.png">繼續購物</a>
                         </div>
                         <div class="pointsDetails">
@@ -224,7 +227,9 @@
                                 <label for="points">使用</label>
                                 <input type="number">
                                 <label for="">點</label>
-                                <button class="pointsDiscount"><a href="#"></a> 全部扺用</button>
+                                <a href="#">
+                                    <button class="pointsDiscount">全部扺用</button>
+                                </a>
                                 <p>註：一點為一元</p>
                             </div>
                         </div>
@@ -235,7 +240,7 @@
                     <div>
                         <span>結帳總金額：</sapn>
                             <span class="dollars">$182元</span>
-                            <button type="submit">$結帳</button>
+                            <button type="submit"><a href="./store_4.html">$結帳</a></button>
                     </div>
                 </div>
             </div>
