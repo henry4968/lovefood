@@ -173,9 +173,9 @@
                 }
             }
             .navGeneralAnchors{
-                color: #FDFBBA;
+                color: #B8AD91;
                 &:hover{
-                    color: #FFE45E;
+                    color: #CEC2B6;
                 }
             }
             :nth-child(2),:nth-child(3){
@@ -191,9 +191,11 @@
                     height: 100%;
                     border-radius: 3px;
                     text-align: center;
-                    background-color: #FFFF9B;
+                    background-color: #B8AD91;
+                    color: #ffffff;
                     &:hover{
-                        background-color: #FFE45E;
+                        background-color: #F2F0D7;
+                        color: #CEC2B6;
                     }
                     margin: 0px 28px;
                     @include newRwd("laptop"){
@@ -244,7 +246,7 @@
     height: 70vh;
     background-color: $D3;
     position: relative;
-    background-image: url(../img/banner_new.png);
+    background-image: url(../img/07/banner_new.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;

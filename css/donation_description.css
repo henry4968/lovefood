@@ -1,15 +1,22 @@
 * {
   margin: 0;
   padding: 0;
+<<<<<<< HEAD
+  box-sizing: border-box;
+=======
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 #header {
   width: 100%;
   height: 123px;
+<<<<<<< HEAD
+=======
   display: -webkit-box;
   display: -ms-flexbox;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   display: flex;
   position: fixed;
   background: #EFECB9;
@@ -21,21 +28,30 @@
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: space-between;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
+<<<<<<< HEAD
+    align-items: center;
+=======
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
@@ -76,29 +92,42 @@
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
+<<<<<<< HEAD
+    align-self: center;
+=======
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
 #header #headerContentContainer #navigation {
   width: 762px;
   height: 50px;
+<<<<<<< HEAD
+  display: flex;
+  align-items: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
+<<<<<<< HEAD
+    align-items: center;
+=======
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
@@ -179,14 +208,23 @@
 
 .fullPageBg .bannerTitle {
   position: absolute;
+<<<<<<< HEAD
+  transform: translate(-50%, -50%);
+=======
   -webkit-transform: translate(-50%, -50%);
           transform: translate(-50%, -50%);
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   top: 50%;
   left: 50%;
   z-index: 5;
   background-color: #EFECB9;
   width: 500px;
   height: 300px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -196,6 +234,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: auto;
   font-size: 25px;
   line-height: 75px;
@@ -219,12 +258,17 @@
   bottom: 0;
   width: 100%;
   background-color: #EFECB9;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   height: 61px;
   padding: 0 30px;
 }
@@ -233,12 +277,17 @@
   font-size: 30px;
   max-width: 1200px;
   width: 100%;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: space-between;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   z-index: 5;
 }
 
@@ -291,6 +340,11 @@
 }
 
 .projectDetails .projectDetailsBg .projectDetailsIn .area1 {
+<<<<<<< HEAD
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -298,6 +352,7 @@
       flex-wrap: wrap-reverse;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt {
@@ -323,6 +378,11 @@
 }
 
 .projectDetails .area2 .area2Txt {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -332,6 +392,7 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .projectDetails .area2 .area2Txt img {
@@ -359,12 +420,17 @@
   background-position: center;
   width: 100%;
   height: 1900px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   position: relative;
 }
 
@@ -389,6 +455,10 @@
   max-width: 615px;
   padding-bottom: 10px;
   margin: 0 auto;
+<<<<<<< HEAD
+  white-space: nowrap;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .projectDetails .area3 .howDo #howDoFlower {
@@ -402,6 +472,17 @@
 }
 
 .projectDetails .area3 .howDo .stepArea_1, .projectDetails .area3 .howDo .stepArea_2 {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -425,6 +506,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   max-width: 360px;
   margin: 0 20px 150px;
   z-index: 3;
@@ -503,6 +585,11 @@
 }
 
 .operationResult .txt {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -513,10 +600,18 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .operationResult .txt .txtTxt {
   max-width: 330px;
+<<<<<<< HEAD
+  width: 30%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+=======
   font-size: 30px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -526,12 +621,17 @@
       -ms-flex-direction: row;
           flex-direction: row;
   margin: 0 30px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .operationResult .txt .txtTxt p {
   font-size: 40px;
+<<<<<<< HEAD
+  transform: translateY(-9%);
+=======
   -webkit-transform: translateY(-9%);
           transform: translateY(-9%);
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .operationResult .goal {
@@ -584,6 +684,11 @@
 
 .operationResult .goal .txtTxt {
   font-size: 30px;
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -594,13 +699,18 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: 0 30px;
 }
 
 .operationResult .goal .txtTxt p {
   font-size: 40px;
+<<<<<<< HEAD
+  transform: translateY(-9%);
+=======
   -webkit-transform: translateY(-9%);
           transform: translateY(-9%);
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .operationResult .enjoyFood {
@@ -609,6 +719,11 @@
 }
 
 .operationResult .enjoyFood .enjoyFoodTitle {
+<<<<<<< HEAD
+  display: flex;
+  align-items: center;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -618,6 +733,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: 0 auto 60px;
 }
 
@@ -628,6 +744,11 @@
   width: 100%;
   height: 150px;
   line-height: 60px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -637,6 +758,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   font-weight: bold;
   margin: 20px;
 }
@@ -646,11 +768,16 @@
 }
 
 .operationResult .enjoyFood .mapAndShop {
+<<<<<<< HEAD
+  display: flex;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .operationResult .enjoyFood .mapAndShop .mapImg {
@@ -680,12 +807,17 @@
   background-position: center;
   width: 100%;
   height: 1662px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea {
@@ -715,6 +847,11 @@
 }
 
 .thankYou .thankYouArea .heartArea {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -724,16 +861,22 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea .heartArea .heart {
   position: relative;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea .heartArea .heart .donationData {
@@ -779,6 +922,11 @@
 }
 
 .thankYou .thankYouArea .storyArea {
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -788,6 +936,7 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea .storyArea .story {
@@ -795,8 +944,12 @@
   height: 523px;
   background-color: #FFF8DD;
   border-radius: 10px;
+<<<<<<< HEAD
+  box-shadow: 3px 3px 6px #00000024;
+=======
   -webkit-box-shadow: 3px 3px 6px #00000024;
           box-shadow: 3px 3px 6px #00000024;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea .storyArea .story .storyImg {
@@ -842,6 +995,12 @@
   background-color: #EADBB2;
   border-radius: 10px;
   margin: auto;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 6px #00000024;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -853,6 +1012,7 @@
           align-items: center;
   -webkit-box-shadow: 3px 3px 6px #00000024;
           box-shadow: 3px 3px 6px #00000024;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .thankYou .thankYouArea .storyArea .story .readMpreButton img {
@@ -895,12 +1055,17 @@
   background-size: cover;
   background-position: center;
   width: 100%;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin-bottom: 50px;
 }
 
@@ -963,6 +1128,11 @@
 .foodItem .loveFoodLife .loveFoodArea {
   max-width: 1200px;
   width: 100%;
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -972,10 +1142,16 @@
           flex-direction: row;
   -ms-flex-pack: distribute;
       justify-content: space-around;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: 0 auto;
 }
 
 .foodItem .loveFoodLife .loveFoodArea .loveFood {
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -986,6 +1162,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   text-align: center;
   margin: 20px;
 }
@@ -1042,6 +1219,17 @@
   max-width: 1200px;
   width: 100%;
   margin: 0 auto;
+<<<<<<< HEAD
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.joinUs .joinUsArea .join {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1064,6 +1252,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   text-align: center;
 }
 
@@ -1082,11 +1271,18 @@
 .joinUs .joinUsArea .join .joinButton {
   width: 257px;
   height: 80px;
+<<<<<<< HEAD
+  background-color: #B2C6A6;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 3px 3px 6px #00000024;
+=======
   background-color: #CAD4B0;
   border-radius: 10px;
   margin: auto;
   -webkit-box-shadow: 3px 3px 6px #00000024;
           box-shadow: 3px 3px 6px #00000024;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .joinUs .joinUsArea .join .joinButton:hover {
@@ -1099,6 +1295,11 @@
   width: 257px;
   height: 80px;
   border-radius: 10px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1108,6 +1309,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .joinUs .joinUsArea .join .joinButton a img {
@@ -1120,6 +1322,11 @@
 }
 
 .joinUs .joinUsArea .donation {
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1130,6 +1337,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   text-align: center;
 }
 
@@ -1151,8 +1359,12 @@
   background-color: #DDBCBC;
   border-radius: 10px;
   margin: auto;
+<<<<<<< HEAD
+  box-shadow: 3px 3px 6px #00000024;
+=======
   -webkit-box-shadow: 3px 3px 6px #00000024;
           box-shadow: 3px 3px 6px #00000024;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .joinUs .joinUsArea .donation .donationButton:hover {
@@ -1160,6 +1372,11 @@
 }
 
 .joinUs .joinUsArea .donation .donationButton a {
+<<<<<<< HEAD
+  display: flex;
+  justify-content: center;
+  align-items: center;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1169,6 +1386,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   text-decoration: none;
   white-space: nowrap;
   width: 257px;
@@ -1201,12 +1419,17 @@ footer .footerBlock {
 
 footer .footerBlock div {
   height: 80px;
+<<<<<<< HEAD
+  display: flex;
+  justify-content: flex-end;
+=======
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 footer .footerBlock div .footer_logo {

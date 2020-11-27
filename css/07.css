@@ -36,6 +36,7 @@ footer .footerBlock div .footer_logo img {
 }
 
 footer .footerBlock div .footer_logo .copyright {
+  color: #D3E4C6;
   margin-top: 6px;
   font-size: 10px;
 }
@@ -311,11 +312,11 @@ footer .footerBlock div .info a img {
 }
 
 #header #headerContentContainer #navigationForPC .navGeneralAnchors {
-  color: #FDFBBA;
+  color: #B8AD91;
 }
 
 #header #headerContentContainer #navigationForPC .navGeneralAnchors:hover {
-  color: #FFE45E;
+  color: #CEC2B6;
 }
 
 #header #headerContentContainer #navigationForPC :nth-child(2), #header #headerContentContainer #navigationForPC :nth-child(3) {
@@ -337,12 +338,14 @@ footer .footerBlock div .info a img {
   height: 100%;
   border-radius: 3px;
   text-align: center;
-  background-color: #FFFF9B;
+  background-color: #B8AD91;
+  color: #ffffff;
   margin: 0px 28px;
 }
 
 #header #headerContentContainer #navigationForPC #navSepcialAnchor div:hover {
-  background-color: #FFE45E;
+  background-color: #F2F0D7;
+  color: #CEC2B6;
 }
 
 @media all and (max-width: 1599px) {
@@ -390,7 +393,7 @@ footer .footerBlock div .info a img {
   height: 70vh;
   background-color: #D3E4C6;
   position: relative;
-  background-image: url(../img/banner_new.png);
+  background-image: url(../img/07/banner_new.png);
   background-position: center center;
   background-repeat: no-repeat;
   background-size: 100%;

@@ -174,9 +174,9 @@
                 }
             }
             .navGeneralAnchors{
-                color: #FDFBBA;
+                color: #B8AD91;
                 &:hover{
-                    color: #FFE45E;
+                    color: #CEC2B6;
                 }
             }
             :nth-child(2),:nth-child(3){
@@ -192,9 +192,11 @@
                     height: 100%;
                     border-radius: 3px;
                     text-align: center;
-                    background-color: #FFFF9B;
+                    background-color: #B8AD91;
+                    color: #ffffff;
                     &:hover{
-                        background-color: #FFE45E;
+                        background-color: #F2F0D7;
+                        color: #CEC2B6;
                     }
                     margin: 0px 28px;
                     @include newRwd("laptop"){
@@ -220,7 +222,7 @@
             display: none;
             @include newRwd("bigPhone"){
                 display: block;
-                border: 1px solid red;
+                // border: 1px solid red;
                 width: 96px;
                 height: 40px;
                 display: flex;
@@ -368,7 +370,7 @@
 }
 
 .local{
-    border: 1px solid darkcyan;
+    // border: 1px solid darkcyan;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -450,13 +452,16 @@ svg.pdtsvg{
 }
 
 .desItem{
-    border: 1px solid palevioletred;
+    // border: 1px solid palevioletred;
     display: flex;
+    margin-top: 117px;
     // padding: 50px 20px;
     justify-content: space-around;
     flex-wrap: wrap;
     .itemText{
-        @extend .desItem;
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
         
     }
 
