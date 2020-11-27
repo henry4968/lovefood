@@ -1,20 +1,56 @@
 <!DOCTYPE html>
 <html lang="zh">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-商品詳情</title>
     <link rel="stylesheet" href="../css/store2.css">
     <link rel="stylesheet" href="../css/reset/reset.css">
-    <link rel="stylesheet" href="../js/07/uikit-3.5.9 /css/uikit.min.css"/>
+    <!-- <link rel="stylesheet" href="../js/07/uikit-3.5.9 /css/uikit.min.css"/>
     <script src="../js/07/uikit-3.5.9 /js/uikit.min.js"></script>
-    <script src="../js/07/uikit-3.5.9 /js/uikit-icons.min.js"></script>
-    <!-- <script src="./node_modules/jquery/dist/jquery.js"></script>
-    <script src="./node_modules/lightslider/src/js/lightslider.js"></script>
-    <script type="text/javascript"></script> -->
-    <!-- <script src="../js/07/07.js"></script> -->
-    
+    <script src="../js/07/uikit-3.5.9 /js/uikit-icons.min.js"></script> -->
+    <!-- 輪播套件css -->
+    <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
+    <!-- 輪播套件js -->
+    <script src="/node_modules/jquery/dist/jquery.js"></script>
+    <script src="/node_modules/lightslider/src/js/lightslider.js"></script>
+
+    <!-- <script type="text/javascript"></script>
+    <script src="../js/07/07.js"></script> -->
+
+    <script>
+        $(document).ready(function () {
+            $('#carouselist').lightSlider({
+                item: 4,
+                loop: true,
+                auto: true,
+                slideMove: 1,
+                easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                speed: 600,
+                responsive: [
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            item: 3,
+                            slideMove: 1,
+                            slideMargin: 6,
+                        }
+                    },
+                    {
+                        breakpoint: 480,
+                        settings: {
+                            item: 2,
+                            slideMove: 1
+                        }
+                    }
+                ]
+            });
+        });
+    </script>
+
 </head>
+
 <body>
     <!-- 標頭開始 -->
     <header id="header">
@@ -92,17 +128,17 @@
                     <span class="span1">樂腹商城</span>
                     <span class="span2">Food waste, not in good taste.</span>
                 </div>
-            </div>    
-            
+            </div>
+
         </div>
         <div class="main">
             <div class="contents">
                 <!-- 麵包屑 -->
                 <div class="breadcrumbArea">
                     <ol class="breadcrumb">
-                      <li class="breaditem"><a href="./index.html">首頁</a></li>
-                      <li class="breaditem"><a href="./store_1.html">樂腹商城</a></li>
-                      <li class="breaditemActive">麵包甜品</li>
+                        <li class="breaditem"><a href="./index.html">首頁</a></li>
+                        <li class="breaditem"><a href="./store_1.html">樂腹商城</a></li>
+                        <li class="breaditemActive">麵包甜品</li>
                     </ol>
                 </div>
                 <!-- 商品資訊 -->
@@ -114,7 +150,9 @@
                     </div>
                     <div class="desItem">
                         <div class="itemImg">
-                            <div class="pdtText"><p>下架倒數<span class="pdtTime">9:59</span>秒</p></div>
+                            <div class="pdtText">
+                                <p>下架倒數<span class="pdtTime">9:59</span>秒</p>
+                            </div>
                             <img src="../img/07/p1.png" alt="">
                         </div>
                         <div class="itemText">
@@ -122,7 +160,7 @@
                             <h2>麵包甜品</h2>
                             <div class="mr">
                                 <span>＄20</span><del>原價25元</del>
-                                <p class="mrP">有效期限：2020-10-20  23:59</p>
+                                <p class="mrP">有效期限：2020-10-20 23:59</p>
                             </div>
                             <div class="mrB">
                                 <p>商品說明</p>
@@ -130,74 +168,139 @@
                             </div>
                             <div class="pdtQuantity">
                                 <!-- <div class="valueArea"> -->
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" class="pdtsvg">
-                                        <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5"></polygon>
+                                <span class="productText">數量</span>
+                                <button class="left">
+                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                        class="pdtsvg">
+                                        <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                        </polygon>
                                     </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0" class="pdtsvg">
-                                        <polygon points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5"></polygon>
+                                </button>
+                                <input type="text" value="0" class="pdtValue">
+                                <button class="right">
+                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                        class="pdtsvg">
+                                        <polygon
+                                            points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+                                        </polygon>
                                     </svg>
-                                    </button>
+                                </button>
                                 <!-- </div> -->
-                                <button class="btn"><a href="./store_3.html"><img src="./img/cart.png" alt="">加入購物車</a></button>
+                                <button class="btn"><a href="./store_3.html"><img src="./img/cart.png"
+                                            alt="">加入購物車</a></button>
                             </div>
-                            
+
                         </div>
                     </div>
                     <!-- 第二部分 -->
                     <p class="slidePanelText">賣場其他商品</p>
-                    <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+                    <!-- <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider> -->
 
-                        <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
+                    <div id="carouselContainer">
+                        <ul id="carouselist">
+
+                            <li class="carouseItem">
+                                <div class="uk-panel">
+                                    <img src="../img/07/C1.png" alt="">
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>1</h1>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="carouseItem">
+                                <div class="uk-panel">
+                                    <img src="../img/07/c2.png" alt="">
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>2</h1>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="carouseItem">
+                                <div class="uk-panel">
+                                    <img src="../img/07/c3.png" alt="">
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>3</h1>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="carouseItem">
+                                <div class="uk-panel">
+                                    <img src="../img/07/c4.png" alt="">
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>4</h1>
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li class="carouseItem">
+                                <div class="uk-panel">
+                                    <img src="../img/07/C1.png" alt="">
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>5</h1>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                    <!-- <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@m uk-grid">
                             <li>
                                 <div class="uk-panel">
                                     <img src="../img/07/C1.png" alt="">
-                                    <div class="uk-position-center uk-panel"><h1>1</h1></div>
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>1</h1>
+                                    </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="uk-panel">
                                     <img src="../img/07/c2.png" alt="">
-                                    <div class="uk-position-center uk-panel"><h1>2</h1></div>
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>2</h1>
+                                    </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="uk-panel">
                                     <img src="../img/07/c3.png" alt="">
-                                    <div class="uk-position-center uk-panel"><h1>3</h1></div>
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>3</h1>
+                                    </div>
                                 </div>
                             </li>
                             <li>
                                 <div class="uk-panel">
                                     <img src="../img/07/c4.png" alt="">
-                                    <div class="uk-position-center uk-panel"><h1>4</h1></div>
+                                    <div class="uk-position-center uk-panel">
+                                        <h1>4</h1>
+                                    </div>
                                 </div>
                             </li>
-                            
-                        </ul>
-                    
-                        <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
-                        <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
-                    
-                    </div>
+
+                        </ul> -->
+
+                    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous
+                        uk-slider-item="previous"></a>
+                    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next
+                        uk-slider-item="next"></a>
+
+                    <!-- </div> -->
                     <div class="pdtBTNArea">
                         <button class="pdtBTN"><a href="./store_1.html">繼續購物</a></button>
-                        <button class="pdtBTN"><a href="./store_3.html"><img src="../img/07/Iconmoney.png" alt="">結帳</a></button>
+                        <button class="pdtBTN"><a href="./store_3.html"><img src="../img/07/Iconmoney.png"
+                                    alt="">結帳</a></button>
                     </div>
-                    
+
                 </div>
 
             </div>
         </div>
     </div>
-    <!-- 輪播套件 -->
-    <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-    <script type="text/javascript" src="slick/slick.min.js"></script>	 -->
     <footer>
         <div class="footerBlock">
             <div>
@@ -214,4 +317,5 @@
         </div>
     </footer>
 </body>
+
 </html>
