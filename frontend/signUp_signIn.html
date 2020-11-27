@@ -5,83 +5,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>signUp_signIn</title>
-  <link rel="stylesheet" href="../css/style.css">
+  <link rel="stylesheet" href="../css/login.css">
   <link rel="stylesheet" href="../css/normalize.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
 </head>
 
 <body>
-  <header>
+  <component id="memheader" :is="headId"></component>
+  <main class="linWrap">
 
-  </header>
-  <main>
-    <div class="memberTitle">
-      <h1 class="memberTitle">會員中心</h1>
-    </div>
-    <div class="wrap">
+    <div class="signUpsignIn" id="signUpsignIn">
 
-      <div class="signUpsignIn">
-
-        <div class="signUp">
-          <h1 class="signUp">註冊</h1>
-          <button class="buyBtn">買家</button>
-          <button class="selBtn">賣家</button>
-          <div class="member">
-            <form method="post" action="#">
-              <input type="email" placeholder="信箱" />
-              <input type="password" placeholder="密碼" />
-              <input type="password" placeholder="確認密碼" />
-              <button type="submit">確認</button>
-            </form>
-          </div>
-          <div class="seller">
-            <form method="post" action="#">
-              <input type="email" placeholder="信箱" />
-              <input type="password" placeholder="密碼" />
-              <input type="password" placeholder="確認密碼" />
-              <input type="password" placeholder="公司名稱" />
-              <input type="password" placeholder="統一編號" />
-              <input type="password" placeholder="登記地址" />
-              <input type="password" placeholder="聯絡電話" />
-              <button type="submit">確認</button>
-            </form>
-          </div>
-          <div class="lineBor">
-            <div class="lineL"></div>
-            <span class="signUp"></span>
-            <div class="lineR"></div>
-          </div>
-          <div class="fbgoogle">
-            <img src="">
-            <img src="">
-          </div>
+      <div class="signUp" id="signUp" :class="{signUpmm: movesignUpmm == false}">
+        <h1 class="signUp">加入會員</h1>
+        <div class="button">
+          <button @click="activeButton('member')" :class="{adbtn: act == false}" class="buyBtn">我要買東西</button>
+          <button @click="activeButton1('seller')" :class="{adbtn: act == true}" class="selBtn">我是賣家</button>
         </div>
-
-        <div class="signIn">
-          <form method="post" action="#">
-
-          </form>
-        </div>
-
-        <div class="overlayContainer">
-          <div class="container">
-            <div class="signUpR">
-
-            </div>
-            <div class="signInL">
-
-            </div>
-
-          </div>
-        </div>
-
+        <component :is="content"></component>
       </div>
 
+      <div class="signIn" id="signIn" :class="{signInmm: movesignInmm == false}">
+        <h1 class="signIn">會員登入</h1>
+        <form id="signIn" method="post" action="#">
+          <input type="text" placeholder="帳號">
+          <input type="password" placeholder="密碼">
+          <div class="signforget">
+            <div class="space"></div>
+            <div class="button">
+              <button class="subsignIn" type="submit">登入</button>
+            </div>
+            <div class="forget">
+              <a href="#">忘記密碼</a>
+            </div>
+          </div>
+          <button class="changeTosignup" id="changeTosignup" type="button">註冊</button>
+        </form>
+        <div class="lineBor">
+          <div class="lineL"></div>
+          <span class="signUp">你可以快速登入</span>
+          <div class="lineR"></div>
+        </div>
+        <div class="fbgoogle">
+          <a href="">
+            <img src="../img/03/Icon awesome-facebook.png">
+          </a>
+          <a href="">
+            <img src="../img/03/Icon awesome-google-plus.png">
+          </a>
+        </div>
+      </div>
+
+      <div class="overlayContainer" id="overlayContainer" :class="{overL: overlay == false}">
+        <div class="container" :class="{overm: overlaycontainer == false}">
+          <div class="signUpR" :class="{msignUpR: moveR == false}">
+            <div class="signUpRborder">
+              <h1>歡迎加入樂腹會員</h1>
+              <h3>最完善的即期食品銷售平台</h3>
+              <h3>精打細算</h3>
+              <h3>加入愛護地球行列</h3>
+              <button type="button" @click="signUpR">註冊</button>
+            </div>
+          </div>
+          <div class="signInL" :class="{msignInL: moveL == false}">
+            <div class="signInLborder">
+              <h1>歡迎回來！</h1>
+              <h3>登入會員享有更多服務</h3>
+              <button type="button" @click="signInL">會員登入</button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
-  <footer>
+  <component id="memfooter" :is="footerId"></component>
 
-  </footer>
+  <script src="../js/03/memheader.js"></script>
   <script src="../js/03/signUp_signIn.js"></script>
+  <script src="../js/03/memfooter.js"></script>
 </body>
 
 </html>

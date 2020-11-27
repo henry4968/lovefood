@@ -10,6 +10,8 @@
     <!-- <link rel="stylesheet" href="../css/fonts.css"> -->
     <!-- 全屏滾動套件css -->
     <link rel="stylesheet" href="../node_modules/fullpage.js/dist/fullpage.css">
+    <!-- 輪播套件css -->
+    <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <!-- 計數套件 -->
@@ -20,6 +22,8 @@
     <script src="../node_modules/fullpage.js/vendors/easings.min.js"></script>
     <script src="../node_modules/fullpage.js/vendors/scrolloverflow.min.js"></script>
     <script src="../node_modules/fullpage.js/dist/fullpage.extensions.min.js"></script>
+    <!-- 輪播套件js -->
+    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
     <!-- 自訂js -->
     <script src="../js/22/index.js"></script>
 </head>
@@ -42,13 +46,13 @@
                     <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
                 </li>
                 <li>
-                    <a href="#0" class="navGeneralAnchorsForMobile">賣家專區</a>
+                    <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile">賣家專區</a>
                 </li>
                 <li>
-                    <a href="#0" class="navGeneralAnchorsForMobile">捐款說明</a>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
                 </li>
                 <li>
-                    <a href="#0" id="navSepcialAnchorForMobile">
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
                         <div>
                             立即捐款
                         </div>
@@ -64,9 +68,9 @@
             <!-- 導覽列開始 -->
             <nav id="navigationForPC">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="#0" class="navGeneralAnchors">賣家專區</a>
-                <a href="#0" class="navGeneralAnchors">捐款說明</a>
-                <a href="#0" id="navSepcialAnchor">
+                <a href="../backend/backendOrder.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
                         立即捐款
                     </div>
@@ -298,82 +302,116 @@
         </article>
         <!-- 第三章：「浪費影響」結束 -->
 
-        <!-- 第四章：「「樂腹商城」」開始 -->
+        <!-- 第四章：「樂腹商城」開始 -->
         <article id="chapter04" class="section">
 
             <h3>惜食 ‧ 從這一餐開始</h3>
 
             <!-- 商城輪播開始 -->
             <div id="productCarouselContainer">
+                <ul id="productCarouselList">
 
-                <div class="productCard">
+                    <li class="productCarouseItem">
+                        <div class="productCard">
 
-                    <div class="countdown">
-                        下架倒數<span> 12:09:59 </span>秒
-                    </div>
-                    <div class="productAvatarBlock">
-                        <a href="#0">
-                            <div class="productAvatar">
-                                <img src="../img/22/index/ch04_product_bread01.png" alt="">
+                            <div class="countdown">
+                                下架倒數<span> 12:09:59 </span>秒
                             </div>
-                            <div class="productMainInfo">
+                            <div class="productAvatarBlock">
+                                <a href="#0">
+                                    <div class="productAvatar">
+                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
+                                    </div>
+                                    <div class="productMainInfo">
 
-                                <span class="productName">蛋黃奶香麵包</span>
-                                <span class="productSellingPrice">＄20</span>
+                                        <span class="productName">蛋黃奶香麵包</span>
+                                        <span class="productSellingPrice">＄20</span>
 
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="productSubInfo">
-                        <span class="ProductCategory">輕食</span>
-                        <span class="productOriginalPrice">原價25元</span>
-                    </div>
-                </div>
-
-                <div class="productCard">
-
-                    <div class="countdown">
-                        下架倒數<span> 12:09:59 </span>秒
-                    </div>
-                    <div class="productAvatarBlock">
-                        <a href="#0">
-                            <div class="productAvatar">
-                                <img src="../img/22/index/ch04_product_ricerolls.png" alt="">
+                            <div class="productSubInfo">
+                                <span class="ProductCategory">輕食</span>
+                                <span class="productOriginalPrice">原價25元</span>
                             </div>
-                            <div class="productMainInfo">
-                                <span class="productName">鹽烤松阪豬</span>
-                                <span class="productSellingPrice">＄33</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="productSubInfo">
-                        <span class="ProductCategory">輕食</span>
-                        <span class="productOriginalPrice">原價42元</span>
-                    </div>
-                </div>
+                        </div>
+                    </li>
 
-                <div class="productCard">
+                    <li class="productCarouseItem">
+                        <div class="productCard">
 
-                    <div class="countdown">
-                        下架倒數<span> 12:09:59 </span>秒
-                    </div>
-                    <div class="productAvatarBlock">
-                        <a href="#0">
-                            <div class="productAvatar">
-                                <img src="../img/22/index/ch04_product_bread02.png" alt="">
+                            <div class="countdown">
+                                下架倒數<span> 12:09:59 </span>秒
                             </div>
-                            <div class="productMainInfo">
-                                <span class="productName">日式紅豆銅鑼燒</span>
-                                <span class="productSellingPrice">＄25</span>
+                            <div class="productAvatarBlock">
+                                <a href="#0">
+                                    <div class="productAvatar">
+                                        <img src="../img/22/index/ch04_product_ricerolls.png" alt="">
+                                    </div>
+                                    <div class="productMainInfo">
+                                        <span class="productName">鹽烤松阪豬</span>
+                                        <span class="productSellingPrice">＄33</span>
+                                    </div>
+                                </a>
                             </div>
-                        </a>
-                    </div>
-                    <div class="productSubInfo">
-                        <span class="ProductCategory">輕食</span>
-                        <span class="productOriginalPrice">原價32元</span>
-                    </div>
-                </div>
+                            <div class="productSubInfo">
+                                <span class="ProductCategory">輕食</span>
+                                <span class="productOriginalPrice">原價42元</span>
+                            </div>
+                        </div>
+                    </li>
 
+                    <li class="productCarouseItem">
+                        <div class="productCard">
+
+                            <div class="countdown">
+                                下架倒數<span> 12:09:59 </span>秒
+                            </div>
+                            <div class="productAvatarBlock">
+                                <a href="#0">
+                                    <div class="productAvatar">
+                                        <img src="../img/22/index/ch04_product_bread02.png" alt="">
+                                    </div>
+                                    <div class="productMainInfo">
+                                        <span class="productName">日式紅豆銅鑼燒</span>
+                                        <span class="productSellingPrice">＄25</span>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="productSubInfo">
+                                <span class="ProductCategory">輕食</span>
+                                <span class="productOriginalPrice">原價32元</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="productCarouseItem">
+                        <div class="productCard">
+
+                            <div class="countdown">
+                                下架倒數<span> 12:09:59 </span>秒
+                            </div>
+                            <div class="productAvatarBlock">
+                                <a href="#0">
+                                    <div class="productAvatar">
+                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
+                                    </div>
+                                    <div class="productMainInfo">
+
+                                        <span class="productName">蛋黃奶香麵包</span>
+                                        <span class="productSellingPrice">＄20</span>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="productSubInfo">
+                                <span class="ProductCategory">輕食</span>
+                                <span class="productOriginalPrice">原價25元</span>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
             </div>
             <!-- 商城輪播結束 -->
 
