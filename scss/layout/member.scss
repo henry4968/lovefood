@@ -112,11 +112,130 @@ body{
         }
       }
       div.rightBorder{
-        width: 70%;
+        width: 75%;
         border: 1px solid #FAFDDD;
         box-shadow: 6px 6px 6px rgba(0,0,0,.16);
         border-radius: 13px;
         background-color: #FAFDDD;
+        display: flex;
+        justify-content: space-around;
+        div.leftInfoborder{
+          width: 65%;
+          // border: 1px solid black;
+          margin: 4% 0% 4% 2%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          .myAccountBorder{
+            .myAccount{
+              font-size: 30px;
+              font-weight: normal;
+              color: #909090;
+              margin: 0;
+            }
+          }
+          div{
+            display: flex;
+            div{
+              font-size: 24px;
+              font-weight: normal;
+              color: #909090;
+            }
+            span{
+              font-size: 24px;
+              font-weight: normal;
+              color: #909090;
+            }
+            
+          }
+          div.sameTile{
+              display: flex;
+              justify-content: flex-start;
+              width: 120px;
+              // border: 1px solid black;
+            }
+          .identifyBorder{
+            .idTitle{
+              font-size: 26px;
+            }
+            .idContent{
+              font-size: 26px;
+            }
+          }
+          .lineBorder{
+            display: block;
+          }
+          .passwordborder{
+            display: flex;
+            .passwordLef{
+              display: flex;
+              flex-direction: column;
+              div{
+                margin: 1% 0%;
+                input{
+                  width: 240px;
+                  outline: none;
+                  border: none;
+                  border-radius: 10px;
+                  padding-left: 10px;
+                  color: #909090;
+                  font-size: 24px;
+                  font-weight: normal;
+                }
+              }
+            }
+            .changeBtnright{
+              button.changePassword{
+                align-self: flex-end;
+                height: 40px;
+                padding: 0px 15px;
+                font-size: 20px;
+                font-weight: normal;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 15px;
+                color: white;
+                margin-left: 20px;
+                cursor: pointer;
+              }
+            }
+          }
+          .editsaveBtn{
+            align-self: center;
+            .edit{
+              height: 40px;
+              padding: 0px 15px;
+              font-size: 20px;
+              font-weight: normal;
+              outline: none;
+              border: none;
+              background-color: #B9AF94;
+              border-radius: 15px;
+              color: white;
+              margin-left: 20px;
+              cursor: pointer;
+            }
+            .save{
+              height: 40px;
+              padding: 0px 15px;
+              font-size: 20px;
+              font-weight: normal;
+              outline: none;
+              border: 1px solid #B9AF94;
+              background-color: transparent;
+              border-radius: 15px;
+              color: #B9AF94;
+              margin-left: 20px;
+              cursor: pointer;
+            }
+          }
+        }
+        div.rightPicborder{
+          width: 22%;
+          border: 1px solid black;
+          margin: 4% 2% 4% 0%;
+        }
       }
     }
   }
