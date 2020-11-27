@@ -379,7 +379,11 @@
                     max-width: 615px;
                     padding-bottom: 10px;
                     margin: 0 auto;
+<<<<<<< HEAD
+                    white-space: nowrap;
+=======
                     
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                 }
             }
 
@@ -502,20 +506,39 @@
 
     .txt{
         // display: inline-block;
+<<<<<<< HEAD
+        // border: solid 1px red;
+=======
         // border: solid 1px blueviolet;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         // vertical-align: bottom;
+<<<<<<< HEAD
+        // max-width: 1200px;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
         
         .txtTxt{
             // border: solid 1px blue;
             max-width: 330px;
+<<<<<<< HEAD
+            width: 30%;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
             font-size: 30px;
             // display: inline-block;
             display: flex;
             flex-direction: row;
+<<<<<<< HEAD
+            // margin: 0 auto;
+            // text-align: center;
+            justify-content: center;
+            // align-items: center;
+=======
             margin: 0 30px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
             // vertical-align:bottom;
 
             p{
@@ -1080,7 +1103,11 @@
                 // height: 100%;
                 width: 257px;
                 height: 80px;
+<<<<<<< HEAD
+                background-color: #B2C6A6;
+=======
                 background-color: #CAD4B0;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                 border-radius: 10px;
                 margin: auto;
                 // display: flex;

@@ -1,12 +1,26 @@
+<<<<<<< HEAD
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+=======
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 #header {
   width: 100%;
   height: 123px;
+<<<<<<< HEAD
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   display: flex;
   position: fixed;
   background: #DCE5C3;
@@ -18,15 +32,30 @@
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
+<<<<<<< HEAD
   display: flex;
   justify-content: space-between;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
+<<<<<<< HEAD
     align-items: center;
+=======
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
@@ -67,21 +96,42 @@
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
+<<<<<<< HEAD
     align-self: center;
+=======
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
 #header #headerContentContainer #navigation {
   width: 762px;
   height: 50px;
+<<<<<<< HEAD
   display: flex;
   align-items: center;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 @media all and (min-width: 1200px) and (max-width: 1599px) {
   #header #headerContentContainer #navigation {
     width: 625px;
+<<<<<<< HEAD
     align-items: center;
+=======
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   }
 }
 
@@ -197,20 +247,48 @@
   width: 100%;
   margin: 0 auto;
   background-color: #FEFEFA;
+<<<<<<< HEAD
+  box-shadow: 5px 5px 10px #00000024;
+}
+
+.donateNowBg .donateForm form .donateItem .dottedLine {
+  border: 1px dashed #B2C6A6;
+  margin: -20px auto 60px;
+  max-width: 860px;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .donateNowBg .donateForm form .donateItem .donateLine {
   border: 4px solid #B2C6A6;
   background-color: #B2C6A6;
   height: 70px;
+<<<<<<< HEAD
   display: flex;
   align-items: center;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .donateNowBg .donateForm form .donateItem .donateLine .donateTitle {
   display: inline-block;
+<<<<<<< HEAD
   display: flex;
   align-items: center;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: 10px;
 }
 
@@ -234,13 +312,31 @@
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow {
+<<<<<<< HEAD
   display: flex;
   justify-content: center;
   align-content: center;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   max-width: 860px;
   width: 100%;
   margin: 0 auto 25px;
   height: 45px;
+}
+
+<<<<<<< HEAD
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .starTxt {
+  color: #F7B3B3;
+  font-size: 26px;
+  transform: translateY(-13%);
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabel {
@@ -249,15 +345,71 @@
   display: flex;
   justify-content: flex-end;
   align-content: center;
+=======
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabel {
+  width: 30%;
+  text-align: right;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -ms-flex-line-pack: center;
+      align-content: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .formlabel .starTxt {
   color: #F7B3B3;
   font-size: 26px;
+<<<<<<< HEAD
   transform: translateY(-13%);
 }
 
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton {
+  margin-top: -20px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton .Button {
+  width: 150px;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  margin: 0 20px;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 3px 3px 6px #00000024;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #cleanButton {
+  background-color: #DEDEDE;
+  color: #707070;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #cleanButton:hover {
+  background-color: #d1d1d1;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #sendButton {
+  background-color: #B2C6A6;
+  color: #ffffff;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .checkButton #sendButton:hover {
+  background-color: #a3b699;
+}
+
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea {
+=======
+  -webkit-transform: translateY(-13%);
+          transform: translateY(-13%);
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea {
+  display: -webkit-box;
+  display: -ms-flexbox;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   display: flex;
   width: 70%;
 }
@@ -276,12 +428,26 @@
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text {
   margin: 0 20px;
+<<<<<<< HEAD
   display: flex;
   align-content: center;
+  width: 494px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text .form-text-input {
+  max-width: 150px;
+  width: 100%;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text .form-text-input {
   width: 150px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   height: 43px;
   border: solid 2px #B2C6A6;
   border-radius: 3px;
@@ -302,10 +468,27 @@
   padding: 5px 0 0 0;
 }
 
+<<<<<<< HEAD
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text .labelTxt {
+  margin: 0 20px 0 10px;
+}
+
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-money-box {
   display: flex;
   justify-content: center;
   align-items: center;
+=======
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-money-box {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   margin: 0 20px;
 }
 
@@ -328,12 +511,25 @@
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long {
   margin: 0 20px;
+<<<<<<< HEAD
   display: flex;
   align-content: center;
+  width: 494px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long {
+  width: 100%;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-line-pack: center;
+      align-content: center;
 }
 
 .donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long {
   width: 494px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
   height: 43px;
   border: solid 2px #B2C6A6;
   border-radius: 3px;
@@ -346,6 +542,80 @@
   border: 3px solid #B2C6A6;
 }
 
+<<<<<<< HEAD
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::placeholder {
+  /* CSS 3 標準 */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::-webkit-input-placeholder {
+  /* Chrome, Safari */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long:-ms-input-placeholder {
+  /* IE 10+ */
+  color: #cfcdcc;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-long .form-text-input-long::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #cfcdcc;
+  opacity: 1;
+  font-size: 23px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four {
+  margin: 0 20px;
+  display: flex;
+  align-content: center;
+  max-width: 494px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .form-text-input-four {
+  width: 25%;
+  height: 43px;
+  border: solid 2px #B2C6A6;
+  border-radius: 3px;
+  outline-color: #B2C6A6;
+  font-size: 26px;
+  padding: 0 5px;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .form-text-input-four:focus {
+  border: 3px solid #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .inputArea .form-text-four .cardNumberLine {
+  margin: 4px 5px 0 5px;
+  color: #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox {
+  width: 22px;
+  height: 22px;
+  border: #B2C6A6;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox-label .checkInfo {
+  color: #E28181;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.donateNowBg .donateForm form .donateItem .formRowGorup .formRow .form-check .form-checkbox-label .checkInfo:hover {
+  color: #e43838;
+}
+
+.donateFooter {
+  margin-top: -1px;
+}
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 .donateFooter footer {
   width: 100%;
   height: 200px;
@@ -353,7 +623,10 @@
   cursor: pointer;
   font-size: 18px;
   color: #C2B891;
+<<<<<<< HEAD
+=======
   margin-top: -1px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .donateFooter footer .footerBlock {
@@ -363,8 +636,17 @@
 
 .donateFooter footer .footerBlock div {
   height: 80px;
+<<<<<<< HEAD
   display: flex;
   justify-content: flex-end;
+=======
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 }
 
 .donateFooter footer .footerBlock div .footer_logo {

@@ -189,12 +189,25 @@
         margin: 0 auto;
         // height: 2355px;
         background-color: #FEFEFA;
+<<<<<<< HEAD
+        box-shadow: 5px 5px 10px #00000024;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 
             .donateItem{
                 // width: 100%;
                 // max-width: 1000px;
                 // height: 300px;
                 // border: 1px solid #0b0fff;
+<<<<<<< HEAD
+                .dottedLine{
+                    border: 1px dashed #B2C6A6;
+                    margin: -20px auto 60px;
+                    // text-align: center;
+                    max-width: 860px;
+                }
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 
                 .donateLine{
                     // width: 100%;
@@ -224,6 +237,11 @@
                     }
                 }
 
+<<<<<<< HEAD
+
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                 .formRowGorup{
                     // border: 1px solid #300bff;
                     max-width: 860px;
@@ -233,6 +251,13 @@
                     color: #616161;
                     white-space: nowrap;
 
+<<<<<<< HEAD
+                    // .dottedLine{
+                    //     border: 1px dashed #B2C6A6;
+                    // }
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                     .formRow{
                         // border: 1px solid #1eb4f0;
                         display: flex;
@@ -243,6 +268,16 @@
                         margin: 0 auto 25px;
                         height: 45px;
 
+<<<<<<< HEAD
+                        .starTxt{
+                            color: #F7B3B3;
+                            font-size: 26px;
+                            // margin: -8px 0 0 0;
+                            transform: translateY(-13%);
+                        }
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                         .formlabel{
                             // border: 1px solid #f0591e;
                             width: 30%;
@@ -259,6 +294,39 @@
                             }
                         }
 
+<<<<<<< HEAD
+                        .checkButton{
+                            // border: 1px solid #f0591e;
+                            margin-top: -20px;
+                            .Button{
+                                width: 150px;
+                                height: 45px;
+                                border: none;
+                                border-radius: 3px;
+                                margin: 0 20px;
+                                font-size: 26px;
+                                cursor: pointer; 
+                                box-shadow: 3px 3px 6px #00000024;
+                            }
+
+                            #cleanButton{
+                                background-color: #DEDEDE;
+                                color: #707070;
+                                &:hover{
+                                    background-color: rgb(209, 209, 209);
+                                }
+                            }
+                            #sendButton{
+                                background-color:#B2C6A6;
+                                color: #ffffff;
+                                &:hover{
+                                    background-color: #a3b699;
+                                }
+                            }
+                        }
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                         // .formlabel-message{
                         //     // border: 1px solid #f0591e;
                         //     width: 30%;
@@ -298,9 +366,17 @@
                                 // justify-content: center;
                                 align-content: center;
                                 // align-items: flex-end;
+<<<<<<< HEAD
+                                width: 494px;
+                                
+                                .form-text-input{
+                                    max-width: 150px;
+                                    width: 100%;
+=======
                                 
                                 .form-text-input{
                                     width: 150px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                                     height: 43px;
                                     border: solid 2px #B2C6A6;
                                     border-radius: 3px;
@@ -322,6 +398,12 @@
                                     margin: 0 20px;
                                     padding: 5px 0 0 0;
                                 }
+<<<<<<< HEAD
+                                .labelTxt{
+                                    margin: 0 20px 0 10px;
+                                }
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                             }
 
 
@@ -345,7 +427,11 @@
                                     text-align: center;
 
                                     &:hover{
+<<<<<<< HEAD
+                                        background-color:  #B2C6A6;
+=======
                                         background-color: #B2C6A6;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                                         color: #ffffff;
                                         cursor: pointer;
                                     }
@@ -359,10 +445,72 @@
                                 display: flex;
                                 // justify-content: center;
                                 align-content: center;
+<<<<<<< HEAD
+                                width: 494px;
+                                // align-items: flex-end;
+                                
+                                .form-text-input-long{
+                                    width: 100%;
+=======
                                 // align-items: flex-end;
                                 
                                 .form-text-input-long{
                                     width: 494px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
+                                    height: 43px;
+                                    border: solid 2px #B2C6A6;
+                                    border-radius: 3px;
+                                    outline-color:#B2C6A6;
+                                    // outline-style: 3px solid;
+                                    font-size: 26px;
+                                    // border-style: solid;
+                                    // border-color: #B2C6A6;
+                                    padding: 0 5px;
+<<<<<<< HEAD
+                                    
+                                    &:focus{
+                                        border: 3px solid #B2C6A6;
+                                        // padding: 0 5px;
+                                    }
+
+                                    &::placeholder { /* CSS 3 標準 */
+                                        color: rgb(207, 205, 204);
+                                        font-size: 23px;
+                                        // padding: 0 5px;
+                                    }
+                                    &::-webkit-input-placeholder { /* Chrome, Safari */
+                                        // padding: 0 5px;
+                                        color: rgb(207, 205, 204);
+                                        font-size: 23px;
+                                    }
+                                    &:-ms-input-placeholder { /* IE 10+ */
+                                        color: rgb(207, 205, 204);
+                                        // padding: 0 5px;
+                                        font-size: 23px;
+                                    }
+                                    &::-moz-placeholder { /* Firefox 19+ */
+                                        color: rgb(207, 205, 204);
+                                        opacity: 1;
+                                        // padding: 0 5px;
+                                        font-size: 23px;
+                                    }
+
+                                }
+                            }
+
+
+                            // 信用卡四格表單
+                            .form-text-four{
+                                margin: 0 20px;
+                                display: flex;
+                                // justify-content: center;
+                                align-content: center;
+                                max-width: 494px;
+                                // align-items: flex-end;
+                                
+                                .form-text-input-four{
+                                    // width: 494px;
+                                    width: 25%;
                                     height: 43px;
                                     border: solid 2px #B2C6A6;
                                     border-radius: 3px;
@@ -375,13 +523,65 @@
                                     &:focus{
                                         border: 3px solid #B2C6A6;
                                     }
+
+                                }
+
+                                .cardNumberLine{
+                                    // border: 1px solid red;
+                                    // margin: 0 5px;
+                                    // text-align: center;
+                                    // display: flex;
+                                    // align-items:center;
+                                    margin: 4px 5px 0 5px;
+                                    // transform: translateY(-13%);
+                                    color: #B2C6A6;
+                                }
+
+
+                            }
+=======
+                                    &:focus{
+                                        border: 3px solid #B2C6A6;
+                                    }
                                 }
                             }
 
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                             
                             
                         }
 
+<<<<<<< HEAD
+                        .form-check{
+                            // border: 1px solid red;
+
+                            .form-checkbox{
+                                // border: 1px solid rgb(57, 149, 202);
+                                width: 22px;
+                                height: 22px;
+                                // zoom:180%;
+                                border: #B2C6A6;
+                               
+                            }
+
+                            .form-checkbox-label{
+                                .checkInfo{
+                                    // border: 1px solid red;
+                                    color: #E28181;
+                                    text-decoration: none;
+                                    white-space: nowrap;
+                                    // color: #000;
+                        
+                                    &:hover{
+                                        color: #e43838;
+                                    }
+                                }
+                            }
+                        }
+
+
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
                     }  
                     
                     // .formRow-message{
@@ -454,6 +654,10 @@
 
 //footer開始
 .donateFooter{
+<<<<<<< HEAD
+    margin-top: -1px;
+=======
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
     footer{
         width: 100%;
         height: 200px;
@@ -461,7 +665,11 @@
         cursor: pointer;
         font-size: 18px;
         color: #C2B891;
+<<<<<<< HEAD
+        // margin-top: -1px;
+=======
         margin-top: -1px;
+>>>>>>> 699b87e2682e9da14b3377a8324b0a078ffbf87b
 
         .footerBlock{
             max-width:1200px;
