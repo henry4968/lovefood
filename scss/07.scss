@@ -362,7 +362,7 @@
     // justify-content: center;
     font-size: map-get($font , 22 );
     cursor: pointer;
-    width: 1200px;
+    width: 1403px;
 
         .areaName{
             // border: 2px solid $G;
@@ -465,17 +465,21 @@
         border-right: 1px solid #F3E9C0;
         background-color: $FB;
         font-size: map-get($font, 22 );
+        #itemP{
+            width:0 !important;
+        }  
+
         p{
             padding: 8px;
             width: 50px;
             // margin: 0 auto;
             display: flex;
-        }   
+        } 
+          
         .pText{
             @extend p ;
             margin: 0 auto;
         }
-                
     }
     #itemName6,#itemName5,#itemName7{
         width: 1200px;
@@ -520,12 +524,8 @@
 }
 
 .context{
-    // display: flex;
-    // border: 1px solid $P;
-    // width: 100%;
-    // height: 200px;
-    // background-color: $D7;
-        // width: 1200px;
+    
+    margin-top: 108px;
     .productArea{
         // background-color: $d4;
         // width: 65%;
