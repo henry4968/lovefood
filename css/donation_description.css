@@ -1,12 +1,1072 @@
-div {
-  width: 100px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-div h3 {
-  font-size: 36px;
+#header {
+  width: 100%;
+  height: 123px;
+  display: flex;
+  position: fixed;
+  background: #EFECB9;
+  z-index: 9;
 }
 
-button {
-  width: 50px;
+#header #headerContentContainer {
+  text-decoration: none;
+  width: 1180px;
+  height: 50px;
+  margin: 38px 0px 0px 364px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer {
+    width: 970px;
+    margin: auto;
+    align-items: center;
+  }
+}
+
+@media all and (min-width: 992px) and (max-width: 1199px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+@media all and (min-width: 768px) and (max-width: 991px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+@media all and (min-width: 576px) and (max-width: 767px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+@media all and (min-width: 320px) and (max-width: 575px) {
+  #header #headerContentContainer {
+    display: none;
+  }
+}
+
+#header #headerContentContainer #logo {
+  width: 264px;
+  height: 46px;
+}
+
+#header #headerContentContainer #logo:hover {
+  content: url("../../../img/22/index/ch01_header_logo_hover.png");
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #logo {
+    width: 216px;
+    height: 38px;
+    align-self: center;
+  }
+}
+
+#header #headerContentContainer #navigation {
+  width: 762px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation {
+    width: 625px;
+    align-items: center;
+  }
+}
+
+#header #headerContentContainer #navigation a {
+  text-decoration: none;
+  font-size: 30px;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation a {
+    font-size: 20px;
+    text-decoration: none;
+  }
+}
+
+#header #headerContentContainer #navigation .navGeneralAnchors {
+  color: #8F8770;
+}
+
+#header #headerContentContainer #navigation .navGeneralAnchors:hover {
+  color: #D6CAAA;
+}
+
+#header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+  margin-left: 25px;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation :nth-child(2), #header #headerContentContainer #navigation :nth-child(3) {
+    margin-left: 20px;
+  }
+}
+
+#header #headerContentContainer #navigation #navSepcialAnchor {
+  color: #ffffff;
+}
+
+#header #headerContentContainer #navigation #navSepcialAnchor div {
+  width: 139px;
+  height: 100%;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #8F8770;
+  margin: 0px 28px;
+}
+
+#header #headerContentContainer #navigation #navSepcialAnchor div:hover {
+  background-color: #D6CAAA;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation #navSepcialAnchor div {
+    width: 114px;
+  }
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer #navigation .navIcons img {
+    width: 30px;
+  }
+}
+
+#header #headerContentContainer #navigation #navIcons02, #header #headerContentContainer #navigation #navIcons03 {
+  margin-left: 20px;
+}
+
+.fullPageBg {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #EFECB9;
+  background-repeat: no-repeat;
+  background-image: url("/img/21/donation_description/banner.png");
+  background-size: cover;
+  background-position: center;
+  min-width: 320px;
+}
+
+.fullPageBg .bannerTitle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  background-color: #EFECB9;
+  width: 500px;
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  font-size: 25px;
+  line-height: 75px;
+}
+
+.fullPageBg .bannerRound {
+  background-image: url(/img/21/donation_description/banner_round.png);
+  position: absolute;
+  bottom: 60px;
+  z-index: 5;
+  width: 100%;
+  height: 100%;
+  max-height: 92px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.secondNav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #EFECB9;
+  display: flex;
+  justify-content: center;
+  height: 61px;
+  padding: 0 30px;
+}
+
+.secondNav .bottomNav {
+  font-size: 30px;
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  z-index: 5;
+}
+
+.secondNav .bottomNav a {
+  text-decoration: none;
+  white-space: nowrap;
+  color: #000;
+}
+
+.secondNav .bottomNav a:hover {
+  color: #978a8a;
+}
+
+.projectDetails .projectDetailsBg {
+  background-repeat: no-repeat;
+  background-image: url("/img/21/donation_description/background1.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  height: 1081px;
+  width: 100%;
+  padding-top: 135px;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: 0 auto 105px;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .title img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .title h2 {
+  font-size: 50px;
+  display: block;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .area1 {
+  display: flex;
+  flex-wrap: wrap-reverse;
+  justify-content: space-around;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt {
+  margin: 80px 0 0 0;
+  max-width: 680px;
+  min-width: 320px;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt h3 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt p {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.projectDetails .area2 {
+  max-width: 1200px;
+  margin: 0 auto 200px;
+  padding-top: 110px;
+}
+
+.projectDetails .area2 .area2Txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.projectDetails .area2 .area2Txt img {
+  max-width: 216px;
+  width: 100%;
+  height: 260px;
+}
+
+.projectDetails .area2 .area2Txt .area2TxtTxt h3 {
+  font-size: 40px;
+  margin: 100px 0 40px;
+}
+
+.projectDetails .area2 .area2Txt .area2TxtTxt p {
+  font-size: 30px;
+  line-height: 60px;
+  max-width: 850px;
+  padding-bottom: 10px;
+}
+
+.projectDetails .area3 {
+  background-repeat: no-repeat;
+  background-image: url("/img/21/donation_description/background2.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 1900px;
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.projectDetails .area3 .howDo {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.projectDetails .area3 .howDo .howDoTitle {
+  margin: 0px auto 140px;
+  text-align: center;
+}
+
+.projectDetails .area3 .howDo .howDoTitle h3 {
+  font-size: 40px;
+  margin: 0 auto 40px;
+}
+
+.projectDetails .area3 .howDo .howDoTitle p {
+  font-size: 30px;
+  line-height: 60px;
+  max-width: 615px;
+  padding-bottom: 10px;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+
+.projectDetails .area3 .howDo #howDoFlower {
+  position: absolute;
+  right: 0;
+  top: 28%;
+  max-width: 817px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.projectDetails .area3 .howDo .stepArea_1, .projectDetails .area3 .howDo .stepArea_2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  max-width: 360px;
+  margin: 0 20px 150px;
+  z-index: 3;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .mwt_border, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border {
+  width: 222px;
+  height: 70px;
+  border-radius: 15px;
+  text-align: center;
+  background: #E7E7E7;
+  position: relative;
+  margin: 0 auto 30px;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .mwt_border p, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border p {
+  font-size: 38px;
+  padding-top: 8px;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .arrow_b_int, .projectDetails .area3 .howDo .stepArea_2 .step .arrow_b_int {
+  border-width: 15px;
+  border-style: solid;
+  border-color: #E7E7E7 transparent transparent transparent;
+  position: absolute;
+  bottom: -30px;
+  left: 44%;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .stepImg, .projectDetails .area3 .howDo .stepArea_2 .step .stepImg {
+  width: 225px;
+  margin: 0 auto 27px;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .stepTxt, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt {
+  text-align: center;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .stepTxt p, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt p {
+  font-size: 29px;
+  margin-top: 20px;
+  line-height: 50px;
+}
+
+.projectDetails .area3 .howDo .stepArea_1 .step .stepTxt .line, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt .line {
+  width: 225px;
+  border: 1px solid #C3CCC0;
+  margin: 1px auto;
+}
+
+.operationResult {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.operationResult .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: 135px auto 38px;
+}
+
+.operationResult .title img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+}
+
+.operationResult .title h2 {
+  font-size: 50px;
+  display: block;
+}
+
+.operationResult .txt {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.operationResult .txt .txtTxt {
+  max-width: 330px;
+  width: 30%;
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.operationResult .txt .txtTxt p {
+  font-size: 40px;
+  transform: translateY(-9%);
+}
+
+.operationResult .goal {
+  margin: 0 auto 220px;
+}
+
+.operationResult .goal .goalTitle {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  margin: 200px auto 65px;
+}
+
+.operationResult .goal .goalTitle img {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+  left: -90px;
+}
+
+.operationResult .goal .goalTitle h3 {
+  font-size: 40px;
+}
+
+.operationResult .goal .bread {
+  margin: 0 auto 400px;
+  max-width: 1112px;
+  width: 100%;
+  max-height: 193px;
+  margin: 0 30px 50px 40px;
+  position: relative;
+}
+
+.operationResult .goal .bread #breadImg {
+  width: 100%;
+  z-index: 2;
+}
+
+.operationResult .goal .bread .breadLine {
+  border-radius: 70px;
+  background-color: #E8BF77;
+  max-width: 1112px;
+  width: 60%;
+  height: 95%;
+  position: absolute;
+  top: 0;
+  z-index: -1;
+}
+
+.operationResult .goal .txtTxt {
+  font-size: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 0 30px;
+}
+
+.operationResult .goal .txtTxt p {
+  font-size: 40px;
+  transform: translateY(-9%);
+}
+
+.operationResult .enjoyFood {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.operationResult .enjoyFood .enjoyFoodTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 60px;
+}
+
+.operationResult .enjoyFood .enjoyFoodTitle .enjoyFoodBox {
+  border: 3px solid black;
+  font-size: 50px;
+  max-width: 150px;
+  width: 100%;
+  height: 150px;
+  line-height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+  margin: 20px;
+}
+
+.operationResult .enjoyFood .enjoyFoodTitle p {
+  font-size: 35px;
+}
+
+.operationResult .enjoyFood .mapAndShop {
+  display: flex;
+  justify-content: space-around;
+}
+
+.operationResult .enjoyFood .mapAndShop .mapImg {
+  max-width: 410px;
+  max-height: 390px;
+  margin: 25px;
+}
+
+.operationResult .enjoyFood .mapAndShop .shop {
+  text-align: center;
+}
+
+.operationResult .enjoyFood .mapAndShop .shop p {
+  font-size: 30px;
+}
+
+.operationResult .enjoyFood .mapAndShop .shop .shopImg {
+  max-width: 480px;
+  max-height: 320px;
+  margin: 25px;
+}
+
+.thankYou {
+  background-repeat: no-repeat;
+  background-image: url("/img/21/donation_description/background3.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 1662px;
+  display: flex;
+  justify-content: center;
+}
+
+.thankYou .thankYouArea {
+  max-width: 1200px;
+  width: 100%;
+}
+
+.thankYou .thankYouArea .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: 400px auto 105px;
+}
+
+.thankYou .thankYouArea .title img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+}
+
+.thankYou .thankYouArea .title h2 {
+  font-size: 50px;
+  display: block;
+}
+
+.thankYou .thankYouArea .heartArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.thankYou .thankYouArea .heartArea .heart {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.thankYou .thankYouArea .heartArea .heart .donationData {
+  position: absolute;
+  top: 0;
+  text-align: center;
+  margin: 53px auto;
+}
+
+.thankYou .thankYouArea .heartArea .heart .donationData .date {
+  font-size: 22px;
+  color: #707070;
+  margin: 0 auto 10px;
+}
+
+.thankYou .thankYouArea .heartArea .heart .donationData .donation {
+  font-size: 22px;
+  color: #707070;
+  margin: 0 auto 20px;
+}
+
+.thankYou .thankYouArea .heartArea .heart .donationData .name {
+  font-size: 24px;
+  color: #96613E;
+}
+
+.thankYou .thankYouArea .loveRecycle .loveRecycleTitle {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  margin: 200px auto 65px;
+}
+
+.thankYou .thankYouArea .loveRecycle .loveRecycleTitle img {
+  display: block;
+  position: absolute;
+  bottom: 0px;
+}
+
+.thankYou .thankYouArea .loveRecycle .loveRecycleTitle h3 {
+  font-size: 40px;
+}
+
+.thankYou .thankYouArea .storyArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.thankYou .thankYouArea .storyArea .story {
+  width: 325px;
+  height: 523px;
+  background-color: #FFF8DD;
+  border-radius: 10px;
+  box-shadow: 3px 3px 6px #00000024;
+}
+
+.thankYou .thankYouArea .storyArea .story .storyImg {
+  border: 5px solid #EFDEDD;
+  border-radius: 10px;
+  background-color: #FEFEEA;
+  max-width: 275px;
+  width: 100%;
+  max-height: 235px;
+  height: 100%;
+  margin: 20px auto;
+  overflow: hidden;
+}
+
+.thankYou .thankYouArea .storyArea .story .storyImg img {
+  margin: auto;
+  max-height: 235px;
+  width: 100%;
+  padding: 15px;
+}
+
+.thankYou .thankYouArea .storyArea .story .storyTxt {
+  max-width: 275px;
+  margin: 20px auto;
+}
+
+.thankYou .thankYouArea .storyArea .story .storyTxt h3 {
+  font-size: 24px;
+  margin: 0 0 10px 0px;
+}
+
+.thankYou .thankYouArea .storyArea .story .storyTxt p {
+  font-size: 20px;
+  margin: 0 auto 30px;
+  line-height: 30px;
+  min-height: 90px;
+}
+
+.thankYou .thankYouArea .storyArea .story .readMpreButton {
+  max-width: 275px;
+  max-height: 58px;
+  height: 100%;
+  background-color: #EADBB2;
+  border-radius: 10px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 3px 3px 6px #00000024;
+}
+
+.thankYou .thankYouArea .storyArea .story .readMpreButton img {
+  margin: 0 10px 0 0;
+}
+
+.thankYou .thankYouArea .storyArea .story .readMpreButton span {
+  font-size: 22px;
+}
+
+.thankYou .thankYouArea .storyArea .story .readMpreButton:hover {
+  background-color: #f0d489;
+  cursor: pointer;
+}
+
+.foodItem .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: 280px auto 0px;
+}
+
+.foodItem .title img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+}
+
+.foodItem .title h2 {
+  font-size: 50px;
+  display: block;
+}
+
+.foodItem .overFoodBg {
+  background-repeat: no-repeat;
+  background-image: url("/img/21//donation_description/background4.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px;
+}
+
+.foodItem .overFoodBg .txt {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.foodItem .overFoodBg .txt .txt1 {
+  margin-bottom: 160px;
+  background-repeat: no-repeat;
+  background-image: url("/img/21//donation_description/overTxt1.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px;
+}
+
+.foodItem .overFoodBg .txt .txt1 h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.foodItem .overFoodBg .txt .txt1 p {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.foodItem .overFoodBg .txt .txt2 {
+  margin-bottom: 160px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px;
+}
+
+.foodItem .overFoodBg .txt .txt2 h2 {
+  font-size: 40px;
+  margin-bottom: 40px;
+}
+
+.foodItem .overFoodBg .txt .txt2 p {
+  font-size: 30px;
+  line-height: 60px;
+}
+
+.foodItem .loveFoodLife {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.foodItem .loveFoodLife h2 {
+  font-size: 40px;
+  margin: 0 auto 70px;
+  text-align: center;
+}
+
+.foodItem .loveFoodLife .loveFoodArea {
+  max-width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 0 auto;
+}
+
+.foodItem .loveFoodLife .loveFoodArea .loveFood {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 20px;
+}
+
+.foodItem .loveFoodLife .loveFoodArea .loveFood .lifeImg {
+  max-width: 270px;
+  min-height: 27px;
+  width: 100%;
+  margin: 0 auto 0;
+}
+
+.foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTitle {
+  font-size: 30px;
+  margin: 45px auto 20px;
+}
+
+.foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTxt {
+  max-width: 320px;
+  font-size: 30px;
+}
+
+.joinUs {
+  background-repeat: no-repeat;
+  background-image: url("/img/21//donation_description/background5.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 1680px;
+  padding-top: 380px;
+}
+
+.joinUs .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  width: 400px;
+  height: 100px;
+  margin: 0 auto 105px;
+}
+
+.joinUs .title img {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  left: -25px;
+}
+
+.joinUs .title h2 {
+  font-size: 50px;
+  display: block;
+}
+
+.joinUs .joinUsArea {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.joinUs .joinUsArea .join {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.joinUs .joinUsArea .join .joinTitle {
+  font-size: 40px;
+  color: #96613E;
+}
+
+.joinUs .joinUsArea .join .joinImg {
+  max-width: 500px;
+  min-height: 450px;
+  width: 100%;
+  margin: 50px auto;
+}
+
+.joinUs .joinUsArea .join .joinButton {
+  width: 257px;
+  height: 80px;
+  background-color: #B2C6A6;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 3px 3px 6px #00000024;
+}
+
+.joinUs .joinUsArea .join .joinButton:hover {
+  background-color: #b9c993;
+}
+
+.joinUs .joinUsArea .join .joinButton a {
+  text-decoration: none;
+  white-space: nowrap;
+  width: 257px;
+  height: 80px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.joinUs .joinUsArea .join .joinButton a img {
+  margin: 0 10px 0 0;
+}
+
+.joinUs .joinUsArea .join .joinButton a span {
+  font-size: 40px;
+  color: white;
+}
+
+.joinUs .joinUsArea .donation {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.joinUs .joinUsArea .donation .donationTitle {
+  font-size: 40px;
+  color: #96613E;
+}
+
+.joinUs .joinUsArea .donation .donationImg {
+  max-width: 500px;
+  min-height: 450px;
+  width: 100%;
+  margin: 50px auto;
+}
+
+.joinUs .joinUsArea .donation .donationButton {
+  width: 257px;
+  height: 80px;
+  background-color: #DDBCBC;
+  border-radius: 10px;
+  margin: auto;
+  box-shadow: 3px 3px 6px #00000024;
+}
+
+.joinUs .joinUsArea .donation .donationButton:hover {
+  background-color: #d6a9a9;
+}
+
+.joinUs .joinUsArea .donation .donationButton a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  white-space: nowrap;
+  width: 257px;
+  height: 80px;
+  border-radius: 10px;
+}
+
+.joinUs .joinUsArea .donation .donationButton a img {
+  margin: 0 10px 0 0;
+}
+
+.joinUs .joinUsArea .donation .donationButton a span {
+  font-size: 40px;
+  color: white;
+}
+
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #EFECB9;
+  cursor: pointer;
+  font-size: 18px;
+  color: #C2B891;
+}
+
+footer .footerBlock {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+footer .footerBlock div {
+  height: 80px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+footer .footerBlock div .footer_logo {
+  margin-top: 50px;
+  display: block;
+  width: 190px;
+  border-right: 1px solid #C2B891;
+  text-align: left;
+}
+
+footer .footerBlock div .footer_logo img {
+  width: 162px;
+  padding-top: 13px;
+}
+
+footer .footerBlock div .footer_logo .copyright {
+  margin-top: 6px;
+  font-size: 10px;
+}
+
+footer .footerBlock div .info {
+  display: block;
+  text-align: left;
+  width: 330px;
+  margin-top: 50px;
+}
+
+footer .footerBlock div .info a {
+  width: 280px;
+  margin: 20px;
+  text-decoration: none;
+  color: #C2B891;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+footer .footerBlock div .info a img {
+  padding-right: 10px;
 }
 /*# sourceMappingURL=donation_description.css.map */

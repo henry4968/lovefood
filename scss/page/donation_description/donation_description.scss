@@ -1,11 +1,1237 @@
 
-div{
-    width: 100px;
-    h3{
-        font-size: 36px;
+@import "../../base/var";
+@import "../../mixin/mixins";
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+  }
+// svg&:hover{
+//     path{
+    
+//         fill:#fff;
+    
+        
+//     }
+// }
+
+
+
+// 標頭開始
+#header{
+    width: 100%;
+    height: 123px;
+    display: flex;
+    position: fixed;
+    background: #EFECB9;
+    z-index: 9;
+    #headerContentContainer{
+        // border: 1px solid red;
+        text-decoration: none;
+        width: 1180px;
+        height: 50px;
+        margin: 38px 0px 0px 364px;
+        display: flex;
+        justify-content: space-between;
+        @include rwd("laptop"){
+            width: 970px;
+            margin: auto;
+            align-items: center;
+        }
+        @include rwd("pad"){
+            display: none;
+        }
+        @include rwd("bigPhone"){
+            display: none;
+        }
+        @include rwd("mediumPhone"){
+            display: none;
+        }
+        @include rwd("smallPhone"){
+            display: none;
+        }
+        #logo{
+            width: 264px;
+            height: 46px;
+            &:hover{
+                content: url('../../../img/22/index/ch01_header_logo_hover.png');
+            }
+            @include rwd("laptop"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+        }
+        #navigation{
+            // border: 1px solid blue;
+            width: 762px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            @include rwd("laptop"){
+                width: 625px;
+                align-items: center;
+            }
+            a{
+                text-decoration: none;
+                font-size: 30px;
+                @include rwd("laptop"){
+                    font-size: 20px;
+                    text-decoration: none;
+                }
+            }
+            .navGeneralAnchors{
+                color: #8F8770;
+                &:hover{
+                    color: #D6CAAA;
+                }
+            }
+            :nth-child(2),:nth-child(3){
+                margin-left: 25px;
+                @include rwd("laptop"){
+                    margin-left: 20px;
+                }
+            } 
+            #navSepcialAnchor{
+                color: #ffffff;
+                div{
+                    width: 139px;
+                    height: 100%;
+                    border-radius: 3px;
+                    text-align: center;
+                    background-color: #8F8770;
+                    &:hover{
+                        background-color: #D6CAAA;
+                    }
+                    margin: 0px 28px;
+                    @include rwd("laptop"){
+                        width: 114px;
+                    }
+                }
+            }
+            .navIcons{
+                img{
+                    @include rwd("laptop"){
+                        width: 30px;
+                        
+                    }
+                }
+            }
+            #navIcons02, #navIcons03{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+// 標頭結束
+
+.fullPageBg{
+    // border: 1px solid rgb(96, 241, 115);
+    width: 100%;
+    // height: calc(100vh - 123px);
+    height: 100vh;
+    position: relative;
+    background-color: #EFECB9;
+    background-repeat: no-repeat;
+    background-image: url("/img/21/donation_description/banner.png");
+    background-size: cover;
+    background-position: center;
+    // background-position: bottom 100%;
+    min-width: 320px;
+
+
+    .bannerTitle{
+        position: absolute;
+        transform: translate(-50%, -50%) ;
+        top: 50%;
+        left: 50%;
+        z-index: 5;   
+        background-color: #EFECB9;
+        width: 500px;
+        height: 300px;
+        // border: 1px solid rgb(230, 11, 11);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        font-size: 25px;
+        line-height: 75px;　
+
+        .h1{
+        }
+    }
+
+    .bannerRound{
+        background-image: url(/img/21/donation_description/banner_round.png);
+        position: absolute;
+        bottom: 60px;
+        z-index: 5;
+        // border: 1px solid red;
+        // margin-bottom: 60px;
+        width: 100%;
+        height: 100%;
+        max-height: 92px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        // background-size: contain;
+        background-position: center;
+    }
+
+}
+
+
+
+.secondNav{
+    // border: 1px solid rgb(20, 37, 189);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #EFECB9;
+    display: flex;
+    justify-content: center;
+    height: 61px;
+    padding: 0 30px;
+    
+    
+    .bottomNav{
+        // border: 1px solid rgb(224, 32, 57);
+        font-size: 30px;
+        max-width: 1200px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        z-index: 5;
+
+        a{
+            // margin: 0 50px;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #000;
+
+            &:hover{
+                color: rgb(151, 138, 138);
+            }
+        }
+        
+    }
+    
+    
+    
+}
+
+
+.projectDetails{
+
+    // width: 100%;
+
+
+    .projectDetailsBg{
+        // border: red 1px solid;
+        background-repeat: no-repeat;
+        background-image: url("/img/21/donation_description/background1.png");
+        background-size: cover;
+        background-position: center;
+        height: 100%;
+        height: 1081px;
+        width: 100%;
+        padding-top: 135px;
+    
+    
+        .projectDetailsIn{
+            max-width: 1200px;
+            width: 100%;
+            // border: 1px solid black;
+            margin: 0 auto;
+            
+        
+            .title{
+                // border: red 1px solid;
+                position: relative;
+                display: block;
+                text-align: center;
+                width: 400px;
+                height: 100px;
+                margin: 0 auto 105px;
+
+                img{
+                    // border: red 1px solid;
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: -25px;
+                }
+
+                h2{
+                    font-size: 50px;
+                    display: block;
+                }
+                
+            }
+
+            .area1{
+                display: flex;
+                flex-wrap: wrap-reverse;
+                justify-content: space-around;
+                
+                .txt{
+                    // border: solid 1px rgb(255, 0, 255);
+                    margin: 80px 0 0 0;
+                    max-width: 680px;
+                    min-width: 320px;
+                    
+                    
+                    
+                    h3{
+                        font-size: 40px;
+                        margin-bottom: 40px;
+                        // border: solid 1px rgb(255, 0, 255);
+                    }
+                    
+                    p{
+                        font-size: 30px;
+                        line-height: 60px;
+                    }
+                }
+
+                img{
+                    // max-width: 380px;
+
+                }
+            }    
+
+        }   
+    }
+
+
+    .area2{
+        // border: solid 1px rgb(255, 0, 255);
+        max-width: 1200px;
+        margin: 0 auto 200px;
+        padding-top: 110px;
+
+        .area2Txt{
+            // border: solid 1px rgb(255, 0, 255);
+            display: flex;
+            flex-direction: row;
+            // flex-wrap: wrap-reverse;
+            justify-content: space-around;
+
+            img{
+                // align-self:flex-start;
+                max-width: 216px;
+                width: 100%;
+                height: 260px;
+            }
+
+            .area2TxtTxt{
+                
+                h3{
+                    font-size: 40px;
+                    margin: 100px 0 40px;
+                    // border: solid 1px rgb(255, 0, 255);
+                }
+                
+                p{
+                    font-size: 30px;
+                    line-height: 60px;
+                    max-width: 850px;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+
+
+    .area3{
+        // border: red 1px solid;
+        background-repeat: no-repeat;
+        background-image: url("/img/21/donation_description/background2.png");
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 1900px;
+        display: flex;
+        justify-content: center;
+        position: relative;
+
+        .howDo{
+            max-width: 1200px;
+            width: 100%;
+            // border: solid 1px rgb(39, 36, 39);
+
+
+            .howDoTitle{
+                margin: 0px auto 140px ;
+                // display: block;
+                text-align: center;
+                // border: solid 1px rgb(255, 0, 255);
+
+                h3{
+                    font-size: 40px;
+                    margin: 0 auto 40px;
+                    // border: solid 1px rgb(255, 0, 255);
+                }
+                
+                p{
+                    font-size: 30px;
+                    line-height: 60px;
+                    max-width: 615px;
+                    padding-bottom: 10px;
+                    margin: 0 auto;
+                    white-space: nowrap;
+                }
+            }
+
+            #howDoFlower{
+                position: absolute;
+                right: 0;
+                top: 28%;
+                max-width: 817px;
+                width: 100%;
+                z-index: 1;
+                opacity: 0.8;
+            }
+
+
+            .stepArea_1, .stepArea_2{
+                display: flex;
+                flex-direction: row;
+                // justify-content:  space-around; 
+                justify-content: center;
+                // flex-wrap: wrap;
+
+            
+
+                .step{
+                    // border: solid 1px rgb(255, 0, 255);
+                    display: flex;
+                    justify-content: center;
+                    flex-direction: column;
+                    max-width: 360px;
+                    margin: 0 20px 150px;
+                    z-index: 3;
+
+                    // 對話框
+                    .mwt_border{
+                        width: 222px;
+                        height: 70px;
+                        border-radius: 15px;
+                        text-align: center;
+                        background: #E7E7E7;
+                        position: relative;
+                        margin: 0 auto 30px;
+
+                        p{
+                            font-size: 38px;
+                            padding-top:8px ;
+                        }
+
+
+                    }
+                    .arrow_b_int{
+                        border-width: 15px;
+                        border-style: solid;
+                        border-color: #E7E7E7 transparent transparent transparent ;
+                        position: absolute;
+                        bottom: -30px;
+                        left: 44%;
+                    }
+
+                    .stepImg{
+                        width: 225px;
+                        // border: solid 1px rgb(255, 0, 255);
+                        margin: 0 auto 27px;   
+                    }
+
+                    .stepTxt{
+                        // border: solid 1px rgb(255, 0, 255);
+                        text-align: center;
+
+                        p{
+                            font-size: 29px;
+                            margin-top: 20px;
+                            line-height: 50px;
+                        }
+
+                        .line{
+                            width: 225px;
+                            border: 1px solid #C3CCC0;
+                            margin: 1px auto;
+                        }
+
+                    }
+
+                }
+            }
+        }
     }
 }
 
-button{
-    width: 50px;
+// 運作成果
+
+.operationResult{
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+
+    .title{
+        // border: red 1px solid;
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 400px;
+        height: 100px;
+        margin: 135px auto 38px;
+
+        img{
+            // border: red 1px solid;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: -25px;
+        }
+
+        h2{
+            font-size: 50px;
+            display: block;
+        }
+        
+    }
+
+
+    .txt{
+        // display: inline-block;
+        // border: solid 1px red;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        // vertical-align: bottom;
+        // max-width: 1200px;
+        
+        .txtTxt{
+            // border: solid 1px blue;
+            max-width: 330px;
+            width: 30%;
+            font-size: 30px;
+            // display: inline-block;
+            display: flex;
+            flex-direction: row;
+            // margin: 0 auto;
+            // text-align: center;
+            justify-content: center;
+            // align-items: center;
+            // vertical-align:bottom;
+
+            p{
+                font-size: 40px;
+                transform: translateY(-9%);
+            }
+
+        }
+    }
+
+    .goal{
+        margin: 0 auto 220px;
+        // border: red 1px solid;
+        
+
+        // 本月目標款項 50萬元
+        .goalTitle{
+            // border: rgb(44, 37, 37) 1px solid;
+            position: relative;
+            display: block;
+            text-align: center;
+            width: 400px;
+            // height: 100px;
+            margin: 200px auto 65px;
+
+            img{
+                // border: red 1px solid;
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                left: -90px;
+            }
+
+            h3{
+                font-size: 40px;
+                // display: block;
+            }
+            
+        }
+
+        .bread{
+            // border: rgb(60, 24, 190) 1px solid;
+            margin: 0 auto 400px;
+            max-width: 1112px;
+            width: 100%;
+            max-height: 193px;
+            // height: 100%;
+            margin: 0 30px 50px 40px;
+            position: relative;
+            // position: fixed;
+            // justify-content: center;
+            // text-align: center;
+            // overflow: hidden;
+            
+
+            #breadImg{
+                width: 100%;
+                z-index: 2;
+            }
+
+            .breadLine{
+                // border: rgb(60, 24, 190) 1px solid;
+                border-radius: 70px;
+                background-color: #E8BF77;
+                max-width: 1112px;
+                width: 60%;
+                // height: 150px;
+                height: 95%;
+                position: absolute;
+                top: 0;
+                z-index: -1;
+            }
+        }
+
+
+        .txtTxt{
+            // border: solid 1px blue;
+            // max-width: 330px;
+            font-size: 30px;
+            // display: inline-block;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            margin: 0 30px;
+            // vertical-align:center;
+
+            p{
+                font-size: 40px;
+                transform: translateY(-9%);
+            }
+        }
+    }
+    
+    // 食饗冰箱
+    .enjoyFood{
+        max-width: 1200px;
+        width: 100%;
+        // border:  1px solid rgb(0, 0, 0);
+    
+        .enjoyFoodTitle{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 60px;
+            // width: 100%;
+            // border:  1px solid rgb(238, 37, 37);
+
+            .enjoyFoodBox{
+                border:  3px solid rgb(0, 0, 0);
+                font-size: 50px;
+                max-width: 150px;
+                width: 100%;
+                height: 150px;
+                // text-align: center;
+                line-height: 60px;
+                // margin-top: 50px ;
+                display: flex;
+                justify-content: center;
+                align-items: center; 
+                font-weight: bold;
+                margin: 20px;
+            }
+            p{
+                font-size: 35px;
+                // border:  1px solid rgb(0, 0, 0);
+            }
+        }
+
+        .mapAndShop{
+            display: flex;
+            justify-content: space-around;
+
+            .mapImg{
+                max-width: 410px;
+                max-height: 390px;
+                margin: 25px;
+            }
+
+            .shop{
+            text-align: center;
+                p{
+                    font-size: 30px;
+                    
+                }
+                .shopImg{
+                    max-width: 480px;
+                    max-height: 320px;
+                    margin: 25px;
+                }
+            }
+        }
+    }
+
+
+
 }
+
+// 感恩有您
+.thankYou{
+    // border: red 1px solid;
+    background-repeat: no-repeat;
+    background-image: url("/img/21/donation_description/background3.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1662px;
+    // height: 100%;
+    display: flex;
+    justify-content: center;
+
+    .thankYouArea{
+        // border: solid 1px rgb(255, 0, 255);
+        max-width: 1200px;
+        width: 100%;
+
+        .title{
+            // border: red 1px solid;
+            position: relative;
+            display: block;
+            text-align: center;
+            width: 400px;
+            height: 100px;
+            margin: 400px auto 105px;
+
+            img{
+                // border: red 1px solid;
+                display: block;
+                position: absolute;
+                bottom: 0;
+                left: -25px;
+            }
+
+            h2{
+                font-size: 50px;
+                display: block;
+            }
+            
+        }
+
+
+        .heartArea{
+            display: flex;
+            flex-direction: row;
+            justify-content:  space-around; 
+            // border: rgb(133, 22, 238) 1px solid;
+
+
+            .heart{
+                // border: red 1px solid;
+                position: relative;
+                display: flex;
+                justify-content: center;
+                // width: 33%;
+
+
+                .donationData{
+                    // border: red 1px solid;
+                    position: absolute;
+                    top: 0;
+                    text-align: center;
+                    margin: 53px auto;
+
+                    .date{
+                        font-size: 22px;
+                        color: #707070;
+                        margin: 0 auto 10px;
+                    }
+                    .donation{
+                        font-size: 22px;
+                        color: #707070;
+                        margin: 0 auto 20px;
+                    }
+                    .name{
+                        font-size: 24px;
+                        color: #96613E;
+                    }
+                }
+            }
+        }
+
+        // 讓愛循環不止
+        .loveRecycle{
+
+            .loveRecycleTitle{
+                // border: rgb(44, 37, 37) 1px solid;
+                position: relative;
+                display: block;
+                text-align: center;
+                width: 400px;
+                // height: 100px;
+                margin: 200px auto 65px;
+    
+                img{
+                    // border: red 1px solid;
+                    display: block;
+                    position: absolute;
+                    bottom: 0px;
+                    // left: -50px;
+                }
+    
+                h3{
+                    font-size: 40px;
+                    // display: block;
+                }
+                
+            }
+        }
+
+
+        .storyArea{
+            display: flex;
+            flex-direction: row;
+            justify-content:  space-around; 
+
+            // border: rgb(133, 22, 238) 1px solid;
+
+            .story{
+                // border: rgb(133, 22, 238) 1px solid;
+                width: 325px;
+                height: 523px;
+                background-color: #FFF8DD;
+                border-radius: 10px;
+                box-shadow: 3px 3px 6px #00000024;
+                // display: flex;
+                // flex-direction: column;
+                // justify-content: center;
+
+                .storyImg{
+
+                    border: 5px solid #EFDEDD;
+                    border-radius: 10px;
+                    background-color: #FEFEEA;
+                    max-width: 275px;
+                    width: 100%;
+                    max-height: 235px;
+                    height: 100%;
+                    margin: 20px auto;
+                    overflow: hidden;
+
+                    img{
+                        // border: rgb(133, 22, 238) 1px solid;
+                        margin: auto;
+                        max-height: 235px;
+                        width: 100%;
+                        padding: 15px;
+                    }
+                }
+                .storyTxt{
+                    max-width: 275px;
+                    
+                    margin: 20px auto;
+
+                    h3{
+                        font-size: 24px;
+                        margin:0 0 10px 0px;
+                    }
+                    p{
+                        font-size: 20px;
+                        margin:0 auto 30px;
+                        line-height: 30px;
+                        min-height: 90px;
+                    }
+                }
+                .readMpreButton{
+                    max-width: 275px;
+                    max-height: 58px;
+                    height: 100%;
+                    background-color: #EADBB2;
+                    border-radius: 10px;
+                    margin: auto;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; 
+                    box-shadow: 3px 3px 6px #00000024;
+
+                    img{
+                        margin: 0 10px 0 0;
+                    }
+                    span{
+                        font-size: 22px;
+                    }
+                }
+
+                
+                .readMpreButton:hover{
+                    background-color: #f0d489;
+                    cursor: pointer; 
+                }
+            }
+        }
+    }
+}
+
+.foodItem{
+
+        
+    .title{
+        // border: rgb(0, 255, 149) 1px solid;
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 400px;
+        height: 100px;
+        margin: 280px auto 0px;
+
+        img{
+            // border: red 1px solid;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: -25px;
+        }
+
+        h2{
+            font-size: 50px;
+            display: block;
+        }
+        
+    }
+
+    .overFoodBg{
+        // border: red 1px solid;
+        background-repeat: no-repeat;
+        background-image: url("/img/21//donation_description/background4.jpg");
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        // height: 1662px;
+        // height: 100%;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 50px;
+
+        .txt{
+            max-width: 1200px;
+            width: 100%;
+            // border: rgb(0, 76, 255) 1px solid;
+            margin: 0 auto;
+
+
+            .txt1{
+                margin-bottom: 160px;
+                background-repeat: no-repeat;
+                background-image: url("/img/21//donation_description/overTxt1.png");
+                background-size: cover;
+                background-position: center;
+                // max-width: 1000px;
+                width: 100%;
+                // border: rgb(0, 76, 255) 1px solid;
+                margin: 0 auto;
+                padding: 120px;
+
+
+                h2{
+                    font-size: 40px;
+                    margin-bottom: 40px;
+                }
+                p{
+                    font-size: 30px;
+                    line-height: 60px;
+                }
+            }
+
+            .txt2{
+                margin-bottom: 160px;
+                width: 100%;
+                // border: rgb(0, 76, 255) 1px solid;
+                margin: 0 auto;
+                padding: 120px;
+
+
+                h2{
+                    font-size: 40px;
+                    margin-bottom: 40px;
+                }
+                p{
+                    font-size: 30px;
+                    line-height: 60px;
+                }
+            }
+        }
+    }
+
+    // 惜食從生活做起
+    .loveFoodLife{
+        max-width: 1200px;
+        width: 100%;
+        // text-align: center;
+        // border: rgb(0, 76, 255) 1px solid;
+        margin: 0 auto;
+        
+
+        h2{
+            font-size: 40px;
+            margin: 0 auto 70px;
+            text-align: center;
+        }
+
+        .loveFoodArea{
+            // border: rgb(20, 165, 56) 1px solid;
+            max-width: 1200px;
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around; 
+            margin: 0 auto;
+
+            .loveFood{
+                display: flex;
+                justify-content: center;
+                flex-direction: column;
+                text-align: center;
+                margin: 20px;
+
+                .lifeImg{
+                    max-width: 270px;
+                    min-height: 27px;
+                    width: 100%;
+                    margin: 0 auto 0;
+                }
+                .lifeTitle{
+                    font-size: 30px;
+                    margin: 45px auto 20px;
+                }
+                .lifeTxt{
+                    max-width: 320px;
+                    font-size: 30px;
+                }
+            }
+        }
+    }
+}
+
+// 邀您一起
+.joinUs{
+    // border: red 1px solid;
+    background-repeat: no-repeat;
+    background-image: url("/img/21//donation_description/background5.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1680px;
+    padding-top: 380px;
+    // height: 100%;
+    // height: 500px;
+
+    .title{
+        // border: red 1px solid;
+        position: relative;
+        display: block;
+        text-align: center;
+        width: 400px;
+        height: 100px;
+        margin: 0 auto 105px;
+
+        img{
+            // border: red 1px solid;
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: -25px;
+        }
+
+        h2{
+            font-size: 50px;
+            display: block;
+        }
+        
+    }
+
+
+    .joinUsArea{
+        max-width: 1200px;
+        width: 100%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around; 
+
+        .join{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            .joinTitle{
+                font-size: 40px;
+                color: #96613E;
+            }
+
+            .joinImg{
+                max-width: 500px;
+                min-height: 450px;
+                width: 100%;
+                margin: 50px auto;
+            }
+
+            .joinButton{
+                // max-width: 257px;
+                // max-height: 80px;
+                // width: 100%;
+                // height: 100%;
+                width: 257px;
+                height: 80px;
+                background-color: #B2C6A6;
+                border-radius: 10px;
+                margin: auto;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center; 
+                box-shadow: 3px 3px 6px #00000024;
+
+                &:hover{
+                    background-color: #b9c993;
+                }
+
+                a{
+                    text-decoration: none;
+                    white-space: nowrap;
+                    width: 257px;
+                    height: 80px;
+                    border-radius: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; 
+
+                    img{
+                    margin: 0 10px 0 0;
+                    }
+                    span{
+                    font-size: 40px;
+                    color: rgb(255, 255, 255);
+                    }
+                }
+
+            }
+        }
+
+        .donation{
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            .donationTitle{
+                font-size: 40px;
+                color: #96613E;
+            }
+
+            .donationImg{
+                max-width: 500px;
+                min-height: 450px;
+                width: 100%;
+                margin: 50px auto;
+            }
+
+            .donationButton{
+                // max-width: 257px;
+                // max-height: 80px;
+                // width: 100%;
+                // height: 100%;
+                width: 257px;
+                height: 80px;
+                background-color: #DDBCBC;
+                border-radius: 10px;
+                margin: auto;
+                // display: flex;
+                // justify-content: center;
+                // align-items: center; 
+                box-shadow: 3px 3px 6px #00000024;
+
+                &:hover{
+                    background-color: #d6a9a9;
+                }
+                a{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; 
+                    text-decoration: none;
+                    white-space: nowrap;
+                    width: 257px;
+                    height: 80px;
+                    border-radius: 10px;
+
+                    img{
+                    margin: 0 10px 0 0;
+                    }
+                    span{
+                    font-size: 40px;
+                    color: rgb(255, 255, 255);
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+//footer開始
+footer{
+    width: 100%;
+    height: 200px;
+    background-color:#EFECB9;
+    cursor: pointer;
+    font-size: 18px;
+    color: #C2B891;
+    .footerBlock{
+        max-width:1200px;
+        margin: 0 auto;
+        
+        div{
+            height: 80px;
+            display: flex;
+            justify-content: flex-end;
+            
+        .footer_logo{
+            margin-top: 50px;
+            display: block;
+            width:190px;
+            border-right:1px solid #C2B891;
+            text-align: left;
+            // padding-right: 10px;
+
+            img{
+                width: 162px;
+                padding-top: 13px;
+            }
+            .copyright{
+                margin-top:6px;
+                font-size: 10px;
+            }
+        }
+        .info{
+            display:block;
+            text-align: left;
+            width: 330px;
+            margin-top: 50px;
+            a{
+                width: 280px;
+                margin: 20px;
+                text-decoration: none;
+                color: #C2B891;
+                font-size: 18px;
+                line-height: 1.5;
+                    img{
+                        padding-right: 10px;
+                    }
+                }
+            }
+        } 
+    }  
+}
+//footer結束
+
