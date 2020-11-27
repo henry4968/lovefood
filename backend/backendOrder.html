@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心--訂單管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <!-- /Users/abc/Desktop/資策會作業/group_webpage/GIT/node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js -->
 </head>
 <body>
     <div class="containerOrder">
@@ -61,7 +65,7 @@
                                     <li>訂單管理</li>
                                 </div>
                             </a>
-                            <a class="a-sideLink" href="">
+                            <a class="a-sideLink" href="backendProduct.html">
                                 <div>
                                     <svg xmlns="http://www.w3.org/2000/svg" width="30.422" height="30.422" viewBox="0 0 30.422 30.422">
                                         <path id="bag" d="M30.5,10.942H26.153v-.305A8.361,8.361,0,0,0,17.766,2.25h-.544a8.419,8.419,0,0,0-8.453,8.387v.305H4.423L2.25,32.672H32.672Zm-19.557-.305a6.257,6.257,0,0,1,6.281-6.214h.544a6.2,6.2,0,0,1,6.214,6.214v.305H10.942ZM4.681,30.5,6.372,13.115h2.4V15.58a2.173,2.173,0,1,0,2.173,0V13.115H23.98V15.58a2.173,2.173,0,1,0,2.173,0V13.115h2.4L30.248,30.5Z" transform="translate(-2.25 -2.25)" fill="#887664" />
@@ -124,36 +128,96 @@
                             <tr>
                                 <th>序號</th>
                                 <th>訂單編號</th>
-                                <th>會員帳號</th>
                                 <th>會員手機</th>
+                                <th>折抵點數</th>
                                 <th>訂單時間</th>
                                 <th>訂單狀態</th>
                                 <th>功能鍵</th>
                             </tr>
                             <tr>
                                 <td>00001</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>G12345678</td>
+                                <td>0912345678</td>
+                                <td>0</td>
+                                <td>2020-11-01 20:20:20</td>
+                                <td>待出貨</td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green accordion-toggle" data-toggle="collapse" data-target="#collapseBody1">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
+                            <tbody class="collapse accordian-body" id="collapseBody1">
+                                <tr>
+                                    <th class="subheading" colspan="2">商品名稱</th>
+                                    <th class="subheading">數量</th>
+                                    <th class="subheading">小計</th>
+                                    <th class="subheading">付款方式</th>
+                                    <th class="subheading" colspan="2">出貨地點</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">秋鮭雙手卷</td>
+                                    <td>1</td>
+                                    <td>27</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運南京復興站8號出口</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">鮪魚飯糰</td>
+                                    <td>1</td>
+                                    <td>17</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運南京復興站8號出口</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">雞肉沙拉</td>
+                                    <td>1</td>
+                                    <td>48</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運南京復興站8號出口</td>
+                                </tr>
+                            </tbody>
                             <tr>
                                 <td>00002</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                <td>G12345678</td>
+                                <td>0912345678</td>
+                                <td>0</td>
+                                <td>2020-11-01 20:20:20</td>
+                                <td>待出貨</td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green accordion-toggle" data-toggle="collapse" data-target="#collapseBody2">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
+                            <tbody class="accordian-body collapse" id="collapseBody2">
+                                <tr>
+                                    <th class="subheading" colspan="2">商品名稱</th>
+                                    <th class="subheading">數量</th>
+                                    <th class="subheading">小計</th>
+                                    <th class="subheading">付款方式</th>
+                                    <th class="subheading" colspan="2">出貨地點</th>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">秋鮭雙手卷</td>
+                                    <td>1</td>
+                                    <td>27</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運頂埔站1號出口</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">鮪魚飯糰</td>
+                                    <td>1</td>
+                                    <td>17</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運頂埔站1號出口</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">雞肉沙拉</td>
+                                    <td>1</td>
+                                    <td>48</td>
+                                    <td>信用卡</t>
+                                    <td colspan="2">捷運頂埔站1號出口</td>
+                                </tr>
+                            </tbody>
                             <tr>
                                 <td>00003</td>
                                 <td></td>
@@ -162,8 +226,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                             <tr>
@@ -174,8 +238,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                             <tr>
@@ -186,8 +250,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                             <tr>
@@ -198,8 +262,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                             <tr>
@@ -210,8 +274,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                             <tr>
@@ -222,8 +286,8 @@
                                 <td></td>
                                 <td></td>
                                 <td>
-                                    <button class="btn-sb btn-green">編輯</button>
-                                    <button class="btn-sb btn-green">停權</button>
+                                    <button class="btn-sb btn-green">詳情</button>
+                                    <button class="btn-sb btn-green">出貨</button>
                                 </td>
                             </tr>
                         </table>
@@ -231,5 +295,14 @@
                 </div>
             </div>    
         </div>
+        <script>
+          $('.accordian-body').on('show.bs.collapse', function () {
+    $(this).closest("table")
+        .find(".collapse.in")
+        .not(this)
+        .collapse('toggle')
+})
+        </script>
 </body>
+
 </html>
