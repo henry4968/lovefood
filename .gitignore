@@ -9,3 +9,4 @@ node_modules
 fonts
 css/backstage
 backend/temp.html
+css/backstage/*.css

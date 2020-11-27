@@ -1,10 +1,5 @@
 @import'./link';
 
-.navBar{
-    width: map-get($Wth, 100 );
-    height: 123px;
-    background-color: palegreen;
-}
 
 *{
     color: #545454;
@@ -224,7 +219,7 @@
             display: none;
             @include newRwd("bigPhone"){
                 display: block;
-                border: 1px solid red;
+                // border: 1px solid red;
                 width: 96px;
                 height: 40px;
                 display: flex;
@@ -239,12 +234,17 @@
 // 標頭結束
 
 
+*{
+    color: #545454;
+}
+
+
 .banner{
     width: map-get($Wth, 100 );
     height: 70vh;
     background-color: $D3;
     position: relative;
-    background-image: url(../img/07/banner_new.png);
+    background-image: url(../img/banner_new.png);
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -261,9 +261,9 @@
     top: 30%;
     left: 20%;
 
-    .apple{
+    img{
         position: absolute;
-        width: 40%;
+        width:40%;
         top: 12%;
         left:19%;
         
@@ -273,11 +273,6 @@
     // }
 }
 /////////apple_RWD
-@media screen and (max-width:585px){
-    .span{
-        font-size: 22px;
-    }
-}
 @include store('bigPhone'){
     .banner{
         height: 50vh;
@@ -448,7 +443,7 @@
 }
 .wrap{
     // background-image: url(../img/bi2.png);
-    background-image: url(../img/07/backgroud.png);
+    background-image: url(../img/backgroud.png);
     background-repeat: repeat;
     // background-color:$D3;
 }
@@ -470,7 +465,7 @@
         font-size: map-get($font, 22 );
         p{
             padding: 8px;
-            // width: 50px;
+            width: 50px;
             // margin: 0 auto;
             display: flex;
         }   
@@ -515,11 +510,12 @@
     #btn1,#btn2,#btn3,#btn4,#btn5{
         background-color: $C9;
         color: $ff;
-        // font-size: map-get($font, 22 );
-        font-size: 22px;
+        font-size: map-get($font, 22 );
     }
 }
-
+.wrap{
+    background-image: url(../img/07/backgroud.png);
+}
 
 .context{
     // display: flex;
@@ -587,12 +583,12 @@
         position: relative;
             .carImg{
                 padding: 12px;
-                width: 35px;
                 border-radius: 30px;
                 background-color: #C9BE9F;
                 position: absolute;
                 bottom: 20px;
-                left: 217px;
+                left: 202px;
+                cursor: pointer;
             }
             .pdtExplanation{
                 .pdtTime{
@@ -619,6 +615,10 @@
         
             .pdtTitle{
                 margin-right: 20px;
+                a{
+                    text-decoration: none;
+
+                }
             }
             #liM{
                margin: 10px 0;
@@ -652,6 +652,7 @@
 .pdtQuantity{
     button{
         background-color: #C9BE9F;
+        cursor: pointer;
 
     }
     button.left{
@@ -685,4 +686,5 @@ svg.pdtsvg{
         color: #C9BE9F;
         // -webkit-appearance: none;
     }
+
 ///////////////footer////////////////

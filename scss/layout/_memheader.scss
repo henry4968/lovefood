@@ -1,0 +1,145 @@
+
+
+// 標頭開始
+header#memheader{
+    width: 100%;
+    min-height: 100px;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #D3E4C6;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 6px 6px rgba(0,0,0,.3);
+    #headerContentContainer{
+        // border: 1px solid red;
+        width: 1180px;
+        height: 50px;
+        display: flex;
+        justify-content: space-between;
+        @include rwd("laptop"){
+            width: 970px;
+            margin: auto;
+            align-items: center;
+        }
+        @include rwd("pad"){
+            display: none;
+        }
+        @include rwd("bigPhone"){
+            display: none;
+        }
+        @include rwd("mediumPhone"){
+            display: none;
+        }
+        @include rwd("smallPhone"){
+            display: none;
+        }
+        #logo{
+            width: 264px;
+            height: 46px;
+            &:hover{
+                content: url('../../../img/03/memlogochange.png');
+                transform: scale(1.03);
+                transition: all .3s;
+            }
+            @include rwd("laptop"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+        }
+        #navigation{
+            // border: 1px solid blue;
+            width: 762px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            @include rwd("laptop"){
+                width: 625px;
+                align-items: center;
+            }
+            a{
+                font-size: 30px;
+                font-weight: normal;
+                @include rwd("laptop"){
+                    font-size: 20px;
+                }
+            }
+            .navGeneralAnchors{
+                color: #8F8770;
+                transition: all .3s;
+                &:hover{
+                  color: #d4c7a5;
+                  transform: scale(1.03);
+                  transition: all .3s;
+                }
+            }
+            :nth-child(2),:nth-child(3){
+                margin-left: 25px;
+                @include rwd("laptop"){
+                    margin-left: 20px;
+                }
+            } 
+            #navSepcialAnchor{
+                color: #fff;
+                div{
+                    font-weight: normal;
+                    width: 139px;
+                    height: 100%;
+                    border-radius: 3px;
+                    text-align: center;
+                    background-color: #B8AD91;
+                    transition: all .3s;
+                    &:hover{
+                      background-color: #d4c7a5;
+                      transform: scale(1.03);
+                      transition: all .3s;
+                    }
+                    margin: 0px 28px;
+                    @include rwd("laptop"){
+                        width: 114px;
+                    }
+                }
+            }
+            .navIcons{
+                img{
+                  @include rwd("laptop"){
+                      width: 30px;
+                  }
+                }
+            }
+            #navIcons01{
+              img{
+                &:hover{
+                  content: url('../../../img/03/memmagnifierchange.png');
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons02{
+              img{
+                &:hover{
+                  content: url('../../../img/03/memcartchange.png');
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons03{
+              img{
+                &:hover{
+                  content: url('../../../img/03/mempeoplecirclechange.png');
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons02, #navIcons03{
+                margin-left: 20px;
+            }
+        }
+    }
+}
+// 標頭結束

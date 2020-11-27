@@ -156,8 +156,8 @@
 //頁籤取size
 
 @mixin get_pageLabelsize($height, $font){
-    $padding: floor(($height - ($font * 1.4)) / 2);
-    padding: $padding $font;
+    $padding: floor(($height + $font));
+    padding: 0 $padding;
     height: $height;
     font-size: $font;
 }
@@ -186,6 +186,9 @@
         background-color: $color;
         border: 1px solid $color;
         color: #fff;
+        &:hover{
+            color:#fff;
+        }
         // &.is-active{
         //     background-color: $color;
         //     border-color: $color;
@@ -207,6 +210,15 @@
     }
     
 }
+
+@mixin linx($link,$hover) { //a labels 第一個參數是本來文字顏色 
+    .a-sideLink{
+        color: $link;
+        &:hover {
+            color: $hover;   
+          }
+    }
+  }
 
 
 
