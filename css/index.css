@@ -111,6 +111,7 @@
   z-index: 9;
 }
 
+<<<<<<< HEAD
 @media all and (max-width: 991px) {
   #header {
     width: 100%;
@@ -120,6 +121,23 @@
 
 #header #hamburgerMenuToggle {
   opacity: 0;
+=======
+#header #headerContentContainer {
+  border: 1px solid red;
+  width: 1180px;
+  height: 50px;
+  margin: 38px 0px 0px 364px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media all and (min-width: 1200px) and (max-width: 1599px) {
+  #header #headerContentContainer {
+    width: 970px;
+    margin: auto;
+    align-items: center;
+  }
+>>>>>>> Yuri
 }
 
 #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span {
@@ -721,18 +739,24 @@
   margin: auto;
   margin-top: 25px;
   transform: translate(0%, -15%);
+<<<<<<< HEAD
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame .ch03Shelter img {
   width: 170px;
+=======
+>>>>>>> Yuri
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 {
   transform: translate(0%, -25%);
+<<<<<<< HEAD
 }
 
 #chapter03 #solganCardsContainer .cardDecorativeFrame #ch03Shelter03 img {
   width: 120px;
+=======
+>>>>>>> Yuri
 }
 
 #chapter04 {
@@ -763,11 +787,18 @@
   border-radius: 20px;
   box-shadow: 3px 3px 6px 0px rgba(0, 0, 0, 0.2);
   background-color: #F3E9C0;
+<<<<<<< HEAD
   width: 280px;
   height: 420px;
   display: flex;
   flex-direction: column;
   margin: auto;
+=======
+  width: 328px;
+  height: 457px;
+  display: flex;
+  flex-direction: column;
+>>>>>>> Yuri
 }
 
 #chapter04 #productCarouselContainer #productCarouselList .productCarouseItem .productCard .countdown {
@@ -802,7 +833,11 @@
   margin-bottom: 5px;
 }
 
+<<<<<<< HEAD
 #chapter04 #productCarouselContainer #productCarouselList .productAvatarBlock .productAvatar img {
+=======
+#chapter04 #productCarouselContainer .productCard .productAvatarBlock .productAvatar img {
+>>>>>>> Yuri
   object-fit: contain;
 }
 
@@ -913,8 +948,13 @@
 }
 
 #chapter05 #ch05MemoContainer .ch05Memo {
+<<<<<<< HEAD
   width: 330px;
   height: 300px;
+=======
+  width: 358px;
+  height: 337px;
+>>>>>>> Yuri
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.2);
   background-color: #FDFDF9;
   padding: 55px 0px 0px 45px;
@@ -949,8 +989,13 @@
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] {
   position: absolute;
+<<<<<<< HEAD
   top: 163px;
   left: 139px;
+=======
+  top: 183px;
+  left: 109px;
+>>>>>>> Yuri
   transform: rotate(-2deg);
 }
 
@@ -979,8 +1024,13 @@
 
 #chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] {
   position: absolute;
+<<<<<<< HEAD
   top: 129px;
   left: 1032px;
+=======
+  top: 159px;
+  left: 1062px;
+>>>>>>> Yuri
   transform: rotate(2deg);
 }
 
@@ -1041,7 +1091,11 @@
   width: 550px;
   height: 630px;
   background-color: #F6EEE5;
+<<<<<<< HEAD
   border: 5px solid #CEC6BD;
+=======
+  border: 6px solid #CEC6BD;
+>>>>>>> Yuri
   box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
   margin: auto;
   display: flex;
@@ -1078,7 +1132,11 @@
   margin: 60px 0px 80px 0px;
 }
 
+<<<<<<< HEAD
 #chapter06 #ch06FlexArea #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+=======
+#chapter06 #ch06contactUsArea #contactUsContainer #contactUsFrame #connectionInfoContainer .connectionInfo {
+>>>>>>> Yuri
   display: flex;
 }
 

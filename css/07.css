@@ -436,8 +436,14 @@ footer .footerBlock div .info a img {
 }
 
 #span {
+<<<<<<< HEAD
   background-color: #F3E9C0;
   padding: 15px;
+=======
+  background-color: purple;
+  display: flex;
+  padding: 20px;
+>>>>>>> Yuri
   font-size: 22px;
 }
 
@@ -446,8 +452,13 @@ footer .footerBlock div .info a img {
   border: 2px solid green;
   align-items: center;
   font-size: 22px;
+<<<<<<< HEAD
   cursor: pointer;
   width: 1200px;
+=======
+  justify-content: space-evenly;
+  width: 75%;
+>>>>>>> Yuri
 }
 
 .selector_ul .areaName {
@@ -531,6 +542,7 @@ footer .footerBlock div .info a img {
 }
 
 .itemArea .itemName {
+<<<<<<< HEAD
   justify-content: center;
   width: 385px;
   padding: 10px;
@@ -601,6 +613,9 @@ footer .footerBlock div .info a img {
 }
 
 .width_2P {
+=======
+  border: 4px solid red;
+>>>>>>> Yuri
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -610,6 +625,12 @@ footer .footerBlock div .info a img {
   margin-bottom: 20px;
   margin: 0 15px 20px 0;
   font-size: 22px;
+<<<<<<< HEAD
+=======
+  flex-grow: 1;
+  width: 20%;
+  padding: 10px;
+>>>>>>> Yuri
 }
 
 .width_2P .product .pdtText {
@@ -619,6 +640,7 @@ footer .footerBlock div .info a img {
   background-color: #FBFFE0;
 }
 
+<<<<<<< HEAD
 .width_2P .product .pdtText .pdtTime {
   font-size: 30px;
   margin: 3px;
@@ -720,5 +742,12 @@ svg.pdtsvg {
   border-radius: 0;
   border: none;
   color: #C9BE9F;
+=======
+.group {
+  border: 1px solid green;
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+>>>>>>> Yuri
 }
 /*# sourceMappingURL=07.css.map */
