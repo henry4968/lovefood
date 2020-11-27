@@ -72,8 +72,9 @@ body{
               font-size: 24px;
               font-weight: normal;
               color: #8F8770;
-              border-bottom: 1px solid black;
+              border-bottom: 1.5px solid #B8AD91;
               padding: 5px 0px;
+              cursor: pointer;
             }
           }
           div.nameBorder{
@@ -87,6 +88,9 @@ body{
           }
           div.memInfoBorder{
             background-color: #F3E9C0;
+            h1.memInfo{
+              border-width: 3px;
+            }
           }
           div.logoutBorder{
             border: none;
@@ -100,7 +104,7 @@ body{
               outline: none;
               border: 1px solid #B9AF94;
               border-radius: 13px;
-              padding: 5px 25px;
+              padding: 5px 30px;
               background-color: transparent;
               cursor: pointer;
             }
