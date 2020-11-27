@@ -150,6 +150,7 @@
     padding: 0 $padding;
     height: $height;
     font-size: $font;
+    width: $height * 2;
 }
 
 //頁籤取size
@@ -162,6 +163,10 @@
 }
 
 //button
+@mixin btn_2xl{
+@include get_size(66px, 20px);
+}
+
 @mixin btn_xl{
 @include get_size(56px, 16px);
 }
