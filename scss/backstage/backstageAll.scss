@@ -13,7 +13,8 @@
 
 //頁面
 @import "../page/backstage/backstageIndex"; //Backstage homepage 會員管理
-@import "../page/backstage/backstageOrder";
+@import "../page/backstage/backstageOrder"; //訂單管理
+@import "../page/backstage/backstageProduct"; //商品管理
 @import "../page/backstage/backstagePoints.scss"; //點數管理
 @import "../page/backstage/backstageFinance.scss"; //財務管理
 

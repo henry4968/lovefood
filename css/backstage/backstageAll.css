@@ -2934,10 +2934,11 @@ tbody.collapse.in {
   height: 24px;
   font-size: 12px; }
 
-.pageLabel-current, .pageLabel-others {
+.pageLabel-current, .pageLabel-others, .pageLabel-s {
   padding: 0 79px;
   height: 55px;
   font-size: 24px;
+  width: 96px;
   color: #897666;
   margin: 1px;
   display: flex;
@@ -2945,14 +2946,23 @@ tbody.collapse.in {
   justify-content: center;
   box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2); }
 
-.pageLabel-current {
+.pageLabel-others {
   cursor: pointer; }
+  .pageLabel-others:hover {
+    color: #fff; }
 
 .pageLabel-current {
   background-color: #f6f7dd; }
 
 .pageLabel-others {
   background-color: RGB(237, 235, 218); }
+
+.pageLabel-s {
+  padding: 0;
+  color: #fff;
+  width: 120px;
+  position: relative;
+  margin-left: 20px; }
 
 .input-xl, .input-l, .input-ld {
   margin: 0 8px;
@@ -2977,19 +2987,22 @@ tbody.collapse.in {
   vertical-align: bottom;
   margin: 0 5px; }
 
-tr:nth-child(odd) {
-  background-color: #fff; }
-  tr:nth-child(odd) th {
-    color: white;
-    background-color: #897666; }
-  tr:nth-child(odd) td {
+table {
+  border-collapse: collapse; }
+  table tr:nth-child(odd) {
+    background-color: #fff; }
+    table tr:nth-child(odd) th {
+      color: white;
+      background-color: #897666; }
+    table tr:nth-child(odd) td {
+      color: #897666; }
+  table tr:nth-child(even) {
+    background-color: RGB(244, 242, 242); }
+  table td {
     color: #897666; }
 
-tr:nth-child(even) {
-  background-color: RGB(244, 242, 242); }
-
-td {
-  color: #897666; }
+.subheading {
+  opacity: 0.4; }
 
 a {
   text-decoration: none; }
@@ -3064,6 +3077,76 @@ a {
         right: 3px; }
     .containerOrder .headerMainWrapper .headerWrapper header form .headerBottom {
       justify-content: space-between; }
+
+.containerProduct .asideMainWrapper {
+  position: relative;
+  padding-top: 110px;
+  display: flex;
+  width: 1200px;
+  margin: 0 auto; }
+  .containerProduct .asideMainWrapper .headerMainWrapper {
+    position: relative;
+    margin-left: 10px;
+    flex-grow: 1; }
+    .containerProduct .asideMainWrapper .headerMainWrapper .headerWrapper {
+      margin-bottom: 10px;
+      background-color: #f3e8c4; }
+      .containerProduct .asideMainWrapper .headerMainWrapper .headerWrapper header form div {
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        padding: 5px; }
+        .containerProduct .asideMainWrapper .headerMainWrapper .headerWrapper header form div span input {
+          margin-left: 8px;
+          border-radius: 8px;
+          border: 1px solid gray;
+          font-size: 12px;
+          line-height: 20px; }
+        .containerProduct .asideMainWrapper .headerMainWrapper .headerWrapper header form div svg {
+          top: 3px;
+          position: relative; }
+        .containerProduct .asideMainWrapper .headerMainWrapper .headerWrapper header form div button {
+          right: 3px; }
+  .containerProduct .asideMainWrapper main div .eachOne {
+    display: flex; }
+    .containerProduct .asideMainWrapper main div .eachOne .eachOneLeft {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column; }
+      .containerProduct .asideMainWrapper main div .eachOne .eachOneLeft span {
+        margin: 8px 20px; }
+    .containerProduct .asideMainWrapper main div .eachOne .eachOneRight {
+      display: flex;
+      flex-direction: column; }
+      .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span {
+        margin: 15px 30px; }
+        .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span label input {
+          display: none; }
+        .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span p {
+          display: inline-block;
+          vertical-align: top;
+          position: relative;
+          top: -14px; }
+        .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span textarea {
+          width: 220px;
+          height: 200px;
+          position: relative;
+          right: 3px; }
+        .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span button {
+          margin: 0 10px; }
+      .containerProduct .asideMainWrapper main div .eachOne .eachOneRight span:nth-child(3) {
+        display: flex;
+        justify-content: center; }
+  .containerProduct .asideMainWrapper main div hr {
+    border-color: #897666; }
+  .containerProduct .asideMainWrapper main div .set {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px; }
+    .containerProduct .asideMainWrapper main div .set span, .containerProduct .asideMainWrapper main div .set div {
+      margin: 15px 30px; }
+      .containerProduct .asideMainWrapper main div .set span label input, .containerProduct .asideMainWrapper main div .set div label input {
+        display: none; }
 
 .containerPoints .asideMainWrapper {
   position: relative;

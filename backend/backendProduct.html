@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOVEFOOD管理中心</title>
+    <title>LOVEFOOD管理中心--會員管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
 </head>
-
 <body>
-    <div class="containerPoints">
+     <div class="containerProduct">
         <div class="navWrapper">
             <nav>
                 <div class="navLeft">
                     <img src="/img/23/loveFood_logo1.png" alt="">
                     <h1>管理中心</h1>
                 </div>
-                <img src="/img/23/ch02_nav_search.png" alt="">
+                <svg xmlns="http://www.w3.org/2000/svg" width="36" height="35.965" viewBox="0 0 36 35.965">
+                    <path id="放大鏡" d="M35.332,35.3a2.25,2.25,0,0,1-3.2,0l-6.96-6.961A15.7,15.7,0,0,1,9.633,30.217,15.521,15.521,0,0,1,1.248,21.85a15.659,15.659,0,0,1,0-12.252,15.684,15.684,0,0,1,3.357-5.01,15.885,15.885,0,0,1,5.027-3.34,15.618,15.618,0,0,1,12.235,0,16.036,16.036,0,0,1,5.027,3.34A15.588,15.588,0,0,1,30.252,9.6,15.388,15.388,0,0,1,31.5,15.715a15.339,15.339,0,0,1-3.129,9.422L35.332,32.1a2.25,2.25,0,0,1,0,3.2ZM15.75,4.5A11.214,11.214,0,0,0,4.5,15.733,11.2,11.2,0,0,0,15.75,26.965,11.214,11.214,0,0,0,27,15.732,11.195,11.195,0,0,0,15.75,4.5Z" transform="translate(0 0)" fill="#887664" />
+                </svg>
+
             </nav>
         </div>
         <div class="asideMainWrapper">
@@ -48,7 +49,7 @@
                             </div>
                         </a>
                         <a class="a-sideLink" href="backendProduct.html">
-                            <div>
+                            <div class="currentPage">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30.422" height="30.422" viewBox="0 0 30.422 30.422">
                                     <path id="bag" d="M30.5,10.942H26.153v-.305A8.361,8.361,0,0,0,17.766,2.25h-.544a8.419,8.419,0,0,0-8.453,8.387v.305H4.423L2.25,32.672H32.672Zm-19.557-.305a6.257,6.257,0,0,1,6.281-6.214h.544a6.2,6.2,0,0,1,6.214,6.214v.305H10.942ZM4.681,30.5,6.372,13.115h2.4V15.58a2.173,2.173,0,1,0,2.173,0V13.115H23.98V15.58a2.173,2.173,0,1,0,2.173,0V13.115h2.4L30.248,30.5Z" transform="translate(-2.25 -2.25)" fill="#887664" />
                                   </svg>
@@ -56,7 +57,7 @@
                             </div>
                         </a>
                         <a class="a-sideLink" href="backendpoints.html">
-                            <div class="currentPage">
+                            <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28.422" height="24.869" viewBox="0 0 28.422 24.869">
                                     <path id="diamond" d="M24.869,0l3.553,7.105H21.316ZM15.987,0h7.105L19.54,7.105ZM10.658,7.105,14.211,0l3.553,7.105ZM5.329,0h7.105L8.882,7.105ZM0,7.105,3.553,0,7.105,7.105ZM12.435,24.869,0,8.882H7.105ZM19.54,8.882,14.211,24.869,8.882,8.882Zm8.882,0L15.987,24.869,21.316,8.882Z" fill="#887664" />
                                   </svg>
@@ -75,108 +76,63 @@
                     </ul>
                 </div>
             </aside>
-            <main>
-                <div id="pointsDataFilterArea">
-                    <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">全部</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次發放</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">單筆發放</div>
-                    </div>
-                    <div id="pointsDataFilter">
-                        <div id="pointsDataFilterLeftUpperBlock">
-                            <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
-                                訂單編號
-                                <input type="text">
-                                會員編號
-                                <input type="text">
-                            </div>
-                            <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
-                                會員帳號
-                                <input type="text">
-                                會員手機
-                                <input type="text">
-                            </div>
-                        </div>
-                        <div id="pointsDataFilterLeftDownerBlock">
-                            點數狀態：
-                            <input type="checkbox" name="" id="">已發放
-                            <input type="checkbox" name="" id="">已使用
-                        </div>
-                        <div id="pointsDataFilterRightBlock">
+            <div class="headerMainWrapper">
+                <div class="headerWrapper">
+                    <header>
+                        <form name="" action="" method="POST" >
                             <div>
-                                查詢區間<input type="datetime-local" name="" id="">
-                                <img src="" alt="">
+                                <span class="pageLabel-current">上架商品</span>
+                                <span class="pageLabel-others">編輯商品</span>
+                                <span class="pageLabel-others">下架商品</span>
                             </div>
-                            <div id="membersPointsActionBlock">
-                                特殊會員狀態：
-                                <a href="#0">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
-                                </a>
-                                <a href="#0">
-                                    <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
-                                </a>
+                        </form>
+                    </header>
+                </div>   
+                <main>
+                    <div>
+                        <div class="btn-brown pageLabel-s">單筆上架</div>
+                        <div class="eachOne">
+                            <div class="eachOneLeft">
+                                <span>賣家編號<input class="input-l" type="text" placeholder="SP000001" disabled></span>
+                                <span>商品種類<input class="input-l" type="text"></span>
+                                <span>商品編號<input class="input-l" type="text"></span>
+                                <span>上架區間<input class="input-l" type="date">至<input class="input-l" type="date"></span>
+                                <span>有效期限<input class="input-l" type="text"></span>
+                                <span>數量<input class="input-l" type="text"></span>
+                                <span>取貨點:
+                                    <input class="input-checkbox" type="checkbox">皆可
+                                    <input class="input-checkbox" type="checkbox">到店自取
+                                    <input class="input-checkbox" type="checkbox">捷運站點
+                                </span>
+                            </div>
+                            <div class="eachOneRight">
+                                <span>商品圖片<input class="input-l" type="text">
+                                <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input id="fileUpload" type="file"></label>
+                                </span>
+                                
+                                <span>
+                                    <p>商品描述</p>
+                                    <textarea class="input-l" name="" id=""></textarea>
+                                </span>
+                                <span>
+                                   <button class="btn-m btn-brown">預覽</button><button class="btn-m btn-brown">上傳</button>
+                                </span>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="set">
+                            <div class="btn-brown pageLabel-s">批次上架</div>
+                            <span>檔案名稱<input class="input-xl" type="text">
+                                <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input id="fileUpload" type="file"></label>
+                            </span>
+                            <div>
+                                <button class="btn-m btn-brown">上傳
                             </div>
                         </div>
                     </div>
-                </div>
-                <div id="pointsDataArea">
-                    <table>
-                        <tr id="pointsDataHeader">
-                            <th>序號</th>
-                            <th>會員編號</th>
-                            <th>會員帳號</th>
-                            <th>訂單編號</th>
-                            <th>時間</th>
-                            <th>點數</th>
-                            <th>功能鍵</th>
-                        </tr>
-                        <tr>
-                            <td>00001</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td>2020110100001</td>
-                            <td>2020-11-01 13:30</td>
-                            <td>-54</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td></td>
-                            <td>2020-10-31 13:30</td>
-                            <td>+1000</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr>
-                    </table>
-                    <div id="pagination">
-                        <a href="#0">＜</a>
-                        <a href="#0">1</a>
-                        <a href="#0">2</a>
-                        <a href="#0">3</a>
-                        <a href="#0">4</a>
-                        <a href="#0">5</a>
-                        <a href="#0">＞</a>
-                        <a href="#0">最末頁</a>
-                    </div>
-                </div>
-            </main>
-        </div>
+                </main>
+            </div>
+        </div>    
     </div>
 </body>
-
 </html>
