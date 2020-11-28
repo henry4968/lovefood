@@ -72,18 +72,24 @@ body{
               cursor: pointer;
             }
           }
-          div.nameBorder{
+          .nameBorder{
             background-color: transparent;
             margin: 15px 0px;
-            h1.username{
+            .username{
               font-size: 24px;
               color: black;
               border: none;
+              cursor: default;
             }
           }
-          div.memInfoBorder{
+          .memInfoBorder{
             background-color: #F3E9C0;
-            h1.memInfo{
+            .memInfo{
+              border-width: 1px;
+            }
+          }
+          div.foursameclass{
+            h1.addBtn{
               border-width: 3px;
             }
           }

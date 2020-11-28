@@ -27,23 +27,23 @@
               甲必丹 你好!
             </h1>
           </div>
-          <div class="memInfoBorder">
-            <h1 class="memInfo">
+          <div class="memInfoBorder foursameclass">
+            <h1 class="memInfo" @click="memberButton('member',0)" :class="{addBtn : acth1 == 0}">
               會員資料
             </h1>
           </div>
-          <div class="orderBorder">
-            <h1 class="order">
+          <div class="orderBorder foursameclass">
+            <h1 class="order" @click="memberButton('order',1)" :class="{addBtn : acth1 == 1}">
               訂單查詢
             </h1>
           </div>
-          <div class="pointsBorder">
-            <h1 class="points">
+          <div class="pointsBorder foursameclass">
+            <h1 class="points" @click="memberButton('points',2)" :class="{addBtn : acth1 == 2}">
               我的點數
             </h1>
           </div>
-          <div class="memapplyBorder">
-            <h1 class="memapply">
+          <div class="memapplyBorder foursameclass">
+            <h1 class="memapply" @click="memberButton('memberApply',3)" :class="{addBtn : acth1 == 3}">
               特殊會員申請
             </h1>
           </div>
@@ -54,15 +54,12 @@
           </div>
         </div>
       </div>
-      <!-- 
-        <component id="member" :is="content"></component>
-        <component id="order" :is="content"></component>
-        <component id="points" :is="content"></component>
-        <component id="memberApply" :is="content"></component> 
-      -->
-      <div class="rightBorder">
+      <component :is="content"></component>
 
-      </div>
+
+      <!-- <div class="rightBorder">
+
+      </div> -->
 
     </div>
   </main>

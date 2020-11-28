@@ -118,10 +118,53 @@ Vue.component('member', {
       `,
 });
 
+Vue.component('order', {
+  template: `
+    <div class="rightBorder">
+      1
+      </div>
+      `,
+});
+
+Vue.component('points', {
+  template: `
+    <div class="rightBorder">
+      2
+      </div>
+      `,
+});
+
+Vue.component('memberApply', {
+  template: `
+    <div class="rightBorder">
+      3
+      </div>
+      `,
+});
+
 window.addEventListener('load', doFirst);
 new Vue({
   el: '#memWrap',
   data: {
     content: 'member',
+    acth1: 0,
+  },
+  methods: {
+    memberButton(change, num) {
+      this.content = change;
+      this.acth1 = num;
+    },
+    // orderButton(change, num) {
+    //   this.content = change;
+    //   this.acth1 = num;
+    // },
+    // pointsButton(change, num) {
+    //   this.content = change;
+    //   this.acth1 = num;
+    // },
+    // memberApplyButton(change, num) {
+    //   this.content = change;
+    //   this.acth1 = num;
+    // },
   },
 });
