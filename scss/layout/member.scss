@@ -71,6 +71,7 @@ body{
               padding: 5px 0px;
               cursor: pointer;
               position: relative;
+              z-index: 2;
               &::after{
                 content: '';
                 border-bottom: 1.5px solid #B8AD91;
@@ -95,10 +96,28 @@ body{
               }
             }
           }
-          // .memInfoBorder{
-          // }
           div.foursameclass.bgmove{
-            background-color: #F3E9C0;
+            position: relative;
+            overflow: hidden;
+            &::after{
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -1;
+              z-index: 0;
+              height: 100%;
+              background-color: #F3E9C0;
+              transform: skewX(-45deg);
+              animation: trans 1s ease 1 forwards;
+            }
+            @keyframes trans {
+              from{
+                width: 0%;
+              }
+              to{
+                width: 150%;
+              }
+            }
           }
           div.foursameclass{
             h1.addBtn{
