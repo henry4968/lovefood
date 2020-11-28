@@ -1,11 +1,6 @@
 $maxw700:700px;
 $minw700:701px;
 @mixin rwd($breakpoint){
-  @if($breakpoint == "w700min"){
-    @media all and (min-width: $minw700){
-      @content;
-    }
-  }
   @if($breakpoint == "w700"){
     @media all and (max-width: $maxw700){
       @content;
@@ -112,7 +107,7 @@ body{
         }
       }
       div.rightBorder{
-        width: 75%;
+        width: 70%;
         border: 1px solid #FAFDDD;
         box-shadow: 6px 6px 6px rgba(0,0,0,.16);
         border-radius: 13px;
@@ -254,12 +249,32 @@ body{
             }
             .fileBorder{
               margin-top: 5%;
+              // border: 1px solid black;
+              position: relative;
+              width: 81px;
+              height: 24.4px;
               input#theFile{
-                width: 85px;
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+                width: 81px;
                 overflow: hidden;
-                border: #707070 !important;
-                outline: none !important;
-                background-color: #fff !important;
+                display: none;
+              }
+              #fakeBtn{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 1;
+                width: 81px;
+                height: 24.4px;
+                outline: none;
+                color: #909090;
+                border-radius: 5px;
+                border: 1px solid #909090;
+                background-color: #fff;
+                cursor: pointer;
               }
             }
           }
