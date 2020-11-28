@@ -61,9 +61,30 @@
       <!-- <component :is="content"></component> -->
 
 
-      <div class="rightBorder">
-
-      </div>
+      <div class="rightBorderorder">
+        <div class="centerBorder">
+          <div class="searchBorder">
+            <form id="searchBorder" method="POST" action="#">
+              <div class="searchDateBoder">
+                <label class="search">查詢區間 : </label>
+                <input id="dateFrom" type="date">
+                <span>
+                  &#32;&#126;&#32;
+                </span>
+                <input id="dateTo" type="date">
+              </div>
+              <div class="searchBtnBorder">
+                <button id="searchBtnBorder" type="submit">查詢</button>
+              </div>
+              <div class="searchNoteBorder">
+                <p class="searchNoteBorder">可查詢90天內之訂單</p>
+              </div>
+            </form>
+          </div>
+          <div class="orderStatusBorder"></div>
+          <!-- <component :is="componentId"></component> -->
+        </div>
+      </div> 
 
     </div>
   </main>

@@ -34,11 +34,6 @@ function fileChange() {
   });
 }
 
-//  < component id = "member" : is = "member" ></component >
-//  <component id="order" :is="order"></component>
-//  <component id="points" :is="points"></component>
-//  <component id="memberApply" :is="memberApply"></component> 
-
 // id="member"
 Vue.component('member', {
   template: `
