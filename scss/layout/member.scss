@@ -1,11 +1,6 @@
 $maxw700:700px;
 $minw700:701px;
 @mixin rwd($breakpoint){
-  @if($breakpoint == "w700min"){
-    @media all and (min-width: $minw700){
-      @content;
-    }
-  }
   @if($breakpoint == "w700"){
     @media all and (max-width: $maxw700){
       @content;
@@ -257,6 +252,10 @@ body{
               input#theFile{
                 width: 85px;
                 overflow: hidden;
+                
+              }
+              input[type="file"] {
+                // display: none;
                 border: #707070 !important;
                 outline: none !important;
                 background-color: #fff !important;
