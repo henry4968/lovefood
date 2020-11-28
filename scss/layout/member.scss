@@ -53,6 +53,7 @@ body{
             color: #8F8770;
           }
         }
+        
         div.contentBorder{
           width: 80%;
           border-radius: 13px;
@@ -67,9 +68,17 @@ body{
               font-size: 24px;
               font-weight: normal;
               color: #8F8770;
-              border-bottom: 1.5px solid #B8AD91;
               padding: 5px 0px;
               cursor: pointer;
+              position: relative;
+              &::after{
+                content: '';
+                border-bottom: 1.5px solid #B8AD91;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+              }
             }
           }
           .nameBorder{
@@ -80,19 +89,41 @@ body{
               color: black;
               border: none;
               cursor: default;
+              &::after{
+                content: '';
+                border: none;
+              }
             }
           }
-          .memInfoBorder{
+          // .memInfoBorder{
+          // }
+          div.foursameclass.bgmove{
             background-color: #F3E9C0;
-            .memInfo{
-              border-width: 1px;
-            }
           }
           div.foursameclass{
             h1.addBtn{
               border-width: 3px;
+              &::after{
+                content: '';
+                border-bottom: 3px solid #B8AD91;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                animation: tran 1s ease 1;
+              }
+            }
+            @keyframes tran {
+              from{
+                width: 0%;
+              }
+              to{
+                width: 100%;
+              }
             }
           }
+          
+          
           div.logoutBorder{
             border: none;
             background-color: transparent;

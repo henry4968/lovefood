@@ -148,11 +148,13 @@ new Vue({
   data: {
     content: 'member',
     acth1: 0,
+    act: 'a',
   },
   methods: {
-    memberButton(change, num) {
-      this.content = change;
-      this.acth1 = num;
+    memberButton(change, num, div) {
+      this.content = change
+      this.acth1 = num
+      this.act = div
     },
     // orderButton(change, num) {
     //   this.content = change;
