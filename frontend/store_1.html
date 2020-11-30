@@ -89,22 +89,23 @@
             
         </div>
         <div class="main">
-            <form action="#" method="get" id="fm1">
+            <div class="part1">
+                <form action="#" method="get" id="fm1">
                 <div id="search">
 
                     <ul class="selector_ul">
                         <span id="span">
                             <img src="../img/07/Iconfilter.png" alt="" class="Iconfilter">條件篩選</span>
-                        <li class="areaName" id="selectAll"><input type="checkbox" name="Name" value="1" class="searchName" >全選
+                        <li class="areaName" id="selectAll"><input type="checkbox" name="Name" value="1" class="searchName" style="width:20px; height:20px;">全選
 
                         </li>
-                        <li class="areaName"><input type="checkbox" name="Name" value="2"  class="searchName">區域
+                        <li class="areaName"><input type="checkbox" name="Name" value="2"  class="searchName" style="width:20px; height:20px;">區域
     
                         </li>
-                        <li class="areaName"><input type="checkbox" name="Name" value="3" class="searchName">商家
+                        <li class="areaName"><input type="checkbox" name="Name" value="3" class="searchName" style="width:20px; height:20px;">商家
     
                         </li>
-                        <li class="areaName"><input type="checkbox" name="Name" value="4" id="" class="searchName">食品種類
+                        <li class="areaName"><input type="checkbox" name="Name" value="4" id="" class="searchName" style="width:20px; height:20px;">食品種類
                         </li>
                         <!-- <a class="btnMap" id="btnMap" type="button"><img src="./img/MMAp.png" alt="" class="iconMap">
                             地圖搜尋
@@ -114,15 +115,15 @@
                         </a>
                     </ul>
                 </div>
-            </form>
+                </form>
                 <!-- 次級選單 -->
                 <!-- 全選 -->
-            <form action="" method="get" id="selectfm">
+                <form action="" method="get" id="selectfm">
                 <div class="itemArea" id="selectBlock">
                     <div class="itemName" id="itemName1">
                         <p class="pText">區域</p>
-                        <hr>
-                            <div class="group" id="group1">
+                            <div class="item1">
+                                <div class="group" id="group1">
                                 <span><input type="checkbox" name="Item" value="">中正區
                                 </span>
                                 <span><input type="checkbox" name="Item" value="">南港區
@@ -135,8 +136,8 @@
                                 </span>
                                 <span><input type="checkbox"    name="Item" value="">信義區
                                 </span>
-                            
-                            <!-- <div class="group" id="group2"> -->
+                                </div>
+                                <div class="group" id="group2">
                                 <span><input type="checkbox" name="Item" value="">中山區
                                 </span>
                                 <span><input type="checkbox"    name="Item" value="">松山區
@@ -149,12 +150,12 @@
                                 </span>
                                 <span><input type="checkbox"    name="Item" value="">士林區
                                 </span>
-                            <!-- </div>     -->
+                                </div>    
                             </div>
                         </div>
                         <div class="itemName" id="itemName2">
                         <p class="pText">商家</p>
-                        <hr>
+                       
                         <div class="itemName2Wth">
                             <div class="group" id="group3">
                                 <span><input type="checkbox" name="Item" value="">全家
@@ -185,8 +186,8 @@
                         </div>    
                         <div class="itemName" id="itemName3">
                         <p id="nth3">食品種類</p>
-                        <hr>
-                        <div class="itemName2Wth">
+                       
+                        <div class="item3">
                             <div class="group" id="group5">
                             <span><input type="checkbox" name="Item" value="">主食
                             </span>
@@ -216,13 +217,13 @@
                          查詢
                     </button>
                 </div> 
-            </form>       
+                </form>       
                 <!-- 區域 -->
-            <form action="" method="get" id="Area1fm">
+                <form action="" method="get" id="Area1fm">
                 <div class="itemArea" id="itemArea1">
                     <div class="itemName" id="itemName7">
                         <p>區域</p>
-                        <hr>
+                       
                         <!-- <div class="group" id="group1"> -->
                             <span><input type="checkbox" name="Item" value="">中正區
                             </span>
@@ -258,13 +259,13 @@
                         查詢
                     </button>
                 </div> 
-            </form>   
+                </form>   
                 <!-- 商家 -->
-            <form action="" method="get" id="Area2fm">
+                <form action="" method="get" id="Area2fm">
                 <div class="itemArea" id="itemArea2">
                     <div class="itemName" id="itemName5">
                         <p>商家</p>
-                        <hr>
+                      
                         <!-- <div class="group" id="group3"> -->
                             <span><input type="checkbox" name="Item" value="">全家
                             </span>
@@ -296,13 +297,13 @@
                         查詢
                     </button>
                 </div> 
-            </form> 
+                </form> 
                 <!-- 種類 -->
-            <form action="" method="get" id="Area3fm">
+                <form action="" method="get" id="Area3fm">
                 <div class="itemArea" id="itemArea3">
                     <div class="itemName" id="itemName6">
                         <p id="itemP">食品種類</p>
-                        <hr>
+                        
                         <!-- <div class="group" id="group5"> -->
                             <span><input type="checkbox" name="Item" value="">主食
                             </span>
@@ -331,14 +332,14 @@
                         查詢
                     </button>
                 </div>  
-            </form>    
+                </form>    
                 <!-- RWDMap -->
-            <form action="" method="get" id="RWDMap">
+                <form action="" method="get" id="RWDMap">
                 <div class="itemArea" id="RWDMap">
                     
                     <div class="itemName" id="itemName4">
                         <p>地圖</p>
-                        <hr>
+                       
                         <span><input type="checkbox" name="Item" value="">台北車站</span>
                         <span><input type="checkbox" name="Item" value="">公館站</span>
                         <span><input type="checkbox" name="Item" value="">東門站</span>
@@ -353,9 +354,10 @@
                         查詢
                     </button>
                 </div> 
-            </form> 
+                </form> 
                 <!-- 地圖 -->
                 <!-- <map name="Map" style= "width: 800px; height: 600px; display: inline-block; background-color:#545454; margin: 0 auto;"></map> -->
+            </div>
             <!-- 商品 -->
             <div class="context">
                 <section class="productArea">
