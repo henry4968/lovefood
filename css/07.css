@@ -14,12 +14,8 @@ footer .footerBlock {
 
 footer .footerBlock div {
   height: 80px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
+  justify-content: flex-end;
 }
 
 footer .footerBlock div .footer_logo {
@@ -68,8 +64,6 @@ footer .footerBlock div .info a img {
 #header {
   width: 100%;
   height: 123px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   position: fixed;
   background: #D3E4C6;
@@ -88,20 +82,17 @@ footer .footerBlock div .info a img {
 }
 
 #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 
 #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::before {
   top: 0;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
+  transform: rotate(0deg);
 }
 
 #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::after {
   top: 0;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
 }
 
 #header #hamburgerMenuToggle:checked ~ #navigationForMobile {
@@ -111,9 +102,7 @@ footer .footerBlock div .info a img {
 #header #hamburgerMenuButton {
   width: 45px;
   height: 35px;
-  -ms-flex-item-align: center;
-      -ms-grid-row-align: center;
-      align-self: center;
+  align-self: center;
   margin-left: 10px;
   position: relative;
   cursor: pointer;
@@ -132,8 +121,7 @@ footer .footerBlock div .info a img {
   border-radius: 10px;
   background-color: #FDFBBA;
   position: absolute;
-  -webkit-transition-duration: .35s;
-          transition-duration: .35s;
+  transition-duration: .35s;
 }
 
 #header #hamburgerMenuButton span {
@@ -170,15 +158,12 @@ footer .footerBlock div .info a img {
     left: -100%;
     background-color: white;
     opacity: 80%;
-    -webkit-transition-duration: .35s;
-            transition-duration: .35s;
+    transition-duration: .35s;
   }
   #header #navigationForMobile #searchBarForMobile {
     width: 100%;
     height: 70px;
     background-color: lightgrey;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
   }
   #header #navigationForMobile #searchBarForMobile #searchInputForMobile {
@@ -188,9 +173,7 @@ footer .footerBlock div .info a img {
     background-color: #FFFFFF;
     display: block;
     margin: auto;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
   }
   #header #navigationForMobile li {
     list-style: none;
@@ -207,21 +190,15 @@ footer .footerBlock div .info a img {
   width: 1180px;
   height: 50px;
   margin: 38px 0px 0px 364px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
 
 @media all and (max-width: 1599px) {
   #header #headerContentContainer {
     width: 970px;
     margin: auto;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -229,9 +206,7 @@ footer .footerBlock div .info a img {
   #header #headerContentContainer {
     width: 920px;
     margin: auto;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -244,9 +219,7 @@ footer .footerBlock div .info a img {
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
   }
 }
 
@@ -254,17 +227,14 @@ footer .footerBlock div .info a img {
   #header #headerContentContainer #logo {
     width: 216px;
     height: 38px;
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
+    align-self: center;
   }
 }
 
 @media all and (max-width: 991px) {
   #header #headerContentContainer #logo {
     position: absolute;
-    -webkit-transform: translate(-50%, -50%);
-            transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
     left: 50%;
   }
 }
@@ -272,20 +242,14 @@ footer .footerBlock div .info a img {
 #header #headerContentContainer #navigationForPC {
   width: 762px;
   height: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
 }
 
 @media all and (max-width: 1599px) {
   #header #headerContentContainer #navigationForPC {
     width: 625px;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
+    align-items: center;
   }
 }
 
@@ -373,12 +337,8 @@ footer .footerBlock div .info a img {
     display: block;
     width: 96px;
     height: 40px;
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
+    justify-content: space-between;
     position: absolute;
     right: 10px;
   }
@@ -401,8 +361,7 @@ footer .footerBlock div .info a img {
 
 .banner .lovefood {
   width: 100%;
-  -webkit-transform: translate(-10px, 50px);
-          transform: translate(-10px, 50px);
+  transform: translate(-10px, 50px);
   position: absolute;
 }
 
@@ -446,13 +405,8 @@ footer .footerBlock div .info a img {
 }
 
 .span {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 100%;
   position: relative;
   left: 50%;
@@ -472,43 +426,46 @@ footer .footerBlock div .info a img {
   font-size: 24px;
 }
 
-#fm1 {
-  background-color: #FBFFE0;
-}
-
 #search {
   background-color: #FBFFE0;
-  width: 98%;
+  border: 2px solid red;
   margin: 0 auto;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
 #span {
   background-color: #F3E9C0;
-  padding: 15px;
-  font-size: 22px;
+  padding: 31px;
+  font-size: 25px;
 }
 
 .selector_ul {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   border: 2px solid green;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   font-size: 22px;
   cursor: pointer;
-  width: 1200px;
+  height: 84px;
+  width: 1403px;
 }
 
 .selector_ul .areaName {
   margin: 0 15px;
+  font-size: 24px;
+}
+
+@media screen and (max-width: 1402px) {
+  .selector_ul {
+    width: 100%;
+  }
+  div.itemArea {
+    width: 91%;
+  }
+  div.btn {
+    width: 97%;
+    border: 2px solid #FBFFE0;
+  }
 }
 
 .selector_ul #btnMap {
@@ -517,7 +474,7 @@ footer .footerBlock div .info a img {
   display: inline-block;
   background-color: #F3E9C0;
   border-radius: 10px;
-  padding: 5px;
+  padding: 5px 10px;
 }
 
 .selector_ul #btnMap:hover, .selector_ul #btnMap:active {
@@ -535,44 +492,43 @@ footer .footerBlock div .info a img {
   color: #ffffff;
 }
 
-@media screen and (min-width: 320px) and (max-width: 799px) {
+@media screen and (max-width: 787px) {
   #fm1 {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
   }
   #search {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     margin: 0  !important;
     padding: 0  !important;
     width: 100%;
   }
-  #span {
-    display: none;
-  }
   .selector_ul {
-    display: -webkit-box;
-    display: -ms-flexbox;
     display: flex;
     padding: 10px;
     width: 100%;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    height: 46px;
+  }
+  .selector_ul #span {
+    font-size: 16px;
+    padding: 23px;
   }
   .selector_ul .areaName {
     margin: 0 3px !important;
+    font-size: 16px;
+  }
+  .selector_ul .areaName input {
+    width: 15px !important;
+    height: 15px !important;
   }
   .selector_ul .areaName:nth-child(4) {
     margin: 0px -2px !important;
   }
   .selector_ul #selectAll {
     display: none;
+  }
+  .btnMap {
+    padding: 8px;
+    margin-left: 5px;
   }
   .btnMap .mapText {
     display: none;
@@ -586,80 +542,90 @@ footer .footerBlock div .info a img {
   }
 }
 
+@media screen and (min-width: 375px) and (max-width: 404px) {
+  #span {
+    padding: 21px 2px !important;
+  }
+}
+
 .wrap {
   background-image: url(../img/backgroud.png);
   background-repeat: repeat;
 }
 
 .itemArea {
-  display: -webkit-box;
-  display: -ms-flexbox;
+  border: 2px solid purple;
+  font-size: 27px;
+  margin: 0 auto;
+  padding: 20px 40px;
+  width: 1324px;
+  background-color: #FBFFE0;
+  display: flex;
+  justify-content: space-around;
+}
+
+.itemArea .pText, .itemArea #nth3 {
+  border-bottom: 2px solid #F3E9C0;
+  margin-bottom: 5px;
+  padding: 0px 0 17px 0;
+  color: #545454;
+  margin-bottom: 25px;
+  justify-content: center;
+  display: flex;
+}
+
+.itemArea .itemName .itemName2Wth {
+  border-right: 2px solid #F3E9C0;
+  border-left: 2px solid #F3E9C0;
+}
+
+.itemArea .itemName .group {
+  padding: 10px;
+}
+
+.itemArea .itemName .group span {
+  width: 100px;
+  margin: 20px 0;
+}
+
+.itemArea .itemName .item1, .itemArea .itemName .itemName2Wth, .itemArea .itemName .item3 {
   display: flex;
   width: 100%;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  justify-content: center;
 }
 
-.itemArea .itemName {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  width: 385px;
-  padding: 10px;
-  border-right: 1px solid #F3E9C0;
-  background-color: #FBFFE0;
-  font-size: 22px;
+.itemArea .itemName .item1 #group1, .itemArea .itemName .item1 #group2 {
+  width: 127px;
 }
 
-.itemArea .itemName p, .itemArea .itemName .pText {
-  padding: 8px;
-  width: 50px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
+.itemArea .itemName #group3, .itemArea .itemName #group4, .itemArea .itemName #group5, .itemArea .itemName #group6 {
+  width: 101px;
 }
 
-.itemArea .itemName .pText {
-  margin: 0 auto;
-}
-
-.itemArea #itemName6, .itemArea #itemName5, .itemArea #itemName7 {
-  width: 1200px;
+@media screen and (min-width: 800px) and (max-width: 1403px) {
+  .itemName {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 799px) {
-  .itemName p, .itemArea .itemName .pText {
+  .itemName p {
     width: 50px;
     margin: 0 auto;
   }
 }
 
-#nth3 {
-  width: 100px;
+.btn {
+  display: flex;
+  justify-content: center;
+  background-color: #FBFFE0;
+  width: 1403px;
   margin: 0 auto;
 }
 
-.itemName2Wth {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-}
-
-.itemName2Wth #group3, .itemName2Wth #group4, .itemName2Wth #group5, .itemName2Wth #group6 {
-  width: 160px;
-}
-
-.btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+.btn:focus {
+  outline: none;
+  border: 1px solid #FBFFE0;
 }
 
 .btn #btn1, .btn #btn2, .btn #btn3, .btn #btn4, .btn #btn5 {
@@ -670,6 +636,10 @@ footer .footerBlock div .info a img {
 
 .wrap {
   background-image: url(../img/07/backgroud.png);
+}
+
+.context {
+  margin-top: 108px;
 }
 
 .context .productArea {
@@ -684,14 +654,9 @@ footer .footerBlock div .info a img {
 }
 
 .width_2P {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .width_2P .product {
@@ -714,8 +679,6 @@ footer .footerBlock div .info a img {
 }
 
 .width_2P .product .productBottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   padding: 20px;
   background-color: #F3E9C0;
@@ -743,8 +706,6 @@ footer .footerBlock div .info a img {
 
 .productCenter .pdtExplanation {
   padding: 15px 0px 15px 15px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   background-color: #F2F0D7;
 }
@@ -767,23 +728,13 @@ footer .footerBlock div .info a img {
 }
 
 .much {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
 }
 
 .much .muchSpan {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   font-size: 28px;
   color: red;
   margin-bottom: 10px;
@@ -816,8 +767,7 @@ svg.pdtsvg {
   width: 50px;
   font-size: 16px;
   font-weight: 400;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   text-align: center;
   cursor: text;
   border-radius: 0;

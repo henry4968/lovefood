@@ -266,9 +266,7 @@
         left:19%;
         
     }
-    // .spantext{
-    //     // border: 1px solid fuchsia;
-    // }
+    
 }
 /////////apple_RWD
 @media screen and (max-width:585px){
@@ -331,13 +329,13 @@
 }
 .contents{
     // display: flex;
-    width: 1200px;
+    width: 1401px;
     margin: 0 auto;
     background-color: $FB;
     // border: 1px solid $cf;
 }
 ///////RWＤ///////////
-@media screen and (max-width: $laptop ){
+@media screen and (max-width: 1400px ){
     .contents{
         width: 100%;
         
@@ -347,10 +345,10 @@
 
 
 .breadcrumbArea{
-    // display: flex;
-    padding: 25px 0px 25px 25px;
-    font-size: 24px;
+    font-size: 30px;
     width: 90%;
+    height: 88px;
+    padding: 30px 0px 30px 30px;
     .breadcrumb{
         display: flex;
         .breaditem > a {
@@ -358,6 +356,7 @@
             color: $C9;
         }
     }
+
 
 
     .breadcrumb > li + li:before {
@@ -369,30 +368,43 @@
     }
 }
 
+@media screen and (max-width:376px){
+    .breadcrumbArea {
+        font-size: 17px;
+       height: 45px;
+        padding: 15px;
+    }
+}
+
 .local{
     // border: 1px solid darkcyan;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    font-size: 24px;
+    font-size: 30px;
     padding: 20px;
     background-color: $F2;
-    // p{
-    //     border: 1px solid goldenrod;
-    // }
+    p{
+        display: flex;
+        align-items: center;
+    
+    }
+    
     p > img{
-        width: 30px;
         // border: 1px solid seagreen;
         margin: 0 10px;
     }
     
 }
-@media screen and (max-width:320px){
+@media screen and (max-width:376px){
     .local{
         padding: 0;
-        font-size: 20px;
+        font-size: 18px;
         p{
             margin: 5px;
+        }
+        .localM{
+            margin: 35.6px 0;
         }
     }
 }
@@ -407,22 +419,26 @@
     justify-content: space-between;
     align-items:flex-end;
     .productText{
-        font-size: 24px;
+        font-size: 30px;
+    }
+    .btninput{
+        display: flex;
+        // border: 1px solid firebrick;
     }
        
     .left,.right{
         background-color: #C9BE9F;
         height: 30px;
         cursor: pointer;
+        border: 1px solid #C9BE9F;
+        &:focus{
+            outline: none;
+            
+        }
 
     }
-    button.left{
-        margin-right: -48px;
-        // background-color: #C9BE9F;
-
-    }
-    button.right{
-        margin-left: -48px;
+    input:focus{
+        outline: none;
     }
 }
 
@@ -466,10 +482,23 @@ svg.pdtsvg{
     }
 
 }
+@media screen and (max-width:1039px){
+    .desItem > .itemText{
+        margin-top: 25px;
+    }
+}
+@media screen and (max-width:376px){
+    .desItem{
+        margin-top: 31px;
+        .itemImg{
+            width: 318px;
+        }
+        
+    }
+}
+
 .itemImg{
     width: 520px;
-    // height: 520px;
-    // margin: 50px 20px;
     img{
         width: 100%;
     }
@@ -479,11 +508,13 @@ svg.pdtsvg{
         background-color: $F2;
         p{
             font-size: 24px;
-            width: 200px;
-            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
         span{
             color: red;
+            margin: 0 5px;
         }
 
     }
@@ -493,24 +524,29 @@ svg.pdtsvg{
             // color: red;
         }
 }
+@media screen and (max-width:375px){
+    .pdtText > p{
+        font-size: 18px !important;
+    }
+
+}
 .itemText{
     display: inline-block !important;
-    padding: 60px 30px;
     width: 520px;
+    border: 1px solid saddlebrown;
     h1{
-        font-size: 32px;
+        font-size: 36px;
     }
     h2{
-        font-size: 26px;
+        font-size: 30px;
         margin: 20px 0 65px 0;
     }
     .mr{
         span{
-            font-size: 30px;
+            font-size: 40px;
             color: red;
             margin-right: 30px;
             // border: 1px solid darkblue;
-            // margin-bottom: 30px;
         }
         del{
             font-size: 24px;
@@ -528,24 +564,79 @@ svg.pdtsvg{
         margin-bottom: 80px;
         // padding: 20px;
         p{
-            font-size: 24px;
+            font-size: 30px;
             margin: 10px 0;
         }
     }
 }
+@media screen and (max-width:520px){
+    .itemText{
+        padding: 20px;
+        h1{
+            font-size: 24px;
+        }
+        h2{
+            font-size: 20px;
+        }
+        .mr{
+
+            span{
+                font-size: 30px;
+
+            }
+
+            del{
+               font-size: 18px;
+   
+            }
+        }
+        .mrB{
+            margin-bottom: 30px;
+        
+            p{
+                font-size: 18px;
+            }
+        }
+    }
+    .pdtQuantity{
+        justify-content: space-evenly;
+        .productText{
+            font-size: 18px;
+        }
+        
+
+    } 
+    button.btn{
+        padding: 0 5px;
+        img{
+            width: 16px;
+        }
+        a{
+            font-size: 16px;
+        }
+    }
+    p.slidePanelText{
+        margin: 64px 0 20px 26px;
+        
+    }
+}
+
 ///////////////// button區
 .btn{
     cursor: pointer;
-    img{
-        margin-right: 5px;
-    }
     padding: 14px 16px;
     background-color: $C9;
     border-radius: 5px;
     border: 1px solid $C9;
     color: $ff;
+    outline: none;
+    a{
+        text-decoration: none;
+    }
+    img{
+        margin-right: 5px;
+    }
     
-    // margin-left: 98px;
 }
 @media screen and (max-width:320px){
     .btn{
@@ -577,6 +668,11 @@ svg.pdtsvg{
         border: 1px solid $C9;
         width: 190px;
         padding: 10px;
+        a{
+            text-decoration: none;
+
+        }
+
 
         img{
             width: 13px;
