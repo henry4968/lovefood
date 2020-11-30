@@ -41,6 +41,7 @@
         }
     }
     #hamburgerMenuButton{
+        display: block;
         width: 45px;
         height: 35px;
         align-self: center;
@@ -57,7 +58,6 @@
             width: 45px;
             height: 5px;
             border-radius: 10px;
-            background-color: #FDFBBA;
             position: absolute;
             transition-duration: .35s;
             }
@@ -76,6 +76,17 @@
             display: block;
         }
     }
+    .hamburgerMenuColorForCh01{
+        span, span::before, span::after{
+            background-color: #FDFBBA;
+        }
+    }
+    .hamburgerMenuColorForCh02{
+        span, span::before, span::after{
+            background-color: #FFFFFF;
+        }
+    }
+
     // 漢堡選單結束
     // 行動版導覽列開始
     #navigationForMobile{
@@ -312,7 +323,7 @@
             }
         }
         #mainSlogan02, #mainSlogan03, #mainSlogan04{
-            @include newRwd("laptop"){
+            @include newRwd("desktop"){
                 text-align: center;
                 transform: translate(-50%, -50%);
                 top: 35%;
@@ -322,6 +333,28 @@
                 }
                 a{
                     display: none;
+                }
+            }
+            @include newRwd("pad"){
+                height: 170px;
+                text-align: center;
+                top: 40%;
+            }
+            @include newRwd("bigPhone"){
+                top: 43%;
+                h3{
+                    font-size: 20px;
+                }
+                h2{
+                    font-size: 36px;
+                }
+            }
+            @include newRwd("smallPhone"){
+                h3{
+                    font-size: 16px;
+                }
+                h2{
+                    font-size: 32px;
                 }
             }
         }
@@ -334,32 +367,121 @@
             top: 237px;
             left: 734px;
             padding: 61px 99px 53px 61px;
-            h3{
-                font-size: 30px;
-                line-height: 48px;
-                color: #C2B891;
-            }
-            h2{
-                font-size: 48px;
-                line-height: 64px;
-                margin: 20px 0px 40px 0px;
-                color: #5F695C;
-            }
-            p{
+            .subSloganContent{
+                // border: 3px solid red;
                 width: 662px;
-                height: 148px;
-                font-size: 25px;
-                color: #5F695C;
+                h3{
+                    font-size: 30px;
+                    line-height: 48px;
+                    color: #C2B891;
+                }
+                h2{
+                    font-size: 48px;
+                    line-height: 64px;
+                    margin: 20px 0px 40px 0px;
+                    color: #5F695C;
+                }
+                p{
+                    width: 662px;
+                    height: 148px;
+                    font-size: 25px;
+                    color: #5F695C;
+                    #ch0102Ss02br01{
+                        display: none;
+                    }
+                }
+                img{
+                    position: absolute;
+                    left: 689px;
+                    top: 67px;
+                }
             }
-            img{
-                position: absolute;
-                left: 689px;
-                top: 67px;
-            }
-            @include newRwd('laptop'){
+            @include newRwd('desktop'){
                 transform: translate(-50%, -50%);
                 top: 65%;
                 left: 50%;
+            }
+            @include newRwd("pad"){
+                width: 970px;
+                height: 350px;
+                .subSloganContent{
+                    h3{
+                        font-size: 23px;
+                        line-height: 23px;
+                    }
+                    h2{
+                        font-size: 40px;
+                        line-height: 40px;
+                    }
+                    p{
+                        width: 400px;
+                        height: 80px;
+                        font-size: 20px;
+                    }
+                    img{
+                        height: 250px;
+                        left: 645px;
+                        top: 50px;
+                    }
+                }
+            }
+            @include newRwd("bigPhone"){
+                width: 100%;
+                height: 350px;
+                .subSloganContent{
+                    position: relative;
+                    margin: auto;
+                    width: 550px;
+                    h3{
+                        font-size: 18px;
+                        line-height: 18px;
+                    }
+                    h2{
+                        font-size: 32px;
+                        line-height: 32px;
+                        margin: 10px 0px 20px 0px;
+                    }
+                    p{
+                        width: 400px;
+                        height: 80px;
+                        font-size: 20px;
+                    }
+                    img{
+                        height: 150px;
+                        left: 340px;
+                        top: 0px;
+                    }
+                }
+            }
+            @include newRwd("smallPhone"){
+                width: 100%;
+                height: 253px;
+                padding: 52px 0px 45px 0px;
+                .subSloganContent{
+                    width: 290px;
+                    h3{
+                        font-size: 12px;
+                        line-height: 12px;
+                    }
+                    h2{
+                        font-size: 19px;
+                        line-height: 19px;
+                        margin: 10px 0px 20px 0px;
+                    }
+                    p{
+                        width: 285px;
+                        height: 70px;
+                        font-size: 15px;
+                        #ch0102Ss02br01{
+                            display: block;
+                        }
+                    }
+                    img{ 
+                        height: 80px;
+                        top: 0;
+                        left: 210px;
+                    }
+                }
             }
         }
     }

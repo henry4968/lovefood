@@ -114,9 +114,15 @@
     }
 }
 
-// RWD五斷點（新）
+// RWD六斷點（新）
 @mixin newRwd($breakpoint) {
-    @if $breakpoint=="laptop" {
+
+    @if $breakpoint=="desktop" {
+        @media all and (max-width: $twoK - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="laptop" {
         @media all and (max-width: $desktop - 1) {
             @content;
         }
