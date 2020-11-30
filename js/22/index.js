@@ -279,6 +279,8 @@ $(function () {
             console.log(destination);
             switch (destination.index) {
                 case 0:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh01');
                     $('#logo').attr('src', '../img/22/index/ch01_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch01_header_logo_hover.png');
@@ -311,14 +313,18 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_cart.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch01_nav_cart.png');
                     $('#navIcons03 img').attr('src', '../img/22/index/ch01_nav_member.png');
                     $('#navIcons03 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_member_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_member.png');
                     });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch01_nav_member.png');
                     break;
                 case 1:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh0102');
                     $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
@@ -351,13 +357,17 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
                     $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                     $('#navIcons03 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
                     });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                 case 2:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh0102');
                     $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
@@ -390,13 +400,17 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
                     $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                     $('#navIcons03 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
                     });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                 case 3:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh0102');
                     $('#logo').attr('src', '../img/22/index/ch0102_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_header_logo_hover.png');
@@ -429,12 +443,14 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_cart.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch0102_nav_cart.png');
                     $('#navIcons03 img').attr('src', '../img/22/index/ch0102_nav_member.png');
                     $('#navIcons03 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch0102_nav_member.png');
                     });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch0102_nav_member.png');
             }
         },
     });

@@ -147,7 +147,6 @@
 }
 
 #header #hamburgerMenuButton {
-  display: block;
   width: 45px;
   height: 35px;
   -ms-flex-item-align: center;
@@ -157,6 +156,12 @@
   position: relative;
   cursor: pointer;
   display: none;
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #header #hamburgerMenuButton {
+    margin-left: 5px;
+  }
 }
 
 #header #hamburgerMenuButton span {
@@ -174,6 +179,13 @@
           transition-duration: .35s;
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #header #hamburgerMenuButton span, #header #hamburgerMenuButton span::before, #header #hamburgerMenuButton span::after {
+    width: 36px;
+    height: 3px;
+  }
+}
+
 #header #hamburgerMenuButton span {
   top: 45%;
 }
@@ -183,9 +195,21 @@
   top: -15px;
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #header #hamburgerMenuButton span::before {
+    top: -10px;
+  }
+}
+
 #header #hamburgerMenuButton span::after {
   content: '';
   top: 15px;
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #header #hamburgerMenuButton span::after {
+    top: 10px;
+  }
 }
 
 @media all and (max-width: 991px) {
@@ -196,6 +220,10 @@
 
 #header .hamburgerMenuColorForCh01 span, #header .hamburgerMenuColorForCh01 span::before, #header .hamburgerMenuColorForCh01 span::after {
   background-color: #FDFBBA;
+}
+
+#header .hamburgerMenuColorForCh0102 span, #header .hamburgerMenuColorForCh0102 span::before, #header .hamburgerMenuColorForCh0102 span::after {
+  background-color: #946C1E;
 }
 
 #header .hamburgerMenuColorForCh02 span, #header .hamburgerMenuColorForCh02 span::before, #header .hamburgerMenuColorForCh02 span::after {
@@ -315,6 +343,13 @@
   }
 }
 
+@media all and (max-width: 991px) {
+  #header #headerContentContainer #logo {
+    width: 158px;
+    height: 27px;
+  }
+}
+
 #header #headerContentContainer #navigationForPC {
   width: 762px;
   height: 50px;
@@ -415,7 +450,6 @@
 @media all and (max-width: 991px) {
   #header #headerContentContainer #subNavigationForMobile {
     display: block;
-    border: 1px solid red;
     width: 96px;
     height: 40px;
     display: -webkit-box;
@@ -426,6 +460,17 @@
             justify-content: space-between;
     position: absolute;
     right: 10px;
+  }
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #header #headerContentContainer #subNavigationForMobile {
+    width: 55px;
+    right: 20px;
+  }
+  #header #headerContentContainer #subNavigationForMobile img {
+    height: 23px;
+    margin: 5px 0px 0px 10px;
   }
 }
 
@@ -527,7 +572,6 @@
     margin: 0 auto !important;
   }
   #chapter01 .slide #mainSlogan01 div a img {
-    border: 1px solid red;
     height: 45px;
   }
 }
@@ -552,13 +596,13 @@
   #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
     height: 170px;
     text-align: center;
-    top: 40%;
+    top: 35%;
   }
 }
 
 @media all and (max-width: 991px) {
   #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
-    top: 43%;
+    top: 38%;
   }
   #chapter01 .slide #mainSlogan02 h3, #chapter01 .slide #mainSlogan03 h3, #chapter01 .slide #mainSlogan04 h3 {
     font-size: 20px;
@@ -569,6 +613,9 @@
 }
 
 @media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
+    top: 45%;
+  }
   #chapter01 .slide #mainSlogan02 h3, #chapter01 .slide #mainSlogan03 h3, #chapter01 .slide #mainSlogan04 h3 {
     font-size: 16px;
   }
@@ -612,7 +659,7 @@
   color: #5F695C;
 }
 
-#chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br01 {
+#chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br01, #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br02, #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br03 {
   display: none;
 }
 
@@ -710,13 +757,25 @@
     height: 70px;
     font-size: 15px;
   }
-  #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br01 {
+  #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br01, #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br02, #chapter01 .slide .subSlogan .subSloganContent p #ch0102Ss02br03 {
     display: block;
   }
   #chapter01 .slide .subSlogan .subSloganContent img {
     height: 80px;
     top: 0;
-    left: 210px;
+    left: 215px;
+  }
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter01 .slide #subSlogan02 .subSloganContent img {
+    left: 190px;
+  }
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter01 .slide #subSlogan03 .subSloganContent img {
+    left: 230px;
   }
 }
 
