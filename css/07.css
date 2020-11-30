@@ -450,7 +450,7 @@ footer .footerBlock div .info a img {
   align-items: center;
   font-size: 22px;
   cursor: pointer;
-  width: 1200px;
+  width: 1403px;
 }
 
 .selector_ul .areaName {
@@ -542,6 +542,10 @@ footer .footerBlock div .info a img {
   font-size: 22px;
 }
 
+.itemArea .itemName #itemP {
+  width: 0 !important;
+}
+
 .itemArea .itemName p, .itemArea .itemName .pText {
   padding: 8px;
   width: 50px;
@@ -590,6 +594,10 @@ footer .footerBlock div .info a img {
 
 .wrap {
   background-image: url(../img/07/backgroud.png);
+}
+
+.context {
+  margin-top: 108px;
 }
 
 .context .productArea {
