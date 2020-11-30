@@ -329,17 +329,13 @@
 ////////搜尋區///////////////
 /////////800px以上//////////
 
-#fm1{
-    background-color: $FB;
-}
+
 #search{
     background-color: $FB;
-    // border: 2px solid red;
-    width: 98%;
+    border: 2px solid red;
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    // padding: 20px
     
     
 }
@@ -347,29 +343,40 @@
 #span{
     // border: 1px solid $R;
     background-color:$F3;
-    // display: inline-block;
-    // width: 110px;
-    padding: 15px;
-    font-size: 22px;
-    // height: 26px;
-//     @extend .selector_ul
-    
+    padding: 31px;
+    font-size: 25px;
  }
  .selector_ul{
     display:flex;
     border: 2px solid $G; 
     align-items: center;
-    // justify-content: center;
     font-size: map-get($font , 22 );
     cursor: pointer;
-    width: 1200px;
+    height: 84px;
+    width: 1403px;
 
         .areaName{
             // border: 2px solid $G;
             margin: 0 15px;
+            font-size: 24px;
     
    }
 }  
+@media screen and (max-width:1402px){
+    .selector_ul{
+        width: 100%;
+    }
+    div.itemArea {
+        width: 91%;
+    }
+    div.btn{
+        width: 97%;
+        border: 2px solid #FBFFE0;
+    }
+    
+    
+
+}
 
 .selector_ul{
         #btnMap{
@@ -378,7 +385,7 @@
             display: inline-block;
             background-color:$F3;
             border-radius: 10px;
-            padding: 5px;
+            padding: 5px 10px;
             &:hover,&:active{
                 color: $ff;
                 background-color: $C9;
@@ -397,11 +404,10 @@
         }            
 }
 
-///////////799以下/////////////////
-@media screen and (min-width:320px) and (max-width:799px){
+///////////787以下/////////////////
+@media screen and (max-width:787px){
     #fm1{
         display: flex; 
-        justify-content: center;
     }
     #search{
         display: flex;
@@ -409,17 +415,22 @@
         padding: 0  !important;
         width: 100%;
     }
-    #span{
-        display: none;
-    }
     .selector_ul{
         display: flex;
         padding: 10px;
         width: 100%;
-        justify-content: center;
+        height: 46px;
+        #span{
+            font-size: 16px;
+            padding: 23px;
+        }
         .areaName{
             margin: 0 3px !important;
-            
+            font-size: 16px;
+            input{
+                width: 15px !important;
+                height: 15px !important;
+            }
             &:nth-child(4){
                 margin: 0px -2px !important;
             }
@@ -430,6 +441,8 @@
         
     }
     .btnMap{
+        padding: 8px;
+        margin-left: 5px;
         .mapText{
             display: none;
 
@@ -443,6 +456,11 @@
         display: none;
     }
 }
+@media screen and (min-width:375px) and (max-width:404px){
+    #span{
+        padding: 21px 2px !important;
+    }
+}
 .wrap{
     // background-image: url(../img/bi2.png);
     background-image: url(../img/backgroud.png);
@@ -451,37 +469,67 @@
 }
 //////////次級選單////////////
 .itemArea{
-    // border: 2px solid $P;
+    border: 2px solid $P;
+    font-size: 27px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    width: 1324px;
+    background-color: #FBFFE0;
     display: flex;
-    width: 100%;
-   
-    justify-content: center;
-
-    .itemName{
+    justify-content: space-around;
+    .pText , #nth3{
+        border-bottom: 2px solid $F3;
+        margin-bottom: 5px;
+        padding: 0px 0 17px 0;
+        color: #545454;
+        margin-bottom: 25px;
         justify-content: center;
-        width: 385px;
-        // flex-grow: 1;
-        padding: 10px;
-        border-right: 1px solid #F3E9C0;
-        background-color: $FB;
-        font-size: map-get($font, 22 );
-        p{
-            padding: 8px;
-            width: 50px;
-            // margin: 0 auto;
-            display: flex;
-        }   
-        .pText{
-            @extend p ;
-            margin: 0 auto;
-        }
-                
+        display: flex;
     }
-    #itemName6,#itemName5,#itemName7{
-        width: 1200px;
+    .itemName{
+        .itemName2Wth{
+            border-right: 2px solid #F3E9C0;
+            border-left: 2px solid #F3E9C0;
+        }
+        .group{
+            // width: 200px;
+            padding: 10px;
+            span{
+                width: 100px;
+                margin: 20px 0;
+            }
+        }
+        .item1,.itemName2Wth,.item3{
+            display: flex;
+            // width: $pw;
+            width: 100%;
+            justify-content: center;
+        }
+        .item1{
+            #group1 ,#group2{
+                width: 127px;
 
+            }
+        }
+        #group3,#group4,#group5,#group6{
+            width: 101px;
+        }
     }
 }
+
+@media screen and (min-width:800px)and (max-width:1403px){
+    .itemName{
+        width: 100%;
+        .item1,.itemName2Wth,.item3{
+            width: $null;
+        }
+
+
+    }
+
+}
+    
+
 @media screen and (min-width:320px) and (max-width:799px){
         .itemName{
             p{
@@ -491,24 +539,21 @@
         }
 
 }
-#nth3{
-    // @extend p ;
-    width: 100px;
-    margin: 0 auto;
-}
 
 
-    .itemName2Wth{
-        display: flex;
-        justify-content: center;
-        #group3,#group4,#group5,#group6{
-            width: 160px;
-        }
-    }
+
+    
 
 .btn{
     display: flex;
     justify-content: center;
+    background-color: $FB;
+    width: 1403px;
+    margin: 0 auto;
+    &:focus{
+        outline: none;
+        border: 1px solid $FB;
+    }
     #btn1,#btn2,#btn3,#btn4,#btn5{
         background-color: $C9;
         color: $ff;
@@ -520,12 +565,8 @@
 }
 
 .context{
-    // display: flex;
-    // border: 1px solid $P;
-    // width: 100%;
-    // height: 200px;
-    // background-color: $D7;
-        // width: 1200px;
+    
+    margin-top: 108px;
     .productArea{
         // background-color: $d4;
         // width: 65%;
