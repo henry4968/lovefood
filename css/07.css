@@ -428,7 +428,6 @@ footer .footerBlock div .info a img {
 
 #search {
   background-color: #FBFFE0;
-  border: 2px solid red;
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -436,13 +435,12 @@ footer .footerBlock div .info a img {
 
 #span {
   background-color: #F3E9C0;
-  padding: 31px;
+  padding: 28px;
   font-size: 25px;
 }
 
 .selector_ul {
   display: flex;
-  border: 2px solid green;
   align-items: center;
   font-size: 22px;
   cursor: pointer;
@@ -463,7 +461,7 @@ footer .footerBlock div .info a img {
     width: 91%;
   }
   div.btn {
-    width: 97%;
+    width: 96.5%;
     border: 2px solid #FBFFE0;
   }
 }
@@ -554,7 +552,6 @@ footer .footerBlock div .info a img {
 }
 
 .itemArea {
-  border: 2px solid purple;
   font-size: 27px;
   margin: 0 auto;
   padding: 20px 40px;
@@ -566,7 +563,6 @@ footer .footerBlock div .info a img {
 
 .itemArea .pText, .itemArea #nth3 {
   border-bottom: 2px solid #F3E9C0;
-  margin-bottom: 5px;
   padding: 0px 0 17px 0;
   color: #545454;
   margin-bottom: 25px;
@@ -608,10 +604,38 @@ footer .footerBlock div .info a img {
   }
 }
 
+#itemArea1, #itemArea2, #itemArea3, #RWDMap {
+  justify-content: start;
+}
+
+#itemArea1 .itemName > p, #itemArea2 .itemName > p, #itemArea3 .itemName > p, #RWDMap .itemName > p {
+  border-bottom: 2px solid #F3E9C0;
+  padding: 0px 0 17px 0;
+  color: #545454;
+  margin-bottom: 25px;
+}
+
+#Area1fm, #Area2fm, #Area3fm {
+  margin: 20px 0;
+}
+
 @media screen and (min-width: 320px) and (max-width: 799px) {
   .itemName p {
-    width: 50px;
-    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+  }
+  div.itemArea {
+    width: 97%;
+    padding: 20px 0;
+  }
+  div.btn {
+    width: 96.5%;
+  }
+}
+
+@media screen and (min-width: 800px) and (max-width: 1366px) {
+  div.btn {
+    width: 97%;
   }
 }
 
@@ -623,15 +647,16 @@ footer .footerBlock div .info a img {
   margin: 0 auto;
 }
 
-.btn:focus {
-  outline: none;
-  border: 1px solid #FBFFE0;
-}
-
 .btn #btn1, .btn #btn2, .btn #btn3, .btn #btn4, .btn #btn5 {
   background-color: #C9BE9F;
   color: #ffffff;
   font-size: 22px;
+  border: 1px solid #FBFFE0;
+}
+
+.btn #btn1:focus, .btn #btn2:focus, .btn #btn3:focus, .btn #btn4:focus, .btn #btn5:focus {
+  outline: #FBFFE0;
+  border: 1px solid #FBFFE0;
 }
 
 .wrap {
@@ -643,11 +668,11 @@ footer .footerBlock div .info a img {
 }
 
 .context .productArea {
-  width: 1200px;
+  width: 1403px;
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1402px) {
   .context .productArea {
     width: 100%;
   }
@@ -663,6 +688,7 @@ footer .footerBlock div .info a img {
   margin-bottom: 20px;
   margin: 0 15px 20px 0;
   font-size: 22px;
+  width: 300px;
 }
 
 .width_2P .product .pdtText {
@@ -670,11 +696,13 @@ footer .footerBlock div .info a img {
   padding: 20px;
   border-radius: 30px 30px 0 0;
   background-color: #FBFFE0;
+  display: flex;
+  justify-content: center;
 }
 
 .width_2P .product .pdtText .pdtTime {
   font-size: 30px;
-  margin: 3px;
+  margin: -5px 7px;
   color: red;
 }
 
@@ -692,8 +720,13 @@ footer .footerBlock div .info a img {
   background-color: #C9BE9F;
   position: absolute;
   bottom: 20px;
-  left: 202px;
+  left: 216px;
+  border: 1px solid #C9BE9F;
   cursor: pointer;
+}
+
+.width_2P .product .productBottom .carImg:focus {
+  outline: none;
 }
 
 .width_2P .product .productBottom .pdtExplanation .pdtTime {
@@ -716,15 +749,23 @@ footer .footerBlock div .info a img {
 
 .productCenter .pdtExplanation .pdtTitle a {
   text-decoration: none;
+  font-size: 25px;
+}
+
+.productCenter .pdtExplanation li {
+  color: #838383;
 }
 
 .productCenter .pdtExplanation #liM {
   margin: 10px 0;
+  color: #838383;
 }
 
 .productCenter .pdtImg {
   padding: 13px;
   background-color: #F2F0D7;
+  width: 274px;
+  cursor: pointer;
 }
 
 .much {
@@ -746,7 +787,13 @@ footer .footerBlock div .info a img {
 
 .pdtQuantity button {
   background-color: #C9BE9F;
+  border: 1px solid #C9BE9F;
   cursor: pointer;
+}
+
+.pdtQuantity button:focus {
+  outline: none;
+  border: 1px solid #C9BE9F;
 }
 
 .pdtQuantity button.left {
@@ -755,6 +802,10 @@ footer .footerBlock div .info a img {
 
 .pdtQuantity button.right {
   margin-left: -7px;
+}
+
+.pdtQuantity input {
+  outline: none;
 }
 
 svg.pdtsvg {
@@ -773,5 +824,39 @@ svg.pdtsvg {
   border-radius: 0;
   border: none;
   color: #C9BE9F;
+}
+
+.page-normal {
+  display: flex;
+  justify-content: center;
+  padding-top: 114px;
+  padding-bottom: 175px;
+}
+
+.page-normal .page-current, .page-normal .page-prev {
+  margin-right: 10px;
+  font-size: 25px;
+  color: #FBFFE0;
+  border-radius: 50px;
+  border: 3px solid #FBFFE0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.page-normal a {
+  margin: 0 10px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #FBFFE0;
+  border-radius: 50px;
+  border: 3px solid #FBFFE0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
 }
 /*# sourceMappingURL=07.css.map */
