@@ -456,7 +456,36 @@ $(function () {
     });
 });
 
-// lightslider控制項目
+// lightslider控制項目：第三章
+$(document).ready(function () {
+    $('#solganCarouselList').lightSlider({
+        item: 3,
+        loop: true,
+        slideMove: 1,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        auto: false,
+        speed: 1000,
+        responsive: [
+            {
+                breakpoint: 800,
+                settings: {
+                    item: 3,
+                    slideMove: 1,
+                    slideMargin: 6,
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    item: 2,
+                    slideMove: 1
+                }
+            }
+        ]
+    });
+});
+
+// lightslider控制項目：第四章
 $(document).ready(function () {
     $('#productCarouselList').lightSlider({
         item: 3,

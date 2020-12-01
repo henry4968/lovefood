@@ -614,6 +614,7 @@
         }
     }
     #conversionUnitIconBlock{
+        border: 1px solid red;
         width: 120px;
         height: 450px;
         position: absolute;
@@ -622,6 +623,16 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include newRwd("bigPhone"){
+            width: 100%;
+            height: 90px;
+            padding: 20px 400px 0px 400px;
+            background-color: #B0BAA4;
+            top: auto;
+            left: 0;
+            bottom: 0;
+            flex-direction: row;
+            }
         }
 }
 // 第二章：「浪費換算」開始結束
@@ -634,6 +645,7 @@
     #ch03MainSolgan{
         width: 581px;
         height: 103px;
+        margin-top: 130px !important;
         margin: auto;
         font-size: 36px;
         font-weight: 600;
@@ -644,77 +656,82 @@
     }
     #solganCardsContainer{
         width: 1300px;
-        height: 320px;
         margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        .solganCard{
-            width: 350px;
-            height: 100%;
-            position: relative;
-        }
-        .cardDecorativeFrame{
-            width: 320x;
-            height: 380px;
-            border: 4px solid #FEFA9C;
-            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
-            margin-top: calc(640px - 490px);
-            .avatarDecorativeFrame{
-                width: 250px;
-                height: 250px;
-                border-radius: 250px;
-                border-bottom: 46px;
-                background-color: #A7BBA9;
-                position: absolute;
-                transform: translate(-50%, -50%);
-                left: 50%;
-                display: flex;
-                .avatarBlock{
-                    width: 220px;
-                    height: 220px;
-                    border-radius: 220px;
-                    background-color: #fff;
-                    margin: auto;
-                    align-self: center;
+        #solganCarouselList{
+          .solganCarouseItem{
+              height: 600px;
+            .solganCard{
+                width: 350px;
+                height: 100%;
+                position: relative;
+                margin: auto;
+            }
+            .cardDecorativeFrame{
+                width: 320x;
+                height: 380px;
+                border: 4px solid #FEFA9C;
+                box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                margin-top: calc(640px - 490px);
+                .avatarDecorativeFrame{
+                    width: 250px;
+                    height: 250px;
+                    border-radius: 250px;
+                    border-bottom: 46px;
+                    background-color: #A7BBA9;
+                    position: absolute;
+                    transform: translate(-50%, -50%);
+                    left: 50%;
                     display: flex;
-                    justify-content: center;
-                    overflow: hidden;
+                    .avatarBlock{
+                        width: 220px;
+                        height: 220px;
+                        border-radius: 220px;
+                        background-color: #fff;
+                        margin: auto;
+                        align-self: center;
+                        display: flex;
+                        justify-content: center;
+                        overflow: hidden;
+                        img{
+                            height: 100%;
+                        }
+                    }
+                }
+                .ch03CardTitle{
+                    font-size: 28px;
+                    font-weight: 600;
+                    color: #FFFFFF;
+                    margin-top: 180px;
+                }
+                .ch03CardParagraph{
+                    width: 280px;
+                    height: 95px;
+                    font-size: 20px;
+                    margin: auto;
+                    margin-top: 10px;
+                }
+                .ch03Shelter{
+                    width: 260px;
+                    height: 125px;
+                    background-color: #C8DED2;
+                    margin: auto;
+                    margin-top: 25px;
+                    transform: translate(0%, -15%);
                     img{
-                        height: 100%;
+                        width: 170px;
+                    }
+                }
+                #ch03Shelter03{
+                    transform: translate(0%, -25%);
+                    img{
+                        width: 120px;
                     }
                 }
             }
-            .ch03CardTitle{
-                font-size: 28px;
-                font-weight: 600;
-                color: #FFFFFF;
-                margin-top: 180px;
-            }
-            .ch03CardParagraph{
-                width: 280px;
-                height: 95px;
-                font-size: 20px;
-                margin: auto;
-                margin-top: 10px;
-            }
-            .ch03Shelter{
-                width: 260px;
-                height: 125px;
-                background-color: #C8DED2;
-                margin: auto;
-                margin-top: 25px;
-                transform: translate(0%, -15%);
-                img{
-                    width: 170px;
-                }
-            }
-            #ch03Shelter03{
-                transform: translate(0%, -25%);
-                img{
-                    width: 120px;
-                }
-            }
+          }  
         }
     }
 }
