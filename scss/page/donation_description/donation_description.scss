@@ -1,12 +1,15 @@
 
 @import "../../base/var";
 @import "../../mixin/mixins";
+@import "/scss/base/fonts";
 
 *{
-    margin:0;
-    padding:0;
     box-sizing: border-box;
-  }
+    padding: 0;
+    margin: 0;
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    text-decoration: none;
+}
 // svg&:hover{
 //     path{
     
