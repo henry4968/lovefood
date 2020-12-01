@@ -6,10 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-購物車</title>
     <link rel="stylesheet" href="../css/reset/reset.css">
-    <link rel="stylesheet" href="../css/style_16.css">
+    <link rel="stylesheet" href="../css/store03.css">
 </head>
 
 <body>
+    <!-- 漢堡選單開始 -->
+    <input type="checkbox" id="hamburgerMenuToggle">
+    <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+        <span></span>
+    </label>
+    <nav id="navigationForMobile">
+        <div id="searchBarForMobile">
+            <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+        </div>
+        <ul>
+            <li>
+                <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+            </li>
+            <li>
+                <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+            </li>
+            <li>
+                <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+            </li>
+            <li>
+                <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                    <div>
+                        立即捐款
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <!-- 漢堡選單結束 -->
     <!-- 標頭開始 -->
     <header id="header">
         <div id="headerContentContainer">
@@ -216,7 +245,7 @@
                 <div class="cart_16FinalCount">
                     <div class="cart_16FinalCount_Main">
                         <div class="keepShop">
-                            <a href="store_1.html"><img src="../img/16/backArrow.png">繼續購物</a>
+                            <a href="#"><img src="../img/16/backArrow.png">繼續購物</a>
                         </div>
                         <div class="pointsDetails">
                             <img src="../img/16/pointsIcon.png">
