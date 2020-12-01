@@ -930,6 +930,28 @@
   margin-bottom: 40px;
 }
 
+@media all and (max-width: 991px) {
+  #chapter03 #ch03MainSolgan {
+    width: 750px;
+    font-size: 36px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter03 #ch03MainSolgan {
+    width: 560px;
+    font-size: 32px;
+  }
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #ch03MainSolgan {
+    width: 310px;
+    font-size: 18px;
+    line-height: 30x;
+  }
+}
+
 #chapter03 #solganCardsContainer {
   width: 1300px;
   margin: auto;
@@ -943,6 +965,31 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  border: 1px solid red;
+}
+
+@media all and (max-width: 1599px) {
+  #chapter03 #solganCardsContainer {
+    width: 970px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter03 #solganCardsContainer {
+    width: 750px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter03 #solganCardsContainer {
+    width: 490px;
+  }
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer {
+    width: 300px;
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem {
@@ -956,6 +1003,12 @@
   margin: auto;
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .solganCard {
+    width: 300px;
+  }
+}
+
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame {
   width: 320x;
   height: 380px;
@@ -963,6 +1016,13 @@
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
   margin-top: calc(640px - 490px);
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame {
+    width: 300px;
+    height: 350px;
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame {
@@ -978,6 +1038,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame {
+    width: 180px;
+    height: 180px;
+    border-radius: 180px;
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
@@ -997,6 +1065,14 @@
   overflow: hidden;
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
+    width: 160px;
+    height: 160px;
+    border-radius: 160px;
+  }
+}
+
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock img {
   height: 100%;
 }
@@ -1008,12 +1084,25 @@
   margin-top: 180px;
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardTitle {
+    font-size: 18px;
+    margin-top: 130px;
+  }
+}
+
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardParagraph {
   width: 280px;
   height: 95px;
   font-size: 20px;
   margin: auto;
   margin-top: 10px;
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardParagraph {
+    font-size: 14px;
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter {
@@ -1026,13 +1115,34 @@
           transform: translate(0%, -15%);
 }
 
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter {
+    width: 220px;
+    -webkit-transform: translate(0%, 0%);
+            transform: translate(0%, 0%);
+  }
+}
+
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter img {
   width: 170px;
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter img {
+    width: 150px;
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
   -webkit-transform: translate(0%, -25%);
           transform: translate(0%, -25%);
+}
+
+@media all and (min-width: 319px) and (max-width: 575px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
+    -webkit-transform: translate(0%, -5%);
+            transform: translate(0%, -5%);
+  }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 img {

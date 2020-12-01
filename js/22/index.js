@@ -464,21 +464,58 @@ $(document).ready(function () {
         slideMove: 1,
         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
         auto: false,
+        controls: false,
+        pager: false,
         speed: 1000,
+        freeMove: false,
+        enableDrag: false,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1599,
                 settings: {
-                    item: 3,
+                    item: 2,
                     slideMove: 1,
                     slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 991,
                 settings: {
-                    item: 2,
-                    slideMove: 1
+                    item: 1,
+                    slideMove: 1,
+                    slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
+                }
+            },
+            {
+                breakpoint: 767,
+                settings: {
+                    item: 1,
+                    slideMove: 1,
+                    slideMargin: 18,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
+                }
+            },
+            {
+                breakpoint: 575,
+                settings: {
+                    item: 1,
+                    slideMove: 1,
+                    slideMargin: 18,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
                 }
             }
         ]
