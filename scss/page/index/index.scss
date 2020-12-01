@@ -653,6 +653,19 @@
         line-height: 55px;
         margin-top: -150px;
         margin-bottom: 40px;
+        @include newRwd("bigPhone"){
+            width: 750px;
+            font-size: 36px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 560px;
+            font-size: 32px;
+        }
+        @include newRwd("smallPhone"){
+            width: 310px;
+            font-size: 18px;
+            line-height: 30x;
+        }
     }
     #solganCardsContainer{
         width: 1300px;
@@ -660,6 +673,19 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        border: 1px solid red;
+        @include newRwd("laptop"){
+            width: 970px;
+        }
+        @include newRwd("bigPhone"){
+            width: 750px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 490px;
+        }
+        @include newRwd("smallPhone"){
+            width: 300px;
+        }
         #solganCarouselList{
           .solganCarouseItem{
               height: 600px;
@@ -668,6 +694,9 @@
                 height: 100%;
                 position: relative;
                 margin: auto;
+                @include newRwd("smallPhone"){
+                    width: 300px;
+                }
             }
             .cardDecorativeFrame{
                 width: 320x;
@@ -675,6 +704,10 @@
                 border: 4px solid #FEFA9C;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
                 margin-top: calc(640px - 490px);
+                @include newRwd("smallPhone"){
+                    width: 300px;
+                    height: 350px;
+                }
                 .avatarDecorativeFrame{
                     width: 250px;
                     height: 250px;
@@ -685,6 +718,11 @@
                     transform: translate(-50%, -50%);
                     left: 50%;
                     display: flex;
+                    @include newRwd("smallPhone"){
+                        width: 180px;
+                        height: 180px;
+                        border-radius: 180px;
+                    }
                     .avatarBlock{
                         width: 220px;
                         height: 220px;
@@ -695,6 +733,11 @@
                         display: flex;
                         justify-content: center;
                         overflow: hidden;
+                        @include newRwd("smallPhone"){
+                            width: 160px;
+                            height: 160px;
+                            border-radius: 160px;
+                        }
                         img{
                             height: 100%;
                         }
@@ -705,6 +748,10 @@
                     font-weight: 600;
                     color: #FFFFFF;
                     margin-top: 180px;
+                    @include newRwd("smallPhone"){
+                        font-size: 18px;
+                        margin-top: 130px;
+                    }
                 }
                 .ch03CardParagraph{
                     width: 280px;
@@ -712,6 +759,9 @@
                     font-size: 20px;
                     margin: auto;
                     margin-top: 10px;
+                    @include newRwd("smallPhone"){
+                        font-size: 14px;
+                    }
                 }
                 .ch03Shelter{
                     width: 260px;
@@ -720,12 +770,22 @@
                     margin: auto;
                     margin-top: 25px;
                     transform: translate(0%, -15%);
+                    @include newRwd("smallPhone"){
+                        width: 220px;
+                        transform: translate(0%, 0%);
+                    }
                     img{
                         width: 170px;
+                        @include newRwd("smallPhone"){
+                            width: 150px;
+                        }
                     }
                 }
                 #ch03Shelter03{
                     transform: translate(0%, -25%);
+                    @include newRwd("smallPhone"){
+                        transform: translate(0%, -5%);
+                    }
                     img{
                         width: 120px;
                     }
