@@ -1,6 +1,6 @@
 @import "../../base/var";
 @import "../../mixin/mixins";
-@import "/scss/base/fonts";
+@import "../../scss/base/fonts";
 // @import "../../modules/form";
 
 *{
@@ -432,6 +432,7 @@
                                     display: inline-block;
                                     visibility: visible;
                                     border: 2px solid #B2C6A6;
+                                    outline: none;
                                 }
 
                                 // checkbox點選後圓框改色
@@ -447,6 +448,7 @@
                                     display: inline-block;
                                     visibility: visible;
                                     border: 2px solid #B2C6A6;
+                                    outline: none;
                                 }
 
                                 // checkbox點選後內圓改色
@@ -461,12 +463,11 @@
                                 content: '';
                                 display: inline-block;
                                 visibility: visible;
+                                outline: none;
                                 }
 
                                 
-                                .form-radio-label{
-                                    // border: 1px solid #99ce1c;
-                                }
+                          
                             }
                         
                             // 短版表單
