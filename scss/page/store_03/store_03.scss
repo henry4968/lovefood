@@ -12,6 +12,101 @@
     font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
     text-decoration: none;
 }
+// 漢堡選單開始
+#hamburgerMenuToggle{
+    opacity: 0;
+    &:checked + #hamburgerMenuButton > span{
+        transform: rotate(45deg);
+        &::before{
+            top: 0;
+            transform: rotate(0deg);
+        }
+        &::after{
+            top: 0;
+            transform: rotate(90deg);
+        }
+    }
+    &:checked ~ #navigationForMobile{
+        left: 0;
+    }
+}
+#hamburgerMenuButton{
+    width: 45px;
+    height: 35px;
+    align-self: center;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    display: none;
+    span{
+        display: block;
+    }
+    span, span::before, span::after{
+        content: '';
+        display: block;
+        width: 45px;
+        height: 5px;
+        border-radius: 10px;
+        background-color: #FDFBBA;
+        position: absolute;
+        transition-duration: .35s;
+        }
+    span{
+        top: 45%;
+        &::before{
+            content: '';
+            top: -15px;
+        }
+        &::after{
+            content: '';
+            top: 15px;
+        } 
+    }
+    @include newRwd("bigPhone"){
+        display: block;
+    }
+}
+// 漢堡選單結束
+// 行動版導覽列開始
+#navigationForMobile{
+    display: none;
+    @include newRwd("bigPhone"){
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 55px;
+        left: -100%;
+        background-color: white;
+        opacity:80%;
+        transition-duration: .35s;
+        #searchBarForMobile{
+            width: 100%;
+            height: 70px;
+            background-color: lightgrey;
+            display: flex;
+            #searchInputForMobile{
+                width: 80%;
+                height: 60%;
+                border-radius: 20px;
+                background-color: #FFFFFF;
+                display: block;
+                margin: auto;
+                align-self: center;
+            }
+        }
+        li{
+            list-style: none;
+            text-align: center;
+            font-size: 24px;
+            margin: 30px 0px 0px 0px;
+            a{
+                color: #515151;
+            }
+        }
+    }
+}
+// 行動版導覽列結束
 
 
 #header{
@@ -22,7 +117,7 @@
     background: transparent;
     background-color: #D3E4C6;
     z-index: 9;
-    font-family: "Times New Roman","Pc","NotoSansCJKtc-Thin","sans-serif";
+    font-family:"Pc","NotoSansCJKtc-Thin","sans-serif";
     #headerContentContainer{
         // border: 1px solid red;
         width: 1180px;

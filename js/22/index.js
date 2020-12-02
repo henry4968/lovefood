@@ -456,28 +456,71 @@ $(function () {
     });
 });
 
-// lightslider控制項目
+// lightslider控制項目：第三章
+$(document).ready(function () {
+    $('#solganCarouselList').lightSlider({
+        item: 3,
+        loop: true,
+        slideMove: 1,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        auto: false,
+        controls: false,
+        pager: false,
+        speed: 1000,
+        freeMove: false,
+        enableDrag: false,
+        responsive: [
+            {
+                breakpoint: 1299,
+                settings: {
+                    item: 2,
+                    slideMove: 1,
+                    slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
+                }
+            },
+            {
+                breakpoint: 991,
+                settings: {
+                    item: 1,
+                    slideMove: 1,
+                    slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
+                }
+            }
+        ]
+    });
+});
+
+// lightslider控制項目：第四章
 $(document).ready(function () {
     $('#productCarouselList').lightSlider({
         item: 3,
         loop: true,
         slideMove: 1,
         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 1000,
+        speed: 3000,
+        pause: 5000,
         auto: true,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1199,
                 settings: {
-                    item: 3,
+                    item: 2,
                     slideMove: 1,
                     slideMargin: 6,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 767,
                 settings: {
-                    item: 2,
+                    item: 1,
                     slideMove: 1
                 }
             }
