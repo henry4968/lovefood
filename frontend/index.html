@@ -3,15 +3,15 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
     <title>Love food│散播食物 ‧ 散播愛</title>
     <!-- 自訂css -->
     <link rel="stylesheet" href="../css/index.css">
     <!-- <link rel="stylesheet" href="../css/fonts.css"> -->
     <!-- 全屏滾動套件css -->
     <link rel="stylesheet" href="../node_modules/fullpage.js/dist/fullpage.css">
-    <!-- 輪播套件css -->
-    <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
+    <!-- 輪播套件css（客製化） -->
+    <link rel="stylesheet" href="../css/lightslider.css">
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <!-- 計數套件 -->
@@ -320,6 +320,25 @@
                             <div class="cardDecorativeFrame">
                                 <div class="avatarDecorativeFrame">
                                     <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_waste_land.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">浪費土地</div>
+                                <p class="ch03CardParagraph">
+                                    全球近14億公頃產出的糧食被浪費，這些土地面積比加拿大還大
+                                </p>
+                                <div id="ch03Shelter01" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_mountain.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
                                         <img src="../img/22/index/ch03_avatar_waste_water.png.jpg">
                                     </div>
                                 </div>
@@ -329,6 +348,25 @@
                                 </p>
                                 <div id="ch03Shelter02" class="ch03Shelter">
                                     <img src="../img/22/index/ch03_img_water.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_greenhouse_effect.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">加劇全球暖化</div>
+                                <p class="ch03CardParagraph">
+                                    2011年，全球食物浪費所產生的碳排放高達44億噸
+                                </p>
+                                <div id="ch03Shelter03" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_degree.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -457,24 +495,24 @@
 
             <!-- 合作夥伴開始 -->
             <div id="suppliersList">
-                <div class="supplierLogoBlock">
-                    <img src="../img/22/index/ch04_supplier_logo01.png">
+                <div class="supplierLogoBlock" id="supplierLogoBlock01">
+                    <img src="../img/22/index/ch04_supplier_logo01.png" id="supplier01">
                 </div>
 
-                <div class="supplierLogoBlock">
-                    <img src="../img/22/index/ch04_supplier_logo02.png">
+                <div class="supplierLogoBlock" id="supplierLogoBlock02">
+                    <img src="../img/22/index/ch04_supplier_logo02.png" id="supplier02">
                 </div>
 
-                <div class="supplierLogoBlock">
-                    <img src="../img/22/index/ch04_supplier_logo03.png">
+                <div class="supplierLogoBlock" id="supplierLogoBlock03">
+                    <img src="../img/22/index/ch04_supplier_logo03.png" id="supplier03">
                 </div>
 
-                <div class="supplierLogoBlock">
-                    <img src="../img/22/index/ch04_supplier_logo04.png">
+                <div class="supplierLogoBlock" id="supplierLogoBlock04">
+                    <img src="../img/22/index/ch04_supplier_logo04.png" id="supplier04">
                 </div>
 
-                <div class="supplierLogoBlock">
-                    <img src="../img/22/index/ch04_supplier_logo05.png">
+                <div class="supplierLogoBlock" id="supplierLogoBlock05">
+                    <img src="../img/22/index/ch04_supplier_logo05.png" id="supplier05">
                 </div>
             </div>
             <!-- 合作夥伴結束 -->
@@ -485,8 +523,8 @@
         <!-- 第五章：「捐款說明」開始 -->
         <article id="chapter05" class="section">
 
-            <img src="../img/22/index/ch05_bg_flower_left.png" class="ch05BgFlower" data-id="ch05BgFlower01">
-            <img src="../img/22/index/ch05_bg_flower_right.png.png" class="ch05BgFlower" data-id="ch05BgFlower02">
+            <img src="../img/22/index/ch05_bg_flower_left.png" class="ch05BgFlower" id="ch05BgFlower01">
+            <img src="../img/22/index/ch05_bg_flower_right.png.png" class="ch05BgFlower" id="ch05BgFlower02">
 
             <div id="ch05MemoContainer">
                 <div id="ch05MainTtile">
@@ -494,8 +532,8 @@
                 </div>
 
                 <!-- 故事便籤開始 -->
-                <div class="ch05Memo" data-id="ch05Memo01">
-                    <div class="ch05MemoTape" data-id="ch05MemoTape01"></div>
+                <div class="ch05Memo" id="ch05Memo01">
+                    <div class="ch05MemoTape" id="ch05MemoTape01"></div>
                     <h3>有愛就有希望</h3>
                     <p>
                         記者和小艾一起打開供應櫃的時候，
@@ -505,8 +543,8 @@
                     <img src="../img/22/index/ch05_memo_icon01.png" alt="">
                 </div>
 
-                <div class="ch05Memo" data-id="ch05Memo02">
-                    <div class="ch05MemoTape" data-id="ch05MemoTape02"></div>
+                <div class="ch05Memo" id="ch05Memo02">
+                    <div class="ch05MemoTape" id="ch05MemoTape02"></div>
                     <h3>為了孩子堅持下去</h3>
                     <p>
                         樂腹幣對傑恩來說，
@@ -515,8 +553,8 @@
                     <img src="../img/22/index/ch05_memo_icon02.png" alt="">
                 </div>
 
-                <div class="ch05Memo" data-id="ch05Memo03">
-                    <div class="ch05MemoTape" data-id="ch05MemoTape03"></div>
+                <div class="ch05Memo" id="ch05Memo03">
+                    <div class="ch05MemoTape" id="ch05MemoTape03"></div>
                     <h3>減輕肩上的重擔</h3>
                     <p>
                         下課後的小倫看到麻婆豆腐飯丼就興奮地說:「耶～這是我最喜歡的食物！」
@@ -526,12 +564,12 @@
                 </div>
                 <!-- 故事便籤結束 -->
 
-                <a href="#0">
+                <a href="../frontend/donation_description.html">
                     <div id="ch05learnMoreButton">
                         <div>
                             <img src="../img/22/index/ch05_button_icon.png" alt="">
                         </div>
-                        <span>立即捐款</span>
+                        <span>樂腹捐款</span>
                     </div>
                 </a>
 

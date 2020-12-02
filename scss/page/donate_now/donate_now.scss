@@ -1,6 +1,10 @@
 @import "../../base/var";
 @import "../../mixin/mixins";
+<<<<<<< HEAD
 @import "../../base/fonts";
+=======
+@import "../../scss/base/fonts";
+>>>>>>> e46c4e169339e2f70a1f157a65488fb07c343618
 // @import "../../modules/form";
 
 *{
@@ -432,6 +436,7 @@
                                     display: inline-block;
                                     visibility: visible;
                                     border: 2px solid #B2C6A6;
+                                    outline: none;
                                 }
 
                                 // checkbox點選後圓框改色
@@ -447,6 +452,7 @@
                                     display: inline-block;
                                     visibility: visible;
                                     border: 2px solid #B2C6A6;
+                                    outline: none;
                                 }
 
                                 // checkbox點選後內圓改色
@@ -461,10 +467,15 @@
                                 content: '';
                                 display: inline-block;
                                 visibility: visible;
+                                outline: none;
                                 }
 
                                 
+<<<<<<< HEAD
 
+=======
+                          
+>>>>>>> e46c4e169339e2f70a1f157a65488fb07c343618
                             }
                         
                             // 短版表單

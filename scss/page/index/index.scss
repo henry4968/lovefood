@@ -48,7 +48,7 @@
         position: relative;
         cursor: pointer;
         display: none;
-        @include newRwd("smallPhone"){
+        @include newRwd("newSmallPhone"){
             margin-left: 5px;
             }
         span{
@@ -62,7 +62,7 @@
             border-radius: 10px;
             position: absolute;
             transition-duration: .35s;
-            @include newRwd("smallPhone"){
+            @include newRwd("newSmallPhone"){
                 width: 36px;
                 height: 3px;
                 }
@@ -72,14 +72,14 @@
             &::before{
                 content: '';
                 top: -15px;
-                @include newRwd("smallPhone"){
+                @include newRwd("newSmallPhone"){
                     top: -10px;
                     }
             }
             &::after{
                 content: '';
                 top: 15px;
-                @include newRwd("smallPhone"){
+                @include newRwd("newSmallPhone"){
                     top: 10px;
                     }
             } 
@@ -268,7 +268,7 @@
                 position: absolute;
                 right: 10px;
             }
-            @include newRwd("smallPhone"){
+            @include newRwd("newSmallPhone"){
                 width: 55px;
                 right: 20px;
                 img{
@@ -285,7 +285,7 @@
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06{
     width: 100%;
-    height: 100vh;
+    height: 100vh !important;
     overflow: hidden;
 }
 
@@ -380,7 +380,7 @@
                     font-size: 36px;
                 }
             }
-            @include newRwd("smallPhone"){
+            @include newRwd("newSmallPhone"){
                 top: 45%;
                 h3{
                     font-size: 16px;
@@ -485,7 +485,7 @@
                     }
                 }
             }
-            @include newRwd("smallPhone"){
+            @include newRwd("newSmallPhone"){
                 width: 100%;
                 height: 253px;
                 padding: 52px 0px 45px 0px;
@@ -518,7 +518,7 @@
         }
         #subSlogan02{
             .subSloganContent{
-                @include newRwd("smallPhone"){
+                @include newRwd("newSmallPhone"){
                     img{
                         left: 190px;
                     }
@@ -527,7 +527,7 @@
         }
         #subSlogan03{
             .subSloganContent{
-                @include newRwd("smallPhone"){
+                @include newRwd("newSmallPhone"){
                     img{
                         left: 230px;
                     }
@@ -556,7 +556,7 @@
             position: absolute;
             bottom: -120px;
             z-index: -1;
-            @include newRwd("smallPhone"){
+            @include newRwd("newSmallPhone"){
                 width: 750px;
                 bottom: 0;
             }
@@ -642,17 +642,33 @@
     position: relative;
     background-color: #C8DED2;
     text-align: center;
+    // padding-top: 150px;
     #ch03MainSolgan{
         width: 581px;
         height: 103px;
-        margin-top: 130px !important;
         margin: auto;
         font-size: 36px;
         font-weight: 600;
         color: #727272;
         line-height: 55px;
-        margin-top: -150px;
-        margin-bottom: 40px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 23%;
+        @include newRwd("laptop"){
+            font-size: 34px;
+        }
+        @include newRwd("pad"){
+            font-size: 32px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 560px;
+        }
+        @include newRwd("newSmallPhone"){
+            width: 310px;
+            font-size: 18px;
+            line-height: 30x;
+        }
     }
     #solganCardsContainer{
         width: 1300px;
@@ -660,6 +676,22 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 65%;
+        @include newRwd("laptop"){
+            width: 1180px;
+        }
+        @include newRwd("pad"){
+            width: 970px;
+        }
+        @include newRwd("bigPhone"){
+            width: 490px;
+        }
+        @include newRwd("newSmallPhone"){
+            width: 300px;
+        }
         #solganCarouselList{
           .solganCarouseItem{
               height: 600px;
@@ -668,13 +700,27 @@
                 height: 100%;
                 position: relative;
                 margin: auto;
+                @include newRwd("desktop"){
+                    width: 325px;
+                }
+                @include newRwd("newSmallPhone"){
+                    width: 300px;
+                }
             }
             .cardDecorativeFrame{
-                width: 320x;
+                width: 300x;
                 height: 380px;
                 border: 4px solid #FEFA9C;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
                 margin-top: calc(640px - 490px);
+                @include newRwd("desktop"){
+                    width: 325px;
+                    height: 365px;
+                }
+                @include newRwd("newSmallPhone"){
+                    width: 300px;
+                    height: 350px;
+                }
                 .avatarDecorativeFrame{
                     width: 250px;
                     height: 250px;
@@ -685,6 +731,16 @@
                     transform: translate(-50%, -50%);
                     left: 50%;
                     display: flex;
+                    @include newRwd("desktop"){
+                        width: 225px;
+                        height: 225px;
+                        border: 225px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        width: 180px;
+                        height: 180px;
+                        border-radius: 180px;
+                    }
                     .avatarBlock{
                         width: 220px;
                         height: 220px;
@@ -695,6 +751,16 @@
                         display: flex;
                         justify-content: center;
                         overflow: hidden;
+                        @include newRwd("desktop"){
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 200px;
+                        }
+                        @include newRwd("newSmallPhone"){
+                            width: 160px;
+                            height: 160px;
+                            border-radius: 160px;
+                        }
                         img{
                             height: 100%;
                         }
@@ -705,6 +771,14 @@
                     font-weight: 600;
                     color: #FFFFFF;
                     margin-top: 180px;
+                    @include newRwd("desktop"){
+                        font-size: 22px;
+                        margin-top: 150px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        font-size: 18px;
+                        margin-top: 130px;
+                    }
                 }
                 .ch03CardParagraph{
                     width: 280px;
@@ -712,6 +786,12 @@
                     font-size: 20px;
                     margin: auto;
                     margin-top: 10px;
+                    @include newRwd("desktop"){
+                        font-size: 17px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        font-size: 14px;
+                    }
                 }
                 .ch03Shelter{
                     width: 260px;
@@ -720,12 +800,25 @@
                     margin: auto;
                     margin-top: 25px;
                     transform: translate(0%, -15%);
+                    @include newRwd("desktop"){
+                        width: 240px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        width: 220px;
+                        transform: translate(0%, 0%);
+                    }
                     img{
                         width: 170px;
+                        @include newRwd("newSmallPhone"){
+                            width: 150px;
+                        }
                     }
                 }
                 #ch03Shelter03{
                     transform: translate(0%, -25%);
+                    @include newRwd("newSmallPhone"){
+                        transform: translate(0%, -5%);
+                    }
                     img{
                         width: 120px;
                     }
@@ -746,16 +839,35 @@
         font-size: 34px;
         font-weight: 600;
         color: #605F5F;
-        margin-top: 120px;
-        margin-bottom: 40px;
+        // margin-top: 120px;
+        // margin-bottom: 40px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 20%;
+        @include newRwd("bigPhone"){
+            width: 750px;
+        }
     }
     #productCarouselContainer{
+        border: 1px solid red;
         width: 1100px;
         height: 465px;
         margin: auto;
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 50%;
+        @include newRwd("pad"){
+            width: 750px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 350px;
+            top: 57%;
+        }
         #productCarouselList{
             .productCarouseItem{
                 .productCard{
@@ -833,7 +945,14 @@
     h4{
         font-size: 26px;
         color: #666464;
-        margin: 0px 0px 30px 0px;
+        // margin: 0px 0px 30px 0px;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 79%;
+        @include newRwd("mediumPhone"){
+            display: none;
+        }
     }
     #suppliersList{
         width: 1480px;
@@ -842,6 +961,23 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 50%;
+        top: 88%;
+        @include newRwd("laptop"){
+            width: 970px;
+            }
+        @include newRwd("bigPhone"){
+            width: 550px;
+            height: 102px;
+            #supplierLogoBlock01, #supplierLogoBlock05{
+                display: none;
+            }
+        }
+        @include newRwd("mediumPhone"){
+            display: none;
+        }
         .supplierLogoBlock{
             width: 240px;
             height: 100%;
@@ -863,25 +999,73 @@
         position: absolute;
         z-index: 2;
     }
-    img[data-id="ch05BgFlower01"]{
-        left: -100px;
-        bottom: -250px;
+    #ch05BgFlower01{
+        left: -5%;
+        bottom: -23%;
+        @include newRwd("desktop"){
+            width: 450px;
+            left: -5%;
+            bottom: -23%;
+        }
+        @include newRwd("laptop"){
+            left: -5%;
+            bottom: -5%;
+        }
+        @include newRwd("pad"){
+            width: 350px;
+        }
+        @include newRwd("bigPhone"){
+            width: 250px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 200px;
+        }
     }
-    img[data-id="ch05BgFlower02"]{
-        right: -150px;
-        top: 40px;
+    #ch05BgFlower02{
+        right: -8%;
+        top: 4%;
+        @include newRwd("desktop"){
+            width: 570px;
+            right: -15%;
+            top: 10%;
+        }
+        @include newRwd("pad"){
+            width: 470px;
+        }
+        @include newRwd("bigPhone"){
+            width: 370px;
+        @include newRwd("mediumPhone"){
+            width: 270px;
+            right: -33%;
+            top: 8%;
+        }
+        }
     }
     #ch05MemoContainer{
         width: 1500px;
         height: 650px;
+        @include newRwd("desktop"){
+            width: 1200px;
+        }
         @include newRwd("laptop"){
             width: 970px;
-            height: 720px;
+        }
+        @include newRwd("pad"){
+            width: 750px;
+        }
+        @include newRwd("bigPhone"){
+            width: 550px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 300px;
         }
         border: 13px solid #E6ECE2;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
         margin: auto;
         position: relative;
+        @include newRwd("bigPhone"){
+            border: 7px solid #E6ECE2;
+        }
         #ch05MainTtile{
             width: 217px;
             height: 51px;
@@ -923,25 +1107,71 @@
                 bottom: 20px;
             }
         }
-        div[data-id="ch05Memo01"]{
+        #ch05Memo01{
             position: absolute;
             top: 163px;
             left: 139px;
             transform: rotate(-2deg);
-            div[data-id="ch05MemoTape01"]{
+            @include newRwd("laptop"){
+                top: 193px;
+                left: 299px;    
+            }
+            @include newRwd("pad"){
+                top: 173px;
+                left: 219px;
+            }
+            @include newRwd("bigPhone"){
+                top: 173px;
+                left: 129px;
+            }
+            @include newRwd("mediumPhone"){
+                width: 212px;
+                height: 202px;
+                padding: 38px 0px 0px 25px;
+                top: 193px;
+                left: 39px;
+                h3{
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+                p{
+                    width: 156px;
+                    font-size: 13px;
+                    line-height: 23px;
+                }
+                img{
+                    width: 43px;
+                    right: 20px;
+                    bottom: 10px;
+                }
+            }
+            #ch05MemoTape01{
                 width: 120px;
                 height: 30px;
                 background-color: #EDBEBE;
                 transform: rotate(45deg);
                 right: -40px;
                 top: 5px;
+                @include newRwd("mediumPhone"){
+                    width: 65px;
+                    height: 18px;
+                    right: -25px;
+                    top: 0px;
+                }
             }
         }
-        div[data-id="ch05Memo02"]{
+        #ch05Memo02{
             position: absolute;
             top: 267px;
             left: 594px;
-            div[data-id="ch05MemoTape02"]{
+            @include newRwd("desktop"){
+                top: 187px;
+                left: 654px;
+            }
+            @include newRwd("laptop"){
+                display: none;
+            }
+            #ch05MemoTape02{
                 width: 140px;
                 height: 25px;
                 background-color: #B4E3E3;
@@ -949,18 +1179,22 @@
                 top: -12.5px;
             }
         }
-        div[data-id="ch05Memo03"]{
+        #ch05Memo03{
             position: absolute;
             top: 129px;
             left: 1032px;
             transform: rotate(2deg);
-            div[data-id="ch05MemoTape03"]{
+            @include newRwd("desktop"){
+                display: none;
+            }
+            #ch05MemoTape03{
                 width: 130px;
                 height: 35px;
                 background-color: #F4EACA;
                 transform: rotate(95deg);
                 left: -10px;
                 top: -35px;
+
             }
         }
         #ch05learnMoreButton{
@@ -975,18 +1209,32 @@
             position: absolute;
             right: 50px;
             bottom: 30px;
+            @include newRwd("mediumPhone"){
+                width: 141px;
+                height: 41px;
+                padding: 0px 15px;
+                right: 31px;
+                bottom: 51px;
+            }
             &:hover{
                 background-color: #DD9E9E;
             }
             div{
                 img{
                     width: 40px;
+                    @include newRwd("mediumPhone"){
+                        width: 25px;
+                    }
                 }
             }
             span{
                 font-size: 35px;
                 line-height: 56px;
                 color: #FFFFFF;
+                @include newRwd("mediumPhone"){
+                    font-size: 20px;
+                    line-height: 28px;
+                }
             }
         }
     }

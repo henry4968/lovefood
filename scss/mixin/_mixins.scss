@@ -142,8 +142,13 @@
             @content;
         }
     }
-    @else if $breakpoint=="smallPhone" {
-        @media all and (min-width:$smallPhone - 1) and (max-width: $mediumPhone - 1) {
+    @else if $breakpoint=="newSmallPhone" {
+        @media all and (max-width: $mediumPhone - 1) {
+            @content;
+        }
+    }
+    @else if $breakpoint=="miniPhone" {
+        @media all and (min-width:$miniPhone - 1) and (max-width: $newSmallPhone - 1) {
             @content;
         }
     }

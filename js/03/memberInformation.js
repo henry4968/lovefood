@@ -38,7 +38,7 @@ function fileChange() {
 Vue.component('member', {
   template: `
     <div class="rightBorder">
-      <div class="leftInfoborder">
+      <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
               我的帳號
@@ -94,7 +94,7 @@ Vue.component('member', {
             <button class="edit" type="button">編輯</button>
             <button class="save" type="button">儲存</button>
           </div>
-        </div>
+        </form>
         <div class="rightPicborder">
           <div class="uploadBorder">
             <div class="imageBorder">

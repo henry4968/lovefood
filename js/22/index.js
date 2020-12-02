@@ -13,6 +13,7 @@ $(function () {
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
         responsiveSlides: true,
+        responsiveHeight: 568,
 
         // 垂直滾動至該章節時，header樣式及色彩的各種變化
         afterLoad: function (origin, destination, direction) {
@@ -464,21 +465,34 @@ $(document).ready(function () {
         slideMove: 1,
         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
         auto: false,
+        controls: false,
+        pager: false,
         speed: 1000,
+        freeMove: false,
+        enableDrag: false,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1299,
                 settings: {
-                    item: 3,
+                    item: 2,
                     slideMove: 1,
                     slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 991,
                 settings: {
-                    item: 2,
-                    slideMove: 1
+                    item: 1,
+                    slideMove: 1,
+                    slideMargin: 6,
+                    controls: true,
+                    pager: true,
+                    freeMove: true,
+                    enableDrag: true,
                 }
             }
         ]
@@ -492,21 +506,22 @@ $(document).ready(function () {
         loop: true,
         slideMove: 1,
         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 1000,
+        speed: 3000,
+        pause: 5000,
         auto: true,
         responsive: [
             {
-                breakpoint: 800,
+                breakpoint: 1199,
                 settings: {
-                    item: 3,
+                    item: 2,
                     slideMove: 1,
                     slideMargin: 6,
                 }
             },
             {
-                breakpoint: 480,
+                breakpoint: 767,
                 settings: {
-                    item: 2,
+                    item: 1,
                     slideMove: 1
                 }
             }

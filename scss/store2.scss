@@ -668,6 +668,11 @@ svg.pdtsvg{
         border: 1px solid $C9;
         width: 190px;
         padding: 10px;
+        &:focus{
+            outline: none;
+            border: 1px solid $C9;
+
+        }
         a{
             text-decoration: none;
 
