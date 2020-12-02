@@ -43,18 +43,18 @@ $(function () {
     // 開啟 Modal 彈跳視窗
     $("div.readMoreButton").on("click", function () {
         // alert("yes!!");
-        $("div.Overlay_All").addClass("-on");
+        $("#Overlay_All_1").addClass("-on");
     });
 
     // 關閉 Modal
     $("img.readMore_close").on("click", function () {
-        $("div.Overlay_All").removeClass("-on");
+        $("#Overlay_All_1").removeClass("-on");
 
     });
 
     // 點擊背景部分關閉
     $(".storyOverlay_Bg").on("click", function () {
-        $("div.Overlay_All").removeClass("-on");
+        $("#Overlay_All_1").removeClass("-on");
     });
 
 });

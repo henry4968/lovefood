@@ -1044,6 +1044,10 @@
     #ch05MemoContainer{
         width: 1500px;
         height: 650px;
+        border: 13px solid #E6ECE2;
+        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+        margin: auto;
+        position: relative;
         @include newRwd("desktop"){
             width: 1200px;
         }
@@ -1055,16 +1059,11 @@
         }
         @include newRwd("bigPhone"){
             width: 550px;
+            border: 7px solid #E6ECE2;
         }
         @include newRwd("mediumPhone"){
             width: 300px;
-        }
-        border: 13px solid #E6ECE2;
-        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-        margin: auto;
-        position: relative;
-        @include newRwd("bigPhone"){
-            border: 7px solid #E6ECE2;
+            height: 580px;
         }
         #ch05MainTtile{
             width: 217px;
@@ -1076,6 +1075,12 @@
             text-align: center;
             margin: auto;
             margin-top: 75px;
+            @include newRwd("mediumPhone"){
+                font-size: 16px;
+                line-height: 10px;
+                width: 115px;
+                height: 21px;
+            }
         }
         .ch05Memo{
             width: 330px;
