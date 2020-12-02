@@ -1,6 +1,6 @@
 @import "../../base/var";
 @import "../../mixin/mixins";
-@import "/scss/base/fonts";
+@import "../../base/fonts";
 // @import "../../modules/form";
 
 *{
@@ -464,9 +464,7 @@
                                 }
 
                                 
-                                .form-radio-label{
-                                    // border: 1px solid #99ce1c;
-                                }
+
                             }
                         
                             // 短版表單
