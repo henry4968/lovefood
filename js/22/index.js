@@ -13,6 +13,7 @@ $(function () {
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
         responsiveSlides: true,
+        responsiveHeight: 568,
 
         // 垂直滾動至該章節時，header樣式及色彩的各種變化
         afterLoad: function (origin, destination, direction) {
