@@ -462,6 +462,36 @@ body{
                 }
               }
             }
+            .itemdetailBorder{
+              // border: 1px solid black;
+              background-color: #EFF1E1;
+              box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              .itemstatusBorder{
+                display: flex;
+                flex-direction: column;
+                .itemstopBorder{
+                  display: flex;
+                  border: 1px solid blue;
+                  position: relative;
+                  .fourcircleBorder{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    .orderestablishBorder{
+                      border: 1px solid red;
+  
+                    }
+                  }
+                  .midlineBorder{
+                    position: absolute;
+                    top: 18px;
+                    // z-index: 0;
+                    border-bottom: 5px solid #ED8149;
+                    width: 95%;
+                  }
+                }
+              }
+            }
           }
         }
       }
