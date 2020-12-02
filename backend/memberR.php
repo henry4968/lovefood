@@ -1,5 +1,5 @@
 <?php 
-    include("../EC_group/Lib/UtilClass.php");
+    include("./EC_group/Lib/UtilClass.php");
     // include("memberProfile.html");
     $Util = new UtilClass();
 

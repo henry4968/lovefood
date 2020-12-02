@@ -1,0 +1,849 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+*{font-family:Segoe,'Segoe UI','DejaVu Sans','Trebuchet MS',Verdana,sans-serif;
+}
+body, html {
+	color: #000000;
+}
+
+a:link {color:#000; text-decoration:  none;} 
+a:visited {color:#000;} 
+a:hover {color:#666666; text-decoration:  none;}
+a:active {color:#000;}
+
+
+
+
+/******購物車*******/
+
+.Car_{
+	width: 80%;
+	/*line-height: 2em;*/
+	margin: 0 auto 4rem auto;
+	
+}
+
+._3{
+	margin: 0 auto 0 auto;
+}
+
+.Car_ ul{
+	padding: 0;
+	margin: 0;
+}
+
+.Car_ li{
+	list-style: none; 
+}
+
+
+ .Car_ .TOPtitle{
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #333333;
+	font-size: 1.4em;
+	line-height: 2.4em;
+	font-weight: 400;
+	width: 100%;
+	height: 2.4em;
+	border-bottom: 1px solid #000000;
+	clear: both;
+}
+
+.Car_ .flow {
+	margin-bottom: 0px;
+	margin-top: 0px;
+	color: #333333;
+	font-size: 1em;
+	text-align: center;
+	line-height: 4em;
+	width: 100%;
+	height: 4em;
+	border-bottom: 1px solid #e5e5e5;
+}
+.Car_ .flow .in{
+	font-weight: 600;
+	font-size: 1.4em;
+}
+
+.Car_ .total{
+	color:#999999;
+	font-size: .9rem;
+	line-height: 3em;
+	width: 100%;
+	height: 3em;
+	border-bottom: 1px solid #e5e5e5;
+	padding: 0 .5rem;
+}
+
+.Car_ .total .in{
+	color: #000000;
+	font-size: 1.2rem;
+}
+
+
+.Car_ .carPS{
+	color:#000000;
+	font-size: .9rem;
+	line-height: 2em;
+	width: 100%;
+	padding: .5rem .5rem;
+	display: inline-block;
+	
+}
+
+.Car_ .PSgo{
+	color:#FFFFFF;
+	width: 6rem;
+	display: inline-block;
+	height: 1.4rem;
+	font-size: .9rem;
+	line-height: 1.4em;
+	padding: 0 .5rem;
+	text-align: center;
+	background-color: #000000;
+	border: 1px solid #000;
+}
+
+.Car_ .PSgo:hover{
+	background-color: #FFFFFF;
+	color:#000000;
+}
+
+.Car_ .cart-items {
+    width: 100%;
+    border-bottom: 1px solid #e5e5e5;
+    -webkit-transition: height 0.3s ease-in;
+    -moz-transition: height 0.3s ease-in;
+    transition: height 0.3s ease-in;
+}
+
+.Car_ table {
+    background: transparent;
+    color: #1c1c1c;
+    border-radius: 0px;
+    border-collapse: separate;
+	width: 100%;
+}
+
+.Car_ thead {
+    display: table-header-group;
+    vertical-align: middle;
+    border-color: inherit;
+	font-size: .9rem;
+}
+
+.Car_ th{
+	border-bottom: 1px solid #e5e5e5;
+	line-height: 2rem;
+}
+
+.Car_ tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+	
+}
+
+.Car_ td {
+    padding: 1rem .3rem;
+    border: 0;
+	text-align: center;
+	vertical-align:middle;
+	border-bottom: 1px solid #e5e5e5;
+
+}
+
+.Car_ .cart-item .product-item {
+    position: relative;
+    width: 40%;
+    padding-right: 0;
+}
+
+.Car_ .cart-item .product-item img{
+	width: 6rem;
+	float: left;
+	margin: 0 .5rem;
+}
+
+.Car_  .cart-item .remove {
+    /*position: absolute;*/
+    left: 10px;
+    font-size: 1rem;
+	line-height: 1rem;
+	float: left;
+    color: #8a8a8a;
+    -webkit-font-smoothing: antialiased;
+}
+
+.Car_  .cart-item .details {
+    padding: 2% 20px 0 10px;
+	text-align: left;
+}
+
+.Car_  .cart-item .name{
+	font-size: 1rem;
+	line-height: 1.8rem;
+	text-align: left;
+}
+
+.Car_  .cart-item .size{
+	font-size: .8rem;
+	line-height: 1.8rem;
+	text-align: left;
+}
+
+.Car_  .cart-item .event, .Member_order .pro_info .event{
+	font-size: .8rem;
+	line-height: 1em;
+	text-align: left;
+	color: #FF8E38;
+}
+
+.Car_  .cart-item .event a:link, .Member_order .pro_info .event  a:link{color:#FF8E38; text-decoration:  none;} 
+.Car_  .cart-item .event a:visited, .Member_order .pro_info .event a:visited  {color:#FF8E38;} 
+.Car_  .cart-item .event a:hover, .Member_order .pro_info .event a:hover  {color:#FF8E38; text-decoration:  none;}
+.Car_  .cart-item .event a:active, .Member_order .pro_info .event a:active  {color:#000000;}
+
+.Car_  .cart-item .quantity {
+	width: 9rem;
+	line-height: 2rem;
+	font-size: 1rem;
+	padding-left: 1.5rem;
+}
+
+.Car_  .cart-item .input_txt{
+	border: 1px solid #000000;
+	width: 2rem;
+	height: 1.8em;
+	font-size: .9em;
+	outline: none;
+	letter-spacing: .04rem;
+	-webkit-appearance: none;
+	padding:2px;
+	float: left;
+	margin-top: 0.3em;
+	text-align: center;
+}
+.Car_  .cart-item .plus_less{
+	display: block;
+	width: 1.5rem;
+	height: 2rem;
+	font-size: 1.4rem;
+	line-height: 2rem;
+	float: left;
+	margin: 0 .3rem;
+	cursor: pointer;
+	text-align: center;
+}
+
+.Car_  .time_event{
+	width: 100%;
+	background-color: #767676;
+	color: #FFFFFF;
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 1.2rem;
+	text-align: center;
+	font-weight: 500;
+	letter-spacing: 4px;
+}
+
+.Car_ .settle {
+	width: 100%;
+	clear: both;
+	display: inline-block;
+	padding: 2rem 1rem 4rem 4rem;
+}
+
+.Car_ .settle .select{
+	width: 60%;
+	float: left;
+}
+
+/*******總金額******/
+
+ .Car_ .conAll{
+	width: 100%;
+	float: left;
+	text-align: right;
+	font-size: 0.9em;
+	 line-height: 1.8rem;
+}
+
+ .Car_ .conAll_p2{
+	width: 60%;
+	float: right;
+	text-align: right;
+	font-size: 0.9em;
+	line-height: 1.8rem;
+}
+
+.Car_ .pri2{
+	font-weight: 600;
+	font-size: 1.2em;
+}
+.Car_ .priR{
+	color: #f13e21 ;
+}
+ .Car_  .price{
+	font-size: 2em;
+	font-weight: 500;
+	line-height: 2.1em;
+}
+
+.Car_  .point{
+	font-size: .8rem;
+	line-height: 1em;
+	text-align: left;
+	color: #FF8E38 ;
+	margin-right: .5rem;
+}
+
+.Car_ .__line{
+	clear: both;
+	display: block;
+	height: 1em;
+	width: 100%;
+	border-bottom: 1px solid #000000;
+	}
+
+/******按鈕*******/
+
+ .sami{
+	height: 3em;
+	font-size: 1em;
+	background-color: #eb74a4;
+	color: #FFFFFF;
+	text-align: center;
+	margin-top: 20px;
+	border: 1px solid #eb74a4;
+    outline: none;
+	font-family:   Helvetica, "Microsoft JhengHei", "Helvetica Neue",Arial, "sans-serif";
+    letter-spacing: .05rem;
+    cursor: pointer;
+    -webkit-font-smoothing: antialiased;
+}
+.sami:hover{
+	background-color: #FFFFFF;
+	border: 1px solid #eb74a4;
+	color: #eb74a4;
+}
+
+
+/********Car-2資料輸入**********/
+
+
+.Car_ .date_all {
+	width: 100%;
+	border-top: 1px solid #000000;
+	padding-bottom: 1rem;
+}
+
+.Car_ .date_info {
+	width: 60%;
+	left: 25%;
+	padding: 1rem;
+	display: inline-block;
+	position: relative;
+}
+
+.Car_ .data_title{
+	display: inline-block;
+	width:15%;
+	height: 2rem;
+	line-height: 2rem;
+	float: left;
+	font-size: .9rem;
+	margin: .5rem .3em .5rem;
+}
+
+.Car_ .list_tit{
+	width: 100%;
+	font-weight: 600;
+	font-size: 1rem;
+}
+
+.Car_ .ps{
+	width: 100%;
+	font-size: .8rem;
+}
+
+.Car_  .data_enter{
+	width: 81%;
+	float: left;
+	display: inline-block;
+	font-size: .9rem;
+	line-height: 2rem;
+	margin: 0 0.3em .5rem;
+	
+}
+
+.Car_  .data_enter .input_txt{
+	font-family: Helvetica,  "Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+	border: 1px solid #000000;
+	width: 5rem;
+	height: 2.2em;
+	font-size: .9em;
+	outline: none;
+	letter-spacing: .04rem;
+	-webkit-appearance: none;
+	padding:3px;
+	float: left;
+	margin: 0.5em;
+	text-align: left;
+}
+
+.Car_  .data_enter .name_in{
+	width: 8rem;
+}
+
+.Car_  .data_enter .txt{
+	height: 2.2em;
+	margin: 0.5em;
+	line-height: 2rem;
+	font-size: .9em;
+	float: left;
+}
+
+.Car_  .data_enter .addr{
+	width: 18rem;
+}
+
+.Car_  .data_enter select,option {
+	font-family:  Helvetica,"Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+    display: inline-block;
+	height: 2.5em;
+    border: 1px solid #000000;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: .9em;
+   /* line-height: 2.4em;*/
+    background: url(../images/arrow.png) no-repeat 5.5px #fff;
+    margin: 0.5em;
+	background-position:right;
+	outline: none;
+	padding: 2px 4px;
+}
+
+.Car_  .data_enter .select{
+	width: 12%;
+}
+
+.Car_  .list_tit  select,option {
+	font-family:  Helvetica, "Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+    display: inline-block;
+	height: 2.5em;
+    border: 1px solid #000000;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: .9em;
+   /* line-height: 2.4em;*/
+    background: url(../images/arrow.png) no-repeat 5.5px #fff;
+	background-position:right;
+	outline: none;
+	padding: 2px 4px;
+}
+
+.Car_   .list_tit .select2{
+	width: 100%;
+}
+
+.Car_  .data_enter .Check{
+	float: left;
+	display: inline-block;
+	width: 3.5rem;
+	height: 1rem;
+	font-size: .9em;
+	margin-left: .5rem;
+	padding-top: .6rem;
+	line-height: 1.8rem;
+}
+
+.Car_  .data_enter .Check2{
+	float: left;
+	display: inline-block;
+	width: 10rem;
+	height: 2rem;
+	font-size: .9em;
+	margin-left: .5rem;
+	padding-top: .1rem;
+	line-height: 2rem;
+}
+
+.Car_ .Checkout {
+	width: 60%;
+	left: 25%;
+	margin: 2rem;
+	display: inline-block;
+}
+
+
+.icon_{
+	width: 100%;
+	height: 3rem;
+	float: right;
+}
+
+.icon_ img {
+	width: 2rem;
+	float: right;
+	margin: .5rem;
+}
+
+/******優惠卷跟其他選擇*******/
+
+._c1_{
+ width: 170px;	
+height: 2em;
+font-size: 1em;
+float: left;
+margin-left: 8px;
+margin-top: 0.3em;
+}
+
+._S_ {
+    width: 10rem;
+    height: 2.4em;
+    font-size: 1rem;
+    float: right;
+    margin-top: 8px;
+	margin-right: 1.4rem;
+}
+
+
+/****訂單編號*****/
+._order_number {
+    display: inline-block;
+    width: 100%;
+    height: 2.2em;
+    line-height: 1.8em;
+    background-color: #ececeb;
+    font-size: 1em;
+    padding: 6px 0px;
+}
+._order_number .h {
+    margin-left: 5px;
+}
+/*******表單樣式*******/
+
+.Car_ .settle select,option {
+	font-family:  Helvetica, "Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+    display: inline-block;
+    width: 80%;
+	height: 3em;
+    border: 1px solid #000000;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: .9em;
+   /* line-height: 2.4em;*/
+    background: url(../images/arrow.png) no-repeat 5.5px #fff;
+    margin-right: 5px;
+	margin-top: 6px;
+	margin-bottom: 6px;
+	background-position:right;
+	outline: none;
+	padding: 2px 4px;
+}
+
+select::-ms-expand { display: none; }
+
+input,label{vertical-align:middle}
+input{letter-spacing:.1em}
+input[type=checkbox],input[type=radio]{display:none}
+input[type=checkbox]+label,input[type=radio]+label{
+	position:relative;
+	padding-left:1.4em;
+	padding-top:.1em;
+	cursor:pointer;
+	-webkit-user-select:none;
+	-moz-user-select:none;
+	-ms-user-select:none;
+	user-select:none}
+input[type=checkbox]+label:after,input[type=checkbox]+label:before,input[type=radio]+label:after,input[type=radio]+label:before{
+	content:'';
+	display:inline-block;
+	position:absolute}
+input[type=checkbox]+label:before,input[type=radio]+label:before
+{
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
+	width:1em;
+	height:1em;
+	border:1px solid #6c6c6c;
+	top:2px;
+	left:0
+}
+input[type=checkbox]+label:after,input[type=radio]+label:after
+{
+	width:0.6em;
+	height:0.6em;
+	top:0.32em;
+	left:0.22em;
+}
+input[type=checkbox]+label:hover:after,input[type=radio]+label:hover:after{background-color:#d2d2d2}
+input[type=checkbox]:checked+label:after,input[type=radio]:checked+label:after{background-color:#6c6c6c}
+input[type=radio]+label:after,input[type=radio]+label:before{border-radius:50%}
+html.main_hide{background-color:#c46b74}
+
+
+
+
+
+
+@media  (max-width:1190px){
+	.Car_ {
+    width: 90%;
+    }
+	
+	.Car_ .settle .select{
+	width: 45%;
+}
+
+ .Car_ .conAll{
+	width:100%;
+}
+	
+.Car_ .date_info {
+	width: 95%;
+	left: 3%;
+}	
+	
+}
+
+@media  (max-width:920px){
+	
+.Car_ {
+    width: 100%;
+    }
+	
+ .Car_ .TOPtitle{
+	padding: 0 1rem;
+}	
+
+.Car_ .total {
+    padding: 0 1rem;
+}	
+	._car3 {
+		width: 100%;
+    float: none;
+    margin: 0 auto 4rem auto;
+}
+}
+
+@media  (max-width:830px){
+	
+.Car_ thead {
+    display: none;
+}
+
+.Car_ th{
+	display: none;
+}
+
+.Car_ tr {
+    display: block;
+}
+
+.Car_ td {
+    display: inline-block;
+	width:100%;
+	float: left;
+	font-size: .9rem;
+	min-height: 2rem;
+}
+	
+.Car_ .cart-item .product-item {
+    width: 100%;
+	display: inline-block;
+}	
+
+.Car_ .cart-item .product-item .info {
+    display: inline-block;
+	width: 90%;
+    left: 60%;
+}
+
+    .Car_ .cart-item .mobi_pr::before {
+        content: "所需點數：";
+    }
+
+    .Car_ .cart-item .mobi_sa::before {
+        content: "數量：";
+    }
+
+    .Car_ .cart-item .mobi_da::before {
+        content: "兌換日期：";
+    }
+	
+	.Car_ .cart-item .mobi_fa::before {
+		content:"小計：";
+	}
+	
+	.Car_  .cart-item .quantity {
+	height: 3.25rem;
+	display: inline-block;
+	width: 100%;
+	float: left;
+	padding-top: .5rem;
+
+}
+	.Car_  .cart-item .quantity .info{
+	 display: inline-block;
+	 left: 50%;
+	}
+	
+	.Car_  .cart-item .last{
+		border-bottom: 1px solid #e5e5e5;
+		margin-bottom: 1rem;
+	}
+	
+	.Car_  .data_enter .input_txt{
+	width: 4rem;
+}
+	.Car_ .data_enter .addr {
+    width: 18rem;
+}
+	.Car_ .data_enter .name_in {
+    width: 8rem;
+}
+}
+
+
+@media  (max-width:660px){
+	
+	.Car_ .date_info {
+    padding: 1rem 0;
+	}
+	
+	.Car_ .data_title{
+	width:100%;
+}
+
+
+.Car_  .data_enter{
+	width: 100%;
+
+}
+
+.Car_ .Checkout {
+	width: 90%;
+	left: 1%;
+}
+	
+	.Car_ .ps {
+    line-height: 1.5rem;
+	display: inline-block;
+
+}
+	
+	.Car_ .data_enter .select {
+    width: 30%;
+}
+	
+
+	
+}
+
+@media  (max-width:430px){
+	
+.Car_ .cart-item .product-item .info {
+	width: 18rem;
+}
+}
+
+@media  (max-width:540px){
+	
+	
+ .Car_ .settle .select{
+	width: 60%;
+}
+
+.Car_ .conAll {
+    width: 100%;
+    border-left: 0px;
+	margin-top: 2rem;
+
+}
+
+.Car_ .settle {
+    width: 100%;
+    clear: both;
+    display: inline-block;
+    padding: 1rem;
+}	
+	
+.Car_ .settle  select, option {
+    width: 60%;
+    margin-top: 10px;
+}
+	
+.Car_ .__line {
+    width: 100%;
+    margin: 0;
+}
+	
+.Car_ .conAll_p2 {
+    width: 100%;
+}	
+
+.Conveni_LOGO {
+	width: 100%;
+}	
+	
+}
+
+
+@media  (max-width:370px){
+	.Car_ .flow {
+    font-size: .6em;
+    line-height: 3rem;
+	height: 3rem;
+}
+	.Car_ .flow .in {
+    font-size: 1rem;
+}
+	
+.Car_ .data_enter .input_txt {
+    width: 6rem;
+}	
+
+.Car_ .data_enter .addr {
+    width: 15rem;
+}
+
+.Car_ .Checkout {
+	width: 95%;
+    margin:.5rem;
+}	
+	
+.Car_ .date_info {
+    width: 100%;
+    padding: .3rem;
+}	
+	
+.Car_ .list_tit .select2 {
+    width: 90%;
+}	
+
+.Car_ .data_title {
+    width: 90%;
+}	
+	
+.Car_ .date_all {
+    padding-bottom: 2rem;
+}
+	
+	.Car_ .carPS{
+	padding: .5rem;
+
+}
+
+.Conveni_LOGO {
+	width: 100%;
+}		
+	
+}
+
