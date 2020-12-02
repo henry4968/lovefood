@@ -143,7 +143,10 @@
     // background-position: bottom 100%;
     min-width: 320px;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> jean
     // .bannerTitle{
     //     position: absolute;
     //     transform: translate(-50%, -50%) ;
@@ -159,6 +162,7 @@
     //     align-items: center;
     //     margin: auto;
     //     font-size: 25px;
+<<<<<<< HEAD
     //     line-height: 75px;　
     // }
     .bannerTitle{
@@ -180,6 +184,28 @@
     }
         // .h1{
         // }
+=======
+    //     line-height: 75px;　}
+        
+        .bannerTitle{
+            position: absolute;
+            transform: translate(-50%, -50%) ;
+            top: 50%;
+            left: 50%;
+            z-index: 5;   
+            background-color: #EFECB9;
+            width: 500px;
+            height: 300px;
+            // border: 1px solid rgb(230, 11, 11);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            font-size: 25px;
+            line-height: 75px;
+        }  
+    
+>>>>>>> jean
 
     .bannerRound{
         background-image: url("/img/21/donation_description/banner_round.png");
@@ -196,10 +222,7 @@
         // background-size: contain;
         background-position: center;
     }
-
 }
-
-
 
 .secondNav{
     // border: 1px solid rgb(20, 37, 189);
