@@ -852,8 +852,7 @@
   color: #727272;
   line-height: 55px;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 23%;
 }
@@ -889,6 +888,7 @@
   margin: auto;
   display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
 =======
@@ -900,9 +900,12 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+=======
+  flex-direction: row;
+  justify-content: space-between;
+>>>>>>> jeff
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 65%;
 }
@@ -1090,7 +1093,10 @@
   margin-top: 25px;
   transform: translate(0%, -15%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> jeff
 }
 
 @media all and (max-width: 1919px) {
@@ -1102,8 +1108,7 @@
 @media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter {
     width: 220px;
-    -webkit-transform: translate(0%, 0%);
-            transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
   }
 >>>>>>> e46c4e169339e2f70a1f157a65488fb07c343618
 }
@@ -1121,13 +1126,15 @@
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
   transform: translate(0%, -25%);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> jeff
 }
 
 @media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
-    -webkit-transform: translate(0%, -5%);
-            transform: translate(0%, -5%);
+    transform: translate(0%, -5%);
   }
 >>>>>>> e46c4e169339e2f70a1f157a65488fb07c343618
 }
@@ -1147,8 +1154,7 @@
   font-weight: 600;
   color: #605F5F;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 20%;
 }
@@ -1166,6 +1172,7 @@
   margin: auto;
   display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
 =======
@@ -1177,9 +1184,12 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+=======
+  flex-direction: row;
+  justify-content: space-between;
+>>>>>>> jeff
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
 }
@@ -1287,8 +1297,7 @@
   font-size: 26px;
   color: #666464;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 79%;
 }
@@ -1305,6 +1314,7 @@
   margin: auto;
   display: flex;
 <<<<<<< HEAD
+<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
 =======
@@ -1316,9 +1326,12 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+=======
+  flex-direction: row;
+  justify-content: space-between;
+>>>>>>> jeff
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 50%;
   top: 88%;
 }
@@ -1544,7 +1557,10 @@
   left: 139px;
   transform: rotate(-2deg);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> jeff
 }
 
 @media all and (max-width: 1599px) {
@@ -1644,7 +1660,10 @@
   left: 1032px;
   transform: rotate(2deg);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> jeff
 }
 
 @media all and (max-width: 1919px) {
