@@ -8,7 +8,6 @@ $minw700:701px;
   }
 }
 
-
 *{
   box-sizing: border-box;
   padding: 0;
@@ -22,7 +21,7 @@ body{
   main.memWrap{
     width: 100%;
     min-height: 700px;
-    height: 70vh;
+    // height: 70vh;
     // border: 1px solid black;
     background-image: url('../../img/03/bgrev1.png');  
     background-repeat: repeat;
@@ -31,13 +30,15 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 30px 0;
     div.memBigborder{
       width: 1200px;
-      height: 620px;
+      min-height: 620px;
       display: flex;
       justify-content: space-around;
       div.leftBorder{
         width: 25%;
+        height: 620px;
         border: 1px solid #B9AF94;
         box-shadow: 0px 6px 6px rgba(0,0,0,.16);
         border-radius: 13px;
@@ -341,8 +342,6 @@ body{
       // order
       div.rightBorderorder{
         width: 70%;
-        min-height: auto
-        ;
         border: 1px solid #FAFDDD;
         box-shadow: 6px 6px 6px rgba(0,0,0,.16);
         border-radius: 13px;
@@ -350,10 +349,11 @@ body{
         display: flex;
         justify-content: center;
         align-items: center;
+        padding: 30px 0;
         .centerBorder{
           border: 1px solid black;
           width: 90%;
-          min-height: 90%;
+          min-height: 100%;
           .searchBorder{
             margin-bottom: 20px;
             #searchBorder{
