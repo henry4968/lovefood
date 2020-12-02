@@ -999,25 +999,73 @@
         position: absolute;
         z-index: 2;
     }
-    img[data-id="ch05BgFlower01"]{
-        left: -100px;
-        bottom: -250px;
+    #ch05BgFlower01{
+        left: -5%;
+        bottom: -23%;
+        @include newRwd("desktop"){
+            width: 450px;
+            left: -5%;
+            bottom: -23%;
+        }
+        @include newRwd("laptop"){
+            left: -5%;
+            bottom: -5%;
+        }
+        @include newRwd("pad"){
+            width: 350px;
+        }
+        @include newRwd("bigPhone"){
+            width: 250px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 200px;
+        }
     }
-    img[data-id="ch05BgFlower02"]{
-        right: -150px;
-        top: 40px;
+    #ch05BgFlower02{
+        right: -8%;
+        top: 4%;
+        @include newRwd("desktop"){
+            width: 570px;
+            right: -15%;
+            top: 10%;
+        }
+        @include newRwd("pad"){
+            width: 470px;
+        }
+        @include newRwd("bigPhone"){
+            width: 370px;
+        @include newRwd("mediumPhone"){
+            width: 270px;
+            right: -33%;
+            top: 8%;
+        }
+        }
     }
     #ch05MemoContainer{
         width: 1500px;
         height: 650px;
+        @include newRwd("desktop"){
+            width: 1200px;
+        }
         @include newRwd("laptop"){
             width: 970px;
-            height: 720px;
+        }
+        @include newRwd("pad"){
+            width: 750px;
+        }
+        @include newRwd("bigPhone"){
+            width: 550px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 300px;
         }
         border: 13px solid #E6ECE2;
         box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
         margin: auto;
         position: relative;
+        @include newRwd("bigPhone"){
+            border: 7px solid #E6ECE2;
+        }
         #ch05MainTtile{
             width: 217px;
             height: 51px;
@@ -1059,25 +1107,71 @@
                 bottom: 20px;
             }
         }
-        div[data-id="ch05Memo01"]{
+        #ch05Memo01{
             position: absolute;
             top: 163px;
             left: 139px;
             transform: rotate(-2deg);
-            div[data-id="ch05MemoTape01"]{
+            @include newRwd("laptop"){
+                top: 193px;
+                left: 299px;    
+            }
+            @include newRwd("pad"){
+                top: 173px;
+                left: 219px;
+            }
+            @include newRwd("bigPhone"){
+                top: 173px;
+                left: 129px;
+            }
+            @include newRwd("mediumPhone"){
+                width: 212px;
+                height: 202px;
+                padding: 38px 0px 0px 25px;
+                top: 193px;
+                left: 39px;
+                h3{
+                    font-size: 16px;
+                    line-height: 22px;
+                }
+                p{
+                    width: 156px;
+                    font-size: 13px;
+                    line-height: 23px;
+                }
+                img{
+                    width: 43px;
+                    right: 20px;
+                    bottom: 10px;
+                }
+            }
+            #ch05MemoTape01{
                 width: 120px;
                 height: 30px;
                 background-color: #EDBEBE;
                 transform: rotate(45deg);
                 right: -40px;
                 top: 5px;
+                @include newRwd("mediumPhone"){
+                    width: 65px;
+                    height: 18px;
+                    right: -25px;
+                    top: 0px;
+                }
             }
         }
-        div[data-id="ch05Memo02"]{
+        #ch05Memo02{
             position: absolute;
             top: 267px;
             left: 594px;
-            div[data-id="ch05MemoTape02"]{
+            @include newRwd("desktop"){
+                top: 187px;
+                left: 654px;
+            }
+            @include newRwd("laptop"){
+                display: none;
+            }
+            #ch05MemoTape02{
                 width: 140px;
                 height: 25px;
                 background-color: #B4E3E3;
@@ -1085,18 +1179,22 @@
                 top: -12.5px;
             }
         }
-        div[data-id="ch05Memo03"]{
+        #ch05Memo03{
             position: absolute;
             top: 129px;
             left: 1032px;
             transform: rotate(2deg);
-            div[data-id="ch05MemoTape03"]{
+            @include newRwd("desktop"){
+                display: none;
+            }
+            #ch05MemoTape03{
                 width: 130px;
                 height: 35px;
                 background-color: #F4EACA;
                 transform: rotate(95deg);
                 left: -10px;
                 top: -35px;
+
             }
         }
         #ch05learnMoreButton{
@@ -1111,18 +1209,32 @@
             position: absolute;
             right: 50px;
             bottom: 30px;
+            @include newRwd("mediumPhone"){
+                width: 141px;
+                height: 41px;
+                padding: 0px 15px;
+                right: 31px;
+                bottom: 51px;
+            }
             &:hover{
                 background-color: #DD9E9E;
             }
             div{
                 img{
                     width: 40px;
+                    @include newRwd("mediumPhone"){
+                        width: 25px;
+                    }
                 }
             }
             span{
                 font-size: 35px;
                 line-height: 56px;
                 color: #FFFFFF;
+                @include newRwd("mediumPhone"){
+                    font-size: 20px;
+                    line-height: 28px;
+                }
             }
         }
     }

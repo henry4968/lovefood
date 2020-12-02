@@ -1440,14 +1440,75 @@
   z-index: 2;
 }
 
-#chapter05 img[data-id="ch05BgFlower01"] {
-  left: -100px;
-  bottom: -250px;
+#chapter05 #ch05BgFlower01 {
+  left: -5%;
+  bottom: -23%;
 }
 
-#chapter05 img[data-id="ch05BgFlower02"] {
-  right: -150px;
-  top: 40px;
+@media all and (max-width: 1919px) {
+  #chapter05 #ch05BgFlower01 {
+    width: 450px;
+    left: -5%;
+    bottom: -23%;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter05 #ch05BgFlower01 {
+    left: -5%;
+    bottom: -5%;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter05 #ch05BgFlower01 {
+    width: 350px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter05 #ch05BgFlower01 {
+    width: 250px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter05 #ch05BgFlower01 {
+    width: 200px;
+  }
+}
+
+#chapter05 #ch05BgFlower02 {
+  right: -8%;
+  top: 4%;
+}
+
+@media all and (max-width: 1919px) {
+  #chapter05 #ch05BgFlower02 {
+    width: 570px;
+    right: -15%;
+    top: 10%;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter05 #ch05BgFlower02 {
+    width: 470px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter05 #ch05BgFlower02 {
+    width: 370px;
+  }
+}
+
+@media all and (max-width: 991px) and (max-width: 767px) {
+  #chapter05 #ch05BgFlower02 {
+    width: 270px;
+    right: -33%;
+    top: 8%;
+  }
 }
 
 #chapter05 #ch05MemoContainer {
@@ -1460,10 +1521,39 @@
   position: relative;
 }
 
+@media all and (max-width: 1919px) {
+  #chapter05 #ch05MemoContainer {
+    width: 1200px;
+  }
+}
+
 @media all and (max-width: 1599px) {
   #chapter05 #ch05MemoContainer {
     width: 970px;
-    height: 720px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter05 #ch05MemoContainer {
+    width: 750px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter05 #ch05MemoContainer {
+    width: 550px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer {
+    width: 300px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter05 #ch05MemoContainer {
+    border: 7px solid #E6ECE2;
   }
 }
 
@@ -1515,7 +1605,7 @@
   bottom: 20px;
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] {
+#chapter05 #ch05MemoContainer #ch05Memo01 {
   position: absolute;
   top: 163px;
   left: 139px;
@@ -1523,7 +1613,52 @@
           transform: rotate(-2deg);
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo01"] div[data-id="ch05MemoTape01"] {
+@media all and (max-width: 1599px) {
+  #chapter05 #ch05MemoContainer #ch05Memo01 {
+    top: 193px;
+    left: 299px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter05 #ch05MemoContainer #ch05Memo01 {
+    top: 173px;
+    left: 219px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter05 #ch05MemoContainer #ch05Memo01 {
+    top: 173px;
+    left: 129px;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05Memo01 {
+    width: 212px;
+    height: 202px;
+    padding: 38px 0px 0px 25px;
+    top: 193px;
+    left: 39px;
+  }
+  #chapter05 #ch05MemoContainer #ch05Memo01 h3 {
+    font-size: 16px;
+    line-height: 22px;
+  }
+  #chapter05 #ch05MemoContainer #ch05Memo01 p {
+    width: 156px;
+    font-size: 13px;
+    line-height: 23px;
+  }
+  #chapter05 #ch05MemoContainer #ch05Memo01 img {
+    width: 43px;
+    right: 20px;
+    bottom: 10px;
+  }
+}
+
+#chapter05 #ch05MemoContainer #ch05Memo01 #ch05MemoTape01 {
   width: 120px;
   height: 30px;
   background-color: #EDBEBE;
@@ -1533,13 +1668,35 @@
   top: 5px;
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] {
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05Memo01 #ch05MemoTape01 {
+    width: 65px;
+    height: 18px;
+    right: -25px;
+    top: 0px;
+  }
+}
+
+#chapter05 #ch05MemoContainer #ch05Memo02 {
   position: absolute;
   top: 267px;
   left: 594px;
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo02"] div[data-id="ch05MemoTape02"] {
+@media all and (max-width: 1919px) {
+  #chapter05 #ch05MemoContainer #ch05Memo02 {
+    top: 187px;
+    left: 654px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter05 #ch05MemoContainer #ch05Memo02 {
+    display: none;
+  }
+}
+
+#chapter05 #ch05MemoContainer #ch05Memo02 #ch05MemoTape02 {
   width: 140px;
   height: 25px;
   background-color: #B4E3E3;
@@ -1547,7 +1704,7 @@
   top: -12.5px;
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] {
+#chapter05 #ch05MemoContainer #ch05Memo03 {
   position: absolute;
   top: 129px;
   left: 1032px;
@@ -1555,7 +1712,13 @@
           transform: rotate(2deg);
 }
 
-#chapter05 #ch05MemoContainer div[data-id="ch05Memo03"] div[data-id="ch05MemoTape03"] {
+@media all and (max-width: 1919px) {
+  #chapter05 #ch05MemoContainer #ch05Memo03 {
+    display: none;
+  }
+}
+
+#chapter05 #ch05MemoContainer #ch05Memo03 #ch05MemoTape03 {
   width: 130px;
   height: 35px;
   background-color: #F4EACA;
@@ -1585,6 +1748,16 @@
   bottom: 30px;
 }
 
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05learnMoreButton {
+    width: 141px;
+    height: 41px;
+    padding: 0px 15px;
+    right: 31px;
+    bottom: 51px;
+  }
+}
+
 #chapter05 #ch05MemoContainer #ch05learnMoreButton:hover {
   background-color: #DD9E9E;
 }
@@ -1593,10 +1766,23 @@
   width: 40px;
 }
 
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05learnMoreButton div img {
+    width: 25px;
+  }
+}
+
 #chapter05 #ch05MemoContainer #ch05learnMoreButton span {
   font-size: 35px;
   line-height: 56px;
   color: #FFFFFF;
+}
+
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05learnMoreButton span {
+    font-size: 20px;
+    line-height: 28px;
+  }
 }
 
 #chapter06 {
