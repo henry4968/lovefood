@@ -466,28 +466,40 @@ body{
               // border: 1px solid black;
               background-color: #EFF1E1;
               box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              padding: 20px 0px;
               .itemstatusBorder{
                 display: flex;
                 flex-direction: column;
+                width: 90%;
+                border: 1px solid blue;
                 .itemstopBorder{
                   display: flex;
-                  border: 1px solid blue;
+                  // border: 1px solid blue;
                   position: relative;
                   .fourcircleBorder{
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
+                    z-index: 2;
                     .orderestablishBorder{
-                      border: 1px solid red;
-  
+                      // border: 1px solid red;
+                      .stablishBorder{
+                        span{
+                          color: #ED8149;
+                          font-weight: normal;
+                        }
+                      }
                     }
                   }
                   .midlineBorder{
                     position: absolute;
                     top: 18px;
-                    // z-index: 0;
-                    border-bottom: 5px solid #ED8149;
-                    width: 95%;
+                    z-index: 1;
+                    border-bottom: 2px solid #ED8149;
+                    width: 100%;
                   }
                 }
               }
