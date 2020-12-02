@@ -144,23 +144,6 @@
     min-width: 320px;
 
 
-    // .bannerTitle{
-    //     position: absolute;
-    //     transform: translate(-50%, -50%) ;
-    //     top: 50%;
-    //     left: 50%;
-    //     z-index: 5;   
-    //     background-color: #EFECB9;
-    //     width: 500px;
-    //     height: 300px;
-    //     // border: 1px solid rgb(230, 11, 11);
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     margin: auto;
-    //     font-size: 25px;
-    //     line-height: 75px;　
-    // }
     .bannerTitle{
         position: absolute;
         transform: translate(-50%, -50%) ;
@@ -177,9 +160,21 @@
         margin: auto;
         font-size: 25px;
         line-height: 75px;
+        // @include 
+
+    }
+
+    @include newRwd
+
+    @media screen and (max-width: 1200px) and (min-width: 991px){
+        .bannerTitle{
+            width: 400px;
+            height: 300px;
+        }
     }
         // .h1{
         // }
+
 
     .bannerRound{
         background-image: url("/img/21/donation_description/banner_round.png");
@@ -234,10 +229,14 @@
         }
         
     }
-    
-    
-    
 }
+
+// @media screen and (max-width: 1200px) and (min-width: 991px){
+//     .bannerTitle{
+//         width: 400px;
+//         height: 300px;
+//     }
+// }
 
 
 .projectDetails{
@@ -916,7 +915,7 @@
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
-        height: 800px;
+        // height: 800px;
     
         .loveRecycleTitle{
             // border: rgb(44, 37, 37) 1px solid;
@@ -955,8 +954,8 @@
     
             .storyTitleTxt{
                 // border: rgb(38, 65, 212) 1px solid;
-                border-bottom: 3px solid #8B7A69;
-                padding: 20px 0 30px;
+                border-bottom: 2px solid #8B7A69;
+                padding: 20px 0 20px;
                 display: flex;
                 align-items: flex-end;
     
@@ -967,6 +966,7 @@
                 .storyDate{
                     font-size: 20px;
                     margin: 0 20px;
+                    transform: translateY(-3%);
                 }
             }
             .storyTxtArea{
@@ -978,22 +978,30 @@
                 .storyTxt{
                     font-size: 20px;
                     line-height: 30px;
-                    margin: 40px 0 0;
-                    width: 55%;
+                    margin: 30px 0 0;
+                    width: 70%;
                     height: 400px;
-                    overflow-y: scroll;
+                    overflow-y: auto;
+                    padding: 0 20px 0 0;
+                    text-align: justify;
+                    text-justify: inter-ideograph;
+                    -ms-text-justify: inter-ideograph; /*IE9*/
+                    -moz-text-align-last:justify; /*Firefox*/
+                    -webkit-text-align-last:justify; /*Chrome*/
                 }
+
+
+                
                 .storyImgOver{
     
                     border: 5px solid #EFDEDD;
                     border-radius: 10px;
                     background-color: #FEFEEA;
-                    // width: 500px;
-                    width: 35%;
-                    // max-height: 235px;
-                    height: 100%;
+                    width: 30%;
+                    height: 300px;
                     margin: 30px;
                     overflow: hidden;
+                    display: flex;
     
                     img{
                         // border: rgb(133, 22, 238) 1px solid;
