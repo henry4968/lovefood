@@ -471,7 +471,7 @@ $(document).ready(function () {
         enableDrag: false,
         responsive: [
             {
-                breakpoint: 1599,
+                breakpoint: 1299,
                 settings: {
                     item: 2,
                     slideMove: 1,
@@ -488,30 +488,6 @@ $(document).ready(function () {
                     item: 1,
                     slideMove: 1,
                     slideMargin: 6,
-                    controls: true,
-                    pager: true,
-                    freeMove: true,
-                    enableDrag: true,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    item: 1,
-                    slideMove: 1,
-                    slideMargin: 18,
-                    controls: true,
-                    pager: true,
-                    freeMove: true,
-                    enableDrag: true,
-                }
-            },
-            {
-                breakpoint: 575,
-                settings: {
-                    item: 1,
-                    slideMove: 1,
-                    slideMargin: 18,
                     controls: true,
                     pager: true,
                     freeMove: true,

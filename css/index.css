@@ -930,13 +930,6 @@
   margin-bottom: 40px;
 }
 
-@media all and (max-width: 991px) {
-  #chapter03 #ch03MainSolgan {
-    width: 750px;
-    font-size: 36px;
-  }
-}
-
 @media all and (max-width: 767px) {
   #chapter03 #ch03MainSolgan {
     width: 560px;
@@ -970,17 +963,17 @@
 
 @media all and (max-width: 1599px) {
   #chapter03 #solganCardsContainer {
+    width: 1180px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter03 #solganCardsContainer {
     width: 970px;
   }
 }
 
 @media all and (max-width: 991px) {
-  #chapter03 #solganCardsContainer {
-    width: 750px;
-  }
-}
-
-@media all and (max-width: 767px) {
   #chapter03 #solganCardsContainer {
     width: 490px;
   }
@@ -1003,6 +996,12 @@
   margin: auto;
 }
 
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .solganCard {
+    width: 325px;
+  }
+}
+
 @media all and (min-width: 319px) and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .solganCard {
     width: 300px;
@@ -1016,6 +1015,13 @@
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
   margin-top: calc(640px - 490px);
+}
+
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame {
+    width: 325px;
+    height: 365px;
+  }
 }
 
 @media all and (min-width: 319px) and (max-width: 575px) {
@@ -1038,6 +1044,14 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame {
+    width: 225px;
+    height: 225px;
+    border: 225px;
+  }
 }
 
 @media all and (min-width: 319px) and (max-width: 575px) {
@@ -1065,6 +1079,14 @@
   overflow: hidden;
 }
 
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
+    width: 200px;
+    height: 200px;
+    border-radius: 200px;
+  }
+}
+
 @media all and (min-width: 319px) and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
     width: 160px;
@@ -1084,6 +1106,13 @@
   margin-top: 180px;
 }
 
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardTitle {
+    font-size: 22px;
+    margin-top: 150px;
+  }
+}
+
 @media all and (min-width: 319px) and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardTitle {
     font-size: 18px;
@@ -1097,6 +1126,12 @@
   font-size: 20px;
   margin: auto;
   margin-top: 10px;
+}
+
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardParagraph {
+    font-size: 17px;
+  }
 }
 
 @media all and (min-width: 319px) and (max-width: 575px) {
@@ -1113,6 +1148,12 @@
   margin-top: 25px;
   -webkit-transform: translate(0%, -15%);
           transform: translate(0%, -15%);
+}
+
+@media all and (max-width: 1919px) {
+  #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter {
+    width: 240px;
+  }
 }
 
 @media all and (min-width: 319px) and (max-width: 575px) {

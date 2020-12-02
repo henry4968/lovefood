@@ -653,10 +653,6 @@
         line-height: 55px;
         margin-top: -150px;
         margin-bottom: 40px;
-        @include newRwd("bigPhone"){
-            width: 750px;
-            font-size: 36px;
-        }
         @include newRwd("mediumPhone"){
             width: 560px;
             font-size: 32px;
@@ -675,12 +671,12 @@
         justify-content: space-between;
         border: 1px solid red;
         @include newRwd("laptop"){
+            width: 1180px;
+        }
+        @include newRwd("pad"){
             width: 970px;
         }
         @include newRwd("bigPhone"){
-            width: 750px;
-        }
-        @include newRwd("mediumPhone"){
             width: 490px;
         }
         @include newRwd("smallPhone"){
@@ -694,6 +690,9 @@
                 height: 100%;
                 position: relative;
                 margin: auto;
+                @include newRwd("desktop"){
+                    width: 325px;
+                }
                 @include newRwd("smallPhone"){
                     width: 300px;
                 }
@@ -704,6 +703,10 @@
                 border: 4px solid #FEFA9C;
                 box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
                 margin-top: calc(640px - 490px);
+                @include newRwd("desktop"){
+                    width: 325px;
+                    height: 365px;
+                }
                 @include newRwd("smallPhone"){
                     width: 300px;
                     height: 350px;
@@ -718,6 +721,11 @@
                     transform: translate(-50%, -50%);
                     left: 50%;
                     display: flex;
+                    @include newRwd("desktop"){
+                        width: 225px;
+                        height: 225px;
+                        border: 225px;
+                    }
                     @include newRwd("smallPhone"){
                         width: 180px;
                         height: 180px;
@@ -733,6 +741,11 @@
                         display: flex;
                         justify-content: center;
                         overflow: hidden;
+                        @include newRwd("desktop"){
+                            width: 200px;
+                            height: 200px;
+                            border-radius: 200px;
+                        }
                         @include newRwd("smallPhone"){
                             width: 160px;
                             height: 160px;
@@ -748,6 +761,10 @@
                     font-weight: 600;
                     color: #FFFFFF;
                     margin-top: 180px;
+                    @include newRwd("desktop"){
+                        font-size: 22px;
+                        margin-top: 150px;
+                    }
                     @include newRwd("smallPhone"){
                         font-size: 18px;
                         margin-top: 130px;
@@ -759,6 +776,9 @@
                     font-size: 20px;
                     margin: auto;
                     margin-top: 10px;
+                    @include newRwd("desktop"){
+                        font-size: 17px;
+                    }
                     @include newRwd("smallPhone"){
                         font-size: 14px;
                     }
@@ -770,6 +790,9 @@
                     margin: auto;
                     margin-top: 25px;
                     transform: translate(0%, -15%);
+                    @include newRwd("desktop"){
+                        width: 240px;
+                    }
                     @include newRwd("smallPhone"){
                         width: 220px;
                         transform: translate(0%, 0%);
