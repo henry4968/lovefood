@@ -457,6 +457,11 @@ $(function () {
     });
 });
 
+// 控制箭頭
+$(document).ready(function () {
+    $(".fp-controlArrow").css("color", "red");
+});
+
 // lightslider控制項目：第三章
 $(document).ready(function () {
     $('#solganCarouselList').lightSlider({
