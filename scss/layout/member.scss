@@ -467,6 +467,7 @@ body{
               background-color: #EFF1E1;
               box-shadow: 3px 3px 6px rgba(0,0,0,.2);
               display: flex;
+              flex-direction: column;
               justify-content: center;
               align-items: center;
               padding: 20px 0px;
@@ -474,7 +475,7 @@ body{
                 display: flex;
                 flex-direction: column;
                 width: 90%;
-                border: 1px solid blue;
+                // border: 1px solid blue;
                 .itemstopBorder{
                   display: flex;
                   // border: 1px solid blue;
@@ -517,6 +518,7 @@ body{
                 .itembotBorder{
                   display: flex;
                   flex-wrap: wrap;
+                  margin-bottom: 15px;
                   .samebotBorder{
                     width: 50%;
                     margin-bottom: 20px;
@@ -533,6 +535,71 @@ body{
                     }
                   }
                 }
+              }
+              .itemsBorder{
+                // border: 1px solid black;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                .itemcontBorder{
+                  // border: 1px solid blue;  
+                  display: flex;
+                  flex-direction: column;
+                  width: 100%;
+                  margin-bottom: 5%;
+                  .itemconttopBorder{
+                    display: flex;
+                    margin-bottom: 15px;
+                    .itempicBorder{
+                      background-color: #fff;
+                      border: 2px solid #707070;
+                    }
+                    .middleitemsame{
+                      margin: 20px 20px;
+                      display: flex;
+                      span,p{
+                        font-size: 20px;
+                        font-weight: normal;
+                        color: #909090;
+                      }
+                    }
+                    .itempriceunitBorder{
+                      align-self: center;
+                      display: flex;
+                      justify-content: space-between;
+                      margin-top: 3%;
+                      margin-left: 5%;
+                      // border: 1px solid black;
+                      .unitpriceBorder{
+                        padding-right: 30px;
+                        p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                        }
+                        .unitpricetitle{
+                          color: #707070;
+                          margin-bottom: 7px;
+                        }
+                      }
+                      .countpriceBorder{
+                        p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                        }
+                        .countpricetitle{
+                          color: #707070;
+                          margin-bottom: 7px;
+                        }
+                      }
+                    }
+                  }
+                  hr{
+                    border: 1px solid #909090;
+                  }
+                }
+                
               }
             }
           }
