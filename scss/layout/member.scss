@@ -479,13 +479,23 @@ body{
                   display: flex;
                   // border: 1px solid blue;
                   position: relative;
+                  margin-bottom: 40px;
+                  width: 90%;
                   .fourcircleBorder{
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
                     z-index: 2;
                     .orderestablishBorder{
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
                       // border: 1px solid red;
+                      .orderestablish{
+                        width: 36px;
+                        margin-bottom: 10px;
+                      }
+                      
                       .stablishBorder{
                         span{
                           color: #ED8149;
@@ -497,9 +507,30 @@ body{
                   .midlineBorder{
                     position: absolute;
                     top: 18px;
+                    left: 50%;
+                    transform: translateX(-50%);
                     z-index: 1;
-                    border-bottom: 2px solid #ED8149;
+                    border-bottom: 3px solid #ED8149;
                     width: 100%;
+                  }
+                }
+                .itembotBorder{
+                  display: flex;
+                  flex-wrap: wrap;
+                  .samebotBorder{
+                    width: 50%;
+                    margin-bottom: 20px;
+                    span{
+                      font-size: 20px;
+                      font-weight: normal;
+                    }
+                    .itembotIdtitle,.itembotId,.itembotsellertitle,.itembotseller{
+                      color: #909090;
+                    }
+                    .gettimetitle,.gettime,.getlocationtitle,.getlocation{
+                      color: #ED8149;
+
+                    }
                   }
                 }
               }
