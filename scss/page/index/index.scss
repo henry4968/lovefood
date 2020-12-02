@@ -1253,10 +1253,14 @@
         width: 100%;
         height: 100vh;
         display: flex;
+        position: relative;
         #ch06contactUsArea{
             width: 50%;
             background-image: url(../../../img/22/index/ch06_bg01.png);
             padding: 235px 0px 0px 0px;
+            @include newRwd("laptop"){
+                width: 100%;
+            }
             #contactUsContainer{
                 width: 550px;
                 height: 630px;
@@ -1265,6 +1269,10 @@
                 box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 margin: auto;
                 display: flex;
+                @include newRwd("laptop"){
+                    width: 1010px;
+                    height: 525px;
+                }
                 #contactUsFrame{
                     width: 500px;
                     height: 580px;
@@ -1272,56 +1280,203 @@
                     margin: auto;
                     padding: 30px 85px 30px 85px;
                     text-align: center;
-                    h3{
-                        font-size: 30px;
-                        line-height: 40px;
-                        color: #D0C37F;
-                    }
-                    .ch06TtileDecoration{
-                        width: 275px;
-                        margin: auto;
-                        margin-bottom: 5px;
-                        border-bottom: 1px solid #D0C37F;
-                    }
-                    #connectionInfoContainer{
-                        width: 100%;
-                        height: 235px;
+                    @include newRwd("laptop"){
+                        width: 965px;
+                        height: 483px;
                         display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        margin: 60px 0px 80px 0px;
-                        .connectionInfo{
-                            display: flex;
-                            img{
-                                margin-right: 20px;
-                            }
-                            span{
+                        padding: 63px 129px 75px 148px;
+                    }
+                    #contactUsBlock{
+                        @include newRwd("laptop"){
+                            border: 1px solid blue;
+                            width: 242px;
+                            height: 354px;
+                            margin-right: 180px;
+                        }
+                        h3{
+                            font-size: 30px;
+                            line-height: 40px;
+                            color: #D0C37F;
+                            @include newRwd("laptop"){
+                                width: 200px;
                                 font-size: 24px;
-                                color: #D0C37F;
-                                display: flex;
-                                align-items: center;
+                                line-height: 33px;
+                                margin: auto;
                             }
-                            #ch06SearchBar{
-                                width: 245px;
+                        }
+                        .ch06TtileDecoration{
+                            width: 275px;
+                            margin: auto;
+                            margin-bottom: 5px;
+                            border-bottom: 1px solid #D0C37F;
+                            @include newRwd("laptop"){
+                                width: 198px;
+                            }
+                        }
+                        #connectionInfoContainer{
+                            width: 310px;
+                            height: 235px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            margin: 60px 0px 80px 0px;
+                            @include newRwd("laptop"){
+                                border: 1px solid black;
+                                width: 227px;
+                                height: 168px;
+                                margin: 40px 0px 60px 0px;
+                            }
+                            .connectionInfo{
+                                display: flex;
+                                img{
+                                    margin-right: 20px;
+                                }
+                                span{
+                                    font-size: 24px;
+                                    color: #D0C37F;
+                                    display: flex;
+                                    align-items: center;
+                                }
+                                #ch06SearchBar{
+                                    width: 245px;
+                                    height: 40px;
+                                    border: 2px solid #D0C37F;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding: 0px 0px 0px 10px;
+                                }
+                            }
+                            #address{
+                                text-align: left;
+                                img{
+                                    height: 40px;
+                                    @include newRwd("laptop"){
+                                        height: 25px;
+                                    }
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    } 
+                                }
+                            }
+                            #phone{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 23px;
+                                    }
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    } 
+                                }
+                            }
+                            #email{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 21px;
+                                    } 
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    } 
+                                }
+                            }
+                            #facebook{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 26px;
+                                    }
+                                }
+                                #ch06SearchBar{
+                                    @include newRwd("laptop"){
+                                        width: 177px;
+                                        height: 29px;
+                                        span{
+                                            font-size: 14px;
+                                        }
+                                        img{
+                                            height: 17px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #ch06IconContainer{
+                            width: 310px;
+                            display: flex;
+                            justify-content: space-between;
+                            @include newRwd("laptop"){
+                                width: 100%;
+                                img{
+                                    height: 46.5px;
+                                }
+                            }
+                            @include newRwd("bigPhone"){
+                                display: none;
+                            }
+                        }
+                    }
+                    #ch06GuideContainerForMobile{
+                        display: none;
+                        @include newRwd("laptop"){
+                            display: block;
+                            border: 1px solid red;
+                            width: 269px;
+                            height: 365px;
+                            #ch06ImgBlockForMobile{
+                                width: 100%;
+                                img{
+                                    width: 75%;
+                                }
+                            }
+                            h2{
+                                font-size: 33px;
+                                line-height: 27px;
+                                color: #D0C37F;
+                                margin: 30px 0px 20px 0px;
+                            }
+                            #ch06GuideBlockForMobile{
+                                width: 270px;
                                 height: 40px;
-                                border: 2px solid #D0C37F;
+                                margin: auto;
+                                padding: 0px 10px 0px 10px;
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
-                                padding: 0px 0px 0px 10px;
+                                span{
+                                    font-size: 15px;
+                                    color: #D0C37F;
+                                }
+                                #ch06GuideButtonForMobile{
+                                    width: 99px;
+                                    height: 29px;
+                                    border-radius: 10px;
+                                    background-color: #D0C37F;
+                                    padding: 0px 10px 0px 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                                    div{
+                                        img{
+                                            width: 15px;
+                                        }
+                                    }
+                                    span{
+                                        color: #FFFFFF;
+                                        font-size: 15px;
+                                        line-height: 21px;
+                                    }
+                                    &:hover{
+                                        background-color: #E3DAA9;
+                                    }
+                                }
                             }
                         }
-                        #address{
-                            text-align: left;
-                            img{
-                                height: 40px;
-                            }
-                        }
-                    }
-                    #ch06IconContainer{
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
                     }
                 }
             }
@@ -1330,6 +1485,10 @@
             width: 50%;
             display: inline-block;
             padding: 235px 0px 0px 0px;
+            @include newRwd("laptop"){
+                width: 0;
+                position: static;
+            }
             #ch06GuideContainer{
                 width: 500px;
                 height: 630px;
@@ -1349,24 +1508,31 @@
                     margin: 40px 0px 30px 0px;
                 }
                 #ch06GuideBlock{
-                    width: 465px;
+                    width: 485px;
                     height: 75px;
                     margin: auto;
                     display: flex;
+                    align-items: center;
                     justify-content: space-between;
                     span{
                         font-size: 30px;
                         color: #D0C37F;
                     }
                     #ch06GuideButton{
-                        width: 166px;
-                        height: 50px;
-                        border-radius: 4px;
-                        color: #FFFFFF;
+                        width: 190px;
+                        height: 56px;
+                        border-radius: 13px;
                         background-color: #D0C37F;
-                        font-size: 30px;
-                        line-height: 50px;
-                        text-align: center;
+                        padding: 0px 15px 0px 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                        span{
+                            color: #FFFFFF;
+                            font-size: 30px;
+                            line-height: 42px;
+                        }
                         &:hover{
                             background-color: #E3DAA9;
                         }
