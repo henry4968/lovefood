@@ -1542,18 +1542,14 @@
 @media all and (max-width: 991px) {
   #chapter05 #ch05MemoContainer {
     width: 550px;
+    border: 7px solid #E6ECE2;
   }
 }
 
 @media all and (max-width: 767px) {
   #chapter05 #ch05MemoContainer {
     width: 300px;
-  }
-}
-
-@media all and (max-width: 991px) {
-  #chapter05 #ch05MemoContainer {
-    border: 7px solid #E6ECE2;
+    height: 580px;
   }
 }
 
@@ -1567,6 +1563,15 @@
   text-align: center;
   margin: auto;
   margin-top: 75px;
+}
+
+@media all and (max-width: 767px) {
+  #chapter05 #ch05MemoContainer #ch05MainTtile {
+    font-size: 16px;
+    line-height: 10px;
+    width: 115px;
+    height: 21px;
+  }
 }
 
 #chapter05 #ch05MemoContainer .ch05Memo {
