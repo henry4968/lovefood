@@ -158,7 +158,7 @@
   display: none;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #header #hamburgerMenuButton {
     margin-left: 5px;
   }
@@ -179,7 +179,7 @@
           transition-duration: .35s;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #header #hamburgerMenuButton span, #header #hamburgerMenuButton span::before, #header #hamburgerMenuButton span::after {
     width: 36px;
     height: 3px;
@@ -195,7 +195,7 @@
   top: -15px;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #header #hamburgerMenuButton span::before {
     top: -10px;
   }
@@ -206,7 +206,7 @@
   top: 15px;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #header #hamburgerMenuButton span::after {
     top: 10px;
   }
@@ -463,7 +463,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #header #headerContentContainer #subNavigationForMobile {
     width: 55px;
     right: 20px;
@@ -477,7 +477,7 @@
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06 {
   width: 100%;
-  height: 100vh;
+  height: 100vh !important;
   overflow: hidden;
 }
 
@@ -612,7 +612,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
     top: 45%;
   }
@@ -734,7 +734,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter01 .slide .subSlogan {
     width: 100%;
     height: 253px;
@@ -767,13 +767,13 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter01 .slide #subSlogan02 .subSloganContent img {
     left: 190px;
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter01 .slide #subSlogan03 .subSloganContent img {
     left: 230px;
   }
@@ -808,7 +808,7 @@
   z-index: -1;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter01 #ch01Slide01 #ch01BgFruit {
     width: 750px;
     bottom: 0;
@@ -920,24 +920,37 @@
 #chapter03 #ch03MainSolgan {
   width: 581px;
   height: 103px;
-  margin-top: 130px !important;
   margin: auto;
   font-size: 36px;
   font-weight: 600;
   color: #727272;
   line-height: 55px;
-  margin-top: -150px;
-  margin-bottom: 40px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 23%;
+}
+
+@media all and (max-width: 1599px) {
+  #chapter03 #ch03MainSolgan {
+    font-size: 34px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter03 #ch03MainSolgan {
+    font-size: 32px;
+  }
 }
 
 @media all and (max-width: 767px) {
   #chapter03 #ch03MainSolgan {
     width: 560px;
-    font-size: 32px;
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #ch03MainSolgan {
     width: 310px;
     font-size: 18px;
@@ -958,7 +971,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 1px solid red;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 65%;
 }
 
 @media all and (max-width: 1599px) {
@@ -979,7 +996,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer {
     width: 300px;
   }
@@ -1002,14 +1019,14 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .solganCard {
     width: 300px;
   }
 }
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame {
-  width: 320x;
+  width: 300x;
   height: 380px;
   border: 4px solid #FEFA9C;
   -webkit-box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
@@ -1024,7 +1041,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame {
     width: 300px;
     height: 350px;
@@ -1054,7 +1071,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame {
     width: 180px;
     height: 180px;
@@ -1087,7 +1104,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .avatarDecorativeFrame .avatarBlock {
     width: 160px;
     height: 160px;
@@ -1113,7 +1130,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardTitle {
     font-size: 18px;
     margin-top: 130px;
@@ -1134,7 +1151,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03CardParagraph {
     font-size: 14px;
   }
@@ -1156,7 +1173,7 @@
   }
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter {
     width: 220px;
     -webkit-transform: translate(0%, 0%);
@@ -1168,7 +1185,7 @@
   width: 170px;
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame .ch03Shelter img {
     width: 150px;
   }
@@ -1179,7 +1196,7 @@
           transform: translate(0%, -25%);
 }
 
-@media all and (min-width: 319px) and (max-width: 575px) {
+@media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
     -webkit-transform: translate(0%, -5%);
             transform: translate(0%, -5%);
@@ -1200,8 +1217,17 @@
   font-size: 34px;
   font-weight: 600;
   color: #605F5F;
-  margin-top: 120px;
-  margin-bottom: 40px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 20%;
+}
+
+@media all and (max-width: 991px) {
+  #chapter04 h3 {
+    width: 750px;
+  }
 }
 
 #chapter04 #productCarouselContainer {
@@ -1219,6 +1245,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
 }
 
 @media all and (max-width: 1199px) {
@@ -1229,7 +1260,8 @@
 
 @media all and (max-width: 767px) {
   #chapter04 #productCarouselContainer {
-    width: 320px;
+    width: 350px;
+    top: 57%;
   }
 }
 
@@ -1332,7 +1364,11 @@
 #chapter04 h4 {
   font-size: 26px;
   color: #666464;
-  margin: 0px 0px 30px 0px;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 79%;
 }
 
 @media all and (max-width: 767px) {
@@ -1355,6 +1391,11 @@
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 50%;
+  top: 88%;
 }
 
 @media all and (max-width: 1599px) {
