@@ -1,7 +1,7 @@
 
 @import "../../base/var";
 @import "../../mixin/mixins";
-@import "/scss/base/fonts";
+@import "../../base/fonts";
 
 *{
     box-sizing: border-box;
@@ -144,6 +144,23 @@
     min-width: 320px;
 
 
+    // .bannerTitle{
+    //     position: absolute;
+    //     transform: translate(-50%, -50%) ;
+    //     top: 50%;
+    //     left: 50%;
+    //     z-index: 5;   
+    //     background-color: #EFECB9;
+    //     width: 500px;
+    //     height: 300px;
+    //     // border: 1px solid rgb(230, 11, 11);
+    //     display: flex;
+    //     justify-content: center;
+    //     align-items: center;
+    //     margin: auto;
+    //     font-size: 25px;
+    //     line-height: 75px;　
+    // }
     .bannerTitle{
         position: absolute;
         transform: translate(-50%, -50%) ;
@@ -159,14 +176,13 @@
         align-items: center;
         margin: auto;
         font-size: 25px;
-        line-height: 75px;　
-
-        .h1{
-        }
+        line-height: 75px;
     }
+        // .h1{
+        // }
 
     .bannerRound{
-        background-image: url(/img/21/donation_description/banner_round.png);
+        background-image: url("/img/21/donation_description/banner_round.png");
         position: absolute;
         bottom: 60px;
         z-index: 5;
@@ -297,10 +313,10 @@
                     }
                 }
 
-                img{
-                    // max-width: 380px;
+                // img{
+                //     max-width: 380px;
 
-                }
+                // }
             }    
 
         }   
@@ -842,7 +858,7 @@
                         min-height: 90px;
                     }
                 }
-                .readMpreButton{
+                .readMoreButton{
                     max-width: 275px;
                     max-height: 58px;
                     height: 100%;
@@ -863,7 +879,7 @@
                 }
 
                 
-                .readMpreButton:hover{
+                .readMoreButton:hover{
                     background-color: #f0d489;
                     cursor: pointer; 
                 }
@@ -872,9 +888,134 @@
     }
 }
 
-.foodItem{
-
+// 讓愛循環不止 跳窗
+.Overlay_All{
+    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0;
+    transition: all 0.5s;
+    .storyOverlay_Bg{
+        position: relative;
+        height: 100vh;
+        width: 100vw;
+        background-color: rgba(0,0,0, 0.3);
+    }
+    .storyOverlay{
+        // border: rgb(44, 37, 37) 1px solid;
+        max-width: 1000px;
+        // max-height: 730px;
+        border-radius: 87px;
+        background-color: #FFF8DD;
+        box-shadow: 3px 3px 30px #00000024;
+        padding: 60px;
+        margin: 0 auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        height: 800px;
+    
+        .loveRecycleTitle{
+            // border: rgb(44, 37, 37) 1px solid;
+            position: relative;
+            display: block;
+            text-align: center;
+            width: 400px;
+            // height: 100px;
+            margin: 20px auto 40px;
+    
+            img{
+                // border: red 1px solid;
+                display: block;
+                position: absolute;
+                bottom: 0px;
+                // left: -50px;
+            }
+    
+            h3{
+                font-size: 40px;
+                // display: block;
+            }
+        }
+        .readMore_close{
+            position: absolute;
+            right: 40px;
+            top: 40px;
+            &:hover{
+                opacity: 0.5;
+                cursor: pointer;
+            }
+        }
+    
+        .storyArea{
+            // border: red 1px solid;
+    
+            .storyTitleTxt{
+                // border: rgb(38, 65, 212) 1px solid;
+                border-bottom: 3px solid #8B7A69;
+                padding: 20px 0 30px;
+                display: flex;
+                align-items: flex-end;
+    
+                .storyTitle{
+                    font-size: 30px;
+    
+                }
+                .storyDate{
+                    font-size: 20px;
+                    margin: 0 20px;
+                }
+            }
+            .storyTxtArea{
+                // border: rgb(0, 255, 42) 1px solid;
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+    
+                .storyTxt{
+                    font-size: 20px;
+                    line-height: 30px;
+                    margin: 40px 0 0;
+                    width: 55%;
+                    height: 400px;
+                    overflow-y: scroll;
+                }
+                .storyImgOver{
+    
+                    border: 5px solid #EFDEDD;
+                    border-radius: 10px;
+                    background-color: #FEFEEA;
+                    // width: 500px;
+                    width: 35%;
+                    // max-height: 235px;
+                    height: 100%;
+                    margin: 30px;
+                    overflow: hidden;
+    
+                    img{
+                        // border: rgb(133, 22, 238) 1px solid;
+                        margin: auto;
+                        // max-height: 235px;
+                        width: 100%;
+                        padding: 10px;
+                    }
+                }
+            }
+        }
         
+    }
+}
+.Overlay_All.-on{
+    opacity: 1;
+    z-index: 10;
+}
+
+
+
+.foodItem{
     .title{
         // border: rgb(0, 255, 149) 1px solid;
         position: relative;

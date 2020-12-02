@@ -7,6 +7,7 @@
     <title>Love food│捐款說明</title>
     <!-- 自訂css -->
     <link rel="stylesheet" href="../css/donation_description.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -381,7 +382,7 @@
                                 <h3>「食」在的愛</h3>
                                 <p>丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世...</p>
                             </div>
-                            <div class="readMpreButton">
+                            <div class="readMoreButton">
                                 <img src="/img/21/donation_description/readMoreButton.png" alt="">
                                 <span>完整閱讀</span>
                             </div>
@@ -396,7 +397,7 @@
                                 <h3>讓愛分「饗」</h3>
                                 <p>賈(化名)一出生就患有罕見疾病，從小頻繁進出急診室...</p>
                             </div>
-                            <div class="readMpreButton" id="tt">
+                            <div class="readMoreButton" id="tt">
                                 <img src="/img/21/donation_description/readMoreButton.png" alt="">
                                 <span>完整閱讀</span>
                             </div>
@@ -411,11 +412,12 @@
                                 <h3>有愛就有希望</h3>
                                 <p>小必(化名)使用LOVE FOOD換取餐食的時候，露出了開心的笑容......　</p>
                             </div>
-                            <div class="readMpreButton">
+                            <div class="readMoreButton">
                                 <img src="/img/21/donation_description/readMoreButton.png" alt="">
                                 <span>完整閱讀</span>
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>
@@ -514,12 +516,42 @@
                 </div>
 
             </div>
-
-
-
         </div>
 
+        <!-- 讓愛循環不止 跳窗 -->
+        <div class="Overlay_All">
+            <div class="storyOverlay_Bg"></div>
+            <div class="storyOverlay">
+                <article>
+                    <div class="loveRecycleTitle">
+                        <img src="/img/21/donation_description/leaf_3.png" alt="">
+                        <h3>讓愛循環不止</h3>
+                    </div>
+                    <div class="storyArea">
+                        <div class="storyTitleTxt">
+                            <div class="storyTitle">「食」在的愛</div>
+                            <div class="storyDate">2020-02-06</div>
+                        </div>
+                        <img src="/img/21/donation_description/cross.png" alt="" class="readMore_close">
+                        <div class="storyTxtArea">
+                            <div class="storyTxt">
 
+                                　　丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世，因此媽媽帶著他和三歲的姐姐，先暫住在外婆家。除了照顧丹丹和姊姊外，也要幫忙照顧年紀大的爺爺，所以無法工作。現在僅靠著社福給的特境補助一萬多元生活，相當的拮据，常常面臨經濟短缺。
+                                <br><br>
+                                　　媽媽一見到家訪員，就一直請丹丹向我們說謝謝。媽媽說很感謝申請到LOVE
+                                FOOD團體的幫助，給予每個月穩定點數換取餐食，還可以選擇想吃的品項，重視到受助者的選擇權，減輕了生活的開銷，更感受到社會的愛心，有力量為孩子堅持下去。
+                                <br><br>
+                                　　感謝社會大眾支持，讓這些身處寒冬中的家庭感受到社會的溫暖，有力量渡過難關。
+                            </div>
+                            <div class="storyImgOver">
+                                <img src="/img/21/donation_description/story_1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_modal_close">
+                </article>
+            </div>
+        </div>
 
     </main>
 
@@ -540,13 +572,13 @@
         </div>
     </footer>
 
-    <div id="bb"
+    <!-- <div id="bb"
         style="border: 1px solid black;width: 100%; height: 100%; display: none; position: fixed; left: 50%; top: 50%; z-index: 50; transform: translate(-50%,-50%);">
         <div
             style="border: 1px solid black;width: 200px; height: 200px;position: fixed; left: 50%; top: 50%; transform: translate(-50%,-50%); background-color: #fff;">
             123
         </div>
-    </div>
+    </div> -->
 
     <!-- <script>
         window.addEventListener('load', doFirst);
