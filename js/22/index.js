@@ -9,7 +9,7 @@ $(function () {
         navigationPosition: 'right',
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
-        controlArrowColor: '#FFFFFF',
+        controlArrowColor: '#FBFFE0',
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
         responsiveSlides: true,

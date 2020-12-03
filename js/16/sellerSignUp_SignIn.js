@@ -91,6 +91,9 @@ new Vue({
             this.movesignUpmm = true
             this.movesignInmm = true
         },
+        tt(){
+            
+        },
     },
 });
 
