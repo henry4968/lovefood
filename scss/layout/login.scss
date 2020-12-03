@@ -8,7 +8,10 @@ $minw700:701px;
   }
 }
 
-
+@font-face{
+  font-family: "PingFangTC-Regular-2";
+  src: url("../../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
+}
 *{
   box-sizing: border-box;
   padding: 0;
