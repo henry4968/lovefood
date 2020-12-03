@@ -585,9 +585,11 @@
     position: relative;
     background-color: #B0BAA4;
     background-image: url(../../../img/22/index/ch02_bg_elephants.png);
-    background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: 0% 125%;
+    @include newRwd("desktop"){
+        background-position: 70% 125%;
+    }
     .conversionTitle{
         width: 850px;
         height: 53px;
@@ -597,22 +599,45 @@
         z-index: 2;
         font-size: 40px;
         color: #FFFADF;
+        @include newRwd("desktop"){
+            font-size: 30px;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 30%;
+        }
     }
     .conversionNumBlock{
+        border: 1px solid red;
         width: 1320px;
         margin-left: 500px;
         display: flex;
         align-items: baseline;
+        @include newRwd("desktop"){
+            width: 900px;
+            height: 263px;
+            margin: 0;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
         .conversionNum{
             font-size: 300px;
             color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 208px;
+            }
         }
         .conversionUnit{
             font-size: 40px;
             color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 30px;
+            }
         }
     }
     #conversionUnitIconBlock{
+        border: 1px solid blue;
         width: 120px;
         height: 450px;
         position: absolute;
@@ -621,6 +646,9 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include newRwd("desktop"){
+            
+        }
         @include newRwd("laptop"){
             width: 100%;
             height: 90px;
@@ -640,7 +668,6 @@
     position: relative;
     background-color: #C8DED2;
     text-align: center;
-    // padding-top: 150px;
     #ch03MainSolgan{
         width: 581px;
         height: 103px;
