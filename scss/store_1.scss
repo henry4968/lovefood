@@ -262,7 +262,7 @@
 #span{
     // border: 1px solid $R;
     background-color:$F3;
-    padding: 28px;
+    padding: 30px;
     font-size: 25px;
  }
  .selector_ul{
@@ -341,15 +341,15 @@
         width: 100%;
         height: 46px;
         #span{
-            font-size: 16px;
-            padding: 23px;
+            font-size: 25px;
+            padding: 21px;
         }
         .areaName{
             margin: 0 3px !important;
-            font-size: 16px;
+            font-size: 25px;
             input{
-                width: 15px !important;
-                height: 15px !important;
+                // width: 20px;
+                // height: 20px;
             }
             &:nth-child(4){
                 margin: 0px -2px !important;
@@ -376,11 +376,40 @@
         display: none;
     }
 }
-@media screen and (min-width:375px) and (max-width:404px){
-    #span{
-        padding: 21px 2px !important;
+/////////文字///////////
+@media screen and (min-width:392px) and (max-width:529px){
+    .selector_ul {
+        #span{
+            font-size: 16px;
+            padding: 23px 15px;
+    
+        }
+        .areaName{
+            font-size: 16px;
+            input{
+                width: 14px !important;
+                height: 14px !important;
+                }
+            }
     }
-}
+
+    .itemArea{
+        .itemName{
+            font-size: 16px;
+                input{
+                    width: 14px !important;
+                    height: 14px !important;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
 .wrap{
     // background-image: url(../img/bi2.png);
     background-image: url(../img/backgroud.png);
@@ -406,6 +435,7 @@
         display: flex;
     }
     .itemName{
+        line-height: 2;
         .itemName2Wth{
             border-right: 2px solid #F3E9C0;
             border-left: 2px solid #F3E9C0;
@@ -457,6 +487,40 @@
         margin-bottom: 25px;
     }
 }
+@media screen and (max-width:391px){
+    .selector_ul{
+        #span{
+            font-size: 12px;
+            padding: 24px 2px;
+    
+        }
+        .areaName{
+            font-size: 12px;
+            input{
+                width: 12px !important;
+                height: 12px !important;
+
+            }
+        }
+        
+            
+        
+    }
+    .itemArea{
+        .itemName{
+            font-size: 12px;
+                input{
+                    width: 12px !important;
+                    height: 12px !important;
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+
 
 
 @media screen and (min-width:320px) and (max-width:799px){
