@@ -7,6 +7,10 @@ $minw700:701px;
     }
   }
 }
+@font-face{
+  font-family: "PingFangTC-Regular-2";
+  src: url("../../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
+}
 
 *{
   box-sizing: border-box;
@@ -351,7 +355,7 @@ body{
         align-items: center;
         padding: 30px 0;
         .centerBorder{
-          border: 1px solid black;
+          // border: 1px solid black;
           width: 90%;
           min-height: 100%;
           .searchBorder{
@@ -366,6 +370,10 @@ body{
                   font-size: 24px;
                   font-weight: normal;
                   color: #7B807D;
+                  margin-right: 10px;
+                }
+                .whitespace{
+                  margin: 0px 10px;
                 }
                 #dateFrom{
                   height: 30px;
