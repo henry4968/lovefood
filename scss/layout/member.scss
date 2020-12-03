@@ -663,9 +663,11 @@ body{
         display: flex;
         flex-direction: column;
         align-items: center;
+        justify-content: space-between;
         padding: 1% 0;
         .toppointsBorder{
           width: 98%;
+          height: 35%;
           border-radius: 10px;
           background-color: #EFF1E1;
           box-shadow: 3px 3px 6px rgba(0,0,0,.2);
@@ -747,6 +749,49 @@ body{
                   &:hover{
                     background-color: #D4C6A5;
                   }
+              }
+            }
+          }
+        }
+        .bottompointsBorder{
+          width: 98%;
+          height: 60%;
+          border-radius: 10px;
+          background-color: #EFF1E1;
+          box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+          display: flex;
+          .bottommiddlepointsBorder{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // border: 1px solid black;
+            margin: 2% 3%;
+            .itempoint{
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 3%;
+              .iteminclude{
+                display: flex;
+                span{
+                  color: #909090;
+                  font-size: 20px;
+                  // border: 1px solid black;
+                }
+                .itempointcontent{
+                  margin-right: 10%;
+                }
+                .itempointidtitle,.itempointidcontent{
+                  color: blue;
+                }
+                .itempointplus{
+                  margin-left: 23%;
+                }
+              }
+              span.line{
+
+                width: 100%;
+                height: 3px;
+                border-top: 3px solid #B9AF94;
               }
             }
           }
