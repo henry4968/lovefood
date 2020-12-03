@@ -797,6 +797,20 @@ body{
           }
         }
       }
+      // memberApply
+
+      .rightBordermemberApply{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1% 0;
+      }
     }
   }
   @import 'memfooter';

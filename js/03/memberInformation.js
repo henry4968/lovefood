@@ -382,8 +382,63 @@ Vue.component('order', {
 
 Vue.component('points', {
   template: `
-    <div class="rightBorder">
-      2
+    <div class="rightBorderpoints">
+        <div class="toppointsBorder">
+          <div class="topmiddlepointsBorder">
+            <div class="specialmemberborder">
+              <span class="conditionDateTitle">
+                特殊會員狀態：
+              </span>
+              <img src="../img/03/specialpic.png">
+              <span class="conditionDateContent">
+                2020/09/28
+              </span>
+            </div>
+            <div class="specialmemberID">
+              <span class="specialmemIDtitle">
+                會員編號：
+              </span>
+              <span class="specialmemIDcontent">
+                AA2020103000001
+              </span>
+            </div>
+            <div class="specailmemberpoints">
+              <span class="specialmemtitle">
+                剩餘點數：
+              </span>
+              <span class="specialmemcontent">
+                946點
+              </span>
+              <span class="specialmemlimit">
+                點數請於2020/12/31 24:00 前使用完畢
+              </span>
+            </div>
+            <div class="specialduration">
+              <label class="specialdurationtitle">期間：</label>
+              <input id="durFrom" type="date">
+              <span class="durwhitespace">
+                &#32;&#126;&#32;
+              </span>
+              <input id="durTo" type="date">
+              <button id="dursearchBtnBorder" type="submit">查詢</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="bottompointsBorder">
+          <div class="bottommiddlepointsBorder">
+            <div class="itempoint">
+              <div class="iteminclude">
+                <span class="itempointitle">日期：</span>
+                <span class="itempointcontent">2020/11/05</span>
+                <span class="itempointidtitle">訂單編號：</span>
+                <span class="itempointidcontent">2020102000001</span>
+                <span class="itempointplus">+500點</span>
+              </div>
+              <span class="line"></span>
+            </div>
+          </div>
+        </div>
       </div>
       `,
 });
