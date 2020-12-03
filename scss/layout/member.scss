@@ -76,7 +76,7 @@ body{
               padding: 5px 0px;
               cursor: pointer;
               position: relative;
-              z-index: 2;
+              z-index: 1;
               &::after{
                 content: '';
                 border-bottom: 1.5px solid #B8AD91;
@@ -109,7 +109,7 @@ body{
               position: absolute;
               top: 0;
               left: -1;
-              z-index: 0;
+              z-index: -0;
               height: 100%;
               background-color: #F3E9C0;
               transform: skewX(-45deg);
@@ -134,6 +134,7 @@ body{
                 left: 0;
                 bottom: 0;
                 width: 100%;
+                z-index: -1;
                 animation: tran 1s ease 1;
               }
             }
