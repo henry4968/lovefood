@@ -241,94 +241,13 @@
 }
 
 
-.banner{
-    width: map-get($Wth, 100 );
-    height: 70vh;
-    background-color: $D3;
-    position: relative;
-    background-image: url(../img/07/banner_new.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-
-    
-    .lovefood{
-        width: map-get($Wth, 100 );
-        transform: translate(-10px,50px);
-        position: absolute;
-    }
-}
-.apple{
-    position: absolute;
-    top: 30%;
-    left: 20%;
-
-    img{
-        position: absolute;
-        width:40%;
-        top: 12%;
-        left:19%;
-        
-    }
-    // .spantext{
-    //     // border: 1px solid fuchsia;
-    // }
-}
-/////////apple_RWD
-@include store('bigPhone'){
-    .banner{
-        height: 50vh;
-    }
-    .apple{
-        top: 27%;
-        left: 10%;
-    }
-    
-}
-
-@include store ('mediumPhone'){
-    .apple{
-        top: 25%;
-        left: -2%;
-    }
-}
-
-@include rwd ('smallPhone'){
-    .span span.span1{
-        font-size: 30px;
-    }
-    .span span.span2{
-        font-size: 14px;
-    }
-}
-
-
-.span{
-    // border: 1px solid firebrick;
-    display: flex;
-    flex-direction: column;
-    width: map-get($Wth, 100 );
-    position: relative;
-    left: map-get($Wth, 50 );
-    margin-top: 14%;
-    .span1,.span2{
-        // border: 1px solid $P;
-        color: $D7;
-    }
-    .span1{
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    .span2{
-        font-size: 24px;
-
-    }
-}
-/////////benner結束//////////
 
 ////////搜尋區///////////////
 /////////800px以上//////////
-
+.part1{
+    position:relative;
+    top:84px;
+}
 
 #search{
     background-color: $FB;
@@ -407,7 +326,8 @@
 ///////////787以下/////////////////
 @media screen and (max-width:787px){
     #fm1{
-        display: flex; 
+        display: flex;
+
     }
     #search{
         display: flex;
@@ -537,10 +457,6 @@
         margin-bottom: 25px;
     }
 }
-// 個表單距離
-#Area1fm,#Area2fm,#Area3fm{
-    margin: 20px 0;
-}
 
 
 @media screen and (min-width:320px) and (max-width:799px){
@@ -580,6 +496,7 @@
         color: $ff;
         font-size: map-get($font, 22 );
         border: 1px solid $FB;
+        border-radius: 10px;
                     &:focus{
                         outline: $FB;
                         border: 1px solid $FB;
