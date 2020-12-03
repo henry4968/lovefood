@@ -166,7 +166,7 @@
                 let urlParams = new URLSearchParams(window.location.search);
                 const self = this;
                 $.ajax({
-                    url:'profileR.php',
+                    url:'PHP/member/profileR.php',
                     type:'GET',
                     data:{id:urlParams.get('id')},
                     success:function(res){
