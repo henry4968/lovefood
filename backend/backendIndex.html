@@ -5,11 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心--會員管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
      <div class="containerIndex">
         <div class="navWrapper">
-            <nav>`
+            <nav>
                 <div class="navLeft">
                     <img src="../img/23/loveFood_logo1.png" alt="">
                     <h1>管理中心</h1>
@@ -81,8 +83,12 @@
                     <header>
                         <form name="" action="" method="POST" >
                             <div>
-                                <span class="pageLabel-current">買家會員</span>
-                                <span class="pageLabel-others">賣家會員</span>
+                                <a href="backendIndex.html">
+                                    <span class="pageLabel-current">買家會員</span>
+                                </a>
+                                <a href="sellerProfile.html">
+                                    <span class="pageLabel-others">賣家會員</span>
+                                </a>
                             </div>
                             <div>
                                 <span>會員編號<input type="text" name="" size="15"></span>
@@ -107,115 +113,55 @@
                 </div>   
                 <main>
                     <table class="table">
-                        <tr>
-                            <th>序號</th>
-                            <th>會員編號</th>
-                            <th>會員帳號</th>
-                            <th>會員手機</th>
-                            <th>會員手機</th>
-                            <th>會員狀態</th>
-                            <th>功能鍵</th>
-                        </tr>
-                        <tr>
-                            <td>00001</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00003</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00004</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00005</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00006</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00007</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00008</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">編輯</button>
-                                <button class="btn-sb btn-green">停權</button>
-                            </td>
-                        </tr>
+                        <thead>
+                            <tr>
+                                <th>序號</th>
+                                <th>會員編號</th>
+                                <th>會員帳號</th>
+                                <th>會員手機</th>
+                                <th>會員手機</th>
+                                <th>會員狀態</th>
+                                <th>功能鍵</th>
+                            </tr>
+                        </thead>
+                        <tbody v-if = "tableData">
+                            <tr v-for="(data,key) in tableData">
+                                <td>{{key+1}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[2]}}</td>
+                                <td>{{data[5]}}</td>
+                                <td>{{data[7]}}</td>
+                                <td>{{data[9]}}</td>
+                                <td>
+                                    <form action="memberProfile.html" method="GET">
+                                        <button type="submit" class="btn-sb btn-green">編輯</button>
+                                        <input type="hidden" name="id" :value="data[0]">
+                                    </form>
+                                </td>
+                               
+                            </tr>
+
+                        </tbody>
                     </table>
                 </main>
             </div>
         </div>    
     </div>
+    <script>
+        const app = new Vue({
+        el: '.containerIndex',
+        data() {
+            return {
+                tableData:null,
+            }
+        },
+        beforeMount(){
+            const self = this;
+            $.getJSON('memberR.php',function(res){
+                self.tableData = res;
+            });
+        },
+        })
+      </script>
 </body>
 </html>
