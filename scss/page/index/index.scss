@@ -88,7 +88,7 @@
             display: block;
         }
     }
-    // 水平滑動漢堡選單變色用父層開始
+    // 水平、垂直滑動漢堡選單變色用父層開始
     .hamburgerMenuColorForCh01{
         span, span::before, span::after{
             background-color: #FDFBBA;
@@ -101,10 +101,31 @@
     }
     .hamburgerMenuColorForCh02{
         span, span::before, span::after{
-            background-color: #FFFFFF;
+            background-color: #73805D;
         }
     }
-    // 水平滑動漢堡選單變色用父層結束
+    .hamburgerMenuColorForCh03{
+        span, span::before, span::after{
+            background-color: #96B3A3;
+        }
+    }
+    .hamburgerMenuColorForCh04{
+        span, span::before, span::after{
+            background-color: #939F8A;
+        }
+    }
+    .hamburgerMenuColorForCh05{
+        span, span::before, span::after{
+            background-color: #8B7A69;
+        }
+    }
+    .hamburgerMenuColorForCh06{
+        span, span::before, span::after{
+            background-color: #D0C37F;
+        }
+    }
+    // 水平、垂直滑動漢堡選單變色用父層結束
+
     
     // 漢堡選單結束
 
@@ -296,7 +317,6 @@
     100% { opacity: 0; }
   }
 
-
 // 第一章：「組織訴求」開始
 #chapter01{
     .slide{
@@ -372,7 +392,7 @@
                 top: 35%;
             }
             @include newRwd("bigPhone"){
-                top: 38%;
+                top: 40%;
                 h3{
                     font-size: 20px;
                 }
@@ -381,7 +401,6 @@
                 }
             }
             @include newRwd("newSmallPhone"){
-                top: 45%;
                 h3{
                     font-size: 16px;
                 }
@@ -435,6 +454,7 @@
             @include newRwd("pad"){
                 width: 970px;
                 height: 350px;
+                top: 60%;
                 .subSloganContent{
                     h3{
                         font-size: 23px;
@@ -459,6 +479,7 @@
             @include newRwd("bigPhone"){
                 width: 100%;
                 height: 350px;
+                top: 60%;
                 .subSloganContent{
                     position: relative;
                     margin: auto;
@@ -590,6 +611,10 @@
     @include newRwd("desktop"){
         background-position: 70% 125%;
     }
+    @include newRwd("mediumPhone"){
+        background-size: 900px;
+        background-position: 75% 90%;
+    }
     .conversionTitle{
         width: 850px;
         height: 53px;
@@ -625,7 +650,6 @@
         } 
     }
     .conversionNumBlock{
-        border: 1px solid red;
         width: 1320px;
         margin-left: 500px;
         display: flex;
@@ -648,6 +672,9 @@
             height: 200px;
             flex-direction: column;
             align-items: flex-end;
+        }
+        @include newRwd("mediumPhone"){
+            left: 46%;
         }
         @include newRwd("newSmallPhone"){
                 width: 312px;
@@ -684,7 +711,6 @@
         }
     }
     #conversionUnitIconBlock{
-        border: 1px solid blue;
         width: 120px;
         height: 450px;
         position: absolute;
@@ -708,7 +734,7 @@
         @include newRwd("pad"){
             width: 100%;
             height: 90px;
-            padding: 20px 175px 0px 175px;
+            padding: 5px 175px 5px 175px;
             background-color: #B0BAA4;
             top: auto;
             left: 0;
@@ -779,7 +805,7 @@
             width: 490px;
         }
         @include newRwd("newSmallPhone"){
-            width: 300px;
+            width: 375px;
         }
         #solganCarouselList{
           .solganCarouseItem{
@@ -928,8 +954,6 @@
         font-size: 34px;
         font-weight: 600;
         color: #605F5F;
-        // margin-top: 120px;
-        // margin-bottom: 40px;
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;

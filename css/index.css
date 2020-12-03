@@ -227,7 +227,23 @@
 }
 
 #header .hamburgerMenuColorForCh02 span, #header .hamburgerMenuColorForCh02 span::before, #header .hamburgerMenuColorForCh02 span::after {
-  background-color: #FFFFFF;
+  background-color: #73805D;
+}
+
+#header .hamburgerMenuColorForCh03 span, #header .hamburgerMenuColorForCh03 span::before, #header .hamburgerMenuColorForCh03 span::after {
+  background-color: #96B3A3;
+}
+
+#header .hamburgerMenuColorForCh04 span, #header .hamburgerMenuColorForCh04 span::before, #header .hamburgerMenuColorForCh04 span::after {
+  background-color: #939F8A;
+}
+
+#header .hamburgerMenuColorForCh05 span, #header .hamburgerMenuColorForCh05 span::before, #header .hamburgerMenuColorForCh05 span::after {
+  background-color: #8B7A69;
+}
+
+#header .hamburgerMenuColorForCh06 span, #header .hamburgerMenuColorForCh06 span::before, #header .hamburgerMenuColorForCh06 span::after {
+  background-color: #D0C37F;
 }
 
 #header #navigationForMobile {
@@ -602,7 +618,7 @@
 
 @media all and (max-width: 991px) {
   #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
-    top: 38%;
+    top: 40%;
   }
   #chapter01 .slide #mainSlogan02 h3, #chapter01 .slide #mainSlogan03 h3, #chapter01 .slide #mainSlogan04 h3 {
     font-size: 20px;
@@ -613,9 +629,6 @@
 }
 
 @media all and (max-width: 575px) {
-  #chapter01 .slide #mainSlogan02, #chapter01 .slide #mainSlogan03, #chapter01 .slide #mainSlogan04 {
-    top: 45%;
-  }
   #chapter01 .slide #mainSlogan02 h3, #chapter01 .slide #mainSlogan03 h3, #chapter01 .slide #mainSlogan04 h3 {
     font-size: 16px;
   }
@@ -682,6 +695,7 @@
   #chapter01 .slide .subSlogan {
     width: 970px;
     height: 350px;
+    top: 60%;
   }
   #chapter01 .slide .subSlogan .subSloganContent h3 {
     font-size: 23px;
@@ -707,6 +721,7 @@
   #chapter01 .slide .subSlogan {
     width: 100%;
     height: 350px;
+    top: 60%;
   }
   #chapter01 .slide .subSlogan .subSloganContent {
     position: relative;
@@ -849,6 +864,13 @@
   }
 }
 
+@media all and (max-width: 767px) {
+  #chapter02 {
+    background-size: 900px;
+    background-position: 75% 90%;
+  }
+}
+
 #chapter02 .conversionTitle {
   width: 850px;
   height: 53px;
@@ -899,7 +921,6 @@
 }
 
 #chapter02 .conversionNumBlock {
-  border: 1px solid red;
   width: 1320px;
   margin-left: 500px;
   display: -webkit-box;
@@ -941,6 +962,12 @@
     -webkit-box-align: end;
         -ms-flex-align: end;
             align-items: flex-end;
+  }
+}
+
+@media all and (max-width: 767px) {
+  #chapter02 .conversionNumBlock {
+    left: 46%;
   }
 }
 
@@ -1004,7 +1031,6 @@
 }
 
 #chapter02 #conversionUnitIconBlock {
-  border: 1px solid blue;
   width: 120px;
   height: 450px;
   position: absolute;
@@ -1041,7 +1067,7 @@
   #chapter02 #conversionUnitIconBlock {
     width: 100%;
     height: 90px;
-    padding: 20px 175px 0px 175px;
+    padding: 5px 175px 5px 175px;
     background-color: #B0BAA4;
     top: auto;
     left: 0;
@@ -1149,7 +1175,7 @@
 
 @media all and (max-width: 575px) {
   #chapter03 #solganCardsContainer {
-    width: 300px;
+    width: 375px;
   }
 }
 
