@@ -464,7 +464,7 @@ body{
                   padding: 15px 0;
                   font-weight: 400;
                 }
-                .orderid{
+                p.orderid{
                   color: blue;
                   cursor: pointer;
                 }
@@ -539,7 +539,6 @@ body{
                     }
                     .gettimetitle,.gettime,.getlocationtitle,.getlocation{
                       color: #ED8149;
-
                     }
                   }
                 }
@@ -651,6 +650,20 @@ body{
             }
           }
         }
+      }
+
+      // points
+
+      .rightBorderpoints{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
       }
     }
   }

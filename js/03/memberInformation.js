@@ -233,19 +233,19 @@ Vue.component('order', {
 
                 <div class="itembotBorder">
                   <div class="samebotBorder itembotId">
-                    <span class="itembotIdtitle">訂單編號 : </span>
+                    <span class="itembotIdtitle">訂單編號: </span>
                     <span class="itembotId">2020110100001</span>
                   </div>
                   <div class="samebotBorder gettime">
-                    <span class="gettimetitle">取貨截止時間：</span>
-                    <span class="gettime">2020/11/01 20：59分</span>
+                    <span class="gettimetitle">取貨截止時間: </span>
+                    <span class="gettime">2020/11/01 20:59分</span>
                   </div>
                   <div class="samebotBorder itembotseller">
-                    <span class="itembotsellertitle">賣家：</span>
+                    <span class="itembotsellertitle">賣家: </span>
                     <span class="itembotseller">全家天母店</span>
                   </div>
                   <div class="samebotBorder getlocation">
-                    <span class="getlocationtitle">取貨地點：</span>
+                    <span class="getlocationtitle">取貨地點: </span>
                     <span class="getlocation">捷運南京復興站8號出口</span>
                   </div>
                 </div>
