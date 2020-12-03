@@ -1,0 +1,288 @@
+﻿@charset "utf-8";
+/* CSS Document */
+
+body, html {
+    color: #000000;
+}
+
+
+a:link {
+    color: #000;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #666666;
+    text-decoration: none;
+}
+
+a:active {
+    color: #000;
+    text-decoration: none;
+}
+
+
+
+
+
+/*******願望列表********/
+
+
+.WishList {
+    margin-top: 4em;
+    margin-bottom: 2em;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+    .WishList .product-list {
+        position: relative;
+        padding: 2em 1.5em 1em 1.5em;
+        width: calc(20%);
+        float: left;
+    }
+
+        .WishList .product-list img {
+            width: 100%;
+        }
+
+        .WishList .product-list ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .WishList .product-list .name {
+            padding: .5em;
+            font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+            font-size: .9rem;
+            line-height: 1.2em;
+            height: 3.6em;
+            width: 100%;
+            display: inline-block;
+        }
+
+        .WishList .product-list .price {
+            padding: .5em;
+            font-family: Helvetica, Arial, "sans-serif";
+            font-size: .9rem;
+            width: 100%;
+            line-height: 1.2em;
+            display: inline-block;
+        }
+
+        .WishList .product-list .no- {
+            text-decoration: line-through;
+            color: #BCBCBC;
+            margin-right: .5rem;
+        }
+
+        .WishList .product-list .all_ {
+            display: block;
+            margin-top: .5em;
+            margin-bottom: 2rem;
+            height: 2.8em;
+            width: 100%;
+        }
+
+        .WishList .product-list .size {
+            font-size: 0.8rem;
+            font-family: Helvetica, Arial, "sans-serif";
+            line-height: 1.6em;
+            height: 1.6em;
+            padding: 0 .5em;
+            display: block;
+            text-align: center;
+            cursor: pointer;
+            float: left;
+        }
+
+
+
+
+        .WishList .product-list .no {
+            color: #D8D8D8;
+            font-size: 0.8rem;
+            font-family: Helvetica, Arial, "sans-serif";
+            line-height: 1.6em;
+            height: 1.6em;
+            padding: 0 .5em;
+            display: block;
+            text-align: center;
+            float: left;
+        }
+
+        .WishList .product-list a:link {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .WishList .product-list a:visited {
+            color: #000;
+            text-decoration: none;
+        }
+
+        .WishList .product-list a:hover {
+            color: #666666;
+            text-decoration: underline;
+        }
+
+        .WishList .product-list a:active {
+            color: #000;
+            text-decoration: underline;
+        }
+
+
+        /******按鈕*******/
+
+        .WishList .product-list .sami {
+            width: 100%;
+            height: 2rem;
+            font-size: .9rem;
+            background-color: #eb74a4;
+            color: #FFFFFF;
+            text-align: center;
+            margin-top: .3rem;
+            border: 1px solid #eb74a4;
+            outline: none;
+            font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+            cursor: pointer;
+            -webkit-font-smoothing: antialiased;
+        }
+
+            .WishList .product-list .sami:hover {
+                background-color: #FFFFFF;
+                color: #eb74a4;
+                border: 1px solid #eb74a4;
+            }
+
+/******下拉選單*******/
+
+select, option {
+    font-family: Helvetica,"Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+    display: inline-block;
+    width: 8rem;
+    height: 2.4em;
+    border: 1px solid #a5a5a5;
+    border-radius: 0;
+    -webkit-appearance: none;
+    font-size: .9rem;
+    /* line-height: 2.4em;*/
+    background: url(../images/arrow.png) no-repeat 5.5px #fff;
+    margin-right: 5px;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    background-position: right;
+    outline: none;
+    padding: 2px 6px;
+}
+
+    select::-ms-expand {
+        display: none;
+    }
+
+
+
+/*******頁碼*******/
+.page_n {
+    height: 1.2rem;
+    margin: 1rem auto 2rem;
+    text-align: center;
+    font-size: 1rem;
+    font-family: Helvetica, "Microsoft JhengHei", "Helvetica Neue", Arial, "sans-serif";
+    clear: both;
+}
+
+    .page_n ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+
+    .page_n li {
+        display: block;
+        padding: .8rem;
+        float: left;
+    }
+
+
+    .page_n a:hover {
+        text-decoration: underline;
+    }
+
+@media (max-width: 1180px) {
+
+    .WishList .product-list .sami {
+        width: 100%;
+        margin: 1rem auto;
+        float: left;
+        height: 2rem;
+    }
+
+
+    .WishList {
+        width: 97%;
+    }
+}
+
+@media (max-width: 900px) {
+
+    .WishList .product-list {
+        position: relative;
+        padding: .5em 1em 1em 1em;
+        width: calc(28% );
+        float: left;
+    }
+}
+
+@media (max-width: 768px) {
+
+
+
+    .WishList .product-list .name {
+        font-size: .9rem;
+        line-height: 1.2em;
+        height: 3.6em;
+        /*padding: .2em;*/
+    }
+
+
+
+    .page_n {
+        width: 100%;
+        text-align: center;
+    }
+
+    .Like_ {
+        width: 1.6rem;
+        height: 1.6rem;
+        display: block;
+        margin: .5rem .1rem;
+    }
+
+        .Like_ img {
+            width: 100%;
+            height: 100%;
+            text-align: left;
+        }
+}
+
+@media (max-width: 600px) {
+
+    .WishList .product-list {
+        position: relative;
+        padding: .5em 1em 1em 1em;
+        width: calc(40% );
+        float: left;
+    }
+
+    select, option {
+        width: 60%;
+    }
+}

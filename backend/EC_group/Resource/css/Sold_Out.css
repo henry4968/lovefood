@@ -1,0 +1,117 @@
+@charset "utf-8";
+/* CSS Document */
+
+/****商品清單用*****/
+
+
+ .collection .product-list .Sold_Out {
+	position: absolute;
+     padding:0em 2em 0em 0em;
+	 width: calc(100%);
+
+	display: block;
+    text-align: center;
+    z-index: 999;
+}
+
+ .collection .product-list .Sold_Out > span {
+	 font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	position: relative;
+  background-color: hsla(240, 0%, 50%, 0.6);
+    color: #ffffff;
+    font-size: .8rem;
+    vertical-align: top;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+	margin-top: 50%;
+	height: 5rem;
+	line-height: 5rem;
+	display: block;
+}
+
+
+
+/****願望清單用*****/
+
+
+ .WishList .product-list .Sold_Out {
+	position: absolute;
+     padding:0em 3em 0em 0em;
+	 width: calc(100%);
+
+	display: block;
+    text-align: center;
+    z-index: 999;
+}
+
+ .WishList .product-list .Sold_Out > span {
+	 font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, "sans-serif";
+	position: relative;
+  background-color: hsla(240, 0%, 50%, 0.6);
+    color: #ffffff;
+    font-size: .8rem;
+    vertical-align: top;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+	margin-top: 50%;
+	height: 5rem;
+	line-height: 5rem;
+	display: block;
+}
+
+
+@media (max-width: 850px){
+ .WishList .product-list .Sold_Out {
+     padding:0em 2em 0em 0em;
+}
+ .WishList .product-list .Sold_Out > span {
+	margin-top: 45%;
+}
+}
+
+
+/********************
+.Sold_Out {
+    position: absolute;
+	width: 60%;
+    top: 33%;
+	left: 20%;
+    text-align: center;
+    z-index: 999;
+}
+
+.Sold_Out > span {
+	display: inline-block;
+	width: 60%;
+    padding: .3rem;
+    background: #FF8E38;
+    color: #ffffff;
+    font-size: .5rem;
+    line-height: .5rem;
+    vertical-align: top;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+	line-height: .8rem;
+	
+}
+
+.Sold_ {
+    position: relative;
+	width: 100%;
+    top: -1.3rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+	padding: .3rem;
+    display: inline-block;
+}
+
+.Sold_ > span {
+	display: inline-block;
+	width: 100%;
+    padding: .3rem;
+    color: #ffffff;
+    vertical-align: top;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}

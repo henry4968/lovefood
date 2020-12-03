@@ -1,47 +1,36 @@
 // 數字跑
 
-// $(function () {
-//     $('#overFood').counterUp({
-//         delay: 10,
-//         time: 2000
-//     });
-// });
-// $(function () {
-//     $('#joinShop').counterUp({
-//         delay: 10,
-//         time: 2000
-//     });
-// });
-// $(function () {
-//     $('#helpChild').counterUp({
-//         delay: 10,
-//         time: 2000
-//     });
-// });
-// $(function () {
-//     $('#goalmoney').counterUp({
-//         delay: 10,
-//         time: 2000
-//     });
-// });
+$(function () {
+    $('#overFood').counterUp({
+        delay: 10,
+        time: 2000
+    });
+});
+$(function () {
+    $('#joinShop').counterUp({
+        delay: 10,
+        time: 2000
+    });
+});
+$(function () {
+    $('#helpChild').counterUp({
+        delay: 10,
+        time: 2000
+    });
+});
+$(function () {
+    $('#goalmoney').counterUp({
+        delay: 10,
+        time: 2000
+    });
+});
 
-// window.addEventListener('load', doFirst);
-// function doFirst() {
-//     readMpreButton = document.getElementsByClassName('readMpreButton')[0];
-//     console.log(readMpreButton);
-//     readMpreButton.addEventListener('click', function () {
-//         main = document.getElementById('main');
-//         main.style.filter = 'blur(3px)';
-//         bb = document.getElementById('bb');
-//         bb.style.display = 'block';
-//     });
-// }
 
-// 跳窗
+// 跳窗1
 $(function () {
 
     // 開啟 Modal 彈跳視窗
-    $("div.readMoreButton").on("click", function () {
+    $("#readMoreButton_1").on("click", function () {
         // alert("yes!!");
         $("#Overlay_All_1").addClass("-on");
     });
@@ -49,7 +38,6 @@ $(function () {
     // 關閉 Modal
     $("img.readMore_close").on("click", function () {
         $("#Overlay_All_1").removeClass("-on");
-
     });
 
     // 點擊背景部分關閉
@@ -58,3 +46,46 @@ $(function () {
     });
 
 });
+
+// 跳窗2
+$(function () {
+
+    // 開啟 Modal 彈跳視窗
+    $("#readMoreButton_2").on("click", function () {
+        // alert("yes!!");
+        $("#Overlay_All_2").addClass("-on");
+    });
+
+    // 關閉 Modal
+    $("img.readMore_close").on("click", function () {
+        $("#Overlay_All_2").removeClass("-on");
+    });
+
+    // 點擊背景部分關閉
+    $(".storyOverlay_Bg").on("click", function () {
+        $("#Overlay_All_2").removeClass("-on");
+    });
+
+});
+
+// 跳窗3
+$(function () {
+
+    // 開啟 Modal 彈跳視窗
+    $("#readMoreButton_3").on("click", function () {
+        // alert("yes!!");
+        $("#Overlay_All_3").addClass("-on");
+    });
+
+    // 關閉 Modal
+    $("img.readMore_close").on("click", function () {
+        $("#Overlay_All_3").removeClass("-on");
+    });
+
+    // 點擊背景部分關閉
+    $(".storyOverlay_Bg").on("click", function () {
+        $("#Overlay_All_3").removeClass("-on");
+    });
+
+});
+

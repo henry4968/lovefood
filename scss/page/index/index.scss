@@ -400,7 +400,6 @@
             left: 734px;
             padding: 61px 99px 53px 61px;
             .subSloganContent{
-                // border: 3px solid red;
                 width: 662px;
                 h3{
                     font-size: 30px;
@@ -614,7 +613,6 @@
         }
     }
     #conversionUnitIconBlock{
-        border: 1px solid red;
         width: 120px;
         height: 450px;
         position: absolute;
@@ -623,7 +621,7 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include newRwd("bigPhone"){
+        @include newRwd("laptop"){
             width: 100%;
             height: 90px;
             padding: 20px 400px 0px 400px;
@@ -850,7 +848,6 @@
         }
     }
     #productCarouselContainer{
-        border: 1px solid red;
         width: 1100px;
         height: 465px;
         margin: auto;
@@ -1253,10 +1250,17 @@
         width: 100%;
         height: 100vh;
         display: flex;
+        position: relative;
         #ch06contactUsArea{
             width: 50%;
             background-image: url(../../../img/22/index/ch06_bg01.png);
             padding: 235px 0px 0px 0px;
+            @include newRwd("laptop"){
+                width: 100%;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 0;
+            }
             #contactUsContainer{
                 width: 550px;
                 height: 630px;
@@ -1265,6 +1269,18 @@
                 box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 margin: auto;
                 display: flex;
+                @include newRwd("laptop"){
+                    width: 1010px;
+                    height: 525px;
+                }
+                @include newRwd("pad"){
+                    width: 525px;
+                    height: 575px;
+                }
+                @include newRwd("newSmallPhone"){
+                    border: none;
+                    box-shadow: none;
+                }
                 #contactUsFrame{
                     width: 500px;
                     height: 580px;
@@ -1272,56 +1288,314 @@
                     margin: auto;
                     padding: 30px 85px 30px 85px;
                     text-align: center;
-                    h3{
-                        font-size: 30px;
-                        line-height: 40px;
-                        color: #D0C37F;
-                    }
-                    .ch06TtileDecoration{
-                        width: 275px;
-                        margin: auto;
-                        margin-bottom: 5px;
-                        border-bottom: 1px solid #D0C37F;
-                    }
-                    #connectionInfoContainer{
-                        width: 100%;
-                        height: 235px;
+                    @include newRwd("laptop"){
+                        width: 965px;
+                        height: 483px;
                         display: flex;
-                        flex-direction: column;
-                        justify-content: space-between;
-                        margin: 60px 0px 80px 0px;
-                        .connectionInfo{
-                            display: flex;
-                            img{
-                                margin-right: 20px;
-                            }
-                            span{
+                        padding: 63px 129px 75px 148px;
+                    }
+                    @include newRwd("pad"){
+                        width: 480px;
+                        height: 533px;
+                        padding: 30px 130px 40px 130px;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        border: none;
+                    }
+                    #contactUsBlock{
+                        @include newRwd("laptop"){
+                            width: 242px;
+                            height: 354px;
+                            margin-right: 180px;
+                        }
+                        @include newRwd("pad"){
+                            order: 2;
+                            width: 200px;
+                            padding-top: 15px;
+                            margin: 0;
+                        }
+                        @include newRwd("newSmallPhone"){
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            top: 600px;
+                        }
+                        h3{
+                            font-size: 30px;
+                            line-height: 40px;
+                            color: #D0C37F;
+                            @include newRwd("laptop"){
+                                width: 200px;
                                 font-size: 24px;
-                                color: #D0C37F;
-                                display: flex;
-                                align-items: center;
+                                line-height: 33px;
+                                margin: auto;
                             }
-                            #ch06SearchBar{
-                                width: 245px;
+                            @include newRwd("pad"){
+                                width: 136px;
+                                font-size: 20px;
+                                line-height: 28px;
+                            }
+                        }
+                        .ch06TtileDecoration{
+                            width: 275px;
+                            margin: auto;
+                            margin-bottom: 5px;
+                            border-bottom: 1px solid #D0C37F;
+                            @include newRwd("laptop"){
+                                width: 198px;
+                            }
+                            @include newRwd("pad"){
+                                width: 200px;
+                                margin-bottom: 2px;
+                            }
+                        }
+                        #connectionInfoContainer{
+                            width: 310px;
+                            height: 235px;
+                            display: flex;
+                            flex-direction: column;
+                            justify-content: space-between;
+                            margin: 60px 0px 80px 0px;
+                            @include newRwd("laptop"){
+                                width: 227px;
+                                height: 168px;
+                                margin: 40px 0px 60px 0px;
+                            }
+                            @include newRwd("pad"){
+                                width: 190px;
+                                height: 150px;
+                                margin: 15px auto 0px auto;
+                            }
+                            .connectionInfo{
+                                display: flex;
+                                img{
+                                    margin-right: 20px;
+                                    @include newRwd("pad"){
+                                        margin-right: 10px;
+                                    }
+                                }
+                                span{
+                                    font-size: 24px;
+                                    color: #D0C37F;
+                                    display: flex;
+                                    align-items: center;
+                                }
+                                #ch06SearchBar{
+                                    width: 245px;
+                                    height: 40px;
+                                    border: 2px solid #D0C37F;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    padding: 0px 0px 0px 10px;
+                                }
+                            }
+                            #address{
+                                text-align: left;
+                                img{
+                                    height: 40px;
+                                    @include newRwd("laptop"){
+                                        height: 25px;
+                                    }
+                                    @include newRwd("pad"){
+                                        height: 19px;
+                                    }
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    }
+                                    @include newRwd("pad"){
+                                        font-size: 14px;
+                                    } 
+                                }
+                            }
+                            #phone{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 23px;
+                                    }
+                                    @include newRwd("pad"){
+                                        height: 17px;
+                                    }
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    }
+                                    @include newRwd("laptop"){
+                                        font-size: 14px;
+                                    } 
+                                }
+                            }
+                            #email{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 21px;
+                                    } 
+                                    @include newRwd("pad"){
+                                        height: 16px;
+                                    }
+                                }
+                                span{
+                                    @include newRwd("laptop"){
+                                        font-size: 17px;
+                                    }
+                                    @include newRwd("pad"){
+                                        font-size: 14px;
+                                    } 
+                                }
+                            }
+                            #facebook{
+                                img{
+                                    @include newRwd("laptop"){
+                                        height: 26px;
+                                    }
+                                    @include newRwd("pad"){
+                                        height: 20px;
+                                    }
+                                }
+                                #ch06SearchBar{
+                                    @include newRwd("laptop"){
+                                        width: 177px;
+                                        height: 29px;
+                                        span{
+                                            font-size: 14px;
+                                        }
+                                        img{
+                                            height: 17px;
+                                        }
+                                    }
+                                    @include newRwd("pad"){
+                                        width: 128px;
+                                        height: 19px;
+                                        padding: 0px 3px 0px 3px;
+                                        span{
+                                            font-size: 10px;
+                                        }
+                                        img{
+                                            height: 11px;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        #ch06IconContainer{
+                            width: 310px;
+                            display: flex;
+                            justify-content: space-between;
+                            @include newRwd("laptop"){
+                                width: 100%;
+                                img{
+                                    height: 46.5px;
+                                }
+                            }
+                            @include newRwd("pad"){
+                                display: none;
+                            }
+                        }
+                    }
+                    #ch06GuideContainerForMobile{
+                        display: none;
+                        @include newRwd("laptop"){
+                            display: block;
+                            width: 269px;
+                            height: 365px;
+                            #ch06ImgBlockForMobile{
+                                width: 100%;
+                                img{
+                                    width: 75%;
+                                }
+                            }
+                            h2{
+                                font-size: 33px;
+                                line-height: 27px;
+                                color: #D0C37F;
+                                margin: 20px 0px 20px 0px;
+                            }
+                            #ch06GuideBlockForMobile{
+                                width: 270px;
                                 height: 40px;
-                                border: 2px solid #D0C37F;
+                                margin: auto;
+                                padding: 0px 10px 0px 10px;
                                 display: flex;
                                 align-items: center;
                                 justify-content: space-between;
-                                padding: 0px 0px 0px 10px;
+                                span{
+                                    font-size: 15px;
+                                    color: #D0C37F;
+                                }
+                                #ch06GuideButtonForMobile{
+                                    width: 99px;
+                                    height: 29px;
+                                    border-radius: 10px;
+                                    background-color: #D0C37F;
+                                    padding: 0px 10px 0px 10px;
+                                    display: flex;
+                                    align-items: center;
+                                    justify-content: space-between;
+                                    box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                                    div{
+                                        img{
+                                            width: 15px;
+                                        }
+                                    }
+                                    span{
+                                        color: #FFFFFF;
+                                        font-size: 15px;
+                                        line-height: 21px;
+                                    }
+                                    &:hover{
+                                        background-color: #E3DAA9;
+                                    }
+                                }
                             }
                         }
-                        #address{
-                            text-align: left;
-                            img{
-                                height: 40px;
+                        @include newRwd("pad"){
+                            width: 200px;
+                            height: 260px;
+                            order: 1;
+                            #ch06ImgBlockForMobile{
+                                width: 100%;
+                                img{
+                                    width: 90%;
+                                }
+                            }
+                            h2{
+                                display: none;
+                            }
+                            #ch06GuideBlockForMobile{
+                                width: 100%;
+                                span{
+                                    display: none;
+                                }
+                                #ch06GuideButtonForMobile{
+                                    width: 120px;
+                                    height: 36px;
+                                    margin: 10px 30px 0px 30px;
+                                    div{
+                                        width: 19.5px;
+                                        img{
+                                            width: 100%;
+                                        }
+                                    }
+                                    span{
+                                        display: block;
+                                        color: #FFFFFF;
+                                        font-size: 18px;
+                                        line-height: 25px;
+                                    }
+                                }
                             }
                         }
-                    }
-                    #ch06IconContainer{
-                        width: 100%;
-                        display: flex;
-                        justify-content: space-between;
+                        @include newRwd("newSmallPhone"){
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            top: 280px;
+                        }
                     }
                 }
             }
@@ -1330,6 +1604,13 @@
             width: 50%;
             display: inline-block;
             padding: 235px 0px 0px 0px;
+            @include newRwd("laptop"){
+                width: 0;
+                position: static;
+            }
+            @include newRwd("newSmallPhone"){
+                display: none;
+            }
             #ch06GuideContainer{
                 width: 500px;
                 height: 630px;
@@ -1349,24 +1630,31 @@
                     margin: 40px 0px 30px 0px;
                 }
                 #ch06GuideBlock{
-                    width: 465px;
+                    width: 485px;
                     height: 75px;
                     margin: auto;
                     display: flex;
+                    align-items: center;
                     justify-content: space-between;
                     span{
                         font-size: 30px;
                         color: #D0C37F;
                     }
                     #ch06GuideButton{
-                        width: 166px;
-                        height: 50px;
-                        border-radius: 4px;
-                        color: #FFFFFF;
+                        width: 190px;
+                        height: 56px;
+                        border-radius: 13px;
                         background-color: #D0C37F;
-                        font-size: 30px;
-                        line-height: 50px;
-                        text-align: center;
+                        padding: 0px 15px 0px 15px;
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                        span{
+                            color: #FFFFFF;
+                            font-size: 30px;
+                            line-height: 42px;
+                        }
                         &:hover{
                             background-color: #E3DAA9;
                         }
@@ -1376,4 +1664,4 @@
         }
     }
 }
-// 第六章：「聯絡我們」結束    
+// 第六章：「聯絡我們」結束
