@@ -556,10 +556,11 @@
     width: 1403px;
     margin: 0 auto;
     #btn1,#btn2,#btn3,#btn4,#btn5{
+        box-shadow:3px 3px 6px rgba(0,0,0,0.2);
         background-color: $C9;
         color: $ff;
         font-size: map-get($font, 22 );
-        border: 1px solid $FB;
+        border: 1px solid $C9;
         border-radius: 10px;
                     &:focus{
                         outline: $FB;
@@ -611,7 +612,7 @@
             background-color: $FB;
             display: flex;
             justify-content: center;
-
+            box-shadow:3px 3px 6px rgba(0,0,0,0.2);
 
 
             .pdtTime{
@@ -624,6 +625,7 @@
         
 
         .productBottom{
+        box-shadow:3px 3px 6px rgba(0,0,0,0.2);
         display: flex;
         padding: 20px;
         background-color: $F3;
@@ -659,12 +661,13 @@
 }
 
 .productCenter{
+    box-shadow:3px 3px 6px rgba(0,0,0,0.2);
     .pdtExplanation{
         padding: 15px 0px 15px 15px;
         display: flex;
         // border: 1px solid $cf;
         background-color:$F2;
-
+        line-height: 1.5;
         
             .pdtTitle{
                 margin-right: 20px;
@@ -676,10 +679,12 @@
             }
             li{
                 color: #838383;
+                font-size: 20px;
             }
             #liM{
                margin: 10px 0;
                color: #838383; 
+               font-size: 17px;
             }
         
     }
