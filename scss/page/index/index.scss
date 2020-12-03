@@ -599,12 +599,30 @@
         z-index: 2;
         font-size: 40px;
         color: #FFFADF;
+        br{
+            display: none;
+        }
         @include newRwd("desktop"){
             font-size: 30px;
             transform: translate(-50%, -50%);
             left: 50%;
             top: 30%;
         }
+        @include newRwd("laptop"){
+            text-align: center;
+            top: 35%;
+            font-size: 25px;
+        }
+        @include newRwd("pad"){
+            font-size: 20px;
+            top: 38%;
+        }
+        @include newRwd("newSmallPhone"){
+            font-size: 16px;
+            br{
+                display: block;
+            }
+        } 
     }
     .conversionNumBlock{
         border: 1px solid red;
@@ -613,7 +631,7 @@
         display: flex;
         align-items: baseline;
         @include newRwd("desktop"){
-            width: 900px;
+            width: 930px;
             height: 263px;
             margin: 0;
             position: absolute;
@@ -621,18 +639,47 @@
             left: 50%;
             top: 50%;
         }
+        @include newRwd("laptop"){
+            width: 750px;
+            height: 188px;
+        }
+        @include newRwd("pad"){
+            width: 550px;
+            height: 200px;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        @include newRwd("newSmallPhone"){
+                width: 312px;
+                height: 110px;
+        } 
         .conversionNum{
             font-size: 300px;
             color: #F7F5F5;
             @include newRwd("desktop"){
                 font-size: 208px;
             }
+            @include newRwd("laptop"){
+                font-size: 170px;
+            }
+            @include newRwd("pad"){
+                font-size: 150px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 77px;
+            }
         }
         .conversionUnit{
             font-size: 40px;
             color: #F7F5F5;
-            @include newRwd("desktop"){
+            @include newRwd("laptop"){
                 font-size: 30px;
+            }
+            @include newRwd("laptop"){
+                font-size: 24px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 16px;
             }
         }
     }
@@ -646,18 +693,35 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include newRwd("desktop"){
-            
-        }
         @include newRwd("laptop"){
+            width: 69px;
+            height: 272px;
+            left: 55px;
+            top: 194px;
+            align-items: center;
+            a{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        @include newRwd("pad"){
             width: 100%;
             height: 90px;
-            padding: 20px 400px 0px 400px;
+            padding: 20px 175px 0px 175px;
             background-color: #B0BAA4;
             top: auto;
             left: 0;
             bottom: 0;
             flex-direction: row;
+            }
+        @include newRwd("bigPhone"){
+            padding: 20px 0px 0px 20px;
+                a{
+                    img{
+                        width: 75%;
+                    }
+                }
             }
         }
 }

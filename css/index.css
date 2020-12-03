@@ -860,6 +860,10 @@
   color: #FFFADF;
 }
 
+#chapter02 .conversionTitle br {
+  display: none;
+}
+
 @media all and (max-width: 1919px) {
   #chapter02 .conversionTitle {
     font-size: 30px;
@@ -867,6 +871,30 @@
             transform: translate(-50%, -50%);
     left: 50%;
     top: 30%;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter02 .conversionTitle {
+    text-align: center;
+    top: 35%;
+    font-size: 25px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter02 .conversionTitle {
+    font-size: 20px;
+    top: 38%;
+  }
+}
+
+@media all and (max-width: 575px) {
+  #chapter02 .conversionTitle {
+    font-size: 16px;
+  }
+  #chapter02 .conversionTitle br {
+    display: block;
   }
 }
 
@@ -884,7 +912,7 @@
 
 @media all and (max-width: 1919px) {
   #chapter02 .conversionNumBlock {
-    width: 900px;
+    width: 930px;
     height: 263px;
     margin: 0;
     position: absolute;
@@ -892,6 +920,34 @@
             transform: translate(-50%, -50%);
     left: 50%;
     top: 50%;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter02 .conversionNumBlock {
+    width: 750px;
+    height: 188px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter02 .conversionNumBlock {
+    width: 550px;
+    height: 200px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: end;
+        -ms-flex-align: end;
+            align-items: flex-end;
+  }
+}
+
+@media all and (max-width: 575px) {
+  #chapter02 .conversionNumBlock {
+    width: 312px;
+    height: 110px;
   }
 }
 
@@ -906,14 +962,44 @@
   }
 }
 
+@media all and (max-width: 1599px) {
+  #chapter02 .conversionNumBlock .conversionNum {
+    font-size: 170px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter02 .conversionNumBlock .conversionNum {
+    font-size: 150px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  #chapter02 .conversionNumBlock .conversionNum {
+    font-size: 77px;
+  }
+}
+
 #chapter02 .conversionNumBlock .conversionUnit {
   font-size: 40px;
   color: #F7F5F5;
 }
 
-@media all and (max-width: 1919px) {
+@media all and (max-width: 1599px) {
   #chapter02 .conversionNumBlock .conversionUnit {
     font-size: 30px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  #chapter02 .conversionNumBlock .conversionUnit {
+    font-size: 24px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  #chapter02 .conversionNumBlock .conversionUnit {
+    font-size: 16px;
   }
 }
 
@@ -938,9 +1024,24 @@
 
 @media all and (max-width: 1599px) {
   #chapter02 #conversionUnitIconBlock {
+    width: 69px;
+    height: 272px;
+    left: 55px;
+    top: 194px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  #chapter02 #conversionUnitIconBlock a img {
+    width: 100%;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  #chapter02 #conversionUnitIconBlock {
     width: 100%;
     height: 90px;
-    padding: 20px 400px 0px 400px;
+    padding: 20px 175px 0px 175px;
     background-color: #B0BAA4;
     top: auto;
     left: 0;
@@ -949,6 +1050,15 @@
     -webkit-box-direction: normal;
         -ms-flex-direction: row;
             flex-direction: row;
+  }
+}
+
+@media all and (max-width: 991px) {
+  #chapter02 #conversionUnitIconBlock {
+    padding: 20px 0px 0px 20px;
+  }
+  #chapter02 #conversionUnitIconBlock a img {
+    width: 75%;
   }
 }
 
