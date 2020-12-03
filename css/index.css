@@ -887,28 +887,8 @@
   width: 1300px;
   margin: auto;
   display: flex;
-<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  flex-direction: row;
-  justify-content: space-between;
-=======
-<<<<<<< HEAD
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-=======
-  flex-direction: row;
-  justify-content: space-between;
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -1092,14 +1072,6 @@
   margin: auto;
   margin-top: 25px;
   transform: translate(0%, -15%);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
 }
 
 @media all and (max-width: 1919px) {
@@ -1127,14 +1099,6 @@
 
 #chapter03 #solganCardsContainer #solganCarouselList .solganCarouseItem .cardDecorativeFrame #ch03Shelter03 {
   transform: translate(0%, -25%);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
 }
 
 @media all and (max-width: 575px) {
@@ -1175,28 +1139,8 @@
   height: 465px;
   margin: auto;
   display: flex;
-<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  flex-direction: row;
-  justify-content: space-between;
-=======
-<<<<<<< HEAD
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-=======
-  flex-direction: row;
-  justify-content: space-between;
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -1317,28 +1261,8 @@
   height: 102px;
   margin: auto;
   display: flex;
-<<<<<<< HEAD
   flex-direction: row;
   justify-content: space-between;
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-  flex-direction: row;
-  justify-content: space-between;
-=======
-<<<<<<< HEAD
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-=======
-  flex-direction: row;
-  justify-content: space-between;
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
   position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
@@ -1560,14 +1484,6 @@
   top: 163px;
   left: 139px;
   transform: rotate(-2deg);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
 }
 
 @media all and (max-width: 1599px) {
@@ -1665,14 +1581,6 @@
   top: 129px;
   left: 1032px;
   transform: rotate(2deg);
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> jeff
->>>>>>> 1ccb2c130b811fa0eb6c56173d325003118512ce
 }
 
 @media all and (max-width: 1919px) {

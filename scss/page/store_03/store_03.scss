@@ -1,8 +1,8 @@
-@import'./base/var';
-@import'mixin/mixins';
-@import'./base/reset';
+@import'../../base/var';
+@import'../../mixin/mixins';
+@import'../../base/reset';
 // @import'./modules/button';
-@import'./base/fonts';
+@import'../../base/fonts';
 
 // 標頭開始
 *{
@@ -422,10 +422,33 @@
                                     width: 70px;
                                 }
                                 .quantity{
-                                    font-size: 24px;
-                                    color:#707070;
-                                    margin: 20px;
-                                    width: 60px;
+                                    margin: 10px;
+                                    // width: 30px;
+                                    .qty {
+                                        width: 40px;
+                                        height: 35px;
+                                        text-align: center;
+                                        border: 0;
+                                        border-top: 1px solid #aaa;
+                                        border-bottom: 1px solid #aaa;
+                                       
+                                        box-sizing: border-box;
+                                      }
+                                      .qtyplus {
+                                        width: 25px;
+                                        height: 35px;
+                                        border: 1px solid #aaa;
+                                        background: #f8f8f8;
+                                        
+                                        box-sizing: border-box;
+                                      }
+                                      .qtyminus {
+                                        width: 25px;
+                                        height: 35px;
+                                        border: 1px solid #aaa;
+                                        background: #f8f8f8;
+                                        box-sizing: border-box;
+                                      }
 
                                 }
                                 .amount{
