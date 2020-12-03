@@ -32,15 +32,14 @@ Vue.component('seller', {
     template: `
         <div class="seller">
           <form id="seller" method="post" action="#">
-            ＊<input class="seller" type="email" placeholder="信箱" />
-            ＊<input class="seller" type="password" placeholder="密碼" />
-            ＊<input class="seller" type="password" placeholder="確認密碼" />
-            ＊<input class="seller" type="text" placeholder="公司名稱" />
+            <input class="seller" type="email" placeholder="信箱" />
+            <input class="seller" type="password" placeholder="密碼" />
+            <input class="seller" type="password" placeholder="確認密碼" />
+            <input class="seller" type="text" placeholder="公司名稱" />
             <input class="seller" type="text" placeholder="統一編號" />
-            ＊<input class="seller" type="text" placeholder="登記地址" />
-            ＊<input class="seller" type="text" placeholder="聯絡電話" />
+            <input class="seller" type="text" placeholder="登記地址" />
+            <input class="seller" type="text" placeholder="聯絡電話" />
             <button class="seller" type="submit">註冊</button>
-            <button class="changeTOmember" id="goTOmember" type="button">會員登入</button>
           </form>
         </div>
       </div>
