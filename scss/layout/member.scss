@@ -233,7 +233,7 @@ body{
           .lineBorder{
             display: block;
           }
-          .passwordborder{
+          .bigpasswordborder{
             display: flex;
             .passwordLef{
               display: flex;
@@ -250,9 +250,57 @@ body{
                   font-size: 24px;
                   font-weight: normal;
                 }
+                input.passwordContent.appearinput{
+                  display: block;
+                }
+                input.passwordContent{
+                  display: none;
+                }
+              }
+              .passwordBorder{
+                span.passwordContent.spannone{
+                  display: none;
+                }
+                span.passwordContent{
+                  color: #909090;
+                  font-size: 24px;
+                  font-weight: normal;
+                }
+              }
+              .newpasswordBorder{
+                display: none;
+              }
+              .cfmpasswordBorder{
+                display: none;
               }
             }
             .changeBtnright{
+              button.savePassword.saveapp{
+                display: block;
+              }
+              button.savePassword{
+                display: none;
+                align-self: flex-end;
+                height: 40px;
+                padding: 0px 15px;
+                font-size: 20px;
+                font-weight: normal;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 15px;
+                color: white;
+                margin-left: 20px;
+                cursor: pointer;
+                &:hover{
+                  transition: all .3s;
+                  background-color: #d4c7a5;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                }
+              }
+              button.changePassword.passnone{
+                display: none;
+              }
               button.changePassword{
                 align-self: flex-end;
                 height: 40px;
@@ -266,6 +314,11 @@ body{
                 color: white;
                 margin-left: 20px;
                 cursor: pointer;
+                &:hover{
+                  transition: all .3s;
+                  background-color: #d4c7a5;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                }
               }
             }
           }
@@ -283,6 +336,11 @@ body{
               color: white;
               margin-left: 20px;
               cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                background-color: #d4c7a5;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              }
             }
             .save{
               height: 40px;
@@ -296,6 +354,11 @@ body{
               color: #B9AF94;
               margin-left: 20px;
               cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                color: #909090;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              }
             }
           }
         }
@@ -917,6 +980,7 @@ body{
                     &:hover{
                       transition: all .3s;
                       background-color: #d4c7a5;
+                      box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                     }
                   }
                 }
@@ -929,10 +993,10 @@ body{
         }
         .changemiddlespecailBorder{
           // border: 1px solid black;
-          // display: none;
           width: 90%;
           display: flex;
           flex-direction: column;
+          display: none;
           .topchangeBorder{
             display: flex;
             flex-direction: column;
@@ -1097,31 +1161,31 @@ body{
             }
           }
           .bottomchangerightBorder{
-            border: 1px solid blue;
+            // border: 1px solid blue;
             .bottomchangeloveimg{
-                // border: 1px solid blue;
-                display: flex;
-                justify-content: center;
-                img{
-                  // margin: 30% 0% 10% 0%;
-                  width: 80%;
-                }
+              // border: 1px solid blue;
+              display: flex;
+              justify-content: center;
+              img{
+                // margin: 30% 0% 10% 0%;
+                width: 80%;
               }
-              .bottomchangewordlineBorder{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                .firsttitlebot{
-                  color: #8F8770;
-                  margin: 0% 0% 7% 0%;
-                  font-size: 30px;
-                }
-                h4{
-                  color: #909090;
-                  margin: 3% 0%;
-                  font-size: 18px;
-                }
+            }
+            .bottomchangewordlineBorder{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .firsttitlebot{
+                color: #8F8770;
+                margin: 0% 0% 7% 0%;
+                font-size: 30px;
               }
+              h4{
+                color: #909090;
+                margin: 3% 0%;
+                font-size: 18px;
+              }
+            }
           }
          } 
         }

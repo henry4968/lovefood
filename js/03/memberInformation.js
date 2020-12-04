@@ -37,8 +37,8 @@ function fileChange() {
 // id="member"
 Vue.component('member', {
   template: `
-    <div class="rightBorder">
-      <form class="leftInfoborder" method="POST" action="#">
+      <div class="rightBorder">
+        <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
               我的帳號
@@ -59,10 +59,11 @@ Vue.component('member', {
             <div class="emailTitle sameTile">信箱:</div>
             <span class="emailContent">jabiden@gmail.com</span>
           </div>
-          <div class="passwordborder">
+          <div class="bigpasswordborder">
             <div class="passwordLef">
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
+                <span class="passwordContent" :class="{spannone: spn}">******</span>
                 <input class="passwordContent" placeholder="請輸入原本密碼" type="password">
               </div>
               <div class="newpasswordBorder">
@@ -75,7 +76,8 @@ Vue.component('member', {
               </div>
             </div>
             <div class="changeBtnright">
-              <button class="changePassword" type="button">儲存密碼</button>
+              <button class="savePassword" type="button" @click="changePassword" :class="{saveapp: sa}">儲存密碼</button>
+              <button class="changePassword" type="button" @click="changePassword" :class="{passnone: pn}">變更密碼</button>
             </div>
           </div>
           <div class="nameBorder">
@@ -111,6 +113,27 @@ Vue.component('member', {
         </div>
       </div>
       `,
+  data() {
+    return {
+      sa: '',
+      pn: '',
+      spn: '',
+    }
+  },
+  methods: {
+    changePassword() {
+      if (this.sa == '' && this.pn == '') {
+        this.sa = true
+        this.pn = true
+        this.spn = true
+      }else{
+        this.sa = false
+        this.pn = false
+        this.spn = false
+      }
+      
+    },
+  },
 });
 
 Vue.component('order', {
@@ -517,7 +540,81 @@ Vue.component('memberApply', {
           </div>
         </div>
         <div class="changemiddlespecailBorder" :class="{specialchange: block}">
-          1
+          <div class="topchangeBorder">
+            <div class="topchangetitleBorder">
+              <img class="topchangetitlepic" src="../img/03/specialpic.png">
+              <h1 class="topchangetitle">特殊會員申請</h1>
+            </div>
+            <h1 class="topchangeservice">服務申請說明：</h1>
+            <div class="topfirstBorder">
+              <h1 class="topfirsttitle">一、服務對象：</h1>
+              <div class="topfirstcontent">缺食者(街友、清寒家庭、高風險家庭者、遭逢巨變者、清寒身心障礙者)等經濟弱勢。</div>
+            </div>
+            <div class="topfirstBorder">
+              <h1 class="topfirsttitle">二、服務內容：</h1>
+              <div class="topfirstcontent">本網站每月提供免費愛心點數，供特殊會員以點數兌換本站上架餐點，本網站之愛心數點皆由社會各界愛心人士捐款轉贈點數。</div>
+            </div>
+            <div class="topfirstBorder">
+              <h1 class="topfirsttitle">三、申請方式：</h1>
+              <div class="topfirstcontent">上傳有效期間之清寒證明文件，待工作人員審核通過後，即可獲得特殊會員資格，並於審核通過後隔月獲得愛心點數。</div>
+            </div>
+            <div class="fourfirstBorder">
+              <div class="fourfirstcontent">
+                <h1 class="fourtitle">四、上傳文件內容：</h1>
+              </div>
+              <div class="foursecondcontent">
+                <h1 class="fourtitle">(1)填妥申請書乙份。</h1>
+                <h1 class="fourtitle">(2)本人之身份證明文件及第二證件。</h1>
+                <h1 class="fourtitle">(3)有效之清寒證明文件。</h1>
+              </div>
+            </div>
+            <span class="changeline"></span>
+          </div>
+          <div class="bottomchangeBorder">
+            <div class="bottomchangeleftBorder">
+              <div class="memberInform">
+                <div class="memtitleBorder">
+                  <h1 class="memtitle">特殊會員狀態 : </h1>
+                </div>
+                <div class="samememberBord memberIdBorder">
+                  <span class="samemembertitleBord memberIDtitle">會員編號 : </span>
+                  <span class="sameconten memberID">AA2020103000001</span>
+                </div>
+                <div class="samememberBord memberEmailBorder">
+                  <span class="samemembertitleBord memberEmailtitle">帳 號 : </span>
+                  <span class="sameconten memberEmail">jabiden@gmail.com</span>
+                </div>
+                <div class="samememberBord memberNameBorder">
+                  <span class="samemembertitleBord memberNametitle">姓 名 : </span>
+                  <span class="sameconten memberName">甲必丹</span>
+                </div>
+              </div>
+              <form class="uploadfileBorder" id="uploadfileBorder" method="POST" action="#">
+                <div class="apllybookBorder">
+                  <textarea id="fileInfor"></textarea>
+                  <input type="file" id="thefile" multiple>
+                  <button type="button" id="fakebtn">選擇檔案</button>
+                </div>
+                <div class="elecsignBorder">
+                  <canvas id="myPics" width="400" height="150"></canvas>
+                </div>
+                <div class="uploadBtnBorder">
+                  <button type="submit" id="manyfileupload">上傳</button>
+                </div>
+              </form>
+            </div>
+            <div class="bottomchangerightBorder">
+              <div class="bottomchangeloveimg">
+                <img src="../img/03/speciallove.png">
+              </div>
+              <div class="bottomchangewordlineBorder">
+                <h2 class="firsttitlebot">讓愛循環不止</h2>
+                <h4 class="secondtitlebot">本站轉贈之點數僅做愛心使用，</h4>
+                <h4 class="thirdtitlebot">不得兌換現金，</h4>
+                <h4 class="fourthtitlebot">或營利使用。</h4>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       `,
