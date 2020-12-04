@@ -43,6 +43,7 @@
         align-self: center;
         margin-left: 10px;
         position: relative;
+        z-index: 30;
         cursor: pointer;
         display: none;
         @include newRwd("newSmallPhone"){
@@ -50,6 +51,7 @@
             }
         span{
             display: block;
+            background-color: #8F8770;
         }
         span, span::before, span::after{
             content: '';
@@ -57,6 +59,7 @@
             width: 45px;
             height: 5px;
             border-radius: 10px;
+            background-color: #8F8770;
             position: absolute;
             transition-duration: .35s;
             @include newRwd("newSmallPhone"){
@@ -113,7 +116,7 @@
             width: 100%;
             height: 100%;
             position: fixed;
-            top: 55px;
+            top: 0%;
             left: -100%;
             z-index: 5;
             background-color: white;
@@ -127,11 +130,13 @@
                 #searchInputForMobile{
                     width: 80%;
                     height: 60%;
+                    outline: none;
                     border-radius: 20px;
                     background-color: #FFFFFF;
                     display: block;
                     margin: auto;
                     align-self: center;
+                    padding-left: 20px;
                 }
             }
             li{
