@@ -82,18 +82,21 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
+            <input class="nameContent" placeholder="請輸入姓名" type="password">
             <span class="nameContent">甲必丹</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
+            <input class="nameContent" placeholder="請輸入手機" type="password">
             <span class="phoneContent">0924-708053</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
+            <input class="nameContent" placeholder="請輸入地址" type="password">
             <span class="addContent">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button">編輯</button>
+            <button class="edit" type="button" @click="editinfo">編輯</button>
             <button class="save" type="button">儲存</button>
           </div>
         </form>
@@ -699,15 +702,15 @@ function filechange() {
 }
 window.addEventListener('load', dofirst);
 
-function dothird(){
+function dothird() {
   // 電子簽章
   let isDrawing = false;
   let x = 0;
   let y = 0;
-  
+
   const myPics = document.getElementById('myPics');
   const context = myPics.getContext('2d');
-  
+
   // 當滑鼠在canvas這裡按下執行以下動作
   myPics.addEventListener('mousedown', e => {
     x = e.offsetX;
