@@ -355,15 +355,15 @@ Vue.component('order', {
                 <div class="endingconditionBorder">
                   <div class="itemendingsame itempayway">
                     <span class="itempaywaytitle">付款方式：</span>
-                    <span class="itempaywaycontent">信用卡結帳</sapn>
+                    <span class="itempaywaycontent">信用卡結帳</span>
                   </div>
                   <div class="itemendingsame itemdiscount">
                     <span class="itempaywaytitle">點數折扺：</span>
-                    <span class="itempaywaycontent">0點</sapn>
+                    <span class="itempaywaycontent">0點</span>
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
-                    <span class="itempaywaycontent">92元</sapn>
+                    <span class="itempaywaycontent">92元</span>
                   </div>
                 </div>
                 <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#">
@@ -445,15 +445,89 @@ Vue.component('points', {
 
 Vue.component('memberApply', {
   template: `
-    <div class="rightBorder">
-      3
+    <div class="rightBordermemberApply">
+        <div class="middlespecialBorder" :class="{special: none}">
+          <div class="topBorder">
+            <div class="toptitleBorder">
+              <h1 class="toptitle">此功能為特殊會員使用</h1>
+            </div>
+            <span class="linetopbottom"></span>
+          </div>
+          <div class="bottomBorder">
+            <div class="botleft">
+              <div class="loveimg">
+                <img src="../img/03/speciallove.png">
+              </div>
+              <div class="wordlineBorder">
+                <h2 class="firsttitle">讓愛循環不止</h2>
+                <h4 class="secondtitle">本站轉贈之點數僅做愛心使用，</h4>
+                <h4 class="thirdtitle">不得兌換現金，</h4>
+                <h4 class="fourthtitle">或營利使用。</h4>
+              </div>
+            </div>
+            <div class="botright">
+              <div class="botrightmiddleBorder">
+                <div class="sametypeBorder">
+                  <div class="sametype">
+                    <h3 class="samelovecontent">
+                      服務說明：
+                    </h3>
+                    <h3 class="samelovecontent">
+                      一、服務對象：
+                    </h3>
+                    <div class="samecontent">
+                      缺食者(街友、清寒家庭、高風險家庭者、遭逢巨變者、
+                      清寒身心障礙者)等經濟弱勢。
+                    </div>
+                    <h3 class="samelovecontent">
+                      二、服務內容：
+                    </h3>
+                    <div class="samecontent">
+                      本網站每月提供免費愛心點數，供特殊會員以點數兌換
+                      本站上架餐點，本網站之愛心數點皆由社會各界愛心人
+                      士捐款轉贈點數。
+                    </div>
+                    <h3 class="samelovecontent">
+                      三、申請方式：
+                    </h3>
+                    <div class="samecontent">
+                      上傳有效期間之清寒證明文件，待工作人員審核通過後，
+                      即可獲得特殊會員資格，並於審核通過後隔月獲得愛心點
+                      數。
+                    </div>
+                    <h3 class="samelovecontent">
+                      四、上傳文件內容：
+                    </h3>
+                    <h3 class="samelovecontent">
+                      (1)填妥申請書乙份。
+                    </h3>
+                    <h3 class="samelovecontent">
+                      (2)本人之身份證明文件及第二證件。
+                    </h3>
+                    <h3 class="samelovecontent">
+                      (3)有效之清寒證明文件。
+                    </h3>
+                  </div>
+                </div>
+                <div class="apllyBtnBorder">
+                  <button type="button" class="apllyBtn" @click="tononetoblock">申請成為特殊會員</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="changemiddlespecailBorder" :class="{specialchange: block}">
+          1
+        </div>
       </div>
       `,
-  data:{
-    none: '',
-    block: '',
+  data() {
+    return {
+      none: '',
+      block: '',
+    }
   },
-  methods:{
+  methods: {
     tononetoblock() {
       this.none = true
       this.block = true
@@ -468,18 +542,12 @@ new Vue({
     content: 'member',
     acth1: 0,
     act: 'a',
-    none: '',
-    block: '',
   },
   methods: {
     memberButton(change, num, div) {
       this.content = change
       this.acth1 = num
       this.act = div
-    },
-    tononetoblock() {
-      this.none = true
-      this.block = true
     },
     // orderButton(change, num) {
     //   this.content = change;
