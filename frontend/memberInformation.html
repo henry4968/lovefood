@@ -166,36 +166,32 @@
             <div class="bottomchangeleftBorder">
               <div class="memberInform">
                 <div class="memtitleBorder">
-                  <h1 class="memtitle">特殊會員狀態:</h1>
+                  <h1 class="memtitle">特殊會員狀態 : </h1>
                 </div>
-                <div class="memberIdBorder">
-                  <span class="memberIDtitle">會員編號:</span>
-                  <span class="memberID">AA2020103000001</span>
+                <div class="samememberBord memberIdBorder">
+                  <span class="samemembertitleBord memberIDtitle">會員編號 : </span>
+                  <span class="sameconten memberID">AA2020103000001</span>
                 </div>
-                <div class="memberEmailBorder">
-                  <span class="memberEmailtitle">帳 號::</span>
-                  <span class="memberEmail">jabiden@gmail.com</span>
+                <div class="samememberBord memberEmailBorder">
+                  <span class="samemembertitleBord memberEmailtitle">帳 號 : </span>
+                  <span class="sameconten memberEmail">jabiden@gmail.com</span>
                 </div>
-                <div class="memberNameBorder">
-                  <span class="memberNametitle">姓 名::</span>
-                  <span class="memberName">甲必丹</span>
+                <div class="samememberBord memberNameBorder">
+                  <span class="samemembertitleBord memberNametitle">姓 名 : </span>
+                  <span class="sameconten memberName">甲必丹</span>
                 </div>
               </div>
               <form class="uploadfileBorder" id="uploadfileBorder" method="POST" action="#">
                 <div class="apllybookBorder">
-
-                </div>
-                <div class="IDpicBorder">
-
-                </div>
-                <div class="provepicBorder">
-
+                  <textarea id="fileInfor"></textarea>
+                  <input type="file" id="thefile" multiple>
+                  <button type="button" id="fakebtn">選擇檔案</button>
                 </div>
                 <div class="elecsignBorder">
-
+                  <canvas id="myPics" width="400" height="150"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
-                  <button type="submit" >上傳</button>
+                  <button type="submit" id="manyfileupload">上傳</button>
                 </div>
               </form>
             </div>

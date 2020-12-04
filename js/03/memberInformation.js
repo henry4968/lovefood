@@ -563,3 +563,75 @@ new Vue({
     // },
   },
 });
+
+function dofirst() {
+  //先跟HTML畫面產生關聯，再建事件聆聽功能
+  document.getElementById('thefile').onchange = filechange;
+  thefile = document.getElementById('thefile');
+  fakebtn = document.getElementById('fakebtn');
+  fakebtn.addEventListener('click', function () {
+    thefile.click();
+    fileInfor = document.getElementById('fileInfor');
+    fileInfor.style.backgroundImage = "url('')";
+  });
+}
+function filechange() {
+  let files = document.getElementById('thefile').files;
+  let message = '';
+
+  for (let i = 0; i < files.length; i++) {
+    message += `檔案名稱: ${files[i].name}\n`;
+    message += `檔案大小: ${files[i].size} byte(s)\n`;
+    message += `檔案型態: ${files[i].type}\n`;
+    message += `最後更新日期: ${files[i].lastModifiedDate}\n`;
+    message += `==================\n`;
+
+    document.getElementById('fileInfor').value = message;
+  }
+
+
+}
+window.addEventListener('load', dofirst);
+
+
+// 電子簽章
+let isDrawing = false;
+let x = 0;
+let y = 0;
+
+const myPics = document.getElementById('myPics');
+const context = myPics.getContext('2d');
+
+// 當滑鼠在canvas這裡按下執行以下動作
+myPics.addEventListener('mousedown', e => {
+  x = e.offsetX;
+  y = e.offsetY;
+  isDrawing = true;
+});
+// 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
+myPics.addEventListener('mousemove', e => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, e.offsetX, e.offsetY);
+    x = e.offsetX;
+    y = e.offsetY;
+  }
+});
+// 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
+window.addEventListener('mouseup', e => {
+  if (isDrawing === true) {
+    drawLine(context, x, y, e.offsetX, e.offsetY);
+    x = 0;
+    y = 0;
+    isDrawing = false;
+  }
+});
+// 給mousemove、mouseup使用
+function drawLine(context, x1, y1, x2, y2) {
+  context.beginPath();
+  context.strokeStyle = 'blue';
+  context.lineWidth = 2;
+  context.moveTo(x1, y1);
+  context.lineTo(x2, y2);
+  context.stroke();
+  context.closePath();
+}

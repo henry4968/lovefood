@@ -937,6 +937,7 @@ body{
             display: flex;
             flex-direction: column;
             color: #909090;
+            margin-bottom: 3%;
             .topchangetitleBorder{
               display: flex;
               align-items: center;
@@ -993,8 +994,143 @@ body{
               border-bottom: 1px solid #8F8770;
             }
           }
+         .bottomchangeBorder{
+          display: flex;
+          justify-content: space-between;
+          .bottomchangeleftBorder{
+            // border: 1px solid black;
+            .memberInform{
+              display: flex;
+              flex-direction: column;
+              .memtitleBorder{
+                .memtitle{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                }
+              }
+              .samememberBord{
+                display: flex;
+                .samemembertitleBord{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                }
+                .sameconten{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                  margin-left: 1%;
+                }
+              }
+            }
+            #uploadfileBorder{
+              .apllybookBorder{
+                display: flex;
+                flex-direction: column;
+                #fileInfor{
+                  outline: none;
+                  border: none;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  width: 80%;
+                  height: 300px;
+                  border-radius: 20px;
+                  background-image: url('../../img/03/uploadpicturesecond.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 70%;
+                  color: #909090;
+                  font-size: 16px;
+                  padding: 1%;
+                  margin-bottom: 20px;
+                }
+                #thefile{
+                  display: none;
+                }
+                #fakebtn{
+                  outline: none;
+                  border: none;
+                  color: white;
+                  width: 100px;
+                  background-color: #B9AF94;
+                  border-radius: 10px;
+                  padding: 10px 10px;
+                  margin-bottom: 40px;
+                  cursor: pointer;
+                  &:hover{
+                    transition: all .3s;
+                    background-color: #d4c7a5;
+                    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  }
+                }
+              }
+              .elecsignBorder{
+                margin-bottom: 20px;
+                canvas{
+                  width: 100%;
+                  height: 150px;
+                  border: 1px solid #B9AF94;
+                  border-radius: 10px;
+                  background-color: #fff;
+                }
+              }
+              .uploadBtnBorder{
+                #manyfileupload{
+                  outline: none;
+                  border: none;
+                  color: white;
+                  width: 100px;
+                  background-color: #B9AF94;
+                  border-radius: 10px;
+                  padding: 10px 10px;
+                  cursor: pointer;
+                  &:hover{
+                    transition: all .3s;
+                    background-color: #d4c7a5;
+                    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  }
+                }
+              }
+            }
+          }
+          .bottomchangerightBorder{
+            border: 1px solid blue;
+            .bottomchangeloveimg{
+                // border: 1px solid blue;
+                display: flex;
+                justify-content: center;
+                img{
+                  // margin: 30% 0% 10% 0%;
+                  width: 80%;
+                }
+              }
+              .bottomchangewordlineBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .firsttitlebot{
+                  color: #8F8770;
+                  margin: 0% 0% 7% 0%;
+                  font-size: 30px;
+                }
+                h4{
+                  color: #909090;
+                  margin: 3% 0%;
+                  font-size: 18px;
+                }
+              }
+          }
+         } 
         }
       }
     }
   }
+}
+canvas {
+  border: 1px solid black;
+  width: 560px;
+  height: 360px;
 }
