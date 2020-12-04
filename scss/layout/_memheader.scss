@@ -124,12 +124,12 @@
             transition-duration: .35s;
             #searchBarForMobile{
                 width: 100%;
-                height: 70px;
+                height: 100px;
                 background-color: lightgrey;
                 display: flex;
                 #searchInputForMobile{
                     width: 80%;
-                    height: 60%;
+                    height: 40%;
                     outline: none;
                     border-radius: 20px;
                     background-color: #FFFFFF;
@@ -137,6 +137,9 @@
                     margin: auto;
                     align-self: center;
                     padding-left: 20px;
+                    @include newRwd("mediumPhone"){
+                        margin-left: 18%;
+                    }
                 }
             }
             li{
@@ -210,6 +213,18 @@
             align-items: center;
             @include newRwd("laptop"){
                 width: 625px;
+                align-items: center;
+            }
+            @include newRwd("bigPhone"){
+                width: 525px;
+                align-items: center;
+            }
+            @include newRwd("mediumPhone"){
+                width: 425px;
+                align-items: center;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 200px;
                 align-items: center;
             }
             a{

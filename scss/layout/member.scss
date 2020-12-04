@@ -40,6 +40,8 @@ body{
       min-height: 620px;
       display: flex;
       justify-content: space-around;
+      z-index: 0;
+      // 為了解決跳窗的問題
       div.leftBorder{
         width: 25%;
         height: 620px;
