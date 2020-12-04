@@ -826,7 +826,6 @@ body{
         .middlespecialBorder{
           // border: 1px solid red;
           width: 90%;
-          // height: 90%;
           display: flex;
           flex-direction: column;
           .topBorder{
@@ -929,7 +928,71 @@ body{
           display: block;
         }
         .changemiddlespecailBorder{
+          // border: 1px solid black;
           // display: none;
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          .topchangeBorder{
+            display: flex;
+            flex-direction: column;
+            color: #909090;
+            .topchangetitleBorder{
+              display: flex;
+              align-items: center;
+              // border: 1px solid black;
+              .topchangetitlepic{
+                height: 30px;
+              }
+              .topchangetitle{
+                font-size: 28px;
+              }
+            }
+            .topchangeservice{
+              font-size: 22px;
+              line-height: 60px;
+            }
+            .topfirstBorder{
+              display: flex;
+              width: 100%;
+              .topfirsttitle{
+                align-self: flex-start;
+                // border: 1px solid black;
+                width: 21%;
+                font-size: 22px;
+                line-height: 60px;
+                margin: 0%;
+              }
+              .topfirstcontent{
+                // border: 1px solid black;
+                width: 79%;
+                font-size: 22px;
+                line-height: 60px;
+              }
+            }
+            .fourfirstBorder{
+              display: flex;
+              margin-bottom: 5%;
+              .fourfirstcontent{
+                .fourtitle{
+                  margin: 0%;
+                  font-size: 22px;
+                  line-height: 60px;
+                }
+              }
+              .foursecondcontent{
+                .fourtitle{
+                  margin: 0%;
+                  font-size: 22px;
+                  line-height: 60px;
+                }
+              }
+            }
+            .changeline{
+              width: 100%;
+              border-bottom: 1px solid #8F8770;
+            }
+          }
         }
       }
     }
