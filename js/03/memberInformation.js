@@ -64,13 +64,13 @@ Vue.component('member', {
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
                 <span class="passwordContent" :class="{spannone: spn}">******</span>
-                <input class="passwordContent" placeholder="請輸入原本密碼" type="password">
+                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}">
               </div>
-              <div class="newpasswordBorder">
+              <div class="newpasswordBorder" :class="{divappre: divre}">
                 <div class="newpasswordTitle sameTile">新密碼:</div>
                 <input class="newpasswordContent" placeholder="請輸入新密碼" type="password">
               </div>
-              <div class="cfmpasswordBorder">
+              <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
                 <input class="cfmpasswordContent" placeholder="請確認密碼" type="password">
               </div>
@@ -118,6 +118,9 @@ Vue.component('member', {
       sa: '',
       pn: '',
       spn: '',
+      inpor: '',
+      divre: '',
+      divse: '',
     }
   },
   methods: {
@@ -126,12 +129,18 @@ Vue.component('member', {
         this.sa = true
         this.pn = true
         this.spn = true
-      }else{
+        this.inpor = true
+        this.divre = true
+        this.divse = true
+      } else {
         this.sa = false
         this.pn = false
         this.spn = false
+        this.inpor = false
+        this.divre = false
+        this.divse = false
       }
-      
+
     },
   },
 });
@@ -690,45 +699,48 @@ function filechange() {
 }
 window.addEventListener('load', dofirst);
 
-
-// 電子簽章
-let isDrawing = false;
-let x = 0;
-let y = 0;
-
-const myPics = document.getElementById('myPics');
-const context = myPics.getContext('2d');
-
-// 當滑鼠在canvas這裡按下執行以下動作
-myPics.addEventListener('mousedown', e => {
-  x = e.offsetX;
-  y = e.offsetY;
-  isDrawing = true;
-});
-// 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
-myPics.addEventListener('mousemove', e => {
-  if (isDrawing === true) {
-    drawLine(context, x, y, e.offsetX, e.offsetY);
+function dothird(){
+  // 電子簽章
+  let isDrawing = false;
+  let x = 0;
+  let y = 0;
+  
+  const myPics = document.getElementById('myPics');
+  const context = myPics.getContext('2d');
+  
+  // 當滑鼠在canvas這裡按下執行以下動作
+  myPics.addEventListener('mousedown', e => {
     x = e.offsetX;
     y = e.offsetY;
+    isDrawing = true;
+  });
+  // 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
+  myPics.addEventListener('mousemove', e => {
+    if (isDrawing === true) {
+      drawLine(context, x, y, e.offsetX, e.offsetY);
+      x = e.offsetX;
+      y = e.offsetY;
+    }
+  });
+  // 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
+  window.addEventListener('mouseup', e => {
+    if (isDrawing === true) {
+      drawLine(context, x, y, e.offsetX, e.offsetY);
+      x = 0;
+      y = 0;
+      isDrawing = false;
+    }
+  });
+  // 給mousemove、mouseup使用
+  function drawLine(context, x1, y1, x2, y2) {
+    context.beginPath();
+    context.strokeStyle = 'blue';
+    context.lineWidth = 2;
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+    context.closePath();
   }
-});
-// 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
-window.addEventListener('mouseup', e => {
-  if (isDrawing === true) {
-    drawLine(context, x, y, e.offsetX, e.offsetY);
-    x = 0;
-    y = 0;
-    isDrawing = false;
-  }
-});
-// 給mousemove、mouseup使用
-function drawLine(context, x1, y1, x2, y2) {
-  context.beginPath();
-  context.strokeStyle = 'blue';
-  context.lineWidth = 2;
-  context.moveTo(x1, y1);
-  context.lineTo(x2, y2);
-  context.stroke();
-  context.closePath();
 }
+
+window.addEventListener('load', dothird);

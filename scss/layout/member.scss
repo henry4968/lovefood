@@ -250,7 +250,7 @@ body{
                   font-size: 24px;
                   font-weight: normal;
                 }
-                input.passwordContent.appearinput{
+                input.passwordContent.inputappor{
                   display: block;
                 }
                 input.passwordContent{
@@ -267,8 +267,16 @@ body{
                   font-weight: normal;
                 }
               }
+              .newpasswordBorder.divappre{
+                display: block;
+                display: flex;
+              }
               .newpasswordBorder{
                 display: none;
+              }
+              .cfmpasswordBorder.divappse{
+                display: block;
+                display: flex;
               }
               .cfmpasswordBorder{
                 display: none;
