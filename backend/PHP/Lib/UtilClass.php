@@ -5,7 +5,7 @@
         function getFilePath(){
             //Web根目錄真實路徑
             $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-            return $ServerRoot."/EC/Upload/";
+            return $ServerRoot."/PHP/Upload/";
         }
 
         //取得PDO物件
