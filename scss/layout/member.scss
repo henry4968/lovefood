@@ -1,3 +1,6 @@
+@import 'memheader';
+@import 'memfooter';
+
 $maxw700:700px;
 $minw700:701px;
 @mixin rwd($breakpoint){
@@ -7,6 +10,7 @@ $minw700:701px;
     }
   }
 }
+
 @font-face{
   font-family: "PingFangTC-Regular-2";
   src: url("../../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
@@ -21,7 +25,6 @@ $minw700:701px;
   font-weight: lighter;
 }
 body{
-  @import 'memheader';
   main.memWrap{
     width: 100%;
     min-height: 700px;
@@ -166,6 +169,11 @@ body{
               padding: 5px 30px;
               background-color: transparent;
               cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                box-shadow: 3px 3px 8px rgba(0,0,0,.2);
+                color: #909090;
+              }
             }
           }
         }
@@ -809,12 +817,121 @@ body{
         border-radius: 13px;
         background-color: #FAFDDD;
         display: flex;
-        flex-direction: column;
+        justify-content: center;
         align-items: center;
-        justify-content: space-between;
-        padding: 1% 0;
+        padding: 1% 0% 2% 0%;
+        .middlespecialBorder.special{
+          display: none;
+        }
+        .middlespecialBorder{
+          // border: 1px solid red;
+          width: 90%;
+          // height: 90%;
+          display: flex;
+          flex-direction: column;
+          .topBorder{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3%;
+            .toptitleBorder{
+              .toptitle{
+                color: #8F8770;
+                font-size: 28px;
+              }
+            }
+            .linetopbottom{
+              border-bottom: 2px solid #909090;
+            }
+          }
+          .bottomBorder{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .botleft{
+              // border: 1px solid blue;
+              width: 35%;
+              display: flex;
+              flex-direction: column;
+              .loveimg{
+                // border: 1px solid blue;
+                display: flex;
+                justify-content: center;
+                img{
+                  margin: 30% 0% 10% 0%;
+                  width: 80%;
+                }
+              }
+              .wordlineBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .firsttitle{
+                  color: #8F8770;
+                  margin: 0% 0% 7% 0%;
+                  font-size: 30px;
+                }
+                h4{
+                  color: #909090;
+                  margin: 3% 0%;
+                  font-size: 18px;
+                }
+              }
+            }
+            .botright{
+              // border: 1px solid green;
+              width: 60%;
+              display: flex;
+              justify-content: center;
+              .botrightmiddleBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #EEF0E1;
+                border-radius: 10px;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                padding: 5% 5%;
+                .sametypeBorder{
+                  margin-bottom: 7%;
+                  .sametype{
+                    display: flex;
+                    flex-direction: column;
+                    color: #909090;
+                    line-height: 50px;
+                    .samelovecontent{
+                      font-size: 20px;
+                    }
+                    .samecontent{
+                      font-size: 18px;
+                    }
+                  }
+                }
+                .apllyBtnBorder{
+                  .apllyBtn{
+                    outline: none;
+                    border: none;
+                    background-color: #B9AF94;
+                    color: white;
+                    font-size: 18px;
+                    padding: 10px 12px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    &:hover{
+                      transition: all .3s;
+                      background-color: #d4c7a5;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .changemiddlespecailBorder.specialchange{
+          display: block;
+        }
+        .changemiddlespecailBorder{
+          display: none;
+        }
       }
     }
   }
-  @import 'memfooter';
 }

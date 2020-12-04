@@ -449,6 +449,16 @@ Vue.component('memberApply', {
       3
       </div>
       `,
+  data:{
+    none: '',
+    block: '',
+  },
+  methods:{
+    tononetoblock() {
+      this.none = true
+      this.block = true
+    },
+  },
 });
 
 window.addEventListener('load', doFirst);
@@ -458,12 +468,18 @@ new Vue({
     content: 'member',
     acth1: 0,
     act: 'a',
+    none: '',
+    block: '',
   },
   methods: {
     memberButton(change, num, div) {
       this.content = change
       this.acth1 = num
       this.act = div
+    },
+    tononetoblock() {
+      this.none = true
+      this.block = true
     },
     // orderButton(change, num) {
     //   this.content = change;
