@@ -96,7 +96,7 @@ Vue.component('member', {
             <span class="addContent">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button" @click="editinfo">編輯</button>
+            <button class="edit" type="button">編輯</button>
             <button class="save" type="button">儲存</button>
           </div>
         </form>
