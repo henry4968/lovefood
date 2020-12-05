@@ -1,7 +1,7 @@
 function doFirst() {
   //先跟HTML畫面產生關聯，再建事件聆聽功能
-  document.getElementById('theFile').onchange = fileChange;
   theFile = document.getElementById('theFile');
+  document.getElementById('theFile').onchange = fileChange;
   fakeBtn = document.getElementById('fakeBtn');
   fakeBtn.addEventListener('click', function () {
     theFile.click();
@@ -95,7 +95,7 @@ Vue.component('member', {
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
             <input class="addnameContent" placeholder="請輸入地址" type="password">
-            <span class="addContent">台北市南京東路三段219號5樓</span>
+            <span class="addContent" :class="{spanaddnone: spanaddnone}">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
             <button class="edit" type="button" @click="editfunc">編輯</button>
@@ -128,6 +128,7 @@ Vue.component('member', {
       divse: '',
       spannamenone: '',
       spanphonenone: '',
+      spanaddnone: '',
     }
   },
   methods: {
@@ -153,9 +154,11 @@ Vue.component('member', {
       if (this.spannamenone == '') {
         this.spannamenone = true
         this.spanphonenone = true
+        this.spanaddnone = true
       } else {
         this.spannamenone = false
         this.spanphonenone = false
+        this.spanaddnone = false
       }
     },
   },

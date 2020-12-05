@@ -331,6 +331,10 @@ body{
             }
           }
           .nameBorder{
+            input.nameContent.inputnameapp{
+              display: block;
+              display: flex;
+            }
             input.nameContent{
               display: none;
               width: 240px;
@@ -347,6 +351,10 @@ body{
             }
           }
           .phoneBorder{
+            input.phonenameContent.inputphoneapp{
+              display: block;
+              display: flex;
+            }
             input.phonenameContent{
               display: none;
               width: 240px;
@@ -363,6 +371,10 @@ body{
             }
           }
           .addBorder{
+            input.addnameContent.inputaddnameapp{
+              display: block;
+              display: flex;
+            }
             input.addnameContent{
               display: none;
               width: 240px;
