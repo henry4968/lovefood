@@ -1,41 +1,3 @@
-function doFirst() {
-  //先跟HTML畫面產生關聯，再建事件聆聽功能
-  theFile = document.getElementById('theFile');
-  document.getElementById('theFile').onchange = fileChange;
-  fakeBtn = document.getElementById('fakeBtn');
-  fakeBtn.addEventListener('click', function () {
-    theFile.click();
-  });
-}
-function fileChange() {
-  let file = document.getElementById('theFile').files[0];
-
-  // let message = '';
-
-  // message += `檔案名稱: ${file.name}\n`;
-  // message += `檔案大小: ${file.size} byte(s)\n`;
-  // message += `檔案型態: ${file.type}\n`;
-  // message += `最後更新日期: ${file.lastModifiedDate}\n`;
-  // message += `最後更新日期: ${file.lastModifiedDate.toTimeString()}\n`;
-
-  // document.getElementById('fileInfo').value = message;
-
-  //==============
-
-  let readFile = new FileReader();
-  readFile.readAsDataURL(file);
-  readFile.addEventListener('load', function () {
-    image = document.getElementById('image');
-    image.src = this.result;
-    image.style.maxWidth = '180px';
-    image.style.maxHeight = '180px';
-    bg = document.getElementsByClassName('imageBorder')[0];
-    bg.style.backgroundImage = "url('')";
-  });
-}
-window.addEventListener('load', doFirst);
-window.addEventListener('click', doFirst);
-
 // id="member"
 Vue.component('member', {
   template: `
@@ -65,7 +27,7 @@ Vue.component('member', {
             <div class="passwordLef">
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
-                <span class="passwordContent" :class="{spannone: spn}">******</span>
+                <span class="passwordContent" :class="{spannone: spn}">{{confirmpassword}}</span>
                 <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}">
               </div>
               <div class="newpasswordBorder" :class="{divappre: divre}">
@@ -74,7 +36,7 @@ Vue.component('member', {
               </div>
               <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
-                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password">
+                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="confirmpassword">
               </div>
             </div>
             <div class="changeBtnright">
@@ -84,22 +46,22 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}">
-            <span class="nameContent" :class="{spannamenone: spannamenone}">甲必丹</span>
+            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="modname">
+            <span class="nameContent" :class="{spannamenone: spannamenone}">{{modname}}</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}">
-            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">0924-708053</span>
+            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="modphone">
+            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">{{modphone}}</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}">
-            <span class="addContent" :class="{spanaddnone: spanaddnone}">台北市南京東路三段219號5樓</span>
+            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="modadd">
+            <span class="addContent" :class="{spanaddnone: spanaddnone}">{{modadd}}</span>
           </div>
           <div class="editsaveBtn">
             <button class="edit" type="button" @click="editfunc">編輯</button>
-            <button class="save" type="button">儲存</button>
+            <button class="save" type="button" @click="savefunc">儲存</button>
           </div>
         </form>
         <div class="rightPicborder">
@@ -112,7 +74,7 @@ Vue.component('member', {
             </div> -->
             <div class="fileBorder">
               <input type="file" id="theFile">
-              <button id="fakeBtn">編輯圖片</button>
+              <button type="button" id="fakeBtn" @click="uploadpicBtn">編輯圖片</button>
             </div>  
           </div>
         </div>
@@ -132,6 +94,10 @@ Vue.component('member', {
       inputnameapp: '',
       inputphoneapp: '',
       inputaddnameapp: '',
+      modname: '',
+      modphone: '',
+      modadd: '',
+      confirmpassword: '',
     }
   },
   methods: {
@@ -161,7 +127,10 @@ Vue.component('member', {
         this.inputnameapp = true
         this.inputphoneapp = true
         this.inputaddnameapp = true
-      } else {
+      }
+    },
+    savefunc() {
+      if (this.spannamenone == true) {
         this.spannamenone = false
         this.spanphonenone = false
         this.spanaddnone = false
@@ -170,7 +139,28 @@ Vue.component('member', {
         this.inputaddnameapp = false
       }
     },
+    uploadpicBtn() {
+      // 當按下假的input同時按下真的input
+      theFile = document.getElementById('theFile');
+      theFile.click();
+      // 當真的input被更改狀態時執行以下動作fileChange()
+      document.getElementById('theFile').onchange = fileChange;
+      function fileChange() {
+        let file = document.getElementById('theFile').files[0];
+        let readFile = new FileReader();
+        readFile.readAsDataURL(file);
+        readFile.addEventListener('load', function () {
+          image = document.getElementById('image');
+          image.src = this.result;
+          image.style.maxWidth = '180px';
+          image.style.maxHeight = '180px';
+          bg = document.getElementsByClassName('imageBorder')[0];
+          bg.style.backgroundImage = "url('')";
+        });
+      }
+    },
   },
+
 });
 
 Vue.component('order', {
@@ -640,7 +630,7 @@ Vue.component('memberApply', {
                 <div class="apllybookBorder">
                   <textarea id="fileInfor"></textarea>
                   <input type="file" id="thefile" multiple>
-                  <button type="button" id="fakebtn">選擇檔案</button>
+                  <button type="button" id="fakebtn" @click="uploadmultiplefile">選擇檔案</button>
                 </div>
                 <div class="elecsignBorder">
                   <canvas id="myPics" width="400" height="150"></canvas>
@@ -676,6 +666,29 @@ Vue.component('memberApply', {
       this.none = true
       this.block = true
     },
+    uploadmultiplefile() {
+      // 當按下假的input時等同於按下真的按鈕
+      thefile = document.getElementById('thefile');
+      thefile.click();
+      // 去掉背景圖
+      fileInfor = document.getElementById('fileInfor');
+      fileInfor.style.backgroundImage = "url('')";
+      // 當真按鈕改變狀態時執行filechangee()
+      document.getElementById('thefile').onchange = filechangee;
+      function filechangee() {
+        let files = document.getElementById('thefile').files;
+        let message = '';
+        for (let i = 0; i < files.length; i++) {
+          message += `檔案名稱: ${files[i].name}\n`;
+          message += `檔案大小: ${files[i].size} byte(s)\n`;
+          message += `檔案型態: ${files[i].type}\n`;
+          message += `最後更新日期: ${files[i].lastModifiedDate}\n`;
+          message += `==================\n`;
+          // 取得檔案資訊後塞入textarea裡面
+          document.getElementById('fileInfor').value = message;
+        }
+      }
+    },
   },
 });
 
@@ -694,36 +707,6 @@ new Vue({
     },
   },
 });
-
-function dofirst() {
-  //先跟HTML畫面產生關聯，再建事件聆聽功能
-  document.getElementById('thefile').onchange = filechange;
-  thefile = document.getElementById('thefile');
-  fakebtn = document.getElementById('fakebtn');
-  fakebtn.addEventListener('click', function () {
-    thefile.click();
-    fileInfor = document.getElementById('fileInfor');
-    fileInfor.style.backgroundImage = "url('')";
-  });
-}
-function filechange() {
-  let files = document.getElementById('thefile').files;
-  let message = '';
-
-  for (let i = 0; i < files.length; i++) {
-    message += `檔案名稱: ${files[i].name}\n`;
-    message += `檔案大小: ${files[i].size} byte(s)\n`;
-    message += `檔案型態: ${files[i].type}\n`;
-    message += `最後更新日期: ${files[i].lastModifiedDate}\n`;
-    message += `==================\n`;
-
-    document.getElementById('fileInfor').value = message;
-  }
-
-
-}
-window.addEventListener('load', dofirst);
-window.addEventListener('click', dofirst);
 
 function dothird() {
   // 電子簽章
@@ -769,4 +752,4 @@ function dothird() {
   }
 }
 
-window.addEventListener('load', dothird);
+// window.addEventListener('load', dothird);
