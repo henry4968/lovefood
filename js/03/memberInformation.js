@@ -97,6 +97,7 @@ Vue.component('member', {
       modphone: '',
       modadd: '',
       confirmpassword: '',
+      foursameBorderapp: '',
     }
   },
   methods: {
@@ -430,6 +431,7 @@ Vue.component('order', {
   data() {
     return {
       chagestatussamebg: 1,
+      foursameBorderapp: '',
     }
   },
   methods: {
@@ -500,6 +502,11 @@ Vue.component('points', {
         </div>
       </div>
       `,
+      data() {
+        return {
+          foursameBorderapp: '',
+        }
+      },
 });
 
 Vue.component('memberApply', {
@@ -658,6 +665,7 @@ Vue.component('memberApply', {
     return {
       none: '',
       block: '',
+      foursameBorderapp: '',
     }
   },
   methods: {
