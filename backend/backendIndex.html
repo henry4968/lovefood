@@ -81,7 +81,7 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form action="PHP/member/memberQuery.php" method="GET" >
+                        <!-- <form> -->
                             <div>
                                 <a href="backendIndex.html">
                                     <span class="pageLabel-current">買家會員</span>
@@ -94,10 +94,10 @@
                                 <span>會員編號<input type="text" name="number" size="15"></span>
                                 <span>會員手機<input type="text" name="phone" size="15"></span>
                                 
-                                <span>會員帳號<input type="text"></span>
+                                <span>會員帳號<input type="text" name="account"></span>
                                     <span>特殊會員
-                                        <input type="checkbox" name="memberType" value="0">是
-                                        <input type="checkbox" name="memberType" value="1">否
+                                        <input type="checkbox" name="memberType" value="1">是
+                                        <input type="checkbox" name="memberType" value="0">否
                                     </span>
                                     
                             </div>
@@ -106,9 +106,10 @@
                                     <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
                                     <span>至<input type="date" name="datePick2" size="15"></span>   
                                 </div>
-                                <button class="btn-s btn-brown" type="submit">查詢</button>
+                                <button  class="btn-s btn-brown" id="query" @click="query">查詢</button>
+                                
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </header>
                 </div>   
                 <main>
@@ -136,6 +137,7 @@
                                     <form action="memberProfile.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">編輯</button>
                                         <input type="hidden" name="id" :value="data[0]">
+                                        
                                     </form>
                                 </td>
                                
@@ -148,6 +150,8 @@
         </div>    
     </div>
     <script>
+        
+        
         const app = new Vue({
         el: '.containerIndex',
         data() {
@@ -155,13 +159,56 @@
                 tableData:null,
             }
         },
-        beforeMount(){
+        
+        beforeMount() {
             const self = this;
-            $.getJSON('PHP/member/memberR.php',function(res){
-                self.tableData = res;
-            });
+                $.ajax({
+                    url:'PHP/member/memberQuery.php',
+                    type: 'POST',
+                    success:function(res){
+                        // console.log(res);
+                        self.tableData = res;
+                    },
+                    error:function(res){
+                        console.log(res);
+                    },
+                    dataType:"json",
+                    })
+                    console.log(123);
+
         },
-        })
-      </script>
+
+        methods: {
+            query(){
+                    const self = this;
+                    
+                    let number = $("input[name='number']").val();
+                    let phone = $("input[name='phone']").val();
+                    let account = $("input[name='account']").val();
+                    let memberType = $("input[name='memberType']:checked").val();
+                    let pick1 = $("input[name='datePick1']").val();
+                    let pick2 = $("input[name='datePick2']").val();
+
+                    $.ajax({
+
+                        url:'PHP/member/memberQuery.php',
+                        data:{number,phone,account,memberType,pick1,pick2},
+                        type:'POST',
+                        dataType:'JSON',
+                        traditional: true,
+                        success: function(res){
+                            // console.log(res);
+                            self.tableData = res;
+                        },
+                        error: function(res){
+                            console.log(res);
+                        },
+                    });
+            }
+        }
+        
+    });
+    </script>
 </body>
 </html>
+
