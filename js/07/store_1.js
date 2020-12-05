@@ -3,7 +3,6 @@ $(document).ready(function(){
         $('#Area1fm').hide();
         $('#Area2fm').hide();
         $('#Area3fm').hide();
-        $('#RWDMap').hide();
 
     $('input.searchName').click(function(){
         $('#selectfm').show();
@@ -35,6 +34,34 @@ $(document).ready(function(){
         $('#Area1fm').hide();
         $('#Area2fm').hide();
 
-    })
+    });
+    // $('#btnMap').click(function(){
+    //     $('#RWDMap').show();
+    //     $('#Area3fm').hide();
+    //     $('#selectfm').hide();
+    //     $('#Area1fm').hide();
+    //     $('#Area2fm').hide();
 
+
+    // })
+    if($(window).outerWidth() >= 1280){
+        // alert('sdssd');
+        $('#btnMap').click(function(){
+            $('#googlemap').show();
+            $('#RWDMap').hide();
+
+
+        })
+
+    }else if($(window).outerWidth() <= 1280){
+        // alert(',unumnum');
+        $('#btnMap').click(function(){
+            $('#RWDMap').show();
+            $('#googlemap').hide();
+
+
+        })
+        
+    }
 });
+
