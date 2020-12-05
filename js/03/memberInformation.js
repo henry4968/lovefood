@@ -633,7 +633,7 @@ Vue.component('memberApply', {
                   <button type="button" id="fakebtn" @click="uploadmultiplefile">選擇檔案</button>
                 </div>
                 <div class="elecsignBorder">
-                  <canvas id="myPics" width="400" height="150"></canvas>
+                  <canvas id="myPics" width="400" height="150" @mouseenter="canvasfuction"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
                   <button type="submit" id="manyfileupload">上傳</button>
@@ -682,11 +682,54 @@ Vue.component('memberApply', {
           message += `檔案名稱: ${files[i].name}\n`;
           message += `檔案大小: ${files[i].size} byte(s)\n`;
           message += `檔案型態: ${files[i].type}\n`;
-          message += `最後更新日期: ${files[i].lastModifiedDate}\n`;
+          // message += `最後更新日期: ${files[i].lastModifiedDate}\n`;
           message += `==================\n`;
           // 取得檔案資訊後塞入textarea裡面
           document.getElementById('fileInfor').value = message;
         }
+      }
+    },
+    canvasfuction(){
+      // 電子簽章
+      let isDrawing = false;
+      let x = 0;
+      let y = 0;
+
+      const myPics = document.getElementById('myPics');
+      const context = myPics.getContext('2d');
+
+      // 當滑鼠在canvas這裡按下執行以下動作
+      myPics.addEventListener('mousedown', e => {
+        x = e.offsetX;
+        y = e.offsetY;
+        isDrawing = true;
+      });
+      // 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
+      myPics.addEventListener('mousemove', e => {
+        if (isDrawing === true) {
+          drawLine(context, x, y, e.offsetX, e.offsetY);
+          x = e.offsetX;
+          y = e.offsetY;
+        }
+      });
+      // 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
+      window.addEventListener('mouseup', e => {
+        if (isDrawing === true) {
+          drawLine(context, x, y, e.offsetX, e.offsetY);
+          x = 0;
+          y = 0;
+          isDrawing = false;
+        }
+      });
+      // 給mousemove、mouseup使用
+      function drawLine(context, x1, y1, x2, y2) {
+        context.beginPath();
+        context.strokeStyle = 'blue';
+        context.lineWidth = 2;
+        context.moveTo(x1, y1);
+        context.lineTo(x2, y2);
+        context.stroke();
+        context.closePath();
       }
     },
   },
@@ -707,49 +750,3 @@ new Vue({
     },
   },
 });
-
-function dothird() {
-  // 電子簽章
-  let isDrawing = false;
-  let x = 0;
-  let y = 0;
-
-  const myPics = document.getElementById('myPics');
-  const context = myPics.getContext('2d');
-
-  // 當滑鼠在canvas這裡按下執行以下動作
-  myPics.addEventListener('mousedown', e => {
-    x = e.offsetX;
-    y = e.offsetY;
-    isDrawing = true;
-  });
-  // 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
-  myPics.addEventListener('mousemove', e => {
-    if (isDrawing === true) {
-      drawLine(context, x, y, e.offsetX, e.offsetY);
-      x = e.offsetX;
-      y = e.offsetY;
-    }
-  });
-  // 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
-  window.addEventListener('mouseup', e => {
-    if (isDrawing === true) {
-      drawLine(context, x, y, e.offsetX, e.offsetY);
-      x = 0;
-      y = 0;
-      isDrawing = false;
-    }
-  });
-  // 給mousemove、mouseup使用
-  function drawLine(context, x1, y1, x2, y2) {
-    context.beginPath();
-    context.strokeStyle = 'blue';
-    context.lineWidth = 2;
-    context.moveTo(x1, y1);
-    context.lineTo(x2, y2);
-    context.stroke();
-    context.closePath();
-  }
-}
-
-// window.addEventListener('load', dothird);
