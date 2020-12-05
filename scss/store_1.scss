@@ -3,6 +3,8 @@
 
 *{
     color: #545454;
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    text-decoration: none;
 }
 
 #header{
@@ -130,7 +132,6 @@
         #logo{
             width: 264px;
             height: 46px;
-            // 首頁由js控制代替的hover變色
             // &:hover{
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
@@ -186,6 +187,7 @@
             } 
             #navSepcialAnchor{
                 color: #858585;
+                padding: 4px 0;
                 div{
                     width: 139px;
                     height: 100%;
@@ -347,10 +349,10 @@
         .areaName{
             margin: 0 3px !important;
             font-size: 25px;
-            input{
+            // input{
                 // width: 20px;
                 // height: 20px;
-            }
+            // }
             &:nth-child(4){
                 margin: 0px -2px !important;
             }
@@ -763,8 +765,6 @@ svg.pdtsvg{
     justify-content: center;
     padding-top: 114px;
     padding-bottom: 175px;
-    // margin-top: 114px;
-    
     .page-current,.page-prev{
         margin-right: 10px;
         font-size: 25px;
