@@ -33,6 +33,8 @@ function fileChange() {
     bg.style.backgroundImage = "url('')";
   });
 }
+window.addEventListener('load', doFirst);
+window.addEventListener('click', doFirst);
 
 // id="member"
 Vue.component('member', {
@@ -83,20 +85,20 @@ Vue.component('member', {
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
             <input class="nameContent" placeholder="請輸入姓名" type="password">
-            <span class="nameContent">甲必丹</span>
+            <span class="nameContent" :class="{spannamenone: spannamenone}">甲必丹</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="nameContent" placeholder="請輸入手機" type="password">
-            <span class="phoneContent">0924-708053</span>
+            <input class="phonenameContent" placeholder="請輸入手機" type="password">
+            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">0924-708053</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="nameContent" placeholder="請輸入地址" type="password">
+            <input class="addnameContent" placeholder="請輸入地址" type="password">
             <span class="addContent">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button">編輯</button>
+            <button class="edit" type="button" @click="editfunc">編輯</button>
             <button class="save" type="button">儲存</button>
           </div>
         </form>
@@ -124,6 +126,8 @@ Vue.component('member', {
       inpor: '',
       divre: '',
       divse: '',
+      spannamenone: '',
+      spanphonenone: '',
     }
   },
   methods: {
@@ -135,7 +139,7 @@ Vue.component('member', {
         this.inpor = true
         this.divre = true
         this.divse = true
-      } else {
+      }else {
         this.sa = false
         this.pn = false
         this.spn = false
@@ -144,6 +148,15 @@ Vue.component('member', {
         this.divse = false
       }
 
+    },
+    editfunc() {
+      if (this.spannamenone == '') {
+        this.spannamenone = true
+        this.spanphonenone = true
+      } else {
+        this.spannamenone = false
+        this.spanphonenone = false
+      }
     },
   },
 });
@@ -644,7 +657,6 @@ Vue.component('memberApply', {
   },
 });
 
-window.addEventListener('load', doFirst);
 new Vue({
   el: '#memWrap',
   data: {
@@ -658,18 +670,6 @@ new Vue({
       this.acth1 = num
       this.act = div
     },
-    // orderButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
-    // pointsButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
-    // memberApplyButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
   },
 });
 
@@ -701,6 +701,7 @@ function filechange() {
 
 }
 window.addEventListener('load', dofirst);
+window.addEventListener('click', dofirst);
 
 function dothird() {
   // 電子簽章

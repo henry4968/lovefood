@@ -330,6 +330,54 @@ body{
               }
             }
           }
+          .nameBorder{
+            input.nameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.nameContent.spannamenone{
+              display: none;
+            }
+          }
+          .phoneBorder{
+            input.phonenameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.phoneContent.spanphonenone{
+              display: none;
+            }
+          }
+          .addBorder{
+            input.addnameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.addContent.spanaddnone{
+              display: none;
+            }
+          }
           .editsaveBtn{
             align-self: center;
             .edit{
