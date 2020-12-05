@@ -250,7 +250,7 @@ body{
                   font-size: 24px;
                   font-weight: normal;
                 }
-                input.passwordContent.appearinput{
+                input.passwordContent.inputappor{
                   display: block;
                 }
                 input.passwordContent{
@@ -267,8 +267,16 @@ body{
                   font-weight: normal;
                 }
               }
+              .newpasswordBorder.divappre{
+                display: block;
+                display: flex;
+              }
               .newpasswordBorder{
                 display: none;
+              }
+              .cfmpasswordBorder.divappse{
+                display: block;
+                display: flex;
               }
               .cfmpasswordBorder{
                 display: none;
@@ -320,6 +328,66 @@ body{
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                 }
               }
+            }
+          }
+          .nameBorder{
+            input.nameContent.inputnameapp{
+              display: block;
+              display: flex;
+            }
+            input.nameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.nameContent.spannamenone{
+              display: none;
+            }
+          }
+          .phoneBorder{
+            input.phonenameContent.inputphoneapp{
+              display: block;
+              display: flex;
+            }
+            input.phonenameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.phoneContent.spanphonenone{
+              display: none;
+            }
+          }
+          .addBorder{
+            input.addnameContent.inputaddnameapp{
+              display: block;
+              display: flex;
+            }
+            input.addnameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+            }
+            span.addContent.spanaddnone{
+              display: none;
             }
           }
           .editsaveBtn{

@@ -1,7 +1,7 @@
 function doFirst() {
   //先跟HTML畫面產生關聯，再建事件聆聽功能
-  document.getElementById('theFile').onchange = fileChange;
   theFile = document.getElementById('theFile');
+  document.getElementById('theFile').onchange = fileChange;
   fakeBtn = document.getElementById('fakeBtn');
   fakeBtn.addEventListener('click', function () {
     theFile.click();
@@ -33,6 +33,8 @@ function fileChange() {
     bg.style.backgroundImage = "url('')";
   });
 }
+window.addEventListener('load', doFirst);
+window.addEventListener('click', doFirst);
 
 // id="member"
 Vue.component('member', {
@@ -64,13 +66,13 @@ Vue.component('member', {
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
                 <span class="passwordContent" :class="{spannone: spn}">******</span>
-                <input class="passwordContent" placeholder="請輸入原本密碼" type="password">
+                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}">
               </div>
-              <div class="newpasswordBorder">
+              <div class="newpasswordBorder" :class="{divappre: divre}">
                 <div class="newpasswordTitle sameTile">新密碼:</div>
                 <input class="newpasswordContent" placeholder="請輸入新密碼" type="password">
               </div>
-              <div class="cfmpasswordBorder">
+              <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
                 <input class="cfmpasswordContent" placeholder="請確認密碼" type="password">
               </div>
@@ -82,18 +84,21 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <span class="nameContent">甲必丹</span>
+            <input class="nameContent" placeholder="請輸入姓名" type="password">
+            <span class="nameContent" :class="{spannamenone: spannamenone}">甲必丹</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <span class="phoneContent">0924-708053</span>
+            <input class="phonenameContent" placeholder="請輸入手機" type="password">
+            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">0924-708053</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <span class="addContent">台北市南京東路三段219號5樓</span>
+            <input class="addnameContent" placeholder="請輸入地址" type="password">
+            <span class="addContent" :class="{spanaddnone: spanaddnone}">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button">編輯</button>
+            <button class="edit" type="button" @click="editfunc">編輯</button>
             <button class="save" type="button">儲存</button>
           </div>
         </form>
@@ -118,6 +123,12 @@ Vue.component('member', {
       sa: '',
       pn: '',
       spn: '',
+      inpor: '',
+      divre: '',
+      divse: '',
+      spannamenone: '',
+      spanphonenone: '',
+      spanaddnone: '',
     }
   },
   methods: {
@@ -126,12 +137,29 @@ Vue.component('member', {
         this.sa = true
         this.pn = true
         this.spn = true
-      }else{
+        this.inpor = true
+        this.divre = true
+        this.divse = true
+      }else {
         this.sa = false
         this.pn = false
         this.spn = false
+        this.inpor = false
+        this.divre = false
+        this.divse = false
       }
-      
+
+    },
+    editfunc() {
+      if (this.spannamenone == '') {
+        this.spannamenone = true
+        this.spanphonenone = true
+        this.spanaddnone = true
+      } else {
+        this.spannamenone = false
+        this.spanphonenone = false
+        this.spanaddnone = false
+      }
     },
   },
 });
@@ -632,7 +660,6 @@ Vue.component('memberApply', {
   },
 });
 
-window.addEventListener('load', doFirst);
 new Vue({
   el: '#memWrap',
   data: {
@@ -646,18 +673,6 @@ new Vue({
       this.acth1 = num
       this.act = div
     },
-    // orderButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
-    // pointsButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
-    // memberApplyButton(change, num) {
-    //   this.content = change;
-    //   this.acth1 = num;
-    // },
   },
 });
 
@@ -689,46 +704,50 @@ function filechange() {
 
 }
 window.addEventListener('load', dofirst);
+window.addEventListener('click', dofirst);
 
+function dothird() {
+  // 電子簽章
+  let isDrawing = false;
+  let x = 0;
+  let y = 0;
 
-// 電子簽章
-let isDrawing = false;
-let x = 0;
-let y = 0;
+  const myPics = document.getElementById('myPics');
+  const context = myPics.getContext('2d');
 
-const myPics = document.getElementById('myPics');
-const context = myPics.getContext('2d');
-
-// 當滑鼠在canvas這裡按下執行以下動作
-myPics.addEventListener('mousedown', e => {
-  x = e.offsetX;
-  y = e.offsetY;
-  isDrawing = true;
-});
-// 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
-myPics.addEventListener('mousemove', e => {
-  if (isDrawing === true) {
-    drawLine(context, x, y, e.offsetX, e.offsetY);
+  // 當滑鼠在canvas這裡按下執行以下動作
+  myPics.addEventListener('mousedown', e => {
     x = e.offsetX;
     y = e.offsetY;
+    isDrawing = true;
+  });
+  // 當滑鼠在canvas按下後並移動滑鼠，判斷isDrawing === true，就執行以下動作
+  myPics.addEventListener('mousemove', e => {
+    if (isDrawing === true) {
+      drawLine(context, x, y, e.offsetX, e.offsetY);
+      x = e.offsetX;
+      y = e.offsetY;
+    }
+  });
+  // 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
+  window.addEventListener('mouseup', e => {
+    if (isDrawing === true) {
+      drawLine(context, x, y, e.offsetX, e.offsetY);
+      x = 0;
+      y = 0;
+      isDrawing = false;
+    }
+  });
+  // 給mousemove、mouseup使用
+  function drawLine(context, x1, y1, x2, y2) {
+    context.beginPath();
+    context.strokeStyle = 'blue';
+    context.lineWidth = 2;
+    context.moveTo(x1, y1);
+    context.lineTo(x2, y2);
+    context.stroke();
+    context.closePath();
   }
-});
-// 當滑鼠在canvas按下後並移動滑鼠以及最後提起滑鼠按鍵，判斷isDrawing === true，就執行以下動作
-window.addEventListener('mouseup', e => {
-  if (isDrawing === true) {
-    drawLine(context, x, y, e.offsetX, e.offsetY);
-    x = 0;
-    y = 0;
-    isDrawing = false;
-  }
-});
-// 給mousemove、mouseup使用
-function drawLine(context, x1, y1, x2, y2) {
-  context.beginPath();
-  context.strokeStyle = 'blue';
-  context.lineWidth = 2;
-  context.moveTo(x1, y1);
-  context.lineTo(x2, y2);
-  context.stroke();
-  context.closePath();
 }
+
+window.addEventListener('load', dothird);
