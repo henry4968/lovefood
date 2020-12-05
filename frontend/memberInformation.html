@@ -15,7 +15,7 @@
   <component id="memheader" :is="headId"></component>
   <main id="memWrap" class="memWrap">
     <div class="memBigborder">
-      <div class="leftBorder">
+      <div class="leftBorder" :class="{leftBordermediumPhone:leftBordermediumPhone}">
         <div class="title">
           <h1 class="title">
             會員中心
@@ -29,25 +29,25 @@
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'a'}">
             <!-- memInfoBorder -->
-            <h1 class="memInfo" @click="memberButton('member',0,'a')" :class="{'addBtn' : acth1 == 0}">
+            <h1 class="memInfo" @click="memberButton('member',0,'a',1)" :class="{'addBtn' : acth1 == 0}">
               會員資料
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'b'}">
             <!-- orderBorder -->
-            <h1 class="order" @click="memberButton('order',1,'b')" :class="{addBtn : acth1 == 1}">
+            <h1 class="order" @click="memberButton('order',1,'b',2)" :class="{addBtn : acth1 == 1}">
               訂單查詢
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'c'}">
             <!-- pointsBorder -->
-            <h1 class="points" @click="memberButton('points',2,'c')" :class="{addBtn : acth1 == 2}">
+            <h1 class="points" @click="memberButton('points',2,'c',3)" :class="{addBtn : acth1 == 2}">
               我的點數
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'd'}">
             <!-- memapplyBorder -->
-            <h1 class="memapply" @click="memberButton('memberApply',3,'d')" :class="{addBtn : acth1 == 3}">
+            <h1 class="memapply" @click="memberButton('memberApply',3,'d',4)" :class="{addBtn : acth1 == 3}">
               特殊會員申請
             </h1>
           </div>
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <component :is="content"></component>
+      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}"></component>
 
     </div>
   </main>

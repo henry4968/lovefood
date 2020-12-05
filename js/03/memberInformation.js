@@ -1,7 +1,6 @@
-// id="member"
 Vue.component('member', {
   template: `
-      <div class="rightBorder">
+      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
         <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
@@ -165,7 +164,7 @@ Vue.component('member', {
 
 Vue.component('order', {
   template: `
-    <div class="rightBorderorder">
+    <div class="rightBorderorder" :class="{foursameBorderapp:foursameBorderapp == 2}">
         <div class="centerBorder">
           <div class="searchBorder">
             <form id="searchBorder" method="POST" action="#">
@@ -442,7 +441,7 @@ Vue.component('order', {
 
 Vue.component('points', {
   template: `
-    <div class="rightBorderpoints">
+    <div class="rightBorderpoints" :class="{foursameBorderapp:foursameBorderapp == 3}">
         <div class="toppointsBorder">
           <div class="topmiddlepointsBorder">
             <div class="specialmemberborder">
@@ -505,7 +504,7 @@ Vue.component('points', {
 
 Vue.component('memberApply', {
   template: `
-    <div class="rightBordermemberApply">
+    <div class="rightBordermemberApply" :class="{foursameBorderapp:foursameBorderapp == 4}">
         <div class="middlespecialBorder" :class="{special: none}">
           <div class="topBorder">
             <div class="toptitleBorder">
@@ -689,7 +688,7 @@ Vue.component('memberApply', {
         }
       }
     },
-    canvasfuction(){
+    canvasfuction() {
       // 電子簽章
       let isDrawing = false;
       let x = 0;
@@ -735,18 +734,25 @@ Vue.component('memberApply', {
   },
 });
 
+
+
+// vue
 new Vue({
   el: '#memWrap',
   data: {
     content: 'member',
     acth1: 0,
     act: 'a',
+    leftBordermediumPhone: '',
+    foursameBorderapp: '',
   },
   methods: {
-    memberButton(change, num, div) {
+    memberButton(change, num, div, rwdborder) {
       this.content = change
       this.acth1 = num
       this.act = div
+      this.leftBordermediumPhone = true
+      this.foursameBorderapp = rwdborder
     },
   },
 });
