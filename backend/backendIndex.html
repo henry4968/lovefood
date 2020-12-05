@@ -162,19 +162,28 @@
         
         beforeMount() {
             const self = this;
+            let urlParams = new URLSearchParams(window.location.search);
+            let number= urlParams.get('number');
+            let phone= urlParams.get('phone');
+            let account= urlParams.get('account');
+            let memberType = urlParams.get('memberType');
+            let pick1= urlParams.get('datePick1');
+            let pick2= urlParams.get('datePick2');
+
                 $.ajax({
                     url:'PHP/member/memberQuery.php',
-                    type: 'POST',
+                    type:'POST',
+                    data:{number,phone,account,memberType,pick1,pick2},
                     success:function(res){
-                        // console.log(res);
+                        console.log(res);
                         self.tableData = res;
                     },
                     error:function(res){
                         console.log(res);
                     },
-                    dataType:"json",
+                    dataType:"JSON",
                     })
-                    console.log(123);
+                    // console.log(123);
 
         },
 
