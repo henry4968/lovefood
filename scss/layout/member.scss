@@ -377,7 +377,7 @@ body{
             }
             input.addnameContent{
               display: none;
-              width: 240px;
+              width: 80%;
               outline: none;
               border: none;
               border-radius: 10px;
@@ -498,7 +498,7 @@ body{
         padding: 30px 0;
         .centerBorder{
           // border: 1px solid black;
-          width: 90%;
+          width: 95%;
           min-height: 100%;
           .searchBorder{
             margin-bottom: 20px;
@@ -561,6 +561,29 @@ body{
             display: flex;
             justify-content: space-between;
             margin-bottom: 15px;
+            div.statussame.chagestatussamebg{
+              position: relative;
+              overflow: hidden;
+              &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -1;
+                z-index: -0;
+                height: 100%;
+                background-color: #F3E9C0;
+                transform: skewX(-45deg);
+                animation: trans 1s ease 1 forwards;
+              }
+              @keyframes trans {
+                from{
+                  width: 0%;
+                }
+                to{
+                  width: 150%;
+                }
+              }
+            }
             div.statussame{
               // border: 1px solid black;
               display: flex;
@@ -568,11 +591,14 @@ body{
               background-color: #E6E6E6;
               width: 19%;
               box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              cursor: pointer;
+              
               p.statussame{
                 padding: 5px 0px;
                 font-size: 24px;
                 font-weight: 500;
                 color: #8F8770;
+                z-index: 1;
               }
             }
           }

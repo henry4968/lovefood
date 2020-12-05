@@ -84,17 +84,17 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <input class="nameContent" placeholder="請輸入姓名" type="password">
+            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}">
             <span class="nameContent" :class="{spannamenone: spannamenone}">甲必丹</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="phonenameContent" placeholder="請輸入手機" type="password">
+            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}">
             <span class="phoneContent" :class="{spanphonenone: spanphonenone}">0924-708053</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="addnameContent" placeholder="請輸入地址" type="password">
+            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}">
             <span class="addContent" :class="{spanaddnone: spanaddnone}">台北市南京東路三段219號5樓</span>
           </div>
           <div class="editsaveBtn">
@@ -129,6 +129,9 @@ Vue.component('member', {
       spannamenone: '',
       spanphonenone: '',
       spanaddnone: '',
+      inputnameapp: '',
+      inputphoneapp: '',
+      inputaddnameapp: '',
     }
   },
   methods: {
@@ -140,7 +143,7 @@ Vue.component('member', {
         this.inpor = true
         this.divre = true
         this.divse = true
-      }else {
+      } else {
         this.sa = false
         this.pn = false
         this.spn = false
@@ -155,10 +158,16 @@ Vue.component('member', {
         this.spannamenone = true
         this.spanphonenone = true
         this.spanaddnone = true
+        this.inputnameapp = true
+        this.inputphoneapp = true
+        this.inputaddnameapp = true
       } else {
         this.spannamenone = false
         this.spanphonenone = false
         this.spanaddnone = false
+        this.inputnameapp = false
+        this.inputphoneapp = false
+        this.inputaddnameapp = false
       }
     },
   },
@@ -187,19 +196,19 @@ Vue.component('order', {
             </form>
           </div>
           <div class="orderStatusBorder">
-            <div class="statussame allBorder">
+            <div class="statussame allBorder" @click="statussame(1)" :class="{chagestatussamebg : chagestatussamebg == 1}">
               <p class="statussame all">全部</p>
             </div>
-            <div class="statussame outBorder">
+            <div class="statussame outBorder" @click="statussame(2)" :class="{chagestatussamebg : chagestatussamebg == 2}">
               <p class="statussame out">待出貨</p>
             </div>
-            <div class="statussame getBorder">
+            <div class="statussame getBorder" @click="statussame(3)" :class="{chagestatussamebg : chagestatussamebg == 3}">
               <p class="statussame get">待取貨</p>
             </div>
-            <div class="statussame finishBorder">
+            <div class="statussame finishBorder" @click="statussame(4)" :class="{chagestatussamebg : chagestatussamebg == 4}">
               <p class="statussame finish">完成</p>
             </div>
-            <div class="statussame cancelBorder">
+            <div class="statussame cancelBorder" @click="statussame(5)" :class="{chagestatussamebg : chagestatussamebg == 5}">
               <p class="statussame cancel">取消</p>
             </div>
           </div>
@@ -429,6 +438,16 @@ Vue.component('order', {
         </div>
       </div>
       `,
+  data() {
+    return {
+      chagestatussamebg: 1,
+    }
+  },
+  methods: {
+    statussame(num) {
+      this.chagestatussamebg = num
+    },
+  },
 });
 
 Vue.component('points', {
