@@ -81,7 +81,7 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form>
+                        <form action="backendIndex.html" method="GET">
                             <div>
                                 <a href="backendIndex.html">
                                     <span class="pageLabel-current">買家會員</span>
@@ -106,7 +106,7 @@
                                     <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
                                     <span>至<input type="date" name="datePick2" size="15"></span>   
                                 </div>
-                                <button  class="btn-s btn-brown" @click="query">查詢</button>
+                                <button  class="btn-s btn-brown" type="submit">查詢</button>
                                 
                             </div>
                         </form>
@@ -213,22 +213,22 @@
                     let pick1 = $("input[name='datePick1']").val();
                     let pick2 = $("input[name='datePick2']").val();
 
-                    $.ajax({
+                    // $.ajax({
 
-                        url:'PHP/member/memberQuery.php',
-                        data:{number,phone,account,memberType,pick1,pick2},
-                        type:'POST',
-                        dataType:'JSON',
-                        traditional: true,
-                        success: function(res){
-                            // console.log(res);
-                            // self.tableData = res;
-                            window.location.href = 'backendIndex.html';
-                        },
-                        error: function(res){
-                            console.log(res);
-                        },
-                    });
+                    //     url:'backendIndex.html',
+                    //     data:{number,phone,account,memberType,pick1,pick2},
+                    //     type:'GET',
+                    //     traditional: true,
+                    //     success: function(res){
+
+                    //         alert('123');
+                    //         // self.tableData = res;
+                    //         window.location.href = 'backendIndex.html';
+                    //     },
+                    //     error: function(res){
+                    //         console.log(res);
+                    //     },
+                    // });
             }
             }
         })

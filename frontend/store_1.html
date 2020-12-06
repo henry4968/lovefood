@@ -6,11 +6,9 @@
     <title>樂腹商城</title>
     <link rel="stylesheet" href="../css/store_1.css">
     <link rel="stylesheet" href="../css/reset/reset.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
-    <script src="../js/07/store_1.js"></script>
+    
 </head>
 <body>
-    <!-- <div class="navBar"></div> -->
     <!-- 標頭開始 -->
     <header id="header">
         <!-- 漢堡選單開始 -->
@@ -110,9 +108,7 @@
                         </li>
                         <li class="areaName"><input type="checkbox" name="Name" value="4" id="" class="searchName" style="width:20px; height:20px;">食品種類
                         </li>
-                        <!-- <a class="btnMap" id="btnMap" type="button"><img src="./img/MMAp.png" alt="" class="iconMap">
-                            地圖搜尋
-                        </a> -->
+                    
                         <a href="#" class="btnMap" id="btnMap">
                             <img src="../img/07/MMAp.png" alt="" class="iconMap"><span class="mapText">地圖搜尋</span>
                         </a>
@@ -125,6 +121,7 @@
                 <div class="itemArea" id="selectBlock">
                     <div class="itemName" id="itemName1">
                         <p class="pText">區域</p>
+                        <!-- <span>w</span> -->
                             <div class="item1">
                                 <div class="group" id="group1">
                                 <span><input type="checkbox" name="Item" value="" style="width: 20px; height: 20px;">中正區
@@ -369,7 +366,7 @@
                 </div> 
                 </form> 
                 <!-- 地圖 -->
-                <!-- <map name="Map" style= "width: 800px; height: 600px; display: inline-block; background-color:#545454; margin: 0 auto;"></map> -->
+                <div id="googlemap" style= "width: 100%; height: 600px; background-color:#545454; margin: 0 auto;"></div>
             </div>
             <!-- 商品 -->
             <div class="context">
@@ -679,5 +676,9 @@
             </div>
         </div>
     </footer>
+    <!-- js連結 -->
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
+    <script src="../js/07/store_1.js"></script>
 </body>
 </html>

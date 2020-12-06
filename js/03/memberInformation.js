@@ -1,6 +1,6 @@
 Vue.component('member', {
   template: `
-      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
+      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1,backCategory:backCategory}">
         <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
@@ -64,6 +64,9 @@ Vue.component('member', {
           </div>
         </form>
         <div class="rightPicborder">
+          <div class="backCategoryBorder" @click="sync">
+            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="uploadBorder">
             <div class="imageBorder">
               <img id="image">
@@ -97,6 +100,8 @@ Vue.component('member', {
       modphone: '',
       modadd: '',
       confirmpassword: '',
+      foursameBorderapp: '',
+      backCategory: '',
     }
   },
   methods: {
@@ -157,6 +162,11 @@ Vue.component('member', {
           bg.style.backgroundImage = "url('')";
         });
       }
+    },
+    sync() {
+      // this.backCategory = true
+      this.$emit("my-click", 0)
+      console.log(1);
     },
   },
 
@@ -430,6 +440,7 @@ Vue.component('order', {
   data() {
     return {
       chagestatussamebg: 1,
+      foursameBorderapp: '',
     }
   },
   methods: {
@@ -500,6 +511,11 @@ Vue.component('points', {
         </div>
       </div>
       `,
+  data() {
+    return {
+      foursameBorderapp: '',
+    }
+  },
 });
 
 Vue.component('memberApply', {
@@ -658,6 +674,7 @@ Vue.component('memberApply', {
     return {
       none: '',
       block: '',
+      foursameBorderapp: '',
     }
   },
   methods: {
@@ -740,7 +757,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'member',
+    content: 'points',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',
@@ -752,7 +769,14 @@ new Vue({
       this.acth1 = num
       this.act = div
       this.leftBordermediumPhone = true
+      // leftBorder = document.getElementsByClassName('leftBorder')[0];
+      // leftBorder.classList.add('leftBordermediumPhone')
       this.foursameBorderapp = rwdborder
+    },
+    clicked(x) {
+      // this.leftBordermediumPhone = x ;
+      alert(`${x}`);
+      console.log(x);
     },
   },
 });
