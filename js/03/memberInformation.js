@@ -64,7 +64,7 @@ Vue.component('member', {
           </div>
         </form>
         <div class="rightPicborder">
-          <div class="backCategoryBorder" @click="backCategoryBorder">
+          <div class="backCategoryBorder" @click="sync">
             <img class="backCategoryBorder" src="../../img/03/backcategory.png">
           </div>
           <div class="uploadBorder">
@@ -163,9 +163,9 @@ Vue.component('member', {
         });
       }
     },
-    backCategoryBorder(){
+    sync() {
       this.backCategory = true
-      this.leftBordermediumPhone = false
+      this.$emit('my-click',0);
     },
   },
 
@@ -510,11 +510,11 @@ Vue.component('points', {
         </div>
       </div>
       `,
-      data() {
-        return {
-          foursameBorderapp: '',
-        }
-      },
+  data() {
+    return {
+      foursameBorderapp: '',
+    }
+  },
 });
 
 Vue.component('memberApply', {
@@ -771,6 +771,11 @@ new Vue({
       // leftBorder = document.getElementsByClassName('leftBorder')[0];
       // leftBorder.classList.add('leftBordermediumPhone')
       this.foursameBorderapp = rwdborder
+    },
+    clicked(x) {
+      // this.leftBordermediumPhone = x ;
+      alert(`${x}`);
+      console.log(x);
     },
   },
 });
