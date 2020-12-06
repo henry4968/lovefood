@@ -166,9 +166,6 @@ Vue.component('member', {
     backCategoryBorder(){
       this.backCategory = true
       this.leftBordermediumPhone = false
-      // console.log(this.leftBordermediumPhone);
-      // leftBorder = document.getElementsByClassName('leftBorder')[0];
-      // leftBorder.classList.remove('leftBordermediumPhone')
     },
   },
 
