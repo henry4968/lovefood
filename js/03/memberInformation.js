@@ -164,8 +164,9 @@ Vue.component('member', {
       }
     },
     sync() {
-      this.backCategory = true
-      this.$emit('my-click',0);
+      // this.backCategory = true
+      this.$emit("my-click", 0)
+      console.log(1);
     },
   },
 
@@ -756,7 +757,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'member',
+    content: 'points',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',
