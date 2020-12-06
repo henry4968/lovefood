@@ -641,21 +641,85 @@
     #ch02Bg01{
         bottom: -10%;
         right: 0%;
+        @include newRwd("desktop"){
+            bottom: -10%;
+        }
+        @include newRwd("laptop"){
+            right: -15%;
+        }
+        @include newRwd("mediumPhone"){
+            width: 1200px;
+            bottom: 0%;
+            right: -28%;
+        }
     }
     #ch02Bg02{
         width: 1824px;
         right: 0%;
-        bottom: -5%;
+        bottom: -10%;
+        @include newRwd("laptop"){
+            width: 1600px;
+            right: -15%;
+        }
+        @include newRwd("pad"){
+            width: 1200px;
+            bottom: 90px;
+            right: -10%;
+        }
+        @include newRwd("mediumPhone"){
+            width: 1000px;
+        }
+        @include newRwd("newSmallPhone"){
+            width: 650px;
+            right: -25%;
+        }
     }
     #ch02Bg03{
-        width: 1728px;
-        bottom: -15%;
-        right: 0%;
-    }
-    #ch02Bg04{
-        width: 1728px;
+        width: 1600px;
         bottom: -10%;
         right: 0%;
+        @include newRwd("laptop"){
+            width: 1600px;
+            right: -15%;
+        }
+        @include newRwd("pad"){
+            width: 1400px;
+            bottom: 90px;
+            right: -20%;
+        }
+        @include newRwd("bigPhone"){
+            width: 1200px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 1000px;
+        }
+        @include newRwd("newSmallPhone"){
+            width: 650px;
+        }
+    }
+    #ch02Bg04{
+        opacity: .6;
+        width: 100%;
+        bottom: 0%;
+        right: 0%;
+        @include newRwd("laptop"){
+            width: 1600px;
+            right: -15%;
+        }
+        @include newRwd("pad"){
+            width: 1400px;
+            bottom: 90px;
+            right: -20%;
+        }
+        @include newRwd("bigPhone"){
+            width: 1200px;
+        }
+        @include newRwd("mediumPhone"){
+            width: 1000px;
+        }
+        @include newRwd("newSmallPhone"){
+            width: 650px;
+        }
     }
     #ch02Bg02, #ch02Bg03, #ch02Bg04{
         display: none;
@@ -687,6 +751,9 @@
             font-size: 20px;
             top: 38%;
         }
+        @include newRwd("mediumPhone"){
+            top: 25%;
+        }
         @include newRwd("newSmallPhone"){
             font-size: 16px;
             br{
@@ -694,8 +761,7 @@
             }
         } 
     }
-    .conversionNumBlock{
-        border: 1px solid red;
+    #conversionNumBlock01{
         width: 1320px;
         display: flex;
         align-items: baseline;
@@ -725,12 +791,13 @@
         }
         @include newRwd("mediumPhone"){
             left: 46%;
+            top: 40%;
         }
         @include newRwd("newSmallPhone"){
                 width: 312px;
                 height: 110px;
         } 
-        .conversionNum{
+        #conversionNum01{
             font-size: 300px;
             color: #F7F5F5;
             @include newRwd("desktop"){
@@ -746,7 +813,7 @@
                 font-size: 77px;
             }
         }
-        .conversionUnit{
+        #conversionUnit01{
             font-size: 40px;
             color: #F7F5F5;
             @include newRwd("laptop"){
@@ -760,7 +827,208 @@
             }
         }
     }
-    #conversionNum02, #conversionNum03, #conversionNum04{
+    #conversionNumBlock02{
+        width: 550px;
+        display: flex;
+        align-items: baseline;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 80%;
+        top: 50%;
+        z-index: 2;
+        @include newRwd("desktop"){
+            width: 930px;
+            height: 263px;
+            margin: 0;
+            position: absolute;
+            left: 95%;
+            top: 50%;
+        }
+        @include newRwd("laptop"){
+            width: 750px;
+            height: 188px;
+        }
+        @include newRwd("pad"){
+            width: 550px;
+            height: 200px;
+            left: 60%;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        @include newRwd("mediumPhone"){
+                left: 40%;
+                top: 40%;
+        }
+        @include newRwd("newSmallPhone"){
+                width: 312px;
+                height: 110px;
+        } 
+        #conversionNum02{
+            font-size: 300px;
+            color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 208px;
+            }
+            @include newRwd("laptop"){
+                font-size: 170px;
+            }
+            @include newRwd("pad"){
+                font-size: 150px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 77px;
+            }
+        }
+        #conversionUnit02{
+            font-size: 40px;
+            color: #F7F5F5;
+            @include newRwd("laptop"){
+                font-size: 30px;
+            }
+            @include newRwd("laptop"){
+                font-size: 24px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 16px;
+            }
+        }
+    }
+    #conversionNumBlock03{
+        width: 1320px;
+        display: flex;
+        align-items: baseline;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 60%;
+        top: 50%;
+        z-index: 2;
+        @include newRwd("desktop"){
+            width: 930px;
+            height: 263px;
+            margin: 0;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+        @include newRwd("laptop"){
+            width: 750px;
+            height: 188px;
+            left: 65%;
+        }
+        @include newRwd("pad"){
+            width: 550px;
+            height: 200px;
+            flex-direction: column;
+            align-items: flex-end;
+            left: 46%;
+        }
+        @include newRwd("mediumPhone"){
+            top: 40%;
+        }
+        @include newRwd("newSmallPhone"){
+                width: 312px;
+                height: 110px;
+        } 
+        #conversionNum03{
+            font-size: 300px;
+            color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 208px;
+            }
+            @include newRwd("laptop"){
+                font-size: 170px;
+            }
+            @include newRwd("pad"){
+                font-size: 150px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 77px;
+            }
+        }
+        #conversionUnit03{
+            font-size: 40px;
+            color: #F7F5F5;
+            @include newRwd("laptop"){
+                font-size: 30px;
+            }
+            @include newRwd("laptop"){
+                font-size: 24px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 16px;
+            }
+        }
+    }
+    #conversionNumBlock04{
+        width: 1480px;
+        display: flex;
+        align-items: baseline;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 60%;
+        top: 50%;
+        z-index: 2;
+        @include newRwd("desktop"){
+            width: 1300px;
+            height: 263px;
+            margin: 0;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 55%;
+            top: 50%;
+        }
+        @include newRwd("laptop"){
+            width: 900px;
+            height: 188px;
+        }
+        @include newRwd("pad"){
+            width: 550px;
+            height: 200px;
+            flex-direction: column;
+            align-items: flex-end;
+            left: 55%;
+        }
+        @include newRwd("mediumPhone"){
+            left: 50%;
+            top: 40%;
+        }
+        @include newRwd("newSmallPhone"){
+                width: 312px;
+                height: 110px;
+                left: 46%;
+        } 
+        #conversionNum04{
+            font-size: 282px;
+            color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 208px;
+            }
+            @include newRwd("laptop"){
+                font-size: 170px;
+            }
+            @include newRwd("pad"){
+                font-size: 150px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 72px;
+            }
+        }
+        #conversionUnit04{
+            font-size: 40px;
+            color: #F7F5F5;
+            @include newRwd("laptop"){
+                font-size: 30px;
+            }
+            @include newRwd("laptop"){
+                font-size: 24px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 16px;
+            }
+        }
+    }
+    #conversionNumBlock02, #conversionNumBlock03, #conversionNumBlock04{
         display: none;
     }
     #conversionUnitIconBlock{

@@ -542,8 +542,8 @@ $(function () {
         $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
         $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
         $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
-        $('#conversionNum02, #conversionNum03, #conversionNum04, #ch02Bg02, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
-        $('#ch02Bg01, #conversionNum01').css({ 'display': 'block' });
+        $('#conversionNumBlock02, #conversionNumBlock03, #conversionNumBlock04, #ch02Bg02, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg01, #conversionNumBlock01').css({ 'display': 'flex' });
     });
 
     $('#cruiseShipIcon').click(function () {
@@ -551,8 +551,8 @@ $(function () {
         $(this).attr('src', '../img/22/index/ch02_icon_cruise_ship_light.png');
         $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
         $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
-        $('#conversionNum01, #conversionNum03, #conversionNum04, #ch02Bg01, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
-        $('#ch02Bg02, #conversionNum02').css({ 'display': 'block' });
+        $('#conversionNumBlock01, #conversionNumBlock03, #conversionNumBlock04, #ch02Bg01, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg02, #conversionNumBlock02').css({ 'display': 'flex' });
     });
 
     $('#planeIcon').click(function () {
@@ -560,8 +560,8 @@ $(function () {
         $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
         $(this).attr('src', '../img/22/index/ch02_icon_plane_light.png');
         $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
-        $('#conversionNum02, #conversionNum04, #conversionNum01, #ch02Bg02, #ch02Bg04, #ch02Bg01').css({ 'display': 'none' });
-        $('#ch02Bg03, #conversionNum03').css({ 'display': 'block' });
+        $('#conversionNumBlock02, #conversionNumBlock04, #conversionNumBlock01, #ch02Bg02, #ch02Bg04, #ch02Bg01').css({ 'display': 'none' });
+        $('#ch02Bg03, #conversionNumBlock03').css({ 'display': 'flex' });
     });
 
     $('#carIcon').click(function () {
@@ -569,8 +569,8 @@ $(function () {
         $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
         $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
         $(this).attr('src', '../img/22/index/ch02_icon_car_light.png');
-        $('#conversionNum01, #conversionNum02, #conversionNum03, #ch02Bg01, #ch02Bg02, #ch02Bg03').css({ 'display': 'none' });
-        $('#ch02Bg04, #conversionNum04').css({ 'display': 'block' });
+        $('#conversionNumBlock01, #conversionNumBlock02, #conversionNumBlock03, #ch02Bg01, #ch02Bg02, #ch02Bg03').css({ 'display': 'none' });
+        $('#ch02Bg04, #conversionNumBlock04').css({ 'display': 'flex' });
     });
 
 });
