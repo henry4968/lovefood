@@ -66,6 +66,9 @@ body{
         @include newRwd("mediumPhone"){
           width: 50%;
         }
+        @include newRwd("newSmallPhone"){
+          width: 300px;
+        }
         div.title{
           margin-bottom: 7px;
           h1.title{
@@ -195,6 +198,9 @@ body{
           display: block;
           display: flex;
         }
+        @include newRwd("newSmallPhone"){
+          width: 300px;
+        }
       }
       div.rightBorder{
         width: 70%;
@@ -265,6 +271,9 @@ body{
             justify-content: flex-start;
             width: 120px;
             // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              width: 85px;
+            }
           }
           .identifyBorder{
             .idTitle{
@@ -287,6 +296,9 @@ body{
           }
           .bigpasswordborder{
             display: flex;
+            @include newRwd("newSmallPhone"){
+              flex-direction: column;
+            }
             .passwordLef{
               display: flex;
               flex-direction: column;
@@ -425,6 +437,9 @@ body{
                 @include newRwd("pad"){
                   font-size: 18px;
                   line-height: 30px;
+                }
+                @include newRwd("newSmallPhone"){
+                  margin-left: 0px;
                 }
               }
             }
@@ -628,6 +643,9 @@ body{
         @include newRwd("mediumPhone"){
           display: block;
           display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 300px;
         }
       }
       div.rightBorderorder{
