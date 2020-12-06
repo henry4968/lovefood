@@ -1,4 +1,4 @@
-// fullpage.js控制項目
+// fullpage.js控制項目：全局
 $(function () {
     $('#main').fullpage({
         autoScrolling: true,
@@ -534,9 +534,45 @@ $(function () {
     });
 });
 
-// 控制箭頭
-$(document).ready(function () {
-    $(".fp-controlArrow").css("color", "red");
+// 浪費換算切換項目：第二章
+$(function () {
+
+    $('#elephantIcon').click(function () {
+        $(this).attr('src', '../img/22/index/ch02_icon_elephant_light.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNum02, #conversionNum03, #conversionNum04, #ch02Bg02, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg01, #conversionNum01').css({ 'display': 'block' });
+    });
+
+    $('#cruiseShipIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_cruise_ship_light.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNum01, #conversionNum03, #conversionNum04, #ch02Bg01, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg02, #conversionNum02').css({ 'display': 'block' });
+    });
+
+    $('#planeIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_plane_light.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNum02, #conversionNum04, #conversionNum01, #ch02Bg02, #ch02Bg04, #ch02Bg01').css({ 'display': 'none' });
+        $('#ch02Bg03, #conversionNum03').css({ 'display': 'block' });
+    });
+
+    $('#carIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_car_light.png');
+        $('#conversionNum01, #conversionNum02, #conversionNum03, #ch02Bg01, #ch02Bg02, #ch02Bg03').css({ 'display': 'none' });
+        $('#ch02Bg04, #conversionNum04').css({ 'display': 'block' });
+    });
+
 });
 
 // lightslider控制項目：第三章

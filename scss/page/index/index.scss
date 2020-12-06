@@ -626,7 +626,6 @@
 #chapter02{
     position: relative;
     background-color: #B0BAA4;
-    background-image: url(../../../img/22/index/ch02_bg_elephants.png);
     background-repeat: no-repeat;
     background-position: 0% 125%;
     @include newRwd("desktop"){
@@ -635,6 +634,31 @@
     @include newRwd("mediumPhone"){
         background-size: 900px;
         background-position: 75% 90%;
+    }
+    .ch02Bg{
+        position: absolute;
+    }
+    #ch02Bg01{
+        bottom: -10%;
+        right: 0%;
+    }
+    #ch02Bg02{
+        width: 1824px;
+        right: 0%;
+        bottom: -5%;
+    }
+    #ch02Bg03{
+        width: 1728px;
+        bottom: -15%;
+        right: 0%;
+    }
+    #ch02Bg04{
+        width: 1728px;
+        bottom: -10%;
+        right: 0%;
+    }
+    #ch02Bg02, #ch02Bg03, #ch02Bg04{
+        display: none;
     }
     .conversionTitle{
         width: 850px;
@@ -671,10 +695,15 @@
         } 
     }
     .conversionNumBlock{
+        border: 1px solid red;
         width: 1320px;
-        margin-left: 500px;
         display: flex;
         align-items: baseline;
+        position: absolute;
+        transform: translate(-50%, -50%);
+        left: 60%;
+        top: 50%;
+        z-index: 2;
         @include newRwd("desktop"){
             width: 930px;
             height: 263px;
@@ -730,6 +759,9 @@
                 font-size: 16px;
             }
         }
+    }
+    #conversionNum02, #conversionNum03, #conversionNum04{
+        display: none;
     }
     #conversionUnitIconBlock{
         width: 120px;

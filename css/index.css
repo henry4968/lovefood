@@ -873,7 +873,6 @@
 #chapter02 {
   position: relative;
   background-color: #B0BAA4;
-  background-image: url(../../../img/22/index/ch02_bg_elephants.png);
   background-repeat: no-repeat;
   background-position: 0% 125%;
 }
@@ -889,6 +888,37 @@
     background-size: 900px;
     background-position: 75% 90%;
   }
+}
+
+#chapter02 .ch02Bg {
+  position: absolute;
+}
+
+#chapter02 #ch02Bg01 {
+  bottom: -10%;
+  right: 0%;
+}
+
+#chapter02 #ch02Bg02 {
+  width: 1824px;
+  right: 0%;
+  bottom: -5%;
+}
+
+#chapter02 #ch02Bg03 {
+  width: 1728px;
+  bottom: -15%;
+  right: 0%;
+}
+
+#chapter02 #ch02Bg04 {
+  width: 1728px;
+  bottom: -10%;
+  right: 0%;
+}
+
+#chapter02 #ch02Bg02, #chapter02 #ch02Bg03, #chapter02 #ch02Bg04 {
+  display: none;
 }
 
 #chapter02 .conversionTitle {
@@ -941,14 +971,20 @@
 }
 
 #chapter02 .conversionNumBlock {
+  border: 1px solid red;
   width: 1320px;
-  margin-left: 500px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: baseline;
       -ms-flex-align: baseline;
           align-items: baseline;
+  position: absolute;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  left: 60%;
+  top: 50%;
+  z-index: 2;
 }
 
 @media all and (max-width: 1919px) {
@@ -1048,6 +1084,10 @@
   #chapter02 .conversionNumBlock .conversionUnit {
     font-size: 16px;
   }
+}
+
+#chapter02 #conversionNum02, #chapter02 #conversionNum03, #chapter02 #conversionNum04 {
+  display: none;
 }
 
 #chapter02 #conversionUnitIconBlock {
