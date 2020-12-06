@@ -76,6 +76,9 @@ Vue.component('member', {
               <button type="button" id="fakeBtn" @click="uploadpicBtn">編輯圖片</button>
             </div>  
           </div>
+          <div class="backCategoryBorder">
+            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
         </div>
       </div>
       `,
