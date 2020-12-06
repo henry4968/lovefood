@@ -15,7 +15,7 @@
   <component id="memheader" :is="headId"></component>
   <main id="memWrap" class="memWrap">
     <div class="memBigborder">
-      <div class="leftBorder" :class="{leftBordermediumPhone:leftBordermediumPhone}" @my-click="clicked">
+      <div class="leftBorder" :class="{leftBordermediumPhone:leftBordermediumPhone}">
         <div class="title">
           <h1 class="title">
             會員中心
@@ -58,7 +58,7 @@
           </div>
         </div>
       </div>
-      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}"></component>
+      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}" @my-click="clicked"></component>
 
     </div>
   </main>

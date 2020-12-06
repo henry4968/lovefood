@@ -164,9 +164,8 @@ Vue.component('member', {
       }
     },
     sync() {
-      // this.backCategory = true
-      this.$emit("my-click", 0)
-      console.log(1);
+      this.backCategory = true
+      this.$emit("my-click", false)
     },
   },
 
@@ -774,9 +773,9 @@ new Vue({
       this.foursameBorderapp = rwdborder
     },
     clicked(x) {
-      // this.leftBordermediumPhone = x ;
-      alert(`${x}`);
-      console.log(x);
+      this.leftBordermediumPhone = x ;
+      // alert(`${x}`);
+      // console.log(x);
     },
   },
 });
