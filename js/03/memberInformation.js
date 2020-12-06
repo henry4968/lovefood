@@ -774,8 +774,6 @@ new Vue({
     },
     clicked(x) {
       this.leftBordermediumPhone = x ;
-      // alert(`${x}`);
-      // console.log(x);
     },
   },
 });
