@@ -1,6 +1,6 @@
 Vue.component('member', {
   template: `
-      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
+      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1,backCategory:backCategory}">
         <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
@@ -64,6 +64,9 @@ Vue.component('member', {
           </div>
         </form>
         <div class="rightPicborder">
+          <div class="backCategoryBorder" @click="backCategoryBorder">
+            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="uploadBorder">
             <div class="imageBorder">
               <img id="image">
@@ -75,9 +78,6 @@ Vue.component('member', {
               <input type="file" id="theFile">
               <button type="button" id="fakeBtn" @click="uploadpicBtn">編輯圖片</button>
             </div>  
-          </div>
-          <div class="backCategoryBorder">
-            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
           </div>
         </div>
       </div>
@@ -101,6 +101,7 @@ Vue.component('member', {
       modadd: '',
       confirmpassword: '',
       foursameBorderapp: '',
+      backCategory: '',
     }
   },
   methods: {
@@ -161,6 +162,13 @@ Vue.component('member', {
           bg.style.backgroundImage = "url('')";
         });
       }
+    },
+    backCategoryBorder(){
+      this.backCategory = true
+      this.leftBordermediumPhone = false
+      // console.log(this.leftBordermediumPhone);
+      // leftBorder = document.getElementsByClassName('leftBorder')[0];
+      // leftBorder.classList.remove('leftBordermediumPhone')
     },
   },
 
@@ -763,6 +771,8 @@ new Vue({
       this.acth1 = num
       this.act = div
       this.leftBordermediumPhone = true
+      // leftBorder = document.getElementsByClassName('leftBorder')[0];
+      // leftBorder.classList.add('leftBordermediumPhone')
       this.foursameBorderapp = rwdborder
     },
   },

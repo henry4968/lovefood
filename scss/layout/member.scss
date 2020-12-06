@@ -193,6 +193,11 @@ body{
         }
       }
       // member
+      div.rightBorder.foursameBorderapp.backCategory{
+        @include newRwd("mediumPhone"){
+          display: none;
+        }
+      }
       div.rightBorder.foursameBorderapp{
         @include newRwd("mediumPhone"){
           display: block;
@@ -586,6 +591,19 @@ body{
           }
           @include newRwd("mediumPhone"){
             width: 95%;
+          }
+          .backCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            .backCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
           }
           .uploadBorder{
             display: flex;
