@@ -171,10 +171,11 @@
                 let urlParams = new URLSearchParams(window.location.search);
                 const self = this;
                 $.ajax({
-                    url:'PHP/member/profileR.php',
+                    url:'PHP/member/seller/profileR.php',
                     type:'GET',
                     data:{id:urlParams.get('id')},
                     success:function(res){
+                        console.log();
                         console.log(res);
                         self.tableData = res;
                     },

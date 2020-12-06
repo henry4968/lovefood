@@ -1,8 +1,8 @@
-.containerMem{
+.containerSeller{
     .asideMainWrapper{
-        position: relative;
         padding-top:110px;
         display: flex;
+        flex-direction: row;
         width:1200px;
         margin:0 auto;
         .headerMainWrapper{
@@ -13,7 +13,6 @@
                 margin-bottom: 10px;
                 header{
                     background-color: $y;
-                    form{
                         div{
                             position: relative;
                             display: flex;
@@ -38,7 +37,6 @@
                             }
                         }
                      
-                    }
                     div:nth-child(2){
                         justify-content: space-between;
                     }
