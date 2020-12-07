@@ -95,13 +95,21 @@
                     }
                 }
                 #pointsDataFilterRightBlock{
-                    width: 290px;
+                    border: 1px solid red;
+                    width: 310px;
                     height: 140px;
                     position: absolute;
                     right: 22px;
                     top: 17px;
                     font-size: 16px;
                     color: #707070;
+                    div{
+                        input{
+                            width: 130px;
+                            border-radius: 5px;
+                            margin: 0px 5px 0px 5px;
+                        }
+                    }
                     a{
                         .pointsDataFilterButton{
                             width: 60px;
