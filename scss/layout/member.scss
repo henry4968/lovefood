@@ -1275,6 +1275,9 @@ body{
           display: block;
           display: flex;
         }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
       }
       .rightBordermemberApply{
         width: 70%;
@@ -1315,18 +1318,31 @@ body{
             display: flex;
             justify-content: space-between;
             width: 100%;
+            @include newRwd("pad"){
+              flex-direction: column;
+            }
             .botleft{
               // border: 1px solid blue;
               width: 35%;
               display: flex;
               flex-direction: column;
+              @include newRwd("pad"){
+                order: 2;
+                width: 100%;
+              }
               .loveimg{
                 // border: 1px solid blue;
                 display: flex;
                 justify-content: center;
+                @include newRwd("pad"){
+                  align-self: center;
+                }
                 img{
                   margin: 30% 0% 10% 0%;
                   width: 80%;
+                }
+                @include newRwd("pad"){
+                  width: 50%;
                 }
               }
               .wordlineBorder{
@@ -1350,6 +1366,10 @@ body{
               width: 60%;
               display: flex;
               justify-content: center;
+              @include newRwd("pad"){
+                order: 1;
+                width: 100%;
+              }
               .botrightmiddleBorder{
                 display: flex;
                 flex-direction: column;

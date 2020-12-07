@@ -787,8 +787,6 @@ new Vue({
       this.acth1 = num
       this.act = div
       this.leftBordermediumPhone = true
-      // leftBorder = document.getElementsByClassName('leftBorder')[0];
-      // leftBorder.classList.add('leftBordermediumPhone')
       this.foursameBorderapp = rwdborder
     },
     clicked(x) {
