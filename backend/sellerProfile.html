@@ -3,13 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LOVEFOOD管理中心--會員管理</title>
+    <title>LOVEFOOD管理中心--賣家會員管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 <body>
-     <div class="containerIndex">
+     <div class="containerMem">
         <div class="navWrapper">
             <nav>
                 <div class="navLeft">
@@ -29,7 +27,6 @@
                         <li>管理員</li>
                         <li>Name</li>
                     </ul>
-                    
                     <ul class="sideNav">
                         <a class="a-sideLink" href="backendIndex.html">
                             <div class="currentPage">
@@ -81,89 +78,73 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <!-- <form> -->
+                        <form name="" action="" method="POST" >
                             <div>
-                                <a href="backendIndex.html">
-                                    <span class="pageLabel-current">買家會員</span>
-                                </a>
-                                <a href="sellerProfile.html">
-                                    <span class="pageLabel-others">賣家會員</span>
-                                </a>
+                                <span class="pageLabel-others">買家會員</span>
+                                <span class="pageLabel-current">賣家會員</span>
                             </div>
                             <div>
-                                <span>會員編號<input type="text" name="number" size="15"></span>
-                                <span>會員手機<input type="text" name="phone" size="15"></span>
+                                <span>會員編號<input type="text" name="" size="15"></span>
+                                <span>公司電話<input type="text" name="" size="15"></span>
                                 
-                                <span>會員帳號<input type="text" name="account"></span>
+                                <span>會員帳號<input type="text"></span>
                                     <span>特殊會員
-                                        <input type="checkbox" name="memberType" value="1">是
-                                        <input type="checkbox" name="memberType" value="0">否
+                                        <input type="checkbox" name="" value="">是
+                                        <input type="checkbox" name="" value="">否
                                     </span>
-                                    
                             </div>
                             <div>
                                 <div>
-                                    <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
-                                    <span>至<input type="date" name="datePick2" size="15"></span>   
+                                    <span>查詢期間<input type="date" name="" size="15"></span>   
+                                    <span>至<input type="date" name="" size="15"></span>   
                                 </div>
-                                <button  class="btn-s btn-brown" id="query" @click="query">查詢</button>
-                                
+                                <button class="btn-s btn-brown" type="submit">查詢</button>
                             </div>
-                        <!-- </form> -->
+                        </form>
                     </header>
                 </div>   
                 <main>
                     <table class="table">
-                        <thead>
-                            <tr>
-                                <th>序號</th>
-                                <th>會員編號</th>
-                                <th>會員帳號</th>
-                                <th>會員手機</th>
-                                <th>會員手機</th>
-                                <th>會員狀態</th>
-                                <th>功能鍵</th>
-                            </tr>
-                        </thead>
-                        <tbody v-if = "tableData">
-                            <tr v-for="(data,key) in tableData">
-                                <td>{{key+1}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[2]}}</td>
-                                <td>{{data[5]}}</td>
-                                <td>{{data[7]}}</td>
-                                <td>{{data[9]}}</td>
-                                <td>
-                                    <form action="memberProfile.html" method="GET">
-                                        <button type="submit" class="btn-sb btn-green">編輯</button>
-                                        <input type="hidden" name="id" :value="data[0]">
-                                    </form>
-                                </td>
-                               
-                            </tr>
-
-                        </tbody>
+                        <tr>
+                            <th>序號</th>
+                            <th>會員編號</th>
+                            <th>會員帳號</th>
+                            <th>公司電話</th>
+                            <th>註冊時間</th>
+                            <th>會員狀態</th>
+                        </tr>
+                        <tr>
+                            <td>00001</td>
+                            <td>SP00001</td>
+                            <td>abc@gmail.com</td>
+                            <td>02-22551234</td>
+                            <td>2020/11/01 19:00:00</td>
+                            <td>02</td>
+                        </tr>
                     </table>
+                    <div class="profile">
+                        <h2 class="btn-brown">賣家檔案</h2>
+                        <h3>會員編號 <input class="input-xl" type="text" placeholder="SP00001" disabled></h3>
+                        <h3>會員帳號 <input class="input-xl" type="text" placeholder="abc@gmail.com" disabled></h3>
+                        <h3>公司名稱 <input class="input-xl" type="password" placeholder="1995/08/08" disabled></h3>
+                        <h3>公司電話 <input class="input-xl" type="text" placeholder="02-22551234"></h3>
+                        <h3>登記地址 <input class="input-xl" type="text" placeholder="台北市中山區復興北路" size="45"></h3>
+                        <h3>停權原因 <select name="" id="" disabled>
+                                        <option value="">00 - 無</option>
+                                        <option value="">01 - 賣家嚴重違法上架規範</option>
+                                        <option value="" selected="selected">02 - 賣家上架違禁商品</option>
+                                        <option value="">03 - 賣家違反供應充足原則</option>
+                                        <option value="">04 - 賣家侵害智慧財產權</option>
+                                        <option value="">05 - 賣家暫時歇業</option>
+                                        <option value="">06 - 賣家結束營業</option>
+                                        <option value="">07 - 其他</option>
+                                    </select>
+                        </h3>
+                        <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown">儲存</button></span>
+                    </div>
                 </main>
             </div>
         </div>    
     </div>
-    <script>
-        const app = new Vue({
-        el: '.containerIndex',
-        data() {
-            return {
-                tableData:null,
-            }
-        },
-        beforeMount(){
-            const self = this;
-            $.getJSON('memberR.php',function(res){
-                self.tableData = res;
-            });
-        },
-        })
-      </script>
 </body>
 </html>
-

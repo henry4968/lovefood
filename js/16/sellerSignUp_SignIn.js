@@ -91,17 +91,20 @@ new Vue({
             this.movesignUpmm = true
             this.movesignInmm = true
         },
+        tt(){
+            
+        },
     },
 });
 
 function doFirst() {
     // 會員登入
-    changeTOmember = document.getElementsByClassName('changeTOmember')[0];
+    // changeTOmember = document.getElementsByClassName('changeTOmember')[0];
     // 註冊
     changeTosignup = document.getElementsByClassName('changeTosignup')[0];
 
     // 會員登入(函式)
-    changeTOmember.addEventListener('click', changeTOmemberf);
+    // changeTOmember.addEventListener('click', changeTOmemberf);
     // 註冊(函式)
     changeTosignup.addEventListener('click', changeTosignupf);
 }

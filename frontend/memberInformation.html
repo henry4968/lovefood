@@ -15,7 +15,7 @@
   <component id="memheader" :is="headId"></component>
   <main id="memWrap" class="memWrap">
     <div class="memBigborder">
-      <div class="leftBorder">
+      <div class="leftBorder" :class="{leftBordermediumPhone:leftBordermediumPhone}">
         <div class="title">
           <h1 class="title">
             會員中心
@@ -29,25 +29,25 @@
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'a'}">
             <!-- memInfoBorder -->
-            <h1 class="memInfo" @click="memberButton('member',0,'a')" :class="{'addBtn' : acth1 == 0}">
+            <h1 class="memInfo" @click="memberButton('member',0,'a',1)" :class="{'addBtn' : acth1 == 0}">
               會員資料
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'b'}">
             <!-- orderBorder -->
-            <h1 class="order" @click="memberButton('order',1,'b')" :class="{addBtn : acth1 == 1}">
+            <h1 class="order" @click="memberButton('order',1,'b',2)" :class="{addBtn : acth1 == 1}">
               訂單查詢
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'c'}">
             <!-- pointsBorder -->
-            <h1 class="points" @click="memberButton('points',2,'c')" :class="{addBtn : acth1 == 2}">
+            <h1 class="points" @click="memberButton('points',2,'c',3)" :class="{addBtn : acth1 == 2}">
               我的點數
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'd'}">
             <!-- memapplyBorder -->
-            <h1 class="memapply" @click="memberButton('memberApply',3,'d')" :class="{addBtn : acth1 == 3}">
+            <h1 class="memapply" @click="memberButton('memberApply',3,'d',4)" :class="{addBtn : acth1 == 3}">
               特殊會員申請
             </h1>
           </div>
@@ -58,94 +58,7 @@
           </div>
         </div>
       </div>
-      <!-- <component :is="content"></component> -->
-
-
-      <div class="rightBorderorder">
-        <div class="centerBorder">
-          <div class="searchBorder">
-            <form id="searchBorder" method="POST" action="#">
-              <div class="searchDateBoder">
-                <label class="search">查詢區間 : </label>
-                <input id="dateFrom" type="date">
-                <span>
-                  &#32;&#126;&#32;
-                </span>
-                <input id="dateTo" type="date">
-              </div>
-              <div class="searchBtnBorder">
-                <button id="searchBtnBorder" type="submit">查詢</button>
-              </div>
-              <div class="searchNoteBorder">
-                <p class="searchNoteBorder">可查詢90天內之訂單</p>
-              </div>
-            </form>
-          </div>
-          <div class="orderStatusBorder">
-            <div class="statussame allBorder">
-              <p class="statussame all">全部</p>
-            </div>
-            <div class="statussame outBorder">
-              <p class="statussame out">待出貨</p>
-            </div>
-            <div class="statussame getBorder">
-              <p class="statussame get">待取貨</p>
-            </div>
-            <div class="statussame finishBorder">
-              <p class="statussame finish">完成</p>
-            </div>
-            <div class="statussame cancelBorder">
-              <p class="statussame cancel">取消</p>
-            </div>
-          </div>
-
-          <!-- <component :is="componentId"></component> -->
-          <div class="orderdetailBorder">
-            <div class="catalogBorder">
-              <div class="detailsame orderdateBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle orderdate">訂單日期</h3>
-                </div>
-                <p class="contentsame orderdate">2020/11/01</p>
-              </div>
-              <div class="detailsame orderidBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle orderid">訂單編號</h3>
-                </div>
-                <p class="contentsame orderid">2020110100001</p>
-              </div>
-              <div class="detailsame countBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle conut">數量</h3>
-                </div>
-                <p class="contentsame conut">3</p>
-              </div>
-              <div class="detailsame orderallBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle orderall">訂單總額</h3>
-                </div>
-                <p class="contentsame orderall">92</p>
-              </div>
-              <div class="detailsame paywayBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle payway">付款方式</h3>
-                </div>
-                <p class="contentsame payway">信用卡</p>
-              </div>
-              <div class="detailsame orderconditionBorder">
-                <div class="cattitle">
-                  <h3 class="cattitle ordercondition">訂單狀態</h3>
-                </div>
-                <p class="contentsame ordercondition">待出貨</p>
-              </div>
-            </div>
-            <div class="itemdetailBorder">
-              <div class="itemstatusBorder"></div>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}"></component>
 
     </div>
   </main>
@@ -157,3 +70,5 @@
 </body>
 
 </html>
+
+<!--  -->

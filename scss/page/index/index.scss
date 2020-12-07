@@ -88,7 +88,7 @@
             display: block;
         }
     }
-    // 水平滑動漢堡選單變色用父層開始
+    // 水平、垂直滑動漢堡選單變色用父層開始
     .hamburgerMenuColorForCh01{
         span, span::before, span::after{
             background-color: #FDFBBA;
@@ -101,10 +101,31 @@
     }
     .hamburgerMenuColorForCh02{
         span, span::before, span::after{
-            background-color: #FFFFFF;
+            background-color: #73805D;
         }
     }
-    // 水平滑動漢堡選單變色用父層結束
+    .hamburgerMenuColorForCh03{
+        span, span::before, span::after{
+            background-color: #96B3A3;
+        }
+    }
+    .hamburgerMenuColorForCh04{
+        span, span::before, span::after{
+            background-color: #939F8A;
+        }
+    }
+    .hamburgerMenuColorForCh05{
+        span, span::before, span::after{
+            background-color: #8B7A69;
+        }
+    }
+    .hamburgerMenuColorForCh06{
+        span, span::before, span::after{
+            background-color: #D0C37F;
+        }
+    }
+    // 水平、垂直滑動漢堡選單變色用父層結束
+
     
     // 漢堡選單結束
 
@@ -124,16 +145,23 @@
             #searchBarForMobile{
                 width: 100%;
                 height: 70px;
-                background-color: lightgrey;
                 display: flex;
                 #searchInputForMobile{
+                    background-color: #FFFFFF !important;
+                    background-image: url("/img/22/index/hamburger_menu_search.png");
+                    background-repeat: no-repeat;
+                    background-position: left 2% center;
+                    padding: 3px 3px 3px 50px;
                     width: 80%;
                     height: 60%;
-                    border-radius: 20px;
-                    background-color: #FFFFFF;
-                    display: block;
+                    border-radius: 10px;
+                    font-size: 21px;
+                    line-height: 28px;
                     margin: auto;
                     align-self: center;
+                    &:focus{
+                        outline: none;
+                    }
                 }
             }
             li{
@@ -143,6 +171,20 @@
                 margin: 30px 0px 0px 0px;
                 a{
                     color: #515151;
+                }
+                #navSepcialAnchorForMobile{
+                    div{
+                        width: 119px;
+                        height: 41px;
+                        border-radius: 3px;
+                        line-height: 48px;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                        margin: auto;
+                        background-color: #E8CE67;
+                        &:hover{
+                            background-color: #F9FBD1;
+                        }
+                    }
                 }
             }
         }
@@ -296,7 +338,6 @@
     100% { opacity: 0; }
   }
 
-
 // 第一章：「組織訴求」開始
 #chapter01{
     .slide{
@@ -372,7 +413,7 @@
                 top: 35%;
             }
             @include newRwd("bigPhone"){
-                top: 38%;
+                top: 40%;
                 h3{
                     font-size: 20px;
                 }
@@ -381,7 +422,6 @@
                 }
             }
             @include newRwd("newSmallPhone"){
-                top: 45%;
                 h3{
                     font-size: 16px;
                 }
@@ -400,7 +440,6 @@
             left: 734px;
             padding: 61px 99px 53px 61px;
             .subSloganContent{
-                // border: 3px solid red;
                 width: 662px;
                 h3{
                     font-size: 30px;
@@ -436,6 +475,7 @@
             @include newRwd("pad"){
                 width: 970px;
                 height: 350px;
+                top: 60%;
                 .subSloganContent{
                     h3{
                         font-size: 23px;
@@ -460,6 +500,7 @@
             @include newRwd("bigPhone"){
                 width: 100%;
                 height: 350px;
+                top: 60%;
                 .subSloganContent{
                     position: relative;
                     margin: auto;
@@ -540,7 +581,7 @@
     z-index: -2;
     background-image: 
     url(../../../img/22/index/ch0101_bg_green_screen.png);
-    background-repeat: no-repeat;
+    background-repeat: no-repeat;;
     .ch01BgShining{
         position: absolute;
         top: 0;
@@ -554,7 +595,7 @@
         }
         #ch01BgFruit{
             position: absolute;
-            bottom: -120px;
+            bottom: -60px;
             z-index: -1;
             @include newRwd("newSmallPhone"){
                 width: 750px;
@@ -586,9 +627,15 @@
     position: relative;
     background-color: #B0BAA4;
     background-image: url(../../../img/22/index/ch02_bg_elephants.png);
-    background-attachment: scroll;
     background-repeat: no-repeat;
     background-position: 0% 125%;
+    @include newRwd("desktop"){
+        background-position: 70% 125%;
+    }
+    @include newRwd("mediumPhone"){
+        background-size: 900px;
+        background-position: 75% 90%;
+    }
     .conversionTitle{
         width: 850px;
         height: 53px;
@@ -598,23 +645,93 @@
         z-index: 2;
         font-size: 40px;
         color: #FFFADF;
+        br{
+            display: none;
+        }
+        @include newRwd("desktop"){
+            font-size: 30px;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 30%;
+        }
+        @include newRwd("laptop"){
+            text-align: center;
+            top: 35%;
+            font-size: 25px;
+        }
+        @include newRwd("pad"){
+            font-size: 20px;
+            top: 38%;
+        }
+        @include newRwd("newSmallPhone"){
+            font-size: 16px;
+            br{
+                display: block;
+            }
+        } 
     }
     .conversionNumBlock{
         width: 1320px;
         margin-left: 500px;
         display: flex;
         align-items: baseline;
+        @include newRwd("desktop"){
+            width: 930px;
+            height: 263px;
+            margin: 0;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+        }
+        @include newRwd("laptop"){
+            width: 750px;
+            height: 188px;
+        }
+        @include newRwd("pad"){
+            width: 550px;
+            height: 200px;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+        @include newRwd("mediumPhone"){
+            left: 46%;
+        }
+        @include newRwd("newSmallPhone"){
+                width: 312px;
+                height: 110px;
+        } 
         .conversionNum{
             font-size: 300px;
             color: #F7F5F5;
+            @include newRwd("desktop"){
+                font-size: 208px;
+            }
+            @include newRwd("laptop"){
+                font-size: 170px;
+            }
+            @include newRwd("pad"){
+                font-size: 150px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 77px;
+            }
         }
         .conversionUnit{
             font-size: 40px;
             color: #F7F5F5;
+            @include newRwd("laptop"){
+                font-size: 30px;
+            }
+            @include newRwd("laptop"){
+                font-size: 24px;
+            }
+            @include newRwd("newSmallPhone"){
+                font-size: 16px;
+            }
         }
     }
     #conversionUnitIconBlock{
-        border: 1px solid red;
         width: 120px;
         height: 450px;
         position: absolute;
@@ -623,15 +740,35 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @include newRwd("bigPhone"){
+        @include newRwd("laptop"){
+            width: 69px;
+            height: 272px;
+            left: 55px;
+            top: 194px;
+            align-items: center;
+            a{
+                img{
+                    width: 100%;
+                }
+            }
+        }
+        @include newRwd("pad"){
             width: 100%;
             height: 90px;
-            padding: 20px 400px 0px 400px;
+            padding: 5px 175px 5px 175px;
             background-color: #B0BAA4;
             top: auto;
             left: 0;
             bottom: 0;
             flex-direction: row;
+            }
+        @include newRwd("bigPhone"){
+            padding: 20px 0px 0px 20px;
+                a{
+                    img{
+                        width: 75%;
+                    }
+                }
             }
         }
 }
@@ -642,7 +779,6 @@
     position: relative;
     background-color: #C8DED2;
     text-align: center;
-    // padding-top: 150px;
     #ch03MainSolgan{
         width: 581px;
         height: 103px;
@@ -690,7 +826,7 @@
             width: 490px;
         }
         @include newRwd("newSmallPhone"){
-            width: 300px;
+            width: 375px;
         }
         #solganCarouselList{
           .solganCarouseItem{
@@ -839,8 +975,6 @@
         font-size: 34px;
         font-weight: 600;
         color: #605F5F;
-        // margin-top: 120px;
-        // margin-bottom: 40px;
         position: absolute;
         transform: translate(-50%, -50%);
         left: 50%;
@@ -850,7 +984,6 @@
         }
     }
     #productCarouselContainer{
-        border: 1px solid red;
         width: 1100px;
         height: 465px;
         margin: auto;
@@ -1261,6 +1394,9 @@
             @include newRwd("laptop"){
                 width: 100%;
             }
+            @include newRwd("newSmallPhone"){
+                width: 0;
+            }
             #contactUsContainer{
                 width: 550px;
                 height: 630px;
@@ -1272,6 +1408,14 @@
                 @include newRwd("laptop"){
                     width: 1010px;
                     height: 525px;
+                }
+                @include newRwd("pad"){
+                    width: 525px;
+                    height: 575px;
+                }
+                @include newRwd("newSmallPhone"){
+                    border: none;
+                    box-shadow: none;
                 }
                 #contactUsFrame{
                     width: 500px;
@@ -1286,12 +1430,33 @@
                         display: flex;
                         padding: 63px 129px 75px 148px;
                     }
+                    @include newRwd("pad"){
+                        width: 480px;
+                        height: 533px;
+                        padding: 30px 130px 40px 130px;
+                        display: flex;
+                        flex-wrap: wrap;
+                    }
+                    @include newRwd("newSmallPhone"){
+                        border: none;
+                    }
                     #contactUsBlock{
                         @include newRwd("laptop"){
-                            border: 1px solid blue;
                             width: 242px;
                             height: 354px;
                             margin-right: 180px;
+                        }
+                        @include newRwd("pad"){
+                            order: 2;
+                            width: 200px;
+                            padding-top: 15px;
+                            margin: 0;
+                        }
+                        @include newRwd("newSmallPhone"){
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            top: 600px;
                         }
                         h3{
                             font-size: 30px;
@@ -1303,6 +1468,11 @@
                                 line-height: 33px;
                                 margin: auto;
                             }
+                            @include newRwd("pad"){
+                                width: 136px;
+                                font-size: 20px;
+                                line-height: 28px;
+                            }
                         }
                         .ch06TtileDecoration{
                             width: 275px;
@@ -1311,6 +1481,10 @@
                             border-bottom: 1px solid #D0C37F;
                             @include newRwd("laptop"){
                                 width: 198px;
+                            }
+                            @include newRwd("pad"){
+                                width: 200px;
+                                margin-bottom: 2px;
                             }
                         }
                         #connectionInfoContainer{
@@ -1321,15 +1495,22 @@
                             justify-content: space-between;
                             margin: 60px 0px 80px 0px;
                             @include newRwd("laptop"){
-                                border: 1px solid black;
                                 width: 227px;
                                 height: 168px;
                                 margin: 40px 0px 60px 0px;
+                            }
+                            @include newRwd("pad"){
+                                width: 190px;
+                                height: 150px;
+                                margin: 15px auto 0px auto;
                             }
                             .connectionInfo{
                                 display: flex;
                                 img{
                                     margin-right: 20px;
+                                    @include newRwd("pad"){
+                                        margin-right: 10px;
+                                    }
                                 }
                                 span{
                                     font-size: 24px;
@@ -1354,10 +1535,16 @@
                                     @include newRwd("laptop"){
                                         height: 25px;
                                     }
+                                    @include newRwd("pad"){
+                                        height: 19px;
+                                    }
                                 }
                                 span{
                                     @include newRwd("laptop"){
                                         font-size: 17px;
+                                    }
+                                    @include newRwd("pad"){
+                                        font-size: 14px;
                                     } 
                                 }
                             }
@@ -1366,10 +1553,16 @@
                                     @include newRwd("laptop"){
                                         height: 23px;
                                     }
+                                    @include newRwd("pad"){
+                                        height: 17px;
+                                    }
                                 }
                                 span{
                                     @include newRwd("laptop"){
                                         font-size: 17px;
+                                    }
+                                    @include newRwd("laptop"){
+                                        font-size: 14px;
                                     } 
                                 }
                             }
@@ -1378,10 +1571,16 @@
                                     @include newRwd("laptop"){
                                         height: 21px;
                                     } 
+                                    @include newRwd("pad"){
+                                        height: 16px;
+                                    }
                                 }
                                 span{
                                     @include newRwd("laptop"){
                                         font-size: 17px;
+                                    }
+                                    @include newRwd("pad"){
+                                        font-size: 14px;
                                     } 
                                 }
                             }
@@ -1389,6 +1588,9 @@
                                 img{
                                     @include newRwd("laptop"){
                                         height: 26px;
+                                    }
+                                    @include newRwd("pad"){
+                                        height: 20px;
                                     }
                                 }
                                 #ch06SearchBar{
@@ -1400,6 +1602,17 @@
                                         }
                                         img{
                                             height: 17px;
+                                        }
+                                    }
+                                    @include newRwd("pad"){
+                                        width: 128px;
+                                        height: 19px;
+                                        padding: 0px 3px 0px 3px;
+                                        span{
+                                            font-size: 10px;
+                                        }
+                                        img{
+                                            height: 11px;
                                         }
                                     }
                                 }
@@ -1415,7 +1628,7 @@
                                     height: 46.5px;
                                 }
                             }
-                            @include newRwd("bigPhone"){
+                            @include newRwd("pad"){
                                 display: none;
                             }
                         }
@@ -1424,7 +1637,6 @@
                         display: none;
                         @include newRwd("laptop"){
                             display: block;
-                            border: 1px solid red;
                             width: 269px;
                             height: 365px;
                             #ch06ImgBlockForMobile{
@@ -1437,7 +1649,7 @@
                                 font-size: 33px;
                                 line-height: 27px;
                                 color: #D0C37F;
-                                margin: 30px 0px 20px 0px;
+                                margin: 20px 0px 20px 0px;
                             }
                             #ch06GuideBlockForMobile{
                                 width: 270px;
@@ -1477,6 +1689,49 @@
                                 }
                             }
                         }
+                        @include newRwd("pad"){
+                            width: 200px;
+                            height: 260px;
+                            order: 1;
+                            #ch06ImgBlockForMobile{
+                                width: 100%;
+                                img{
+                                    width: 90%;
+                                }
+                            }
+                            h2{
+                                display: none;
+                            }
+                            #ch06GuideBlockForMobile{
+                                width: 100%;
+                                span{
+                                    display: none;
+                                }
+                                #ch06GuideButtonForMobile{
+                                    width: 120px;
+                                    height: 36px;
+                                    margin: 10px 30px 0px 30px;
+                                    div{
+                                        width: 19.5px;
+                                        img{
+                                            width: 100%;
+                                        }
+                                    }
+                                    span{
+                                        display: block;
+                                        color: #FFFFFF;
+                                        font-size: 18px;
+                                        line-height: 25px;
+                                    }
+                                }
+                            }
+                        }
+                        @include newRwd("newSmallPhone"){
+                            position: absolute;
+                            transform: translate(-50%, -50%);
+                            left: 50%;
+                            top: 280px;
+                        }
                     }
                 }
             }
@@ -1488,6 +1743,9 @@
             @include newRwd("laptop"){
                 width: 0;
                 position: static;
+            }
+            @include newRwd("newSmallPhone"){
+                display: none;
             }
             #ch06GuideContainer{
                 width: 500px;
@@ -1542,4 +1800,4 @@
         }
     }
 }
-// 第六章：「聯絡我們」結束    
+// 第六章：「聯絡我們」結束
