@@ -332,12 +332,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -363,12 +363,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -394,12 +394,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>

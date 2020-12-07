@@ -683,6 +683,9 @@ body{
             #searchBorder{
               display: flex;
               align-items: center;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
               .searchDateBoder{
                 display: flex;
                 align-items: center;
@@ -691,6 +694,9 @@ body{
                   font-weight: normal;
                   color: #7B807D;
                   margin-right: 10px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                  }
                 }
                 .whitespace{
                   margin: 0px 10px;
@@ -710,6 +716,9 @@ body{
               }
               .searchBtnBorder{
                 margin: 0px 3%;
+                @include newRwd("pad"){
+                  margin: 3% 2% 0% 0%;
+                }
                 #searchBtnBorder{
                   width: 80px;
                   height: 30px;
@@ -727,6 +736,9 @@ body{
                 }
               }
               .searchNoteBorder{
+                @include newRwd("pad"){
+                  margin-top: 2%;
+                }
                 .searchNoteBorder{
                   font-size: 18px;
                   font-weight: normal;
@@ -777,6 +789,9 @@ body{
                 font-weight: 500;
                 color: #8F8770;
                 z-index: 1;
+                @include newRwd("pad"){
+                  font-size: 20px;
+                }
               }
             }
           }
@@ -803,6 +818,9 @@ body{
                     font-weight: normal;
                     color: white;
                     padding: 10px 0px;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
                 .contentsame{
@@ -830,12 +848,18 @@ body{
                 flex-direction: column;
                 width: 90%;
                 // border: 1px solid blue;
+                @include newRwd("pad"){
+                  width: 95%;
+                }
                 .itemstopBorder{
                   display: flex;
                   // border: 1px solid blue;
                   position: relative;
                   margin-bottom: 40px;
                   width: 90%;
+                  @include newRwd("pad"){
+                    width: 100%;
+                  }
                   .fourcircleBorder{
                     display: flex;
                     justify-content: space-between;
@@ -879,6 +903,9 @@ body{
                     span{
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                     .itembotIdtitle,.itembotId,.itembotsellertitle,.itembotseller{
                       color: #909090;
@@ -903,13 +930,24 @@ body{
                   .itemconttopBorder{
                     display: flex;
                     margin-bottom: 15px;
+                    // border: 1px solid blue;
+                    @include newRwd("pad"){
+                      flex-direction: column;
+                    }
                     .itempicBorder{
                       background-color: #fff;
                       border: 2px solid #707070;
+                      @include newRwd("pad"){
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-self: center;
+                      }
                     }
                     .middleitemsame{
                       margin: 20px 20px;
                       display: flex;
+                      // border: 1px solid blue;
                       span,p{
                         font-size: 20px;
                         font-weight: normal;
@@ -923,20 +961,32 @@ body{
                       margin-top: 3%;
                       margin-left: 5%;
                       // border: 1px solid black;
+                      @include newRwd("pad"){
+                        flex-direction: column;
+                        justify-content: none;
+                      }
                       .unitpriceBorder{
                         padding-right: 30px;
-                        p{
+                        // border: 1px solid black;
+                        @include newRwd("pad"){
+                          flex-direction: row;
+                          width: 100%;
+                        }
+                        span.unitpricetitle,span.unitpricecontent{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            width: 50%;
+                          }
                         }
-                        .unitpricetitle{
+                        span.unitpricetitle{
                           color: #707070;
                           margin-bottom: 7px;
                         }
                       }
                       .countpriceBorder{
-                        p{
+                        span{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
