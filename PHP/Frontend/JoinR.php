@@ -15,5 +15,5 @@
     $statement->bindValue(2, $_POST["pwd"]);
     $statement->execute();
 
-    // echo "<script>alert('加入成功，請重新登入!'); location.href = 'Login.php';</script>"; 
+    echo "<script>alert('加入成功，請重新登入!'); location.href = '../../frontend/signUp_signIn.html';</script>";
 ?>

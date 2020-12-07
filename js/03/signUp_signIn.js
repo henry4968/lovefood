@@ -4,17 +4,18 @@ Vue.component('member', {
   data() {
     return {
       email: '',
+      message: '',
     };
   },
   template: `
         <div class="member">
           <form id="member" method="post" action="../PHP/Frontend/JoinR.php">
-            <input type="text" placeholder="信箱" :placeholder="email" name="account"/>
+            <input type="text" :placeholder="email" name="account"/>
             <input type="password" placeholder="密碼" name="pwd"/>
             <input type="password" placeholder="確認密碼" />
             <div class="checkEmail">
               <input class="checkEmail" type="text" placeholder="驗證密碼">
-              <button class="checkEmail" type="button">發送驗證碼</button>
+              <button class="checkEmail" @click="emailcheck" type="button">發送驗證碼</button>
             </div>
             <button class="subSignup" type="submit" @click="check">註冊</button>
             <button class="changeTOmember" type="button">會員登入</button>
@@ -31,14 +32,30 @@ Vue.component('member', {
         </div>
       `,
   methods: {
-    check(){
-      if (this.email == ''){
+    check() {
+      if (this.email == '') {
         alert('信箱是空的');
       }
     },
+    emailcheck() {
+      // alert('s');
+      if (this.email == '') {
+        alert('信箱是空的');
+      }
+      Email.send({
+        SecureToken: "83e722aa-e25e-440b-b4ea-b3d5d6cf95b8",
+        To: 'j23063519@gmail.com',
+        From: "tibamelovefood@gmail.com",
+        Subject: "This is the subject",
+        Body: "And this is the body"
+      })
+        .then(
+          message => alert(message)
+        );
+    },
   },
   mounted() {
-    
+
   },
 });
 
