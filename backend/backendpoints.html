@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+d<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 
 <body>
@@ -111,31 +113,32 @@
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>訂單編號</div>
-                                <input type="text">
+                                <input type="text" name="order">
                                 <div>會員編號</div>
-                                <input type="text">
+                                <input type="text" name="number">
                             </div>
                             <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員帳號</div>
-                                <input type="text">
+                                <input type="text" name="account">
                                 <div>會員手機</div>
-                                <input type="text">
+                                <input type="text" name="phone">
                             </div>
                         </div>
                         <div id="pointsDataFilterLeftDownerBlock">
                             點數狀態：
-                            <input type="checkbox" name="" id="">已發放
-                            <input type="checkbox" name="" id="">已使用
+                            <input type="checkbox" name="issance">已發放
+                            <input type="checkbox" name="using">已使用
                         </div>
                         <div id="pointsDataFilterRightBlock">
                             <div>
                                 查詢區間<br>
-                                <input type="date">至<input type="date">
+                                <input type="date" name="datePick01">至<input type="date" name="datePick02">
                             </div>
                             <div id="membersPointsActionBlock">
                                 特殊會員狀態：
-                                <a href="#0">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
+                                <a href="#0" @click="query">
+                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢
+                                    </div>
                                 </a>
                                 <a href="#0">
                                     <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
@@ -155,7 +158,18 @@
                             <th>點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tr>
+                        <tbody v-if="tableData">
+                            <tr v-for="(data,key) in tableData">
+                                <td>{{key+1}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[0]}}</td>
+                            </tr>
+                        </tbody>
+                        <!-- <tr>
                             <td>00001</td>
                             <td>AA2020103000001</td>
                             <td>jabida@gmail.com</td>
@@ -186,7 +200,7 @@
                                     <div class="pointsDataActionButton">查詢</div>
                                 </a>
                             </td>
-                        </tr>
+                        </tr> -->
                     </table>
                     <div id="pagination">
                         <a href="#0">＜</a>
@@ -202,6 +216,8 @@
             </main>
         </div>
     </div>
+    <script src="../js/22/pointsAjaxVue.js"></script>
+
 </body>
 
 </html>
