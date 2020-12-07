@@ -1,4 +1,4 @@
-$(function paid() {
+$(function () {
 
     // 開啟 Modal 彈跳視窗
     $("button.btn_modal").on("click", function () {
@@ -13,6 +13,11 @@ $(function paid() {
         setTimeout(function () {
             $("div.overlay").removeClass("-on -opacity-zero");
         }, 1000);
+    });
+
+    //點擊其他地方關閉 Madal
+    $("div.overlay").on("click", function () {
+        $("div.overlay").removeClass("-on -opacity-zero");
     });
 
 });

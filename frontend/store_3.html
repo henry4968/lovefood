@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-購物車</title>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/reset/reset.css">
     <link rel="stylesheet" href="../css/store_03.css">
+    <script src="../js/16/store_03.js"></script>
 </head>
 
 <body>
@@ -15,7 +18,7 @@
     <header id="header">
         <div id="headerContentContainer">
             <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                <img id="logo" src="../img/22/index/ch05_header_logo.png">ß
             </a>
 
             <!-- 導覽列開始 -->
@@ -73,7 +76,7 @@
 
                 <section class="mainArea">
                     <ul class="list_h">
-                        <li><img src="../img/16/sellerIcon.png"></li>
+                        <li class="tashImg"><img src="../img/16/sellerIcon.png"></li>
                         <li>全家南京復興店</li>
                         <li>單價</li>
                         <li>數量</li>
@@ -90,12 +93,11 @@
                                     <ul>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
                                         <li class="price">$19</li>
-                                        <!-- <li class="quantity">2</li> -->
                                         <li class="quantity">
-                                            <form id='myform' method='POST' action='#'>
-                                                <input type='button' value='-' class='qtyminus' field='quantity' />
-                                                <input type='text' name='quantity' value='0' class='qty' />
-                                                <input type='button' value='+' class='qtyplus' field='quantity' />
+                                            <form id='myform1' method='POST' action='#'>
+                                                <input type='button' value='-' id='qtyminus1' field='quantity1' />
+                                                <input type='text' name='quantity1' value='0' id='qty1' />
+                                                <input type='button' value='+' id='qtyplus1' field='quantity1' />
                                             </form>
                                         </li>
                                         <li class="amount">$38</li>
@@ -160,12 +162,13 @@
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
 
                                         <li class="price">$23</li>
-                                        <li class="quantity">4</li>
-                                        <form id='myform' method='POST' action='#'>
-                                            <input type='button' value='-' class='qtyminus' field='quantity' />
-                                            <input type='text' name='quantity' value='0' class='qty' />
-                                            <input type='button' value='+' class='qtyplus' field='quantity' />
-                                        </form>
+                                        <li class="quantity">
+                                            <form id='myform2' method='POST' action='#'>
+                                                <input type='button' value='-' id='qtyminus2' field='quantity2' />
+                                                <input type='text' name='quantity2' value='0' id='qty2' />
+                                                <input type='button' value='+' id='qtyplus2' field='quantity2' />
+                                            </form>
+                                        </li>
                                         <li class="amount">$92</li>
                                         <li><img src="../img/16/trashcanIcon.png"></li>
                                     </ul>
@@ -181,7 +184,13 @@
                                     <ul>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
                                         <li class="price">$24</li>
-                                        <li class="quantity">3</li>
+                                        <li class="quantity">
+                                            <form id='myform3' method='POST' action='#'>
+                                                <input type='button' value='-' id='qtyminus3' field='quantity3' />
+                                                <input type='text' name='quantity3' value='0' id='qty3' />
+                                                <input type='button' value='+' id='qtyplus3' field='quantity3' />
+                                            </form>
+                                        </li>
                                         <li class="amount">$72</li>
                                         <li><img src="../img/16/trashcanIcon.png"></li>
                                     </ul>

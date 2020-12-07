@@ -7,7 +7,6 @@ $minw700:701px;
     }
   }
 }
-@import '../base/fonts';
 
 
 *{
@@ -15,9 +14,8 @@ $minw700:701px;
   padding: 0;
   margin: 0;
   text-decoration: none;
+  font-family: PingFangTC-Regular-2, sans-serif;
   font-weight: normal;
-  font-family: "NotoSansCJKtc-Thin", "sans-serif";
-  
 }
 body{
   @import 'memheader';
@@ -43,7 +41,7 @@ body{
       border-radius: 10px;
       position: relative;
       background-color: #fff;
-      box-shadow: 3px 3px 6px rgba(0,0,0,.4);
+      box-shadow: 1.5px 1.5px 4px rgba(0,0,0,.4);
       transition: all .4s;
       @include rwd(w700){
         width: 320px;
@@ -160,7 +158,30 @@ body{
                   transform: scale(1.01);
                 }
             }
-            
+            button.changeTOmember{
+              color: #707070;
+              align-self: center;
+              background-color: white;
+              width: 100px; 
+              height: 32px;
+              border-radius: 5px;
+              // font-weight: bold;  
+              border: 2px solid #B9AF94;
+              box-shadow: 1px 1px 2px rgba(0,0,0,0.16);
+              outline: none;
+              cursor: pointer;
+              transition: all .3s;
+              display: none;
+              &:hover{
+                color:white;
+                  box-shadow: 1.5px 1.5px 3px rgba(0,0,0,.4);
+                  background-color: #d4c7a5;
+                  transform: scale(1.01);
+              }
+              @include rwd(w700){
+                display: block;
+              }
+            }
           }
           div.lineBor{
               width: 270px;
@@ -180,7 +201,7 @@ body{
               }
               span.signUp{
                 color: #8F8770;
-                // font-weight: 500;
+                font-weight: 500;
                 font-size: 14px;
               }
               div.lineR{
@@ -189,7 +210,7 @@ body{
                 justify-self: flex-end;
               }
             }
-           
+            
         }
         div.seller{
           form#seller{
@@ -364,9 +385,9 @@ body{
               display: none;
               &:hover{
                 color:white;
-                box-shadow: 1.5px 1.5px 3px rgba(0,0,0,.4);
-                background-color: #d4c7a5;
-                transform: scale(1.01);
+                  box-shadow: 1.5px 1.5px 3px rgba(0,0,0,.4);
+                  background-color: #d4c7a5;
+                  transform: scale(1.01);
               }
               @include rwd(w700){
                 display: block;
@@ -388,7 +409,7 @@ body{
           }
           span.signUp{
             color: #8F8770;
-            // font-weight: 500;
+            font-weight: 500;
             font-size: 14px;
           }
           div.lineR{
@@ -397,7 +418,12 @@ body{
             justify-self: flex-end;
           }
         }
-        
+        div.fbgoogle{
+          display: flex;
+          // border: 1px solid black;
+          width: 150px;
+          justify-content: space-between;
+        }
       }
       div.overlayContainer.overL{
         left: 50%;
@@ -452,10 +478,12 @@ body{
               margin-bottom: 49px;
               h1{
                 font-size: 22px;
+                // font-weight: bold;
                 color: #B9AF94;
               }
               h3{
                 font-size: 14px;
+                // font-weight: bold;
                 color: #8F8770;
                 margin: 5.5px 0px;
               }
@@ -466,6 +494,7 @@ body{
                 border: 0px;
                 outline: none;
                 color: #ffffff;
+                // font-weight: bold;
                 background-color: #B8AD91;
                 margin-top: 10px;
                 border:2px solid #B8AD91;
@@ -475,8 +504,8 @@ body{
                   color:white;
                   box-shadow: 1.5px 1.5px 3px rgba(0,0,0,.4);
                   background-color: #d4c7a5;
-                  border:2px solid #d4c7a5;
                   transform: scale(1.01);
+                  border:2px solid #d4c7a5;
                 }
                 &:focus{
                   box-shadow: inset 1.5px 1.5px 3px rgba(0,0,0,.4);
@@ -512,10 +541,12 @@ body{
               margin-bottom: 100px;
               h1{
                 font-size: 22px;
+                // font-weight: bold;
                 color: #B9AF94;
               }
               h3{
                 font-size: 14px;
+                // font-weight: bold;
                 color: #8F8770;
                 margin: 5.5px 0px;
               }
@@ -523,20 +554,21 @@ body{
                 width: 100px;
                 height: 32px;
                 border-radius: 5px;
+                border: 0px;
                 outline: none;
                 color: #ffffff;
-                background-color: #B9AF94;
                 // font-weight: bold;
+                background-color: #B8AD91;;
                 margin-top: 10px;
-                border:2px solid #B9AF94;
+                border:2px solid #B8AD91;
                 cursor: pointer;
                 transition: all 0.3s;
                 &:hover{
                   color:white;
                   box-shadow: 1.5px 1.5px 3px rgba(0,0,0,.4);
                   background-color: #d4c7a5;
-                  border:2px solid #d4c7a5;
                   transform: scale(1.01);
+                  border:2px solid #d4c7a5;
                 }
                 &:focus{
                   box-shadow: inset 1.5px 1.5px 3px rgba(0,0,0,.4);
