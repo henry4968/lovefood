@@ -1,9 +1,11 @@
 <?php
-    include("../Lib/UtilClass.php");
+    include("Lib/UtilClass.php");
     $Util = new UtilClass();
 
     //建立SQL
-    $sql = "INSERT INTO ec_members(Account, PWD, Type, CreateDate) VALUES (?,?,1,NOW())";
+    // $sql = "INSERT INTO ec_members (Account , PWD , Type , CreateDate ) VALUES (?,?,1,NOW())";
+
+    $sql = "INSERT INTO member (MEMBER_ID,CLASS,ACCOUNT,PASSWORD,REG_DATE,MEMBER_STATUS) VALUES ('MB0000008',1,?,?, NOW() ,1)";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);
