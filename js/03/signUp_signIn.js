@@ -1,21 +1,22 @@
 
 // main
 Vue.component('member', {
-  // data() {
-  //   return {
-  //     isA: true,
-  //   };
-  // },
+  data() {
+    return {
+      email: '',
+    };
+  },
   template: `
         <div class="member">
           <form id="member" method="post" action="#">
-            <input type="email" placeholder="信箱" />
+            <input type="email" placeholder="信箱" :placeholder="email"/>
             <input type="password" placeholder="密碼" />
-            <input type="password" placeholder="確認密碼" /><div class="checkEmail">
+            <input type="password" placeholder="確認密碼" />
+            <div class="checkEmail">
               <input class="checkEmail" type="text" placeholder="驗證密碼">
               <button class="checkEmail" type="button">發送驗證碼</button>
             </div>
-            <button class="subSignup" type="submit">註冊</button>
+            <button class="subSignup" type="button" @click="check">註冊</button>
             <button class="changeTOmember" type="button">會員登入</button>
           </form>
           <div class="lineBor">
@@ -29,12 +30,13 @@ Vue.component('member', {
           </div>
         </div>
       `,
-  // methods: {
-  //   changeTOmember() {
-  //     this.isA = !this.isA;
-  //     console.log(this.isA);
-  //   },
-  // },
+  methods: {
+    check(){
+      if (this.email == ''){
+        alert('信箱是空的');
+      }
+    },
+  },
 });
 
 Vue.component('seller', {
@@ -145,49 +147,5 @@ function changeTosignupf() {
     overlayContainer.classList.add('overL');
   }
 }
-// 
-// function back() {
-//   winwidth = window.innerWidth;
-//   if (winwidth >= 701) {
-//     // signUp
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signUp.classList.remove('signUpmm');
-//     // signIn
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     signIn.classList.remove('signInmm');
-//     // overlayContainer
-//     overlayContainer = document.getElementById('overlayContainer');
-//     overlayContainer.classList.remove('overL');
-//     // container
-//     container = document.getElementsByClassName('container')[0];
-//     container.classList.remove('overm');
-//     // signInL
-//     signInL = document.getElementsByClassName('signInL')[0];
-//     signInL.classList.remove('msignInL');
-//     // signUpR
-//     signUpR = document.getElementsByClassName('signUpR')[0];
-//     signInL.classList.add('msignUpR');
-//   }
-// }
 window.addEventListener('load', doFirst);
 document.addEventListener("click", doFirst);
-
-// window.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('changeTosignup')) {
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     console.log(e.target.id);
-//   };
-//   if (e.target.id == "changeTosignup") {
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     console.log(signUp);
-//     console.log(signIn);
-//   };
-// });
