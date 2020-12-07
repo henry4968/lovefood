@@ -783,7 +783,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'memberApply',
+    content: 'order',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',

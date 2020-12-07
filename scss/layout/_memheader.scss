@@ -158,7 +158,7 @@
     #headerContentContainer{
         width: 1180px;
         height: 50px;
-        margin: 38px 0px 0px 364px;
+        // margin: 38px 0px 0px 364px;
         display: flex;
         justify-content: space-between;
         @include newRwd("laptop"){
@@ -180,10 +180,22 @@
               width: 220px;
               height: 42px;
               transition: all .3s;
+              @include newRwd("desktop"){
+                width: 268px;
+                height: 50px;
+              }
+              @include newRwd("laptop"){
+                width: 220px;
+                height: 42px;
+              }
               @include newRwd("pad"){
-              width: 162px;
-              height: 31px;
-            }
+                width: 220px;
+                height: 42px;
+              }
+              @include newRwd("bigPhone"){
+                width: 162px;
+                height: 31px;
+              }
             }
             @include newRwd("laptop"){
               width: 216px;
