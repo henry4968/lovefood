@@ -20,7 +20,6 @@
         $sql = "SELECT * FROM LoveFood.MEMBER WHERE MEMBER_ID like ? and CLASS like ? and ACCOUNT like ? and (PHONE like ? or PHONE is null) and (REG_DATE  between ? and ?)";
         $statement = $Util->getPDO()->prepare($sql);
 
-        
         $statement->bindValue(1,$number);
         $statement->bindValue(2,$memberType);
         $statement->bindValue(3,$account);

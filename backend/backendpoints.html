@@ -1,4 +1,4 @@
-d<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -112,23 +112,23 @@ d<!DOCTYPE html>
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
-                                <div>訂單編號</div>
-                                <input type="text" name="order">
                                 <div>會員編號</div>
                                 <input type="text" name="number">
-                            </div>
-                            <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員帳號</div>
                                 <input type="text" name="account">
+                            </div>
+                            <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
+                                <div>會員姓名</div>
+                                <input type="text" name="name">
                                 <div>會員手機</div>
-                                <input type="text" name="phone">
+                                <input type=" text" name="phone">
                             </div>
                         </div>
-                        <div id="pointsDataFilterLeftDownerBlock">
+                        <!-- <div id="pointsDataFilterLeftDownerBlock">
                             點數狀態：
                             <input type="checkbox" name="issance">已發放
                             <input type="checkbox" name="using">已使用
-                        </div>
+                        </div> -->
                         <div id="pointsDataFilterRightBlock">
                             <div>
                                 查詢區間<br>
@@ -137,8 +137,7 @@ d<!DOCTYPE html>
                             <div id="membersPointsActionBlock">
                                 特殊會員狀態：
                                 <a href="#0" @click="query">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢
-                                    </div>
+                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
                                 </a>
                                 <a href="#0">
                                     <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
@@ -153,55 +152,28 @@ d<!DOCTYPE html>
                             <th>序號</th>
                             <th>會員編號</th>
                             <th>會員帳號</th>
-                            <th>訂單編號</th>
-                            <th>時間</th>
-                            <th>點數</th>
+                            <th>會員姓名</th>
+                            <th>會員手機</th>
+                            <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
                         <tbody v-if="tableData">
                             <tr v-for="(data,key) in tableData">
                                 <td>{{key+1}}</td>
                                 <td>{{data[0]}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[0]}}</td>
+                                <td>{{data[1]}}</td>
+                                <td>{{data[2]}}</td>
+                                <td>{{data[3]}}</td>
+                                <td>{{data[4]}}</td>
+                                <td>
+                                    <a href="#0">
+                                        <div class="pointsDataActionButton">查詢</div>
+                                    </a>
+                                </td>
                             </tr>
                         </tbody>
-                        <!-- <tr>
-                            <td>00001</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td>2020110100001</td>
-                            <td>2020-11-01 13:30</td>
-                            <td>-54</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td></td>
-                            <td>2020-10-31 13:30</td>
-                            <td>+1000</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr> -->
                     </table>
+
                     <div id="pagination">
                         <a href="#0">＜</a>
                         <a href="#0">1</a>
