@@ -1,8 +1,8 @@
-@import'./base/var';
-@import'mixin/mixins';
-@import'./base/reset';
+@import'../../base/var';
+@import'../../mixin/mixins';
+@import'../../base/reset';
 // @import'./modules/button';
-@import'./base/fonts';
+@import'../../base/fonts';
 
 // 標頭開始
 *{
@@ -403,29 +403,84 @@
                                 font-size: 24px;
                                 font-family: "PingFang-TC-thin","sans-serif";
                                 color:#707070;
-                                margin: 20px;
+                                margin: 20px 5px;
                                 text-align: left;
                             }
                             ul{
                                 display: flex;
+                                align-items: center;
                                 font-family: "PingFang-TC-thin","sans-serif";
                                 .exp{
                                     font-size: 20px;
                                     color:#c00202;
-                                    margin: 20px;
+                                    margin: 20px 5px;
 
                                 }
                                 .price{
                                     font-size: 24px;
                                     color:#707070;
                                     margin: 20px;
-                                    width: 70px;
-                                }
-                                .quantity{
-                                    font-size: 24px;
-                                    color:#707070;
-                                    margin: 20px;
                                     width: 60px;
+                                }
+                                .quantity{ 
+                                    
+                                    margin: 20px;
+                                    #myform1, #myform2, #myform3{
+                                        display: flex;
+                                        position: relative;
+                                        justify-content: center;
+                                        align-items: center;
+                                        height: 32px;
+                                        width: 100px;
+                                        border: 1px solid #ececec;
+                                        box-sizing: border-box;
+                                        border-radius: 4px;
+
+                                        #qty1, #qty2, #qty3 {
+                                            width: 50px;
+                                            height: 29px;
+                                            text-align: center;
+                                            border-top: 1px solid #aaa;
+                                            border-bottom: 1px solid #aaa;
+                                            box-sizing: border-box;
+                                            border: none;
+                                            font-size:20px;
+                                            color: #909090;
+                                            font-weight: bold;
+                                            position: relative;
+                                            
+                                        }
+                                        
+                                        
+                                        #qtyplus1, #qtyplus2, #qtyplus3 {
+                                            width: 25px;
+                                            height: 30px;
+                                            border: 1px solid #C9BE9F;
+                                            background-color:#C9BE9F;
+                                            box-sizing: border-box;
+                                            color: #ffffff;
+                                            // font-size: 24px;
+                                            font-weight: bold;
+                                            text-align: center;
+                                            // line-height: 24px;
+                                            outline-color:#beb392;
+                                            border-radius: 0 3px 3px 0;
+                                        }
+                                        
+                                        #qtyminus1, #qtyminus2, #qtyminus3 {
+                                            width: 25px;
+                                            height: 30px;
+                                            border: 1px solid #C9BE9F;
+                                            background-color:#C9BE9F;
+                                            box-sizing: border-box;
+                                            color: #ffffff;
+                                            // font-size: 24px;
+                                            font-weight: bold;
+                                            text-align: center;
+                                            outline-color:#beb392;
+                                            border-radius: 3px 0 0 3px;
+                                        }
+                                    }
 
                                 }
                                 .amount{
