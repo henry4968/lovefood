@@ -8,9 +8,9 @@ Vue.component('member', {
   },
   template: `
         <div class="member">
-          <form id="member" method="post" action="#">
-            <input type="email" placeholder="信箱" :placeholder="email"/>
-            <input type="password" placeholder="密碼" />
+          <form id="member" method="post" action="../../PHP/Frontend/JoinR.php">
+            <input type="email" placeholder="信箱" :placeholder="email" name="account"/>
+            <input type="password" placeholder="密碼" name="pwd"/>
             <input type="password" placeholder="確認密碼" />
             <div class="checkEmail">
               <input class="checkEmail" type="text" placeholder="驗證密碼">
@@ -32,9 +32,9 @@ Vue.component('member', {
       `,
   methods: {
     check(){
-      if (this.email == ''){
-        alert('信箱是空的');
-      }
+      // if (this.email == ''){
+      //   alert('信箱是空的');
+      // }
     },
   },
   mounted() {
