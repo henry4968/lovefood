@@ -59,7 +59,12 @@
                     top: 25px;
                 }
                 .profile{
+                    display: flex;
                     flex-direction: column;
+                    width: 90%;
+                    margin: 0 auto;
+                    position: relative;
+                    top: 25px;
                     .btn-brown{
                         width:100px;
                         color:#fff;
@@ -76,10 +81,7 @@
                             margin-left:8px;
                         }
                     }
-                    width: 90%;
-                    margin: 0 auto;
-                    position: relative;
-                    top: 25px;
+                    
                 }
                 
                 }
