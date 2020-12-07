@@ -746,6 +746,8 @@ Vue.component('memberApply', {
 
       // 當滑鼠在canvas這裡按下執行以下動作
       myPics.addEventListener('mousedown', e => {
+      // 當滑鼠按下按鍵時背景圖去掉
+        e.target.style.backgroundImage = "url('')";
         x = e.offsetX;
         y = e.offsetY;
         isDrawing = true;
