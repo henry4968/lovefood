@@ -658,7 +658,7 @@ body{
           display: flex;
         }
         @include newRwd("newSmallPhone"){
-          width: 300px;
+          width: 310px;
         }
       }
       div.rightBorderorder{
@@ -673,43 +673,98 @@ body{
         padding: 30px 0;
         @include newRwd("mediumPhone"){
           display: none;
+          padding: 10px 0;
         }
         .centerBorder{
           // border: 1px solid black;
           width: 95%;
           min-height: 100%;
+          .orderbackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.orderbackCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .searchBorder{
             margin-bottom: 20px;
+            @include newRwd("mediumPhone"){
+              margin-top: 10px;
+            }
             #searchBorder{
               display: flex;
               align-items: center;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
               .searchDateBoder{
                 display: flex;
                 align-items: center;
+                @include newRwd("mediumPhone"){
+                  flex-direction: column;
+                }
                 .search{
                   font-size: 24px;
                   font-weight: normal;
                   color: #7B807D;
                   margin-right: 10px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                  }
+                  @include newRwd("mediumPhone"){
+                    align-self: start;
+                  }
                 }
-                .whitespace{
-                  margin: 0px 10px;
-                }
-                #dateFrom{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
-                }
-                #dateTo{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
+                .dateFromdateTo{
+                  display: flex;
+                  @include newRwd("mediumPhone"){
+                    // border: 1px solid black;
+                    width: 420px;
+                    margin-top: 3%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    // border: 1px solid black;
+                    width: 300px;
+                    flex-direction: column;
+                  }
+                  .whitespace{
+                    margin: 0px 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                      align-self: center;
+                    }
+                  }
+                  #dateFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
+                  #dateTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
                 }
               }
               .searchBtnBorder{
                 margin: 0px 3%;
+                @include newRwd("pad"){
+                  margin: 3% 2% 0% 0%;
+                }
                 #searchBtnBorder{
                   width: 80px;
                   height: 30px;
@@ -727,6 +782,9 @@ body{
                 }
               }
               .searchNoteBorder{
+                @include newRwd("pad"){
+                  margin-top: 2%;
+                }
                 .searchNoteBorder{
                   font-size: 18px;
                   font-weight: normal;
@@ -761,6 +819,10 @@ body{
                   width: 150%;
                 }
               }
+              @include newRwd("newSmallPhone"){
+                transition: all .3s;
+                box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              }
             }
             div.statussame{
               // border: 1px solid black;
@@ -770,13 +832,22 @@ body{
               width: 19%;
               box-shadow: 3px 6px 6px rgba(0,0,0,.2);
               cursor: pointer;
-              
+              @include newRwd("newSmallPhone"){
+                width: 20%;
+                box-shadow: none;
+              }
               p.statussame{
                 padding: 5px 0px;
                 font-size: 24px;
                 font-weight: 500;
                 color: #8F8770;
                 z-index: 1;
+                @include newRwd("pad"){
+                  font-size: 20px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
           }
@@ -786,29 +857,49 @@ body{
             .catalogBorder{
               display: flex;
               justify-content: space-between;
+              @include newRwd("mediumPhone"){
+                flex-direction: column;
+                background-color: #F1F6ED;
+              }
               .detailsame{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 flex-grow: 1;
                 // border: 1px solid black;
+                @include newRwd("mediumPhone"){
+                  flex-direction: row;
+                }
                 .cattitle{
                   display: flex;
                   justify-content: center;
                   // border: 1px solid black;
                   background-color: #B9AF94;
                   width: 100%;
+                  @include newRwd("mediumPhone"){
+                    width: 100px;
+                  }
                   h3.cattitle{
                     font-size: 20px;
                     font-weight: normal;
                     color: white;
                     padding: 10px 0px;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
                 .contentsame{
                   color: #909090;
                   padding: 15px 0;
                   font-weight: 400;
+                  // border: 1px solid black;
+                  @include newRwd("mediumPhone"){
+                    padding: 0;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 5%;
+                  }
                 }
                 p.orderid{
                   color: blue;
@@ -830,12 +921,24 @@ body{
                 flex-direction: column;
                 width: 90%;
                 // border: 1px solid blue;
+                @include newRwd("pad"){
+                  width: 95%;
+                }
+                @include newRwd("mediumPhone"){
+                  width: 100%;
+                }
                 .itemstopBorder{
                   display: flex;
                   // border: 1px solid blue;
                   position: relative;
                   margin-bottom: 40px;
                   width: 90%;
+                  @include newRwd("pad"){
+                    width: 100%;
+                  }
+                  @include newRwd("mediumPhone"){
+                    display: none;
+                  }
                   .fourcircleBorder{
                     display: flex;
                     justify-content: space-between;
@@ -873,18 +976,50 @@ body{
                   display: flex;
                   flex-wrap: wrap;
                   margin-bottom: 15px;
+                  @include newRwd("mediumPhone"){
+                    flex-direction: column;
+                    align-items: flex-start;
+                  }
                   .samebotBorder{
                     width: 50%;
                     margin-bottom: 20px;
+                    @include newRwd("mediumPhone"){
+                      width: 300px;
+                      display: flex;
+                      flex-direction: row;
+                    }
                     span{
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                     .itembotIdtitle,.itembotId,.itembotsellertitle,.itembotseller{
                       color: #909090;
                     }
                     .gettimetitle,.gettime,.getlocationtitle,.getlocation{
                       color: #ED8149;
+                    }
+                  }
+                  .itembotId{
+                    @include newRwd("mediumPhone"){
+                      display: none;
+                    }
+                  }
+                  .gettime{
+                    @include newRwd("mediumPhone"){
+                      order: 3;
+                    }
+                  }
+                  .itembotseller{
+                    @include newRwd("mediumPhone"){
+                      order: 1;
+                    }
+                  }
+                  .getlocation{
+                    @include newRwd("mediumPhone"){
+                      order: 2;
                     }
                   }
                 }
@@ -903,17 +1038,48 @@ body{
                   .itemconttopBorder{
                     display: flex;
                     margin-bottom: 15px;
+                    // border: 1px solid blue;
+                    @include newRwd("pad"){
+                      flex-direction: column;
+                    }
                     .itempicBorder{
                       background-color: #fff;
                       border: 2px solid #707070;
+                      @include newRwd("pad"){
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-self: center;
+                      }
+                      @include newRwd("mediumPhone"){
+                        width: 200px;
+                      }
                     }
-                    .middleitemsame{
-                      margin: 20px 20px;
-                      display: flex;
-                      span,p{
-                        font-size: 20px;
-                        font-weight: normal;
-                        color: #909090;
+                    .itemmiddleBorder{
+                      width: 450px;
+                      // border: 1px solid black;
+                      @include newRwd("mediumPhone"){
+                        width: 300px;
+                      }
+                      .middleitemsame{
+                        margin: 20px 20px;
+                        display: flex;
+                        // border: 1px solid blue;
+                        flex-wrap: nowrap;
+                        @include newRwd("pad"){
+                          margin: 10px 20px;
+                        }
+                        @include newRwd("mediumPhone"){
+                          margin-left: 0px;
+                        }
+                        span,p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
+                        }
                       }
                     }
                     .itempriceunitBorder{
@@ -923,23 +1089,46 @@ body{
                       margin-top: 3%;
                       margin-left: 5%;
                       // border: 1px solid black;
+                      @include newRwd("pad"){
+                        flex-direction: column;
+                        justify-content: none;
+                        align-self: start;
+                        margin-top: 0%;
+                        margin-left: 20px;
+                      }
+                      @include newRwd("mediumPhone"){
+                        margin-left: 0px;
+                      }
                       .unitpriceBorder{
                         padding-right: 30px;
-                        p{
+                        // border: 1px solid black;
+                        @include newRwd("pad"){
+                          flex-direction: row;
+                          width: 100%;
+                          margin-bottom: 10px;
+                        }
+                        span.unitpricetitle,span.unitpricecontent{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            width: 50%;
+                            font-size: 18px;
+                          }
                         }
-                        .unitpricetitle{
+                        span.unitpricetitle{
                           color: #707070;
                           margin-bottom: 7px;
                         }
                       }
                       .countpriceBorder{
-                        p{
+                        span{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
                         }
                         .countpricetitle{
                           color: #707070;
@@ -968,6 +1157,9 @@ body{
                       color: #909090;
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                   }
                 }
@@ -981,6 +1173,9 @@ body{
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                   img{
                     height: 24px;
+                    @include newRwd("pad"){
+                      height: 22px;
+                    }
                   }
                   #cancelBtn{
                     outline: none;
@@ -990,6 +1185,9 @@ body{
                     background-color: transparent;
                     padding-left: 10px;
                     cursor: pointer;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
               }
@@ -1651,7 +1849,7 @@ body{
                   @include newRwd("pad"){
                     width: 300px;
                     padding: 10px;
-                    background-size: 60%;
+                    background-size: 75%;
                   }
                 }
                 #thefile{
@@ -1682,6 +1880,10 @@ body{
                   border: 1px solid #B9AF94;
                   border-radius: 10px;
                   background-color: #fff;
+                  background-image: url('../../img/03/elctricsign.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 30%;
                 }
               }
               .uploadBtnBorder{

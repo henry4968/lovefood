@@ -164,7 +164,6 @@ Vue.component('member', {
       }
     },
     sync() {
-      // this.backCategory = true
       this.$emit("my-click", false)
     },
   },
@@ -175,15 +174,20 @@ Vue.component('order', {
   template: `
     <div class="rightBorderorder" :class="{foursameBorderapp:foursameBorderapp == 2}">
         <div class="centerBorder">
+          <div class="orderbackCategoryBorder" @click="sync">
+            <img class="orderbackCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="searchBorder">
             <form id="searchBorder" method="POST" action="#">
               <div class="searchDateBoder">
                 <label class="search">查詢區間 : </label>
-                <input id="dateFrom" type="date">
-                <span class="whitespace">
-                  &#32;&#126;&#32;
-                </span>
-                <input id="dateTo" type="date">
+                <div class="dateFromdateTo">
+                  <input id="dateFrom" type="date">
+                  <div class="whitespace">
+                    &#32;&#126;&#32;
+                  </div>
+                  <input id="dateTo" type="date">
+                </div>
               </div>
               <div class="searchBtnBorder">
                 <button id="searchBtnBorder" type="submit">查詢</button>
@@ -332,12 +336,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -363,12 +367,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -394,12 +398,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -445,6 +449,9 @@ Vue.component('order', {
   methods: {
     statussame(num) {
       this.chagestatussamebg = num
+    },
+    sync() {
+      this.$emit("my-click", false)
     },
   },
 });
@@ -739,6 +746,8 @@ Vue.component('memberApply', {
 
       // 當滑鼠在canvas這裡按下執行以下動作
       myPics.addEventListener('mousedown', e => {
+      // 當滑鼠按下按鍵時背景圖去掉
+        e.target.style.backgroundImage = "url('')";
         x = e.offsetX;
         y = e.offsetY;
         isDrawing = true;
@@ -773,6 +782,8 @@ Vue.component('memberApply', {
     },
     sync() {
       this.$emit("my-click", false)
+      this.none = false
+      this.block = false
     },
   },
 });
@@ -783,7 +794,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'order',
+    content: 'member',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',
