@@ -673,13 +673,30 @@ body{
         padding: 30px 0;
         @include newRwd("mediumPhone"){
           display: none;
+          padding: 10px 0;
         }
         .centerBorder{
           // border: 1px solid black;
           width: 95%;
           min-height: 100%;
+          .orderbackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.orderbackCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .searchBorder{
             margin-bottom: 20px;
+            @include newRwd("mediumPhone"){
+              margin-top: 10px;
+            }
             #searchBorder{
               display: flex;
               align-items: center;
@@ -840,18 +857,28 @@ body{
             .catalogBorder{
               display: flex;
               justify-content: space-between;
+              @include newRwd("mediumPhone"){
+                flex-direction: column;
+                background-color: #F1F6ED;
+              }
               .detailsame{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 flex-grow: 1;
                 // border: 1px solid black;
+                @include newRwd("mediumPhone"){
+                  flex-direction: row;
+                }
                 .cattitle{
                   display: flex;
                   justify-content: center;
                   // border: 1px solid black;
                   background-color: #B9AF94;
                   width: 100%;
+                  @include newRwd("mediumPhone"){
+                    width: 100px;
+                  }
                   h3.cattitle{
                     font-size: 20px;
                     font-weight: normal;
@@ -866,6 +893,13 @@ body{
                   color: #909090;
                   padding: 15px 0;
                   font-weight: 400;
+                  // border: 1px solid black;
+                  @include newRwd("mediumPhone"){
+                    padding: 0;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 5%;
+                  }
                 }
                 p.orderid{
                   color: blue;
@@ -890,6 +924,9 @@ body{
                 @include newRwd("pad"){
                   width: 95%;
                 }
+                @include newRwd("mediumPhone"){
+                  width: 100%;
+                }
                 .itemstopBorder{
                   display: flex;
                   // border: 1px solid blue;
@@ -898,6 +935,9 @@ body{
                   width: 90%;
                   @include newRwd("pad"){
                     width: 100%;
+                  }
+                  @include newRwd("mediumPhone"){
+                    display: none;
                   }
                   .fourcircleBorder{
                     display: flex;
@@ -936,9 +976,18 @@ body{
                   display: flex;
                   flex-wrap: wrap;
                   margin-bottom: 15px;
+                  @include newRwd("mediumPhone"){
+                    flex-direction: column;
+                    align-items: flex-start;
+                  }
                   .samebotBorder{
                     width: 50%;
                     margin-bottom: 20px;
+                    @include newRwd("mediumPhone"){
+                      width: 300px;
+                      display: flex;
+                      flex-direction: row;
+                    }
                     span{
                       font-size: 20px;
                       font-weight: normal;
@@ -951,6 +1000,26 @@ body{
                     }
                     .gettimetitle,.gettime,.getlocationtitle,.getlocation{
                       color: #ED8149;
+                    }
+                  }
+                  .itembotId{
+                    @include newRwd("mediumPhone"){
+                      display: none;
+                    }
+                  }
+                  .gettime{
+                    @include newRwd("mediumPhone"){
+                      order: 3;
+                    }
+                  }
+                  .itembotseller{
+                    @include newRwd("mediumPhone"){
+                      order: 1;
+                    }
+                  }
+                  .getlocation{
+                    @include newRwd("mediumPhone"){
+                      order: 2;
                     }
                   }
                 }
@@ -982,10 +1051,16 @@ body{
                         justify-content: center;
                         align-self: center;
                       }
+                      @include newRwd("mediumPhone"){
+                        width: 200px;
+                      }
                     }
                     .itemmiddleBorder{
                       width: 450px;
                       // border: 1px solid black;
+                      @include newRwd("mediumPhone"){
+                        width: 300px;
+                      }
                       .middleitemsame{
                         margin: 20px 20px;
                         display: flex;
@@ -993,6 +1068,9 @@ body{
                         flex-wrap: nowrap;
                         @include newRwd("pad"){
                           margin: 10px 20px;
+                        }
+                        @include newRwd("mediumPhone"){
+                          margin-left: 0px;
                         }
                         span,p{
                           font-size: 20px;
@@ -1017,6 +1095,9 @@ body{
                         align-self: start;
                         margin-top: 0%;
                         margin-left: 20px;
+                      }
+                      @include newRwd("mediumPhone"){
+                        margin-left: 0px;
                       }
                       .unitpriceBorder{
                         padding-right: 30px;
@@ -1768,7 +1849,7 @@ body{
                   @include newRwd("pad"){
                     width: 300px;
                     padding: 10px;
-                    background-size: 60%;
+                    background-size: 75%;
                   }
                 }
                 #thefile{
@@ -1799,6 +1880,10 @@ body{
                   border: 1px solid #B9AF94;
                   border-radius: 10px;
                   background-color: #fff;
+                  background-image: url('../../img/03/elctricsign.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 30%;
                 }
               }
               .uploadBtnBorder{

@@ -164,7 +164,6 @@ Vue.component('member', {
       }
     },
     sync() {
-      // this.backCategory = true
       this.$emit("my-click", false)
     },
   },
@@ -175,6 +174,9 @@ Vue.component('order', {
   template: `
     <div class="rightBorderorder" :class="{foursameBorderapp:foursameBorderapp == 2}">
         <div class="centerBorder">
+          <div class="orderbackCategoryBorder" @click="sync">
+            <img class="orderbackCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="searchBorder">
             <form id="searchBorder" method="POST" action="#">
               <div class="searchDateBoder">
@@ -447,6 +449,9 @@ Vue.component('order', {
   methods: {
     statussame(num) {
       this.chagestatussamebg = num
+    },
+    sync() {
+      this.$emit("my-click", false)
     },
   },
 });
@@ -775,6 +780,8 @@ Vue.component('memberApply', {
     },
     sync() {
       this.$emit("my-click", false)
+      this.none = false
+      this.block = false
     },
   },
 });
@@ -785,7 +792,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'order',
+    content: 'member',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',
