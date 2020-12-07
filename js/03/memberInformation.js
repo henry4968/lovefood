@@ -530,7 +530,6 @@ Vue.component('points', {
   },
   methods:{
     sync() {
-      // this.backCategory = true
       this.$emit("my-click", false)
     },
   },
@@ -560,6 +559,9 @@ Vue.component('memberApply', {
             </div>
             <div class="botright">
               <div class="botrightmiddleBorder">
+                <div class="memappbackCategoryBorder" @click="sync">
+                  <img class="memappbackCategoryBorder" src="../../img/03/backcategory.png">
+                </div>
                 <div class="sametypeBorder">
                   <div class="sametype">
                     <h3 class="samelovecontent">
@@ -610,6 +612,9 @@ Vue.component('memberApply', {
           </div>
         </div>
         <div class="changemiddlespecailBorder" :class="{specialchange: block}">
+          <div class="memappcahngebackCategoryBorder" @click="sync">
+              <img class="memappchangebackCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="topchangeBorder">
             <div class="topchangetitleBorder">
               <img class="topchangetitlepic" src="../img/03/specialpic.png">
@@ -666,7 +671,7 @@ Vue.component('memberApply', {
                   <button type="button" id="fakebtn" @click="uploadmultiplefile">選擇檔案</button>
                 </div>
                 <div class="elecsignBorder">
-                  <canvas id="myPics" width="400" height="150" @mouseenter="canvasfuction"></canvas>
+                  <canvas id="myPics" width="300" height="150" @mouseenter="canvasfuction"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
                   <button type="submit" id="manyfileupload">上傳</button>
@@ -765,6 +770,9 @@ Vue.component('memberApply', {
         context.stroke();
         context.closePath();
       }
+    },
+    sync() {
+      this.$emit("my-click", false)
     },
   },
 });

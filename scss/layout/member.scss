@@ -1043,6 +1043,11 @@ body{
             margin: 2% 3%;
             .pointbackCategoryBorder{
               margin: 0;
+              display: none;
+              @include newRwd("mediumPhone"){
+                display: block;
+                display: flex;
+              }
               img.pointbackCategoryBorder{
                 cursor: pointer;
                 &:hover{
@@ -1308,6 +1313,9 @@ body{
               .toptitle{
                 color: #8F8770;
                 font-size: 28px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 24px;
+                }
               }
             }
             .linetopbottom{
@@ -1353,11 +1361,19 @@ body{
                   color: #8F8770;
                   margin: 0% 0% 7% 0%;
                   font-size: 30px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 24px;
+                    margin-bottom: 3%;
+                  }
                 }
                 h4{
                   color: #909090;
                   margin: 3% 0%;
                   font-size: 18px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 16px;
+                    margin: 1% 0%;
+                  }
                 }
               }
             }
@@ -1378,6 +1394,20 @@ body{
                 border-radius: 10px;
                 box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                 padding: 5% 5%;
+                .memappbackCategoryBorder{
+                  display: none;
+                  @include newRwd("mediumPhone"){
+                    display: block;
+                    display: flex;
+                    align-self: start;
+                  }
+                  img.memappbackCategoryBorder{
+                    cursor: pointer;
+                    &:hover{
+                      content: url('../../img/03/backcategoryhover.png');
+                    }
+                  }
+                }
                 .sametypeBorder{
                   margin-bottom: 7%;
                   .sametype{
@@ -1385,11 +1415,20 @@ body{
                     flex-direction: column;
                     color: #909090;
                     line-height: 50px;
+                    @include newRwd("newSmallPhone"){
+                      line-height: 34px;
+                    }
                     .samelovecontent{
                       font-size: 20px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 18px;
+                      }
                     }
                     .samecontent{
                       font-size: 18px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 16px;
+                      }
                     }
                   }
                 }
@@ -1416,6 +1455,7 @@ body{
         }
         .changemiddlespecailBorder.specialchange{
           display: block;
+          display: flex;
         }
         .changemiddlespecailBorder{
           // border: 1px solid black;
@@ -1423,29 +1463,64 @@ body{
           display: flex;
           flex-direction: column;
           display: none;
+          @include newRwd("newSmallPhone"){
+            width: 315px;
+            align-items: center;
+          }
+          .memappcahngebackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+              align-self: start;
+              cursor: pointer;
+              margin-left: 1.5%;
+            }
+            &:hover{
+              img.memappchangebackCategoryBorder{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .topchangeBorder{
             display: flex;
             flex-direction: column;
             color: #909090;
             margin-bottom: 3%;
+            @include newRwd("newSmallPhone"){
+              display: none;
+            }
             .topchangetitleBorder{
               display: flex;
               align-items: center;
               // border: 1px solid black;
               .topchangetitlepic{
                 height: 30px;
+                @include newRwd("pad"){
+                  height: 26px;
+                }
               }
               .topchangetitle{
                 font-size: 28px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                }
               }
             }
             .topchangeservice{
               font-size: 22px;
               line-height: 60px;
+              @include newRwd("pad"){
+                font-size: 22px;
+                line-height: 30px;
+              }
             }
             .topfirstBorder{
               display: flex;
               width: 100%;
+              @include newRwd("pad"){
+                flex-direction: column;
+              }
               .topfirsttitle{
                 align-self: flex-start;
                 // border: 1px solid black;
@@ -1453,12 +1528,22 @@ body{
                 font-size: 22px;
                 line-height: 60px;
                 margin: 0%;
+                @include newRwd("pad"){
+                  width: 50%;
+                  font-size: 20px;
+                  line-height: 50px;
+                }
               }
               .topfirstcontent{
                 // border: 1px solid black;
                 width: 79%;
                 font-size: 22px;
                 line-height: 60px;
+                @include newRwd("pad"){
+                  width: 100%;
+                  font-size: 20px;
+                  line-height: 40px;
+                }
               }
             }
             .fourfirstBorder{
@@ -1469,6 +1554,11 @@ body{
                   margin: 0%;
                   font-size: 22px;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    width: 190px;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
                 }
               }
               .foursecondcontent{
@@ -1476,6 +1566,10 @@ body{
                   margin: 0%;
                   font-size: 22px;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
             }
@@ -1487,8 +1581,14 @@ body{
          .bottomchangeBorder{
           display: flex;
           justify-content: space-between;
+          @include newRwd("pad"){
+            flex-direction: column;
+          }
           .bottomchangeleftBorder{
             // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              margin-bottom: 5%;
+            }
             .memberInform{
               display: flex;
               flex-direction: column;
@@ -1498,6 +1598,10 @@ body{
                   font-size: 24px;
                   margin: 0;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
               .samememberBord{
@@ -1507,6 +1611,10 @@ body{
                   font-size: 24px;
                   margin: 0;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
                 .sameconten{
                   color: #909090;
@@ -1514,6 +1622,10 @@ body{
                   margin: 0;
                   line-height: 60px;
                   margin-left: 1%;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
             }
@@ -1525,17 +1637,22 @@ body{
                   outline: none;
                   border: none;
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
-                  width: 80%;
+                  width: 350px;
                   height: 300px;
                   border-radius: 20px;
                   background-image: url('../../img/03/uploadpicturesecond.png');
                   background-repeat: no-repeat;
                   background-position: center center;
-                  background-size: 70%;
+                  background-size: 80%;
                   color: #909090;
                   font-size: 16px;
                   padding: 1%;
                   margin-bottom: 20px;
+                  @include newRwd("pad"){
+                    width: 300px;
+                    padding: 10px;
+                    background-size: 60%;
+                  }
                 }
                 #thefile{
                   display: none;
@@ -1560,7 +1677,7 @@ body{
               .elecsignBorder{
                 margin-bottom: 20px;
                 canvas{
-                  width: 100%;
+                  width: 300px;
                   height: 150px;
                   border: 1px solid #B9AF94;
                   border-radius: 10px;
@@ -1595,6 +1712,9 @@ body{
               img{
                 // margin: 30% 0% 10% 0%;
                 width: 80%;
+                @include newRwd("pad"){
+                  width: 50%;
+                }
               }
             }
             .bottomchangewordlineBorder{
@@ -1605,6 +1725,11 @@ body{
                 color: #8F8770;
                 margin: 0% 0% 7% 0%;
                 font-size: 30px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                  margin-top: 3%;
+                  margin-bottom: 3%;
+                }
               }
               h4{
                 color: #909090;
@@ -1618,9 +1743,4 @@ body{
       }
     }
   }
-}
-canvas {
-  border: 1px solid black;
-  width: 560px;
-  height: 360px;
 }
