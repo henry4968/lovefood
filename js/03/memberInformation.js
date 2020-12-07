@@ -179,11 +179,13 @@ Vue.component('order', {
             <form id="searchBorder" method="POST" action="#">
               <div class="searchDateBoder">
                 <label class="search">查詢區間 : </label>
-                <input id="dateFrom" type="date">
-                <span class="whitespace">
-                  &#32;&#126;&#32;
-                </span>
-                <input id="dateTo" type="date">
+                <div class="dateFromdateTo">
+                  <input id="dateFrom" type="date">
+                  <div class="whitespace">
+                    &#32;&#126;&#32;
+                  </div>
+                  <input id="dateTo" type="date">
+                </div>
               </div>
               <div class="searchBtnBorder">
                 <button id="searchBtnBorder" type="submit">查詢</button>

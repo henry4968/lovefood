@@ -658,7 +658,7 @@ body{
           display: flex;
         }
         @include newRwd("newSmallPhone"){
-          width: 300px;
+          width: 310px;
         }
       }
       div.rightBorderorder{
@@ -689,6 +689,9 @@ body{
               .searchDateBoder{
                 display: flex;
                 align-items: center;
+                @include newRwd("mediumPhone"){
+                  flex-direction: column;
+                }
                 .search{
                   font-size: 24px;
                   font-weight: normal;
@@ -697,21 +700,47 @@ body{
                   @include newRwd("pad"){
                     font-size: 20px;
                   }
+                  @include newRwd("mediumPhone"){
+                    align-self: start;
+                  }
                 }
-                .whitespace{
-                  margin: 0px 10px;
-                }
-                #dateFrom{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
-                }
-                #dateTo{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
+                .dateFromdateTo{
+                  display: flex;
+                  @include newRwd("mediumPhone"){
+                    // border: 1px solid black;
+                    width: 420px;
+                    margin-top: 3%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    // border: 1px solid black;
+                    width: 300px;
+                    flex-direction: column;
+                  }
+                  .whitespace{
+                    margin: 0px 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                      align-self: center;
+                    }
+                  }
+                  #dateFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
+                  #dateTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
                 }
               }
               .searchBtnBorder{
@@ -773,6 +802,10 @@ body{
                   width: 150%;
                 }
               }
+              @include newRwd("newSmallPhone"){
+                transition: all .3s;
+                box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              }
             }
             div.statussame{
               // border: 1px solid black;
@@ -782,7 +815,10 @@ body{
               width: 19%;
               box-shadow: 3px 6px 6px rgba(0,0,0,.2);
               cursor: pointer;
-              
+              @include newRwd("newSmallPhone"){
+                width: 20%;
+                box-shadow: none;
+              }
               p.statussame{
                 padding: 5px 0px;
                 font-size: 24px;
@@ -791,6 +827,9 @@ body{
                 z-index: 1;
                 @include newRwd("pad"){
                   font-size: 20px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
                 }
               }
             }
