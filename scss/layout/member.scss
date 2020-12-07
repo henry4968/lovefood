@@ -944,14 +944,25 @@ body{
                         align-self: center;
                       }
                     }
-                    .middleitemsame{
-                      margin: 20px 20px;
-                      display: flex;
-                      // border: 1px solid blue;
-                      span,p{
-                        font-size: 20px;
-                        font-weight: normal;
-                        color: #909090;
+                    .itemmiddleBorder{
+                      width: 450px;
+                      // border: 1px solid black;
+                      .middleitemsame{
+                        margin: 20px 20px;
+                        display: flex;
+                        // border: 1px solid blue;
+                        flex-wrap: nowrap;
+                        @include newRwd("pad"){
+                          margin: 10px 20px;
+                        }
+                        span,p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
+                        }
                       }
                     }
                     .itempriceunitBorder{
@@ -964,6 +975,9 @@ body{
                       @include newRwd("pad"){
                         flex-direction: column;
                         justify-content: none;
+                        align-self: start;
+                        margin-top: 0%;
+                        margin-left: 20px;
                       }
                       .unitpriceBorder{
                         padding-right: 30px;
@@ -971,6 +985,7 @@ body{
                         @include newRwd("pad"){
                           flex-direction: row;
                           width: 100%;
+                          margin-bottom: 10px;
                         }
                         span.unitpricetitle,span.unitpricecontent{
                           font-size: 20px;
@@ -978,6 +993,7 @@ body{
                           color: #909090;
                           @include newRwd("pad"){
                             width: 50%;
+                            font-size: 18px;
                           }
                         }
                         span.unitpricetitle{
@@ -990,6 +1006,9 @@ body{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
                         }
                         .countpricetitle{
                           color: #707070;
@@ -1018,6 +1037,9 @@ body{
                       color: #909090;
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                   }
                 }
@@ -1031,6 +1053,9 @@ body{
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                   img{
                     height: 24px;
+                    @include newRwd("pad"){
+                      height: 22px;
+                    }
                   }
                   #cancelBtn{
                     outline: none;
@@ -1040,6 +1065,9 @@ body{
                     background-color: transparent;
                     padding-left: 10px;
                     cursor: pointer;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
               }

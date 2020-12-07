@@ -332,11 +332,11 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricetitle">單價:</span>
                         <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <span class="countpricetitle">小計</span>
+                        <span class="countpricetitle">小計:</span>
                         <span class="countpricecontent">$27</span>
                       </div>
                     </div>
@@ -363,11 +363,11 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricetitle">單價:</span>
                         <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <span class="countpricetitle">小計</span>
+                        <span class="countpricetitle">小計:</span>
                         <span class="countpricecontent">$27</span>
                       </div>
                     </div>
@@ -394,11 +394,11 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價</span>
+                        <span class="unitpricetitle">單價:</span>
                         <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <span class="countpricetitle">小計</span>
+                        <span class="countpricetitle">小計:</span>
                         <span class="countpricecontent">$27</span>
                       </div>
                     </div>
