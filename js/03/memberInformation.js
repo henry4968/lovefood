@@ -1,6 +1,6 @@
 Vue.component('member', {
   template: `
-      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1,backCategory:backCategory}">
+      <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
         <form class="leftInfoborder" method="POST" action="#">
           <div class="myAccountBorder">
             <h1 class="myAccount">
@@ -164,7 +164,7 @@ Vue.component('member', {
       }
     },
     sync() {
-      this.backCategory = true
+      // this.backCategory = true
       this.$emit("my-click", false)
     },
   },
@@ -454,6 +454,9 @@ Vue.component('points', {
     <div class="rightBorderpoints" :class="{foursameBorderapp:foursameBorderapp == 3}">
         <div class="toppointsBorder">
           <div class="topmiddlepointsBorder">
+            <div class="pointbackCategoryBorder" @click="sync">
+              <img class="pointbackCategoryBorder" src="../../img/03/backcategory.png">
+            </div>
             <div class="specialmemberborder">
               <span class="conditionDateTitle">
                 特殊會員狀態：
@@ -483,12 +486,16 @@ Vue.component('points', {
               </span>
             </div>
             <div class="specialduration">
-              <label class="specialdurationtitle">期間：</label>
-              <input id="durFrom" type="date">
-              <span class="durwhitespace">
-                &#32;&#126;&#32;
-              </span>
-              <input id="durTo" type="date">
+              <div class="leftspecialduration">
+                <label class="specialdurationtitle">期間：</label>
+                  <div class="durFromdurTo">
+                    <input id="durFrom" type="date">
+                    <span class="durwhitespace">
+                      &#32;&#126;&#32;
+                    </span>
+                    <input id="durTo" type="date">
+                  </div>
+              </div>
               <button id="dursearchBtnBorder" type="submit">查詢</button>
             </div>
           </div>
@@ -498,10 +505,16 @@ Vue.component('points', {
           <div class="bottommiddlepointsBorder">
             <div class="itempoint">
               <div class="iteminclude">
-                <span class="itempointitle">日期：</span>
-                <span class="itempointcontent">2020/11/05</span>
-                <span class="itempointidtitle">訂單編號：</span>
-                <span class="itempointidcontent">2020102000001</span>
+                <div class="dateandidBorder">
+                  <div class="leftdateandidBorder">
+                    <span class="itempointitle">日期：</span>
+                    <span class="itempointcontent">2020/11/05</span>
+                  </div>
+                  <div class="rightdateandidBorder">
+                    <span class="itempointidtitle">訂單編號：</span>
+                    <span class="itempointidcontent">2020102000001</span>
+                  </div>
+                </div>
                 <span class="itempointplus">+500點</span>
               </div>
               <span class="line"></span>
@@ -514,6 +527,12 @@ Vue.component('points', {
     return {
       foursameBorderapp: '',
     }
+  },
+  methods:{
+    sync() {
+      // this.backCategory = true
+      this.$emit("my-click", false)
+    },
   },
 });
 
@@ -756,7 +775,7 @@ Vue.component('memberApply', {
 new Vue({
   el: '#memWrap',
   data: {
-    content: 'points',
+    content: 'memberApply',
     acth1: 0,
     act: 'a',
     leftBordermediumPhone: '',
@@ -768,12 +787,11 @@ new Vue({
       this.acth1 = num
       this.act = div
       this.leftBordermediumPhone = true
-      // leftBorder = document.getElementsByClassName('leftBorder')[0];
-      // leftBorder.classList.add('leftBordermediumPhone')
       this.foursameBorderapp = rwdborder
     },
     clicked(x) {
-      this.leftBordermediumPhone = x ;
+      this.leftBordermediumPhone = x;
+      this.foursameBorderapp = x;
     },
   },
 });

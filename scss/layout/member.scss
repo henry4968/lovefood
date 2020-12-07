@@ -193,18 +193,13 @@ body{
         }
       }
       // member
-      div.rightBorder.foursameBorderapp.backCategory{
-        @include newRwd("mediumPhone"){
-          display: none;
-        }
-      }
       div.rightBorder.foursameBorderapp{
         @include newRwd("mediumPhone"){
           display: block;
           display: flex;
         }
         @include newRwd("newSmallPhone"){
-          width: 300px;
+          width: 310px;
         }
       }
       div.rightBorder{
@@ -598,7 +593,7 @@ body{
               display: block;
               display: flex;
             }
-            .backCategoryBorder{
+            img.backCategoryBorder{
               cursor: pointer;
               &:hover{
                 content: url('../../img/03/backcategoryhover.png');
@@ -1009,6 +1004,9 @@ body{
           display: block;
           display: flex;
         }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
       }
       .rightBorderpoints{
         width: 70%;
@@ -1026,26 +1024,47 @@ body{
         }
         .toppointsBorder{
           width: 98%;
-          height: 35%;
+          height: auto;
+          margin: 2% 3%;
+          margin-top: 0;
           border-radius: 10px;
           background-color: #EFF1E1;
           box-shadow: 3px 3px 6px rgba(0,0,0,.2);
           display: flex;
+          @include newRwd("pad"){
+            height: auto;
+            margin: 2% 3%;
+          }
           .topmiddlepointsBorder{
             display: flex;
             flex-direction: column;
             width: 100%;
             // border: 1px solid black;
             margin: 2% 3%;
+            .pointbackCategoryBorder{
+              margin: 0;
+              img.pointbackCategoryBorder{
+                cursor: pointer;
+                &:hover{
+                  content: url('../../img/03/backcategoryhover.png');
+                }
+              }
+            }
             .specialmemberborder{
               margin: 2% 0%;
               img{
                 margin: 0;
                 height: 24px;
+                @include newRwd("newSmallPhone"){
+                  height: 20px;
+                }
               }
               span{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
             .specialmemberID{
@@ -1053,6 +1072,9 @@ body{
               span{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
             .specailmemberpoints{
@@ -1060,9 +1082,15 @@ body{
               align-items: flex-end;
               flex-wrap: nowrap;
               margin-bottom: 2%;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
               span.specialmemtitle,span.specialmemcontent{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
               span.specialmemcontent{
                 margin-right: 10%;
@@ -1070,44 +1098,95 @@ body{
               .specialmemlimit{
                 color: #ED8149;
                 font-size: 16px;
+                @include newRwd("pad"){
+                  line-height: 32px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 15.5px;
+                }
               }
             }
             .specialduration{
               margin-bottom: 2%;
-              .specialdurationtitle{
-                color: #707070;
-                font-size: 22px;
+              display: flex;
+              flex-wrap: wrap;
+              // border: 1px solid black;
+              @include newRwd("pad"){
+                flex-direction: column;
               }
-              #durFrom{
-                height: 30px;
-                outline: none;
-                border: 1px solid #707070;
-                border-radius: 10px;
-              }
-              .durwhitespace{
-                margin: 0px 10px;
-              }
-              #durTo{
-                height: 30px;
-                outline: none;
-                border: 1px solid #707070;
-                border-radius: 10px;
+              .leftspecialduration{
+                display: flex;
+                @include newRwd("pad"){
+                  flex-direction: column;
+                }
+                .specialdurationtitle{
+                  color: #707070;
+                  font-size: 22px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
+                }
+                .durFromdurTo{
+                  // border: 1px solid black;
+                  @include newRwd("pad"){
+                    margin-top: 3%;
+                  }
+                  #durFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 10px;
+                    }
+                  }
+                  .durwhitespace{
+                    margin: 0px 10px;
+                    @include newRwd("pad"){
+                      margin: 0px 5px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      margin: 0px;
+                    }
+                  }
+                  #durTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 13px;
+                    }
+                  }
+                }
               }
               #dursearchBtnBorder{
-                  width: 80px;
-                  height: 30px;
-                  outline: none;
-                  border: none;
-                  background-color: #B9AF94;
-                  border-radius: 10px;
-                  color: white;
-                  margin-left: 3%;
-                  font-weight: normal;
-                  cursor: pointer;
-                  transition: all .3s;
-                  &:hover{
-                    background-color: #D4C6A5;
-                  }
+                width: 80px;
+                height: 30px;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 10px;
+                color: white;
+                margin-left: 5%;
+                font-weight: normal;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover{
+                  background-color: #D4C6A5;
+                }
+                @include newRwd("pad"){
+                  margin-top: 3%;
+                  margin-left: 0%;
+                }
               }
             }
           }
@@ -1131,23 +1210,55 @@ body{
               margin-bottom: 3%;
               .iteminclude{
                 display: flex;
+                justify-content: space-between;
                 span{
                   color: #909090;
                   font-size: 20px;
                   // border: 1px solid black;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
                 }
-                .itempointcontent{
-                  margin-right: 10%;
-                }
-                .itempointidtitle,.itempointidcontent{
-                  color: blue;
+                .dateandidBorder{
+                  display: flex;
+                  flex-wrap: nowrap;
+                  // border: 1px solid black;
+                  width: 70%;
+                  @include newRwd("pad"){
+                    width: 80%;
+                    flex-wrap: wrap;
+                  }
+                  
+                  div.leftdateandidBorder{
+                    margin-right: 15%;
+                    @include newRwd("pad"){
+                      margin-bottom: 3%;
+                    }
+                  }
+                  div.rightdateandidBorder{
+                    display: flex;
+                    @include newRwd("newSmallPhone"){
+                      flex-direction: column;
+                      margin-top: 2%;
+                    }
+                    .itempointidtitle,.itempointidcontent{
+                      color: blue;
+                    }
+                  }
                 }
                 .itempointplus{
-                  margin-left: 23%;
+                  // border: 1px solid black;
+                  margin-left: 20%;
+                  @include newRwd("pad"){
+                    width: 20%;
+                    margin-left: 0%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    width: 30%;
+                  }
                 }
               }
               span.line{
-
                 width: 100%;
                 height: 3px;
                 border-top: 3px solid #B9AF94;
@@ -1163,6 +1274,9 @@ body{
         @include newRwd("mediumPhone"){
           display: block;
           display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
         }
       }
       .rightBordermemberApply{
@@ -1204,18 +1318,31 @@ body{
             display: flex;
             justify-content: space-between;
             width: 100%;
+            @include newRwd("pad"){
+              flex-direction: column;
+            }
             .botleft{
               // border: 1px solid blue;
               width: 35%;
               display: flex;
               flex-direction: column;
+              @include newRwd("pad"){
+                order: 2;
+                width: 100%;
+              }
               .loveimg{
                 // border: 1px solid blue;
                 display: flex;
                 justify-content: center;
+                @include newRwd("pad"){
+                  align-self: center;
+                }
                 img{
                   margin: 30% 0% 10% 0%;
                   width: 80%;
+                }
+                @include newRwd("pad"){
+                  width: 50%;
                 }
               }
               .wordlineBorder{
@@ -1239,6 +1366,10 @@ body{
               width: 60%;
               display: flex;
               justify-content: center;
+              @include newRwd("pad"){
+                order: 1;
+                width: 100%;
+              }
               .botrightmiddleBorder{
                 display: flex;
                 flex-direction: column;
