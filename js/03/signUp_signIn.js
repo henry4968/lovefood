@@ -37,6 +37,9 @@ Vue.component('member', {
       }
     },
   },
+  mounted() {
+    
+  },
 });
 
 Vue.component('seller', {
