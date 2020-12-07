@@ -3,9 +3,8 @@ $(document).ready(function(){
         $('#Area1fm').hide();
         $('#Area2fm').hide();
         $('#Area3fm').hide();
-        $('#RWDMap').hide();
 
-    $('#selectAll').click(function(){
+    $('input.searchName').click(function(){
         $('#selectfm').show();
         $('#Area1fm').hide();
         $('#Area2fm').hide();
@@ -13,14 +12,14 @@ $(document).ready(function(){
         $('#RWDMap').hide();
 
        
-    }),$('li.areaName').eq(1).click(function(){
+    }),$('input.searchName').eq(1).click(function(){
         $('#Area1fm').show();
         $('#Area2fm').hide();
         $('#Area3fm').hide();
         $('#RWDMap').hide();
         $('#selectfm').hide();
 
-    }),$('li.areaName').eq(2).click(function(){
+    }),$('input.searchName').eq(2).click(function(){
         $('#Area2fm').show();
         $('#Area3fm').hide();
         $('#RWDMap').hide();
@@ -28,13 +27,41 @@ $(document).ready(function(){
         $('#Area1fm').hide();
 
 
-    }),$('li.areaName').eq(3).click(function(){
+    }),$('input.searchName').eq(3).click(function(){
         $('#Area3fm').show();
         $('#RWDMap').hide();
         $('#selectfm').hide();
         $('#Area1fm').hide();
         $('#Area2fm').hide();
 
-    })
+    });
+    // $('#btnMap').click(function(){
+    //     $('#RWDMap').show();
+    //     $('#Area3fm').hide();
+    //     $('#selectfm').hide();
+    //     $('#Area1fm').hide();
+    //     $('#Area2fm').hide();
 
+
+    // })
+    if($(window).outerWidth() >= 1280){
+        // alert('sdssd');
+        $('#btnMap').click(function(){
+            $('#googlemap').show();
+            $('#RWDMap').hide();
+
+
+        })
+
+    }else if($(window).outerWidth() <= 1280){
+        // alert(',unumnum');
+        $('#btnMap').click(function(){
+            $('#RWDMap').show();
+            $('#googlemap').hide();
+
+
+        })
+        
+    }
 });
+

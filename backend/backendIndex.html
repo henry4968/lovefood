@@ -81,7 +81,7 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form name="" action="" method="POST" >
+                        <!-- <form> -->
                             <div>
                                 <a href="backendIndex.html">
                                     <span class="pageLabel-current">買家會員</span>
@@ -91,24 +91,25 @@
                                 </a>
                             </div>
                             <div>
-                                <span>會員編號<input type="text" name="" size="15"></span>
-                                <span>會員手機<input type="text" name="" size="15"></span>
+                                <span>會員編號<input type="text" name="number" size="15"></span>
+                                <span>會員手機<input type="text" name="phone" size="15"></span>
                                 
-                                <span>會員帳號<input type="text"></span>
+                                <span>會員帳號<input type="text" name="account"></span>
                                     <span>特殊會員
-                                        <input type="checkbox" name="" value="">是
-                                        <input type="checkbox" name="" value="">否
+                                        <input type="checkbox" name="memberType" value="1">是
+                                        <input type="checkbox" name="memberType" value="0">否
                                     </span>
                                     
                             </div>
                             <div>
                                 <div>
-                                    <span>查詢期間<input type="date" name="" size="15"></span>   
-                                    <span>至<input type="date" name="" size="15"></span>   
+                                    <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
+                                    <span>至<input type="date" name="datePick2" size="15"></span>   
                                 </div>
-                                <button class="btn-s btn-brown" type="submit">查詢</button>
+                                <button  class="btn-s btn-brown" id="query" @click="query">查詢</button>
+                                
                             </div>
-                        </form>
+                        <!-- </form> -->
                     </header>
                 </div>   
                 <main>
@@ -136,6 +137,7 @@
                                     <form action="memberProfile.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">編輯</button>
                                         <input type="hidden" name="id" :value="data[0]">
+                                        
                                     </form>
                                 </td>
                                
@@ -147,21 +149,8 @@
             </div>
         </div>    
     </div>
-    <script>
-        const app = new Vue({
-        el: '.containerIndex',
-        data() {
-            return {
-                tableData:null,
-            }
-        },
-        beforeMount(){
-            const self = this;
-            $.getJSON('memberR.php',function(res){
-                self.tableData = res;
-            });
-        },
-        })
-      </script>
+    <script src="../js/23/member/indexAjaxVue.js"></script>
+    
 </body>
 </html>
+

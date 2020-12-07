@@ -3,6 +3,8 @@
 
 *{
     color: #545454;
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    text-decoration: none;
 }
 
 #header{
@@ -130,7 +132,6 @@
         #logo{
             width: 264px;
             height: 46px;
-            // 首頁由js控制代替的hover變色
             // &:hover{
             //     content: url('../../../img/22/index/ch01_header_logo_hover.png');
             // }
@@ -186,6 +187,7 @@
             } 
             #navSepcialAnchor{
                 color: #858585;
+                padding: 4px 0;
                 div{
                     width: 139px;
                     height: 100%;
@@ -241,94 +243,13 @@
 }
 
 
-.banner{
-    width: map-get($Wth, 100 );
-    height: 70vh;
-    background-color: $D3;
-    position: relative;
-    background-image: url(../img/07/banner_new.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
-
-    
-    .lovefood{
-        width: map-get($Wth, 100 );
-        transform: translate(-10px,50px);
-        position: absolute;
-    }
-}
-.apple{
-    position: absolute;
-    top: 30%;
-    left: 20%;
-
-    img{
-        position: absolute;
-        width:40%;
-        top: 12%;
-        left:19%;
-        
-    }
-    // .spantext{
-    //     // border: 1px solid fuchsia;
-    // }
-}
-/////////apple_RWD
-@include store('bigPhone'){
-    .banner{
-        height: 50vh;
-    }
-    .apple{
-        top: 27%;
-        left: 10%;
-    }
-    
-}
-
-@include store ('mediumPhone'){
-    .apple{
-        top: 25%;
-        left: -2%;
-    }
-}
-
-@include rwd ('smallPhone'){
-    .span span.span1{
-        font-size: 30px;
-    }
-    .span span.span2{
-        font-size: 14px;
-    }
-}
-
-
-.span{
-    // border: 1px solid firebrick;
-    display: flex;
-    flex-direction: column;
-    width: map-get($Wth, 100 );
-    position: relative;
-    left: map-get($Wth, 50 );
-    margin-top: 14%;
-    .span1,.span2{
-        // border: 1px solid $P;
-        color: $D7;
-    }
-    .span1{
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    .span2{
-        font-size: 24px;
-
-    }
-}
-/////////benner結束//////////
 
 ////////搜尋區///////////////
 /////////800px以上//////////
-
+.part1{
+    position:relative;
+    top:84px;
+}
 
 #search{
     background-color: $FB;
@@ -343,7 +264,7 @@
 #span{
     // border: 1px solid $R;
     background-color:$F3;
-    padding: 28px;
+    padding: 30px;
     font-size: 25px;
  }
  .selector_ul{
@@ -407,7 +328,8 @@
 ///////////787以下/////////////////
 @media screen and (max-width:787px){
     #fm1{
-        display: flex; 
+        display: flex;
+
     }
     #search{
         display: flex;
@@ -421,16 +343,16 @@
         width: 100%;
         height: 46px;
         #span{
-            font-size: 16px;
-            padding: 23px;
+            font-size: 25px;
+            padding: 21px;
         }
         .areaName{
             margin: 0 3px !important;
-            font-size: 16px;
-            input{
-                width: 15px !important;
-                height: 15px !important;
-            }
+            font-size: 25px;
+            // input{
+                // width: 20px;
+                // height: 20px;
+            // }
             &:nth-child(4){
                 margin: 0px -2px !important;
             }
@@ -456,11 +378,40 @@
         display: none;
     }
 }
-@media screen and (min-width:375px) and (max-width:404px){
-    #span{
-        padding: 21px 2px !important;
+/////////文字///////////
+@media screen and (min-width:392px) and (max-width:529px){
+    .selector_ul {
+        #span{
+            font-size: 16px;
+            padding: 23px 15px;
+    
+        }
+        .areaName{
+            font-size: 16px;
+            input{
+                width: 14px !important;
+                height: 14px !important;
+                }
+            }
     }
-}
+
+    .itemArea{
+        .itemName{
+            font-size: 16px;
+                input{
+                    width: 14px !important;
+                    height: 14px !important;
+                }
+            }
+        }
+    }
+
+
+
+
+
+
+
 .wrap{
     // background-image: url(../img/bi2.png);
     background-image: url(../img/backgroud.png);
@@ -486,6 +437,7 @@
         display: flex;
     }
     .itemName{
+        line-height: 2;
         .itemName2Wth{
             border-right: 2px solid #F3E9C0;
             border-left: 2px solid #F3E9C0;
@@ -537,10 +489,40 @@
         margin-bottom: 25px;
     }
 }
-// 個表單距離
-#Area1fm,#Area2fm,#Area3fm{
-    margin: 20px 0;
-}
+@media screen and (max-width:391px){
+    .selector_ul{
+        #span{
+            font-size: 12px;
+            padding: 24px 2px;
+    
+        }
+        .areaName{
+            font-size: 12px;
+            input{
+                width: 12px !important;
+                height: 12px !important;
+
+            }
+        }
+        
+            
+        
+    }
+    .itemArea{
+        .itemName{
+            font-size: 12px;
+                input{
+                    width: 12px !important;
+                    height: 12px !important;
+                }
+            }
+        }
+    }
+    
+    
+    
+    
+
 
 
 @media screen and (min-width:320px) and (max-width:799px){
@@ -576,10 +558,12 @@
     width: 1403px;
     margin: 0 auto;
     #btn1,#btn2,#btn3,#btn4,#btn5{
+        box-shadow:3px 3px 6px rgba(0,0,0,0.2);
         background-color: $C9;
         color: $ff;
         font-size: map-get($font, 22 );
-        border: 1px solid $FB;
+        border: 1px solid $C9;
+        border-radius: 10px;
                     &:focus{
                         outline: $FB;
                         border: 1px solid $FB;
@@ -630,7 +614,7 @@
             background-color: $FB;
             display: flex;
             justify-content: center;
-
+            box-shadow:3px 3px 6px rgba(0,0,0,0.2);
 
 
             .pdtTime{
@@ -643,6 +627,7 @@
         
 
         .productBottom{
+        box-shadow:3px 3px 6px rgba(0,0,0,0.2);
         display: flex;
         padding: 20px;
         background-color: $F3;
@@ -678,12 +663,13 @@
 }
 
 .productCenter{
+    box-shadow:3px 3px 6px rgba(0,0,0,0.2);
     .pdtExplanation{
         padding: 15px 0px 15px 15px;
         display: flex;
         // border: 1px solid $cf;
         background-color:$F2;
-
+        line-height: 1.5;
         
             .pdtTitle{
                 margin-right: 20px;
@@ -695,10 +681,12 @@
             }
             li{
                 color: #838383;
+                font-size: 20px;
             }
             #liM{
                margin: 10px 0;
                color: #838383; 
+               font-size: 17px;
             }
         
     }
@@ -777,8 +765,6 @@ svg.pdtsvg{
     justify-content: center;
     padding-top: 114px;
     padding-bottom: 175px;
-    // margin-top: 114px;
-    
     .page-current,.page-prev{
         margin-right: 10px;
         font-size: 25px;

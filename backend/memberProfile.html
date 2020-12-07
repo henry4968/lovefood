@@ -81,28 +81,33 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form name="" action="" method="POST" >
+                        <form action="backendIndex.html" method="GET">
                             <div>
-                                <span class="pageLabel-current">買家會員</span>
-                                <span class="pageLabel-others">賣家會員</span>
+                                <a href="backendIndex.html">
+                                    <span class="pageLabel-current">買家會員</span>
+                                </a>
+                                <a href="sellerProfile.html">
+                                    <span class="pageLabel-others">賣家會員</span>
+                                </a>
                             </div>
                             <div>
-                                <span>會員編號<input type="text" name="" size="15"></span>
-                                <span>會員手機<input type="text" name="" size="15"></span>
+                                <span>會員編號<input type="text" name="number" size="15"></span>
+                                <span>會員手機<input type="text" name="phone" size="15"></span>
                                 
-                                <span>會員帳號<input type="text"></span>
+                                <span>會員帳號<input type="text" name="account"></span>
                                     <span>特殊會員
-                                        <input type="checkbox" name="" value="">是
-                                        <input type="checkbox" name="" value="">否
+                                        <input type="checkbox" name="memberType" value="1">是
+                                        <input type="checkbox" name="memberType" value="0">否
                                     </span>
                                     
                             </div>
                             <div>
                                 <div>
-                                    <span>查詢期間<input type="date" name="" size="15"></span>   
-                                    <span>至<input type="date" name="" size="15"></span>   
+                                    <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
+                                    <span>至<input type="date" name="datePick2" size="15"></span>   
                                 </div>
-                                <button class="btn-s btn-brown" type="submit">查詢</button>
+                                <button  class="btn-s btn-brown" type="submit">查詢</button>
+                                
                             </div>
                         </form>
                     </header>
@@ -131,13 +136,13 @@
                         </tbody>
                         
                     </table>
-                    <div class="profile">
+                    <div class="profile" v-for="(data,key) in tableData">
                         <h2 class="btn-brown">會員檔案</h2>
-                        <h3>會員編號 <input class="input-xl" type="text" placeholder="MB00001" disabled></h3>
-                        <h3>會員帳號 <input class="input-xl" type="text" placeholder="abc@gmail.com" disabled></h3>
-                        <h3>會員生日 <input class="input-xl" type="password" placeholder="1995/08/08" disabled></h3>
-                        <h3>會員手機 <input class="input-xl" type="text" placeholder="0912345678"></h3>
-                        <h3>通訊地址 <input class="input-xl" type="text" placeholder="台北市大安區仁愛路三段" size="45"></h3>
+                        <h3>會員編號 <input class="input-xl" type="text" :placeholder="data[0]" disabled></h3>
+                        <h3>會員帳號 <input class="input-xl" type="text" :placeholder="data[2]" disabled></h3>
+                        <h3>會員生日 <input class="input-xl" type="text" :placeholder="data[5]" disabled></h3>
+                        <h3>會員手機 <input class="input-xl" name="phoneUpdate" :value="data[7]"></h3>
+                        <h3>通訊地址 <input class="input-xl" name="address" type="text" :value="data[6]" size="45"></h3>
                         <h3>停權原因 <select name="" id="" disabled>
                                         <option value="">00 - 無</option>
                                         <option value="">01 - 會員嚴重違反取貨規則</option>
@@ -145,39 +150,13 @@
                                         <option value="">03 - 其他</option>
                                     </select>
                         </h3>
-                        <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown">儲存</button></span>
+                        <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown" @click="update">儲存</button></span>
                     </div>
                 </main>
             </div>
         </div>    
     </div>
-    <script>
-        
-    </script>
-    <script>
-        const app = new Vue({
-            el:'.containerMem',
-            data(){
-                return {
-                    tableData : null,
-                }
-            },
-            beforeMount() {
-                let urlParams = new URLSearchParams(window.location.search);
-                const self = this;
-                $.ajax({
-                    url:'profileR.php',
-                    type:'GET',
-                    data:{id:urlParams.get('id')},
-                    success:function(res){
-                        console.log(res);
-                        self.tableData = res;
-                    },
-                    dataType:"json",
-                    })
-
-            },
-        })
-    </script>
+    <script src="../js/23/member/memberProfileVue.js"></script>
+    
 </body>
 </html>

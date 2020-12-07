@@ -1,4 +1,3 @@
-
 @import "../../base/var";
 @import "../../mixin/mixins";
 @import "../../base/fonts";
@@ -16,7 +15,7 @@
 //         fill:#fff;
     
         
-//     }
+//     
 // }
 
 
@@ -142,32 +141,9 @@
     background-position: center;
     // background-position: bottom 100%;
     min-width: 320px;
+    min-height: 600px;
 
-<<<<<<< HEAD
 
-<<<<<<< HEAD
-=======
->>>>>>> jean
-    // .bannerTitle{
-    //     position: absolute;
-    //     transform: translate(-50%, -50%) ;
-    //     top: 50%;
-    //     left: 50%;
-    //     z-index: 5;   
-    //     background-color: #EFECB9;
-    //     width: 500px;
-    //     height: 300px;
-    //     // border: 1px solid rgb(230, 11, 11);
-    //     display: flex;
-    //     justify-content: center;
-    //     align-items: center;
-    //     margin: auto;
-    //     font-size: 25px;
-<<<<<<< HEAD
-    //     line-height: 75px;　
-    // }
-=======
->>>>>>> c1139a9b8828ad0fa33d26267f3c6e09449678c0
     .bannerTitle{
         position: absolute;
         transform: translate(-50%, -50%) ;
@@ -188,38 +164,32 @@
 
     }
 
-    @include newRwd
-
-    @media screen and (max-width: 1200px) and (min-width: 991px){
+    @include  newRwd(pad){
         .bannerTitle{
             width: 400px;
-            height: 300px;
+            height: 250px;
+            font-size: 20px;
+            line-height: 65px;
         }
     }
+
+    @include  newRwd(bigPhone){
+        .bannerTitle{
+            width: 300px;
+            height: 200px;
+            font-size: 18px;
+            line-height: 56px;
+        }
+    }
+
+    // @media screen and (max-width: 1200px) and (min-width: 991px){
+    //     .bannerTitle{
+    //         width: 400px;
+    //         height: 300px;
+    //     }
+    // }
         // .h1{
         // }
-=======
-    //     line-height: 75px;　}
-        
-        .bannerTitle{
-            position: absolute;
-            transform: translate(-50%, -50%) ;
-            top: 50%;
-            left: 50%;
-            z-index: 5;   
-            background-color: #EFECB9;
-            width: 500px;
-            height: 300px;
-            // border: 1px solid rgb(230, 11, 11);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: auto;
-            font-size: 25px;
-            line-height: 75px;
-        }  
-    
->>>>>>> jean
 
 
     .bannerRound{
@@ -237,7 +207,10 @@
         // background-size: contain;
         background-position: center;
     }
+
 }
+
+
 
 .secondNav{
     // border: 1px solid rgb(20, 37, 189);
@@ -247,18 +220,21 @@
     background-color: #EFECB9;
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     height: 61px;
     padding: 0 30px;
     
     
     .bottomNav{
-        // border: 1px solid rgb(224, 32, 57);
+        border: 1px solid rgb(224, 32, 57);
         font-size: 30px;
         max-width: 1200px;
         width: 100%;
         display: flex;
         justify-content: space-between;
+        flex-wrap: wrap;
         z-index: 5;
+        margin-top: -30px;
 
         a{
             // margin: 0 50px;
@@ -272,6 +248,39 @@
         }
         
     }
+}
+@media screen and (max-width: 1168px){
+    .secondNav{
+        bottom: -17px;
+    }
+}
+@media screen and (max-width: 900px){
+
+    .secondNav{
+        padding: 0;
+        // bottom: 190px;
+        // height: none;
+
+        .bottomNav{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: #EFECB9;
+        margin-top: -50px;
+        
+        }
+
+        a{
+            margin: 8px auto;
+        }
+    }
+
+    .projectDetails{
+        margin-top: 170px;
+    }
+    
+
+
 }
 
 // @media screen and (max-width: 1200px) and (min-width: 991px){
@@ -337,7 +346,7 @@
                 
                 .txt{
                     // border: solid 1px rgb(255, 0, 255);
-                    margin: 80px 0 0 0;
+                    margin: 80px 30px 30px 30px;
                     max-width: 680px;
                     min-width: 320px;
                     
@@ -355,6 +364,24 @@
                     }
                 }
 
+                .area2TxtImg{
+                    border: solid 1px rgb(255, 0, 255);
+                    
+                }
+
+                @media screen and (max-width: 1077px){
+                    .txt{
+                        margin: -95px;
+                    }
+
+                    .area2TxtImg{
+                        transform: rotate(270deg);
+                        // width: 80%;
+                        max-width: 600px;
+                        margin: -170px 30px 30px 30px;
+                    }
+                }
+
                 // img{
                 //     max-width: 380px;
 
@@ -364,6 +391,18 @@
         }   
     }
 
+@media screen and (max-width: 1077px){
+    .projectDetailsBg{
+        padding-top: 85px;
+    }
+    // .area2TxtImg{
+    //     transform: rotate(270deg);
+    //     // width: 100%;
+    //     width: 650px;
+    //     margin: -170px 30px 30px 30px;
+    // }
+    
+}
 
     .area2{
         // border: solid 1px rgb(255, 0, 255);
@@ -642,12 +681,13 @@
                 border-radius: 70px;
                 background-color: #E8BF77;
                 max-width: 1112px;
-                width: 60%;
+                width: 0%;
                 // height: 150px;
                 height: 95%;
                 position: absolute;
                 top: 0;
                 z-index: -1;
+                animation: widthChange 2s linear forwards;
             }
         }
 
@@ -1422,6 +1462,15 @@ footer{
             }
         } 
     }  
+}
+
+@keyframes widthChange{
+    0%{
+        width: 0%;
+    }
+    100%{
+        width: 59%;
+    }
 }
 //footer結束
 

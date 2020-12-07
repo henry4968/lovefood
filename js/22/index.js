@@ -1,4 +1,4 @@
-// fullpage.js控制項目
+// fullpage.js控制項目：全局
 $(function () {
     $('#main').fullpage({
         autoScrolling: true,
@@ -9,7 +9,7 @@ $(function () {
         navigationPosition: 'right',
         slidesNavigation: true,
         slidesNavPosition: 'bottom',
-        controlArrowColor: '#FFFFFF',
+        controlArrowColor: '#FBFFE0',
         easing: 'easeInOutCubic',
         easingcss3: 'ease',
         responsiveSlides: true,
@@ -60,13 +60,22 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch01_nav_member.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch01_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch01_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch01_nav_member.png');
+                    });
                     break;
                 case 1:
                     $('#hamburgerMenuButton').removeClass();
                     $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh02');
-                    $('#hamburgerMenuButton span').after(function () {
-                        $(this).css('background - color', '#FFFFFF');
-                    });
                     $('#logo').attr('src', '../img/22/index/ch02_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
@@ -105,6 +114,18 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch02_nav_member.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch02_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch02_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member.png');
+                    });
                     // 食物浪費體積換算動畫
                     $('.conversionNum').counterUp({
                         delay: 10,
@@ -112,6 +133,8 @@ $(function () {
                     });
                     break;
                 case 2:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh03');
                     $('#logo').attr('src', '../img/22/index/ch03_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch02_header_logo_hover.png');
@@ -151,15 +174,29 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch03_nav_member.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch03_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch03_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch02_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch03_nav_member.png');
+                    });
                     break;
                 case 3:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh04');
                     $('#logo').attr('src', '../img/22/index/ch04_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch04_header_logo_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch04_header_logo.png');
                     });
-                    $('#header').css({ 'background-color': '#D3E4C6', 'border-bottom': '1px solid #707070', 'box-shadow': 'none' });
+                    $('#header').css({ 'background-color': '#D3E4C6', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#8F8770');
                     $('.navGeneralAnchors').hover(function () {
                         $(this).css('color', '#F2F0D7');
@@ -191,8 +228,22 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch04_nav_member.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch04_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch04_nav_member.png');
+                    });
                     break;
                 case 4:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh05');
                     $('#logo').attr('src', '../img/22/index/ch05_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch05_header_logo_hover.png');
@@ -231,15 +282,29 @@ $(function () {
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch05_nav_member.png');
                     });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch05_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch05_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch05_nav_member.png');
+                    });
                     break;
                 case 5:
+                    $('#hamburgerMenuButton').removeClass();
+                    $('#hamburgerMenuButton').addClass('hamburgerMenuColorForCh06');
                     $('#logo').attr('src', '../img/22/index/ch06_header_logo.png');
                     $('#logo').hover(function () {
                         $(this).attr('src', '../img/22/index/ch06_header_logo_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch06_header_logo.png');
                     });
-                    $('#header').css({ 'background-color': '#F6EEE5', 'border-bottom': '1px solid #707070', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
+                    $('#header').css({ 'background-color': '#F6EEE5', 'border-bottom': 'none', 'box-shadow': '0px 6px 6px 6px rgba(0, 0, 0, 0.2)' });
                     $('.navGeneralAnchors').css('color', '#96908A');
                     $('.navGeneralAnchors').hover(function () {
                         $(this).css('color', '#DAD1C8');
@@ -267,6 +332,18 @@ $(function () {
                     });
                     $('#navIcons03 img').attr('src', '../img/22/index/ch06_nav_member.png');
                     $('#navIcons03 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_member_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_member.png');
+                    });
+                    $('#navIcons04 img').attr('src', '../img/22/index/ch06_nav_cart.png');
+                    $('#navIcons04 img').hover(function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_cart_hover.png');
+                    }, function () {
+                        $(this).attr('src', '../img/22/index/ch06_nav_cart.png');
+                    });
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch06_nav_member.png');
+                    $('#navIcons05 img').hover(function () {
                         $(this).attr('src', '../img/22/index/ch06_nav_member_hover.png');
                     }, function () {
                         $(this).attr('src', '../img/22/index/ch06_nav_member.png');
@@ -457,9 +534,45 @@ $(function () {
     });
 });
 
-// 控制箭頭
-$(document).ready(function () {
-    $(".fp-controlArrow").css("color", "red");
+// 浪費換算切換項目：第二章
+$(function () {
+
+    $('#elephantIcon').click(function () {
+        $(this).attr('src', '../img/22/index/ch02_icon_elephant_light.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNumBlock02, #conversionNumBlock03, #conversionNumBlock04, #ch02Bg02, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg01, #conversionNumBlock01').css({ 'display': 'flex' });
+    });
+
+    $('#cruiseShipIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_cruise_ship_light.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNumBlock01, #conversionNumBlock03, #conversionNumBlock04, #ch02Bg01, #ch02Bg03, #ch02Bg04').css({ 'display': 'none' });
+        $('#ch02Bg02, #conversionNumBlock02').css({ 'display': 'flex' });
+    });
+
+    $('#planeIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_plane_light.png');
+        $('#carIcon').attr('src', '../img/22/index/ch02_icon_car_dark.png');
+        $('#conversionNumBlock02, #conversionNumBlock04, #conversionNumBlock01, #ch02Bg02, #ch02Bg04, #ch02Bg01').css({ 'display': 'none' });
+        $('#ch02Bg03, #conversionNumBlock03').css({ 'display': 'flex' });
+    });
+
+    $('#carIcon').click(function () {
+        $('#elephantIcon').attr('src', '../img/22/index/ch02_icon_elephant_dark.png');
+        $('#cruiseShipIcon').attr('src', '../img/22/index/ch02_icon_cruise_ship_dark.png');
+        $('#planeIcon').attr('src', '../img/22/index/ch02_icon_plane_dark.png');
+        $(this).attr('src', '../img/22/index/ch02_icon_car_light.png');
+        $('#conversionNumBlock01, #conversionNumBlock02, #conversionNumBlock03, #ch02Bg01, #ch02Bg02, #ch02Bg03').css({ 'display': 'none' });
+        $('#ch02Bg04, #conversionNumBlock04').css({ 'display': 'flex' });
+    });
+
 });
 
 // lightslider控制項目：第三章
