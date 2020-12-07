@@ -911,24 +911,13 @@
 #chapter02 .conversionNumBlock {
   border: 1px solid red;
   width: 1320px;
-<<<<<<< HEAD
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: baseline;
-      -ms-flex-align: baseline;
-          align-items: baseline;
+  align-items: baseline;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
   left: 60%;
   top: 50%;
   z-index: 2;
-=======
-  margin-left: 500px;
-  display: flex;
-  align-items: baseline;
->>>>>>> 8a62820718df81c326ba92d35fdcb57214366b04
 }
 
 @media all and (max-width: 1919px) {
