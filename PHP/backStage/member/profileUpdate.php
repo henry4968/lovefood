@@ -1,5 +1,7 @@
 <?php 
-    include("../Lib/UtilClass.php");
+    // include("../Lib/UtilClass.php");
+    include("../Lib/UtilClass2.php");
+
     $Util = new UtilClass();
     $sql = "UPDATE LoveFood.MEMBER SET ADDRESS = ?, PHONE = ? WHERE MEMBER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);

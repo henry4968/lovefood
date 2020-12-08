@@ -83,10 +83,19 @@
 
         $statesment->execute();
         $data = $statesment->fetchAll();
-
     }
 
-    // echo 123;
-    print json_encode($data);
+    $sql = "SELECT ORDER_ID, DISCOUNT, ORDER_DATE FROM Lovefood.ORDER WHERE DISCOUNT > 0";
+    $statesment = $Util->getPDO()->prepare($sql);
+    $statesment->execute();
+    $data02 = $statesment->fetchAll();
+
+    $sql = "SELECT * FROM Lovefood.POINTS_ISSANCE";
+    $statesment = $Util->getPDO()->prepare($sql);
+    $statesment->execute();
+    $data03 = $statesment->fetchAll();
+
+    $pointsQuery = array('pointsOfMember' => $data,'pointsUsing' =>$data02, 'pointsIssance' =>$data03);
+    print json_encode($pointsQuery);
 
 ?>
