@@ -3,17 +3,17 @@
 Vue.component('member', {
   data() {
     return {
-      // 註冊信箱 placeholder
-      signInemail: '信箱',
-
-      // 註冊信箱內容 v-model(html)
-      emailSend: '',
-
       // input檢查 報錯顯示紅框
       redbordercolorsignInemail: '',
       redbordercolorsignInpass: '',
       redbordercolorsignInpassconf: '',
       redbordercolorsendcheck: '',
+
+      // 註冊信箱 placeholder
+      signInemail: '信箱',
+
+      // 註冊信箱內容 v-model(html)
+      emailSend: '',
 
       // 註冊密碼 placeholder
       signInpass: '密碼',
@@ -38,19 +38,22 @@ Vue.component('member', {
 
       // 綁定input:type=password or text 密碼確認
       passtotexconfir: 'password',
+
+      // 綁定input:type=button or submit 註冊
+      signUpbutton: 'button',
     };
   },
   template: `
         <div class="member">
-          <form id="member" method="post" action="#../PHP/Frontend/JoinR.php">
+          <form id="member" method="post" action="../PHP/Frontend/JoinR.php">
             <input type="email" :placeholder="signInemail" name="account" v-model="emailSend" :class="{redbordercolorsignInemail:redbordercolorsignInemail}" :change="delchi('emailSend')" @click="classnone1" />
-            <input :type="passtotex" :placeholder="signInpass" v-model="signInpasssend" :class="{redbordercolorsignInpass:redbordercolorsignInpass}" @click="classnone2"/>
+            <input :type="passtotex" :placeholder="signInpass" v-model="signInpasssend" :class="{redbordercolorsignInpass:redbordercolorsignInpass}" @click="classnone2" @input="englishmath('signInpasssend')" />
             <input :type="passtotexconfir" :placeholder="signInpassconf" v-model="signInpassconfsend" name="pwd" :class="{redbordercolorsignInpassconf:redbordercolorsignInpassconf}" @click="classnone3" />
             <div class="checkEmail"  >
               <input class="checkEmail" type="text" :placeholder="signInsendcheckcode" v-model="signInsendcheckcodesend" :class="{redbordercolorsendcheck:redbordercolorsendcheck}" @click="classnone4" >
               <button class="checkEmail" @click="emailcheck(emailSend)" type="button">發送驗證碼</button>
             </div>
-            <button class="subSignup" type="submit" @click="check">註冊</button>
+            <button class="subSignup" :type="signUpbutton" @click="check">註冊</button>
             <button class="changeTOmember" type="button">會員登入</button>
           </form>
           <div class="lineBor">
@@ -67,6 +70,8 @@ Vue.component('member', {
   methods: {
     // 註冊空白檢查
     check(event) {
+
+      // 以下條件若是沒問題則prevent
 
       // 信箱空白檢查
       if (this.signInemail == '信箱' && this.emailSend == '') {
@@ -101,13 +106,39 @@ Vue.component('member', {
       if (this.signInpasssend != this.signInpassconfsend) {
         this.passtotex = 'text';
         this.passtotexconfir = 'text',
-        this.signInpasssend = '',
-        this.signInpassconfsend = '',
-        this.signInpass = '與確認密碼相異';
+          this.signInpasssend = '',
+          this.signInpassconfsend = '',
+          this.signInpass = '與確認密碼相異';
         this.signInpassconf = '與密碼相異';
         this.redbordercolorsignInpass = true;
         this.redbordercolorsignInpassconf = true;
         event.preventDefault();
+      }
+
+      // 驗證信箱格式
+      // 信箱正規式表達
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;;
+      if ((this.emailSend).search(emailRule) != -1) {
+      } else {
+        this.emailSend = '';
+        this.signInemail = '信箱格式錯誤';
+        this.redbordercolorsignInemail = true;
+      }
+
+      // 密碼字數限制
+      if (this.signInpasssend.length < 8) {
+        this.signInpasssend = '';
+        this.signInpassconfsend = '';
+        this.signInpass = '密碼字數小於8位數';
+        this.signInpassconf = '密碼字數小於8位數';
+        this.redbordercolorsignInpass = true;
+        this.redbordercolorsignInpassconf = true;
+      }
+
+      // 以上條件沒問題就submit
+      if (this.redbordercolorsignInemail != true && this.redbordercolorsignInpass != true && this.redbordercolorsignInpassconf != true && this.redbordercolorsendcheck != true && this.emailSend != '' && this.signInpassconfsend != '' && this.signInsendcheckcodesend != '' && this.signInsendcheckcodesend != '') {
+        this.signUpbutton = 'submit';
+        event.target.submit();
       }
     },
 
@@ -119,17 +150,26 @@ Vue.component('member', {
     // 當input被點擊時去除紅框class及改變type型態
     classnone1() {
       this.redbordercolorsignInemail = false
+      this.signInemail = '信箱'
     },
     classnone2() {
       this.redbordercolorsignInpass = false
       this.passtotex = 'password';
+      this.signInpass = '密碼';
     },
     classnone3() {
       this.redbordercolorsignInpassconf = false
       this.passtotexconfir = 'password';
+      this.signInpassconf = '確認密碼';
     },
     classnone4() {
       this.redbordercolorsendcheck = false
+      this.signInsendcheckcode = '驗證碼確認'
+    },
+
+    // 只限定英文數字
+    englishmath(cleartt) {
+      this[cleartt] = this[cleartt].replace(/[\W]/g, '');
     },
 
     // 寄信驗證
