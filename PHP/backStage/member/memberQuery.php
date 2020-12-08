@@ -1,5 +1,7 @@
 <?php 
-    include("../Lib/UtilClass.php");
+    // include("../Lib/UtilClass.php");
+    include("../Lib/UtilClass2.php");
+
     $Util = new UtilClass();
       
     //先令get變數
@@ -41,7 +43,4 @@
     }
     print json_encode($data);
 
-    
-   
-    
 ?>

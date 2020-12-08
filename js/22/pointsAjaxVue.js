@@ -2,19 +2,20 @@ const app = new Vue({
     el: '.containerPoints',
     data() {
         return {
-            tableData: null,
+            tableData01: null,
+            tableData02: null,
+            tableData03: null
         }
     },
 
     beforeMount() {
         const self = this;
-        let urlParams = new URLSearchParams(window.location.search);
-        let number = urlParams.get('number');
-        let account = urlParams.get('account');
-        let name = urlParams.get('name');
-        let phone = urlParams.get('phone');
-        let pick01 = urlParams.get('datePick01');
-        let pick02 = urlParams.get('datePick02');
+        let number = $("input[name='number']").val()
+        let account = $("input[name='account']").val()
+        let name = $("input[name='name']").val()
+        let phone = $("input[name='phone']").val()
+        let pick01 = $("input[name='datePick01']").val()
+        let pick02 = $("input[name='datePick02']").val()
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
@@ -29,25 +30,25 @@ const app = new Vue({
             dataType: "JSON",
         });
     },
-    
+
     methods: {
         query() {
             const self = this;
-            let urlParams = new URLSearchParams(window.location.search);
-            let number = urlParams.get('number');
-            let account = urlParams.get('account');
-            let name = urlParams.get('name');
-            let phone = urlParams.get('phone');
-            let pick01 = urlParams.get('datePick01');
-            let pick02 = urlParams.get('datePick02');
+            let number = $("input[name='number']").val()
+            let account = $("input[name='account']").val()
+            let name = $("input[name='name']").val()
+            let phone = $("input[name='phone']").val()
+            let pick01 = $("input[name='datePick01']").val()
+            let pick02 = $("input[name='datePick02']").val()
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
                 type: 'POST',
                 data: { number, account, name, phone, pick01, pick02 },
                 success: function (res) {
-                    self.tableData = res;
-                    // console.log('321');
+                    self.tableData01 = res.pointsOfMember;
+                    self.tableData02 = res.pointsUsing;
+                    self.tableData03 = res.pointsIssance;
                     console.log(res);
                 },
                 error: function (res) {
