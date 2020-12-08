@@ -176,7 +176,7 @@
             height: 46px;
             // 首頁由js控制代替的hover變色
             &:hover{
-              content: url('../../../img/03/memlogochange.png');
+              content: url('../img/03/memlogochange.png');
               width: 220px;
               height: 42px;
               transition: all .3s;
@@ -297,7 +297,7 @@
             #navIcons01{
               img{
                 &:hover{
-                  content: url('../../../img/03/memmagnifierchange.png');
+                  content: url('../img/03/memmagnifierchange.png');
                   transform: scale(1.05);
                   transition: all .3s;
                 }
@@ -306,7 +306,7 @@
             #navIcons02{
               img{
                 &:hover{
-                  content: url('../../../img/03/memcartchange.png');
+                  content: url('../img/03/memcartchange.png');
                   transform: scale(1.05);
                   transition: all .3s;
                 }
@@ -315,7 +315,7 @@
             #navIcons03{
               img{
                 &:hover{
-                  content: url('../../../img/03/mempeoplecirclechange.png');
+                  content: url('../img/03/mempeoplecirclechange.png');
                   transform: scale(1.05);
                   transition: all .3s;
                 }
