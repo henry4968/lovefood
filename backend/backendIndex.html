@@ -137,7 +137,6 @@
                                     <form action="memberProfile.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">編輯</button>
                                         <input type="hidden" name="id" :value="data[0]">
-                                        
                                     </form>
                                 </td>
                                
@@ -149,8 +148,27 @@
             </div>
         </div>    
     </div>
+<<<<<<< HEAD
     <script src="../js/23/member/indexAjaxVue.js"></script>
     
+=======
+    <script>
+        const app = new Vue({
+        el: '.containerIndex',
+        data() {
+            return {
+                tableData:null,
+            }
+        },
+        beforeMount(){
+            const self = this;
+            $.getJSON('memberR.php',function(res){
+                self.tableData = res;
+            });
+        },
+        })
+      </script>
+>>>>>>> 8c16f96ed35aa5281faed2395b55f1993d8ce661
 </body>
 </html>
 
