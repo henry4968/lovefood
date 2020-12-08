@@ -7,6 +7,9 @@
     display: block;
     position: relative;
     top:123px;
+    @include newRwd("pad"){
+        top: 50px;
+    }
 
         div{
             max-width: 600px;
@@ -17,12 +20,23 @@
             top:84px;
             align-items: center;
             font-family: "PingFang-TC-Regular-thin","sans-serif";
+            @include newRwd("pad"){
+                left: 20%;
+            }
+            @include newRwd("newSmallPhone"){
+                max-width: 320px;
+                left: 20%;
+            }
+
 
 
 
             img{
                 width: 188px;
                 // border:1px solid cadetblue;
+                @include newRwd("newSmallPhone"){
+                    width: 94px;
+                }
             }
             div{
                 // border: 1px solid blueviolet;
@@ -30,6 +44,12 @@
                 position: absolute;
                 left: 150px;
                 top: 50px;
+                @include newRwd("newSmallPhone"){
+                    left:20%;
+                    top: 20px;
+                    padding-left: 10px;
+                    
+                }
  
                 h1{
                     
@@ -37,6 +57,9 @@
                     padding: 5px;
                     color:  #7D7765;
                     font-family:"Pc", "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+                    @include newRwd("newSmallPhone"){
+                        font-size: 42px;
+                    }
                 }
                 p{
 
@@ -44,6 +67,10 @@
                     padding: 5px;
                     color:  #7D7765;
                     font-family: "PingFang-TC-thin","sans-serif";
+                    @include newRwd("newSmallPhone"){
+                        font-size: 16px;
+                        
+                    }
                 }
             }        
         }
