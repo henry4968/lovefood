@@ -9,27 +9,45 @@ Vue.component('member', {
       // 註冊信箱內容 v-model(html)
       emailSend: '',
 
-      // input檢查 報錯顯示紅框及紅字
+      // input檢查 報錯顯示紅框
       redbordercolorsignInemail: '',
       redbordercolorsignInpass: '',
       redbordercolorsignInpassconf: '',
       redbordercolorsendcheck: '',
 
-      // 註冊密碼
+      // 註冊密碼 placeholder
       signInpass: '密碼',
 
       // 註冊密碼內容 v-model(html)
       signInpasssend: '',
+
+      // 註冊密碼確認 placeholder
+      signInpassconf: '確認密碼',
+
+      // 註冊密碼確認 v-model(html)
+      signInpassconfsend: '',
+
+      // 註冊驗證發送碼 placeholder
+      signInsendcheckcode: '驗證碼確認',
+
+      // 註冊驗證發送碼 v-model(html)
+      signInsendcheckcodesend: '',
+
+      // 綁定input:type=password or text 密碼
+      passtotex: 'password',
+
+      // 綁定input:type=password or text 密碼確認
+      passtotexconfir: 'password',
     };
   },
   template: `
         <div class="member">
           <form id="member" method="post" action="#../PHP/Frontend/JoinR.php">
-            <input type="email" :placeholder="signInemail" name="account" v-model="emailSend" :class="{redbordercolorsignInemail:redbordercolorsignInemail}" />
-            <input type="password" :placeholder="signInpass" v-model="signInpasssend" name="pwd" :class="{redbordercolorsignInpass:redbordercolorsignInpass}"/>
-            <input type="password" placeholder="確認密碼" :class="{redbordercolorsignInpassconf:redbordercolorsignInpassconf}" />
+            <input type="email" :placeholder="signInemail" name="account" v-model="emailSend" :class="{redbordercolorsignInemail:redbordercolorsignInemail}" :change="delchi('emailSend')" @click="classnone1" />
+            <input :type="passtotex" :placeholder="signInpass" v-model="signInpasssend" :class="{redbordercolorsignInpass:redbordercolorsignInpass}" @click="classnone2"/>
+            <input :type="passtotexconfir" :placeholder="signInpassconf" v-model="signInpassconfsend" name="pwd" :class="{redbordercolorsignInpassconf:redbordercolorsignInpassconf}" @click="classnone3" />
             <div class="checkEmail"  >
-              <input class="checkEmail" type="text" placeholder="驗證發送碼" :class="{redbordercolorsendcheck:redbordercolorsendcheck}" >
+              <input class="checkEmail" type="text" :placeholder="signInsendcheckcode" v-model="signInsendcheckcodesend" :class="{redbordercolorsendcheck:redbordercolorsendcheck}" @click="classnone4" >
               <button class="checkEmail" @click="emailcheck(emailSend)" type="button">發送驗證碼</button>
             </div>
             <button class="subSignup" type="submit" @click="check">註冊</button>
@@ -47,23 +65,71 @@ Vue.component('member', {
         </div>
       `,
   methods: {
-    // 註冊檢查
+    // 註冊空白檢查
     check(event) {
 
-      // 信箱檢查
-      if ((this.signInemail == '信箱') && (this.emailSend == '')) {
+      // 信箱空白檢查
+      if (this.signInemail == '信箱' && this.emailSend == '') {
         // alert('信箱是空的');
         this.signInemail = '信箱不可為空白';
         this.redbordercolorsignInemail = true;
         event.preventDefault();
       }
 
-      // 密碼檢查
-      if (this.signInpass == '密碼' && this.signInpasssend == ''){
+      // 密碼空白檢查
+      if (this.signInpass == '密碼' && this.signInpasssend == '') {
         this.signInpass = '密碼不可為空白';
         this.redbordercolorsignInpass = true;
         event.preventDefault();
       }
+
+      // 確認密碼空白檢查
+      if (this.signInpassconf == '確認密碼' && this.signInpassconfsend == '') {
+        this.signInpassconf = '確認密碼不可為空白';
+        this.redbordercolorsignInpassconf = true;
+        event.preventDefault();
+      }
+
+      // 驗證碼確認空白檢查
+      if (this.signInsendcheckcode == '驗證碼確認' && this.signInsendcheckcodesend == '') {
+        this.signInsendcheckcode = '驗證碼不可空白';
+        this.redbordercolorsendcheck = true;
+        event.preventDefault();
+      }
+
+      // 密碼及確認密碼需相同
+      if (this.signInpasssend != this.signInpassconfsend) {
+        this.passtotex = 'text';
+        this.passtotexconfir = 'text',
+        this.signInpasssend = '',
+        this.signInpassconfsend = '',
+        this.signInpass = '與確認密碼相異';
+        this.signInpassconf = '與密碼相異';
+        this.redbordercolorsignInpass = true;
+        this.redbordercolorsignInpassconf = true;
+        event.preventDefault();
+      }
+    },
+
+    // 帳號登入禁止中文可使用email
+    delchi(clear) {
+      this[clear] = this[clear].replace(/[^\a-\z\A-\Z0-9\@._-]/g, '');
+    },
+
+    // 當input被點擊時去除紅框class及改變type型態
+    classnone1() {
+      this.redbordercolorsignInemail = false
+    },
+    classnone2() {
+      this.redbordercolorsignInpass = false
+      this.passtotex = 'password';
+    },
+    classnone3() {
+      this.redbordercolorsignInpassconf = false
+      this.passtotexconfir = 'password';
+    },
+    classnone4() {
+      this.redbordercolorsendcheck = false
     },
 
     // 寄信驗證
