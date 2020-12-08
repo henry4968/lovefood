@@ -3,19 +3,33 @@
 Vue.component('member', {
   data() {
     return {
-      email: '',
-      message: '',
+      // 註冊信箱 placeholder
+      signInemail: '信箱',
+
+      // 註冊信箱內容 v-model(html)
       emailSend: '',
+
+      // input檢查 報錯顯示紅框及紅字
+      redbordercolorsignInemail: '',
+      redbordercolorsignInpass: '',
+      redbordercolorsignInpassconf: '',
+      redbordercolorsendcheck: '',
+
+      // 註冊密碼
+      signInpass: '密碼',
+
+      // 註冊密碼內容 v-model(html)
+      signInpasssend: '',
     };
   },
   template: `
         <div class="member">
-          <form id="member" method="post" action="../PHP/Frontend/JoinR.php">
-            <input type="text" :placeholder="email" name="account" v-model="emailSend"/>
-            <input type="password" placeholder="密碼" name="pwd"/>
-            <input type="password" placeholder="確認密碼" />
-            <div class="checkEmail">
-              <input class="checkEmail" type="text" placeholder="驗證密碼">
+          <form id="member" method="post" action="#../PHP/Frontend/JoinR.php">
+            <input type="email" :placeholder="signInemail" name="account" v-model="emailSend" :class="{redbordercolorsignInemail:redbordercolorsignInemail}" />
+            <input type="password" :placeholder="signInpass" v-model="signInpasssend" name="pwd" :class="{redbordercolorsignInpass:redbordercolorsignInpass}"/>
+            <input type="password" placeholder="確認密碼" :class="{redbordercolorsignInpassconf:redbordercolorsignInpassconf}" />
+            <div class="checkEmail"  >
+              <input class="checkEmail" type="text" placeholder="驗證發送碼" :class="{redbordercolorsendcheck:redbordercolorsendcheck}" >
               <button class="checkEmail" @click="emailcheck(emailSend)" type="button">發送驗證碼</button>
             </div>
             <button class="subSignup" type="submit" @click="check">註冊</button>
@@ -33,11 +47,26 @@ Vue.component('member', {
         </div>
       `,
   methods: {
-    check() {
-      if (this.email == '') {
-        alert('信箱是空的');
+    // 註冊檢查
+    check(event) {
+
+      // 信箱檢查
+      if ((this.signInemail == '信箱') && (this.emailSend == '')) {
+        // alert('信箱是空的');
+        this.signInemail = '信箱不可為空白';
+        this.redbordercolorsignInemail = true;
+        event.preventDefault();
+      }
+
+      // 密碼檢查
+      if (this.signInpass == '密碼' && this.signInpasssend == ''){
+        this.signInpass = '密碼不可為空白';
+        this.redbordercolorsignInpass = true;
+        event.preventDefault();
       }
     },
+
+    // 寄信驗證
     emailcheck(email) {
       // 驗證其他人輸入的值是否抓到
       // if (email != '') {
@@ -52,9 +81,9 @@ Vue.component('member', {
         Subject: "lovefood<tibamelovefood@gmail.com>",
         Body: "And this is the body"
       })
-      .then(
-        message => alert(message)
-      );
+        .then(
+          message => alert(message)
+        );
     },
   },
   mounted() {
