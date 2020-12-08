@@ -4,11 +4,25 @@
     height: 500px;
     background-image: url(../img/16/banner_new.png);
     background-position: center bottom;
+    background-repeat: no-repeat;
     display: block;
     position: relative;
     top:123px;
+    z-index: 0;
+    margin-bottom: 122px;
+    @include newRwd("laptop"){
+        margin-bottom: 122px;
+    }
     @include newRwd("pad"){
+        margin-bottom: 122px;
+    }
+    @include newRwd("bigPhone"){
         top: 50px;
+        margin-bottom: 122px;
+    }
+    @include newRwd("bigPhone"){
+        top: 50px;
+        margin-bottom: 49px;
     }
 
         div{
@@ -21,11 +35,11 @@
             align-items: center;
             font-family: "PingFang-TC-Regular-thin","sans-serif";
             @include newRwd("pad"){
-                left: 20%;
+                left: 15%;
             }
             @include newRwd("newSmallPhone"){
                 max-width: 320px;
-                left: 20%;
+                left: 15%;
             }
 
 
@@ -45,7 +59,7 @@
                 left: 150px;
                 top: 50px;
                 @include newRwd("newSmallPhone"){
-                    left:20%;
+                    left:15%;
                     top: 20px;
                     padding-left: 10px;
                     
