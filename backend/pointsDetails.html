@@ -107,7 +107,6 @@
                     <div id="pointsDataFilterTabsBlock">
                         <div id="pointsDataFilterTab01" class="pointsDataFilterTab">查詢編輯</div>
                         <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次發放</div>
-                        <!-- <div id="pointsDataFilterTab02" class="pointsDataFilterTab">單筆發放</div> -->
                     </div>
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
@@ -124,11 +123,6 @@
                                 <input type=" text" name="phone">
                             </div>
                         </div>
-                        <!-- <div id="pointsDataFilterLeftDownerBlock">
-                            點數狀態：
-                            <input type="checkbox" name="issance">已發放
-                            <input type="checkbox" name="using">已使用
-                        </div> -->
                         <div id="pointsDataFilterRightBlock">
                             <div>
                                 查詢區間<br>
@@ -146,53 +140,65 @@
                         </div>
                     </div>
                 </div>
-                <div id="pointsDataArea">
-                    <table>
-                        <tr id="pointsDataHeader">
-                            <th>序號</th>
-                            <th>會員編號</th>
-                            <th>會員帳號</th>
-                            <th>會員姓名</th>
-                            <th>會員手機</th>
-                            <th>擁有點數</th>
-                            <th>功能鍵</th>
-                        </tr>
-                        <tbody v-if="tableData01">
-                            <tr v-for="(data,key) in tableData01">
-                                <td>{{key+1}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[1]}}</td>
-                                <td>{{data[2]}}</td>
-                                <td>{{data[3]}}</td>
-                                <td>{{data[4]}}</td>
-                                <td>
-                                    <!-- <a href="pointsDetails.html">
-                                        <div class="pointsDataActionButton">詳情</div>
-                                    </a> -->
-                                    <form action="pointsDetails.html" method="GET">
-                                        <button type="submit" class="btn-sb btn-green">詳情</button>
-                                        <input type="hidden" name="number" :value="data[0]">
-                                    </form>
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-
-                    <div id="pagination">
-                        <a href="#0">＜</a>
-                        <a href="#0">1</a>
-                        <a href="#0">2</a>
-                        <a href="#0">3</a>
-                        <a href="#0">4</a>
-                        <a href="#0">5</a>
-                        <a href="#0">＞</a>
-                        <a href="#0">最末頁</a>
+                <div id="pointsDataArea" v-if="tableData01">
+                    <div id="memberProfile" v-for="(data,key) in tableData01">
+                        會員編號：<input class="input-xl" type="text" :placeholder="data[0]" disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :placeholder="data[1]" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :placeholder="data[2]" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :placeholder="data[3]" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :placeholder="data[4]" disabled>
+                    </div>
+                    <div id="">
+                        修改點數：<br>
+                        <input type="text">
+                        <button>確認修改</button>
+                    </div>
+                    <div>
+                        使用紀錄：
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序號</th>
+                                    <th>訂單編號</th>
+                                    <th>使用點數</th>
+                                    <th>使用時間</th>
+                                    <th>功能鍵</th>
+                                </tr>
+                            </thead>
+                            <tbody v-if="tableData02">
+                                <tr v-for="(data,key) in tableData02">
+                                    <td>{{key+1}}</td>
+                                    <td>{{data[0]}}</td>
+                                    <td>{{data[1]}}</td>
+                                    <td>{{data[2]}}</td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        發放紀錄：
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序號</th>
+                                    <th>發放序號</th>
+                                    <th>發放點數</th>
+                                    <th>發放時間</th>
+                                </tr>
+                            </thead>
+                            <tbody v-if="tableData03">
+                                <tr v-for="(data,key) in tableData03">
+                                    <td>{{key+1}}</td>
+                                    <td>{{data[0]}}</td>
+                                    <td>{{data[1]}}</td>
+                                    <td>{{data[2]}}</td>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-    <script src="../js/22/pointsAjaxVue.js"></script>
+    <script src="../js/22/pointsDetailsAjaxVue.js"></script>
 
 </body>
 

@@ -10,22 +10,27 @@ const app = new Vue({
 
     beforeMount() {
         const self = this;
-        // let urlParams = new URLSearchParams(window.location.search);
-        let number = $("input[name='number']").val()
-        let account = $("input[name='account']").val()
-        let name = $("input[name='name']").val()
-        let phone = $("input[name='phone']").val()
-        let pick01 = $("input[name='datePick01']").val()
-        let pick02 = $("input[name='datePick02']").val()
+        let urlParams = new URLSearchParams(window.location.search);
+        let number = urlParams.get('number');
+        let account = urlParams.get('account');
+        let name = urlParams.get('name');
+        let phone = urlParams.get('phone');
+        let pick01 = urlParams.get('datePick01');
+        let pick02 = urlParams.get('datePick02');
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
             data: { number, account, name, phone, pick01, pick02 },
             success: function (res) {
-                self.tableData = res;
+                self.tableData01 = res.pointsOfMember;
+                self.tableData02 = res.pointsUsing;
+                self.tableData03 = res.pointsIssance;
+                console.log(res);
+                // console.log(res.pointsOfMember[0][0])
             },
             error: function (res) {
+                console.log("回傳失敗！");
                 console.log(res);
             },
             dataType: "JSON",
@@ -35,13 +40,13 @@ const app = new Vue({
     methods: {
         query() {
             const self = this;
-            // let urlParams = new URLSearchParams(window.location.search);
-            let number = $("input[name='number']").val()
-            let account = $("input[name='account']").val()
-            let name = $("input[name='name']").val()
-            let phone = $("input[name='phone']").val()
-            let pick01 = $("input[name='datePick01']").val()
-            let pick02 = $("input[name='datePick02']").val()
+            let urlParams = new URLSearchParams(window.location.search);
+            let number = urlParams.get('number');
+            let account = urlParams.get('account');
+            let name = urlParams.get('name');
+            let phone = urlParams.get('phone');
+            let pick01 = urlParams.get('datePick01');
+            let pick02 = urlParams.get('datePick02');
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
@@ -51,10 +56,8 @@ const app = new Vue({
                     self.tableData01 = res.pointsOfMember;
                     self.tableData02 = res.pointsUsing;
                     self.tableData03 = res.pointsIssance;
-                    // console.log(res.pointsUsing);
-                    // console.log(res.pointsIssance);
-                    // console.log(res.pointsOfMember[0][0])
                     console.log(res);
+                    // console.log(res.pointsOfMember[0][0])
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
