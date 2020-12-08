@@ -105,8 +105,8 @@
             <main>
                 <div id="pointsDataFilterArea">
                     <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">查詢編輯</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次發放</div>
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">單筆編輯</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
                     </div>
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
@@ -150,8 +150,8 @@
                     </div>
                     <div id="">
                         修改點數：<br>
-                        <input type="text">
-                        <button>確認修改</button>
+                        <input type="text" name="points">
+                        <button @click="update">確認修改</button>
                     </div>
                     <div>
                         使用紀錄：

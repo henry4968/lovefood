@@ -4,7 +4,8 @@ const app = new Vue({
         return {
             tableData01: null,
             tableData02: null,
-            tableData03: null
+            tableData03: null,
+            tableData04: null
         }
     },
 
@@ -58,6 +59,25 @@ const app = new Vue({
                     self.tableData03 = res.pointsIssance;
                     console.log(res);
                     // console.log(res.pointsOfMember[0][0])
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+                dataType: "JSON",
+            });
+        },
+        update() {
+            const self = this;
+            let urlParams = new URLSearchParams(window.location.search);
+            let number = urlParams.get('number');
+            let points = $("input[name='points']").val();
+            $.ajax({
+                url: '../PHP/backStage/points/pointsUpdate.php',
+                type: 'POST',
+                data: { points, number },
+                success: function (res) {
+                    self.tableData04 = res;
                 },
                 error: function (res) {
                     console.log("回傳失敗！");

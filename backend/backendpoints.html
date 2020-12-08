@@ -105,8 +105,8 @@
             <main>
                 <div id="pointsDataFilterArea">
                     <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">查詢編輯</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次發放</div>
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">單筆編輯</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
                         <!-- <div id="pointsDataFilterTab02" class="pointsDataFilterTab">單筆發放</div> -->
                     </div>
                     <div id="pointsDataFilter">
@@ -124,23 +124,14 @@
                                 <input type=" text" name="phone">
                             </div>
                         </div>
-                        <!-- <div id="pointsDataFilterLeftDownerBlock">
-                            點數狀態：
-                            <input type="checkbox" name="issance">已發放
-                            <input type="checkbox" name="using">已使用
-                        </div> -->
                         <div id="pointsDataFilterRightBlock">
                             <div>
                                 查詢區間<br>
                                 <input type="date" name="datePick01">至<input type="date" name="datePick02">
                             </div>
                             <div id="membersPointsActionBlock">
-                                特殊會員狀態：
                                 <a href="#0" @click="query">
                                     <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
-                                </a>
-                                <a href="#0">
-                                    <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
                                 </a>
                             </div>
                         </div>
@@ -166,9 +157,6 @@
                                 <td>{{data[3]}}</td>
                                 <td>{{data[4]}}</td>
                                 <td>
-                                    <!-- <a href="pointsDetails.html">
-                                        <div class="pointsDataActionButton">詳情</div>
-                                    </a> -->
                                     <form action="pointsDetails.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">詳情</button>
                                         <input type="hidden" name="number" :value="data[0]">

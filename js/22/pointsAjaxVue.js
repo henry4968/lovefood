@@ -10,7 +10,6 @@ const app = new Vue({
 
     beforeMount() {
         const self = this;
-        // let urlParams = new URLSearchParams(window.location.search);
         let number = $("input[name='number']").val()
         let account = $("input[name='account']").val()
         let name = $("input[name='name']").val()
@@ -35,7 +34,6 @@ const app = new Vue({
     methods: {
         query() {
             const self = this;
-            // let urlParams = new URLSearchParams(window.location.search);
             let number = $("input[name='number']").val()
             let account = $("input[name='account']").val()
             let name = $("input[name='name']").val()
@@ -51,9 +49,6 @@ const app = new Vue({
                     self.tableData01 = res.pointsOfMember;
                     self.tableData02 = res.pointsUsing;
                     self.tableData03 = res.pointsIssance;
-                    // console.log(res.pointsUsing);
-                    // console.log(res.pointsIssance);
-                    // console.log(res.pointsOfMember[0][0])
                     console.log(res);
                 },
                 error: function (res) {

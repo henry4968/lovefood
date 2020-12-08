@@ -47,7 +47,7 @@
         $statesment->bindValue(4,$phone);
 
         $statesment->execute();
-        $data = $statesment->fetchAll();
+        $data01 = $statesment->fetchAll();
 
     }else{
 
@@ -82,20 +82,24 @@
         $statesment->bindValue(4,$phone);
 
         $statesment->execute();
-        $data = $statesment->fetchAll();
+        $data01 = $statesment->fetchAll();
     }
 
-    $sql = "SELECT ORDER_ID, DISCOUNT, ORDER_DATE FROM Lovefood.ORDER WHERE DISCOUNT > 0";
+    $sql = "SELECT ORDER_ID, DISCOUNT, ORDER_DATE FROM Lovefood.ORDER WHERE DISCOUNT > 0 and MEMBER_ID_for_OD like ?";
     $statesment = $Util->getPDO()->prepare($sql);
+    $statesment->bindValue(1,$number);
+
     $statesment->execute();
     $data02 = $statesment->fetchAll();
 
-    $sql = "SELECT * FROM Lovefood.POINTS_ISSANCE";
+    $sql = "SELECT POINTS_ISSANCER_ID, ISSANCE_NUM, ISSANCE_DATE FROM Lovefood.POINTS_ISSANCE WHERE MEMBER_ID_for_PI like ?";
     $statesment = $Util->getPDO()->prepare($sql);
+    $statesment->bindValue(1,$number);
+
     $statesment->execute();
     $data03 = $statesment->fetchAll();
 
-    $pointsQuery = array('pointsOfMember' => $data,'pointsUsing' =>$data02, 'pointsIssance' =>$data03);
+    $pointsQuery = array('pointsOfMember' => $data01,'pointsUsing' =>$data02, 'pointsIssance' =>$data03);
     print json_encode($pointsQuery);
 
 ?>
