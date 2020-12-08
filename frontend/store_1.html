@@ -366,7 +366,16 @@
                 </div> 
                 </form> 
                 <!-- 地圖 -->
-                <div id="googlemap" style= "width: 100%; height: 600px; background-color:#545454; margin: 0 auto;"></div>
+                <div id="mapBox">
+                    <div id="googlemap" style= "width: 100%; height: 600px;  margin: 0 auto;"></div>
+                    <div class="buttons">
+                        <button id="ShiZhengfu" onclick="showCoords(this)">市政府</button>
+                        <button id="NanjingFuxing" onclick="showCoords(this)">南京復興</button>
+                        <button id="ZhongxiaoFuxing" onclick="showCoords(this)">忠孝復興</button>
+                        <button id="Daan" onclick="showCoords(this)">大安</button>
+                        <button id="Zhongshan" onclick="showCoords(this)">中山</button>
+                    </div>
+                </div>
             </div>
             <!-- 商品 -->
             <div class="context">
@@ -678,7 +687,9 @@
     </footer>
     <!-- js連結 -->
     <script src="http://maps.google.com/maps/api/js"></script>
+    <!-- <script src=" https://maps.googleapis.com/maps/api/geocode/json?"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
     <script src="../js/07/store_1.js"></script>
+    <script src="../js/07/data.js"></script>
 </body>
 </html>
