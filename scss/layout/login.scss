@@ -12,7 +12,7 @@ $minw700:701px;
 
 @font-face{
   font-family: "PingFangTC-Regular-2";
-  src: url("../../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
+  src: url("../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
 }
 *{
   box-sizing: border-box;
@@ -28,7 +28,7 @@ body{
     min-height: 640px;
     height: 70vh;
     // border: 1px solid black;
-    background-image: url('../../img/03/bgrev1.png');  
+    background-image: url('../img/03/bgrev1.png');  
     background-repeat: repeat;
     background-position: center;
     background-size: 20%;
@@ -140,6 +140,18 @@ body{
             display: flex;
             flex-direction: column;
             align-content: center;
+            input:nth-child(1).redbordercolorsignInemail{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input:nth-child(2).redbordercolorsignInpass{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input:nth-child(3).redbordercolorsignInpassconf{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
             input{
               margin: 0px 0px 20px 0px;
               padding-left: 10px;
@@ -157,6 +169,10 @@ body{
               width: 270px;
               margin: 0px 0px 20px 0px;
               // border: 1px solid black;
+              input.checkEmail.redbordercolorsendcheck{
+                border-radius: 5px;
+                border: 2px solid red;
+              }
               input.checkEmail{
                 width: 50%;
                 height: 39px;
