@@ -56,14 +56,14 @@
                 box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 position: relative;
                 #financeDateFilterBlock{
-                    width: 621px;
+                    width: 821px;
                     height: 37px;
                     font-size: 16px;
                     color: #7B807D;
                     display: flex;
                     align-items: center;
                     input{
-                        width: 200px;
+                        width: 150px;
                         height: 30px;
                         border-radius: 10px;
                         border: 1px solid #BFBCBC;
@@ -73,6 +73,9 @@
                     img{
                         margin-right: 15px;
                     }
+                }
+                #supplierID{
+                    margin-left: 30px;
                 }
                 #financeFilterDownload{
                     margin-top: 20px;
@@ -89,7 +92,7 @@
                     background-color: #887664;
                     color: #FFFFFF;
                     position: absolute;
-                    left: 540px;
+                    left: 620px;
                     top: 70px;
                 }
             }

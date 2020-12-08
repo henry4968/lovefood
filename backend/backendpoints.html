@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 
 <body>
@@ -110,31 +112,31 @@
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
-                                <div>訂單編號</div>
-                                <input type="text">
                                 <div>會員編號</div>
-                                <input type="text">
+                                <input type="text" name="number">
+                                <div>會員帳號</div>
+                                <input type="text" name="account">
                             </div>
                             <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
-                                <div>會員帳號</div>
-                                <input type="text">
+                                <div>會員姓名</div>
+                                <input type="text" name="name">
                                 <div>會員手機</div>
-                                <input type="text">
+                                <input type=" text" name="phone">
                             </div>
                         </div>
-                        <div id="pointsDataFilterLeftDownerBlock">
+                        <!-- <div id="pointsDataFilterLeftDownerBlock">
                             點數狀態：
-                            <input type="checkbox" name="" id="">已發放
-                            <input type="checkbox" name="" id="">已使用
-                        </div>
+                            <input type="checkbox" name="issance">已發放
+                            <input type="checkbox" name="using">已使用
+                        </div> -->
                         <div id="pointsDataFilterRightBlock">
                             <div>
-                                查詢區間<input type="datetime-local" name="" id="">
-                                <img src="" alt="">
+                                查詢區間<br>
+                                <input type="date" name="datePick01">至<input type="date" name="datePick02">
                             </div>
                             <div id="membersPointsActionBlock">
                                 特殊會員狀態：
-                                <a href="#0">
+                                <a href="#0" @click="query">
                                     <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
                                 </a>
                                 <a href="#0">
@@ -150,44 +152,28 @@
                             <th>序號</th>
                             <th>會員編號</th>
                             <th>會員帳號</th>
-                            <th>訂單編號</th>
-                            <th>時間</th>
-                            <th>點數</th>
+                            <th>會員姓名</th>
+                            <th>會員手機</th>
+                            <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tr>
-                            <td>00001</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td>2020110100001</td>
-                            <td>2020-11-01 13:30</td>
-                            <td>-54</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00002</td>
-                            <td>AA2020103000001</td>
-                            <td>jabida@gmail.com</td>
-                            <td></td>
-                            <td>2020-10-31 13:30</td>
-                            <td>+1000</td>
-                            <td class="pointsDataActionBlock">
-                                <a href="">
-                                    <div class="pointsDataActionButton">編輯</div>
-                                </a>
-                                <a href="">
-                                    <div class="pointsDataActionButton">查詢</div>
-                                </a>
-                            </td>
-                        </tr>
+                        <tbody v-if="tableData">
+                            <tr v-for="(data,key) in tableData">
+                                <td>{{key+1}}</td>
+                                <td>{{data[0]}}</td>
+                                <td>{{data[1]}}</td>
+                                <td>{{data[2]}}</td>
+                                <td>{{data[3]}}</td>
+                                <td>{{data[4]}}</td>
+                                <td>
+                                    <a href="#0">
+                                        <div class="pointsDataActionButton">查詢</div>
+                                    </a>
+                                </td>
+                            </tr>
+                        </tbody>
                     </table>
+
                     <div id="pagination">
                         <a href="#0">＜</a>
                         <a href="#0">1</a>
@@ -202,6 +188,8 @@
             </main>
         </div>
     </div>
+    <script src="../js/22/pointsAjaxVue.js"></script>
+
 </body>
 
 </html>

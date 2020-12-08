@@ -1,5 +1,5 @@
 @import './link';
- 
+@import './layout/applestore'; 
 *{
     font-size: 24px;
     color: #707070;
@@ -237,69 +237,69 @@
 // 標頭結束
 
 
-.banner{
-    width: map-get($Wth, 100 );
-    height: 70vh;
-    background-color: $D3;
-    position: relative;
-    background-image: url(../img/07/banner_new.png);
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 100%;
+// .banner{
+//     width: map-get($Wth, 100 );
+//     height: 70vh;
+//     background-color: $D3;
+//     position: relative;
+//     background-image: url(../img/07/banner_new.png);
+//     background-position: center center;
+//     background-repeat: no-repeat;
+//     background-size: 100%;
 
     
-    .lovefood{
-        width: map-get($Wth, 100 );
-        transform: translate(-10px,50px);
-        position: absolute;
-    }
-}
-.apple{
-    position: absolute;
-    top: 30%;
-    left: 20%;
+//     .lovefood{
+//         width: map-get($Wth, 100 );
+//         transform: translate(-10px,50px);
+//         position: absolute;
+//     }
+// }
+// .apple{
+//     position: absolute;
+//     top: 30%;
+//     left: 20%;
 
-    .apple{
-        position: absolute;
-        width: 40%;
-        top: 12%;
-        left:19%;
+//     .apple{
+//         position: absolute;
+//         width: 40%;
+//         top: 12%;
+//         left:19%;
         
-    }
+//     }
     
-}
-/////////apple_RWD
-@media screen and (max-width:585px){
-    .span{
-        font-size: 22px;
-    }
-}
-@include store('bigPhone'){
-    .banner{
-        height: 50vh;
-    }
-    .apple{
-        top: 27%;
-        left: 10%;
-    }
+// }
+// /////////apple_RWD
+// @media screen and (max-width:585px){
+//     .span{
+//         font-size: 22px;
+//     }
+// }
+// @include store('bigPhone'){
+//     .banner{
+//         height: 50vh;
+//     }
+//     .apple{
+//         top: 27%;
+//         left: 10%;
+//     }
     
-}
+// }
 
-@include store ('mediumPhone'){
-    .apple{
-        top: 25%;
-        left: -2%;
-    }
-}
+// @include store ('mediumPhone'){
+//     .apple{
+//         top: 25%;
+//         left: -2%;
+//     }
+// }
 
-@include rwd ('smallPhone'){
-    .span span.span1{
-        font-size: 30px;
-    }
-    .span span.span2{
-        font-size: 14px;
-    }
-}
+// @include rwd ('smallPhone'){
+//     .span span.span1{
+//         font-size: 30px;
+//     }
+//     .span span.span2{
+//         font-size: 14px;
+//     }
+// }
 
 
 .span{
@@ -384,6 +384,7 @@
     font-size: 30px;
     padding: 20px;
     background-color: $F2;
+    margin-top: 34px;
     p{
         display: flex;
         align-items: center;

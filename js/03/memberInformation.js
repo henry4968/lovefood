@@ -64,6 +64,9 @@ Vue.component('member', {
           </div>
         </form>
         <div class="rightPicborder">
+          <div class="backCategoryBorder" @click="sync">
+            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="uploadBorder">
             <div class="imageBorder">
               <img id="image">
@@ -98,6 +101,7 @@ Vue.component('member', {
       modadd: '',
       confirmpassword: '',
       foursameBorderapp: '',
+      backCategory: '',
     }
   },
   methods: {
@@ -159,6 +163,9 @@ Vue.component('member', {
         });
       }
     },
+    sync() {
+      this.$emit("my-click", false)
+    },
   },
 
 });
@@ -167,15 +174,20 @@ Vue.component('order', {
   template: `
     <div class="rightBorderorder" :class="{foursameBorderapp:foursameBorderapp == 2}">
         <div class="centerBorder">
+          <div class="orderbackCategoryBorder" @click="sync">
+            <img class="orderbackCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="searchBorder">
             <form id="searchBorder" method="POST" action="#">
               <div class="searchDateBoder">
                 <label class="search">查詢區間 : </label>
-                <input id="dateFrom" type="date">
-                <span class="whitespace">
-                  &#32;&#126;&#32;
-                </span>
-                <input id="dateTo" type="date">
+                <div class="dateFromdateTo">
+                  <input id="dateFrom" type="date">
+                  <div class="whitespace">
+                    &#32;&#126;&#32;
+                  </div>
+                  <input id="dateTo" type="date">
+                </div>
               </div>
               <div class="searchBtnBorder">
                 <button id="searchBtnBorder" type="submit">查詢</button>
@@ -324,12 +336,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -355,12 +367,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -386,12 +398,12 @@ Vue.component('order', {
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
-                        <p class="unitpricetitle">單價</p>
-                        <p class="unitpricecontent">$27</p>
+                        <span class="unitpricetitle">單價:</span>
+                        <span class="unitpricecontent">$27</span>
                       </div>
                       <div class="countpriceBorder">
-                        <p class="countpricetitle">小計</p>
-                        <p class="countpricecontent">$27</p>
+                        <span class="countpricetitle">小計:</span>
+                        <span class="countpricecontent">$27</span>
                       </div>
                     </div>
                   </div>
@@ -438,6 +450,9 @@ Vue.component('order', {
     statussame(num) {
       this.chagestatussamebg = num
     },
+    sync() {
+      this.$emit("my-click", false)
+    },
   },
 });
 
@@ -446,6 +461,9 @@ Vue.component('points', {
     <div class="rightBorderpoints" :class="{foursameBorderapp:foursameBorderapp == 3}">
         <div class="toppointsBorder">
           <div class="topmiddlepointsBorder">
+            <div class="pointbackCategoryBorder" @click="sync">
+              <img class="pointbackCategoryBorder" src="../../img/03/backcategory.png">
+            </div>
             <div class="specialmemberborder">
               <span class="conditionDateTitle">
                 特殊會員狀態：
@@ -475,12 +493,16 @@ Vue.component('points', {
               </span>
             </div>
             <div class="specialduration">
-              <label class="specialdurationtitle">期間：</label>
-              <input id="durFrom" type="date">
-              <span class="durwhitespace">
-                &#32;&#126;&#32;
-              </span>
-              <input id="durTo" type="date">
+              <div class="leftspecialduration">
+                <label class="specialdurationtitle">期間：</label>
+                  <div class="durFromdurTo">
+                    <input id="durFrom" type="date">
+                    <span class="durwhitespace">
+                      &#32;&#126;&#32;
+                    </span>
+                    <input id="durTo" type="date">
+                  </div>
+              </div>
               <button id="dursearchBtnBorder" type="submit">查詢</button>
             </div>
           </div>
@@ -490,10 +512,16 @@ Vue.component('points', {
           <div class="bottommiddlepointsBorder">
             <div class="itempoint">
               <div class="iteminclude">
-                <span class="itempointitle">日期：</span>
-                <span class="itempointcontent">2020/11/05</span>
-                <span class="itempointidtitle">訂單編號：</span>
-                <span class="itempointidcontent">2020102000001</span>
+                <div class="dateandidBorder">
+                  <div class="leftdateandidBorder">
+                    <span class="itempointitle">日期：</span>
+                    <span class="itempointcontent">2020/11/05</span>
+                  </div>
+                  <div class="rightdateandidBorder">
+                    <span class="itempointidtitle">訂單編號：</span>
+                    <span class="itempointidcontent">2020102000001</span>
+                  </div>
+                </div>
                 <span class="itempointplus">+500點</span>
               </div>
               <span class="line"></span>
@@ -502,11 +530,16 @@ Vue.component('points', {
         </div>
       </div>
       `,
-      data() {
-        return {
-          foursameBorderapp: '',
-        }
-      },
+  data() {
+    return {
+      foursameBorderapp: '',
+    }
+  },
+  methods:{
+    sync() {
+      this.$emit("my-click", false)
+    },
+  },
 });
 
 Vue.component('memberApply', {
@@ -533,6 +566,9 @@ Vue.component('memberApply', {
             </div>
             <div class="botright">
               <div class="botrightmiddleBorder">
+                <div class="memappbackCategoryBorder" @click="sync">
+                  <img class="memappbackCategoryBorder" src="../../img/03/backcategory.png">
+                </div>
                 <div class="sametypeBorder">
                   <div class="sametype">
                     <h3 class="samelovecontent">
@@ -583,6 +619,9 @@ Vue.component('memberApply', {
           </div>
         </div>
         <div class="changemiddlespecailBorder" :class="{specialchange: block}">
+          <div class="memappcahngebackCategoryBorder" @click="sync">
+              <img class="memappchangebackCategoryBorder" src="../../img/03/backcategory.png">
+          </div>
           <div class="topchangeBorder">
             <div class="topchangetitleBorder">
               <img class="topchangetitlepic" src="../img/03/specialpic.png">
@@ -639,7 +678,7 @@ Vue.component('memberApply', {
                   <button type="button" id="fakebtn" @click="uploadmultiplefile">選擇檔案</button>
                 </div>
                 <div class="elecsignBorder">
-                  <canvas id="myPics" width="400" height="150" @mouseenter="canvasfuction"></canvas>
+                  <canvas id="myPics" width="300" height="150" @mouseenter="canvasfuction"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
                   <button type="submit" id="manyfileupload">上傳</button>
@@ -707,6 +746,8 @@ Vue.component('memberApply', {
 
       // 當滑鼠在canvas這裡按下執行以下動作
       myPics.addEventListener('mousedown', e => {
+      // 當滑鼠按下按鍵時背景圖去掉
+        e.target.style.backgroundImage = "url('')";
         x = e.offsetX;
         y = e.offsetY;
         isDrawing = true;
@@ -739,6 +780,11 @@ Vue.component('memberApply', {
         context.closePath();
       }
     },
+    sync() {
+      this.$emit("my-click", false)
+      this.none = false
+      this.block = false
+    },
   },
 });
 
@@ -761,6 +807,10 @@ new Vue({
       this.act = div
       this.leftBordermediumPhone = true
       this.foursameBorderapp = rwdborder
+    },
+    clicked(x) {
+      this.leftBordermediumPhone = x;
+      this.foursameBorderapp = x;
     },
   },
 });

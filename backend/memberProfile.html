@@ -81,7 +81,7 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form>
+                        <form action="backendIndex.html" method="GET">
                             <div>
                                 <a href="backendIndex.html">
                                     <span class="pageLabel-current">買家會員</span>
@@ -106,7 +106,7 @@
                                     <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
                                     <span>至<input type="date" name="datePick2" size="15"></span>   
                                 </div>
-                                <button  class="btn-s btn-brown" @click="query">查詢</button>
+                                <button  class="btn-s btn-brown" type="submit">查詢</button>
                                 
                             </div>
                         </form>
@@ -156,82 +156,7 @@
             </div>
         </div>    
     </div>
-    <script>
-        
-    </script>
-    <script>
-        const app = new Vue({
-            el:'.containerMem',
-            data(){
-                return {
-                    tableData : null,
-                }
-            },
-            beforeMount() {
-                let urlParams = new URLSearchParams(window.location.search);
-                const self = this;
-                $.ajax({
-                    url:'PHP/member/profileR.php',
-                    type:'GET',
-                    data:{id:urlParams.get('id')},
-                    success:function(res){
-                        console.log(res);
-                        self.tableData = res;
-                    },
-                    dataType:"json",
-                    })
-
-            },
-            methods: {
-                update(){
-                    const self = this;
-                    let urlParams = new URLSearchParams(window.location.search);
-                    let phone1 = $("input[name='phoneUpdate']").val();
-                    let address = $("input[name='address']").val();
-                    let id = urlParams.get('id');
-                    $.ajax({
-                    url:'PHP/member/profileUpdate.php',
-                    type:'POST',
-                    data:{phone1,address,id},
-                    success:function(res){
-                        console.log(123);
-                        
-                        console.log(res);
-                        self.tableData = res;
-                    },
-                    dataType:"json",
-                })
-
-                },
-                query(){
-                    const self = this;
-                    
-                    let number = $("input[name='number']").val();
-                    let phone = $("input[name='phone']").val();
-                    let account = $("input[name='account']").val();
-                    let memberType = $("input[name='memberType']:checked").val();
-                    let pick1 = $("input[name='datePick1']").val();
-                    let pick2 = $("input[name='datePick2']").val();
-
-                    $.ajax({
-
-                        url:'PHP/member/memberQuery.php',
-                        data:{number,phone,account,memberType,pick1,pick2},
-                        type:'POST',
-                        dataType:'JSON',
-                        traditional: true,
-                        success: function(res){
-                            // console.log(res);
-                            // self.tableData = res;
-                            window.location.href = 'backendIndex.html';
-                        },
-                        error: function(res){
-                            console.log(res);
-                        },
-                    });
-            }
-            }
-        })
-    </script>
+    <script src="../js/23/member/memberProfileVue.js"></script>
+    
 </body>
 </html>

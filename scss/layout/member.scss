@@ -66,6 +66,9 @@ body{
         @include newRwd("mediumPhone"){
           width: 50%;
         }
+        @include newRwd("newSmallPhone"){
+          width: 300px;
+        }
         div.title{
           margin-bottom: 7px;
           h1.title{
@@ -195,6 +198,9 @@ body{
           display: block;
           display: flex;
         }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
       }
       div.rightBorder{
         width: 70%;
@@ -265,6 +271,9 @@ body{
             justify-content: flex-start;
             width: 120px;
             // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              width: 85px;
+            }
           }
           .identifyBorder{
             .idTitle{
@@ -287,6 +296,9 @@ body{
           }
           .bigpasswordborder{
             display: flex;
+            @include newRwd("newSmallPhone"){
+              flex-direction: column;
+            }
             .passwordLef{
               display: flex;
               flex-direction: column;
@@ -425,6 +437,9 @@ body{
                 @include newRwd("pad"){
                   font-size: 18px;
                   line-height: 30px;
+                }
+                @include newRwd("newSmallPhone"){
+                  margin-left: 0px;
                 }
               }
             }
@@ -572,6 +587,19 @@ body{
           @include newRwd("mediumPhone"){
             width: 95%;
           }
+          .backCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.backCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .uploadBorder{
             display: flex;
             flex-direction: column;
@@ -629,6 +657,9 @@ body{
           display: block;
           display: flex;
         }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
       }
       div.rightBorderorder{
         width: 70%;
@@ -642,43 +673,98 @@ body{
         padding: 30px 0;
         @include newRwd("mediumPhone"){
           display: none;
+          padding: 10px 0;
         }
         .centerBorder{
           // border: 1px solid black;
           width: 95%;
           min-height: 100%;
+          .orderbackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.orderbackCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .searchBorder{
             margin-bottom: 20px;
+            @include newRwd("mediumPhone"){
+              margin-top: 10px;
+            }
             #searchBorder{
               display: flex;
               align-items: center;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
               .searchDateBoder{
                 display: flex;
                 align-items: center;
+                @include newRwd("mediumPhone"){
+                  flex-direction: column;
+                }
                 .search{
                   font-size: 24px;
                   font-weight: normal;
                   color: #7B807D;
                   margin-right: 10px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                  }
+                  @include newRwd("mediumPhone"){
+                    align-self: start;
+                  }
                 }
-                .whitespace{
-                  margin: 0px 10px;
-                }
-                #dateFrom{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
-                }
-                #dateTo{
-                  height: 30px;
-                  outline: none;
-                  border: 1px solid #707070;
-                  border-radius: 10px;
+                .dateFromdateTo{
+                  display: flex;
+                  @include newRwd("mediumPhone"){
+                    // border: 1px solid black;
+                    width: 420px;
+                    margin-top: 3%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    // border: 1px solid black;
+                    width: 300px;
+                    flex-direction: column;
+                  }
+                  .whitespace{
+                    margin: 0px 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                      align-self: center;
+                    }
+                  }
+                  #dateFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
+                  #dateTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
                 }
               }
               .searchBtnBorder{
                 margin: 0px 3%;
+                @include newRwd("pad"){
+                  margin: 3% 2% 0% 0%;
+                }
                 #searchBtnBorder{
                   width: 80px;
                   height: 30px;
@@ -696,6 +782,9 @@ body{
                 }
               }
               .searchNoteBorder{
+                @include newRwd("pad"){
+                  margin-top: 2%;
+                }
                 .searchNoteBorder{
                   font-size: 18px;
                   font-weight: normal;
@@ -730,6 +819,10 @@ body{
                   width: 150%;
                 }
               }
+              @include newRwd("newSmallPhone"){
+                transition: all .3s;
+                box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              }
             }
             div.statussame{
               // border: 1px solid black;
@@ -739,13 +832,22 @@ body{
               width: 19%;
               box-shadow: 3px 6px 6px rgba(0,0,0,.2);
               cursor: pointer;
-              
+              @include newRwd("newSmallPhone"){
+                width: 20%;
+                box-shadow: none;
+              }
               p.statussame{
                 padding: 5px 0px;
                 font-size: 24px;
                 font-weight: 500;
                 color: #8F8770;
                 z-index: 1;
+                @include newRwd("pad"){
+                  font-size: 20px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
           }
@@ -755,29 +857,49 @@ body{
             .catalogBorder{
               display: flex;
               justify-content: space-between;
+              @include newRwd("mediumPhone"){
+                flex-direction: column;
+                background-color: #F1F6ED;
+              }
               .detailsame{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 flex-grow: 1;
                 // border: 1px solid black;
+                @include newRwd("mediumPhone"){
+                  flex-direction: row;
+                }
                 .cattitle{
                   display: flex;
                   justify-content: center;
                   // border: 1px solid black;
                   background-color: #B9AF94;
                   width: 100%;
+                  @include newRwd("mediumPhone"){
+                    width: 100px;
+                  }
                   h3.cattitle{
                     font-size: 20px;
                     font-weight: normal;
                     color: white;
                     padding: 10px 0px;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
                 .contentsame{
                   color: #909090;
                   padding: 15px 0;
                   font-weight: 400;
+                  // border: 1px solid black;
+                  @include newRwd("mediumPhone"){
+                    padding: 0;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 5%;
+                  }
                 }
                 p.orderid{
                   color: blue;
@@ -799,12 +921,24 @@ body{
                 flex-direction: column;
                 width: 90%;
                 // border: 1px solid blue;
+                @include newRwd("pad"){
+                  width: 95%;
+                }
+                @include newRwd("mediumPhone"){
+                  width: 100%;
+                }
                 .itemstopBorder{
                   display: flex;
                   // border: 1px solid blue;
                   position: relative;
                   margin-bottom: 40px;
                   width: 90%;
+                  @include newRwd("pad"){
+                    width: 100%;
+                  }
+                  @include newRwd("mediumPhone"){
+                    display: none;
+                  }
                   .fourcircleBorder{
                     display: flex;
                     justify-content: space-between;
@@ -842,18 +976,50 @@ body{
                   display: flex;
                   flex-wrap: wrap;
                   margin-bottom: 15px;
+                  @include newRwd("mediumPhone"){
+                    flex-direction: column;
+                    align-items: flex-start;
+                  }
                   .samebotBorder{
                     width: 50%;
                     margin-bottom: 20px;
+                    @include newRwd("mediumPhone"){
+                      width: 300px;
+                      display: flex;
+                      flex-direction: row;
+                    }
                     span{
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                     .itembotIdtitle,.itembotId,.itembotsellertitle,.itembotseller{
                       color: #909090;
                     }
                     .gettimetitle,.gettime,.getlocationtitle,.getlocation{
                       color: #ED8149;
+                    }
+                  }
+                  .itembotId{
+                    @include newRwd("mediumPhone"){
+                      display: none;
+                    }
+                  }
+                  .gettime{
+                    @include newRwd("mediumPhone"){
+                      order: 3;
+                    }
+                  }
+                  .itembotseller{
+                    @include newRwd("mediumPhone"){
+                      order: 1;
+                    }
+                  }
+                  .getlocation{
+                    @include newRwd("mediumPhone"){
+                      order: 2;
                     }
                   }
                 }
@@ -872,17 +1038,48 @@ body{
                   .itemconttopBorder{
                     display: flex;
                     margin-bottom: 15px;
+                    // border: 1px solid blue;
+                    @include newRwd("pad"){
+                      flex-direction: column;
+                    }
                     .itempicBorder{
                       background-color: #fff;
                       border: 2px solid #707070;
+                      @include newRwd("pad"){
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-self: center;
+                      }
+                      @include newRwd("mediumPhone"){
+                        width: 200px;
+                      }
                     }
-                    .middleitemsame{
-                      margin: 20px 20px;
-                      display: flex;
-                      span,p{
-                        font-size: 20px;
-                        font-weight: normal;
-                        color: #909090;
+                    .itemmiddleBorder{
+                      width: 450px;
+                      // border: 1px solid black;
+                      @include newRwd("mediumPhone"){
+                        width: 300px;
+                      }
+                      .middleitemsame{
+                        margin: 20px 20px;
+                        display: flex;
+                        // border: 1px solid blue;
+                        flex-wrap: nowrap;
+                        @include newRwd("pad"){
+                          margin: 10px 20px;
+                        }
+                        @include newRwd("mediumPhone"){
+                          margin-left: 0px;
+                        }
+                        span,p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
+                        }
                       }
                     }
                     .itempriceunitBorder{
@@ -892,23 +1089,46 @@ body{
                       margin-top: 3%;
                       margin-left: 5%;
                       // border: 1px solid black;
+                      @include newRwd("pad"){
+                        flex-direction: column;
+                        justify-content: none;
+                        align-self: start;
+                        margin-top: 0%;
+                        margin-left: 20px;
+                      }
+                      @include newRwd("mediumPhone"){
+                        margin-left: 0px;
+                      }
                       .unitpriceBorder{
                         padding-right: 30px;
-                        p{
+                        // border: 1px solid black;
+                        @include newRwd("pad"){
+                          flex-direction: row;
+                          width: 100%;
+                          margin-bottom: 10px;
+                        }
+                        span.unitpricetitle,span.unitpricecontent{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            width: 50%;
+                            font-size: 18px;
+                          }
                         }
-                        .unitpricetitle{
+                        span.unitpricetitle{
                           color: #707070;
                           margin-bottom: 7px;
                         }
                       }
                       .countpriceBorder{
-                        p{
+                        span{
                           font-size: 20px;
                           font-weight: normal;
                           color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
                         }
                         .countpricetitle{
                           color: #707070;
@@ -937,6 +1157,9 @@ body{
                       color: #909090;
                       font-size: 20px;
                       font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
                     }
                   }
                 }
@@ -950,6 +1173,9 @@ body{
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                   img{
                     height: 24px;
+                    @include newRwd("pad"){
+                      height: 22px;
+                    }
                   }
                   #cancelBtn{
                     outline: none;
@@ -959,6 +1185,9 @@ body{
                     background-color: transparent;
                     padding-left: 10px;
                     cursor: pointer;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
                   }
                 }
               }
@@ -972,6 +1201,9 @@ body{
         @include newRwd("mediumPhone"){
           display: block;
           display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
         }
       }
       .rightBorderpoints{
@@ -990,26 +1222,52 @@ body{
         }
         .toppointsBorder{
           width: 98%;
-          height: 35%;
+          height: auto;
+          margin: 2% 3%;
+          margin-top: 0;
           border-radius: 10px;
           background-color: #EFF1E1;
           box-shadow: 3px 3px 6px rgba(0,0,0,.2);
           display: flex;
+          @include newRwd("pad"){
+            height: auto;
+            margin: 2% 3%;
+          }
           .topmiddlepointsBorder{
             display: flex;
             flex-direction: column;
             width: 100%;
             // border: 1px solid black;
             margin: 2% 3%;
+            .pointbackCategoryBorder{
+              margin: 0;
+              display: none;
+              @include newRwd("mediumPhone"){
+                display: block;
+                display: flex;
+              }
+              img.pointbackCategoryBorder{
+                cursor: pointer;
+                &:hover{
+                  content: url('../../img/03/backcategoryhover.png');
+                }
+              }
+            }
             .specialmemberborder{
               margin: 2% 0%;
               img{
                 margin: 0;
                 height: 24px;
+                @include newRwd("newSmallPhone"){
+                  height: 20px;
+                }
               }
               span{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
             .specialmemberID{
@@ -1017,6 +1275,9 @@ body{
               span{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
             }
             .specailmemberpoints{
@@ -1024,9 +1285,15 @@ body{
               align-items: flex-end;
               flex-wrap: nowrap;
               margin-bottom: 2%;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
               span.specialmemtitle,span.specialmemcontent{
                 color: #707070;
                 font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
               }
               span.specialmemcontent{
                 margin-right: 10%;
@@ -1034,44 +1301,95 @@ body{
               .specialmemlimit{
                 color: #ED8149;
                 font-size: 16px;
+                @include newRwd("pad"){
+                  line-height: 32px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 15.5px;
+                }
               }
             }
             .specialduration{
               margin-bottom: 2%;
-              .specialdurationtitle{
-                color: #707070;
-                font-size: 22px;
+              display: flex;
+              flex-wrap: wrap;
+              // border: 1px solid black;
+              @include newRwd("pad"){
+                flex-direction: column;
               }
-              #durFrom{
-                height: 30px;
-                outline: none;
-                border: 1px solid #707070;
-                border-radius: 10px;
-              }
-              .durwhitespace{
-                margin: 0px 10px;
-              }
-              #durTo{
-                height: 30px;
-                outline: none;
-                border: 1px solid #707070;
-                border-radius: 10px;
+              .leftspecialduration{
+                display: flex;
+                @include newRwd("pad"){
+                  flex-direction: column;
+                }
+                .specialdurationtitle{
+                  color: #707070;
+                  font-size: 22px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
+                }
+                .durFromdurTo{
+                  // border: 1px solid black;
+                  @include newRwd("pad"){
+                    margin-top: 3%;
+                  }
+                  #durFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 10px;
+                    }
+                  }
+                  .durwhitespace{
+                    margin: 0px 10px;
+                    @include newRwd("pad"){
+                      margin: 0px 5px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      margin: 0px;
+                    }
+                  }
+                  #durTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 13px;
+                    }
+                  }
+                }
               }
               #dursearchBtnBorder{
-                  width: 80px;
-                  height: 30px;
-                  outline: none;
-                  border: none;
-                  background-color: #B9AF94;
-                  border-radius: 10px;
-                  color: white;
-                  margin-left: 3%;
-                  font-weight: normal;
-                  cursor: pointer;
-                  transition: all .3s;
-                  &:hover{
-                    background-color: #D4C6A5;
-                  }
+                width: 80px;
+                height: 30px;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 10px;
+                color: white;
+                margin-left: 5%;
+                font-weight: normal;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover{
+                  background-color: #D4C6A5;
+                }
+                @include newRwd("pad"){
+                  margin-top: 3%;
+                  margin-left: 0%;
+                }
               }
             }
           }
@@ -1095,23 +1413,55 @@ body{
               margin-bottom: 3%;
               .iteminclude{
                 display: flex;
+                justify-content: space-between;
                 span{
                   color: #909090;
                   font-size: 20px;
                   // border: 1px solid black;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
                 }
-                .itempointcontent{
-                  margin-right: 10%;
-                }
-                .itempointidtitle,.itempointidcontent{
-                  color: blue;
+                .dateandidBorder{
+                  display: flex;
+                  flex-wrap: nowrap;
+                  // border: 1px solid black;
+                  width: 70%;
+                  @include newRwd("pad"){
+                    width: 80%;
+                    flex-wrap: wrap;
+                  }
+                  
+                  div.leftdateandidBorder{
+                    margin-right: 15%;
+                    @include newRwd("pad"){
+                      margin-bottom: 3%;
+                    }
+                  }
+                  div.rightdateandidBorder{
+                    display: flex;
+                    @include newRwd("newSmallPhone"){
+                      flex-direction: column;
+                      margin-top: 2%;
+                    }
+                    .itempointidtitle,.itempointidcontent{
+                      color: blue;
+                    }
+                  }
                 }
                 .itempointplus{
-                  margin-left: 23%;
+                  // border: 1px solid black;
+                  margin-left: 20%;
+                  @include newRwd("pad"){
+                    width: 20%;
+                    margin-left: 0%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    width: 30%;
+                  }
                 }
               }
               span.line{
-
                 width: 100%;
                 height: 3px;
                 border-top: 3px solid #B9AF94;
@@ -1127,6 +1477,9 @@ body{
         @include newRwd("mediumPhone"){
           display: block;
           display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
         }
       }
       .rightBordermemberApply{
@@ -1158,6 +1511,9 @@ body{
               .toptitle{
                 color: #8F8770;
                 font-size: 28px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 24px;
+                }
               }
             }
             .linetopbottom{
@@ -1168,18 +1524,31 @@ body{
             display: flex;
             justify-content: space-between;
             width: 100%;
+            @include newRwd("pad"){
+              flex-direction: column;
+            }
             .botleft{
               // border: 1px solid blue;
               width: 35%;
               display: flex;
               flex-direction: column;
+              @include newRwd("pad"){
+                order: 2;
+                width: 100%;
+              }
               .loveimg{
                 // border: 1px solid blue;
                 display: flex;
                 justify-content: center;
+                @include newRwd("pad"){
+                  align-self: center;
+                }
                 img{
                   margin: 30% 0% 10% 0%;
                   width: 80%;
+                }
+                @include newRwd("pad"){
+                  width: 50%;
                 }
               }
               .wordlineBorder{
@@ -1190,11 +1559,19 @@ body{
                   color: #8F8770;
                   margin: 0% 0% 7% 0%;
                   font-size: 30px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 24px;
+                    margin-bottom: 3%;
+                  }
                 }
                 h4{
                   color: #909090;
                   margin: 3% 0%;
                   font-size: 18px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 16px;
+                    margin: 1% 0%;
+                  }
                 }
               }
             }
@@ -1203,6 +1580,10 @@ body{
               width: 60%;
               display: flex;
               justify-content: center;
+              @include newRwd("pad"){
+                order: 1;
+                width: 100%;
+              }
               .botrightmiddleBorder{
                 display: flex;
                 flex-direction: column;
@@ -1211,6 +1592,20 @@ body{
                 border-radius: 10px;
                 box-shadow: 3px 3px 6px rgba(0,0,0,.2);
                 padding: 5% 5%;
+                .memappbackCategoryBorder{
+                  display: none;
+                  @include newRwd("mediumPhone"){
+                    display: block;
+                    display: flex;
+                    align-self: start;
+                  }
+                  img.memappbackCategoryBorder{
+                    cursor: pointer;
+                    &:hover{
+                      content: url('../../img/03/backcategoryhover.png');
+                    }
+                  }
+                }
                 .sametypeBorder{
                   margin-bottom: 7%;
                   .sametype{
@@ -1218,11 +1613,20 @@ body{
                     flex-direction: column;
                     color: #909090;
                     line-height: 50px;
+                    @include newRwd("newSmallPhone"){
+                      line-height: 34px;
+                    }
                     .samelovecontent{
                       font-size: 20px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 18px;
+                      }
                     }
                     .samecontent{
                       font-size: 18px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 16px;
+                      }
                     }
                   }
                 }
@@ -1249,6 +1653,7 @@ body{
         }
         .changemiddlespecailBorder.specialchange{
           display: block;
+          display: flex;
         }
         .changemiddlespecailBorder{
           // border: 1px solid black;
@@ -1256,29 +1661,64 @@ body{
           display: flex;
           flex-direction: column;
           display: none;
+          @include newRwd("newSmallPhone"){
+            width: 315px;
+            align-items: center;
+          }
+          .memappcahngebackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+              align-self: start;
+              cursor: pointer;
+              margin-left: 1.5%;
+            }
+            &:hover{
+              img.memappchangebackCategoryBorder{
+                content: url('../../img/03/backcategoryhover.png');
+              }
+            }
+          }
           .topchangeBorder{
             display: flex;
             flex-direction: column;
             color: #909090;
             margin-bottom: 3%;
+            @include newRwd("newSmallPhone"){
+              display: none;
+            }
             .topchangetitleBorder{
               display: flex;
               align-items: center;
               // border: 1px solid black;
               .topchangetitlepic{
                 height: 30px;
+                @include newRwd("pad"){
+                  height: 26px;
+                }
               }
               .topchangetitle{
                 font-size: 28px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                }
               }
             }
             .topchangeservice{
               font-size: 22px;
               line-height: 60px;
+              @include newRwd("pad"){
+                font-size: 22px;
+                line-height: 30px;
+              }
             }
             .topfirstBorder{
               display: flex;
               width: 100%;
+              @include newRwd("pad"){
+                flex-direction: column;
+              }
               .topfirsttitle{
                 align-self: flex-start;
                 // border: 1px solid black;
@@ -1286,12 +1726,22 @@ body{
                 font-size: 22px;
                 line-height: 60px;
                 margin: 0%;
+                @include newRwd("pad"){
+                  width: 50%;
+                  font-size: 20px;
+                  line-height: 50px;
+                }
               }
               .topfirstcontent{
                 // border: 1px solid black;
                 width: 79%;
                 font-size: 22px;
                 line-height: 60px;
+                @include newRwd("pad"){
+                  width: 100%;
+                  font-size: 20px;
+                  line-height: 40px;
+                }
               }
             }
             .fourfirstBorder{
@@ -1302,6 +1752,11 @@ body{
                   margin: 0%;
                   font-size: 22px;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    width: 190px;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
                 }
               }
               .foursecondcontent{
@@ -1309,6 +1764,10 @@ body{
                   margin: 0%;
                   font-size: 22px;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
             }
@@ -1320,8 +1779,14 @@ body{
          .bottomchangeBorder{
           display: flex;
           justify-content: space-between;
+          @include newRwd("pad"){
+            flex-direction: column;
+          }
           .bottomchangeleftBorder{
             // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              margin-bottom: 5%;
+            }
             .memberInform{
               display: flex;
               flex-direction: column;
@@ -1331,6 +1796,10 @@ body{
                   font-size: 24px;
                   margin: 0;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
               .samememberBord{
@@ -1340,6 +1809,10 @@ body{
                   font-size: 24px;
                   margin: 0;
                   line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
                 .sameconten{
                   color: #909090;
@@ -1347,6 +1820,10 @@ body{
                   margin: 0;
                   line-height: 60px;
                   margin-left: 1%;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
                 }
               }
             }
@@ -1358,17 +1835,22 @@ body{
                   outline: none;
                   border: none;
                   box-shadow: 3px 3px 6px rgba(0,0,0,.2);
-                  width: 80%;
+                  width: 350px;
                   height: 300px;
                   border-radius: 20px;
                   background-image: url('../../img/03/uploadpicturesecond.png');
                   background-repeat: no-repeat;
                   background-position: center center;
-                  background-size: 70%;
+                  background-size: 80%;
                   color: #909090;
                   font-size: 16px;
                   padding: 1%;
                   margin-bottom: 20px;
+                  @include newRwd("pad"){
+                    width: 300px;
+                    padding: 10px;
+                    background-size: 75%;
+                  }
                 }
                 #thefile{
                   display: none;
@@ -1393,11 +1875,15 @@ body{
               .elecsignBorder{
                 margin-bottom: 20px;
                 canvas{
-                  width: 100%;
+                  width: 300px;
                   height: 150px;
                   border: 1px solid #B9AF94;
                   border-radius: 10px;
                   background-color: #fff;
+                  background-image: url('../../img/03/elctricsign.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 30%;
                 }
               }
               .uploadBtnBorder{
@@ -1428,6 +1914,9 @@ body{
               img{
                 // margin: 30% 0% 10% 0%;
                 width: 80%;
+                @include newRwd("pad"){
+                  width: 50%;
+                }
               }
             }
             .bottomchangewordlineBorder{
@@ -1438,6 +1927,11 @@ body{
                 color: #8F8770;
                 margin: 0% 0% 7% 0%;
                 font-size: 30px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                  margin-top: 3%;
+                  margin-bottom: 3%;
+                }
               }
               h4{
                 color: #909090;
@@ -1451,9 +1945,4 @@ body{
       }
     }
   }
-}
-canvas {
-  border: 1px solid black;
-  width: 560px;
-  height: 360px;
 }

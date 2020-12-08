@@ -137,7 +137,6 @@
                                     <form action="memberProfile.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">編輯</button>
                                         <input type="hidden" name="id" :value="data[0]">
-                                        
                                     </form>
                                 </td>
                                
@@ -149,9 +148,12 @@
             </div>
         </div>    
     </div>
+<<<<<<< HEAD
+<<<<<<< HEAD
+    <script src="../js/23/member/indexAjaxVue.js"></script>
+    
+=======
     <script>
-        
-        
         const app = new Vue({
         el: '.containerIndex',
         data() {
@@ -159,56 +161,19 @@
                 tableData:null,
             }
         },
-        
-        beforeMount() {
+        beforeMount(){
             const self = this;
-                $.ajax({
-                    url:'PHP/member/memberQuery.php',
-                    type: 'POST',
-                    success:function(res){
-                        // console.log(res);
-                        self.tableData = res;
-                    },
-                    error:function(res){
-                        console.log(res);
-                    },
-                    dataType:"json",
-                    })
-                    console.log(123);
-
+            $.getJSON('memberR.php',function(res){
+                self.tableData = res;
+            });
         },
-
-        methods: {
-            query(){
-                    const self = this;
-                    
-                    let number = $("input[name='number']").val();
-                    let phone = $("input[name='phone']").val();
-                    let account = $("input[name='account']").val();
-                    let memberType = $("input[name='memberType']:checked").val();
-                    let pick1 = $("input[name='datePick1']").val();
-                    let pick2 = $("input[name='datePick2']").val();
-
-                    $.ajax({
-
-                        url:'PHP/member/memberQuery.php',
-                        data:{number,phone,account,memberType,pick1,pick2},
-                        type:'POST',
-                        dataType:'JSON',
-                        traditional: true,
-                        success: function(res){
-                            // console.log(res);
-                            self.tableData = res;
-                        },
-                        error: function(res){
-                            console.log(res);
-                        },
-                    });
-            }
-        }
-        
-    });
-    </script>
+        })
+      </script>
+>>>>>>> 8c16f96ed35aa5281faed2395b55f1993d8ce661
+=======
+    <script src="../js/23/member/indexAjaxVue.js"></script>
+    
+>>>>>>> dev
 </body>
 </html>
 
