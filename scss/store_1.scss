@@ -797,7 +797,14 @@ div.buttons{
     justify-content: center;
     button{
         margin:20px 10px;
-
+        font-size: 25px;
+        background-color:$F3;
+        border: 1px solid $F3;
+        cursor: pointer;
+        border-radius: 5px;
+        &:focus{
+            border: 1px solid $F3;
+        }
     }
 }
 ///////////////footer////////////////

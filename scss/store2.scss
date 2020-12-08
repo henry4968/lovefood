@@ -4,6 +4,7 @@
     font-size: 24px;
     color: #707070;
     box-sizing: border-box;
+    text-decoration: none;
 }
 ///////////////共同區///////////
 #header{
@@ -302,27 +303,27 @@
 // }
 
 
-.span{
-    // border: 1px solid firebrick;
-    display: flex;
-    flex-direction: column;
-    width: map-get($Wth, 100 );
-    position: relative;
-    left: map-get($Wth, 50 );
-    margin-top: 14%;
-    .span1,.span2{
-        // border: 1px solid $P;
-        color: $D7;
-    }
-    .span1{
-        font-size: 40px;
-        margin-bottom: 10px;
-    }
-    .span2{
-        font-size: 24px;
+// .span{
+//     // border: 1px solid firebrick;
+//     display: flex;
+//     flex-direction: column;
+//     width: map-get($Wth, 100 );
+//     position: relative;
+//     left: map-get($Wth, 50 );
+//     margin-top: 14%;
+//     .span1,.span2{
+//         // border: 1px solid $P;
+//         color: $D7;
+//     }
+//     .span1{
+//         font-size: 40px;
+//         margin-bottom: 10px;
+//     }
+//     .span2{
+//         font-size: 24px;
 
-    }
-}
+//     }
+// }
 /////////benner結束//////////
 .main{
     background-image: url(../img/07/bgc_yellowFruit.png);
