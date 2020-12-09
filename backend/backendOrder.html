@@ -7,9 +7,9 @@
     <title>LOVEFOOD管理中心--訂單管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <!-- /Users/abc/Desktop/資策會作業/group_webpage/GIT/node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <!-- <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script> -->
     <script>
         $(function () {
             $('.btn-sb').click(function () {
@@ -115,215 +115,90 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form name="" action="" method="POST">
                             <div class="headerTop">
-                                <span>訂單編號<input class="input-l" type="text" name=""></span>
-                                <span>會員編號<input class="input-l" type="text" name=""></span>
+                                <span>訂單編號<input class="input-l" type="text" name="orderNum"></span>
+                                <span>會員編號<input class="input-l" type="text" name="memberNum"></span>
                                 <div class="datePicker">
-                                    <span>查詢區間<input class="input-ld" type="date"></span>至
-                                    <span><input class="input-ld" type="date"></span>
+                                    <span>查詢區間<input class="input-ld" type="date" name="datePick1"></span>至
+                                    <span><input class="input-ld" type="date" name="datePick2"></span>
                                 </div>
                             </div>
                             <div class="headerMiddle">
-                                <span>會員帳號<input class="input-ld" type="text" name=""></span>
-                                <span>會員手機<input class="input-ld" type="text" name=""></span>
+                                <span>會員帳號<input class="input-ld" type="text" name="memberAccount"></span>
+                                <span>會員手機<input class="input-ld" type="text" name="phone"></span>
                                 <!-- <button class="btn-s btn-brown" type="submit">查詢</button> -->
                             </div>
                             <div class="headerBottom">
                                 <span>訂單狀態
-                                    <input class="input-checkbox" type="checkbox">全選
-                                    <input class="input-checkbox" type="checkbox">已完成
-                                    <input class="input-checkbox" type="checkbox">待出貨
-                                    <input class="input-checkbox" type="checkbox">待取貨
-                                    <input class="input-checkbox" type="checkbox">取消
+                                    <input class="input-checkbox" type="checkbox" name="orderStatus">全選
+                                    <input class="input-checkbox" type="checkbox" name="orderStatus">已完成
+                                    <input class="input-checkbox" type="checkbox" name="orderStatus">待出貨
+                                    <input class="input-checkbox" type="checkbox" name="orderStatus">待取貨
+                                    <input class="input-checkbox" type="checkbox" name="orderStatus">已取消
                                 </span>
-                                <button class="btn-s btn-brown">查詢</button>
+                                <button class="btn-s btn-brown" @click="query">查詢</button>
                             </div>
-                        </form>
                     </header>
                 </div>
                 <main>
                     <table class="table">
-                        <tr>
-                            <th>序號</th>
-                            <th>訂單編號</th>
-                            <th>會員手機</th>
-                            <th>折抵點數</th>
-                            <th>訂單時間</th>
-                            <th>訂單狀態</th>
-                            <th>功能鍵</th>
-                        </tr>
-                        <tr>
-                            <td>00001</td>
-                            <td>G12345678</td>
-                            <td>0912345678</td>
-                            <td>0</td>
-                            <td>2020-11-01 20:20:20</td>
-                            <td>待出貨</td>
-                            <td>
-                                <button class="btn-sb btn-green accordion-toggle" data-toggle="collapse"
-                                    data-target="#collapseBody1">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tbody class="collapse accordian-body" id="collapseBody1">
+                        <thead>
                             <tr>
-                                <th class="subheading" colspan="2">商品名稱</th>
-                                <th class="subheading">數量</th>
-                                <th class="subheading">小計</th>
-                                <th class="subheading">付款方式</th>
-                                <th class="subheading" colspan="2">出貨地點</th>
+                                <th>序號</th>
+                                <th>訂單編號</th>
+                                <th>會員手機</th>
+                                <th>折抵點數</th>
+                                <th>訂單時間</th>
+                                <th>訂單狀態</th>
+                                <th>功能鍵</th>
                             </tr>
-                            <tr>
-                                <td colspan="2">秋鮭雙手卷</td>
-                                <td>1</td>
-                                <td>27</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運南京復興站8號出口</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">鮪魚飯糰</td>
-                                <td>1</td>
-                                <td>17</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運南京復興站8號出口</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">雞肉沙拉</td>
-                                <td>1</td>
-                                <td>48</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運南京復興站8號出口</td>
-                            </tr>
+                        </thead>
+                        <tbody  v-if="tableData">
+                            
+                            <template v-for="(data,key) in tableData">
+                                <tr> 
+                                    <td>{{key+1}}</td>
+                                    <td>{{data[0]}}</td>
+                                    <td>{{data[2]}}</td>
+                                    <td>{{data[3]}}</td>
+                                    <td>{{data[1]}}</td>
+                                    <td>{{data[5]}}</td>
+                                    <td>
+                                        <button class="btn-s btn-brown orderDetail" @click="data.isShow = !data.isShow" :value="data[0]">詳情</button>
+                                        <button class="btn-sb btn-green">出貨</button>
+                                    </td>
+                                    
+                                </tr>
+                                <tr v-if="data.isShow">
+                                    <th class="subheading" colspan="2">商品名稱</th>
+                                    <th class="subheading">數量</th>
+                                    <th class="subheading">小計</th>
+                                    <th class="subheading">付款方式</th>
+                                    <th class="subheading" colspan="2">出貨地點</th>
+                                </tr>
+                                <tr v-if="data.isShow" v-for="(subData,subkey) in data.detail">
+                                    <td colspan="2">{{subData[0]}}</td>
+                                    <td>{{subData[1]}}</td>
+                                    <td>{{subData[1] * subData[2]}}</td>
+                                    <td>信用卡</td>
+                                    <td colspan="2">{{subData[3]}}</td>
+                                </tr>
+                            </template>
+                           
                         </tbody>
-                        <tr>
-                            <td>00002</td>
-                            <td>G12345678</td>
-                            <td>0912345678</td>
-                            <td>0</td>
-                            <td>2020-11-01 20:20:20</td>
-                            <td>待出貨</td>
-                            <td>
-                                <button class="btn-sb btn-green accordion-toggle" data-toggle="collapse"
-                                    data-target="#collapseBody2">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tbody class="accordian-body collapse" id="collapseBody2">
-                            <tr>
-                                <th class="subheading" colspan="2">商品名稱</th>
-                                <th class="subheading">數量</th>
-                                <th class="subheading">小計</th>
-                                <th class="subheading">付款方式</th>
-                                <th class="subheading" colspan="2">出貨地點</th>
-                            </tr>
-                            <tr>
-                                <td colspan="2">秋鮭雙手卷</td>
-                                <td>1</td>
-                                <td>27</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運頂埔站1號出口</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">鮪魚飯糰</td>
-                                <td>1</td>
-                                <td>17</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運頂埔站1號出口</td>
-                            </tr>
-                            <tr>
-                                <td colspan="2">雞肉沙拉</td>
-                                <td>1</td>
-                                <td>48</td>
-                                <td>信用卡</t>
-                                <td colspan="2">捷運頂埔站1號出口</td>
-                            </tr>
-                        </tbody>
-                        <tr>
-                            <td>00003</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00004</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00005</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00006</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00007</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>00008</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
-                                <button class="btn-sb btn-green">詳情</button>
-                                <button class="btn-sb btn-green">出貨</button>
-                            </td>
-                        </tr>
+                            
+                        
+                        
                     </table>
                 </main>
             </div>
         </div>
     </div>
     <script>
-        $('.accordian-body').on('show.bs.collapse', function () {
-            $(this).closest("table")
-                .find(".collapse.in")
-                .not(this)
-                .collapse('toggle')
-        })
+
     </script>
+    
+    <script src="../js/23/order/orderAjaxVue.js"></script>
 </body>
 
 </html>
