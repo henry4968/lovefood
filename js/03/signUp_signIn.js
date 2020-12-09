@@ -41,6 +41,9 @@ Vue.component('member', {
 
       // 綁定input:type=button or submit 註冊
       signUpbutton: 'button',
+
+      // 驗證碼
+      VerNum: '',
     };
   },
   template: `
@@ -117,7 +120,7 @@ Vue.component('member', {
 
       // 驗證信箱格式
       // 信箱正規式表達
-      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;;
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
       if ((this.emailSend).search(emailRule) != -1) {
       } else {
         this.emailSend = '';
@@ -138,13 +141,12 @@ Vue.component('member', {
       }
 
       // 驗證碼驗證
-      if (this.signInsendcheckcodesend != this.randomfun()){
-        this.redbordercolorsendcheck = true ;
-        this.signInsendcheckcodesend = '',
+      if (this.signInsendcheckcodesend != this.VerNum) {
+        this.redbordercolorsendcheck = true;
+        this.signInsendcheckcodesend = '';
         this.signInsendcheckcode = '驗證碼錯誤';
         event.preventDefault();
       }
-
 
       // 以上條件沒問題就submit
       if (this.redbordercolorsignInemail != true && this.redbordercolorsignInpass != true && this.redbordercolorsignInpassconf != true && this.redbordercolorsendcheck != true && this.emailSend != '' && this.signInpassconfsend != '' && this.signInsendcheckcodesend != '' && this.signInsendcheckcodesend != '') {
@@ -185,32 +187,46 @@ Vue.component('member', {
 
     // 寄信驗證
     emailcheck(email) {
-      // 驗證其他人輸入的值是否抓到
-      // if (email != '') {
-      //   alert(email);
-      // }
 
-      // 把驗證碼命名成一個變數 
-      sendtoemail = this.randomfun();
-      alert(sendtoemail);
-      
-      // 寄信驗證
-      Email.send({
-        SecureToken: "83e722aa-e25e-440b-b4ea-b3d5d6cf95b8",
-        To: email,
-        From: "tibamelovefood@gmail.com",
-        Subject: "lovefood<tibamelovefood@gmail.com>",
-        Body: `驗證碼:${sendtoemail}`
-      })
-        .then(
-          message => alert("驗證信已寄出，請查看信箱!"),
-        );
+      // 信箱空白檢查
+      if (this.signInemail == '信箱' && this.emailSend == '') {
+        // alert('信箱是空的');
+        this.signInemail = '信箱不可為空白';
+        this.redbordercolorsignInemail = true;
+      } else {
+
+        // 驗證其他人輸入的值是否抓到
+        // if (email != '') {
+        //   alert(email);
+        // }
+
+        // 把驗證碼命名成一個變數 
+        this.VerNum = this.randomfun();
+        alert(this.VerNum);
+
+        // 寄信驗證
+        Email.send({
+          SecureToken: "83e722aa-e25e-440b-b4ea-b3d5d6cf95b8",
+          To: email,
+          From: "tibamelovefood@gmail.com",
+          Subject: "lovefood<tibamelovefood@gmail.com>",
+          Body: `親愛的新會員你好!!這是你的驗證碼:${this.VerNum}`
+        })
+          .then(
+            message => alert("驗證信已寄出，請查看信箱!"),
+          );
+      }
+
+
+
+
+
     },
 
     // 產生驗證碼
     randomfun() {
-      VerNum = Math.floor((Math.random() * 9999) + 1000)
-      return VerNum
+      this.VerNum = Math.floor((Math.random() * 9999) + 1000)
+      return this.VerNum
     }
   },
 });
