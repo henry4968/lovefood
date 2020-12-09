@@ -1,3 +1,4 @@
+const { default: Axios } = require("axios");
 
 // main
 Vue.component('member', {
@@ -217,10 +218,6 @@ Vue.component('member', {
           );
       }
 
-
-
-
-
     },
 
     // 產生驗證碼
@@ -295,6 +292,13 @@ new Vue({
       this.movesignUpmm = true
       this.movesignInmm = true
     },
+  },
+  mounted(){
+    (function(){
+      axios.post('../PHP/Frontend/sessionR.php').then(function(res){
+        alert(res);
+      })
+    }());
   },
 });
 
