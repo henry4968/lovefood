@@ -127,7 +127,8 @@
                         <div id="pointsDataFilterRightBlock">
                             <div>
                                 查詢區間<br>
-                                <input type="date" name="datePick01">至<input type="date" name="datePick02">
+                                <input type="date" name="datePick01" value="2020-01-01">至<input type="date"
+                                    name="datePick02" value="2020-12-31">
                             </div>
                             <div id="membersPointsActionBlock">
                                 <a href="#0" @click="query">
@@ -148,18 +149,45 @@
                             <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tbody v-if="tableData01">
-                            <tr v-for="(data,key) in tableData01">
+                        <tbody v-if="tableData03">
+                            <tr v-for="(data,key) in tableData03">
                                 <td>{{key+1}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[1]}}</td>
-                                <td>{{data[2]}}</td>
-                                <td>{{data[3]}}</td>
-                                <td>{{data[4]}}</td>
+                                <td>{{data["MEMBER_ID"]}}</td>
+                                <td>{{data["ACCOUNT"]}}</td>
+                                <td>{{data["NAME"]}}</td>
+                                <td>{{data["PHONE"]}}</td>
+                                <td v-if='data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]'>
+                                    {{data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]}}
+                                </td>
+                                <td v-else if='data["TOTAL_ISSANCE"] === "" && data["TOTAL_DISCOUNT"] === ""'>
+                                    0
+                                </td>
+                                <td v-else if='data["TOTAL_ISSANCE"] !== "" && data["TOTAL_DISCOUNT"] === ""'>
+                                    {{data["TOTAL_ISSANCE"] - 0}}
+                                </td>
+                                <td v-else if='data["TOTAL_ISSANCE"] === "" && data["TOTAL_DISCOUNT"] !== ""'>
+                                    {{0 - data["TOTAL_DISCOUNT"]}}
+                                </td>
                                 <td>
                                     <form action="pointsDetails.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">詳情</button>
-                                        <input type="hidden" name="number" :value="data[0]">
+                                        <input type="hidden" name="number" :value="data['ACCOUNT']">
+                                    </form>
+                                </td>
+                            </tr>
+                        </tbody>
+                        <tbody v-else="tableData04">
+                            <tr v-for="(data,key) in tableData04">
+                                <td>{{key+1}}</td>
+                                <td>{{data["MEMBER_ID"]}}</td>
+                                <td>{{data["ACCOUNT"]}}</td>
+                                <td>{{data["NAME"]}}</td>
+                                <td>{{data["PHONE"]}}</td>
+                                <td>{{data["POINTS"]}}</td>
+                                <td>
+                                    <form action="pointsDetails.html" method="GET">
+                                        <button type="submit" class="btn-sb btn-green">詳情</button>
+                                        <input type="hidden" name="number" :value="data['ACCOUNT']">
                                     </form>
                                 </td>
                             </tr>
