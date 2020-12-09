@@ -1,5 +1,3 @@
-const { default: Axios } = require("axios");
-
 // main
 Vue.component('member', {
   data() {
@@ -293,10 +291,15 @@ new Vue({
       this.movesignInmm = true
     },
   },
-  mounted(){
-    (function(){
-      axios.post('../PHP/Frontend/sessionR.php').then(function(res){
-        alert(res);
+  mounted() {
+    (function () {
+      axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
+        console.log(res);
+        // if (data != '') {
+        //   alert(res);
+        //   // nav.$data.userid = data;
+        //   // nav.$data.member = './mymember.html';
+        // }
       })
     }());
   },
