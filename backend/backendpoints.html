@@ -148,8 +148,8 @@
                             <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tbody v-if="tableData03">
-                            <tr v-for="(data,key) in tableData03">
+                        <tbody v-if="pointsOfMember">
+                            <tr v-for="(data,key) in pointsOfMember">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["ACCOUNT"]}}</td>
@@ -175,8 +175,8 @@
                                 </td>
                             </tr>
                         </tbody>
-                        <tbody v-else="tableData04">
-                            <tr v-for="(data,key) in tableData04">
+                        <tbody v-else="pointsOfMember">
+                            <tr v-for="(data,key) in pointsOfMember">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["ACCOUNT"]}}</td>
