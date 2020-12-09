@@ -48,7 +48,7 @@ Vue.component('member', {
   },
   template: `
         <div class="member">
-          <form id="member" method="post" action="#../PHP/Frontend/JoinR.php">
+          <form id="member" method="post" action="../PHP/Frontend/JoinR.php">
             <input type="email" :placeholder="signInemail" name="account" v-model="emailSend" :class="{redbordercolorsignInemail:redbordercolorsignInemail}" :change="delchi('emailSend')" @click="classnone1" />
             <input :type="passtotex" :placeholder="signInpass" v-model="signInpasssend" :class="{redbordercolorsignInpass:redbordercolorsignInpass}" @click="classnone2" @input="englishmath('signInpasssend')" />
             <input :type="passtotexconfir" :placeholder="signInpassconf" v-model="signInpassconfsend" name="pwd" :class="{redbordercolorsignInpassconf:redbordercolorsignInpassconf}" @click="classnone3" />
@@ -200,9 +200,9 @@ Vue.component('member', {
         //   alert(email);
         // }
 
-        // 把驗證碼命名成一個變數 
+        // 把驗證碼命名成一個變數 測試用
         this.VerNum = this.randomfun();
-        alert(this.VerNum);
+        // alert(this.VerNum);
 
         // 寄信驗證
         Email.send({
@@ -210,7 +210,7 @@ Vue.component('member', {
           To: email,
           From: "tibamelovefood@gmail.com",
           Subject: "lovefood<tibamelovefood@gmail.com>",
-          Body: `親愛的新會員你好!!這是你的驗證碼:${this.VerNum}`
+          Body: `親愛的新會員您好!!這是您的驗證碼:${this.VerNum}`
         })
           .then(
             message => alert("驗證信已寄出，請查看信箱!"),
