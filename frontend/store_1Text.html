@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城</title>
     <link rel="stylesheet" href="../css/store_1.css">
+    
 
 </head>
 
@@ -91,7 +92,7 @@
         </section>
 
         <!-- store_banner結束 -->
-        <div id="main">
+        <div class="main">
             <div class="part1">
                 <form action="#" method="get" id="fm1">
                     <div id="search">
@@ -434,13 +435,7 @@
                 <section class="productArea">
                     <div class="width_2P">
                         <div class="product">
-                            <div class="pdtText">下架倒數
-                                <span class="pdtTime">
-                                    <span class="minutes"></span>:
-                                    <span class="seconds"></span>
-                                </span>
-                                秒
-                            </div>
+                            <div class="pdtText">下架倒數<span class="pdtTime"><span class="minutes" id="minutes"></span>:<span class="seconds" id="seconds"></span></span>秒</div>
                             <div class="productCenter">
                                 <a href="./store_2.html"><img src="../img/07/p1.png" alt="" class="pdtImg"></a>
                                 <div class="pdtExplanation">
@@ -480,13 +475,7 @@
                         </div>
 
                         <div class="product">
-                            <div class="pdtText">下架倒數
-                                <span class="pdtTime">
-                                    <span class="minutes"></span>:
-                                    <span class="seconds"></span>
-                                </span>
-                                秒
-                            </div>
+                            <div class="pdtText">下架倒數<span class="pdtTime">15:59</span>秒</div>
                             <div class="productCenter">
                                 <a href="./store_2.html"><img src="../img/07/p2.png" alt="" class="pdtImg"></a>
                                 <div class="pdtExplanation">
@@ -525,13 +514,7 @@
                             </div>
                         </div>
                         <div class="product">
-                            <div class="pdtText">下架倒數
-                                <span class="pdtTime">
-                                    <span class="minutes"></span>:
-                                    <span class="seconds"></span>
-                                </span>
-                                秒
-                            </div>
+                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
                             <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p3.png" alt=""
                                         class="pdtImg"></a>
 
@@ -813,10 +796,67 @@
     <script src="http://maps.google.com/maps/api/js"></script>
     <!-- <script src=" https://maps.googleapis.com/maps/api/geocode/json?"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <script src="../js/07/store_1.js"></script>
-    <!-- <script src="../js/07/vue.js"></script> -->
     <script src="../js/07/data.js"></script>
 </body>
+<script>
+    m = 15;
+    
+    var ss = setInterval(function(){
+        m--;
+    if(m <= 0){
+        clearInterval(ss);
+    }
+        console.log(m);
+    }, 1000);
 
+    s = 60;
+    
+    var ss = setInterval(function(){
+        s--;
+    if(m <= 0){
+        clearInterval(ss);
+    }
+        console.log(s);
+    }, 1000);
+        
+
+// var timer;
+
+// var compareDate = new Date();
+// compareDate.setDate(compareDate.getDate() + 7); //just for this demo today + 7 days
+
+// timer = setInterval(function() {
+//   timeBetweenDates(compareDate);
+// }, 1000);
+
+// function timeBetweenDates(toDate) {
+//   var dateEntered = toDate;
+//   var now = new Date();
+//   var difference = dateEntered.getTime() - now.getTime();
+
+//   if (difference <= 0) {
+
+//     // Timer done
+//     clearInterval(timer);
+  
+//   } else {
+    
+//     var seconds = Math.floor(difference / 1000);
+//     var minutes = Math.floor(seconds / 60);
+//     var hours = Math.floor(minutes / 60);
+//     var days = Math.floor(hours / 24);
+
+//     minutes %= 1;
+//     seconds %= 60;
+
+//     $("#minutes").text(minutes);
+//     $("#seconds").text(seconds);
+
+//     if (minutes == 0 && ) {
+        
+//     }
+//   }
+// }
+</script>
 </html>
