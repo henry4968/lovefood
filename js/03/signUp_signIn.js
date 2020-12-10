@@ -353,6 +353,7 @@ Vue.component('seller', {
       }
 
       // 統一編號
+      
       this.selTax = true
       this.seladd = true
       this.selphone = true
