@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <component id="memheader" :is="headId" :login="login"></component>
+  <component id="memheader" :is="headId" :prop="login"></component>
   <main class="linWrap">
 
     <div class="signUpsignIn" id="signUpsignIn">
@@ -33,12 +33,14 @@
       <div class="signIn" id="signIn" :class="{signInmm: movesignInmm == false}">
         <h1 class="signIn">會員登入</h1>
         <form id="signIn" method="post" action="../PHP/Frontend/LoginR.php">
-          <input type="text" placeholder="帳號" name="account">
-          <input type="password" placeholder="密碼" name="pwd">
+          <input type="text" :placeholder="loingacplace" v-model="loginachtml" name="account"
+            :class="{loginredac:loginredac}" @click="clearredac">
+          <input type="password" :placeholder="loingpaplace" v-model="loginpahtml" name="pwd"
+            :class="{loginredpa:loginredpa}" @click="clearredpa">
           <div class="signforget">
             <div class="space"></div>
             <div class="button">
-              <button class="subsignIn" type="submit">登入</button>
+              <button class="subsignIn" :type="logintype" @click="loginfun">登入</button>
             </div>
             <div class="forget">
               <a href="#">忘記密碼</a>
@@ -84,7 +86,7 @@
     </div>
   </main>
   <component id="memfooter" :is="footerId"></component>
-  
+
 
   <script src="../js/03/memheader.js"></script>
   <script src="../js/03/signUp_signIn.js"></script>

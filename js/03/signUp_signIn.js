@@ -259,6 +259,27 @@ new Vue({
     movesignUpmm: '',
     movesignInmm: '',
     // isA: true,
+
+    // input 的紅框
+    // 帳號紅框
+    loginredac: '',
+    // 密碼紅框
+    loginredpa: '',
+
+    // 帳號 placeholder
+    loingacplace: '信箱',
+
+    // 帳號 html
+    loginachtml: '',
+
+    // 密碼 placeholder
+    loingpaplace: '密碼',
+
+    // 密碼 html
+    loginpahtml: '',
+
+    // 登入按鍵 登入type更改
+    logintype: 'button',
   },
   methods: {
     activeButton(item) {
@@ -290,16 +311,74 @@ new Vue({
       this.movesignUpmm = true
       this.movesignInmm = true
     },
+    loginfun(event) {
+
+      // 信箱空白檢查
+      if (this.loingacplace == '信箱' && this.loginachtml == '') {
+        // alert('信箱是空的');
+        this.loingacplace = '信箱不可為空白';
+        this.loginredac = true;
+        event.preventDefault();
+      }
+
+      // 密碼空白檢查
+      if (this.loingpaplace == '密碼' && this.loginpahtml == '') {
+        // alert('信箱是空的');
+        this.loingpaplace = '密碼不可為空白';
+        this.loginredpa = true;
+        event.preventDefault();
+      }
+
+      // 驗證信箱格式
+      // 信箱正規式表達
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+      if ((this.loginachtml).search(emailRule) != -1) {
+      } else {
+        this.loginachtml = '';
+        this.loingacplace = '信箱格式錯誤';
+        this.loginredac = true;
+        event.preventDefault();
+      }
+
+      // 密碼字數限制
+      if (this.loginpahtml.length < 8) {
+        this.loginpahtml = '';
+        this.loingpaplace = '密碼字數小於8位數，密碼格式錯誤';
+        this.loginredpa = true;
+        event.preventDefault();
+      }
+
+      // 以上條件沒問題就submit
+      if (this.loginredac != true && this.loginredpa != true && this.loginachtml != '' && this.loginpahtml != '') {
+        this.logintype = 'submit';
+        event.target.submit();
+      }
+    },
+
+    // 登入信箱input 回復原狀
+    clearredac() {
+      this.loginachtml = '';
+      this.loingacplace = '信箱';
+      this.loginredac = false;
+    },
+
+    // 登入密碼input 回復原狀
+    clearredpa() {
+      this.loginpahtml = '';
+      this.loingpaplace = '密碼';
+      this.loginredpa = false;
+    }
   },
   mounted() {
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
-        if (checkdata != '') {
-          // console.log(checkdata);
-          // nav.$data.userid = data;
-          // nav.$data.member = './mymember.html';
-        }
+        // 測試用
+        // if (checkdata != '') {
+        //   // console.log(checkdata);
+        //   // nav.$data.userid = data;
+        //   // nav.$data.member = './mymember.html';
+        // }
       })
     }());
   },

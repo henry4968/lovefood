@@ -23,7 +23,6 @@
     }
     elseif($maxValue<100 && $maxValue>=10){
         $insert = "MB00000".$maxValue;
-
     }elseif($maxValue<1000 && $maxValue>=100){
         $insert = "MB0000".$maxValue;
     }elseif($maxValue<10000 && $maxValue>=1000){

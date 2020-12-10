@@ -380,6 +380,14 @@ body{
         form#signIn{
           display: flex;
           flex-direction: column;
+          input:nth-child(1).loginredac{
+            border-radius: 5px;
+            border: 2px solid red;
+          }
+          input:nth-child(2).loginredpa{
+            border-radius: 5px;
+            border: 2px solid red;
+          }
           input{
             margin: 0px 0px 20px 0px;
             padding-left: 10px;

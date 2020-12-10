@@ -5,7 +5,7 @@ Vue.component('memhead', {
             jumppage: '',
         }
     },
-    props: ['login'],
+    props: ['prop'],
     template: `
     <!-- 標頭開始 -->
     <header id="memheader">
@@ -61,8 +61,8 @@ Vue.component('memhead', {
                     <img src="../img/03/memcart.png">
                 </a>
                 <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck">
-                    <img v-if="login" src='../img/03/mempeoplecirclechange.png'>
-                    <img v-else="login"  src='../img/03/mempeoplecircle.png'>
+                    <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
+                    <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
             <!-- 桌機版導覽列結束 -->
@@ -102,6 +102,7 @@ var member = new Vue({
         checklogin() {
             axios.post('../PHP/Frontend/sessionR.php').then(res => {
                 checkdata = res.data;
+                // console.log(checkdata);
                 if (checkdata != '') {
                     this.login = true;
                 } else {
