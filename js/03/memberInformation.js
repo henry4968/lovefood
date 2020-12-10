@@ -65,7 +65,7 @@ Vue.component('member', {
         </form>
         <div class="rightPicborder">
           <div class="backCategoryBorder" @click="sync">
-            <img class="backCategoryBorder" src="../../img/03/backcategory.png">
+            <img class="backCategoryBorder" src="../img/03/backcategory.png">
           </div>
           <div class="uploadBorder">
             <div class="imageBorder">
@@ -175,7 +175,7 @@ Vue.component('order', {
     <div class="rightBorderorder" :class="{foursameBorderapp:foursameBorderapp == 2}">
         <div class="centerBorder">
           <div class="orderbackCategoryBorder" @click="sync">
-            <img class="orderbackCategoryBorder" src="../../img/03/backcategory.png">
+            <img class="orderbackCategoryBorder" src="../img/03/backcategory.png">
           </div>
           <div class="searchBorder">
             <form id="searchBorder" method="POST" action="#">
@@ -462,7 +462,7 @@ Vue.component('points', {
         <div class="toppointsBorder">
           <div class="topmiddlepointsBorder">
             <div class="pointbackCategoryBorder" @click="sync">
-              <img class="pointbackCategoryBorder" src="../../img/03/backcategory.png">
+              <img class="pointbackCategoryBorder" src="../img/03/backcategory.png">
             </div>
             <div class="specialmemberborder">
               <span class="conditionDateTitle">
@@ -535,7 +535,7 @@ Vue.component('points', {
       foursameBorderapp: '',
     }
   },
-  methods:{
+  methods: {
     sync() {
       this.$emit("my-click", false)
     },
@@ -567,7 +567,7 @@ Vue.component('memberApply', {
             <div class="botright">
               <div class="botrightmiddleBorder">
                 <div class="memappbackCategoryBorder" @click="sync">
-                  <img class="memappbackCategoryBorder" src="../../img/03/backcategory.png">
+                  <img class="memappbackCategoryBorder" src="../img/03/backcategory.png">
                 </div>
                 <div class="sametypeBorder">
                   <div class="sametype">
@@ -620,7 +620,7 @@ Vue.component('memberApply', {
         </div>
         <div class="changemiddlespecailBorder" :class="{specialchange: block}">
           <div class="memappcahngebackCategoryBorder" @click="sync">
-              <img class="memappchangebackCategoryBorder" src="../../img/03/backcategory.png">
+              <img class="memappchangebackCategoryBorder" src="../img/03/backcategory.png">
           </div>
           <div class="topchangeBorder">
             <div class="topchangetitleBorder">
@@ -746,7 +746,7 @@ Vue.component('memberApply', {
 
       // 當滑鼠在canvas這裡按下執行以下動作
       myPics.addEventListener('mousedown', e => {
-      // 當滑鼠按下按鍵時背景圖去掉
+        // 當滑鼠按下按鍵時背景圖去掉
         e.target.style.backgroundImage = "url('')";
         x = e.offsetX;
         y = e.offsetY;
@@ -812,5 +812,23 @@ new Vue({
       this.leftBordermediumPhone = x;
       this.foursameBorderapp = x;
     },
+    // 登出
+    logout() {
+      axios.post('../PHP/Frontend/Logout.php').then(respon => {
+        alert('登出成功!');
+        location.href = '../frontend/index.html';
+      });
+    },
+  },
+  mounted() {
+    (function () {
+      axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
+        checkdata = res.data;
+        // 測試用
+        // if (checkdata != '') {
+        //   console.log(checkdata);
+        // }
+      })
+    }());
   },
 });

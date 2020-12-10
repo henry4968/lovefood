@@ -47,12 +47,12 @@
         }
 
         //寫入Session(前台專用)
-        function setMemberInfo($MemberID, $MemberName){
+        function setMemberInfo($memberID, $memberName){
             if(!isset($_SESSION)){
                 session_start(); 
             }
-            $_SESSION["MemberID"] = $MemberID; //Table 'ec_member'裡的ID欄位值
-            $_SESSION["MemberName"] = $MemberName; //Table 'ec_member'裡的Account欄位值
+            $_SESSION["MemberID"] = $memberID; //Table 'ec_member'裡的ID欄位值
+            $_SESSION["MemberName"] = $memberName; //Table 'ec_member'裡的Account欄位值
         }
         
     }
