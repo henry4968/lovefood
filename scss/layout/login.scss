@@ -284,6 +284,34 @@ body{
           form#seller{
             display: flex;
             flex-direction: column;
+            input.seller:nth-child(1).selsignUpac{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(2).selsignUppa{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(3).selsignUppacf{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(4).selcom{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(5).selTax{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(6).seladd{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
+            input.seller:nth-child(7).selphone{
+              border-radius: 5px;
+              border: 2px solid red;
+            }
             input.seller{
               margin: 0px 0px 20px 0px;
               padding-left: 10px;
@@ -380,6 +408,14 @@ body{
         form#signIn{
           display: flex;
           flex-direction: column;
+          input:nth-child(1).loginredac{
+            border-radius: 5px;
+            border: 2px solid red;
+          }
+          input:nth-child(2).loginredpa{
+            border-radius: 5px;
+            border: 2px solid red;
+          }
           input{
             margin: 0px 0px 20px 0px;
             padding-left: 10px;

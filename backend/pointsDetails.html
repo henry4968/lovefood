@@ -129,7 +129,6 @@
                                 <input type="date" name="datePick01">至<input type="date" name="datePick02">
                             </div>
                             <div id="membersPointsActionBlock">
-                                特殊會員狀態：
                                 <a href="#0" @click="query">
                                     <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
                                 </a>
@@ -140,13 +139,14 @@
                         </div>
                     </div>
                 </div>
-                <div id="pointsDataArea" v-if="tableData01">
-                    <div id="memberProfile" v-for="(data,key) in tableData01">
-                        會員編號：<input class="input-xl" type="text" :placeholder="data[0]" disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :placeholder="data[1]" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :placeholder="data[2]" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :placeholder="data[3]" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :placeholder="data[4]" disabled>
+                <div id="pointsDataArea" v-if="pointsOfMember">
+                    查詢區間：至
+                    <div id="memberProfile" v-for="(data,key) in pointsOfMember">
+                        會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :placeholder="data['NAME']" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :placeholder="data['PHONE']" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :placeholder="data['POINTS']" disabled>
                     </div>
                     <div id="">
                         修改點數：<br>
@@ -165,12 +165,12 @@
                                     <th>功能鍵</th>
                                 </tr>
                             </thead>
-                            <tbody v-if="tableData02">
-                                <tr v-for="(data,key) in tableData02">
+                            <tbody v-if="discountLog">
+                                <tr v-for="(data,key) in discountLog">
                                     <td>{{key+1}}</td>
-                                    <td>{{data[0]}}</td>
-                                    <td>{{data[1]}}</td>
-                                    <td>{{data[2]}}</td>
+                                    <td>{{data["ORDER_ID"]}}</td>
+                                    <td>{{data["DISCOUNT"]}}</td>
+                                    <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
                     </div>
@@ -185,12 +185,12 @@
                                     <th>發放時間</th>
                                 </tr>
                             </thead>
-                            <tbody v-if="tableData03">
-                                <tr v-for="(data,key) in tableData03">
+                            <tbody v-if="issanceLog">
+                                <tr v-for="(data,key) in issanceLog">
                                     <td>{{key+1}}</td>
-                                    <td>{{data[0]}}</td>
-                                    <td>{{data[1]}}</td>
-                                    <td>{{data[2]}}</td>
+                                    <td>{{data["ISSANCE_DATE"]}}</td>
+                                    <td>{{data["ISSANCE_NUM"]}}</td>
+                                    <td>{{data["POINTS_ISSANCER_ID"]}}</td>
                             </tbody>
                         </table>
                     </div>

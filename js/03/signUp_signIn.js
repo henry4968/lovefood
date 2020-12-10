@@ -1,4 +1,3 @@
-
 // main
 Vue.component('member', {
   data() {
@@ -217,10 +216,6 @@ Vue.component('member', {
           );
       }
 
-
-
-
-
     },
 
     // 產生驗證碼
@@ -235,19 +230,135 @@ Vue.component('seller', {
   template: `
         <div class="seller">
           <form id="seller" method="post" action="#">
-            <input class="seller" type="email" placeholder="信箱" />
-            <input class="seller" type="password" placeholder="密碼" />
-            <input class="seller" type="password" placeholder="確認密碼" />
-            <input class="seller" type="text" placeholder="公司名稱" />
-            <input class="seller" type="text" placeholder="統一編號" />
-            <input class="seller" type="text" placeholder="登記地址" />
-            <input class="seller" type="text" placeholder="聯絡電話" />
-            <button class="seller" type="submit">註冊</button>
+            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" />
+            <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" />
+            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" />
+            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" />
+            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" />
+            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" />
+            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" />
+            <button class="seller" type="submit" @click="sellersignUp">註冊</button>
             <button class="changeTOmember" id="goTOmember" type="button">會員登入</button>
           </form>
         </div>
       </div>
-      `,
+    `,
+  data() {
+    return {
+      // input 紅框
+      // 信箱
+      selsignUpac: '',
+      // 密碼
+      selsignUppa: '',
+      // 確認密碼
+      selsignUppacf: '',
+      // 公司名稱
+      selcom: '',
+      // 統一編號
+      selTax: '',
+      // 登記地址
+      seladd: '',
+      // 聯絡電話
+      selphone: '',
+
+      // input placeholder
+      // 信箱
+      selsignUpacpla: '信箱',
+      // 密碼
+      selsignUppapla: '密碼',
+      // 確認密碼
+      selsignUppacfpla: '確認密碼',
+      // 公司名稱
+      selcompla: '公司名稱',
+      // 統一編號
+      selTaxpla: '統一編號(非必填)',
+      // 登記地址
+      seladdpla: '登記地址',
+      // 聯絡電話
+      selphonepla: '聯絡電話',
+
+      // input html
+      // 信箱
+      selsignUpachtml: '',
+      // 密碼
+      selsignUppahtml: '',
+      // 確認密碼
+      selsignUppacfhtml: '',
+      // 公司名稱
+      selcomhtml: '',
+      // 統一編號
+      selTaxhtml: '',
+      // 登記地址
+      seladdhtml: '',
+      // 聯絡電話
+      selphonehtml: '',
+    }
+  },
+  methods: {
+    // 賣家註冊 檢查
+    sellersignUp(event) {
+
+      // 驗證信箱格式
+      // 信箱正規式表達
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+      if ((this.selsignUpachtml).search(emailRule) != -1) {
+      } else {
+        this.selsignUpachtml = '';
+        this.selsignUpacpla = '信箱格式錯誤';
+        this.selsignUpac = true;
+        event.preventDefault();
+      }
+
+      // 密碼空白檢查
+      if (this.selsignUppapla == '密碼' && this.selsignUppahtml == '') {
+        this.selsignUppapla = '密碼不可為空白';
+        this.selsignUppa = true;
+        event.preventDefault();
+      }
+
+      // 確認密碼空白檢查
+      if (this.selsignUppacfpla == '確認密碼' && this.selsignUppacfhtml == '') {
+        this.selsignUppacfpla = '確認密碼不可為空白';
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 密碼及確認密碼需相同
+      if (this.selsignUppahtml != this.selsignUppacfhtml) {
+        this.selsignUppahtml = '';
+        this.selsignUppacfhtml = '';
+        this.selsignUppapla = '與確認密碼相異';
+        this.selsignUppacfpla = '與密碼相異';
+        this.selsignUppa = true;
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 密碼字數限制
+      if (this.selsignUppahtml.length < 8) {
+        this.selsignUppahtml = '';
+        this.selsignUppacfhtml = '';
+        this.selsignUppapla = '密碼字數小於8位數';
+        this.selsignUppacfpla = '密碼字數小於8位數';
+        this.selsignUppa = true;
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 公司名稱空白檢查
+      if (this.selcompla == '公司名稱' && this.selcomhtml == '') {
+        this.selcompla = '公司名稱不可為空白';
+        this.selcom = true
+        event.preventDefault();
+      }
+
+      // 統一編號
+      this.selTax = true
+      this.seladd = true
+      this.selphone = true
+      event.preventDefault();
+    },
+  },
 });
 
 new Vue({
@@ -264,6 +375,27 @@ new Vue({
     movesignUpmm: '',
     movesignInmm: '',
     // isA: true,
+
+    // input 的紅框
+    // 帳號紅框
+    loginredac: '',
+    // 密碼紅框
+    loginredpa: '',
+
+    // 帳號 placeholder
+    loingacplace: '信箱',
+
+    // 帳號 html
+    loginachtml: '',
+
+    // 密碼 placeholder
+    loingpaplace: '密碼',
+
+    // 密碼 html
+    loginpahtml: '',
+
+    // 登入按鍵 登入type更改
+    logintype: 'button',
   },
   methods: {
     activeButton(item) {
@@ -295,6 +427,76 @@ new Vue({
       this.movesignUpmm = true
       this.movesignInmm = true
     },
+    loginfun(event) {
+
+      // 信箱空白檢查
+      if (this.loingacplace == '信箱' && this.loginachtml == '') {
+        // alert('信箱是空的');
+        this.loingacplace = '信箱不可為空白';
+        this.loginredac = true;
+        event.preventDefault();
+      }
+
+      // 密碼空白檢查
+      if (this.loingpaplace == '密碼' && this.loginpahtml == '') {
+        // alert('信箱是空的');
+        this.loingpaplace = '密碼不可為空白';
+        this.loginredpa = true;
+        event.preventDefault();
+      }
+
+      // 驗證信箱格式
+      // 信箱正規式表達
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+      if ((this.loginachtml).search(emailRule) != -1) {
+      } else {
+        this.loginachtml = '';
+        this.loingacplace = '信箱格式錯誤';
+        this.loginredac = true;
+        event.preventDefault();
+      }
+
+      // 密碼字數限制
+      if (this.loginpahtml.length < 8) {
+        this.loginpahtml = '';
+        this.loingpaplace = '密碼字數小於8位數，密碼格式錯誤';
+        this.loginredpa = true;
+        event.preventDefault();
+      }
+
+      // 以上條件沒問題就submit
+      if (this.loginredac != true && this.loginredpa != true && this.loginachtml != '' && this.loginpahtml != '') {
+        this.logintype = 'submit';
+        event.target.submit();
+      }
+    },
+
+    // 登入信箱input 回復原狀
+    clearredac() {
+      this.loginachtml = '';
+      this.loingacplace = '信箱';
+      this.loginredac = false;
+    },
+
+    // 登入密碼input 回復原狀
+    clearredpa() {
+      this.loginpahtml = '';
+      this.loingpaplace = '密碼';
+      this.loginredpa = false;
+    }
+  },
+  mounted() {
+    (function () {
+      axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
+        checkdata = res.data;
+        // 測試用
+        // if (checkdata != '') {
+        //   // console.log(checkdata);
+        //   // nav.$data.userid = data;
+        //   // nav.$data.member = './mymember.html';
+        // }
+      })
+    }());
   },
 });
 

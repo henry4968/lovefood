@@ -2,10 +2,10 @@ const app = new Vue({
     el: '.containerPoints',
     data() {
         return {
-            tableData01: null,
-            tableData02: null,
-            tableData03: null,
-            tableData04: null
+            pointsOfMember: null,
+            issanceLog: null,
+            discountLog: null,
+            pointsUpdating: null
         }
     },
 
@@ -24,15 +24,26 @@ const app = new Vue({
             type: 'POST',
             data: { number, account, name, phone, pick01, pick02 },
             success: function (res) {
-                self.tableData01 = res.pointsOfMember;
-                self.tableData02 = res.pointsUsing;
-                self.tableData03 = res.pointsIssance;
+                self.issanceLog = res.issanceLog;
+                self.discountLog = res.discountLog;
+
+                var rMB = res.pointsOfMember;
+
+                for (let i = 0; i < rMB.length; i++) {
+                    if (rMB[i].MEMBER_ID == number) {
+                        self.pointsOfMember = [];
+                        self.pointsOfMember.push(rMB[i]);
+                    }
+                }
+
                 console.log(res);
-                // console.log(res.pointsOfMember[0][0])
+                console.log(self.pointsOfMember);
+                console.log(self.issanceLog);
+                console.log(self.discountLog);
             },
             error: function (res) {
                 console.log("回傳失敗！");
-                console.log(res);
+                console.log(res.responseText);
             },
             dataType: "JSON",
         });
@@ -52,15 +63,21 @@ const app = new Vue({
             type: 'POST',
             data: { number, account, name, phone, pick01, pick02 },
             success: function (res) {
-                self.tableData01 = res.pointsOfMember;
-                self.tableData02 = res.pointsUsing;
-                self.tableData03 = res.pointsIssance;
-                console.log(res);
-                // console.log(res.pointsOfMember[0][0])
+                self.issanceLog = res.issanceLog;
+                self.discountLog = res.discountLog;
+
+                var rMB = res.pointsOfMember;
+
+                for (let i = 0; i < rMB.length; i++) {
+                    if (rMB[i].MEMBER_ID == number) {
+                        self.pointsOfMember = [];
+                        self.pointsOfMember.push(rMB[i]);
+                    }
+                }
             },
             error: function (res) {
                 console.log("回傳失敗！");
-                console.log(res);
+                console.log(res.responseText);
             },
             dataType: "JSON",
         });
@@ -82,11 +99,21 @@ const app = new Vue({
                 type: 'POST',
                 data: { number, account, name, phone, pick01, pick02 },
                 success: function (res) {
-                    self.tableData01 = res.pointsOfMember;
-                    self.tableData02 = res.pointsUsing;
-                    self.tableData03 = res.pointsIssance;
+                    // self.pointsOfMember = res.pointsOfMember;
+                    self.issanceLog = res.issanceLog;
+                    self.discountLog = res.discountLog;
+
+                    var rMB = res.pointsOfMember;
+
+                    for (let i = 0; i < rMB.length; i++) {
+                        if (rMB[i].MEMBER_ID == number) {
+                            self.pointsOfMember = rMB[i];
+                        }
+                    }
+
                     console.log(res);
-                    // console.log(res.pointsOfMember[0][0])
+                    console.log(self.pointsOfMember);
+                    console.log(self.issanceLog);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -100,18 +127,20 @@ const app = new Vue({
             let urlParams = new URLSearchParams(window.location.search);
             let number = urlParams.get('number');
             let points = $("input[name='points']").val();
+
             $.ajax({
                 url: '../PHP/backStage/points/pointsUpdate.php',
                 type: 'POST',
                 data: { points, number },
                 success: function (res) {
-                    self.tableData04 = res;
+                    self.pointsUpdating = res;
+                    console.log(res)
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
-                    console.log(res);
+                    console.log(res.responseText);
                 },
-                dataType: "JSON",
+                dataType: "text",
             });
         }
     }

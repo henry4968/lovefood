@@ -2,14 +2,15 @@ const app = new Vue({
     el: '.containerPoints',
     data() {
         return {
-            tableData01: null,
-            tableData02: null,
-            tableData03: null,
-            tableData04: null
+            pointsIssance: null,
+            pointsDiscount: null,
+            pointsOfMember: null,
+            issanceLog: null,
+            discountLog: null
         }
     },
 
-    beforeMount() {
+    mounted() {
         const self = this;
         let number = $("input[name='number']").val()
         let account = $("input[name='account']").val()
@@ -23,10 +24,44 @@ const app = new Vue({
             type: 'POST',
             data: { number, account, name, phone, pick01, pick02 },
             success: function (res) {
-                self.tableData = res;
+                self.pointsIssance = res.pointsIssance;
+                self.pointsDiscount = res.pointsDiscount;
+                self.pointsOfMember = res.pointsOfMember;
+                self.issanceLog = res.issanceLog;
+                self.discountLog = res.discountLog;
+
+                var rMB = res.pointsOfMember;
+                var rPI = res.pointsIssance;
+                var rPD = res.pointsDiscount;
+                var rIL = res.issanceLog;
+                var rDL = res.discountLog;
+
+                for (let i = 0; i < rPI.length; i++) {
+                    for (let j = 0; j < rMB.length; j++) {
+                        if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
+                            rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                        }
+                    }
+                }
+
+                for (let i = 0; i < rPD.length; i++) {
+                    for (let j = 0; j < rMB.length; j++) {
+
+                        if (rMB[j].MEMBER_ID == rPD[i].MEMBER_ID_for_OD) {
+                            rMB[j].TOTAL_DISCOUNT = rPD[i].TOTAL_DISCOUNT;
+                        }
+                    }
+                }
+
+                console.log(rMB);
+                console.log(rPI);
+                console.log(rPD);
+                console.log(rIL);
+                console.log(rDL);
             },
             error: function (res) {
-                console.log(res);
+                console.log("回傳失敗！");
+                console.log(res.responseText);
             },
             dataType: "JSON",
         });
@@ -47,16 +82,20 @@ const app = new Vue({
                 type: 'POST',
                 data: { number, account, name, phone, pick01, pick02 },
                 success: function (res) {
-                    self.tableData01 = res.pointsIssance;
-                    self.tableData02 = res.pointsDiscount;
-                    self.tableData03 = res.pointsOfMember;
-                    self.tableData04 = res;
+                    self.pointsIssance = res.pointsIssance;
+                    self.pointsDiscount = res.pointsDiscount;
+                    self.pointsOfMember = res.pointsOfMember;
+                    self.issanceLog = res.issanceLog;
+                    self.discountLog = res.discountLog;
 
                     var rMB = res.pointsOfMember;
                     var rPI = res.pointsIssance;
                     var rPD = res.pointsDiscount;
+                    var rIL = res.issanceLog;
+                    var rDL = res.discountLog;
 
                     for (let i = 0; i < rPI.length; i++) {
+
                         for (let j = 0; j < rMB.length; j++) {
                             if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
                                 rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
@@ -65,7 +104,9 @@ const app = new Vue({
                     }
 
                     for (let i = 0; i < rPD.length; i++) {
+
                         for (let j = 0; j < rMB.length; j++) {
+
                             if (rMB[j].MEMBER_ID == rPD[i].MEMBER_ID_for_OD) {
                                 rMB[j].TOTAL_DISCOUNT = rPD[i].TOTAL_DISCOUNT;
                             }
@@ -75,10 +116,12 @@ const app = new Vue({
                     console.log(rMB);
                     console.log(rPI);
                     console.log(rPD);
+                    console.log(rIL);
+                    console.log(rDL);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
-                    console.log(res);
+                    console.log(res.responseText);
                 },
                 dataType: "JSON",
             });

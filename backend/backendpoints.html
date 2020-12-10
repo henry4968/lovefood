@@ -107,7 +107,6 @@
                     <div id="pointsDataFilterTabsBlock">
                         <div id="pointsDataFilterTab01" class="pointsDataFilterTab">單筆編輯</div>
                         <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
-                        <!-- <div id="pointsDataFilterTab02" class="pointsDataFilterTab">單筆發放</div> -->
                     </div>
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
@@ -149,8 +148,8 @@
                             <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tbody v-if="tableData03">
-                            <tr v-for="(data,key) in tableData03">
+                        <tbody v-if="pointsOfMember">
+                            <tr v-for="(data,key) in pointsOfMember">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["ACCOUNT"]}}</td>
@@ -159,25 +158,25 @@
                                 <td v-if='data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]'>
                                     {{data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]}}
                                 </td>
-                                <td v-else if='data["TOTAL_ISSANCE"] === "" && data["TOTAL_DISCOUNT"] === ""'>
-                                    0
-                                </td>
-                                <td v-else if='data["TOTAL_ISSANCE"] !== "" && data["TOTAL_DISCOUNT"] === ""'>
+                                <td v-else-if='data["TOTAL_ISSANCE"] && !data["TOTAL_DISCOUNT"]'>
                                     {{data["TOTAL_ISSANCE"] - 0}}
                                 </td>
-                                <td v-else if='data["TOTAL_ISSANCE"] === "" && data["TOTAL_DISCOUNT"] !== ""'>
+                                <td v-else-if='!data["TOTAL_ISSANCE"] && data["TOTAL_DISCOUNT"]'>
                                     {{0 - data["TOTAL_DISCOUNT"]}}
+                                </td>
+                                <td v-else>
+                                    0
                                 </td>
                                 <td>
                                     <form action="pointsDetails.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">詳情</button>
-                                        <input type="hidden" name="number" :value="data['ACCOUNT']">
+                                        <input type="hidden" name="number" :value="data['MEMBER_ID']">
                                     </form>
                                 </td>
                             </tr>
                         </tbody>
-                        <tbody v-else="tableData04">
-                            <tr v-for="(data,key) in tableData04">
+                        <tbody v-else="pointsOfMember">
+                            <tr v-for="(data,key) in pointsOfMember">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["ACCOUNT"]}}</td>
@@ -187,7 +186,7 @@
                                 <td>
                                     <form action="pointsDetails.html" method="GET">
                                         <button type="submit" class="btn-sb btn-green">詳情</button>
-                                        <input type="hidden" name="number" :value="data['ACCOUNT']">
+                                        <input type="hidden" name="number" :value="data['MEMBER_ID']">
                                     </form>
                                 </td>
                             </tr>
