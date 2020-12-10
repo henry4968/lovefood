@@ -76,16 +76,15 @@ Vue.component('memhead', {
     `,
     methods: {
         logIncheck(e) {
-            // console.log(1);
+            // 點擊判斷是否有登入會員，如果有就跳入會員中心，如果沒有就停在原本頁面
             if (checkdata != '') {
                 this.memberimg = '../img/03/mempeoplecirclechange.png';
-                // e.preventDefault();
             } else {
                 e.preventDefault();
             }
         },
     },
-    
+
 });
 var member = new Vue({
     el: '#memheader',
@@ -93,12 +92,14 @@ var member = new Vue({
         headId: 'memhead',
         login: '',
     },
-    methods : {
-        checklogin () {
+    methods: {
+        checklogin() {
             axios.post('../PHP/Frontend/sessionR.php').then(res => {
                 checkdata = res.data;
                 if (checkdata != '') {
                     this.login = true;
+                } else {
+                    this.login = false;
                 }
             });
         },

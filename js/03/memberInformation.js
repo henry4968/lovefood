@@ -812,5 +812,20 @@ new Vue({
       this.leftBordermediumPhone = x;
       this.foursameBorderapp = x;
     },
+    logout(){
+      
+    },
+  },
+  mounted() {
+    (function () {
+      axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
+        checkdata = res.data;
+        if (checkdata != '') {
+          // console.log(checkdata);
+          // nav.$data.userid = data;
+          // nav.$data.member = './mymember.html';
+        }
+      })
+    }());
   },
 });
