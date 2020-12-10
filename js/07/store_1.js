@@ -1,3 +1,5 @@
+
+
 function doFirst(){
     $('#selectfm').hide();
     $('#Area1fm').hide();
@@ -71,6 +73,52 @@ function doFirst(){
 
 
     navigator.geolocation.getCurrentPosition(succCallback);
+    ////////////倒數計時器///////////
+    ///////////////////////////////
+    var timer;
+    var compareDate = new Date();
+    compareDate.setMinutes(compareDate.getMinutes() + 15);// 模擬七天後的時間,串後端
+    timer = setInterval(function() {    
+        timeBetweenDates(compareDate);
+    }, 1000);
+
+    const current = new Date();
+    function timeBetweenDates(toDate) {
+        var dateEntered = toDate;
+        var now = new Date();
+        var difference = dateEntered.getTime() - now.getTime();
+        // var product = $('div.width_2P');
+
+        if (difference <= 0) {
+            // clearInterval(timer);
+
+            let prds = document.querySelectorAll('.seconds');
+            
+            prds.forEach(element=> {
+                if(parseInt(element.innerText) === 0){
+                    element.closest('.product').remove();
+                }
+            });
+        
+        } else {
+        
+            var seconds = Math.floor(difference / 1000);
+            //   console.log(seconds);
+            var minutes = Math.floor(seconds / 60);
+            //   console.log(minutes);
+            //   var hours = Math.floor(minutes / 60);
+            //   var days = Math.floor(hours / 24);
+
+            //   hours %= 24;
+            minutes %= 60;
+            seconds %= 60;
+            $('.pdtTime').children('.minutes').text(minutes);
+            $('.pdtTime').children('.seconds').text(seconds);
+            
+        }
+    }
+
+    
 }
 function succCallback(e){
     let lati = 25.0406319;
@@ -79,7 +127,7 @@ function succCallback(e){
     let position = new google.maps.LatLng(lati,longi);
     let area = document.getElementById('googlemap');
     let options = {
-        zoom: 14,
+        zoom: 13,
         center: position,
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
@@ -151,11 +199,32 @@ function getMarker(coords, title){
         markers[i] = marker;
         i++;
     }
+    /////////////////倒數計時器////////////
+    /////////////////////////////////////
 
-    
+
+
+
 
 }
 
+
+
 window.addEventListener('load',doFirst);
 
-
+////////////////vue///////////////
+//////////////////////////////////
+new Vue({
+    el:'#main',
+    data:{
+        minutes:22,
+        // seconds:'',
+    },
+    methods:{
+        seconds(){
+            let s = new Date();
+            s.getHours();
+        }
+    }
+    
+});
