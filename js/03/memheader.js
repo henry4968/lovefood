@@ -1,5 +1,6 @@
 // header
 Vue.component('memhead', {
+    props: ['login'],
     template: `
     <!-- 標頭開始 -->
     <header id="memheader">
@@ -54,8 +55,9 @@ Vue.component('memhead', {
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/03/memcart.png">
                 </a>
-                <a href="./memberInformation.html" id="navIcons03" class="navIcons">
-                    <img src="../img/03/mempeoplecircle.png">
+                <a href="./memberInformation.html" id="navIcons03" class="navIcons" @click="logIncheck">
+                    <img v-if="login" src='../img/03/mempeoplecirclechange.png'>
+                    <img v-else="login"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
             <!-- 桌機版導覽列結束 -->
@@ -71,11 +73,37 @@ Vue.component('memhead', {
             <!-- 行動版次級導覽列結束 -->
         </div>
     </header>
-      `,
+    `,
+    methods: {
+        logIncheck(e) {
+            // console.log(1);
+            if (checkdata != '') {
+                this.memberimg = '../img/03/mempeoplecirclechange.png';
+                // e.preventDefault();
+            } else {
+                e.preventDefault();
+            }
+        },
+    },
+    
 });
-new Vue({
+var member = new Vue({
     el: '#memheader',
     data: {
         headId: 'memhead',
+        login: '',
+    },
+    methods : {
+        checklogin () {
+            axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                checkdata = res.data;
+                if (checkdata != '') {
+                    this.login = true;
+                }
+            });
+        },
+    },
+    mounted() {
+        this.checklogin();
     },
 });

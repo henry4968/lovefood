@@ -294,12 +294,12 @@ new Vue({
   mounted() {
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
-        console.log(res);
-        // if (data != '') {
-        //   alert(res);
-        //   // nav.$data.userid = data;
-        //   // nav.$data.member = './mymember.html';
-        // }
+        checkdata = res.data;
+        if (checkdata != '') {
+          // console.log(checkdata);
+          // nav.$data.userid = data;
+          // nav.$data.member = './mymember.html';
+        }
       })
     }());
   },
