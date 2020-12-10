@@ -37,7 +37,6 @@ const app = new Vue({
                 var rDL = res.discountLog;
 
                 for (let i = 0; i < rPI.length; i++) {
-
                     for (let j = 0; j < rMB.length; j++) {
                         if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
                             rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
@@ -46,7 +45,6 @@ const app = new Vue({
                 }
 
                 for (let i = 0; i < rPD.length; i++) {
-
                     for (let j = 0; j < rMB.length; j++) {
 
                         if (rMB[j].MEMBER_ID == rPD[i].MEMBER_ID_for_OD) {

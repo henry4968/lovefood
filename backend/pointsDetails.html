@@ -140,13 +140,13 @@
                     </div>
                 </div>
                 <div id="pointsDataArea" v-if="pointsOfMember">
+                    查詢區間：至
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
-                        會員編號：<input class="input-xl" type="text" :placeholder="data[0].ACCOUNT" disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :placeholder="data[0]['NAME']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :placeholder="data[0]['NAME']" disabled><br>
+                        會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :placeholder="data['NAME']" disabled><br>
                         會員手機：<input class="input-xl" type="text" :placeholder="data['PHONE']" disabled><br>
-                        <!-- 擁有點數：<input class="input-xl" type="text"
-                            :placeholder="data['TOTAL_ISSANCE'] - data['TOTAL_DISCOUNT']" disabled> -->
+                        擁有點數：<input class="input-xl" type="text" :placeholder="data['POINTS']" disabled>
                     </div>
                     <div id="">
                         修改點數：<br>

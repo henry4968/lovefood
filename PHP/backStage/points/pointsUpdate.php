@@ -10,4 +10,6 @@
     $statement->bindValue(2,$_POST['number']);
 
     $statement->execute();
+
+    echo "php執行了！";
 ?>
