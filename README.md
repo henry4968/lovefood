@@ -77,3 +77,10 @@
 |  cd .. | cd .. | 切換至上一層目錄 |
 |  cat file/more | type file | 顯示檔案內容 |
 |  clear | cls | 清除螢幕 |
+
+
+## npm i 會遇到bootstrap的glyphicons路徑問題
+
+1. 去node_modules/bootstrap-sass/assets/stylesheets/bootstrap_variables.scss 
+將原本的這一行修改為
+$icon-font-path: if($bootstrap-sass-asset-helper, "bootstrap/", "../../node_modules/bootstrap-sass/assets/fonts/bootstrap/") !default;

@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心--會員管理</title>
-    <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+                    <!-- data time picker -->
+    <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+    <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script> 
+    <script src="../js/23/product/datetime.js"></script>     
 </head>
 <body>
      <div class="containerProduct">
@@ -80,13 +85,11 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                        <form name="" action="" method="POST" >
                             <div>
                                 <span class="pageLabel-current">上架商品</span>
                                 <span class="pageLabel-others">編輯商品</span>
                                 <span class="pageLabel-others">下架商品</span>
                             </div>
-                        </form>
                     </header>
                 </div>   
                 <main>
@@ -94,39 +97,84 @@
                         <div class="btn-brown pageLabel-s">單筆上架</div>
                         <div class="eachOne">
                             <div class="eachOneLeft">
-                                <span>賣家編號<input class="input-l" type="text" placeholder="SP000001" disabled></span>
-                                <span>商品種類<input class="input-l" type="text"></span>
-                                <span>商品編號<input class="input-l" type="text"></span>
-                                <span>上架區間<input class="input-l" type="date">至<input class="input-l" type="date"></span>
-                                <span>有效期限<input class="input-l" type="text"></span>
+                                <span>賣家編號<input name="sellerNum" class="form-control" type="text" placeholder="SP0001" value="SP0001" disabled></span>
+                                <span>商品種類
+                                    <select  class="categories">
+                                        <option name="categories" :value="data.PRODUCT_CATEGORY_ID" v-for="(data,key) in categories">{{data.NAME}}</option>
+                                    </select>
+                                </span>
+                                <span>商品名稱<input name="productName" class="form-control" type="text"></span>
+                                <div class="time">上架區間
+                                        <div class="form-group">
+                                            <label for="dd" class="sr-only">Time Pick</label>
+                                            <div class="input-group DateDemo" id="">
+                                                <input type="text" name="boardTime[0]" data-format="MM/DD/YYYY" placeholder="請填寫日期"  class="form-control"/>
+                                                <span class="input-group-btn">
+                                                    <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="dd" class="sr-only">Time Pick</label>
+                                            <div class="input-group DateDemo">
+                                                <input type="text" name="boardTime[1]" data-format="MM/DD/YYYY" placeholder="請填寫日期"  class="form-control"/>
+                                                <span class="input-l input-group-btn">
+                                                    <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                </div>
+                                <div class="time">有效期限 
+                                            <div class="form-group">
+                                                <label for="dd" class="sr-only">Time Pick</label>
+                                                <div class="input-group DateDemo">
+                                                    <input type="text" name="exp[0]" name="dd" data-format="MM/DD/YYYY" placeholder="請填寫日期"  class="form-control"/>
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="tt" class="sr-only">Time Pick</label>
+                                                <div class="input-group TimeDemo">
+                                                    <input name="exp[1]" type="text" name="InspectionDate" placeholder="請填寫時間" class="form-control" />
+                                                    <span class="input-group-btn">
+                                                        <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-time fa-4x"></i></button>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                </div>
+                                         
                                 <span>商品數量
                                     <span class="plusMinor">
-                                    <button id="minus" class="btn-brown">-</button><input class="input-quantity" type="text" value="1"><button id="plus" class="btn-brown">+</button>
+                                    <button  id="minus" class="btn-brown">-</button><input class= "input-quantity" name="quantity" type="number" value="1"><button id="plus" class="btn-brown">+</button>
                                     </span>
+                                    <span class="price">商品單價 <div><div class="pricePreffix">NT$</div><input name="price" class="input-price" type="number">元</div></span>
                                 </span>
                                     
                                 
                                 <span>取貨點:
-                                    <input class="input-checkbox" type="checkbox">皆可
-                                    <input class="input-checkbox" type="checkbox">到店自取
-                                    <input class="input-checkbox" type="checkbox">捷運站點
+                                    <input name="pickupSite" class="input-checkbox" type="checkbox">皆可
+                                    <input name="pickupSite" class="input-checkbox" type="checkbox">僅限到店自取
+                                    <input name="pickupSite" class="input-checkbox" type="checkbox">僅限捷運站點
                                 </span>
                             </div>
                             <div class="eachOneRight">
-                                <span>商品圖片<input class="input-l" type="text">
-                                <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input id="fileUpload" type="file"></label>
+                                <span>商品圖片<input class="form-control" type="text" :value="fileName" placeholder="請選擇檔案" disabled>
+                                <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input name="fileUpload" id="fileUpload" type="file" @input="showName"></label>
                                 </span>
                                 
                                 <span>
                                     <p>商品描述</p>
-                                    <textarea class="input-l" name="" id=""></textarea>
+                                    <textarea class="input-l" name="description" id=""></textarea>
                                 </span>
                                 <span>
-                                   <button class="btn-m btn-brown">預覽</button><button class="btn-m btn-brown">上傳</button>
+                                   <button class="btn-m btn-brown">預覽</button><button class="btn-m btn-brown" @click="upload">上傳</button>
                                 </span>
                             </div>
                         </div>
                         <hr>
+                        <!-- ============================批次上傳======================= -->
                         <div class="set">
                             <div class="btn-brown pageLabel-s">批次上架</div>
                             <span>檔案名稱<input class="input-xl" type="text">
@@ -141,6 +189,8 @@
             </div>
         </div>    
     </div>
+    
+
     <script>
         $(document).ready(function() {
                   $('#minus').click(function () {
@@ -159,5 +209,6 @@
                   });
               });
       </script>
+      <script src="../js/23/product/ajaxVueProduct.js"></script>
 </body>
 </html>

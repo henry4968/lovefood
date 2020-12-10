@@ -9,32 +9,7 @@ const app = new Vue({
         }
     },
     
-    // beforeMount() {
-    //     const self = this;
-    //     let urlParams = new URLSearchParams(window.location.search);
-    //     let number= urlParams.get('number');
-    //     let phone= urlParams.get('phone');
-    //     let account= urlParams.get('account');
-    //     let memberType = urlParams.get('memberType');
-    //     let pick1= urlParams.get('datePick1');
-    //     let pick2= urlParams.get('datePick2');
 
-    //         $.ajax({
-    //             url:'../PHP/backStage/member/memberQuery.php',  //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-    //             type:'POST',
-    //             data:{number,phone,account,memberType,pick1,pick2},
-    //             success:function(res){
-    //                 console.log(res);
-    //                 self.tableData = res;
-    //             },
-    //             error:function(res){
-    //                 console.log(res);
-    //             },
-    //             dataType:"JSON",
-    //             })
-    //             // console.log(123);
-
-    // },
 
     methods: {
         query(){
@@ -55,14 +30,6 @@ const app = new Vue({
                     dataType:'JSON',
                     traditional: true,
                     success: function(res){
-                        // console.log(res);
-                        
-                        // for(i=0; i<res.length; i++){
-                        //     res[i].isShow = !isShow;
-                            
-                        // }
-                        // self.tableData = res;
-                        
                          console.log(res);
                          self.tableData = res;
                         
@@ -79,34 +46,4 @@ const app = new Vue({
             
         },
     },
-    updated(){
-        // for(i=0;i<this.tableData1.length;i++){
-        //     if(this.tableData1[i][3]< this.tableData2[i]) {
-
-        //     }
-        // }
-        // let i = this.tableData1.length;
-        // this.tableData1[0][3]  //點數
-        // this.tableData2[0][4]
-        // console.log(this.tableData1.length)
-        
-    },
-    
 });
-$('.orderDetail').on('click',function(e){
-    alert(13);
-    let abc = e.target.closest("tr");
-    console.log(abc);
-})
-//   $(".orderDetail").click(function(){
-//     alert(13);
-//   });
-// $(document).ready(function () { 
-//     $('button').click(function(){
-//         alert('12');
-//         console.log('123');
-//     })
-//  })
-
-
-

@@ -20,7 +20,7 @@
                                     </select>
                         </h3>
                         <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown">儲存</button></span>
-                      </div>`,
+                      </div>`,  
             data(){
                 return{
                     tableDataOne : null,

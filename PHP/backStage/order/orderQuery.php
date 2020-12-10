@@ -3,7 +3,6 @@
     $Util = new UtilClass();
       
     //先令變數
-    // $orderDetail = 
     $orderNum = '%'.$_POST["orderNum"].'%';
     $memberNum = '%'.$_POST["memberNum"].'%';
     $phone = '%'.@$_POST["phone"].'%';  
@@ -39,7 +38,7 @@
         $data1 = $statement->fetchAll();
     }else{
         $sql =
-        "SELECT ORDER_ID, ORDER_DATE, bb.PHONE, DISCOUNT, REG_DATE, ORDER_STATUS
+        "SELECT ORDER_ID, ORDER_DATE, bb.PHONE, DISCOUNT, REG_DATE, ORDER_STATUS, bb.MEMBER_ID
         FROM LoveFood.`ORDER` as aa
         join LoveFood.MEMBER as bb
         on aa.MEMBER_ID_for_OD = bb.MEMBER_ID
@@ -79,12 +78,4 @@
     }
     // $allData = array('order' => $data1, 'detail' => $data2);
     print json_encode($data1);
-
-
-
-    
-
-    
-   
-    
 ?>
