@@ -1,5 +1,10 @@
 // header
 Vue.component('memhead', {
+    data() {
+        return {
+            jumppage: '',
+        }
+    },
     props: ['login'],
     template: `
     <!-- 標頭開始 -->
@@ -55,7 +60,7 @@ Vue.component('memhead', {
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/03/memcart.png">
                 </a>
-                <a href="./memberInformation.html" id="navIcons03" class="navIcons" @click="logIncheck">
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck">
                     <img v-if="login" src='../img/03/mempeoplecirclechange.png'>
                     <img v-else="login"  src='../img/03/mempeoplecircle.png'>
                 </a>
@@ -75,12 +80,13 @@ Vue.component('memhead', {
     </header>
     `,
     methods: {
-        logIncheck(e) {
-            // 點擊判斷是否有登入會員，如果有就跳入會員中心，如果沒有就停在原本頁面
+        logIncheck() {
+            // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入就進入登入註冊頁面
             if (checkdata != '') {
                 this.memberimg = '../img/03/mempeoplecirclechange.png';
+                this.jumppage = './memberInformation.html';
             } else {
-                e.preventDefault();
+                this.jumppage = './signUp_signIn.html';
             }
         },
     },

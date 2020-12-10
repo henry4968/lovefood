@@ -30,7 +30,7 @@ body{
     min-height: 700px;
     // height: 70vh;
     // border: 1px solid black;
-    background-image: url('../../img/03/bgrev1.png');  
+    background-image: url('../img/03/bgrev1.png');  
     background-repeat: repeat;
     background-position: center;
     background-size: 20%;
@@ -596,7 +596,7 @@ body{
             img.backCategoryBorder{
               cursor: pointer;
               &:hover{
-                content: url('../../img/03/backcategoryhover.png');
+                content: url('../img/03/backcategoryhover.png');
               }
             }
           }
@@ -609,7 +609,7 @@ body{
               height: 180px;
               border-radius: 50%;
               background-color: #fff;
-              background-image: url('../../img/03/uploadpicture.png'),url('../../img/03/person.png');
+              background-image: url('../img/03/uploadpicture.png'),url('../img/03/person.png');
               background-repeat: no-repeat;
               background-position: center top 80%,center;
               background-size: 70%;
@@ -688,7 +688,7 @@ body{
             img.orderbackCategoryBorder{
               cursor: pointer;
               &:hover{
-                content: url('../../img/03/backcategoryhover.png');
+                content: url('../img/03/backcategoryhover.png');
               }
             }
           }
@@ -1249,7 +1249,7 @@ body{
               img.pointbackCategoryBorder{
                 cursor: pointer;
                 &:hover{
-                  content: url('../../img/03/backcategoryhover.png');
+                  content: url('../img/03/backcategoryhover.png');
                 }
               }
             }
@@ -1602,7 +1602,7 @@ body{
                   img.memappbackCategoryBorder{
                     cursor: pointer;
                     &:hover{
-                      content: url('../../img/03/backcategoryhover.png');
+                      content: url('../img/03/backcategoryhover.png');
                     }
                   }
                 }
@@ -1676,7 +1676,7 @@ body{
             }
             &:hover{
               img.memappchangebackCategoryBorder{
-                content: url('../../img/03/backcategoryhover.png');
+                content: url('../img/03/backcategoryhover.png');
               }
             }
           }
