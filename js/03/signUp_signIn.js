@@ -229,7 +229,7 @@ Vue.component('member', {
 Vue.component('seller', {
   template: `
         <div class="seller">
-          <form id="seller" method="post" action="#../PHP/Frontend/sellerJoinR.php">
+          <form id="seller" method="post" action="../PHP/Frontend/sellerJoinR.php">
             <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" @click="selacfu" name="selaccount" />
             <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" @click="selpafu" />
             <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" @click="selpacofu" name="selpwd" />
@@ -404,9 +404,16 @@ Vue.component('seller', {
       }
 
       // 以上條件沒問題就submit
-      if (this.selsignUpac != true && this.selsignUppa != true && this.selsignUppacf != true && this.selcom != true && this.selTax != true && this.seladd != true && this.selphone != true && this.selsignUpachtml != '' && this.selsignUppahtml != '' && this.selsignUppacfhtml != '' && this.selcomhtml != '' && this.selTaxhtml != '' && this.seladdhtml != '' && this.selphonehtml != '') {
-        this.selBtn = 'submit';
-        event.target.submit();
+      if (this.selsignUpac != true && this.selsignUppa != true && this.selsignUppacf != true && this.selcom != true && this.selTax != true && this.seladd != true && this.selphone != true && this.selsignUpachtml != '' && this.selsignUppahtml != '' && this.selsignUppacfhtml != '' && this.selcomhtml != '' && this.seladdhtml != '' && this.selphonehtml != '') {
+        // 判斷統編是否為空的作法
+        if (this.selTaxhtml == '') {
+          this.selTaxhtml = 0;
+          this.selBtn = 'submit';
+          event.target.submit();
+        } else if (this.selTaxhtml != '') {
+          this.selBtn = 'submit';
+          event.target.submit();
+        }
       }
     },
 
