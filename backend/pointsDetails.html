@@ -140,7 +140,6 @@
                     </div>
                 </div>
                 <div id="pointsDataArea" v-if="pointsOfMember">
-                    查詢區間：至
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
                         會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
                         會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>

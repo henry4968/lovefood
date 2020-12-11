@@ -15,15 +15,16 @@
             });
 
             $("#financeDataFilterTab01").click(function () {
-                $("#financeShowSellingPage").css("display", "block");
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
                 $("#supplierID").css("display", "block");
-                $("#financeShowDonationPage").css("display", "none");
+                $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
 
             });
 
             $("#financeDataFilterTab02").click(function () {
-                $("#financeShowSellingPage").css("display", "none");
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
                 $("#supplierID").css("display", "none");
+                $("#financeFilterForDonation").css("display", "flex");
                 $("#financeShowDonationPage").css("display", "block");
 
             });
@@ -129,14 +130,11 @@
                         <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive">檢視銷售</div>
                         <div id="financeDataFilterTab02" class="financeDataFilterTab">檢視捐款</div>
                     </div>
-                    <div id="financeFilter">
+                    <div id="financeFilterForSelling" class="financeFilter">
                         <div id="financeDateFilterBlock">
                             查詢時間
                             <input type="date">至
                             <input type="date">
-                            <!-- <a href="#0">
-                                <img src="../img/22/backend/backend_icon_calendar.png" alt="">
-                            </a> -->
                             <div id="supplierID">
                                 賣家編號
                                 <input type="text">
@@ -146,6 +144,27 @@
                         <a href="">
                             <div id="financeFilterButton">查詢</div>
                         </a>
+                    </div>
+                    <div id="financeFilterForDonation" class="financeFilter">
+                        <div id="donationSearchingBlock">
+                            <div class="donationSearchingRow" id="donationSearchingTopRow">
+                                <div>捐款編號<input type="text" name="general_ID" class="form-control"></div>
+                                <div>捐款姓名<input type="text" name="name" class=" form-control"></div>
+                            </div>
+                            <div class="donationSearchingRow" id="donationSearchingBottomRow">
+                                <div>電子郵件<input type="text" name="email" class="form-control"></div>
+                                <div>身分證字號／統編<input type="text" name="pID_tID" class="form-control"></div>
+                            </div>
+                        </div>
+                        <!-- <div id="financeFilterDownload">下載：</div> -->
+                        <div id="donationDateFilter">
+                            <div>查詢區間</div>
+                            <input type="date" name="dateStart">至
+                            <input type="date" name="dateEnd">
+                            <a href="">
+                                <div id="financeFilterButton">查詢</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div id="financeDataArea">

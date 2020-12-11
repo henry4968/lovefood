@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
-    <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <link rel="stylesheet" href="../css/backstage/backstageAll.css">
+    <script src="../node_modules/moment/min/moment.min.js"></script>
+    <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
+    <script src="../js/23/product/datetime.js"></script>
 </head>
 
 <body>
@@ -112,22 +115,40 @@
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員編號</div>
-                                <input type="text" name="number">
+                                <input type="text" name="number" class="form-control">
                                 <div>會員帳號</div>
-                                <input type="text" name="account">
+                                <input type="text" name="account" class="form-control">
                             </div>
                             <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員姓名</div>
-                                <input type="text" name="name">
+                                <input type="text" name="name" class="form-control">
                                 <div>會員手機</div>
-                                <input type=" text" name="phone">
+                                <input type=" text" name="phone" class="form-control">
                             </div>
                         </div>
                         <div id="pointsDataFilterRightBlock">
-                            <div>
-                                查詢區間<br>
-                                <input type="date" name="datePick01" value="2020-01-01">至<input type="date"
-                                    name="datePick02" value="2020-12-31">
+                            <div class="form-group">
+                                查詢區間
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo" id="">
+                                    <input type="text" name="datePick01" data-format="MM/DD/YYYY" value="2020-01-01"
+                                        class="form-control" id="queryDateStart" />至
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo">
+                                    <input type="text" name="datePick02" data-format="MM/DD/YYYY" value="2020-12-31"
+                                        class="form-control" id="queryDateEnd" />
+                                    <span class="input-l input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
                             </div>
                             <div id="membersPointsActionBlock">
                                 <a href="#0" @click="query">
@@ -148,8 +169,11 @@
                             <th>擁有點數</th>
                             <th>功能鍵</th>
                         </tr>
-                        <tbody v-if="pointsOfMember">
-                            <tr v-for="(data,key) in pointsOfMember">
+                        <tbody v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
+                            <h4>查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
+                                    id="showDateEnd">2020-12-31</span>】
+                            </h4><br>
+                            <tr>
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["ACCOUNT"]}}</td>

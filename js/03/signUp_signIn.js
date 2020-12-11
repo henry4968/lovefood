@@ -229,15 +229,15 @@ Vue.component('member', {
 Vue.component('seller', {
   template: `
         <div class="seller">
-          <form id="seller" method="post" action="#">
-            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" />
-            <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" />
-            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" />
-            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" />
-            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" />
-            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" />
-            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" />
-            <button class="seller" type="submit" @click="sellersignUp">註冊</button>
+          <form id="seller" method="post" action="../PHP/Frontend/sellerJoinR.php">
+            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" @click="selacfu" name="selaccount" />
+            <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" @click="selpafu" />
+            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" @click="selpacofu" name="selpwd" />
+            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" @click="selcomfu" name="selcom" />
+            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" @click="seltaxfu" name="seltax" />
+            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" @click="seladdfu" name="seladd" />
+            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" @click="selphofu" name="selpho" />
+            <button class="seller" :type="selBtn" @click="sellersignUp">註冊</button>
             <button class="changeTOmember" id="goTOmember" type="button">會員登入</button>
           </form>
         </div>
@@ -292,6 +292,9 @@ Vue.component('seller', {
       seladdhtml: '',
       // 聯絡電話
       selphonehtml: '',
+
+      // 綁定賣家註冊type
+      selBtn: 'button',
     }
   },
   methods: {
@@ -347,17 +350,111 @@ Vue.component('seller', {
 
       // 公司名稱空白檢查
       if (this.selcompla == '公司名稱' && this.selcomhtml == '') {
+        this.selcomhtml = '';
         this.selcompla = '公司名稱不可為空白';
-        this.selcom = true
+        this.selcom = true;
         event.preventDefault();
       }
 
-      // 統一編號
-      this.selTax = true
-      this.seladd = true
-      this.selphone = true
-      event.preventDefault();
+      // 統一編號格式檢查
+      if (this.selTaxhtml != "") {
+        const taxrule = /\d{8}/;
+        if (this.selTaxhtml.search(taxrule) != -1) {
+        } else {
+          this.selTaxhtml = '';
+          this.selTaxpla = '統一編號不符合規定';
+          this.selTax = true;
+          event.preventDefault();
+        }
+      }
+
+      // 登記地址空白檢查
+      if (this.seladdpla == '登記地址' && this.seladdhtml == '') {
+        this.seladdhtml = '';
+        this.seladdpla = '登記地址不可為空白';
+        this.seladd = true
+        event.preventDefault();
+      }
+
+      // 登記地址需包含中文和數字
+      // escape對字串進行編碼時，字元值大於255的以"%u****"格式儲存，而字元值大於255的恰好是非英文字元（一般是中文字元，非中文字元也可以當作中文字元考慮）；indexOf用以判斷在字串中是否存在某子字串
+      const addmath = /\d{1}/; //最少要有一個數字
+      if ((escape(this.seladdhtml).indexOf("%u") < 0) && (this.seladdhtml.search(addmath) != 0)) {
+        this.seladdhtml = '';
+        this.seladdpla = '登記地址格式不對';
+        this.seladd = true;
+        event.preventDefault();
+      }
+
+      // 聯絡電話不可空白
+      if (this.selphonepla == '聯絡電話' && this.selphonehtml == '') {
+        this.selphonehtml = '';
+        this.selphonepla = '聯絡電話不可為空白';
+        this.selphone = true
+        event.preventDefault();
+      }
+
+      // 聯絡電話只能是數字及數字需大於等於10碼
+      const phonemath = /\d{10}/;
+      if (this.selphonehtml.search(phonemath) != 0) {
+        this.selphonehtml = '';
+        this.selphonepla = '聯絡電話格式不對';
+        this.selphone = true
+        event.preventDefault();
+      }
+
+      // 以上條件沒問題就submit
+      if (this.selsignUpac != true && this.selsignUppa != true && this.selsignUppacf != true && this.selcom != true && this.selTax != true && this.seladd != true && this.selphone != true && this.selsignUpachtml != '' && this.selsignUppahtml != '' && this.selsignUppacfhtml != '' && this.selcomhtml != '' && this.seladdhtml != '' && this.selphonehtml != '') {
+        // 判斷統編是否為空的作法
+        if (this.selTaxhtml == '') {
+          this.selTaxhtml = 0;
+          this.selBtn = 'submit';
+          event.target.submit();
+        } else if (this.selTaxhtml != '') {
+          this.selBtn = 'submit';
+          event.target.submit();
+        }
+      }
     },
+
+    // input 復原
+    // 信箱
+    selacfu() {
+      this.selsignUpac = false
+      this.selsignUpacpla = '信箱'
+    },
+    // 密碼
+    selpafu() {
+      this.selsignUppa = false
+      this.selsignUppapla = '密碼'
+    },
+    // 確認密碼
+    selpacofu() {
+      this.selsignUppacf = false
+      this.selsignUppacfpla = '確認密碼'
+    },
+    // 公司名稱
+    selcomfu() {
+      this.selcom = false
+      this.selcompla = '公司名稱'
+    },
+    // 統一編號
+    seltaxfu() {
+      this.selTax = false
+      this.selTaxpla = '統一編號(非必填)'
+    },
+    // 登記地址
+    seladdfu() {
+      this.seladd = false
+      this.seladdpla = '登記地址'
+    },
+    // 聯絡電話
+    selphofu() {
+      this.selphone = false
+      this.selphonepla = '聯絡電話'
+    },
+
+
   },
 });
 
