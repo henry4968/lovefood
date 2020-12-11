@@ -1,69 +1,49 @@
-<?php
+<?php 
 
     include("../Lib/UtilClass2.php");
     $Util = new UtilClass();
 
-    $pick01 = $_POST["pick01"];
-    $pick02 = $_POST["pick02"];
-    $number = '%'.@$_POST["number"].'%';
-    $account = '%'.@$_POST["account"].'%';
+    $dateStart = $_POST["dateStart"];
+    $dateEnd = $_POST["dateEnd"];
+    $general_ID = '%'.@$_POST["general_ID"].'%';
     $name = '%'.@$_POST["name"].'%';
-    $phone = '%'.@$_POST["phone"].'%';
+    $email = '%'.@$_POST["email"].'%';
+    $pID_tID = '%'.@$_POST["pID_tID"].'%';
 
-    
+    if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
-    $statesmentMember = $Util->getPDO()->prepare($sqlMember);
-    $statesmentTotalIssance = $Util->getPDO()->prepare($sqlTotalIssance);
-    $statesmentTotalDiscount = $Util->getPDO()->prepare($sqlTotalDiscount);
-    $statesmentIssanceLog = $Util->getPDO()->prepare($sqlIssanceLog);
-    $statesmentDiscountLog = $Util->getPDO()->prepare($sqlDiscountLog);
+        $sqlDonationLog = "SELECT GENERAL_ID, `NAME`,EMAIL , PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, AMOUNT, `DATE` FROM Lovefood.DONATION WHERE GENERAL_ID like ? and `NAME` like ? and EMAIL like ? and PERSONAL_ID_OR_TAX_ID like ? and DATE >= ? and DATE <= ?";
 
-    $statesmentIssanceLog->bindValue(1,$number);
-    $statesmentIssanceLog->execute();
-    $dataIL = $statesmentIssanceLog->fetchAll(PDO::FETCH_ASSOC);
+        $statesmentDonationLog = $Util->getPDO()->prepare($sqlDonationLog);
 
-    $statesmentDiscountLog->bindValue(1,$number);
-    $statesmentDiscountLog->execute();
-    $dataDL = $statesmentDiscountLog->fetchAll(PDO::FETCH_ASSOC);
+        $statesmentDonationLog->bindValue(1,$general_ID);
+        $statesmentDonationLog->bindValue(2,$name);
+        $statesmentDonationLog->bindValue(3,$email);
+        $statesmentDonationLog->bindValue(4,$pID_tID);
+        $statesmentDonationLog->bindValue(5,$dateStart);
+        $statesmentDonationLog->bindValue(6,$dateEnd);
 
-    if(is_Date($_POST["pick01"]) && is_Date($_POST["pick02"])){
+        $statesmentDonationLog->execute();
+        $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
 
-        $statesmentTotalIssance->bindValue(1,$number);
-        $statesmentTotalIssance->bindValue(2,$pick02);
-
-        $statesmentTotalIssance->execute();
-        $dataIS = $statesmentTotalIssance->fetchAll(PDO::FETCH_ASSOC);
-
-        $statesmentTotalDiscount->bindValue(1,$number);
-        $statesmentTotalDiscount->bindValue(2,$pick01);
-        $statesmentTotalDiscount->bindValue(3,$pick02);
-
-        $statesmentTotalDiscount->execute();
-        $dataDS = $statesmentTotalDiscount->fetchAll(PDO::FETCH_ASSOC);
-
-        $statesmentMember->bindValue(1,$number);
-        $statesmentMember->bindValue(2,$account);
-        $statesmentMember->bindValue(3,$name);
-        $statesmentMember->bindValue(4,$phone);
-        
-        $statesmentMember->execute();
-        $dataMB = $statesmentMember->fetchAll(PDO::FETCH_ASSOC); 
-
-        $pointsQueryWithDate = array('pointsOfMember' => $dataMB,'pointsIssance' =>$dataIS, 'pointsDiscount' =>$dataDS, 'issanceLog' =>$dataIL, 'discountLog'=>$dataDL);
-        print json_encode($pointsQueryWithDate);
+        print json_encode($dataDL);
         
     }else{
 
-        $statesmentMember->bindValue(1,$number);
-        $statesmentMember->bindValue(2,$account);
-        $statesmentMember->bindValue(3,$name);
-        $statesmentMember->bindValue(4,$phone);
+        $sqlDonationLog = "SELECT GENERAL_ID, `NAME`,EMAIL , PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, AMOUNT, `DATE` FROM Lovefood.DONATION WHERE GENERAL_ID like ? and `NAME` like ? and EMAIL like ? and PERSONAL_ID_OR_TAX_ID like ?";
 
-        $statesmentMember->execute();
-        $dataMB = $statesmentMember->fetchAll(PDO::FETCH_ASSOC);
-        
-        $pointsQueryWithoutDate = array('pointsOfMember' => $dataMB, 'issanceLog' =>$dataIL, 'discountLog'=>$dataDL);
-        print json_encode($pointsQueryWithoutDate);
+        $statesmentDonationLog = $Util->getPDO()->prepare($sqlDonationLog);
+
+        $statesmentDonationLog->bindValue(1,$general_ID);
+        $statesmentDonationLog->bindValue(2,$name);
+        $statesmentDonationLog->bindValue(3,$email);
+        $statesmentDonationLog->bindValue(4,$pID_tID);
+
+        $statesmentDonationLog->execute();
+        $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
+
+        print json_encode($dataDL);
+
     }
 
     function is_Date($string){

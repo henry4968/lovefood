@@ -6,9 +6,7 @@ const app = new Vue({
             pointsDiscount: null,
             pointsOfMember: null,
             issanceLog: null,
-            discountLog: null,
-            dateValue01: '2020-01-01',
-            dateValue02: '2020-12-31',
+            discountLog: null
         }
     },
 
@@ -136,9 +134,6 @@ const app = new Vue({
                 },
                 dataType: "JSON",
             });
-        },
-        pickDate() {
-            this.dateValue01 = this.dateValue01;
         }
     }
 });
