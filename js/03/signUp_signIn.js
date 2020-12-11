@@ -229,14 +229,14 @@ Vue.component('member', {
 Vue.component('seller', {
   template: `
         <div class="seller">
-          <form id="seller" method="post" action="#">
-            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" @click="selacfu" />
+          <form id="seller" method="post" action="#../PHP/Frontend/sellerJoinR.php">
+            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" @click="selacfu" name="selaccount" />
             <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" @click="selpafu" />
-            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" @click="selpacofu" />
-            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" @click="selcomfu" />
-            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" @click="seltaxfu" />
-            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" @click="seladdfu" />
-            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" @click="selphofu" />
+            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" @click="selpacofu" name="selpwd" />
+            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" @click="selcomfu" name="selcom" />
+            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" @click="seltaxfu" name="seltax" />
+            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" @click="seladdfu" name="seladd" />
+            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" @click="selphofu" name="selpho" />
             <button class="seller" :type="selBtn" @click="sellersignUp">註冊</button>
             <button class="changeTOmember" id="goTOmember" type="button">會員登入</button>
           </form>
@@ -408,7 +408,6 @@ Vue.component('seller', {
         this.selBtn = 'submit';
         event.target.submit();
       }
-      event.preventDefault();
     },
 
     // input 復原
