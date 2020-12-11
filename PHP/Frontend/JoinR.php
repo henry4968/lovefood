@@ -32,7 +32,7 @@
     }
     // echo $insert; 準備輸入的memberID
 
-    // 帳號重複問題解決
+    // 買家帳號重複問題解決
     //建立SQL
     $sql = "SELECT * FROM member WHERE CLASS = 'general' and ACCOUNT = ?";
 
@@ -44,8 +44,20 @@
     $statement->execute();
     $data = $statement->fetchAll();
 
+    // 賣家帳號重複問題解決
+    //建立SQL
+    $slesql = "SELECT * FROM supplier WHERE SUPPLIER_STATUS = 1 and ACCOUNT = ?";
+
+    //執行
+    $selstatement = $Util->getPDO()->prepare($slesql);
+
+    //給值
+    $selstatement->bindValue(1, $_POST["account"]);
+    $selstatement->execute();
+    $seldata = $selstatement->fetchAll();
+
     // 判斷帳號是否重複
-    if(count($data) > 1){
+    if(count($data) >= 1 || count($seldata) >= 1){
         echo "<script>alert('帳號重複請重新註冊!'); location.href = '../../frontend/signUp_signIn.html';</script>";
     }else{
         // INSERT Second //如果帳號不重複就執行程式
