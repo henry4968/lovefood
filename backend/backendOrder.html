@@ -8,15 +8,6 @@
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <!-- <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
-    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script> -->
-    <script>
-        $(function () {
-            $('.btn-sb').click(function () {
-                $(this).attr('disabled', true).css({ 'color': 'white', 'background-color': 'grey' });
-            })
-        });
-    </script>
 </head>
 
 <body>
@@ -146,6 +137,7 @@
                             <tr>
                                 <th>序號</th>
                                 <th>訂單編號</th>
+                                <th>會員編號</th>
                                 <th>會員手機</th>
                                 <th>折抵點數</th>
                                 <th>訂單時間</th>
@@ -159,6 +151,7 @@
                                 <tr> 
                                     <td>{{key+1}}</td>
                                     <td>{{data[0]}}</td>
+                                    <td>{{data[6]}}</td>
                                     <td>{{data[2]}}</td>
                                     <td>{{data[3]}}</td>
                                     <td>{{data[1]}}</td>
@@ -195,9 +188,12 @@
         </div>
     </div>
     <script>
-
+        $(function () {
+            $('.btn-sb').click(function () {
+                $(this).attr('disabled', true).css({ 'color': 'white', 'background-color': 'grey' });
+            })
+        });
     </script>
-    
     <script src="../js/23/order/orderAjaxVue.js"></script>
 </body>
 

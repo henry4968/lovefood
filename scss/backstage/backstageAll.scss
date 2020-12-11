@@ -1,7 +1,8 @@
 @import "../base/var";
 @import "../mixin/mixins";
-@import "../../node_modules/normalize-scss/sass/normalize/import-now"; //reset
-@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap'; //更改請至此支檔案選擇需要的功能
+// @import "../../node_modules/normalize-scss/sass/normalize/import-now"; //reset
+@import '../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap'; //更改請至此支檔案選擇需要的功
+
 
 //modules
 @import "../modules/button";

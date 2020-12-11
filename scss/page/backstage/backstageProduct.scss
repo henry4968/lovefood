@@ -13,7 +13,6 @@
                 margin-bottom: 10px;
                 background-color: $y;
                 header{
-                    form{
                         div{
                             position: relative;
                             display: flex;
@@ -36,8 +35,6 @@
                                 right:3px;
                             }
                         }
-                    
-                    }
                 }
             }
         }
@@ -49,10 +46,28 @@
                         margin-top: 10px;
                         display: flex;
                         flex-direction: column;
+                        .time{
+                            margin:8px 20px;
+                            display:flex;
+                            flex-direction: row;
+                            
+                        }
                         span{
                             margin:8px 20px;
                             .plusMinor{
                                 margin:0 6px;
+                            }
+                        }
+                        span.price{
+                            div{
+                                display: inline-flex;
+                                .pricePreffix{
+                                    border: 1px solid lightgray;
+                                    border-right: none;
+                                    background-color: white;
+                                    color: gray;
+                                    padding: 2px 8px;
+                                }
                             }
                         }
                     }

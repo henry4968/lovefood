@@ -1,8 +1,14 @@
+input[type=number]::-webkit-outer-spin-button,
+input[type=number]::-webkit-inner-spin-button{
+-webkit-appearance: none;
+margin: 0;
+}
+
 %input-common{
     margin:0 8px;
     
-    border-radius: 8px;
-    border: 1px solid gray;
+    border-radius: 2px;
+    border: 1px solid lightgray;
     font-size: 12px;
     line-height: 20px;
 }
@@ -29,5 +35,30 @@
     margin: 0 5px;
 }
 .input-quantity{
+    @extend %input-common;
     text-align: center;
+    margin:0;
+    width:40px;
+}
+.input-price{
+    @extend %input-common;
+    text-align: center;
+    margin:0;
+    width:100px;
+}
+.categories{ //selection 種類輸入
+    @extend %input-common;
+    margin:0 4px;
+    color:$lb;
+    background-color: $C9;
+}
+.form-control{
+    display:inline-block;
+    position: relative;
+    width: 154px;
+    margin-left: 8px;
+}
+
+.input-group{
+    width:150px;
 }

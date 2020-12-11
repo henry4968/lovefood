@@ -7,6 +7,7 @@
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script>
         $(function () {
             $(".financeDataFilterTab").click(function () {
@@ -15,15 +16,16 @@
             });
 
             $("#financeDataFilterTab01").click(function () {
-                $("#financeShowSellingPage").css("display", "block");
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
                 $("#supplierID").css("display", "block");
-                $("#financeShowDonationPage").css("display", "none");
+                $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
 
             });
 
             $("#financeDataFilterTab02").click(function () {
-                $("#financeShowSellingPage").css("display", "none");
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
                 $("#supplierID").css("display", "none");
+                $("#financeFilterForDonation").css("display", "flex");
                 $("#financeShowDonationPage").css("display", "block");
 
             });
@@ -129,14 +131,11 @@
                         <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive">檢視銷售</div>
                         <div id="financeDataFilterTab02" class="financeDataFilterTab">檢視捐款</div>
                     </div>
-                    <div id="financeFilter">
+                    <div id="financeFilterForSelling" class="financeFilter">
                         <div id="financeDateFilterBlock">
                             查詢時間
                             <input type="date">至
                             <input type="date">
-                            <!-- <a href="#0">
-                                <img src="../img/22/backend/backend_icon_calendar.png" alt="">
-                            </a> -->
                             <div id="supplierID">
                                 賣家編號
                                 <input type="text">
@@ -146,6 +145,27 @@
                         <a href="">
                             <div id="financeFilterButton">查詢</div>
                         </a>
+                    </div>
+                    <div id="financeFilterForDonation" class="financeFilter">
+                        <div id="donationSearchingBlock">
+                            <div class="donationSearchingRow" id="donationSearchingTopRow">
+                                <div>捐款編號<input type="text" name="general_ID" class="form-control"></div>
+                                <div>捐款姓名<input type="text" name="name" class=" form-control"></div>
+                            </div>
+                            <div class="donationSearchingRow" id="donationSearchingBottomRow">
+                                <div>電子郵件<input type="text" name="email" class="form-control"></div>
+                                <div>身分證字號／統編<input type="text" name="pID_tID" class="form-control"></div>
+                            </div>
+                        </div>
+                        <!-- <div id="financeFilterDownload">下載：</div> -->
+                        <div id="donationDateFilter">
+                            <div>查詢區間</div>
+                            <input type="date" name="dateStart">至
+                            <input type="date" name="dateEnd">
+                            <a href="#0">
+                                <div id="financeFilterButton" @click="query">查詢</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
                 <div id="financeDataArea">
@@ -175,92 +195,33 @@
                         <table id="donationTable">
                             <tr id="donationTableHeader">
                                 <th>序號</th>
-                                <th>捐款單號</th>
+                                <th>捐款編號</th>
                                 <th>捐款姓名</th>
+                                <th>捐款電郵</th>
+                                <th>身分證字號／統編</th>
+                                <th id="donationPlan">捐款類別</th>
                                 <th>捐款金額</th>
                                 <th>捐款時間</th>
-                                <th>狀態</th>
                                 <th>功能鍵</th>
                             </tr>
-                            <tr>
-                                <td>00001</td>
-                                <td>2020110100001</td>
-                                <td>張互賓</td>
-                                <td>10000</td>
-                                <td>2020-11-01 13:30</td>
-                                <td>成功</td>
-                                <td class="pointsDataActionBlock">
-                                    <a href="">
-                                        <div class="pointsDataActionButton">編輯</div>
-                                    </a>
-                                    <a href="">
-                                        <div class="pointsDataActionButton">查詢</div>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>00002</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00003</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00004</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00005</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00006</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00007</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            <tr>
-                                <td>00008</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
+                            <tbody v-if="donationLog">
+                                <tr v-for="(data,key) in donationLog">
+                                    <td>{{key+1}}</td>
+                                    <td>{{data["GENERAL_ID"]}}</td>
+                                    <td>{{data["NAME"]}}</td>
+                                    <td>{{data["EMAIL"]}}</td>
+                                    <td>{{data["PERSONAL_ID_OR_TAX_ID"]}}</td>
+                                    <td>{{data["DONATION_PLAN"]}}</td>
+                                    <td>{{data["AMOUNT"]}}</td>
+                                    <td>{{data["DATE"]}}</td>
+                                    <td class="pointsDataActionBlock">
+                                        <form action="pointsDetails.html" method="GET">
+                                            <button type="submit" class="btn-sb btn-green">詳情</button>
+                                            <input type="hidden" name="number" :value="data['MEMBER_ID']">
+                                        </form>
+                                    </td>
+                                </tr>
+                            </tbody>
                         </table>
                         <div id="pagination">
                             <a href="#0">＜</a>
@@ -277,6 +238,9 @@
             </main>
         </div>
     </div>
+
+    <script src="../js/22/financeAjaxVue.js"></script>
+
 </body>
 
 </html>

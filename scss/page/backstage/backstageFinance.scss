@@ -47,14 +47,16 @@
                     background-color: #EDEBD8;
                 }
             }
-            #financeFilter{
+            .financeFilter{
                 width: 920px;
                 height: 110px;
-                padding: 18px 280px 18px 18px;
+                padding: 18px;
                 background-color: #EBECE3;
                 border-radius: 13px;
                 box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 position: relative;
+            }
+            #financeFilterForSelling{
                 #financeDateFilterBlock{
                     width: 821px;
                     height: 37px;
@@ -96,6 +98,29 @@
                     top: 70px;
                 }
             }
+            #financeFilterForDonation{
+                border: 1px solid red;
+                display: none;
+                #donationSearchingBlock{
+                    .donationSearchingRow{
+                        width: 510px;
+                        margin-bottom: 5px;
+                        display: flex;
+                        justify-content: space-between;
+
+                    }
+                }
+                #donationDateFilter{
+                    border: 1px solid blue;
+                    margin-left: 50px;
+                    width: 300px;
+                    height: 80px;
+                    input{
+                        width: 130px;
+                        margin: 5px;
+                    }
+                }
+            }
         }
         #financeDataArea{
             height: 578px;
@@ -125,7 +150,6 @@
                             border-radius: 10px;
                             background-color: #FFFFFF;
                             margin: 0px 20px 0px 0px;
-                            
                         }
                     }
                 }
@@ -165,8 +189,10 @@
                 }
                 #donationTable{
                     width: 945px;
-                    height: 350px;
                     margin: 30px 0px 0px 0px;
+                    #donationTableHeader{
+                        height: 50px;
+                    }
                     tr:nth-child(2n){
                         background-color: #FFFFFF;
                     }

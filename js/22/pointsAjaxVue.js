@@ -88,11 +88,11 @@ const app = new Vue({
                     self.issanceLog = res.issanceLog;
                     self.discountLog = res.discountLog;
 
-                    var rMB = res.pointsOfMember;
-                    var rPI = res.pointsIssance;
-                    var rPD = res.pointsDiscount;
-                    var rIL = res.issanceLog;
-                    var rDL = res.discountLog;
+                    let rMB = res.pointsOfMember;
+                    let rPI = res.pointsIssance;
+                    let rPD = res.pointsDiscount;
+                    let rIL = res.issanceLog;
+                    let rDL = res.discountLog;
 
                     for (let i = 0; i < rPI.length; i++) {
 
@@ -118,6 +118,15 @@ const app = new Vue({
                     console.log(rPD);
                     console.log(rIL);
                     console.log(rDL);
+
+                    let queryDateStart = document.querySelector("#queryDateStart");
+                    let showDateStart = document.querySelector("#showDateStart");
+                    let queryDateEnd = document.querySelector("#queryDateEnd");
+                    let showDateEnd = document.querySelector("#showDateEnd");
+
+                    showDateStart.innerHTML = queryDateStart.value;
+                    showDateEnd.innerHTML = queryDateEnd.value;
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");

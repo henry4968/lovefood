@@ -229,20 +229,233 @@ Vue.component('member', {
 Vue.component('seller', {
   template: `
         <div class="seller">
-          <form id="seller" method="post" action="#">
-            <input class="seller" type="email" placeholder="信箱" />
-            <input class="seller" type="password" placeholder="密碼" />
-            <input class="seller" type="password" placeholder="確認密碼" />
-            <input class="seller" type="text" placeholder="公司名稱" />
-            <input class="seller" type="text" placeholder="統一編號" />
-            <input class="seller" type="text" placeholder="登記地址" />
-            <input class="seller" type="text" placeholder="聯絡電話" />
-            <button class="seller" type="submit">註冊</button>
+          <form id="seller" method="post" action="../PHP/Frontend/sellerJoinR.php">
+            <input class="seller" type="email" :placeholder="selsignUpacpla" :class="{selsignUpac:selsignUpac}" v-model="selsignUpachtml" @click="selacfu" name="selaccount" />
+            <input class="seller" type="password" :placeholder="selsignUppapla" :class="{selsignUppa:selsignUppa}" v-model="selsignUppahtml" @click="selpafu" />
+            <input class="seller" type="password" :placeholder="selsignUppacfpla" :class="{selsignUppacf:selsignUppacf}" v-model="selsignUppacfhtml" @click="selpacofu" name="selpwd" />
+            <input class="seller" type="text" :placeholder="selcompla" :class="{selcom:selcom}" v-model="selcomhtml" @click="selcomfu" name="selcom" />
+            <input class="seller" type="text" :placeholder="selTaxpla" :class="{selTax:selTax}" v-model="selTaxhtml" @click="seltaxfu" name="seltax" />
+            <input class="seller" type="text" :placeholder="seladdpla" :class="{seladd:seladd}" v-model="seladdhtml" @click="seladdfu" name="seladd" />
+            <input class="seller" type="text" :placeholder="selphonepla" :class="{selphone:selphone}" v-model="selphonehtml" @click="selphofu" name="selpho" />
+            <button class="seller" :type="selBtn" @click="sellersignUp">註冊</button>
             <button class="changeTOmember" id="goTOmember" type="button">會員登入</button>
           </form>
         </div>
       </div>
-      `,
+    `,
+  data() {
+    return {
+      // input 紅框
+      // 信箱
+      selsignUpac: '',
+      // 密碼
+      selsignUppa: '',
+      // 確認密碼
+      selsignUppacf: '',
+      // 公司名稱
+      selcom: '',
+      // 統一編號
+      selTax: '',
+      // 登記地址
+      seladd: '',
+      // 聯絡電話
+      selphone: '',
+
+      // input placeholder
+      // 信箱
+      selsignUpacpla: '信箱',
+      // 密碼
+      selsignUppapla: '密碼',
+      // 確認密碼
+      selsignUppacfpla: '確認密碼',
+      // 公司名稱
+      selcompla: '公司名稱',
+      // 統一編號
+      selTaxpla: '統一編號(非必填)',
+      // 登記地址
+      seladdpla: '登記地址',
+      // 聯絡電話
+      selphonepla: '聯絡電話',
+
+      // input html
+      // 信箱
+      selsignUpachtml: '',
+      // 密碼
+      selsignUppahtml: '',
+      // 確認密碼
+      selsignUppacfhtml: '',
+      // 公司名稱
+      selcomhtml: '',
+      // 統一編號
+      selTaxhtml: '',
+      // 登記地址
+      seladdhtml: '',
+      // 聯絡電話
+      selphonehtml: '',
+
+      // 綁定賣家註冊type
+      selBtn: 'button',
+    }
+  },
+  methods: {
+    // 賣家註冊 檢查
+    sellersignUp(event) {
+
+      // 驗證信箱格式
+      // 信箱正規式表達
+      const emailRule = /^\w+((-\w+)|(\.\w+))*\@[A-Za-z0-9]+((\.|-)[A-Za-z0-9]+)*\.[A-Za-z]+$/;
+      if ((this.selsignUpachtml).search(emailRule) != -1) {
+      } else {
+        this.selsignUpachtml = '';
+        this.selsignUpacpla = '信箱格式錯誤';
+        this.selsignUpac = true;
+        event.preventDefault();
+      }
+
+      // 密碼空白檢查
+      if (this.selsignUppapla == '密碼' && this.selsignUppahtml == '') {
+        this.selsignUppapla = '密碼不可為空白';
+        this.selsignUppa = true;
+        event.preventDefault();
+      }
+
+      // 確認密碼空白檢查
+      if (this.selsignUppacfpla == '確認密碼' && this.selsignUppacfhtml == '') {
+        this.selsignUppacfpla = '確認密碼不可為空白';
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 密碼及確認密碼需相同
+      if (this.selsignUppahtml != this.selsignUppacfhtml) {
+        this.selsignUppahtml = '';
+        this.selsignUppacfhtml = '';
+        this.selsignUppapla = '與確認密碼相異';
+        this.selsignUppacfpla = '與密碼相異';
+        this.selsignUppa = true;
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 密碼字數限制
+      if (this.selsignUppahtml.length < 8) {
+        this.selsignUppahtml = '';
+        this.selsignUppacfhtml = '';
+        this.selsignUppapla = '密碼字數小於8位數';
+        this.selsignUppacfpla = '密碼字數小於8位數';
+        this.selsignUppa = true;
+        this.selsignUppacf = true;
+        event.preventDefault();
+      }
+
+      // 公司名稱空白檢查
+      if (this.selcompla == '公司名稱' && this.selcomhtml == '') {
+        this.selcomhtml = '';
+        this.selcompla = '公司名稱不可為空白';
+        this.selcom = true;
+        event.preventDefault();
+      }
+
+      // 統一編號格式檢查
+      if (this.selTaxhtml != "") {
+        const taxrule = /\d{8}/;
+        if (this.selTaxhtml.search(taxrule) != -1) {
+        } else {
+          this.selTaxhtml = '';
+          this.selTaxpla = '統一編號不符合規定';
+          this.selTax = true;
+          event.preventDefault();
+        }
+      }
+
+      // 登記地址空白檢查
+      if (this.seladdpla == '登記地址' && this.seladdhtml == '') {
+        this.seladdhtml = '';
+        this.seladdpla = '登記地址不可為空白';
+        this.seladd = true
+        event.preventDefault();
+      }
+
+      // 登記地址需包含中文和數字
+      // escape對字串進行編碼時，字元值大於255的以"%u****"格式儲存，而字元值大於255的恰好是非英文字元（一般是中文字元，非中文字元也可以當作中文字元考慮）；indexOf用以判斷在字串中是否存在某子字串
+      const addmath = /\d{1}/; //最少要有一個數字
+      if ((escape(this.seladdhtml).indexOf("%u") < 0) && (this.seladdhtml.search(addmath) != 0)) {
+        this.seladdhtml = '';
+        this.seladdpla = '登記地址格式不對';
+        this.seladd = true;
+        event.preventDefault();
+      }
+
+      // 聯絡電話不可空白
+      if (this.selphonepla == '聯絡電話' && this.selphonehtml == '') {
+        this.selphonehtml = '';
+        this.selphonepla = '聯絡電話不可為空白';
+        this.selphone = true
+        event.preventDefault();
+      }
+
+      // 聯絡電話只能是數字及數字需大於等於10碼
+      const phonemath = /\d{10}/;
+      if (this.selphonehtml.search(phonemath) != 0) {
+        this.selphonehtml = '';
+        this.selphonepla = '聯絡電話格式不對';
+        this.selphone = true
+        event.preventDefault();
+      }
+
+      // 以上條件沒問題就submit
+      if (this.selsignUpac != true && this.selsignUppa != true && this.selsignUppacf != true && this.selcom != true && this.selTax != true && this.seladd != true && this.selphone != true && this.selsignUpachtml != '' && this.selsignUppahtml != '' && this.selsignUppacfhtml != '' && this.selcomhtml != '' && this.seladdhtml != '' && this.selphonehtml != '') {
+        // 判斷統編是否為空的作法
+        if (this.selTaxhtml == '') {
+          this.selTaxhtml = 0;
+          this.selBtn = 'submit';
+          event.target.submit();
+        } else if (this.selTaxhtml != '') {
+          this.selBtn = 'submit';
+          event.target.submit();
+        }
+      }
+    },
+
+    // input 復原
+    // 信箱
+    selacfu() {
+      this.selsignUpac = false
+      this.selsignUpacpla = '信箱'
+    },
+    // 密碼
+    selpafu() {
+      this.selsignUppa = false
+      this.selsignUppapla = '密碼'
+    },
+    // 確認密碼
+    selpacofu() {
+      this.selsignUppacf = false
+      this.selsignUppacfpla = '確認密碼'
+    },
+    // 公司名稱
+    selcomfu() {
+      this.selcom = false
+      this.selcompla = '公司名稱'
+    },
+    // 統一編號
+    seltaxfu() {
+      this.selTax = false
+      this.selTaxpla = '統一編號(非必填)'
+    },
+    // 登記地址
+    seladdfu() {
+      this.seladd = false
+      this.seladdpla = '登記地址'
+    },
+    // 聯絡電話
+    selphofu() {
+      this.selphone = false
+      this.selphonepla = '聯絡電話'
+    },
+
+
+  },
 });
 
 new Vue({
