@@ -1,0 +1,1431 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: PingFangTC-Regular-2, sans-serif;
+  font-weight: normal;
+}
+
+@font-face {
+  body {
+    font-family: "Didot-Bo1d-1";
+    src: url("../fonts/Didot-Bold-1.ttf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "Didot-Italic-2";
+    src: url("../fonts/Didot-Italic-2.ttf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "Flexure";
+    src: url("../fonts/Flexure.ttf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "Fuji-Extended Bold";
+    src: url("../fonts/Fuji-Extended Bold.ttf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Black";
+    src: url("../fonts/NotoSansCJKtc-Black.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Bold";
+    src: url("../fonts/NotoSansCJKtc-Bold.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-DemiLight";
+    src: url("../fonts/NotoSansCJKtc-DemiLight.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Light";
+    src: url("../fonts/NotoSansCJKtc-Light.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Medium";
+    src: url("../fonts/NotoSansCJKtc-Medium.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Regular";
+    src: url("../fonts/NotoSansCJKtc-Regular.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansCJKtc-Thin";
+    src: url("../fonts/NotoSansCJKtc-Thin.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansMonoCJKtc-Bold";
+    src: url("../fonts/NotoSansMonoCJKtc-Bold.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "NotoSansMonoCJKtc-Regular";
+    src: url("../fonts/NotoSansMonoCJKtc-Regular.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "PingFang";
+    src: url("../fonts/PingFang.ttc");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "PingFang-TC-Regular-2";
+    src: url("../fonts/PingFang-TC-Regular-2.otf");
+    font-display: fallback;
+  }
+}
+
+@font-face {
+  body {
+    font-family: "plantc";
+    src: url("../fonts/plantc.ttf");
+    font-display: fallback;
+  }
+}
+
+body #memheader {
+  width: 100%;
+  min-height: 100px;
+  height: 15vh;
+  background-color: #D3E4C6;
+  font-size: 18px;
+  color: #D3E4C6;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: relative;
+  z-index: 1;
+  -webkit-box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 6px 6px rgba(0, 0, 0, 0.3);
+}
+
+@media all and (max-width: 991px) {
+  body #memheader {
+    width: 100%;
+    height: 55px;
+  }
+}
+
+body #memheader #hamburgerMenuToggle {
+  opacity: 0;
+}
+
+body #memheader #hamburgerMenuToggle:checked + #hamburgerMenuButton > span {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+body #memheader #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::before {
+  top: 0;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+body #memheader #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::after {
+  top: 0;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+body #memheader #hamburgerMenuToggle:checked ~ #navigationForMobile {
+  left: 0;
+}
+
+body #memheader #hamburgerMenuButton {
+  width: 45px;
+  height: 35px;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  margin-left: 10px;
+  position: relative;
+  z-index: 30;
+  cursor: pointer;
+  display: none;
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #hamburgerMenuButton {
+    margin-left: 5px;
+  }
+}
+
+body #memheader #hamburgerMenuButton span {
+  display: block;
+  background-color: #8F8770;
+}
+
+body #memheader #hamburgerMenuButton span, body #memheader #hamburgerMenuButton span::before, body #memheader #hamburgerMenuButton span::after {
+  content: '';
+  display: block;
+  width: 45px;
+  height: 5px;
+  border-radius: 10px;
+  background-color: #8F8770;
+  position: absolute;
+  -webkit-transition-duration: .35s;
+          transition-duration: .35s;
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #hamburgerMenuButton span, body #memheader #hamburgerMenuButton span::before, body #memheader #hamburgerMenuButton span::after {
+    width: 36px;
+    height: 3px;
+  }
+}
+
+body #memheader #hamburgerMenuButton span {
+  top: 45%;
+}
+
+body #memheader #hamburgerMenuButton span::before {
+  content: '';
+  top: -15px;
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #hamburgerMenuButton span::before {
+    top: -10px;
+  }
+}
+
+body #memheader #hamburgerMenuButton span::after {
+  content: '';
+  top: 15px;
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #hamburgerMenuButton span::after {
+    top: 10px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #hamburgerMenuButton {
+    display: block;
+  }
+}
+
+body #memheader .hamburgerMenuColorForCh01 span, body #memheader .hamburgerMenuColorForCh01 span::before, body #memheader .hamburgerMenuColorForCh01 span::after {
+  background-color: #FDFBBA;
+}
+
+body #memheader .hamburgerMenuColorForCh0102 span, body #memheader .hamburgerMenuColorForCh0102 span::before, body #memheader .hamburgerMenuColorForCh0102 span::after {
+  background-color: #946C1E;
+}
+
+body #memheader .hamburgerMenuColorForCh02 span, body #memheader .hamburgerMenuColorForCh02 span::before, body #memheader .hamburgerMenuColorForCh02 span::after {
+  background-color: #FFFFFF;
+}
+
+body #memheader #navigationForMobile {
+  display: none;
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #navigationForMobile {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0%;
+    left: -100%;
+    z-index: 5;
+    background-color: white;
+    opacity: 80%;
+    -webkit-transition-duration: .35s;
+            transition-duration: .35s;
+  }
+  body #memheader #navigationForMobile #searchBarForMobile {
+    width: 100%;
+    height: 100px;
+    background-color: lightgrey;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  body #memheader #navigationForMobile #searchBarForMobile #searchInputForMobile {
+    width: 80%;
+    height: 40%;
+    outline: none;
+    border-radius: 20px;
+    background-color: #FFFFFF;
+    display: block;
+    margin: auto;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+    padding-left: 20px;
+  }
+}
+
+@media all and (max-width: 991px) and (max-width: 767px) {
+  body #memheader #navigationForMobile #searchBarForMobile #searchInputForMobile {
+    margin-left: 18%;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #navigationForMobile li {
+    list-style: none;
+    text-align: center;
+    font-size: 24px;
+    margin: 30px 0px 0px 0px;
+  }
+  body #memheader #navigationForMobile li a {
+    color: #515151;
+  }
+}
+
+body #memheader #headerContentContainer {
+  width: 1180px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer {
+    width: 970px;
+    margin: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  body #memheader #headerContentContainer {
+    width: 920px;
+    margin: auto;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+body #memheader #headerContentContainer #logo {
+  width: 264px;
+  height: 46px;
+}
+
+body #memheader #headerContentContainer #logo:hover {
+  content: url("../img/03/memlogochange.png");
+  width: 220px;
+  height: 42px;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+@media all and (max-width: 1919px) {
+  body #memheader #headerContentContainer #logo:hover {
+    width: 268px;
+    height: 50px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #logo:hover {
+    width: 220px;
+    height: 42px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  body #memheader #headerContentContainer #logo:hover {
+    width: 220px;
+    height: 42px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #logo:hover {
+    width: 162px;
+    height: 31px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #logo {
+    width: 216px;
+    height: 38px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  body #memheader #headerContentContainer #logo {
+    width: 216px;
+    height: 38px;
+    -ms-flex-item-align: center;
+        -ms-grid-row-align: center;
+        align-self: center;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #logo {
+    position: absolute;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+    left: 50%;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #logo {
+    width: 158px;
+    height: 27px;
+  }
+}
+
+body #memheader #headerContentContainer #navigationForPC {
+  width: 762px;
+  height: 50px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #navigationForPC {
+    width: 625px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #navigationForPC {
+    width: 525px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 767px) {
+  body #memheader #headerContentContainer #navigationForPC {
+    width: 425px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #headerContentContainer #navigationForPC {
+    width: 200px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+body #memheader #headerContentContainer #navigationForPC a {
+  font-size: 30px;
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #navigationForPC a {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 1199px) {
+  body #memheader #headerContentContainer #navigationForPC a {
+    font-size: 20px;
+  }
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #navigationForPC a {
+    display: none;
+  }
+}
+
+body #memheader #headerContentContainer #navigationForPC .navGeneralAnchors {
+  color: #8F8770;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body #memheader #headerContentContainer #navigationForPC .navGeneralAnchors:hover {
+  color: #d4c7a5;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body #memheader #headerContentContainer #navigationForPC :nth-child(2), body #memheader #headerContentContainer #navigationForPC :nth-child(3) {
+  margin-left: 25px;
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #navigationForPC :nth-child(2), body #memheader #headerContentContainer #navigationForPC :nth-child(3) {
+    margin-left: 20px;
+  }
+}
+
+body #memheader #headerContentContainer #navigationForPC #navSepcialAnchor {
+  color: #fff;
+}
+
+body #memheader #headerContentContainer #navigationForPC #navSepcialAnchor div {
+  width: 139px;
+  height: 100%;
+  border-radius: 3px;
+  text-align: center;
+  background-color: #B8AD91;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  margin: 0px 28px;
+}
+
+body #memheader #headerContentContainer #navigationForPC #navSepcialAnchor div:hover {
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.03);
+          transform: scale(1.03);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #navigationForPC #navSepcialAnchor div {
+    width: 114px;
+  }
+}
+
+@media all and (max-width: 1599px) {
+  body #memheader #headerContentContainer #navigationForPC .navIcons img {
+    width: 30px;
+  }
+}
+
+body #memheader #headerContentContainer #navigationForPC #navIcons01 img:hover {
+  content: url("../img/03/memmagnifierchange.png");
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body #memheader #headerContentContainer #navigationForPC #navIcons02 img:hover {
+  content: url("../img/03/memcartchange.png");
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body #memheader #headerContentContainer #navigationForPC #navIcons03 img:hover {
+  content: url("../img/03/mempeoplecirclechange.png");
+  -webkit-transform: scale(1.05);
+          transform: scale(1.05);
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body #memheader #headerContentContainer #navigationForPC #navIcons02, body #memheader #headerContentContainer #navigationForPC #navIcons03 {
+  margin-left: 20px;
+}
+
+body #memheader #headerContentContainer #subNavigationForMobile {
+  display: none;
+}
+
+@media all and (max-width: 991px) {
+  body #memheader #headerContentContainer #subNavigationForMobile {
+    display: block;
+    width: 96px;
+    height: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    position: absolute;
+    right: 10px;
+  }
+}
+
+@media all and (max-width: 575px) {
+  body #memheader #headerContentContainer #subNavigationForMobile {
+    width: 55px;
+    right: 20px;
+  }
+  body #memheader #headerContentContainer #subNavigationForMobile img {
+    height: 23px;
+    margin: 5px 0px 0px 10px;
+  }
+}
+
+body main.linWrap {
+  width: 100%;
+  min-height: 640px;
+  height: 70vh;
+  background-image: url("../../img/03/bgrev1.png");
+  background-repeat: repeat;
+  background-position: center;
+  background-size: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main.linWrap div.signUpsignIn {
+  width: 670px;
+  height: 550px;
+  border-radius: 10px;
+  position: relative;
+  background-color: #fff;
+  -webkit-box-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 4px rgba(0, 0, 0, 0.4);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+body main.linWrap div.signUpsignIn div.signUp.signUpmm.rwdsignUp {
+  opacity: 0;
+  z-index: -1;
+}
+
+body main.linWrap div.signUpsignIn div.signUp.signUpmm {
+  left: 0%;
+  opacity: 1;
+  z-index: 2;
+}
+
+body main.linWrap div.signUpsignIn div.signUp {
+  border-radius: 10px;
+  background-color: #fff;
+  width: 50%;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  opacity: 0;
+}
+
+body main.linWrap div.signUpsignIn div.signUp h1.signUp {
+  font-size: 24px;
+  margin: 30px auto;
+  color: #707070;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-line-pack: center;
+      align-content: center;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member input {
+  margin: 0px 0px 20px 0px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 270px;
+  height: 39px;
+  background-color: #EDEBEB;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  border: none;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member div.checkEmail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 270px;
+  margin: 0px 0px 20px 0px;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member div.checkEmail input.checkEmail {
+  width: 50%;
+  height: 39px;
+  margin: 0;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member div.checkEmail button.checkEmail {
+  color: white;
+  background-color: #B9AF94;
+  border-radius: 5px;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  width: 40%;
+  height: 39px;
+  margin-left: 10%;
+  border: none;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member div.checkEmail button.checkEmail:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member button.subSignup {
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #B9AF94;
+  width: 100px;
+  height: 32px;
+  margin: 0px 0px 20px 0px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member button.subSignup:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member button.changeTOmember {
+  color: #707070;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: white;
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: 2px solid #B9AF94;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: none;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member form#member button.changeTOmember:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member div.lineBor {
+  width: 270px;
+  height: 39px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-top: 5%;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member div.lineBor div.lineL {
+  width: 30%;
+  border-top: 1px solid #8F8770;
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member div.lineBor span.signUp {
+  color: #8F8770;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.member div.lineBor div.lineR {
+  width: 30%;
+  border-top: 1px solid #8F8770;
+  justify-self: flex-end;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.seller form#seller {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.seller form#seller input.seller {
+  margin: 0px 0px 20px 0px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 270px;
+  height: 39px;
+  background-color: #EDEBEB;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  border: none;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.seller form#seller button.seller {
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #B9AF94;
+  width: 100px;
+  height: 32px;
+  margin: 0px 0px 20px 0px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body main.linWrap div.signUpsignIn div.signUp div.seller form#seller button.seller:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signIn.signInmm.rwdsignIn {
+  opacity: 1;
+  z-index: 1;
+}
+
+body main.linWrap div.signUpsignIn div.signIn.signInmm {
+  opacity: 0;
+  z-index: 1;
+  left: 0;
+}
+
+body main.linWrap div.signUpsignIn div.signIn {
+  width: 50%;
+  height: 100%;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  opacity: 1;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+body main.linWrap div.signUpsignIn div.signIn h1.signIn {
+  color: #8f8770;
+  font-size: 22px;
+  margin: 28% 0px 12% 0px;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn input {
+  margin: 0px 0px 20px 0px;
+  padding-left: 10px;
+  border-radius: 5px;
+  width: 270px;
+  height: 39px;
+  background-color: #EDEBEB;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  border: none;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 270px;
+  margin: 10px 0px 17px 0px;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 33.3333%;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div button.subsignIn {
+  color: white;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: #B9AF94;
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  -webkit-box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div button.subsignIn:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div a {
+  -ms-grid-column-align: start;
+      justify-self: start;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
+  font-size: 12px;
+  margin-left: 10%;
+  color: #8f8770;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div a:visited {
+  color: #8f8770;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn div.signforget div a:checked {
+  color: #8f8770;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn button.changeTosignup {
+  color: #707070;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  background-color: white;
+  width: 90px;
+  height: 32px;
+  border-radius: 5px;
+  border: 2px solid #B9AF94;
+  -webkit-box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
+          box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.16);
+  outline: none;
+  cursor: pointer;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  display: none;
+}
+
+body main.linWrap div.signUpsignIn div.signIn form#signIn button.changeTosignup:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+}
+
+body main.linWrap div.signUpsignIn div.signIn div.lineBor {
+  width: 270px;
+  height: 39px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 5% 0px;
+}
+
+body main.linWrap div.signUpsignIn div.signIn div.lineBor div.lineL {
+  width: 30%;
+  border-top: 1px solid #8F8770;
+  -ms-grid-column-align: start;
+      justify-self: start;
+}
+
+body main.linWrap div.signUpsignIn div.signIn div.lineBor span.signUp {
+  color: #8F8770;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+body main.linWrap div.signUpsignIn div.signIn div.lineBor div.lineR {
+  width: 30%;
+  border-top: 1px solid #8F8770;
+  justify-self: flex-end;
+}
+
+body main.linWrap div.signUpsignIn div.signIn div.fbgoogle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 150px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer.overL {
+  left: 50%;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 50%;
+  height: 100%;
+  position: relative;
+  left: 0%;
+  z-index: 5;
+  border-radius: 10px;
+  -webkit-transition: all .4s;
+  transition: all .4s;
+  overflow: hidden;
+  background-color: #FBFFE0;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.4);
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container.overm {
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 200%;
+  height: 100%;
+  position: absolute;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR.msignUpR {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  background-color: #FBFFE0;
+  -webkit-transform: translateX(-10%);
+          transform: translateX(-10%);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 49px;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder h1 {
+  font-size: 22px;
+  color: #B9AF94;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder h3 {
+  font-size: 14px;
+  color: #8F8770;
+  margin: 5.5px 0px;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder button {
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  color: #ffffff;
+  background-color: #B8AD91;
+  margin-top: 10px;
+  border: 2px solid #B8AD91;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder button:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  border: 2px solid #d4c7a5;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signUpR div.signUpRborder button:focus {
+  -webkit-box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL.msignInL {
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 10px;
+  background-color: #FBFFE0;
+  -webkit-transform: translateX(10%);
+          transform: translateX(10%);
+  -webkit-transition: all .4s;
+  transition: all .4s;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 100px;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder h1 {
+  font-size: 22px;
+  color: #B9AF94;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder h3 {
+  font-size: 14px;
+  color: #8F8770;
+  margin: 5.5px 0px;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder button {
+  width: 100px;
+  height: 32px;
+  border-radius: 5px;
+  border: 0px;
+  outline: none;
+  color: #ffffff;
+  background-color: #B8AD91;
+  margin-top: 10px;
+  border: 2px solid #B8AD91;
+  cursor: pointer;
+  -webkit-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder button:hover {
+  color: white;
+  -webkit-box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+  background-color: #d4c7a5;
+  -webkit-transform: scale(1.01);
+          transform: scale(1.01);
+  border: 2px solid #d4c7a5;
+}
+
+body main.linWrap div.signUpsignIn div.overlayContainer div.container div.signInL div.signInLborder button:focus {
+  -webkit-box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+          box-shadow: inset 1.5px 1.5px 3px rgba(0, 0, 0, 0.4);
+}
+
+body footer#memfooter {
+  width: 100%;
+  min-height: 100px;
+  height: 15vh;
+  background-color: #D3E4C6;
+  font-size: 18px;
+  color: #D0C37F;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+@media all and (max-width: 700px) {
+  body footer#memfooter {
+    height: 200px;
+  }
+}
+
+body footer#memfooter div.footerborder {
+  width: 1200px;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+@media all and (max-width: 700px) {
+  body footer#memfooter div.footerborder {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: auto;
+  }
+}
+
+body footer#memfooter div.footerborder .footer_logo {
+  display: block;
+  width: 190px;
+  border-right: 1px solid #D3E4C6;
+  text-align: left;
+}
+
+@media all and (max-width: 700px) {
+  body footer#memfooter div.footerborder .footer_logo {
+    margin-bottom: 20px;
+  }
+}
+
+body footer#memfooter div.footerborder .footer_logo img {
+  width: 182px;
+  padding-top: 15px;
+}
+
+body footer#memfooter div.footerborder .footer_logo .copyright {
+  margin-top: 6px;
+  font-size: 10px;
+}
+
+body footer#memfooter div.footerborder .info {
+  display: block;
+  text-align: left;
+  width: 330px;
+}
+
+@media all and (max-width: 700px) {
+  body footer#memfooter div.footerborder .info {
+    width: auto;
+  }
+}
+
+body footer#memfooter div.footerborder .info a {
+  width: 280px;
+  margin: 20px;
+  text-decoration: none;
+  color: #D0C37F;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+body footer#memfooter div.footerborder .info a img {
+  padding-right: 10px;
+}
+/*# sourceMappingURL=sellerLogin.css.map */
