@@ -2,14 +2,15 @@ const app = new Vue({
     el: '.containerFinance',
     data() {
         return {
-            donationLog: null,
+            donationDetals: null,
+            donationLog: null
         }
     },
 
     mounted() {
 
         const self = this;
-        let general_ID = $("input[name='general_ID']").val()
+        let DONATION_ID = $("input[name='DONATION_ID']").val()
         let name = $("input[name='name']").val()
         let email = $("input[name='email']").val()
         let pID_tID = $("input[name='pID_tID']").val()
@@ -19,22 +20,27 @@ const app = new Vue({
         $.ajax({
             url: '../PHP/backStage/finance/financeQuery.php',
             type: 'POST',
-            data: { general_ID, name, email, pID_tID, dateStart, dateEnd },
+            data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
             success: function (res) {
-                console.log(res);
-                self.donationLog = res;
+                self.donationDetals = res.donationDetals;
+                self.donationLog = res.donationLog;
 
-                for (let i = 0; i < res.length; i++) {
-                    let donationPlan = res[i].DONATION_PLAN;
+                for (let i = 0; i < res.donationDetals.length; i++) {
+                    let donationPlan = res.donationLog[i].DONATION_PLAN;
+
                     if (donationPlan == 1) {
-                        res[i].DONATION_PLAN = "單次扣款";
+                        res.donationLog[i].DONATION_PLAN = "單次扣款";
                     } else if (donationPlan == 2) {
-                        res[i].DONATION_PLAN = "定期捐款";
+                        res.donationLog[i].DONATION_PLAN = "定期捐款";
                     } else {
-                        res[i].DONATION_PLAN = "資料錯誤";
+                        res.donationLog[i].DONATION_PLAN = "資料錯誤";
                     }
 
                 }
+
+                console.log(res);
+                console.log(res.donationDetals);
+                console.log(res.donationLog);
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -48,7 +54,7 @@ const app = new Vue({
     methods: {
         query() {
             const self = this;
-            let general_ID = $("input[name='general_ID']").val()
+            let DONATION_ID = $("input[name='DONATION_ID']").val()
             let name = $("input[name='name']").val()
             let email = $("input[name='email']").val()
             let pID_tID = $("input[name='pID_tID']").val()
@@ -58,22 +64,28 @@ const app = new Vue({
             $.ajax({
                 url: '../PHP/backStage/finance/financeQuery.php',
                 type: 'POST',
-                data: { general_ID, name, email, pID_tID, dateStart, dateEnd },
+                data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
                 success: function (res) {
-                    console.log(res);
-                    self.donationLog = res;
 
-                    for (let i = 0; i < res.length; i++) {
-                        let donationPlan = res[i].DONATION_PLAN;
+                    self.donationDetals = res.donationDetals;
+                    self.donationLog = res.donationLog;
+
+                    for (let i = 0; i < res.donationDetals.length; i++) {
+                        let donationPlan = res.donationLog[i].DONATION_PLAN;
+
                         if (donationPlan == 1) {
-                            res[i].DONATION_PLAN = "單次扣款";
+                            res.donationLog[i].DONATION_PLAN = "單次扣款";
                         } else if (donationPlan == 2) {
-                            res[i].DONATION_PLAN = "定期捐款";
+                            res.donationLog[i].DONATION_PLAN = "定期捐款";
                         } else {
-                            res[i].DONATION_PLAN = "資料錯誤";
+                            res.donationLog[i].DONATION_PLAN = "資料錯誤";
                         }
 
                     }
+
+                    console.log(res);
+                    console.log(res.donationDetals);
+                    console.log(res.donationLog);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");

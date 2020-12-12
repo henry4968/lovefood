@@ -16,13 +16,13 @@ const app = new Vue({
         let account = urlParams.get('account');
         let name = urlParams.get('name');
         let phone = urlParams.get('phone');
-        let pick01 = urlParams.get('datePick01');
-        let pick02 = urlParams.get('datePick02');
+        let dateStart = urlParams.get('dateStart');
+        let dateEnd = urlParams.get('dateEnd');
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
-            data: { number, account, name, phone, pick01, pick02 },
+            data: { number, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.issanceLog = res.issanceLog;
                 self.discountLog = res.discountLog;
@@ -55,13 +55,13 @@ const app = new Vue({
         let account = urlParams.get('account');
         let name = urlParams.get('name');
         let phone = urlParams.get('phone');
-        let pick01 = urlParams.get('datePick01');
-        let pick02 = urlParams.get('datePick02');
+        let dateStart = urlParams.get('dateStart');
+        let dateEnd = urlParams.get('dateEnd');
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
-            data: { number, account, name, phone, pick01, pick02 },
+            data: { number, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.issanceLog = res.issanceLog;
                 self.discountLog = res.discountLog;
@@ -91,15 +91,15 @@ const app = new Vue({
             let account = urlParams.get('account');
             let name = urlParams.get('name');
             let phone = urlParams.get('phone');
-            let pick01 = urlParams.get('datePick01');
-            let pick02 = urlParams.get('datePick02');
+            let dateStart = urlParams.get('dateStart');
+            let dateEnd = urlParams.get('dateEnd');
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
                 type: 'POST',
-                data: { number, account, name, phone, pick01, pick02 },
+                data: { number, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
-                    // self.pointsOfMember = res.pointsOfMember;
+                    self.pointsOfMember = res.pointsOfMember;
                     self.issanceLog = res.issanceLog;
                     self.discountLog = res.discountLog;
 
@@ -117,7 +117,7 @@ const app = new Vue({
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
-                    console.log(res);
+                    console.log(res.responseText);
                 },
                 dataType: "JSON",
             });

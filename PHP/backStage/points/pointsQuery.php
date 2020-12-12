@@ -3,8 +3,8 @@
     include("../Lib/UtilClass2.php");
     $Util = new UtilClass();
 
-    $pick01 = $_POST["pick01"];
-    $pick02 = $_POST["pick02"];
+    $dateStart = $_POST["dateStart"];
+    $dateEnd = $_POST["dateEnd"];
     $number = '%'.@$_POST["number"].'%';
     $account = '%'.@$_POST["account"].'%';
     $name = '%'.@$_POST["name"].'%';
@@ -30,17 +30,17 @@
     $statesmentDiscountLog->execute();
     $dataDL = $statesmentDiscountLog->fetchAll(PDO::FETCH_ASSOC);
 
-    if(is_Date($_POST["pick01"]) && is_Date($_POST["pick02"])){
+    if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
         $statesmentTotalIssance->bindValue(1,$number);
-        $statesmentTotalIssance->bindValue(2,$pick02);
+        $statesmentTotalIssance->bindValue(2,$dateEnd);
 
         $statesmentTotalIssance->execute();
         $dataIS = $statesmentTotalIssance->fetchAll(PDO::FETCH_ASSOC);
 
         $statesmentTotalDiscount->bindValue(1,$number);
-        $statesmentTotalDiscount->bindValue(2,$pick01);
-        $statesmentTotalDiscount->bindValue(3,$pick02);
+        $statesmentTotalDiscount->bindValue(2,$dateStart);
+        $statesmentTotalDiscount->bindValue(3,$dateEnd);
 
         $statesmentTotalDiscount->execute();
         $dataDS = $statesmentTotalDiscount->fetchAll(PDO::FETCH_ASSOC);
