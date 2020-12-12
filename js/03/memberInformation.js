@@ -791,7 +791,7 @@ Vue.component('memberApply', {
 
 
 // vue
-new Vue({
+let vm = new Vue({
   el: '#memWrap',
   data: {
     content: 'member',
@@ -799,6 +799,9 @@ new Vue({
     act: 'a',
     leftBordermediumPhone: '',
     foursameBorderapp: '',
+
+    // username
+    username: '',
   },
   methods: {
     memberButton(change, num, div, rwdborder) {
@@ -821,9 +824,16 @@ new Vue({
     },
     // 撈該ID的名稱
     IDname() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
       axios.post('../PHP/Frontend/member.php').then(function (res) {
+        // 找到值
         checkdata = res.data;
-        console.log(checkdata);
+        // 找名字
+        console.log(checkdata[0]);
+
+        that.username = checkdata[0];
         // 測試用
         // if (checkdata != '') {
         //   console.log(checkdata);
@@ -842,6 +852,6 @@ new Vue({
         // }
       })
     }());
-    IDname();
+    this.IDname();
   },
 });

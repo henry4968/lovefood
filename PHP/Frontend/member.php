@@ -9,7 +9,8 @@
   $Member = new MemberClass();
   
   // 測試印出MEMBERID
-  echo $Member->getMemberID();
+  $MemberId = $Member->getMemberID();
+  // echo $MemberId;
 
   // 建立SQL
   $sql = "select name from member where MEMBER_ID = ?";
@@ -18,9 +19,11 @@
   $statement = $Util->getPDO()->prepare($sql);
 
   // 給值
-  $statement->bindValue(1, $Member);
+  $statement->bindValue(1, $MemberId);
   $statement->execute();
-  $data = $statement->fetchAll();
+  // $data = $statement->fetchAll();
+  $data = $statement->fetch();
 
-  // echo $data;
+  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+  print json_encode($data);
 ?>
