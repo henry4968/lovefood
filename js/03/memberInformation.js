@@ -9,14 +9,14 @@ Vue.component('member', {
           </div>
           <div class="identifyBorder">
             <div class="idTitle">身份別: </div>
-            <span class="idContent">一般會員</span>
+            <span class="idContent">{{idconten}}</span>
           </div>
           <div class="lineBorder">
             <hr>
           </div>
           <div class="memidBorder">
             <div class="memidTitile sameTile">會員編號:</div>
-            <span class="memidContent">AA2020103000001</span>
+            <span class="memidContent">{{idmem}}</span>
           </div>
           <div class="emailBorder">
             <div class="emailTitle sameTile">信箱:</div>
@@ -102,10 +102,9 @@ Vue.component('member', {
       confirmpassword: '',
       foursameBorderapp: '',
       backCategory: '',
-
-      // 
     }
   },
+  props: ['idconten', 'idmem'],
   methods: {
     changePassword() {
       if (this.sa == '' && this.pn == '') {
@@ -168,36 +167,8 @@ Vue.component('member', {
     sync() {
       this.$emit("my-click", false)
     },
-    // 撈該ID的身份別
-    memberInf() {
-      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
-      // 或是在vue那裏宣告一個vm ==> vm.username
-      let that = this;
-      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
-        // 找到值
-        checkdata = res.data;
-
-        // 找名字
-        console.log(checkdata[0]);
-
-        // 判斷是否有名字
-        if (checkdata[0] != "") {
-          if (checkdata[0] != null) {
-            // 將名字塞入html
-            that.username = checkdata[0];
-          } else if (checkdata[0] == null) {
-            that.username = '某某某';
-            alert('請輸入名字');
-          }
-        } else {
-          //提醒除錯
-          alert(checkdata[0]);
-        }
-      })
-    },
   },
   mounted() {
-    this.memberInf();
   },
 });
 
@@ -833,6 +804,12 @@ let vm = new Vue({
 
     // username
     username: '',
+
+    // ID身份別
+    idcont: '',
+
+    // ID編號
+    idmemin: '',
   },
   methods: {
     memberButton(change, num, div, rwdborder) {
@@ -880,18 +857,77 @@ let vm = new Vue({
         }
       })
     },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+        // 找到值
+        checkdata = res.data;
+
+        // 找身份別 general or particular
+        console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].CLASS == 'general') {
+          that.idcont = '一般會員';
+        } else if (checkdata.data[0].CLASS == 'particular') {
+          that.idcont = '特殊會員';
+        } else {
+          //提醒除錯
+          // alert(checkdata[0]);
+        }
+      })
+    },
+    // 將ID塞入會員編號
+    ID() {
+      let that = this;
+      // 用箭頭函式(res=>{})才能解決父傳子傳值的問題
+      axios.post('../PHP/Frontend/sessionR.php').then(res => {
+
+        checkdata = res.data;
+        // console.log(checkdata);
+        if (checkdata != '') {
+          that.idmemin = checkdata;
+          // console.log(that.idmemin);
+        }
+      });
+    },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+        // 找到值
+        checkdata = res.data;
+
+        // 找身份別 general or particular
+        console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].CLASS == 'general') {
+          that.idcont = '一般會員';
+        } else if (checkdata.data[0].CLASS == 'particular') {
+          that.idcont = '特殊會員';
+        } else {
+          //提醒除錯
+          // alert(checkdata[0]);
+        }
+      })
+    },
   },
   mounted() {
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
         console.log(checkdata);
-        // 測試用
-        // if (checkdata != '') {
-        //   console.log(checkdata);
-        // }
       })
     }());
+    // 撈名字
     this.IDname();
+    // 撈身份別
+    this.memberInf();
+    // 將ID塞入會員編號
+    this.ID();
   },
 });
