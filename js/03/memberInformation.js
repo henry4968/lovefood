@@ -173,7 +173,7 @@ Vue.component('member', {
       // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
       // 或是在vue那裏宣告一個vm ==> vm.username
       let that = this;
-      axios.post('../PHP/Frontend/memberlefttitle.php').then(function (res) {
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
         // 找到值
         checkdata = res.data;
 
@@ -858,12 +858,12 @@ let vm = new Vue({
       // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
       // 或是在vue那裏宣告一個vm ==> vm.username
       let that = this;
-      axios.post('../PHP/Frontend/member.php').then(function (res) {
+      axios.post('../PHP/Frontend/memberlefttitle.php').then(function (res) {
         // 找到值
         checkdata = res.data;
 
         // 找名字
-        console.log(checkdata[0]);
+        // console.log(checkdata[0]);
 
         // 判斷是否有名字
         if (checkdata[0] != "") {
