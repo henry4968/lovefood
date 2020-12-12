@@ -131,7 +131,7 @@
                                 查詢區間
                                 <label class="sr-only">Time Pick</label>
                                 <div class="input-group DateDemo" id="">
-                                    <input type="text" name="datePick01" data-format="MM/DD/YYYY" value="2020-01-01"
+                                    <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
                                         class="form-control" id="queryDateStart" />至
                                     <span class="input-group-btn">
                                         <button class="btn btn-brown" type="button"><i
@@ -142,7 +142,7 @@
                             <div class="form-group">
                                 <label class="sr-only">Time Pick</label>
                                 <div class="input-group DateDemo">
-                                    <input type="text" name="datePick02" data-format="MM/DD/YYYY" value="2020-12-31"
+                                    <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
                                         class="form-control" id="queryDateEnd" />
                                     <span class="input-l input-group-btn">
                                         <button class="btn btn-brown" type="button"><i
@@ -158,7 +158,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="pointsDataArea">
+                <div id="pointsResultData" class="pointsDataArea" v-show="!isShow">
                     <table>
                         <tr id="pointsDataHeader">
                             <th>序號</th>
@@ -192,8 +192,8 @@
                                     0
                                 </td>
                                 <td>
-                                    <form action="pointsDetails.html" method="GET">
-                                        <button type="submit" class="btn-sb btn-green">詳情</button>
+                                    <form method="GET">
+                                        <button type="submit" class="btn-sb btn-green" @click="showContent">詳情</button>
                                         <input type="hidden" name="number" :value="data['MEMBER_ID']">
                                     </form>
                                 </td>
@@ -208,8 +208,8 @@
                                 <td>{{data["PHONE"]}}</td>
                                 <td>{{data["POINTS"]}}</td>
                                 <td>
-                                    <form action="pointsDetails.html" method="GET">
-                                        <button type="submit" class="btn-sb btn-green">詳情</button>
+                                    <form method="GET">
+                                        <button type="submit" class="btn-sb btn-green" @click="showContent">詳情</button>
                                         <input type="hidden" name="number" :value="data['MEMBER_ID']">
                                     </form>
                                 </td>
@@ -226,6 +226,61 @@
                         <a href="#0">5</a>
                         <a href="#0">＞</a>
                         <a href="#0">最末頁</a>
+                    </div>
+                </div>
+                <div id="pointsLogData" class="pointsDataArea" v-show="isShow">
+                    <div id="memberProfile" v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
+                        會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :placeholder="data['NAME']" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :placeholder="data['PHONE']" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :placeholder="data['POINTS']" disabled>
+                    </div>
+                    <div id="">
+                        修改點數：<br>
+                        <input type="text" name="points">
+                        <button>確認修改</button>
+                    </div>
+                    <div>
+                        使用紀錄：
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序號</th>
+                                    <th>訂單編號</th>
+                                    <th>使用點數</th>
+                                    <th>使用時間</th>
+                                    <th>功能鍵</th>
+                                </tr>
+                            </thead>
+                            <tbody v-if="discountLog">
+                                <tr v-for="(data,key) in discountLog">
+                                    <td>{{key+1}}</td>
+                                    <td>{{data["ORDER_ID"]}}</td>
+                                    <td>{{data["DISCOUNT"]}}</td>
+                                    <td>{{data["ORDER_DATE"]}}</td>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        發放紀錄：
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>序號</th>
+                                    <th>發放序號</th>
+                                    <th>發放點數</th>
+                                    <th>發放時間</th>
+                                </tr>
+                            </thead>
+                            <tbody v-if="issanceLog">
+                                <tr v-for="(data,key) in issanceLog">
+                                    <td>{{key+1}}</td>
+                                    <td>{{data["ISSANCE_DATE"]}}</td>
+                                    <td>{{data["ISSANCE_NUM"]}}</td>
+                                    <td>{{data["POINTS_ISSANCER_ID"]}}</td>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </main>

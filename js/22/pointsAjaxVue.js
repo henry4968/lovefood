@@ -6,7 +6,10 @@ const app = new Vue({
             pointsDiscount: null,
             pointsOfMember: null,
             issanceLog: null,
-            discountLog: null
+            discountLog: null,
+            // isShow: true
+            show: '',
+
         }
     },
 
@@ -16,13 +19,13 @@ const app = new Vue({
         let account = $("input[name='account']").val()
         let name = $("input[name='name']").val()
         let phone = $("input[name='phone']").val()
-        let pick01 = $("input[name='datePick01']").val()
-        let pick02 = $("input[name='datePick02']").val()
+        let dateStart = $("input[name='dateStart']").val()
+        let dateEnd = $("input[name='dateEnd']").val()
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
-            data: { number, account, name, phone, pick01, pick02 },
+            data: { number, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.pointsIssance = res.pointsIssance;
                 self.pointsDiscount = res.pointsDiscount;
@@ -68,19 +71,23 @@ const app = new Vue({
     },
 
     methods: {
+        ShowBtn() {
+            alert('1');
+            this.show = true
+        },
         query() {
             const self = this;
             let number = $("input[name='number']").val()
             let account = $("input[name='account']").val()
             let name = $("input[name='name']").val()
             let phone = $("input[name='phone']").val()
-            let pick01 = $("input[name='datePick01']").val()
-            let pick02 = $("input[name='datePick02']").val()
+            let dateStart = $("input[name='dateStart']").val()
+            let dateEnd = $("input[name='dateEnd']").val()
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
                 type: 'POST',
-                data: { number, account, name, phone, pick01, pick02 },
+                data: { number, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
                     self.pointsIssance = res.pointsIssance;
                     self.pointsDiscount = res.pointsDiscount;
@@ -134,6 +141,7 @@ const app = new Vue({
                 },
                 dataType: "JSON",
             });
-        }
+        },
+
     }
 });

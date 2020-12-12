@@ -3,6 +3,6 @@
 
     $Member = new MemberClass();
 
-    echo $Member->getMemberID()
+    echo $Member->getMemberID();
 
 ?>

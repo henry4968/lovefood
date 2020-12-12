@@ -14,7 +14,7 @@
 </head>
 
 <body>
-  <component id="memheader" :is="headId" :prop="login"></component>
+  <component id="memheader" :is="headId" :prop="login" :sleprop="sellogin"></component>
   <main id="memWrap" class="memWrap">
     <div class="memBigborder">
       <div class="leftBorder" :class="{leftBordermediumPhone:leftBordermediumPhone}">
@@ -26,7 +26,7 @@
         <div class="contentBorder">
           <div class="nameBorder">
             <h1 class="username">
-              甲必丹 你好!
+              {{username}} 你好!
             </h1>
           </div>
           <div class="foursameclass" :class="{bgmove: act == 'a'}">
@@ -60,7 +60,8 @@
           </div>
         </div>
       </div>
-      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}" @my-click="clicked"></component>
+      <component :is="content" :class="{foursameBorderapp:foursameBorderapp}" @my-click="clicked" :idconten="idcont" :idmem="idmemin" :idemail="idemailin" :idpwd="idpwdin" :idname="idnamein" :idphone="idphonein" :idadd="idaddin">
+      </component>
 
     </div>
   </main>

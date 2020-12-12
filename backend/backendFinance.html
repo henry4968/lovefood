@@ -149,7 +149,7 @@
                     <div id="financeFilterForDonation" class="financeFilter">
                         <div id="donationSearchingBlock">
                             <div class="donationSearchingRow" id="donationSearchingTopRow">
-                                <div>捐款編號<input type="text" name="general_ID" class="form-control"></div>
+                                <div>捐款編號<input type="text" name="DONATION_ID" class="form-control"></div>
                                 <div>捐款姓名<input type="text" name="name" class=" form-control"></div>
                             </div>
                             <div class="donationSearchingRow" id="donationSearchingBottomRow">
@@ -207,7 +207,7 @@
                             <tbody v-if="donationLog">
                                 <tr v-for="(data,key) in donationLog">
                                     <td>{{key+1}}</td>
-                                    <td>{{data["GENERAL_ID"]}}</td>
+                                    <td>{{data["DONATION_ID"]}}</td>
                                     <td>{{data["NAME"]}}</td>
                                     <td>{{data["EMAIL"]}}</td>
                                     <td>{{data["PERSONAL_ID_OR_TAX_ID"]}}</td>
@@ -215,9 +215,9 @@
                                     <td>{{data["AMOUNT"]}}</td>
                                     <td>{{data["DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
-                                        <form action="pointsDetails.html" method="GET">
+                                        <form action="financeDetails.html" method="GET">
                                             <button type="submit" class="btn-sb btn-green">詳情</button>
-                                            <input type="hidden" name="number" :value="data['MEMBER_ID']">
+                                            <input type="hidden" name="DONATION_ID" :value="data['DONATION_ID']">
                                         </form>
                                     </td>
                                 </tr>

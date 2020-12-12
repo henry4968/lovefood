@@ -5,33 +5,195 @@
 }
 
 #background{
-    width: 100vw;
-    height: 100vh;
-    background-image: url("/img/22/welcomeIndex/bgimg.png");
-    padding: 120px 0px 0px 0px;
+    // width: 100vw;
+    // height: 100vh;
+    // background-image: url("/img/21/welcome/welcome_bg.jpg");
+    // background-size: cover;
+    // background-position: center;
+    // padding: 60px 0px 0px 0px;
+    // padding: 6vh 0px 0px 0px;
+    position: relative;
+    // @media screen and (max-width: 725px){
+    //     padding: 3vh;
+    // }
+    .welcomeBg{
+        width: 100vw;
+        height: 100vh;
+        background-image: url("/img/21/welcome/welcome_bg.jpg");
+        // background-size: cover;
+        background-position: top;
+        // background-position: center;
+        // padding: 60px 0px 0px 0px;
+        padding: 6vh 0px 0px 0px;
+        // position: relative;
+        position: absolute;
+        z-index: -1;
+        @media screen and (max-width: 725px){
+            padding: 3vh;
+        }
+    }
+
+    .welcomeLogo{
+        // position: absolute;
+        // transform: translate(-50%, -50%) ;
+        display: flex;
+        justify-content: center;
+        max-width: 524px;
+        width: 100%;
+        // border: 1px solid red;
+        // padding: 30px;
+        padding: 3vh;
+        margin: 0 auto;
+        @media screen and (max-width: 725px){
+            width: 45vh;
+        }
+        img{
+            width: 100%;
+        }
+        
+    }
 
     #buttonContainer{
-        width: 1200px;
-        height: 500px;
-        margin: auto;
+        max-width: 1100px;
+        width: 100%;
+        // height: 500px;
+        // margin: 80px auto;
+        margin: 8vh auto;
+        // padding: 30px;
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        // justify-content: space-between;
+        justify-content: center;
+        flex-wrap: wrap;
+        // border: 1px solid red;
+        text-align: center;
+        align-items: center;
+        @media screen and (max-width: 700px){
+            // margin: 0px auto 30px;
+            margin: 5vh auto 5vh;
+        }
+        @media screen and (max-width: 600px){
+            flex-direction: column;
+            margin: 7vh auto 7vh;
+        }
+        
         a{
+            border: 3px solid #B2C6A6;
             text-decoration: none;
-            color: #707070;
+            color: #8B7A69;
             font-size: 90px;
             text-align: center;
-            line-height: 300px;
-            .welcomeButton{
-                width: 500px;
-                height: 300px;
-                border-radius: 50px;
-                margin: 100px 0px 0px 0px;
-                background-color: #FFFF9B;
-                box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
-                &:hover{
-                    background-color: #FFE45E;
+            max-width: 350px;
+            // height: 260px;
+            height: 26vh;
+            width: 100%;
+            // height: 100%;
+            // margin: 0 80px;
+            margin: 0 8vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+            background-color: #E2E9CC;
+            box-shadow: 6px 6px 15px rgba(0, 0, 0, 0.2);
+            opacity: 0.7;
+            &:hover{
+                background-color: #CFD8B6;
+            }
+            
+            @media screen and (max-width: 1025px){
+                
+                // margin: 30px;
+                margin: 3vh;
+                max-width: 300px;
+                // height: 220px;
+                height: 22vh;
+                width: 100%;
+                font-size: 70px;
+            }
+            @media screen and (max-width: 725px){
+                max-width: 25vh;
+                // height: 150px;
+                height: 17vh;
+                width: 100%;
+                // margin: 10px;
+                margin: 2vh;
+                font-size: 50px;
+            }
+            @media screen and (max-width: 320px){
+                max-width: 150px;
+                // height: 150px;
+                height: 18vh;
+                width: 100%;
+                // margin: 10px;
+                margin: 2vh;
+                font-size: 30px;
+            }
+
+        }
+    }
+
+    .mainSlogan{
+        // border: 1px solid red;
+        // width: 450px;
+        // height: 200px;
+        // margin: 30px auto;
+        margin: 13vh auto 0;
+        // position: absolute;
+        // left: 177px;
+        // top: 308px;
+        z-index: 2;
+        color: #8B7A69;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-self: center;
+        align-items: center;
+        @media screen and (max-width: 725px){
+            margin: 5vh auto 0;
+        }
+        span{
+            font-size: 25px;
+            // margin: 5px;
+            margin: 0.5vh;
+            @media screen and (max-width: 725px){
+                font-size: 20px;
+                // margin: 5px;
+                margin: 0.5vh;
+            }
+            @media screen and (max-width: 320px){
+                font-size: 15px;
+            }
+        }
+        p{
+            font-size: 50px;
+            margin-bottom: 23px;
+            // margin: 5px;
+            margin: 0.5vh;
+            @media screen and (max-width: 725px){
+                font-size: 30px;
+                // margin: 5px;
+                margin: 0.5vh;
+            }
+            @media screen and (max-width: 320px){
+                font-size: 25px;
+            }
+        }
+
+        .iconAll{
+            // margin: 10px;
+            margin: 1vh;
+            .icon{
+                // margin: 10px;
+                margin: 1vh;
+                max-width: 72px;
+                width: 100%;
+                @media screen and (max-width: 725px){
+                    max-width: 60px;
+                }
+                @media screen and (max-width: 320px){
+                    max-width: 50px;
                 }
             }
         }

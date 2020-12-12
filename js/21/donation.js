@@ -2,26 +2,40 @@
 
 $(function () {
     $('#overFood').counterUp({
-        delay: 10,
+        // delay: 10,
         time: 2000
     });
 });
 $(function () {
     $('#joinShop').counterUp({
-        delay: 10,
+        // delay: 10,
         time: 2000
     });
 });
 $(function () {
     $('#helpChild').counterUp({
-        delay: 10,
+        // delay: 10,
         time: 2000
     });
 });
 $(function () {
     $('#goalmoney').counterUp({
-        delay: 10,
+        // delay: 10,
         time: 2000
+    });
+});
+
+// 麵包滑動到才開始跑
+$(function () {
+    $(window).on('scroll', function () {
+        let scrollWin = $(window).scrollTop();
+        let bread = $('#breadImg').offset().top - ($(window).innerHeight() / 2);
+        if (scrollWin >= bread) {
+            $('.breadLine').css({
+                animation: 'widthChange 2s linear forwards',
+            });
+        }
+
     });
 });
 
@@ -88,4 +102,122 @@ $(function () {
     });
 
 });
+
+
+// 數字%與麵包連動
+// $(function () {
+//     let abc = $('#goalmoney').html();
+//     $('.bread').css('@keyframe', '');
+// })
+
+
+// 食饗冰箱門市輪播
+$(document).ready(function () {
+    $('#shopChange').lightSlider({
+        pager: true,
+        auto: true,
+        item: 1,
+        loop: true,
+        slideMove: 1,
+        controls: true,
+        // slideMargin: 15,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed: 600,
+        responsive: [
+            // {
+            //     breakpoint: 575,
+            //     settings: {
+            //         item: 1,
+            //         pager: true,
+            //         loop: true,
+            //         slideMove: 1,
+            //         easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            //         speed: 600
+            //     }
+            // }
+        ]
+    });
+});
+
+// 愛心輪播
+$(document).ready(function () {
+    $('#heartArea').lightSlider({
+        pager: true,
+        auto: true,
+        item: 3,
+        loop: true,
+        slideMove: 1,
+        controls: true,
+        // slideMargin: 0,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed: 600,
+        responsive: [
+            {
+                breakpoint: 1100,
+                settings: {
+                    adaptiveHeight: false,
+                    item: 2,
+                    pager: true,
+                    loop: true,
+                    slideMove: 1,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed: 600
+                }
+            },
+            {
+                breakpoint: 750,
+                settings: {
+                    item: 1,
+                    pager: true,
+                    loop: true,
+                    slideMove: 1,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed: 600
+                }
+            }
+        ]
+    });
+});
+
+
+// 愛心故事
+$(document).ready(function () {
+    $('#storyAll').lightSlider({
+        pager: true,
+        auto: true,
+        item: 3,
+        loop: true,
+        slideMove: 1,
+        controls: true,
+        // slideMargin: 0,
+        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        speed: 600,
+        responsive: [
+            {
+                breakpoint: 1100,
+                settings: {
+                    adaptiveHeight: false,
+                    item: 2,
+                    pager: true,
+                    loop: true,
+                    slideMove: 1,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed: 600
+                }
+            },
+            {
+                breakpoint: 750,
+                settings: {
+                    item: 1,
+                    pager: true,
+                    loop: true,
+                    slideMove: 1,
+                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                    speed: 600
+                }
+            }
+        ]
+    });
+});
+
 

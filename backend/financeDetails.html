@@ -6,12 +6,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script>
+        $(function () {
+            $(".financeDataFilterTab").click(function () {
+                $(".financeDataFilterTab").removeClass("tabActive");
+                $(this).addClass("tabActive");
+            });
+
+            $("#financeDataFilterTab01").click(function () {
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
+                $("#supplierID").css("display", "block");
+                $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
+
+            });
+
+            $("#financeDataFilterTab02").click(function () {
+                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
+                $("#supplierID").css("display", "none");
+                $("#financeFilterForDonation").css("display", "flex");
+                $("#financeShowDonationPage").css("display", "block");
+
+            });
+        });
+    </script>
 </head>
 
 <body>
-    <div class="containerPoints">
+    <div class="containerFinance">
         <div class="navWrapper">
             <nav>
                 <div class="navLeft">
@@ -77,7 +100,7 @@
                             </div>
                         </a>
                         <a class="a-sideLink" href="backendpoints.html">
-                            <div class="currentPage">
+                            <div>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28.422" height="24.869"
                                     viewBox="0 0 28.422 24.869">
                                     <path id="diamond"
@@ -88,7 +111,7 @@
                             </div>
                         </a>
                         <a class="a-sideLink" href="backendFinance.html">
-                            <div>
+                            <div class="currentPage">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="28.422" height="28.422"
                                     viewBox="0 0 28.422 28.422">
                                     <path id="Icon_open-folder" data-name="Icon open-folder"
@@ -103,102 +126,94 @@
                 </div>
             </aside>
             <main>
-                <div id="pointsDataFilterArea">
-                    <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">單筆編輯</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
+                <div id="financeDataFilterArea">
+                    <div id="financeDataFilterBlock">
+                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive">檢視銷售</div>
+                        <div id="financeDataFilterTab02" class="financeDataFilterTab">檢視捐款</div>
                     </div>
-                    <div id="pointsDataFilter">
-                        <div id="pointsDataFilterLeftUpperBlock">
-                            <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
-                                <div>會員編號</div>
-                                <input type="text" name="number">
-                                <div>會員帳號</div>
-                                <input type="text" name="account">
-                            </div>
-                            <div id="pointsDataFilterLeftUpperBlockRow02" class="pointsDataFilterLeftUpperBlockRow">
-                                <div>會員姓名</div>
-                                <input type="text" name="name">
-                                <div>會員手機</div>
-                                <input type=" text" name="phone">
+                    <div id="financeFilterForSelling" class="financeFilter">
+                        <div id="financeDateFilterBlock">
+                            查詢時間
+                            <input type="date">至
+                            <input type="date">
+                            <div id="supplierID">
+                                賣家編號
+                                <input type="text">
                             </div>
                         </div>
-                        <div id="pointsDataFilterRightBlock">
-                            <div>
-                                查詢區間<br>
-                                <input type="date" name="dateStart01" value="2020-01-01">至<input type="date"
-                                    name="dateEnd01" value="2020-12-31">
+                        <div id="financeFilterDownload">下載：</div>
+                        <a href="">
+                            <div id="financeFilterButton">查詢</div>
+                        </a>
+                    </div>
+                    <div id="financeFilterForDonation" class="financeFilter">
+                        <div id="donationSearchingBlock">
+                            <div class="donationSearchingRow" id="donationSearchingTopRow">
+                                <div>捐款編號<input type="text" name="DONATION_ID" class="form-control"></div>
+                                <div>捐款姓名<input type="text" name="name" class=" form-control"></div>
                             </div>
-                            <div id="membersPointsActionBlock">
-                                <a href="#0" @click="query">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
-                                </a>
-                                <a href="#0">
-                                    <div id="pointsDataFilterButton02" class="pointsDataFilterButton">新增</div>
-                                </a>
+                            <div class="donationSearchingRow" id="donationSearchingBottomRow">
+                                <div>電子郵件<input type="text" name="email" class="form-control"></div>
+                                <div>身分證字號／統編<input type="text" name="pID_tID" class="form-control"></div>
                             </div>
+                        </div>
+                        <!-- <div id="financeFilterDownload">下載：</div> -->
+                        <div id="donationDateFilter">
+                            <div>查詢區間</div>
+                            <input type="date" name="dateStart">至
+                            <input type="date" name="dateEnd">
+                            <a href="#0">
+                                <div id="financeFilterButton" @click="query">查詢</div>
+                            </a>
                         </div>
                     </div>
                 </div>
-                <div id="pointsDataArea" v-if="pointsOfMember">
-                    <div id="memberProfile" v-for="(data,key) in pointsOfMember">
-                        會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :placeholder="data['NAME']" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :placeholder="data['PHONE']" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :placeholder="data['POINTS']" disabled>
-                    </div>
-                    <div id="">
-                        修改點數：<br>
-                        <input type="text" name="points">
-                        <button @click="update">確認修改</button>
-                    </div>
-                    <div>
-                        使用紀錄：
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>序號</th>
-                                    <th>訂單編號</th>
-                                    <th>使用點數</th>
-                                    <th>使用時間</th>
-                                    <th>功能鍵</th>
-                                </tr>
-                            </thead>
-                            <tbody v-if="discountLog">
-                                <tr v-for="(data,key) in discountLog">
-                                    <td>{{key+1}}</td>
-                                    <td>{{data["ORDER_ID"]}}</td>
-                                    <td>{{data["DISCOUNT"]}}</td>
-                                    <td>{{data["ORDER_DATE"]}}</td>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div>
-                        發放紀錄：
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>序號</th>
-                                    <th>發放序號</th>
-                                    <th>發放點數</th>
-                                    <th>發放時間</th>
-                                </tr>
-                            </thead>
-                            <tbody v-if="issanceLog">
-                                <tr v-for="(data,key) in issanceLog">
-                                    <td>{{key+1}}</td>
-                                    <td>{{data["ISSANCE_DATE"]}}</td>
-                                    <td>{{data["ISSANCE_NUM"]}}</td>
-                                    <td>{{data["POINTS_ISSANCER_ID"]}}</td>
-                            </tbody>
-                        </table>
+                <div id="financeDataArea">
+                    <!-- <div id="financeShowSellingPage">
+                        <div id="financeShowResultBlock">
+                            <div class="financeShowResultRow">
+                                查詢時間： 2020-10-21～2020-10-31
+                            </div>
+                            <div class="financeShowResultRow">
+                                訂單筆數：<input type="text" class="financeSearchResult">筆
+                            </div>
+                            <div class="financeShowResultRow">
+                                銷售總額：<input type="text" class="financeSearchResult">元
+                            </div>
+                        </div>
+                        <div id="financeDiagram">
+                            <img src="../img/22/backend/temp_diagram.png" alt="">
+                        </div>
+                    </div> -->
+                    <div id="financeShowDonationPage">
+                        <div>
+                            <h4>捐款詳情：</h4>
+                            <ul v-for="data in donationDetals">
+                                <li><span>捐款編號：</span>{{data["DONATION_ID"]}}</li>
+                                <li><span>姓名／公司：</span>{{data["NAME"]}}</li>
+                                <li><span>國籍：</span>{{data["NATIONALITY"]}}</li>
+                                <li><span>身分證字號／統編（捐款人）：</span>{{data["PERSONAL_ID_OR_TAX_ID"]}}</li>
+                                <li><span>生日：</span>{{data["BIRTHDAY"]}}</li>
+                                <li><span>地址：</span>{{data["ADDRESS"]}}</li>
+                                <li><span>Email：</span>{{data["EMAIL"]}}</li>
+                                <li><span>性別：</span>{{data["GENDER"]}}</li>
+                                <li><span>備註：</span>{{data["REMARKS"]}}</li>
+                                <li><span>捐款類別：</span>{{data["DONATION_METHOD"]}}</li>
+                                <li><span>捐款方式：</span>{{data["DONATION_PLAN"]}}</li>
+                                <li><span>捐款金額：</span>{{data["AMOUNT"]}}</li>
+                                <li><span>捐款日期：</span>{{data["DATE"]}}</li>
+                                <li><span>收據抬頭：</span>{{data["RECEIPT_TITLE"]}}</li>
+                                <li><span>身分證字號／統編（收據）：</span>{{data["PERSONAL_ID_OR_TAX_ID_OF_RECEIPT"]}}</li>
+                                <li><span>捐款收據寄發方式：</span>{{data["DELIVERY_METHOD"]}}</li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
             </main>
         </div>
     </div>
-    <script src="../js/22/pointsDetailsAjaxVue.js"></script>
+
+    <script src="../js/22/financeDetailsAjaxVue.js"></script>
 
 </body>
 

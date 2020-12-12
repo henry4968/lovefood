@@ -11,6 +11,7 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <link rel="icon" type="image/png" href="/img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
     <script src="../js/21/donation.js"></script>
     <script>
@@ -22,15 +23,45 @@
 
     <!-- 標頭開始 -->
     <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <!-- 行動版行動導覽列開始 -->
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile" id="donationPage">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 行動版導覽列結束 -->
+        <!-- 漢堡選單結束 -->
         <div id="headerContentContainer">
             <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                <img id="logo" src="../img/22/index/ch04_header_logo.png">
             </a>
-
-            <!-- 導覽列開始 -->
-            <nav id="navigation">
+            <!-- 桌機版導覽列開始 -->
+            <nav id="navigationForPC">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="./signUp_signIn.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
                 <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
@@ -38,40 +69,35 @@
                     </div>
                 </a>
                 <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_search.png" alt="">
+                    <img src="../img/22/index/ch04_nav_search.png" alt="">
                 </a>
                 <a href="#0" id="navIcons02" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38.773" height="34.617" viewBox="0 0 38.773 34.617">
-                        <g id="cart" transform="translate(-1443.176 -45.928)">
-                            <path id="パス_1" data-name="パス 1"
-                                d="M1460.01,76.951a3.594,3.594,0,1,1-3.595-3.594,3.594,3.594,0,0,1,3.595,3.594Z"
-                                fill="#8f8770" />
-                            <path id="パス_2" data-name="パス 2"
-                                d="M1478.546,76.951a3.594,3.594,0,1,1-3.595-3.594,3.594,3.594,0,0,1,3.595,3.594Z"
-                                fill="#8f8770" />
-                            <path id="パス_3" data-name="パス 3"
-                                d="M1481.453,50.717a2.216,2.216,0,0,0-1.673-.74h-27.436l-.553-2.932a1.419,1.419,0,0,0-1.42-1.115h-5.77a1.352,1.352,0,0,0-.147,2.7,1.2,1.2,0,0,0,.147,0h4.558l4.116,21.817a1.42,1.42,0,0,0,1.421,1.115h23.079a1.352,1.352,0,1,0,.147-2.7,1.2,1.2,0,0,0-.147,0h-21.867l-.508-2.7h21.784a2.139,2.139,0,0,0,2.124-1.626l2.6-12.141a1.927,1.927,0,0,0-.451-1.68Z"
-                                fill="#8f8770" />
-                        </g>
-                    </svg> -->
-
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
-                <a href="#0" id="navIcons03" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_member.png" alt="">
+                <a href="./memberInformation.html" id="navIcons03" class="navIcons">
+                    <img src="../img/22/index/ch04_nav_member.png" alt="">
                 </a>
-
             </nav>
-            <!-- 導覽列結束 -->
-
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
+            <nav id="subNavigationForMobile">
+                <a href="#0" id="navIcons04" class="navIconsForMobile">
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
+                    <img src="../img/22/index/ch04_nav_member.png" alt="">
+                </a>
+            </nav>
+            <!-- 行動版次級導覽列結束 -->
         </div>
     </header>
     <!-- 標頭結束 -->
 
+
     <!-- 主要內容開始 -->
     <main id="main">
-
-        <div class="donateNowBg">
+        <div class="donateBg">
+            <div class="donateNowBg"></div>
             <div class="donateNow"></div>
 
 
@@ -107,12 +133,14 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="categoryRadio1">
+                                        <input type="radio" class="form-radio-input" id="categoryRadio1"
+                                            name="donationPlan" value="1">
                                         <label class="form-radio-label" for="categoryRadio1">單次扣款</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="categoryRadio2">
+                                        <input type="radio" class="form-radio-input" id="categoryRadio2"
+                                            name="donationPlan" value="2">
                                         <label class="form-radio-label" for="categoryRadio2">定期捐款 (每月扣款)</label>
                                     </div>
                                 </div>
@@ -128,13 +156,14 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="categoryRadio1">
+                                        <input type="radio" class="form-radio-input" id="categoryRadio1"
+                                            name="donationMethod" value="1">
                                         <label class="form-radio-label" for="categoryRadio1">信用卡</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="formRow">
+                            <div class="formRow" id="donateMoney">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
                                     <div class="starTxt">*</div>捐款金額：
@@ -143,8 +172,8 @@
                                 <div class="inputArea">
 
                                     <!-- 短版表單 -->
-                                    <div class="form-text">
-                                        <input type="text" class="form-text-input" id="amounttext">
+                                    <div class="form-text" id="form_Explanation">
+                                        <input type="text" class="form-text-input" id="amounttext" name="amount">
                                         <div class="formExplanation">(輸入捐款金額或選取以下金額)
                                         </div>
                                     </div>
@@ -187,7 +216,8 @@
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="text" class="form-text-input-long" id="" placeholder="">
+                                        <input type="text" class="form-text-input-long" id="" placeholder=""
+                                            name="name">
 
                                     </div>
                                 </div>
@@ -204,13 +234,15 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="countryRadio1">
+                                        <input type="radio" class="form-radio-input" id="countryRadio1"
+                                            name="nationality">
                                         <label class="form-radio-label" for="countryRadio1">本國</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="countryRadio2">
-                                        <label class="form-radio-label" for="countryRadio2">本國</label>
+                                        <input type="radio" class="form-radio-input" id="countryRadio2"
+                                            name="nationality">
+                                        <label class="form-radio-label" for="countryRadio2">外國</label>
                                     </div>
                                 </div>
                             </div>
@@ -218,7 +250,7 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>身分證/統一編號：
+                                    身分證/統一編號：
                                 </label>
 
                                 <div class="inputArea">
@@ -226,7 +258,7 @@
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
                                         <input type="text" class="form-text-input-long" id=""
-                                            placeholder="填寫格式：A123456789英文需大寫">
+                                            placeholder="填寫格式：A123456789英文需大寫" name="pID_tID">
 
                                     </div>
                                 </div>
@@ -243,7 +275,7 @@
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
                                         <input type="text" class="form-text-input-long" id=""
-                                            placeholder="填寫格式：1992-01-01">
+                                            placeholder="填寫格式：1992-01-01" name="birthday">
 
                                     </div>
                                 </div>
@@ -252,14 +284,15 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>地址：
+                                    地址：
                                 </label>
 
                                 <div class="inputArea">
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="text" class="form-text-input-long" id="" placeholder="請填寫路街號樓">
+                                        <input type="text" class="form-text-input-long" id="" placeholder="請填寫路街號樓"
+                                            name="address">
 
                                     </div>
                                 </div>
@@ -276,7 +309,7 @@
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
                                         <input type="email" class="form-text-input-long" id=""
-                                            placeholder="填寫格式：lovefood@gmail.com">
+                                            placeholder="填寫格式：lovefood@gmail.com" name="emal">
 
                                     </div>
                                 </div>
@@ -292,17 +325,17 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio1">
+                                        <input type="radio" class="form-radio-input" id="genderRadio1" name="gender">
                                         <label class="form-radio-label" for="genderRadio1">男</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio2">
+                                        <input type="radio" class="form-radio-input" id="genderRadio2" name="gender">
                                         <label class="form-radio-label" for="genderRadio2">女</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio3">
+                                        <input type="radio" class="form-radio-input" id="genderRadio3" name="gender">
                                         <label class="form-radio-label" for="genderRadio3">其他</label>
                                     </div>
                                 </div>
@@ -333,7 +366,7 @@
 
                                 <div class="inputArea">
                                     <div class="form-text-message">
-                                        <textarea name="" id="message" cols="30" rows="10"></textarea>
+                                        <textarea name="" id="message" cols="30" rows="10" name="remarks"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -398,7 +431,7 @@
                                     <div class="starTxt">*</div>信用卡卡號：
                                 </label>
 
-                                <div class="inputArea">
+                                <div class="inputArea" id="input-form-text-four">
 
                                     <!-- 信用卡卡號表單 -->
                                     <div class="form-text-four">
@@ -423,7 +456,7 @@
                                 <div class="inputArea">
 
                                     <!-- 短版表單 -->
-                                    <div class="form-text">
+                                    <div class="form-text" id="">
                                         <input type="text" class="form-text-input" id="cardmonthtext">
                                         <div class="labelTxt">月
                                         </div>
@@ -464,14 +497,15 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>收據抬頭：
+                                    收據抬頭：
                                 </label>
 
                                 <div class="inputArea">
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="name" class="form-text-input-long" id="" placeholder="">
+                                        <input type="name" class="form-text-input-long" id="" placeholder=""
+                                            name="receiptTitle">
 
                                     </div>
                                 </div>
@@ -480,14 +514,15 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>身分證/統一編號：
+                                    身分證/統一編號：
                                 </label>
 
                                 <div class="inputArea">
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="name" class="form-text-input-long" id="" placeholder="">
+                                        <input type="name" class="form-text-input-long" id="" placeholder=""
+                                            name="receipt_pID_tID">
 
                                     </div>
                                 </div>
@@ -497,19 +532,21 @@
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
-                                    <div class="starTxt">*</div>捐款收據寄發方式：
+                                    捐款收據寄發方式：
                                 </label>
 
                                 <div class="inputArea">
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="receiptRadio1">
+                                        <input type="radio" class="form-radio-input" id="receiptRadio1"
+                                            name="deliveryMethod" value="1">
                                         <label class="form-radio-label" for="receiptRadio1">免寄收據 </label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="receiptRadio2">
+                                        <input type="radio" class="form-radio-input" id="receiptRadio2"
+                                            name="deliveryMethod" value="2">
                                         <label class="form-radio-label" for="receiptRadio2">每次寄發</label>
                                     </div>
                                 </div>
@@ -526,8 +563,9 @@
                         <!-- 詳閱確認 -->
                         <div class="formRowGorup">
                             <div class="formRow">
-                                <div class="starTxt">*</div>
+
                                 <div class="form-check">
+                                    <div class="starTxt">*</div>
                                     <input type="checkbox" class="form-checkbox" id="checkbox1">
                                     <label class="form-checkbox-label" for="checkbox1">我已詳閱並同意本協會捐款規章，詳細聲明
                                         <a class="checkInfo" href="">請參閱</a>。</label>
@@ -541,7 +579,9 @@
 
                                 <div class="checkButton">
                                     <input type="submit" class="Button" id="cleanButton" value=清除重填>
-                                    <input type="submit" class="Button" id="sendButton" value=確認送出>
+                                    <form action="/PHP/Frontend/donation.php" method="post">
+                                        <input type="submit" class="Button" id="sendButton" value=確認送出>
+                                    </form>
                                 </div>
 
 
