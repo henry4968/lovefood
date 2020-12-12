@@ -1,5 +1,6 @@
 @import 'memheader';
 @import 'memfooter';
+@import "../../node_modules/normalize-scss/sass/normalize/import-now";
 $maxw700:700px;
 $minw700:701px;
 @mixin rwd($breakpoint){

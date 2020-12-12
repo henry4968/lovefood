@@ -42,7 +42,7 @@
     $selmemberID = "";
     $selmemberName = "";
     foreach($seldata as $index => $selrow){
-        $selmemberID = $selrow["MEMBER_ID"];
+        $selmemberID = $selrow["SUPPLIER_ID"];
         $selmemberName = $selrow["ACCOUNT"];
     }
 
@@ -57,7 +57,7 @@
 
         //導回產品頁        
         echo "<script>alert('登入成功!'); location.href = '../../frontend/memberInformation.html';</script>"; 
-    }else if($selmemberID != "" && $selmemberName != ""){//
+    }else if($selmemberID != "" && $selmemberName != ""){//判斷是否有賣家會員資料?
         include("Lib/MemberClass.php");
         $Member = new MemberClass();
 
@@ -65,7 +65,7 @@
         $Member->setMemberInfo($selmemberID, $selmemberName);
 
         //導回產品頁        
-        echo "<script>alert('登入成功!'); location.href = '../../frontend/memberInformation.html';</script>"; 
+        echo "<script>alert('登入成功!'); location.href = '../../backend/backendIndex.html';</script>"; 
         
     }else{
         //跳出提示停留在登入頁
