@@ -1,3 +1,4 @@
+
 @import "../../base/var";
 @import "../../mixin/mixins";
 @import "../../base/fonts";
@@ -9,15 +10,6 @@
     font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
     text-decoration: none;
 }
-// svg&:hover{
-//     path{
-    
-//         fill:#fff;
-    
-        
-//     
-// }
-
 
 
 // 標頭開始
@@ -26,61 +18,207 @@
     height: 123px;
     display: flex;
     position: fixed;
-    background: #EFECB9;
+    background: transparent;
     z-index: 9;
+    background-color: #EFECB9;
+    @include newRwd("bigPhone"){
+        width: 100%;
+        height: 55px;
+    }
+    // 漢堡選單開始
+    #hamburgerMenuToggle{
+        opacity: 0;
+        &:checked + #hamburgerMenuButton > span{
+            transform: rotate(45deg);
+            &::before{
+                top: 0;
+                transform: rotate(0deg);
+            }
+            &::after{
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+        &:checked ~ #navigationForMobile{
+            left: 0;
+        }
+    }
+    #hamburgerMenuButton{
+        width: 45px;
+        height: 35px;
+        align-self: center;
+        margin-left: 10px;
+        position: relative;
+        cursor: pointer;
+        display: none;
+        
+        @include newRwd("newSmallPhone"){
+            margin-left: 5px;
+            }
+        span{
+            display: block;
+        }
+        span, span::before, span::after{
+            content: '';
+            display: block;
+            width: 45px;
+            height: 5px;
+            border-radius: 10px;
+            position: absolute;
+            transition-duration: .35s;
+            background-color: #8F8770;
+            @include newRwd("newSmallPhone"){
+                width: 36px;
+                height: 3px;
+                }
+            }
+        span{
+            top: 45%;
+            &::before{
+                content: '';
+                top: -15px;
+                @include newRwd("newSmallPhone"){
+                    top: -10px;
+                    }
+            }
+            &::after{
+                content: '';
+                top: 15px;
+                @include newRwd("newSmallPhone"){
+                    top: 10px;
+                    }
+            } 
+        }
+        @include newRwd("bigPhone"){
+            display: block;
+        }
+    }
+    // 水平滑動漢堡選單變色用父層開始
+    .hamburgerMenuColorForCh01{
+        span, span::before, span::after{
+            background-color: #FDFBBA;
+        }
+    }
+    .hamburgerMenuColorForCh0102{
+        span, span::before, span::after{
+            background-color: #946C1E;
+        }
+    }
+    .hamburgerMenuColorForCh02{
+        span, span::before, span::after{
+            background-color: #FFFFFF;
+        }
+    }
+    // 水平滑動漢堡選單變色用父層結束
+    
+    // 漢堡選單結束
+
+    // 行動版導覽列開始
+    #navigationForMobile{
+        display: none;
+        @include newRwd("bigPhone"){
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 55px;
+            left: -100%;
+            background-color: white;
+            opacity:80%;
+            transition-duration: .35s;
+            #searchBarForMobile{
+                width: 100%;
+                height: 70px;
+                background-color: lightgrey;
+                display: flex;
+                #searchInputForMobile{
+                    width: 80%;
+                    height: 60%;
+                    border-radius: 20px;
+                    background-color: #FFFFFF;
+                    display: block;
+                    margin: auto;
+                    align-self: center;
+                }
+            }
+            li{
+                list-style: none;
+                text-align: center;
+                font-size: 24px;
+                margin: 30px 0px 0px 0px;
+                a{
+                    color: #515151;
+
+                }
+                
+            }
+        }
+    }
+    // 行動版導覽列結束
+
     #headerContentContainer{
-        // border: 1px solid red;
-        text-decoration: none;
         width: 1180px;
         height: 50px;
         margin: 38px 0px 0px 364px;
         display: flex;
         justify-content: space-between;
-        @include rwd("laptop"){
+        @include newRwd("laptop"){
             width: 970px;
             margin: auto;
             align-items: center;
         }
-        @include rwd("pad"){
-            display: none;
-        }
-        @include rwd("bigPhone"){
-            display: none;
-        }
-        @include rwd("mediumPhone"){
-            display: none;
-        }
-        @include rwd("smallPhone"){
-            display: none;
+        @include newRwd("pad"){
+            width: 920px;
+            margin: auto;
+            align-items: center;
         }
         #logo{
             width: 264px;
             height: 46px;
+            // 首頁由js控制代替的hover變色
             &:hover{
-                content: url('../../../img/22/index/ch01_header_logo_hover.png');
+                content: url('../../../img/22/index/ch0102_header_logo_hover.png');
             }
-            @include rwd("laptop"){
+            @include newRwd("laptop"){
                 width: 216px;
                 height: 38px;
                 align-self: center;
             }
+            @include newRwd("pad"){
+                width: 216px;
+                height: 38px;
+                align-self: center;
+            }
+            @include newRwd("bigPhone"){
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+            }
+            @include newRwd("bigPhone"){
+                width: 158px;
+                height: 27px;
+            }
         }
-        #navigation{
-            // border: 1px solid blue;
+        // 桌機版導覽列開始
+        #navigationForPC{
             width: 762px;
             height: 50px;
             display: flex;
             align-items: center;
-            @include rwd("laptop"){
+            @include newRwd("laptop"){
                 width: 625px;
                 align-items: center;
             }
             a{
-                text-decoration: none;
                 font-size: 30px;
-                @include rwd("laptop"){
+                @include newRwd("laptop"){
                     font-size: 20px;
-                    text-decoration: none;
+                }
+                @include newRwd("pad"){
+                    font-size: 20px;
+                }
+                @include newRwd("bigPhone"){
+                    display: none;
                 }
             }
             .navGeneralAnchors{
@@ -91,32 +229,41 @@
             }
             :nth-child(2),:nth-child(3){
                 margin-left: 25px;
-                @include rwd("laptop"){
+                @include newRwd("laptop"){
                     margin-left: 20px;
                 }
             } 
+            :nth-child(3){
+                // border: 1px solid red ;
+                // border-bottom: oldlace 1px solid;
+            }
             #navSepcialAnchor{
-                color: #ffffff;
+                color: #858585;
                 div{
                     width: 139px;
                     height: 100%;
                     border-radius: 3px;
                     text-align: center;
+                    padding: 3px 0;
                     background-color: #8F8770;
+                    color: rgb(255, 255, 255);
                     &:hover{
                         background-color: #D6CAAA;
                     }
                     margin: 0px 28px;
-                    @include rwd("laptop"){
+                    @include newRwd("laptop"){
                         width: 114px;
                     }
                 }
             }
             .navIcons{
                 img{
-                    @include rwd("laptop"){
+                    @include newRwd("laptop"){
                         width: 30px;
                         
+                    }
+                    &:hover{
+                        // content: url('../../../img/22/index/ch04_nav_cart_hover.png');
                     }
                 }
             }
@@ -124,6 +271,29 @@
                 margin-left: 20px;
             }
         }
+        // 桌機版導覽列結束
+        // 行動版次導覽列開始
+        #subNavigationForMobile{
+            display: none;
+            @include newRwd("bigPhone"){
+                display: block;
+                width: 96px;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                right: 10px;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 55px;
+                right: 20px;
+                img{
+                    height: 23px;
+                    margin: 5px 0px 0px 10px;
+                }
+            }
+        }
+        // 行動版次導覽列結束
     }
 }
 // 標頭結束
@@ -160,11 +330,11 @@
         margin: auto;
         font-size: 25px;
         line-height: 75px;
-        // @include 
+
 
     }
 
-    @include  newRwd(pad){
+    @include  newRwd("pad"){
         .bannerTitle{
             width: 400px;
             height: 250px;
@@ -173,7 +343,7 @@
         }
     }
 
-    @include  newRwd(bigPhone){
+    @include  newRwd("bigPhone"){
         .bannerTitle{
             width: 300px;
             height: 200px;
@@ -208,6 +378,13 @@
         background-position: center;
     }
 
+    @media screen and (max-width: 900px){
+        .bannerRound{
+            z-index: 0;
+            bottom: 0;
+        }
+    }
+
 }
 
 
@@ -226,7 +403,7 @@
     
     
     .bottomNav{
-        border: 1px solid rgb(224, 32, 57);
+        // border: 1px solid rgb(224, 32, 57);
         font-size: 30px;
         max-width: 1200px;
         width: 100%;
@@ -246,41 +423,61 @@
                 color: rgb(151, 138, 138);
             }
         }
-        
     }
 }
-@media screen and (max-width: 1168px){
-    .secondNav{
-        bottom: -17px;
+
+.bottomNav2{
+    display: none;
+    a{
+        // margin: 0 50px;
+        text-decoration: none;
+        white-space: nowrap;
+        color: #000;
+
+        &:hover{
+            color: rgb(151, 138, 138);
+        }
     }
 }
+
+
+
 @media screen and (max-width: 900px){
-
     .secondNav{
-        padding: 0;
-        // bottom: 190px;
-        // height: none;
-
+        display: none;
         .bottomNav{
+            display: none;
+            a{
+                display: none;
+            }
+            
+        }
+    }
+
+
+    .bottomNav2{
+        display: block;
         display: flex;
         flex-direction: column;
         align-items: center;
         background-color: #EFECB9;
-        margin-top: -50px;
-        
-        }
-
+        // margin-top: -48px;
+        // padding: 20px;
+        font-size: 30px;
+        max-width: 1200px;
+        width: 100%;
         a{
+            transform: translateY(-190%);
             margin: 8px auto;
+            text-decoration: none;
+            white-space: nowrap;
+            color: #000;
+            z-index: 5;
+            &:hover{
+                color: rgb(151, 138, 138);
+            }
         }
     }
-
-    .projectDetails{
-        margin-top: 170px;
-    }
-    
-
-
 }
 
 // @media screen and (max-width: 1200px) and (min-width: 991px){
@@ -305,24 +502,28 @@
         height: 100%;
         height: 1081px;
         width: 100%;
-        padding-top: 135px;
+        // padding-top: 135px;
     
-    
+
+
         .projectDetailsIn{
             max-width: 1200px;
             width: 100%;
             // border: 1px solid black;
             margin: 0 auto;
-            
+            padding-top: 100px;
+
         
             .title{
                 // border: red 1px solid;
                 position: relative;
                 display: block;
                 text-align: center;
-                width: 400px;
+                max-width: 400px;
+                width: 100%;
                 height: 100px;
                 margin: 0 auto 105px;
+
 
                 img{
                     // border: red 1px solid;
@@ -330,11 +531,20 @@
                     position: absolute;
                     bottom: 0;
                     left: -25px;
+                    @include newRwd("newSmallPhone"){
+                        // border: red 1px solid;
+                        bottom: 21px;
+                        left: 2px;
+                        width: 87%;
+                    }
                 }
 
                 h2{
                     font-size: 50px;
                     display: block;
+                    @include newRwd("mediumPhone"){
+                        font-size: 40px;
+                    }
                 }
                 
             }
@@ -349,8 +559,8 @@
                     margin: 80px 30px 30px 30px;
                     max-width: 680px;
                     min-width: 320px;
-                    
-                    
+                    text-align: justify;
+                    padding: 0 30px;
                     
                     h3{
                         font-size: 40px;
@@ -365,50 +575,104 @@
                 }
 
                 .area2TxtImg{
-                    border: solid 1px rgb(255, 0, 255);
-                    
+                    max-width: 380px;  
+                    width: 50%;  
+                    margin: 30px;  
+                    // border: solid 1px rgb(255, 0, 255);
+                    #area2TxtImg{
+                        max-width: 100%;
+                        // max-height: 100%;
+                        // border: solid 1px rgb(33, 79, 207);
+                        // padding: 30px 0px 30px 0px;
+                        
+                    }       
                 }
 
-                @media screen and (max-width: 1077px){
+                
+            }    
+            @media screen and (max-width: 1200px){
+
+                .title{
+                    margin: 0 auto;
+                }
+                .area1{
+                    justify-content: center;
+                    flex-direction: column-reverse;
+                    
                     .txt{
-                        margin: -95px;
+                        margin: -95px auto 0;
+                        max-width: 700px;
+                        h3{
+                            font-size: 35px;
+                            margin-bottom: 20px;
+                            // border: solid 1px rgb(255, 0, 255);
+                        }
+                        p{
+                            font-size: 26px;
+                            line-height: 50px;
+                        }
+
                     }
 
                     .area2TxtImg{
                         transform: rotate(270deg);
-                        // width: 80%;
-                        max-width: 600px;
-                        margin: -170px 30px 30px 30px;
+                        // width: 50%;
+                        margin: 0px auto 30px;
+                        max-height: 679px;
+
+                        #area2TxtImg{
+                            
+                            max-width: 100%;
+                            // max-height: 100%;
+                        }
+                    }
+
+                }
+            }
+            @include  newRwd("newSmallPhone"){
+                .area1{
+                    .txt{
+                        h3{
+                        font-size: 35px;
+                        margin-bottom: 20px;
+                        // border: solid 1px rgb(255, 0, 255);
+                        @include  newRwd("miniPhone"){
+                            font-size: 30px;
+                        }
+                    }
+                        p{
+                            font-size: 22px;
+                            line-height: 40px;
+                        }
                     }
                 }
-
-                // img{
-                //     max-width: 380px;
-
-                // }
-            }    
+            }
 
         }   
-    }
 
-@media screen and (max-width: 1077px){
-    .projectDetailsBg{
-        padding-top: 85px;
+
+        @media screen and (max-width: 900px){
+            .projectDetailsIn{
+                padding-top: 0px;
+            }
+        }
+
+        
     }
-    // .area2TxtImg{
-    //     transform: rotate(270deg);
-    //     // width: 100%;
-    //     width: 650px;
-    //     margin: -170px 30px 30px 30px;
-    // }
     
-}
 
     .area2{
         // border: solid 1px rgb(255, 0, 255);
         max-width: 1200px;
-        margin: 0 auto 200px;
+        margin: 0 auto 100px;
         padding-top: 110px;
+        @include newRwd("pad"){
+            padding-top: 180px;
+            margin: 0 auto 50px;
+        }
+        @include newRwd("mediumPhone"){
+            padding-top: 0px;
+        }
 
         .area2Txt{
             // border: solid 1px rgb(255, 0, 255);
@@ -416,44 +680,106 @@
             flex-direction: row;
             // flex-wrap: wrap-reverse;
             justify-content: space-around;
+            @include newRwd("pad"){
+                // max-width: 1000px;
+                // margin: 0 auto;
+                display: flex;
+                flex-direction: column;
+                // justify-content:center;
+                align-items: center;
+            }
+
 
             img{
                 // align-self:flex-start;
                 max-width: 216px;
-                width: 100%;
+                // width: 50%;
                 height: 260px;
+                margin: 0 0 0 30px;
+                @include newRwd("pad"){
+                    max-width: 180px;
+                    height: 200px;
+                }
             }
 
             .area2TxtTxt{
-                
+                padding: 30px 30px 30px 0;
+                @include newRwd("pad"){
+                    padding: 30px;
+                    max-width: 700px;
+                }
                 h3{
                     font-size: 40px;
                     margin: 100px 0 40px;
                     // border: solid 1px rgb(255, 0, 255);
+                    @include newRwd("pad"){
+                        font-size: 35px;
+                        margin: 10px 0 40px;
+                        display: flex;
+                        justify-content: center;
+                        // justify-content: flex-end;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 35px;
+                        margin-bottom: 20px;
+                    }
+                    @include  newRwd("miniPhone"){
+                        font-size: 30px;
+                    }
                 }
                 
                 p{
                     font-size: 30px;
                     line-height: 60px;
                     max-width: 850px;
-                    padding-bottom: 10px;
+                    padding-bottom: 60px;
+                    text-align: justify;
+                    @include newRwd("pad"){
+                        font-size: 26px;
+                        line-height: 50px;
+                        // margin: 0 30px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 22px;
+                        line-height: 40px;
+                    }
                 }
             }
+
+            
         }
+
+
     }
+
+   
+        
+
 
 
     .area3{
         // border: red 1px solid;
-        background-repeat: no-repeat;
-        background-image: url("/img/21/donation_description/background2.png");
-        background-size: cover;
-        background-position: center;
-        width: 100%;
-        height: 1900px;
+        // background-repeat: no-repeat;
+        // background-image: url("/img/21/donation_description/background2.png");
+        // background-size: cover;
+        // background-position: center;
+        // width: 100%;
+
         display: flex;
         justify-content: center;
         position: relative;
+
+        .area3_bg{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-repeat: no-repeat;
+            background-image: url("/img/21/donation_description/background2.png");
+            background-size: cover;
+            background-position: center;
+            height: 1900px;
+            width: 100%;
+        }
 
         .howDo{
             max-width: 1200px;
@@ -471,6 +797,15 @@
                     font-size: 40px;
                     margin: 0 auto 40px;
                     // border: solid 1px rgb(255, 0, 255);
+                    @include newRwd("pad"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("miniPhone"){
+                        font-size: 30px;
+                    }
                 }
                 
                 p{
@@ -479,7 +814,15 @@
                     max-width: 615px;
                     padding-bottom: 10px;
                     margin: 0 auto;
-                    
+                    padding: 0 30px;
+                    @include newRwd("pad"){
+                        font-size: 26px;
+                        line-height: 50px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 22px;
+                        line-height: 40px;
+                    }
                 }
             }
 
@@ -491,6 +834,15 @@
                 width: 100%;
                 z-index: 1;
                 opacity: 0.8;
+                @include  newRwd("laptop"){
+                    opacity: 0.5;
+                }
+                @include  newRwd("pad"){
+                    opacity: 0.5;
+                }
+                @include  newRwd("newSmallPhone"){
+                    opacity: 0.4;
+                }
             }
 
 
@@ -500,6 +852,9 @@
                 // justify-content:  space-around; 
                 justify-content: center;
                 // flex-wrap: wrap;
+                @include newRwd("pad"){
+                    flex-wrap: wrap;
+                }
 
             
 
@@ -511,6 +866,12 @@
                     max-width: 360px;
                     margin: 0 20px 150px;
                     z-index: 3;
+                    @include newRwd("pad"){
+                        margin: 0 20px 100px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        margin: 0 20px 80px;
+                    }
 
                     // 對話框
                     .mwt_border{
@@ -521,10 +882,24 @@
                         background: #E7E7E7;
                         position: relative;
                         margin: 0 auto 30px;
+                        @include newRwd("pad"){
+                            width: 200px;
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            width: 180px;
+                        }
 
                         p{
                             font-size: 38px;
-                            padding-top:8px ;
+                            padding-top: 8px ;
+                            @include newRwd("pad"){
+                                font-size: 35px;
+                                padding-top: 14px ;
+                            }
+                            @include  newRwd("newSmallPhone"){
+                                font-size: 30px;
+                                padding-top: 15px ;
+                            }
                         }
 
 
@@ -542,6 +917,13 @@
                         width: 225px;
                         // border: solid 1px rgb(255, 0, 255);
                         margin: 0 auto 27px;   
+                        @include newRwd("pad"){
+                            width: 200px;
+                            margin: 0 auto;  
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            width: 180px;
+                        }
                     }
 
                     .stepTxt{
@@ -552,6 +934,15 @@
                             font-size: 29px;
                             margin-top: 20px;
                             line-height: 50px;
+                            @include newRwd("pad"){
+                                font-size: 26px;
+                                line-height: 50px;
+                                // margin: 0 30px;
+                            }
+                            @include  newRwd("newSmallPhone"){
+                                font-size: 24px;
+                                line-height: 40px;
+                            }
                         }
 
                         .line{
@@ -580,9 +971,13 @@
         position: relative;
         display: block;
         text-align: center;
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         height: 100px;
         margin: 135px auto 38px;
+        @include newRwd("pad"){
+            margin: 35px auto 38px;
+        }
 
         img{
             // border: red 1px solid;
@@ -590,11 +985,20 @@
             position: absolute;
             bottom: 0;
             left: -25px;
+            @include newRwd("newSmallPhone"){
+                // border: red 1px solid;
+                bottom: 21px;
+                left: 2px;
+                width: 87%;
+            }
         }
 
         h2{
             font-size: 50px;
             display: block;
+            @include newRwd("mediumPhone"){
+                font-size: 40px;
+            }
         }
         
     }
@@ -606,21 +1010,44 @@
         display: flex;
         flex-direction: row;
         justify-content: space-between;
+        margin: 80px 30px 0;
         // vertical-align: bottom;
+        @include newRwd("bigPhone"){
+            flex-direction: column;
+            margin: 0 30px;
+        }
         
         .txtTxt{
             // border: solid 1px blue;
             max-width: 330px;
             font-size: 30px;
-            // display: inline-block;
             display: flex;
             flex-direction: row;
-            margin: 0 30px;
-            // vertical-align:bottom;
+            white-space: nowrap;
+            
 
+            @include newRwd("bigPhone"){
+                margin: 10px auto;
+                justify-content: center;
+                text-align: right;
+            }
+            @include  newRwd("newSmallPhone"){
+                font-size: 25px;
+                // border: solid 1px blue;
+                }
+            // @include  newRwd("miniPhone"){
+            //     font-size: 21px;
+            //     }
             p{
                 font-size: 40px;
                 transform: translateY(-9%);
+                @include  newRwd("newSmallPhone"){
+                    font-size: 30px;
+                    transform: translateY(0%);
+                }
+                // @include  newRwd("miniPhone"){
+                //     font-size: 25px;
+                // }
             }
 
         }
@@ -629,29 +1056,46 @@
     .goal{
         margin: 0 auto 220px;
         // border: red 1px solid;
-        
+        @include newRwd("bigPhone"){
+            margin: 0 auto 120px;
+        }
+        @include  newRwd("newSmallPhone"){
+            margin: 0 auto 100px;
+            }
 
         // 本月目標款項 50萬元
         .goalTitle{
             // border: rgb(44, 37, 37) 1px solid;
             position: relative;
-            display: block;
-            text-align: center;
-            width: 400px;
+            display: flex;
+            justify-content: center;
+            // width: 400px;
             // height: 100px;
             margin: 200px auto 65px;
 
             img{
                 // border: red 1px solid;
-                display: block;
+                // display: block;
                 position: absolute;
-                bottom: 0px;
-                left: -90px;
+                // bottom: 0px;
+                // left: -90px;
+                max-width: 500px;
+                width: 100%;
+                padding: 0 20px;
             }
 
             h3{
                 font-size: 40px;
                 // display: block;
+                @include newRwd("pad"){
+                    font-size: 35px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 30px;
+                }
+                @include  newRwd("miniPhone"){
+                    font-size: 21px;
+                }
             }
             
         }
@@ -663,13 +1107,16 @@
             width: 100%;
             max-height: 193px;
             // height: 100%;
-            margin: 0 30px 50px 40px;
+            margin: 0 auto 50px;
+            padding: 0 30px;
             position: relative;
             // position: fixed;
             // justify-content: center;
             // text-align: center;
             // overflow: hidden;
-            
+            @include  newRwd("miniPhone"){
+                margin: 0 auto 30px;
+            }
 
             #breadImg{
                 width: 100%;
@@ -687,10 +1134,17 @@
                 position: absolute;
                 top: 0;
                 z-index: -1;
-                animation: widthChange 2s linear forwards;
+                // animation: widthChange 2s linear forwards;
             }
         }
-
+        @keyframes widthChange{
+            0%{
+                width: 0%;
+            }
+            100%{
+                width: 59%;
+            }
+        }
 
         .txtTxt{
             // border: solid 1px blue;
@@ -701,11 +1155,26 @@
             flex-direction: row;
             justify-content: center;
             margin: 0 30px;
+            white-space: nowrap;
             // vertical-align:center;
-
+            @include  newRwd("newSmallPhone"){
+                font-size: 25px;
+                // border: solid 1px blue;
+                }
+            @include  newRwd("miniPhone"){
+                font-size: 21px;
+                }
             p{
                 font-size: 40px;
                 transform: translateY(-9%);
+                @include  newRwd("newSmallPhone"){
+                    font-size: 30px;
+                    transform: translateY(0%);
+                }
+                @include  newRwd("miniPhone"){
+                    font-size: 25px;
+                    transform: translateY(0%);
+                }
             }
         }
     }
@@ -721,8 +1190,15 @@
             align-items: center;
             justify-content: center;
             margin: 0 auto 60px;
+            flex-wrap: wrap;
             // width: 100%;
             // border:  1px solid rgb(238, 37, 37);
+            @include  newRwd("bigPhone"){
+                margin: 0 auto 10px;
+            }
+            @include  newRwd("miniPhone"){
+
+            }
 
             .enjoyFoodBox{
                 border:  3px solid rgb(0, 0, 0);
@@ -738,33 +1214,124 @@
                 align-items: center; 
                 font-weight: bold;
                 margin: 20px;
+                @include  newRwd("pad"){
+                    font-size: 45px;
+                    line-height: 50px;
+                    max-width: 130px;
+                    height: 130px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 40px;
+                    max-width: 120px;
+                    height: 120px;
+                }
+                @include  newRwd("miniPhone"){
+
+                }
             }
             p{
                 font-size: 35px;
+                padding: 20px;
+                text-align:center;
                 // border:  1px solid rgb(0, 0, 0);
+                @include  newRwd("pad"){
+                    font-size: 30px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 25px;
+                }
             }
         }
 
         .mapAndShop{
             display: flex;
             justify-content: space-around;
-
-            .mapImg{
-                max-width: 410px;
-                max-height: 390px;
-                margin: 25px;
+            // border: 1px solid red;
+            @include newRwd("pad"){
+                flex-wrap: wrap;
             }
 
-            .shop{
-            text-align: center;
-                p{
-                    font-size: 30px;
+            .mapImg{
+                // border:  1px solid rgb(199, 30, 30);
+                // display: block;
+                position: relative;
+                // flex-grow: 1;
+                // flex-shrink: 0;
+                margin: 25px;
+
+                #mapTaipei{
+                    max-width: 426px;
+                    // max-height: 500px;
+                    width: 100%;
                     
+                    // border:  1px solid rgb(0, 0, 0);
                 }
-                .shopImg{
-                    max-width: 480px;
-                    max-height: 320px;
-                    margin: 25px;
+                .circle{
+                    width: 15px;
+                    height: 15px; //正圓形，所以寬與高都設一樣
+                    border-radius: 999em;
+                    background-color: #C2B891;
+                    position: absolute;
+                    &:hover{
+                        background-color: rgb(221, 213, 175);
+                    }
+                }
+
+
+                .map_leaf{
+                    width: 26px;
+                    position: absolute;
+
+                    &:hover{
+                        opacity: 0.5;
+                        transform: rotate(30deg);
+                        cursor: pointer;
+                    }
+                    @include  newRwd("miniPhone"){
+                        width: 23px;
+                    }
+                }
+                #leaf_Dana{
+                    left: 44%;
+                    top: 68%;
+                }
+                #leaf_Shilin{
+                    left: 65%;
+                    top: 45%;
+                }
+                #leaf_Neihu{
+                    left: 50%;
+                    top: 30%;
+                }
+                #leaf_Beitou{
+                    left: 30%;
+                    top: 21%;
+                }
+
+            }
+            .shopChangeOutside{
+                max-width: 600px;
+                width: 100%;
+                padding: 20px;
+                // display: flex;
+                // flex-grow: 1;
+                .shopChange{
+                    width: 100%;
+                    .shop{
+                    // border:  1px solid rgb(0, 0, 0);
+                    text-align: center;
+                    margin-top: 30px;
+                        p{
+                            font-size: 30px;
+                            margin: 5px auto;
+                        }
+                        .shopImg{
+                            max-width: 480px;
+                            max-height: 320px;
+                            width: 100%;
+                            margin: 25px auto;
+                        }
+                    }
                 }
             }
         }
@@ -776,16 +1343,24 @@
 
 // 感恩有您
 .thankYou{
-    // border: red 1px solid;
-    background-repeat: no-repeat;
-    background-image: url("/img/21/donation_description/background3.png");
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 1662px;
-    // height: 100%;
     display: flex;
     justify-content: center;
+    // width: 100%;
+    position: relative;
+
+    .thankYou_bg{
+        // border: red 1px solid;
+        background-repeat: no-repeat;
+        background-image: url("/img/21/donation_description/background3.png");
+        background-size: cover;
+        background-position: center;
+        width: 100%;
+        height: 1662px;
+        position: absolute;
+        top: 0px;
+        left: 0px;
+        z-index: -1;
+    }
 
     .thankYouArea{
         // border: solid 1px rgb(255, 0, 255);
@@ -797,7 +1372,8 @@
             position: relative;
             display: block;
             text-align: center;
-            width: 400px;
+            max-width: 400px;
+            width: 100%;
             height: 100px;
             margin: 400px auto 105px;
 
@@ -807,33 +1383,43 @@
                 position: absolute;
                 bottom: 0;
                 left: -25px;
+                @include newRwd("newSmallPhone"){
+                    // border: red 1px solid;
+                    bottom: 21px;
+                    left: 2px;
+                    width: 87%;
+                }
             }
 
             h2{
                 font-size: 50px;
                 display: block;
+                @include newRwd("mediumPhone"){
+                    font-size: 40px;
+                }
             }
             
         }
 
 
         .heartArea{
-            display: flex;
-            flex-direction: row;
-            justify-content:  space-around; 
-            // border: rgb(133, 22, 238) 1px solid;
-
-
+            // border: 1px solid red;
+            width: 100%;
+            // @include  newRwd("miniPhone"){
+            //     width: 300px;
+            // }
             .heart{
-                // border: red 1px solid;
+                // border: blue 1px solid;
                 position: relative;
                 display: flex;
                 justify-content: center;
-                // width: 33%;
+                // padding: 10px;
+                // margin: 20px;
+                // width: 80%;
 
 
                 .donationData{
-                    // border: red 1px solid;
+                    // border: green 1px solid;
                     position: absolute;
                     top: 0;
                     text-align: center;
@@ -855,6 +1441,9 @@
                     }
                 }
             }
+            
+
+            
         }
 
         // 讓愛循環不止
@@ -863,23 +1452,36 @@
             .loveRecycleTitle{
                 // border: rgb(44, 37, 37) 1px solid;
                 position: relative;
-                display: block;
-                text-align: center;
-                width: 400px;
+                display: flex;
+                justify-content: center;
+                // max-width: 400px;
+                // width: 100%;
                 // height: 100px;
                 margin: 200px auto 65px;
     
                 img{
-                    // border: red 1px solid;
-                    display: block;
-                    position: absolute;
-                    bottom: 0px;
-                    // left: -50px;
+                // border: red 1px solid;
+                // display: block;
+                position: absolute;
+                // bottom: 0px;
+                // left: -90px;
+                max-width: 500px;
+                width: 100%;
+                padding: 0 20px;
                 }
     
                 h3{
                     font-size: 40px;
                     // display: block;
+                    @include newRwd("pad"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 30px;
+                    }
+                    // @include  newRwd("miniPhone"){
+                    //     font-size: 21px;
+                    // }
                 }
                 
             }
@@ -887,85 +1489,102 @@
 
 
         .storyArea{
-            display: flex;
-            flex-direction: row;
-            justify-content:  space-around; 
-
+            // display: flex;
+            // flex-direction: row;
+            // justify-content:  space-around; 
+            // flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+            // height: 530px;
             // border: rgb(133, 22, 238) 1px solid;
-
-            .story{
-                // border: rgb(133, 22, 238) 1px solid;
-                width: 325px;
-                height: 523px;
-                background-color: #FFF8DD;
-                border-radius: 10px;
-                box-shadow: 3px 3px 6px #00000024;
-                // display: flex;
-                // flex-direction: column;
-                // justify-content: center;
-
-                .storyImg{
-
-                    border: 5px solid #EFDEDD;
-                    border-radius: 10px;
-                    background-color: #FEFEEA;
-                    max-width: 275px;
-                    width: 100%;
-                    max-height: 235px;
-                    height: 100%;
-                    margin: 20px auto;
-                    overflow: hidden;
-
-                    img{
+            .storyAll{
+                display: flex;
+                // flex-direction: row;
+                justify-content:  space-around; 
+                // flex-wrap: wrap;
+                height: 530px;
+                .storyBox{
+                    // padding: 5px;
+                    .story{
                         // border: rgb(133, 22, 238) 1px solid;
-                        margin: auto;
-                        max-height: 235px;
+                        max-width: 300px;
+                        height: 523px;
                         width: 100%;
-                        padding: 15px;
+                        // height: 100%;
+                        background-color: #FFF8DD;
+                        border-radius: 10px;
+                        box-shadow: 3px 3px 6px #00000024;
+                        margin: 0 auto;
+                        padding: 5px;
+                        // display: flex;
+                        // flex-direction: column;
+                        // justify-content: center;
+        
+                        .storyImg{
+        
+                            border: 5px solid #EFDEDD;
+                            border-radius: 10px;
+                            background-color: #FEFEEA;
+                            max-width: 260px;
+                            width: 100%;
+                            max-height: 235px;
+                            height: 100%;
+                            margin: 20px auto;
+                            overflow: hidden;
+        
+                            img{
+                                // border: rgb(133, 22, 238) 1px solid;
+                                margin: auto;
+                                max-height: 235px;
+                                width: 100%;
+                                padding: 15px;
+                            }
+                        }
+                        .storyTxt{
+                            max-width: 260px;
+                            margin: 20px auto;
+        
+                            h3{
+                                font-size: 24px;
+                                margin:0 0 10px 0px;
+                            }
+                            p{
+                                font-size: 20px;
+                                margin:0 auto 30px;
+                                line-height: 30px;
+                                min-height: 90px;
+                            }
+                        }
+                        .readMoreButton{
+                            max-width: 260px;
+                            max-height: 58px;
+                            height: 100%;
+                            background-color: #EADBB2;
+                            border-radius: 10px;
+                            margin: auto;
+                            display: flex;
+                            justify-content: center;
+                            align-items: center; 
+                            box-shadow: 3px 3px 6px #00000024;
+        
+                            img{
+                                margin: 0 10px 0 0;
+                            }
+                            span{
+                                font-size: 22px;
+                            }
+                        }
+        
+                        
+                        .readMoreButton:hover{
+                            background-color: #f0d489;
+                            cursor: pointer; 
+                        }
                     }
                 }
-                .storyTxt{
-                    max-width: 275px;
-                    
-                    margin: 20px auto;
-
-                    h3{
-                        font-size: 24px;
-                        margin:0 0 10px 0px;
-                    }
-                    p{
-                        font-size: 20px;
-                        margin:0 auto 30px;
-                        line-height: 30px;
-                        min-height: 90px;
-                    }
-                }
-                .readMoreButton{
-                    max-width: 275px;
-                    max-height: 58px;
-                    height: 100%;
-                    background-color: #EADBB2;
-                    border-radius: 10px;
-                    margin: auto;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center; 
-                    box-shadow: 3px 3px 6px #00000024;
-
-                    img{
-                        margin: 0 10px 0 0;
-                    }
-                    span{
-                        font-size: 22px;
-                    }
-                }
-
                 
-                .readMoreButton:hover{
-                    background-color: #f0d489;
-                    cursor: pointer; 
-                }
             }
+            
         }
     }
 }
@@ -988,7 +1607,8 @@
     .storyOverlay{
         // border: rgb(44, 37, 37) 1px solid;
         max-width: 1000px;
-        // max-height: 730px;
+        width: 90%;
+        height: 90%;
         border-radius: 87px;
         background-color: #FFF8DD;
         box-shadow: 3px 3px 30px #00000024;
@@ -999,57 +1619,129 @@
         left: 50%;
         transform: translate(-50%, -50%);
         // height: 800px;
+        @include newRwd("pad"){
+            padding: 50px;
+            border-radius: 50px;
+        }
+        @include  newRwd("newSmallPhone"){
+            padding: 40px;
+        }
+        @include  newRwd("miniPhone"){
+            padding: 30px;
+        }
     
         .loveRecycleTitle{
             // border: rgb(44, 37, 37) 1px solid;
             position: relative;
             display: block;
             text-align: center;
-            width: 400px;
+            // width: 400px;
             // height: 100px;
             margin: 20px auto 40px;
-    
+            @include  newRwd("pad"){
+                margin: 20px auto 10px;
+            }
             img{
                 // border: red 1px solid;
-                display: block;
+                // display: block;
                 position: absolute;
-                bottom: 0px;
-                // left: -50px;
+                bottom: -90%;
+                z-index: -1;
+                // bottom: 0%;
+                // left: 0%;
+                // max-width: 500px;
+                // width: 100%;
+                // // padding: 0 20px;
+                transform: translate(-50%, -50%);
+                @include newRwd("pad"){
+                    width: 50%;
+                }
+                @include newRwd("bigPhone"){
+                    width: 60%;
+                }
+                @include newRwd("mediumPhone"){
+                    width: 70%;
+                }
+                @include  newRwd("newSmallPhone"){
+                    width: 80%;
+                }
+                @include  newRwd("miniPhone"){
+                    width: 100%;
+                    // bottom: -73%;
+                }
+
+
             }
     
             h3{
                 font-size: 40px;
                 // display: block;
+                @include newRwd("pad"){
+                    font-size: 35px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 25px;
+                }
+                @include  newRwd("miniPhone"){
+                    font-size: 25px;
+                }
             }
         }
         .readMore_close{
             position: absolute;
             right: 40px;
             top: 40px;
+            @include  newRwd("newSmallPhone"){
+                right: 30px;
+                top: 30px;
+            }
+            @include  newRwd("miniPhone"){
+                right: 20px;
+                top: 20px;
+                width: 30px;
+            }
             &:hover{
                 opacity: 0.5;
                 cursor: pointer;
             }
         }
-    
         .storyArea{
             // border: red 1px solid;
-    
+            
             .storyTitleTxt{
                 // border: rgb(38, 65, 212) 1px solid;
                 border-bottom: 2px solid #8B7A69;
                 padding: 20px 0 20px;
                 display: flex;
                 align-items: flex-end;
+                flex-wrap: wrap;
+                @include  newRwd("miniPhone"){
+                    white-space: nowrap;
+                    flex-direction: column;
+                    align-items: flex-start;
+                }
+            
     
                 .storyTitle{
                     font-size: 30px;
-    
+
+                    @include newRwd("pad"){
+                        font-size: 25px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 20px;
+                    }
+                    @include  newRwd("miniPhone"){
+                        font-size: 20px;
+                    }
                 }
                 .storyDate{
                     font-size: 20px;
                     margin: 0 20px;
                     transform: translateY(-3%);
+                    @include  newRwd("miniPhone"){
+                        margin: 5px 0;
+                    }
                 }
             }
             .storyTxtArea{
@@ -1057,14 +1749,22 @@
                 display: flex;
                 justify-content: space-around;
                 align-items: center;
-    
+                
+                @include newRwd("pad"){
+                    flex-wrap: wrap;
+                    flex-direction: column-reverse;
+                }
+                
                 .storyTxt{
                     font-size: 20px;
                     line-height: 30px;
                     margin: 30px 0 0;
-                    width: 70%;
-                    height: 400px;
+                    width: 100%;
+                    max-height: 400px;
+                    min-height: 200px;
+                    // height: 400px;
                     overflow-y: auto;
+                    
                     padding: 0 20px 0 0;
                     text-align: justify;
                     text-justify: inter-ideograph;
@@ -1081,10 +1781,13 @@
                     border-radius: 10px;
                     background-color: #FEFEEA;
                     width: 30%;
-                    height: 300px;
+                    max-height: 300px;
                     margin: 30px;
                     overflow: hidden;
                     display: flex;
+                    @include newRwd("pad"){
+                        display: none;
+                    }
     
                     img{
                         // border: rgb(133, 22, 238) 1px solid;
@@ -1112,9 +1815,13 @@
         position: relative;
         display: block;
         text-align: center;
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         height: 100px;
-        margin: 280px auto 0px;
+        margin: 180px auto 0px;
+        @include newRwd("newSmallPhone"){
+            margin: 100px auto 0px;
+        }
 
         img{
             // border: red 1px solid;
@@ -1122,11 +1829,20 @@
             position: absolute;
             bottom: 0;
             left: -25px;
+            @include newRwd("newSmallPhone"){
+                // border: red 1px solid;
+                bottom: 21px;
+                left: 2px;
+                width: 87%;
+            }
         }
 
         h2{
             font-size: 50px;
             display: block;
+            @include newRwd("mediumPhone"){
+                font-size: 40px;
+            }
         }
         
     }
@@ -1162,15 +1878,37 @@
                 // border: rgb(0, 76, 255) 1px solid;
                 margin: 0 auto;
                 padding: 120px;
-
+                @include  newRwd("pad"){
+                    padding: 60px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    padding: 30px;
+                }
 
                 h2{
                     font-size: 40px;
                     margin-bottom: 40px;
+                    @include newRwd("pad"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("miniPhone"){
+                        font-size: 30px;
+                    }
                 }
                 p{
                     font-size: 30px;
                     line-height: 60px;
+                    @include newRwd("pad"){
+                        font-size: 26px;
+                        line-height: 50px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 22px;
+                        line-height: 40px;
+                    }
                 }
             }
 
@@ -1180,15 +1918,37 @@
                 // border: rgb(0, 76, 255) 1px solid;
                 margin: 0 auto;
                 padding: 120px;
-
+                @include  newRwd("pad"){
+                    padding: 60px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    padding: 30px;
+                }
 
                 h2{
                     font-size: 40px;
                     margin-bottom: 40px;
+                    @include newRwd("pad"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 35px;
+                    }
+                    @include  newRwd("miniPhone"){
+                        font-size: 30px;
+                    }
                 }
                 p{
                     font-size: 30px;
                     line-height: 60px;
+                    @include newRwd("pad"){
+                        font-size: 26px;
+                        line-height: 50px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 22px;
+                        line-height: 40px;
+                    }
                 }
             }
         }
@@ -1207,6 +1967,17 @@
             font-size: 40px;
             margin: 0 auto 70px;
             text-align: center;
+            @include newRwd("pad"){
+                font-size: 35px;
+                margin: 0 auto 30px;
+            }
+            @include  newRwd("newSmallPhone"){
+                font-size: 35px;
+                margin: 0 auto 30px;
+            }
+            @include  newRwd("miniPhone"){
+                font-size: 30px;
+            }
         }
 
         .loveFoodArea{
@@ -1216,7 +1987,11 @@
             display: flex;
             flex-direction: row;
             justify-content: space-around; 
+            align-items: flex-start;
             margin: 0 auto;
+            @media screen and (max-width: 450px){
+                flex-wrap: wrap;
+            }
 
             .loveFood{
                 display: flex;
@@ -1227,17 +2002,40 @@
 
                 .lifeImg{
                     max-width: 270px;
+                    min-width: 116px;
                     min-height: 27px;
                     width: 100%;
                     margin: 0 auto 0;
+                    @include newRwd("miniPhone"){
+                        padding: 20px;
+                    }
                 }
                 .lifeTitle{
                     font-size: 30px;
                     margin: 45px auto 20px;
+                    @include newRwd("pad"){
+                        font-size: 26px;
+                        line-height: 50px;
+                        
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 22px;
+                        line-height: 40px;
+                        margin: 5px auto;
+                    }
                 }
                 .lifeTxt{
                     max-width: 320px;
-                    font-size: 30px;
+                    font-size: 28px;
+                    line-height: 50px;
+                    @include newRwd("pad"){
+                        font-size: 24px;
+                        line-height: 40px;
+                    }
+                    @include  newRwd("newSmallPhone"){
+                        font-size: 20px;
+                        line-height: 35px;
+                    }
                 }
             }
         }
@@ -1256,15 +2054,23 @@
     padding-top: 380px;
     // height: 100%;
     // height: 500px;
+    
+    @media screen and (max-width: 1000px){
+        height: 100%;
+    }
 
     .title{
         // border: red 1px solid;
         position: relative;
         display: block;
         text-align: center;
-        width: 400px;
+        max-width: 400px;
+        width: 100%;
         height: 100px;
         margin: 0 auto 105px;
+        @include newRwd("miniPhone"){
+            margin: 0 auto 50px;
+        }
 
         img{
             // border: red 1px solid;
@@ -1272,11 +2078,20 @@
             position: absolute;
             bottom: 0;
             left: -25px;
+            @include newRwd("newSmallPhone"){
+                // border: red 1px solid;
+                bottom: 21px;
+                left: 2px;
+                width: 87%;
+            }
         }
 
         h2{
             font-size: 50px;
             display: block;
+            @include newRwd("mediumPhone"){
+                font-size: 40px;
+            }
         }
         
     }
@@ -1289,39 +2104,60 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around; 
+        
+        @media screen and (max-width: 450px){
+            flex-wrap: wrap;
+        }
+        
 
         .join{
             display: flex;
             justify-content: center;
             flex-direction: column;
             text-align: center;
+            margin: 0 auto 100px;
 
             .joinTitle{
                 font-size: 40px;
                 color: #96613E;
+                @include newRwd("pad"){
+                    font-size: 35px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 35px;
+                }
             }
 
             .joinImg{
                 max-width: 500px;
-                min-height: 450px;
+                // min-height: 450px;
                 width: 100%;
                 margin: 50px auto;
+                padding: 0 10px;
+                @include  newRwd("newSmallPhone"){
+                    margin: 0 auto;
+                    padding: 20px;
+                }
             }
 
             .joinButton{
                 // max-width: 257px;
                 // max-height: 80px;
                 // width: 100%;
-                // height: 100%;
-                width: 257px;
-                height: 80px;
+                // // height: 100%;
+                // max-width: 257px;
+                // max-height: 80px;
+                // width: 100%;
                 background-color: #CAD4B0;
                 border-radius: 10px;
                 margin: auto;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center; 
                 box-shadow: 3px 3px 6px #00000024;
+                @include newRwd("pad"){
+
+                }
+                @include  newRwd("newSmallPhone"){
+
+                }
 
                 &:hover{
                     background-color: #b9c993;
@@ -1331,21 +2167,35 @@
                     text-decoration: none;
                     white-space: nowrap;
                     width: 257px;
-                    height: 80px;
+                    max-height: 80px;
+                    width: 100%;
                     border-radius: 10px;
                     display: flex;
                     justify-content: center;
                     align-items: center; 
+                    padding: 10px 20px;
 
                     img{
-                    margin: 0 10px 0 0;
+                        margin: 0 10px 0 0;
+
+                        @include newRwd("pad"){
+                            width: 35px;
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            width: 30px;
+                        }
                     }
                     span{
-                    font-size: 40px;
-                    color: rgb(255, 255, 255);
+                        font-size: 40px;
+                        color: rgb(255, 255, 255);
+                        @include newRwd("pad"){
+                            font-size: 30px;
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            font-size: 25px;
+                        }
                     }
                 }
-
             }
         }
 
@@ -1354,17 +2204,28 @@
             justify-content: center;
             flex-direction: column;
             text-align: center;
-
+            margin: 0 auto 100px;
             .donationTitle{
                 font-size: 40px;
                 color: #96613E;
+                @include newRwd("pad"){
+                    font-size: 35px;
+                }
+                @include  newRwd("newSmallPhone"){
+                    font-size: 35px;
+                }
             }
 
             .donationImg{
                 max-width: 500px;
-                min-height: 450px;
+                // min-height: 450px;
                 width: 100%;
                 margin: 50px auto;
+                padding: 0 10px;
+                @include  newRwd("newSmallPhone"){
+                    margin: 0 auto;
+                    padding: 20px;
+                }
             }
 
             .donationButton{
@@ -1372,35 +2233,49 @@
                 // max-height: 80px;
                 // width: 100%;
                 // height: 100%;
-                width: 257px;
-                height: 80px;
-                background-color: #DDBCBC;
+                // width: 257px;
+                // height: 80px;
+                // background-color: #DDBCBC;
+                background-color: #8F8770;
                 border-radius: 10px;
                 margin: auto;
-                // display: flex;
-                // justify-content: center;
-                // align-items: center; 
                 box-shadow: 3px 3px 6px #00000024;
 
                 &:hover{
-                    background-color: #d6a9a9;
+                    // background-color: #d6a9a9;
+                    background-color: #D6CAAA;
                 }
                 a{
-                    display: flex;
-                    justify-content: center;
-                    align-items: center; 
                     text-decoration: none;
                     white-space: nowrap;
                     width: 257px;
-                    height: 80px;
+                    max-height: 80px;
+                    width: 100%;
                     border-radius: 10px;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center; 
+                    padding: 10px 20px;
 
                     img{
-                    margin: 0 10px 0 0;
+                        margin: 0 10px 0 0;
+                        
+                        @include newRwd("pad"){
+                            width: 35px;
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            width: 30px;
+                        }
                     }
                     span{
-                    font-size: 40px;
-                    color: rgb(255, 255, 255);
+                        font-size: 40px;
+                        color: rgb(255, 255, 255);
+                        @include newRwd("pad"){
+                            font-size: 30px;
+                        }
+                        @include  newRwd("newSmallPhone"){
+                            font-size: 25px;
+                        }
                     }
                 }
             }
@@ -1417,14 +2292,33 @@ footer{
     cursor: pointer;
     font-size: 18px;
     color: #C2B891;
+    // @include  newRwd("newSmallPhone"){
+    //     height: 300px;
+    // }
+    @media screen and (max-width: 630px){
+        height: 300px;
+    }
     .footerBlock{
         max-width:1200px;
-        margin: 0 auto;
+        margin: -1px auto 0;
+        // border: 1px solid red;
         
         div{
             height: 80px;
             display: flex;
             justify-content: flex-end;
+            // border: 1px solid rgb(23, 224, 140);
+            // @include  newRwd("newSmallPhone"){
+            //     flex-wrap: wrap;
+            //     justify-content: center;
+            //     // flex-direction: column-reverse;
+            // }
+            @media screen and (max-width: 630px){
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 auto;
+            }
+            
             
         .footer_logo{
             margin-top: 50px;
@@ -1432,7 +2326,15 @@ footer{
             width:190px;
             border-right:1px solid #C2B891;
             text-align: left;
-            // padding-right: 10px;
+            
+
+            @media screen and (max-width: 630px){
+                border-right:none;
+                margin-top: 200px;
+            }
+            // @include  newRwd("newSmallPhone"){
+            //     border-right:none;
+            // }
 
             img{
                 width: 162px;
@@ -1446,8 +2348,14 @@ footer{
         .info{
             display:block;
             text-align: left;
-            width: 330px;
+            max-width: 330px;
             margin-top: 50px;
+            // @include  newRwd("newSmallPhone"){
+            //     margin-top: 30px;
+            // }
+            @media screen and (max-width: 630px){
+                margin-top: 30px;
+            }
             a{
                 width: 280px;
                 margin: 20px;
@@ -1463,14 +2371,4 @@ footer{
         } 
     }  
 }
-
-@keyframes widthChange{
-    0%{
-        width: 0%;
-    }
-    100%{
-        width: 59%;
-    }
-}
 //footer結束
-

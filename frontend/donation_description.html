@@ -12,8 +12,13 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
+    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <link rel="icon" type="image/png" href="/img/21/donation_description/map_leaf.png" />
+
     <!-- 自訂js -->
     <script src="../js/21/donation.js"></script>
+
     <script>
 
     </script>
@@ -21,14 +26,14 @@
 
 <body>
 
-    <!-- 標頭開始 -->
-    <header id="header">
+
+    <!-- <header id="header">
         <div id="headerContentContainer">
             <a href="./index.html">
                 <img id="logo" src="../img/22/index/ch05_header_logo.png">
             </a>
 
-            <!-- 導覽列開始 -->
+
             <nav id="navigation">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
                 <a href="./signUp_signIn.html" class="navGeneralAnchors">賣家專區</a>
@@ -43,31 +48,89 @@
                 </a>
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" width="38.773" height="34.617" viewBox="0 0 38.773 34.617">
-                        <g id="cart" transform="translate(-1443.176 -45.928)">
-                            <path id="パス_1" data-name="パス 1"
-                                d="M1460.01,76.951a3.594,3.594,0,1,1-3.595-3.594,3.594,3.594,0,0,1,3.595,3.594Z"
-                                fill="#8f8770" />
-                            <path id="パス_2" data-name="パス 2"
-                                d="M1478.546,76.951a3.594,3.594,0,1,1-3.595-3.594,3.594,3.594,0,0,1,3.595,3.594Z"
-                                fill="#8f8770" />
-                            <path id="パス_3" data-name="パス 3"
-                                d="M1481.453,50.717a2.216,2.216,0,0,0-1.673-.74h-27.436l-.553-2.932a1.419,1.419,0,0,0-1.42-1.115h-5.77a1.352,1.352,0,0,0-.147,2.7,1.2,1.2,0,0,0,.147,0h4.558l4.116,21.817a1.42,1.42,0,0,0,1.421,1.115h23.079a1.352,1.352,0,1,0,.147-2.7,1.2,1.2,0,0,0-.147,0h-21.867l-.508-2.7h21.784a2.139,2.139,0,0,0,2.124-1.626l2.6-12.141a1.927,1.927,0,0,0-.451-1.68Z"
-                                fill="#8f8770" />
-                        </g>
-                    </svg> -->
-
                 </a>
                 <a href="#0" id="navIcons03" class="navIcons">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
 
             </nav>
-            <!-- 導覽列結束 -->
 
+        </div>
+    </header> -->
+
+    <!-- 標頭開始 -->
+    <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <!-- 行動版行動導覽列開始 -->
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile" id="donationPage">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 行動版導覽列結束 -->
+        <!-- 漢堡選單結束 -->
+        <div id="headerContentContainer">
+            <a href="./index.html">
+                <img id="logo" src="../img/22/index/ch04_header_logo.png">
+            </a>
+            <!-- 桌機版導覽列開始 -->
+            <nav id="navigationForPC">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
+                    <div>
+                        立即捐款
+                    </div>
+                </a>
+                <a href="#0" id="navIcons01" class="navIcons">
+                    <img src="../img/22/index/ch04_nav_search.png" alt="">
+                </a>
+                <a href="#0" id="navIcons02" class="navIcons">
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a href="./memberInformation.html" id="navIcons03" class="navIcons">
+                    <img src="../img/22/index/ch04_nav_member.png" alt="">
+                </a>
+            </nav>
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
+            <nav id="subNavigationForMobile">
+                <a href="#0" id="navIcons04" class="navIconsForMobile">
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
+                    <img src="../img/22/index/ch04_nav_member.png" alt="">
+                </a>
+            </nav>
+            <!-- 行動版次級導覽列結束 -->
         </div>
     </header>
     <!-- 標頭結束 -->
+
+
 
     <!-- 主要內容開始 -->
     <main id="main">
@@ -95,6 +158,16 @@
             </div>
         </div>
 
+        <!-- <div class="secondNav2"> -->
+        <div class="bottomNav2">
+            <a href="./donation_description.html#nav1">計畫詳情</a>
+            <a href="./donation_description.html#nav2">運作成果</a>
+            <a href="./donation_description.html#nav3">感恩有您</a>
+            <a href="./donation_description.html#nav4">剩食議題</a>
+            <a href="./donation_description.html#nav5">邀您一起</a>
+        </div>
+        <!-- </div> -->
+
 
         <div class="projectDetails">
             <div class="projectDetailsBg">
@@ -113,8 +186,12 @@
                             </p>
 
                         </div>
+                        <div class="area2TxtImg">
 
-                        <img src="/img/21/donation_description/fruit.png" alt="">
+                            <img id="area2TxtImg" src="/img/21/donation_description/fruit.png" alt="">
+
+                            <!-- <img id="area2TxtImg" src="/img/21/donation_description/fruit.png" alt=""> -->
+                        </div>
                     </div>
                 </div>
 
@@ -156,8 +233,8 @@
             </div>
 
             <div class="area3">
-
-
+                <div class="area3_bg">
+                </div>
                 <div class="howDo">
                     <div class="howDoTitle">
                         <h3>我能做什麼？
@@ -270,11 +347,9 @@
                         </div>
 
                     </div>
-
-
-
-
                 </div>
+
+
 
             </div>
         </div>
@@ -304,7 +379,7 @@
                     <div class="breadLine"></div>
                 </div>
 
-                <div class="txtTxt">已達&nbsp;<p id=goalmoney>59</p>
+                <div class="txtTxt">已達&nbsp;<p id=goalmoney>80</p>
                     <p>%</p>&nbsp;捐款&nbsp;&nbsp;&nbsp;需要您的協助
                 </div>
             </div>
@@ -318,10 +393,38 @@
                 </div>
 
                 <div class="mapAndShop">
-                    <img class=mapImg src="/img/21/donation_description/map_1_Dana.png" alt="">
-                    <div class="shop">
-                        <p>PAUL台北仁愛店</p>
-                        <img class=shopImg src="/img/21/donation_description/shop_1_Daan.jpg" alt="">
+                    <div class="mapImg">
+                        <img id="mapTaipei" src="/img/21/donation_description/map_Taipei.png" alt="">
+                        <!-- <div class="circle" id="circle_dana"></div> -->
+                        <img class="map_leaf" id="leaf_Dana" src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" id="leaf_Shilin" src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" id="leaf_Neihu" src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" id="leaf_Beitou" src="/img/21/donation_description/map_leaf.png" alt="">
+                    </div>
+
+                    <div class="shopChangeOutside">
+                        <div class="shopChange" id="shopChange">
+                            <div class="shop" id="shop_Dana">
+                                <p>大安區</p>
+                                <p>PAUL台北仁愛店</p>
+                                <img class=shopImg src="/img/21/donation_description/shop_1_Daan.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Shilin">
+                                <p>士林區</p>
+                                <p>STARBUCKS天玉門市</p>
+                                <img class=shopImg src="/img/21/donation_description/shop_2_Shilin.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Neihu">
+                                <p>內湖區</p>
+                                <p>Louisa Coffee內湖洲子店</p>
+                                <img class=shopImg src="/img/21/donation_description/shop_3_Neihu.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Beitou">
+                                <p>北投區</p>
+                                <p> Mr. Brown Coffee北投店</p>
+                                <img class=shopImg src="/img/21/donation_description/shop_4_Beitou.jpg" alt="">
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -330,15 +433,16 @@
 
         <!-- 感恩有您 -->
         <div class="thankYou">
+            <div class="thankYou_bg"></div>
             <div class="thankYouArea">
                 <div class="title" id="nav3">
                     <img src="/img/21/donation_description/title_bg.png" alt="">
                     <h2>感恩有您</h2>
                 </div>
 
-                <div class="heartArea">
+                <div class="heartArea" id="heartArea">
                     <div class="heart">
-                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartIm">
+                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartImg">
                         <div class="donationData">
                             <p class="date">10/25</p>
                             <p class="donation">捐贈了<span class="money">3000</span>元</p>
@@ -347,7 +451,7 @@
                     </div>
 
                     <div class="heart">
-                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartIm">
+                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartImg">
                         <div class="donationData">
                             <p class="date">10/25</p>
                             <p class="donation">捐贈了<span class="money">3000</span>元</p>
@@ -356,7 +460,7 @@
                     </div>
 
                     <div class="heart">
-                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartIm">
+                        <img src="/img/21/donation_description/heartImg.png" alt="" id="heartImg">
                         <div class="donationData">
                             <p class="date">10/25</p>
                             <p class="donation">捐贈了<span class="money">3000</span>元</p>
@@ -372,52 +476,57 @@
                         <h3>讓愛循環不止</h3>
                     </div>
 
-                    <div class="storyArea">
+                    <div class="storyArea" id="storyArea">
+                        <div class="storyAll" id="storyAll">
 
-                        <div class="story">
-                            <div class="storyImg">
-                                <img src="/img/21/donation_description/story_1.png" alt="">
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="/img/21/donation_description/story_1.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>「食」在的愛</h3>
+                                        <p>丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世...</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_1">
+                                        <img src="/img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="storyTxt">
-                                <h3>「食」在的愛</h3>
-                                <p>丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世...</p>
+
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="/img/21/donation_description/story_2.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>讓愛分「饗」</h3>
+                                        <p>賈(化名)一出生就患有罕見疾病，從小頻繁進出急診室...</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_2">
+                                        <img src="/img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="readMoreButton" id="readMoreButton_1">
-                                <img src="/img/21/donation_description/readMoreButton.png" alt="">
-                                <span>完整閱讀</span>
+
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="/img/21/donation_description/story_3.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>有愛就有希望</h3>
+                                        <p>小必(化名)使用LOVE FOOD換取餐食的時候，露出了開心的笑容......　</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_3">
+                                        <img src="/img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-
-                        <div class="story">
-                            <div class="storyImg">
-                                <img src="/img/21/donation_description/story_2.png" alt="">
-                            </div>
-                            <div class="storyTxt">
-                                <h3>讓愛分「饗」</h3>
-                                <p>賈(化名)一出生就患有罕見疾病，從小頻繁進出急診室...</p>
-                            </div>
-                            <div class="readMoreButton" id="readMoreButton_2">
-                                <img src="/img/21/donation_description/readMoreButton.png" alt="">
-                                <span>完整閱讀</span>
-                            </div>
-                        </div>
-
-
-                        <div class="story">
-                            <div class="storyImg">
-                                <img src="/img/21/donation_description/story_3.png" alt="">
-                            </div>
-                            <div class="storyTxt">
-                                <h3>有愛就有希望</h3>
-                                <p>小必(化名)使用LOVE FOOD換取餐食的時候，露出了開心的笑容......　</p>
-                            </div>
-                            <div class="readMoreButton" id="readMoreButton_3">
-                                <img src="/img/21/donation_description/readMoreButton.png" alt="">
-                                <span>完整閱讀</span>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
             </div>
