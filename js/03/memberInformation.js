@@ -819,16 +819,29 @@ new Vue({
         location.href = '../frontend/index.html';
       });
     },
+    // 撈該ID的名稱
+    IDname() {
+      axios.post('../PHP/Frontend/member.php').then(function (res) {
+        checkdata = res.data;
+        console.log(checkdata);
+        // 測試用
+        // if (checkdata != '') {
+        //   console.log(checkdata);
+        // }
+      })
+    },
   },
   mounted() {
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
+        console.log(checkdata);
         // 測試用
         // if (checkdata != '') {
         //   console.log(checkdata);
         // }
       })
     }());
+    IDname();
   },
 });
