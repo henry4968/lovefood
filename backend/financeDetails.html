@@ -187,9 +187,27 @@
                     </div> -->
                     <div id="financeShowDonationPage">
                         <div>
-                            <ul>
-                                <li>123</li>
-                                <li v-for="data in donationDetals">{{data}}</li>
+                            <h4>捐款詳情：</h4>
+                            <ul v-for="data in donationDetals">
+                                <li><span>捐款編號：</span>{{data["DONATION_ID"]}}</li>
+                                <li><span>姓名／公司：</span>{{data["NAME"]}}</li>
+                                <li><span>國籍：</span>{{data["NATIONALITY"]}}</li>
+                                <li><span>身分證字號／統編（捐款人）：</span>{{data["PERSONAL_ID_OR_TAX_ID"]}}</li>
+                                <li><span>生日：</span>{{data["BIRTHDAY"]}}</li>
+                                <li><span>地址：</span>{{data["ADDRESS"]}}</li>
+                                <li><span>Email：</span>{{data["EMAIL"]}}</li>
+                                <li><span>性別：</span>{{data["GENDER"]}}</li>
+                                <li><span>備註：</span>{{data["REMARKS"]}}</li>
+                                <li><span>捐款類別：</span>{{data["DONATION_METHOD"]}}</li>
+                                <li><span>捐款方式：</span>{{data["DONATION_PLAN"]}}</li>
+                                <li><span>捐款金額：</span>{{data["AMOUNT"]}}</li>
+                                <li><span>捐款日期：</span>{{data["DATE"]}}</li>
+                                <li><span>收據抬頭：</span>{{data["RECEIPT_TITLE"]}}</li>
+                                <li><span>身分證字號／統編（收據）：</span>{{data["PERSONAL_ID_OR_TAX_ID_OF_RECEIPT"]}}</li>
+                                <li><span>捐款收據寄發方式：</span>{{data["DELIVERY_METHOD"]}}</li>
+
+
+
                             </ul>
                         </div>
                     </div>
@@ -198,7 +216,7 @@
         </div>
     </div>
 
-    <script src="../js/22/financeAjaxVue.js"></script>
+    <script src="../js/22/financeDetailsAjaxVue.js"></script>
 
 </body>
 
