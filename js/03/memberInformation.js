@@ -8,7 +8,7 @@ Vue.component('member', {
             </h1>
           </div>
           <div class="identifyBorder">
-            <div class="idTitle">身分別:</div>
+            <div class="idTitle">身份別: </div>
             <span class="idContent">一般會員</span>
           </div>
           <div class="lineBorder">
@@ -81,7 +81,7 @@ Vue.component('member', {
           </div>
         </div>
       </div>
-      `,
+    `,
   data() {
     return {
       sa: '',
@@ -102,6 +102,8 @@ Vue.component('member', {
       confirmpassword: '',
       foursameBorderapp: '',
       backCategory: '',
+
+      // 
     }
   },
   methods: {
@@ -121,7 +123,6 @@ Vue.component('member', {
         this.divre = false
         this.divse = false
       }
-
     },
     editfunc() {
       if (this.spannamenone == '') {
@@ -163,11 +164,41 @@ Vue.component('member', {
         });
       }
     },
+    // 傳入父層，控制class
     sync() {
       this.$emit("my-click", false)
     },
-  },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberlefttitle.php').then(function (res) {
+        // 找到值
+        checkdata = res.data;
 
+        // 找名字
+        console.log(checkdata[0]);
+
+        // 判斷是否有名字
+        if (checkdata[0] != "") {
+          if (checkdata[0] != null) {
+            // 將名字塞入html
+            that.username = checkdata[0];
+          } else if (checkdata[0] == null) {
+            that.username = '某某某';
+            alert('請輸入名字');
+          }
+        } else {
+          //提醒除錯
+          alert(checkdata[0]);
+        }
+      })
+    },
+  },
+  mounted() {
+    this.memberInf();
+  },
 });
 
 Vue.component('order', {
@@ -830,14 +861,23 @@ let vm = new Vue({
       axios.post('../PHP/Frontend/member.php').then(function (res) {
         // 找到值
         checkdata = res.data;
+
         // 找名字
         console.log(checkdata[0]);
 
-        that.username = checkdata[0];
-        // 測試用
-        // if (checkdata != '') {
-        //   console.log(checkdata);
-        // }
+        // 判斷是否有名字
+        if (checkdata[0] != "") {
+          if (checkdata[0] != null) {
+            // 將名字塞入html
+            that.username = checkdata[0];
+          } else if (checkdata[0] == null) {
+            that.username = '某某某';
+            alert('請輸入名字');
+          }
+        } else {
+          //提醒除錯
+          alert(checkdata[0]);
+        }
       })
     },
   },
