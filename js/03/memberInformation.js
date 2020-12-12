@@ -20,13 +20,13 @@ Vue.component('member', {
           </div>
           <div class="emailBorder">
             <div class="emailTitle sameTile">信箱:</div>
-            <span class="emailContent">jabiden@gmail.com</span>
+            <span class="emailContent">{{idemail}}</span>
           </div>
           <div class="bigpasswordborder">
             <div class="passwordLef">
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
-                <span class="passwordContent" :class="{spannone: spn}">{{confirmpassword}}</span>
+                <span class="passwordContent" :class="{spannone: spn}">{{idpwd}}</span>
                 <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}">
               </div>
               <div class="newpasswordBorder" :class="{divappre: divre}">
@@ -35,7 +35,7 @@ Vue.component('member', {
               </div>
               <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
-                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="confirmpassword">
+                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="idpwd">
               </div>
             </div>
             <div class="changeBtnright">
@@ -45,18 +45,18 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="modname">
-            <span class="nameContent" :class="{spannamenone: spannamenone}">{{modname}}</span>
+            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="idname">
+            <span class="nameContent" :class="{spannamenone: spannamenone}">{{idname}}</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="modphone">
-            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">{{modphone}}</span>
+            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="idphone">
+            <span class="phoneContent" :class="{spanphonenone: spanphonenone}">{{idphone}}</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="modadd">
-            <span class="addContent" :class="{spanaddnone: spanaddnone}">{{modadd}}</span>
+            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="idadd">
+            <span class="addContent" :class="{spanaddnone: spanaddnone}">{{idadd}}</span>
           </div>
           <div class="editsaveBtn">
             <button class="edit" type="button" @click="editfunc">編輯</button>
@@ -96,15 +96,19 @@ Vue.component('member', {
       inputnameapp: '',
       inputphoneapp: '',
       inputaddnameapp: '',
-      modname: '',
-      modphone: '',
-      modadd: '',
-      confirmpassword: '',
+      // 姓名
+      // modname: '',
+      // 手機號碼
+      // modphone: '',
+      // 地址
+      // modadd: '',
+      // 確認密碼
+      // confirmpassword: '',
       foursameBorderapp: '',
       backCategory: '',
     }
   },
-  props: ['idconten', 'idmem'],
+  props: ['idconten', 'idmem', 'idemail', 'idpwd', 'idname', 'idphone', 'idadd'],
   methods: {
     changePassword() {
       if (this.sa == '' && this.pn == '') {
@@ -810,6 +814,21 @@ let vm = new Vue({
 
     // ID編號
     idmemin: '',
+
+    // IDemail
+    idemailin: '',
+
+    // IDpassword
+    idpwdin: '',
+
+    // IDname
+    idnamein: '',
+
+    // IDphone
+    idphonein: '',
+
+    // IDaddress
+    idaddin: '',
   },
   methods: {
     memberButton(change, num, div, rwdborder) {
@@ -867,7 +886,7 @@ let vm = new Vue({
         checkdata = res.data;
 
         // 找身份別 general or particular
-        console.log(checkdata.data[0].CLASS);
+        // console.log(checkdata.data[0].CLASS);
         // 判斷是是哪一種身份
         if (checkdata.data[0].CLASS == 'general') {
           that.idcont = '一般會員';
@@ -893,25 +912,119 @@ let vm = new Vue({
         }
       });
     },
-    // 撈該ID的身份別
-    memberInf() {
+    // 撈該ID的信箱
+    email() {
       // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
       // 或是在vue那裏宣告一個vm ==> vm.username
       let that = this;
       axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
         // 找到值
         checkdata = res.data;
 
-        // 找身份別 general or particular
-        console.log(checkdata.data[0].CLASS);
-        // 判斷是是哪一種身份
-        if (checkdata.data[0].CLASS == 'general') {
-          that.idcont = '一般會員';
-        } else if (checkdata.data[0].CLASS == 'particular') {
-          that.idcont = '特殊會員';
+        // 找email 
+        // console.log(checkdata.dataac[0].ACCOUNT);
+
+        // 如果抓到信箱就代入
+        if (checkdata.dataac[0].ACCOUNT != "") {
+          that.idemailin = checkdata.dataac[0].ACCOUNT;
+        }
+
+      })
+    },
+    // 撈該ID的密碼
+    pwd() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找密碼
+        // console.log(checkdata.datapa[0].PASSWORD);
+
+        // 如果抓到密碼就代入********
+        if (checkdata.datapa[0].PASSWORD != "") {
+          that.idpwdin = '********';
+        }
+      })
+    },
+    // 撈該ID的名字
+    name() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找名字
+        // console.log(checkdata.datana[0].NAME);
+
+        // 如果抓到名字就代入
+        if (checkdata.datana[0].NAME != "") {
+          if (checkdata.datana[0].NAME != null) {
+            that.idnamein = checkdata.datana[0].NAME;
+          } else {
+            that.idnamein = '請填寫名字';
+          }
         } else {
-          //提醒除錯
-          // alert(checkdata[0]);
+          that.idnamein = '請填寫名字';
+        }
+
+      })
+    },
+    // 撈該ID的手機號碼
+    phone() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找手機號碼
+        // console.log(checkdata.dataph[0].PHONE);
+
+        // 如果抓到手機號碼就代入
+        if (checkdata.dataph[0].PHONE != "") {
+          if (checkdata.dataph[0].PHONE != null) {
+            that.idphonein = checkdata.dataph[0].PHONE;
+          } else if (checkdata.dataph[0].PHONE == null) {
+            that.idphonein = '請填寫手機號碼';
+          }
+        } else {
+          that.idphonein = '請填寫手機號碼';
+        }
+
+      })
+    },
+    // 撈該ID的地址
+    address() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找手機地址
+        // console.log(checkdata.dataad[0].ADDRESS);
+
+        // 如果抓到地址就代入
+        if (checkdata.dataad[0].ADDRESS != "") {
+          if (checkdata.dataad[0].ADDRESS != null) {
+            that.idaddin = checkdata.dataad[0].ADDRESS;
+          } else if (checkdata.dataad[0].ADDRESS == null) {
+            that.idaddin = '請填寫地址';
+          }
+        } else {
+          that.idaddin = '請填寫地址';
         }
       })
     },
@@ -929,5 +1042,15 @@ let vm = new Vue({
     this.memberInf();
     // 將ID塞入會員編號
     this.ID();
+    // 撈信箱
+    this.email();
+    // 撈密碼
+    this.pwd();
+    // 撈名字
+    this.name();
+    // 撈手機號碼
+    this.phone();
+    // 撈地址
+    this.address();
   },
 });
