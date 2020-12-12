@@ -4,7 +4,7 @@ const app = new Vue({
         return {
             donationDetals: null,
             donationLog: null,
-            isShow: true
+            isShow: false
         }
     },
 
@@ -94,6 +94,9 @@ const app = new Vue({
                 },
                 dataType: "JSON",
             });
+        },
+        showContent() {
+            this.isShow = !this.isShow;
         }
     }
 })
