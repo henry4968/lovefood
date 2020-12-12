@@ -90,18 +90,18 @@
                                     <span class="pageLabel-others">賣家會員</span>
                                 </a>
                             </div>
-                            <div>
+                            <div class="headerTop">
                                 <span>會員編號<input type="text" name="number" size="15"></span>
                                 <span>會員手機<input type="text" name="phone" size="15"></span>
                                 
                                 <span>會員帳號<input type="text" name="account"></span>
                                     <span>特殊會員
                                         <input type="checkbox" name="memberType" value="1">是
-                                        <input type="checkbox" name="memberType" value="0">否
+                                        <input type="checkbox" name="memberType" value="0">否   
                                     </span>
                                     
                             </div>
-                            <div>
+                            <div class="headerMiddle">
                                 <div>
                                     <span>查詢期間<input type="date" name="datePick1" size="15"></span>   
                                     <span>至<input type="date" name="datePick2" size="15"></span>   
@@ -150,24 +150,6 @@
     </div>
     <script src="../js/23/member/indexAjaxVue.js"></script>
 
-    <script>
-        const app = new Vue({
-        el: '.containerIndex',
-        data() {
-            return {
-                tableData:null,
-            }
-        },
-        beforeMount(){
-            const self = this;
-            $.getJSON('memberR.php',function(res){
-                self.tableData = res;
-            });
-        },
-        })
-      </script>
-
-    <script src="../js/23/member/indexAjaxVue.js"></script>
     
 
 </body>

@@ -1,0 +1,137 @@
+.containerProductEdit{
+    .asideMainWrapper{
+        position: relative;
+        padding-top:110px;
+        display: flex;
+        flex-direction: row;
+        width:1200px;
+        margin:0 auto;
+        .headerMainWrapper{
+            .headerWrapper{
+                background-color: $y;
+            }
+        }
+    }
+    .headerMainWrapper{
+        position: relative;
+        margin-left:10px;
+        flex-grow: 1;
+        .headerWrapper{
+            margin-bottom: 10px;
+            header{
+                padding:5px;
+                    div{
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        padding:5px;
+                        span{
+                            input{
+                                margin-left:8px;
+                                border-radius: 8px;
+                                order: 1px solid gray;
+                                font-size: 12px;
+                                line-height: 20px;
+                            }
+                        }
+                        button{
+    
+                            right:3px;
+                        }
+                    }
+                    .headerBottom{
+                        position: relative;
+                        display: inline;
+                        margin: 0 auto;
+                    }
+            }
+        }
+    }
+    main{
+        div{
+            .eachOne{
+                display: flex;
+                .eachOneLeft{
+                    margin-top: 10px;
+                    display: flex;
+                    flex-direction: column;
+                    .time{
+                        margin:8px 20px;
+                        display:flex;
+                        flex-direction: row;
+                        
+                    }
+                    span{
+                        margin:8px 20px;
+                        .plusMinor{
+                            margin:0 6px;
+                        }
+                    }
+                    span.price{
+                        div{
+                            display: inline-flex;
+                            .pricePreffix{
+                                border: 1px solid lightgray;
+                                border-right: none;
+                                background-color: white;
+                                color: gray;
+                                padding: 2px 8px;
+                            }
+                        }
+                    }
+                }
+                .eachOneRight{
+                    display: flex;
+                    flex-direction: column;
+                    span{
+                        margin:15px 30px;
+                        label{
+                            input{
+                                display: none;
+                            }
+                        }
+                        p{
+                            display: inline-block;
+                            vertical-align: top;
+                            position: relative;
+                            top: -14px;
+                        }
+                        textarea{
+                            width: 220px;
+                            height: 200px;
+                            position: relative;
+                            right: 3px;
+                        }
+                        button{
+                            margin: 0 10px;
+                        }
+
+                    }
+                    span:nth-child(3){
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+            hr{
+                border-color:$brown;
+            }
+            .set{
+                display: flex;
+                flex-direction: column;
+                margin-top: 10px;
+                span, div{
+                    margin:15px 30px;
+                    label{
+                        input{
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+
