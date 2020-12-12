@@ -6,7 +6,10 @@ const app = new Vue({
             pointsDiscount: null,
             pointsOfMember: null,
             issanceLog: null,
-            discountLog: null
+            discountLog: null,
+            // isShow: true
+            show: '',
+
         }
     },
 
@@ -68,6 +71,10 @@ const app = new Vue({
     },
 
     methods: {
+        ShowBtn() {
+            alert('1');
+            this.show = true
+        },
         query() {
             const self = this;
             let number = $("input[name='number']").val()
@@ -134,6 +141,7 @@ const app = new Vue({
                 },
                 dataType: "JSON",
             });
-        }
+        },
+
     }
 });

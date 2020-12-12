@@ -3,7 +3,8 @@ const app = new Vue({
     data() {
         return {
             donationDetals: null,
-            donationLog: null
+            donationLog: null,
+            isShow: true
         }
     },
 
