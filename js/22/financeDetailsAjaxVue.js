@@ -28,15 +28,52 @@ const app = new Vue({
                 var rDD = res.donationDetals;
 
                 for (let i = 0; i < rDD.length; i++) {
+
                     if (rDD[i].DONATION_ID = DONATION_ID) {
                         self.donationDetals = [];
                         self.donationDetals.push(rDD[i]);
                     }
+
+                    let sDD = self.donationDetals;
+
+                    if (sDD[i].GENDER == 1) {
+                        self.donationDetals[i].GENDER = "男";
+                    } else if (sDD[i].GENDER == 2) {
+                        self.donationDetals[i].GENDER = "女";
+                    } else {
+                        self.donationDetals[i].GENDER = "其他";
+                    }
+
+                    if (sDD[i].DONATION_PLAN == 1) {
+                        self.donationDetals[i].DONATION_PLAN = "單次扣款";
+                    } else if (sDD[i].DONATION_PLAN == 2) {
+                        self.donationDetals[i].DONATION_PLAN = "定期捐款";
+                    } else {
+                        self.donationDetals[i].DONATION_PLAN = "資料錯誤";
+                    }
+
+                    if (sDD[i].DONATION_METHOD == 1) {
+                        self.donationDetals[i].DONATION_METHOD = "信用卡";
+                    }
+
+                    if (sDD[i].DELIVERY_METHOD == 1) {
+                        self.donationDetals[i].DELIVERY_METHOD = "免寄收據";
+                    } else if (sDD[i].DELIVERY_METHOD == 2) {
+                        self.donationDetals[i].DELIVERY_METHOD = "每次寄發";
+                    } else {
+                        self.donationDetals[i].DELIVERY_METHOD = "資料錯誤";
+                    }
+
+                    Object.keys(self.donationDetals[0]).forEach(function (key) {
+                        if (self.donationDetals[0][key] === null) {
+                            self.donationDetals[0][key] = "未填寫";
+                        }
+                    });
+
                 }
 
-                console.log(res);
                 console.log(self.donationDetals);
-                console.log(res.donationLog);
+
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -63,25 +100,56 @@ const app = new Vue({
                 data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
                 success: function (res) {
 
-                    self.donationDetals = res.donationDetals;
                     self.donationLog = res.donationLog;
 
-                    for (let i = 0; i < res.donationDetals.length; i++) {
-                        let donationPlan = res.donationLog[i].DONATION_PLAN;
+                    var rDD = res.donationDetals;
 
-                        if (donationPlan == 1) {
-                            res.donationLog[i].DONATION_PLAN = "單次扣款";
-                        } else if (donationPlan == 2) {
-                            res.donationLog[i].DONATION_PLAN = "定期捐款";
-                        } else {
-                            res.donationLog[i].DONATION_PLAN = "資料錯誤";
+                    for (let i = 0; i < rDD.length; i++) {
+
+                        if (rDD[i].DONATION_ID = DONATION_ID) {
+                            self.donationDetals = [];
+                            self.donationDetals.push(rDD[i]);
                         }
+
+                        let sDD = self.donationDetals;
+
+                        if (sDD[i].GENDER == 1) {
+                            self.donationDetals[i].GENDER = "男";
+                        } else if (sDD[i].GENDER == 2) {
+                            self.donationDetals[i].GENDER = "女";
+                        } else {
+                            self.donationDetals[i].GENDER = "其他";
+                        }
+
+                        if (sDD[i].DONATION_PLAN == 1) {
+                            self.donationDetals[i].DONATION_PLAN = "單次扣款";
+                        } else if (sDD[i].DONATION_PLAN == 2) {
+                            self.donationDetals[i].DONATION_PLAN = "定期捐款";
+                        } else {
+                            self.donationDetals[i].DONATION_PLAN = "資料錯誤";
+                        }
+
+                        if (sDD[i].DONATION_METHOD == 1) {
+                            self.donationDetals[i].DONATION_METHOD = "信用卡";
+                        }
+
+                        if (sDD[i].DELIVERY_METHOD == 1) {
+                            self.donationDetals[i].DELIVERY_METHOD = "免寄收據";
+                        } else if (sDD[i].DELIVERY_METHOD == 2) {
+                            self.donationDetals[i].DELIVERY_METHOD = "每次寄發";
+                        } else {
+                            self.donationDetals[i].DELIVERY_METHOD = "資料錯誤";
+                        }
+
+                        Object.keys(self.donationDetals[0]).forEach(function (key) {
+                            if (self.donationDetals[0][key] === null) {
+                                self.donationDetals[0][key] = "未填寫";
+                            }
+                        });
 
                     }
 
-                    console.log(res);
-                    console.log(res.donationDetals);
-                    console.log(res.donationLog);
+                    console.log(self.donationDetals);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
