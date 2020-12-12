@@ -1,12 +1,5 @@
 // header
 Vue.component('memhead', {
-    data() {
-        return {
-            jumppage: '',
-            selloginchangemem: '',
-        }
-    },
-    props: ['prop', 'sleprop'],
     template: `
     <!-- 標頭開始 -->
     <header id="memheader">
@@ -25,7 +18,7 @@ Vue.component('memhead', {
                     <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
                 </li>
                 <li>
-                    <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile" :class="{selloginchangemem:sleprop}" @click="sellogIncheck">賣家專區</a>
+                    <a :href="seljumpage" class="navGeneralAnchorsForMobile" :class="{selloginchangemem:sleprop}" @click="sellogIncheck">賣家專區</a>
                 </li>
                 <li>
                     <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
@@ -48,7 +41,7 @@ Vue.component('memhead', {
             <!-- 桌機版導覽列開始 -->
             <nav id="navigationForPC">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="../backend/backendOrder.html" class="navGeneralAnchors" :class="{selloginchangemem:selloginchangemem}" @click="sellogIncheck">賣家專區</a>
+                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sleprop}" @click="sellogIncheck">賣家專區</a>
                 <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
@@ -72,7 +65,7 @@ Vue.component('memhead', {
                 <a href="#0" id="navIcons04" class="navIconsForMobile">
                     <img src="../img/03/memcart.png" alt="">
                 </a>
-                <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile" @click="logIncheck">
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck">
                     <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
                     <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
@@ -81,6 +74,17 @@ Vue.component('memhead', {
         </div>
     </header>
     `,
+    data() {
+        return {
+            // 一般會員 href
+            jumppage: '',
+            // 賣家會員 href
+            seljumpage: '',
+            // 賣家會員class
+            selloginchangemem: '',
+        }
+    },
+    props: ['prop', 'sleprop'],
     methods: {
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
@@ -92,6 +96,9 @@ Vue.component('memhead', {
                     alert('尚未登入會員，請登入會員');
                     this.jumppage = './signUp_signIn.html';
                 }
+            } else {
+                alert('尚未登入會員，請登入會員');
+                this.jumppage = './signUp_signIn.html';
             }
         },
         // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
@@ -99,10 +106,14 @@ Vue.component('memhead', {
             if (checkdata != '') {
                 if (checkdata.substr(0, 2) == 'MB') {
                     alert('尚未登入會員，請登入賣家會員');
-                    this.jumppage = './signUp_signIn.html';
+                    this.seljumpage = './signUp_signIn.html';
                 } else if ((checkdata.substr(0, 2) == 'SP')) {
+                    this.seljumpage = '../backend/backendIndex.html';
                     this.selloginchangemem = true;
                 }
+            } else {
+                alert('尚未登入會員，請登入會員');
+                this.seljumpage = './signUp_signIn.html';
             }
         },
     },
@@ -124,15 +135,17 @@ var member = new Vue({
             axios.post('../PHP/Frontend/sessionR.php').then(res => {
                 // 賣家或是買家ID
                 checkdata = res.data;
-                console.log(checkdata.substr(0, 2));
+                // console.log(checkdata.substr(0, 2));
+                // alert(checkdata);
                 if (checkdata != '') {
                     // 判斷是賣家會員使"賣家專區"變色
                     if ((checkdata.substr(0, 2) == 'SP')) {
-                        console.log(1);
-                        this.selloginchangemem
+                        // console.log(checkdata.substr(0, 2));
                         this.sellogin = true;
-                        console.log(this.sellogin);
-
+                        // console.log(this.sellogin);
+                    } else {
+                        this.sellogin = false;
+                        // console.log(this.sellogin);
                     }
                     // 判斷是一般會員使"會員"變色
                     if ((checkdata.substr(0, 2) == 'MB')) {
