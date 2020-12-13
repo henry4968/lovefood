@@ -17,16 +17,16 @@ $(document).ready(function(){
                     arrDist.push(distChecked);
                 }
             }  
-            console.log(arrDist);
+            // console.log(arrDist);
             // ================種類選擇=================
 
             let itemsCate = $('.item3').find('input');
-            console.log(itemsCate);
+            // console.log(itemsCate);
             var arrCate = new Array();
 
             for(i=0;i<itemsCate.length;i++){
 
-                cateChecked = $(`input[name="categaries1[${i}]"]:checked`).val();
+                cateChecked = $(`input[name="categories1[${i}]"]:checked`).val();
 
                 
                 if(cateChecked != null){
@@ -50,7 +50,7 @@ $(document).ready(function(){
                 error: function (res) {
                     console.log(res);
                 },
-                dataType: "JSON",
+                dataType: "text",
                 // dataType: "html",
                 // dataType: "text",
             })
