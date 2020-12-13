@@ -45,17 +45,17 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="idname">
+            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="modname" name="name" >
             <span class="nameContent" :class="{spannamenone: spannamenone}">{{idname}}</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="idphone">
+            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="modphone" name="tel">
             <span class="phoneContent" :class="{spanphonenone: spanphonenone}">{{idphone}}</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="idadd">
+            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="modadd" name="add">
             <span class="addContent" :class="{spanaddnone: spanaddnone}">{{idadd}}</span>
           </div>
           <div class="editsaveBtn">
@@ -97,11 +97,11 @@ Vue.component('member', {
       inputphoneapp: '',
       inputaddnameapp: '',
       // 姓名
-      // modname: '',
+      modname: '',
       // 手機號碼
-      // modphone: '',
+      modphone: '',
       // 地址
-      // modadd: '',
+      modadd: '',
       // 確認密碼
       // confirmpassword: '',
       foursameBorderapp: '',
@@ -138,6 +138,8 @@ Vue.component('member', {
       }
     },
     savefunc() {
+
+      // input、span 出現、消失切換
       if (this.spannamenone == true) {
         this.spannamenone = false
         this.spanphonenone = false
@@ -146,6 +148,28 @@ Vue.component('member', {
         this.inputphoneapp = false
         this.inputaddnameapp = false
       }
+
+
+      // 建立資料表單
+      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+      let data = new FormData();//new FormData() 固定語法
+      // FormData.append()
+      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+      data.append('name', this.modname);
+      data.append('add', this.modadd);
+      data.append('tel', this.modphone);
+
+      let config = {
+        header: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+
+      // update 名字 手機號碼 地址
+      axios.post('../PHP/Frontend/mamberNameTelAdd.php', data, config).then(res => {
+        // 找出data
+        console.log(res.data);
+      });
     },
     uploadpicBtn() {
       // 當按下假的input同時按下真的input
