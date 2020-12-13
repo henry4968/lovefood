@@ -45,21 +45,21 @@ Vue.component('member', {
           </div>
           <div class="nameBorder">
             <div class="nameTitle sameTile">姓名:</div>
-            <input class="nameContent" placeholder="請輸入姓名" type="text" :class="{inputnameapp: inputnameapp}" v-model="modname" name="name" >
+            <input class="nameContent" :placeholder="namepla" type="text" :class="{inputnameapp: inputnameapp , inpredname:inpredname}" v-model="modname" name="name" @click="disclassname">
             <span class="nameContent" :class="{spannamenone: spannamenone}">{{idname}}</span>
           </div>
           <div class="phoneBorder">
             <div class="phoneTitle sameTile">手機號碼:</div>
-            <input class="phonenameContent" placeholder="請輸入手機" type="text" :class="{inputphoneapp: inputphoneapp}" v-model="modphone" name="tel">
+            <input class="phonenameContent" :placeholder="telpla" type="text" :class="{inputphoneapp: inputphoneapp , inpredtel:inpredtel}" v-model="modphone" name="tel" @click="disclasstel">
             <span class="phoneContent" :class="{spanphonenone: spanphonenone}">{{idphone}}</span>
           </div>
           <div class="addBorder">
             <div class="addTitle sameTile">地址:</div>
-            <input class="addnameContent" placeholder="請輸入地址" type="text" :class="{inputaddnameapp: inputaddnameapp}" v-model="modadd" name="add">
-            <span class="addContent" :class="{spanaddnone: spanaddnone}">{{idadd}}</span>
+            <input class="addnameContent" :placeholder="addpla" type="text" :class="{inputaddnameapp: inputaddnameapp , inpredadd:inpredadd}" v-model="modadd" name="add" @click="disclassadd">
+            <span class="addContent" :class="{spanaddnone: spanaddnone}" >{{idadd}}</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button" @click="editfunc">編輯</button>
+            <button class="edit" type="button" @click.prevent="editfunc">編輯</button>
             <button class="save" type="button" @click="savefunc">儲存</button>
           </div>
         </form>
@@ -96,19 +96,42 @@ Vue.component('member', {
       inputnameapp: '',
       inputphoneapp: '',
       inputaddnameapp: '',
-      // 姓名
+      // 姓名 input
       modname: '',
-      // 手機號碼
+      // 手機號碼 input
       modphone: '',
-      // 地址
+      // 地址 input
       modadd: '',
-      // 確認密碼
+      // 確認密碼 input
       // confirmpassword: '',
       foursameBorderapp: '',
       backCategory: '',
+
+      // placeholder
+      // name
+      namepla: '請輸入姓名',
+      // tel
+      telpla: '請輸入手機號碼',
+      // add
+      addpla: '請輸入地址',
+
+      // class
+      // 名字
+      inpredname: '',
+      // 手機
+      inpredtel: '',
+      // 地址
+      inpredadd: '',
     }
   },
-  props: ['idconten', 'idmem', 'idemail', 'idpwd', 'idname', 'idphone', 'idadd'],
+  props: [
+    'idconten',
+    'idmem',
+    'idemail',
+    'idpwd',
+    'idname',
+    'idphone',
+    'idadd'],
   methods: {
     changePassword() {
       if (this.sa == '' && this.pn == '') {
@@ -137,39 +160,76 @@ Vue.component('member', {
         this.inputaddnameapp = true
       }
     },
-    savefunc() {
+    savefunc(event) {
 
-      // input、span 出現、消失切換
-      if (this.spannamenone == true) {
-        this.spannamenone = false
-        this.spanphonenone = false
-        this.spanaddnone = false
-        this.inputnameapp = false
-        this.inputphoneapp = false
-        this.inputaddnameapp = false
-      }
-
-
-      // 建立資料表單
-      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      let data = new FormData();//new FormData() 固定語法
-      // FormData.append()
-      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-      data.append('name', this.modname);
-      data.append('add', this.modadd);
-      data.append('tel', this.modphone);
-
-      let config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
+      // 檢查空白
+      if (this.modname == '' || this.modphone == '' || this.modadd == '') {
+        if (this.modname == '') {
+          this.namepla = '名字不可為空';
+          this.inpredname = true;
         }
+        if (this.modphone == '') {
+          this.telpla = '手機不可為空';
+          this.inpredtel = true;
+        }
+        if (this.modadd == '') {
+          this.addpla = '地址不可為空';
+          this.inpredadd = true;
+        }
+      } else if (this.modname != '' || this.modphone != '' || this.modadd != '') {
+        // 檢查格式
+
+      } else {
+        // 都沒問題就執行
+
+        // input、span 出現、消失切換
+        if (this.spannamenone == true) {
+          this.spannamenone = false
+          this.spanphonenone = false
+          this.spanaddnone = false
+          this.inputnameapp = false
+          this.inputphoneapp = false
+          this.inputaddnameapp = false
+        }
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();//new FormData() 固定語法
+        // FormData.append()
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('name', this.modname);
+        data.append('add', this.modadd);
+        data.append('tel', this.modphone);
+
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        // update 名字 手機號碼 地址
+        axios.post('../PHP/Frontend/mamberNameTelAdd.php', data, config).then(res => {
+          // 找出data
+          // console.log(res);
+        });
+
+        this.$emit('reloadnameaddtel');
       }
 
-      // update 名字 手機號碼 地址
-      axios.post('../PHP/Frontend/mamberNameTelAdd.php', data, config).then(res => {
-        // 找出data
-        console.log(res.data);
-      });
+    },
+    // 名字取消class
+    disclassname() {
+      this.namepla = '請輸入姓名';
+      this.inpredname = false;
+    },
+    // 手機號碼取消class
+    disclasstel() {
+      this.telpla = '請輸入手機號碼';
+      this.inpredtel = false;
+    },
+    // 地址取消class
+    disclassadd() {
+      this.addpla = '請輸入地址';
+      this.inpredadd = false;
     },
     uploadpicBtn() {
       // 當按下假的input同時按下真的input
@@ -1051,6 +1111,15 @@ let vm = new Vue({
           that.idaddin = '請填寫地址';
         }
       })
+    },
+    // 子層傳父層 名字 地址 電話
+    reloadnameaddtelin() {
+      // 撈名字
+      this.name();
+      // 撈手機號碼
+      this.phone();
+      // 撈地址
+      this.address();
     },
   },
   mounted() {

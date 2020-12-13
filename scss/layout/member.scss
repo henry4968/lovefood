@@ -446,7 +446,11 @@ body{
             }
           }
           .nameBorder{
-            margin: 1.3% 0%;    
+            margin: 1.3% 0%;
+            input.nameContent.inputnameapp.inpredname{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
             input.nameContent.inputnameapp{
               display: block;
               display: flex;
@@ -475,6 +479,10 @@ body{
           }
           .phoneBorder{
             margin: 1.3% 0%;
+            input.phonenameContent.inpredtel{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
             input.phonenameContent.inputphoneapp{
               display: block;
               display: flex;
@@ -503,6 +511,10 @@ body{
           }
           .addBorder{
             margin: 1.3% 0%;
+            input.addnameContent.inputaddnameapp.inpredadd{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
             input.addnameContent.inputaddnameapp{
               display: block;
               display: flex;
