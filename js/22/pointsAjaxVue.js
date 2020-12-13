@@ -7,9 +7,7 @@ const app = new Vue({
             pointsOfMember: null,
             issanceLog: null,
             discountLog: null,
-            // isShow: true
-            show: '',
-
+            isShow: false
         }
     },
 
@@ -68,14 +66,55 @@ const app = new Vue({
             },
             dataType: "JSON",
         });
+
     },
 
     methods: {
-        ShowBtn() {
-            alert('1');
-            this.show = true
+        showContent(e) {
+            this.isShow = true;
+
+            const self = this;
+            let dataId = $(e.target).data('id');
+            // alert(dataId);
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsDetails.php',
+                type: 'GET',
+                data: { dataId },
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    self.issanceLog = res.issanceLog;
+                    self.discountLog = res.discountLog;
+                    self.pointsOfMember = res.pointsOfMember;
+
+                    // var rMB = res.pointsOfMember;
+
+                    // for (let i = 0; i < rMB.length; i++) {
+                    //     if (rMB[i].MEMBER_ID == number) {
+                    //         self.pointsOfMember = [];
+                    //         self.pointsOfMember.push(rMB[i]);
+                    //     }
+                    // }
+
+                    // console.log(res.pointsOfMember2)
+                    // console.log(res);
+                    // console.log(self.pointsOfMember);
+                    // console.log(self.issanceLog);
+                    // console.log(self.discountLog);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+
+            });
+
         },
+
         query() {
+            this.isShow = false;
+
             const self = this;
             let number = $("input[name='number']").val()
             let account = $("input[name='account']").val()
