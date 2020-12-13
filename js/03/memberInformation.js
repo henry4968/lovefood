@@ -27,20 +27,20 @@ Vue.component('member', {
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
                 <span class="passwordContent" :class="{spannone: spn}">{{idpwd}}</span>
-                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}">
+                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}" v-model="pwdhtml" >
               </div>
               <div class="newpasswordBorder" :class="{divappre: divre}">
                 <div class="newpasswordTitle sameTile">新密碼:</div>
-                <input class="newpasswordContent" placeholder="請輸入新密碼" type="password">
+                <input class="newpasswordContent" placeholder="請輸入新密碼" type="password" v-model="newpwdhtml" >
               </div>
               <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
-                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="idpwd">
+                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="newpwdcfhtml">
               </div>
             </div>
             <div class="changeBtnright">
-              <button class="savePassword" type="button" @click="changePassword" :class="{saveapp: sa}">儲存密碼</button>
-              <button class="changePassword" type="button" @click="changePassword" :class="{passnone: pn}">變更密碼</button>
+              <button class="savePassword" type="button" @click="changespan" :class="{saveapp: sa}">儲存密碼</button>
+              <button class="changePassword" type="button" @click="changeinput" :class="{passnone: pn}">變更密碼</button>
             </div>
           </div>
           <div class="nameBorder">
@@ -59,7 +59,7 @@ Vue.component('member', {
             <span class="addContent" :class="{spanaddnone: spanaddnone}" >{{idadd}}</span>
           </div>
           <div class="editsaveBtn">
-            <button class="edit" type="button" @click.prevent="editfunc">編輯</button>
+            <button class="edit" type="button" @click="editfunc">編輯</button>
             <button class="save" type="button" @click="savefunc">儲存</button>
           </div>
         </form>
@@ -96,14 +96,22 @@ Vue.component('member', {
       inputnameapp: '',
       inputphoneapp: '',
       inputaddnameapp: '',
-      // 姓名 input
+
+
+      // html input
+      // 原本密碼
+      pwdhtml: '',
+      // 新密碼
+      newpwdhtml: '',
+      // 確認密碼 
+      newpwdcfhtml: '',
+      // 姓名 
       modname: '',
-      // 手機號碼 input
+      // 手機號碼 
       modphone: '',
-      // 地址 input
+      // 地址 
       modadd: '',
-      // 確認密碼 input
-      // confirmpassword: '',
+
       foursameBorderapp: '',
       backCategory: '',
 
@@ -131,23 +139,41 @@ Vue.component('member', {
     'idpwd',
     'idname',
     'idphone',
-    'idadd'],
+    'idadd',
+    'idpwdtrue',
+  ],
   methods: {
-    changePassword() {
-      if (this.sa == '' && this.pn == '') {
-        this.sa = true
-        this.pn = true
-        this.spn = true
-        this.inpor = true
-        this.divre = true
-        this.divse = true
-      } else {
-        this.sa = false
-        this.pn = false
-        this.spn = false
-        this.inpor = false
-        this.divre = false
-        this.divse = false
+    // 開啟input 關閉span
+    changeinput() {
+      this.sa = true
+      this.pn = true
+      this.spn = true
+      this.inpor = true
+      this.divre = true
+      this.divse = true
+    },
+    // 更換密碼 關閉input 開啟span
+    changespan() {
+
+      // 更新密碼
+      
+
+      // 判斷資料的原密碼與會員輸入的密碼是否一樣如果一樣就可以更新密碼
+      if (this.pwdhtml != '') {
+        // 密碼更新
+        // 這是沒切換成********的原密碼
+        // console.log(this.idpwdtrue);
+        if (this.pwdhtml == this.idpwdtrue) {
+          // alert('成功');
+
+          // input span 切換
+          this.sa = false
+          this.pn = false
+          this.spn = false
+          this.inpor = false
+          this.divre = false
+          this.divse = false
+        }
       }
     },
     editfunc() {
@@ -160,27 +186,65 @@ Vue.component('member', {
         this.inputaddnameapp = true
       }
     },
-    savefunc(event) {
+    savefunc() {
 
-      // 檢查空白
-      if (this.modname == '' || this.modphone == '' || this.modadd == '') {
-        if (this.modname == '') {
-          this.namepla = '名字不可為空';
+      // 檢查名字空白
+      if (this.modname == '') {
+        this.namepla = '名字不可為空';
+        this.inpredname = true;
+      }
+
+      // 檢查手機號碼空白
+      if (this.modphone == '') {
+        this.telpla = '手機不可為空';
+        this.inpredtel = true;
+      }
+
+      // 檢查地址空白
+      if (this.modadd == '') {
+        this.addpla = '地址不可為空';
+        this.inpredadd = true;
+      }
+
+      // 名字檢查
+      if (this.modname != '') {
+        // 檢查格式
+        // 假如姓名位數超過6位數抱錯，左邊會員標題字數有限
+        if (this.modname.length > 6) {
+          // 抓姓名字數
+          alert(this.modname.length);
+
+          this.modname = ''
+          this.namepla = '名字不可超過6位數';
           this.inpredname = true;
         }
-        if (this.modphone == '') {
-          this.telpla = '手機不可為空';
+      }
+
+      // 電話檢查 聯絡電話只能是數字及數字需大於等於10碼
+      if (this.modphone != '') {
+        const phonemath = /\d{10}/;
+        if (this.modphone.search(phonemath) != 0 || this.modphone.length != 10) {
+          this.modphone = '';
+          this.telpla = '手機號碼格式不對';
           this.inpredtel = true;
         }
-        if (this.modadd == '') {
-          this.addpla = '地址不可為空';
+      }
+
+      // 地址檢查 登記地址需包含中文和數字
+      // escape對字串進行編碼時，字元值大於255的以"%u****"格式儲存，而字元值大於255的恰好是非英文字元（一般是中文字元，非中文字元也可以當作中文字元考慮）；indexOf用以判斷在字串中是否存在某子字串
+      if (this.modadd != '') {
+        const addmath = /\d{1}/; //最少要有一個數字
+        if ((escape(this.modadd).indexOf("%u") < 0) || (this.modadd.search(addmath) == -1)) {
+          console.log(escape(this.modadd).indexOf("%u"));
+          this.modadd = '';
+          this.addpla = '地址格式不對';
           this.inpredadd = true;
         }
-      } else if (this.modname != '' || this.modphone != '' || this.modadd != '') {
-        // 檢查格式
+      }
 
-      } else {
-        // 都沒問題就執行
+
+      // 都沒問題就執行
+      if (this.modname != '' && this.modphone != '' && this.modadd != '' && this.inpredname != true && this.inpredtel != true && this.inpredadd != true) {
 
         // input、span 出現、消失切換
         if (this.spannamenone == true) {
@@ -212,6 +276,7 @@ Vue.component('member', {
           // console.log(res);
         });
 
+        // 傳父層 控制name、tel、add的值
         this.$emit('reloadnameaddtel');
       }
 
@@ -231,6 +296,7 @@ Vue.component('member', {
       this.addpla = '請輸入地址';
       this.inpredadd = false;
     },
+    // 當按下假的input同時按下真的input
     uploadpicBtn() {
       // 當按下假的input同時按下真的input
       theFile = document.getElementById('theFile');
@@ -904,6 +970,8 @@ let vm = new Vue({
 
     // IDpassword
     idpwdin: '',
+    // IDpassword(沒被轉成********)
+    idpwdtruein: '',
 
     // IDname
     idnamein: '',
@@ -933,7 +1001,7 @@ let vm = new Vue({
         location.href = '../frontend/index.html';
       });
     },
-    // 撈該ID的名稱
+    // 撈該ID的名稱left
     IDname() {
       // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
       // 或是在vue那裏宣告一個vm ==> vm.username
@@ -1032,6 +1100,8 @@ let vm = new Vue({
         // 如果抓到密碼就代入********
         if (checkdata.datapa[0].PASSWORD != "") {
           that.idpwdin = '********';
+          // that.idpwdin = checkdata.datapa[0].PASSWORD;
+          that.idpwdtruein = checkdata.datapa[0].PASSWORD;
         }
       })
     },
@@ -1114,6 +1184,8 @@ let vm = new Vue({
     },
     // 子層傳父層 名字 地址 電話
     reloadnameaddtelin() {
+      // 撈該ID的名稱left
+      this.IDname();
       // 撈名字
       this.name();
       // 撈手機號碼
