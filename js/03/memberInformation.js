@@ -27,15 +27,15 @@ Vue.component('member', {
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
                 <span class="passwordContent" :class="{spannone: spn}">{{idpwd}}</span>
-                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor , inpredpwd:inpredpwd}" v-model="pwdhtml" >
+                <input class="passwordContent" :placeholder="pwdpla" type="password" :class="{inputappor: inpor , inpredpwd:inpredpwd}" v-model="pwdhtml" @click="disclasspwd" >
               </div>
               <div class="newpasswordBorder" :class="{divappre: divre}">
                 <div class="newpasswordTitle sameTile">新密碼:</div>
-                <input class="newpasswordContent" placeholder="請輸入新密碼" type="password" v-model="newpwdhtml" >
+                <input class="newpasswordContent" :placeholder="pwdnewpla" type="password" v-model="newpwdhtml" :class="{inprednewpwd:inprednewpwd}" @click="disclasspwdnew" >
               </div>
               <div class="cfmpasswordBorder" :class="{divappse: divse}">
                 <div class="cfmpasswordTitle sameTile">確認密碼:</div>
-                <input class="cfmpasswordContent" placeholder="請確認密碼" type="password" v-model="newpwdcfhtml">
+                <input class="cfmpasswordContent" :placeholder="pwdnewcfpla" type="password" v-model="newpwdcfhtml" :class="{inprednewpwdcf:inprednewpwdcf}" @click="disclasspwdnewcf" >
               </div>
             </div>
             <div class="changeBtnright">
@@ -116,14 +116,26 @@ Vue.component('member', {
       backCategory: '',
 
       // placeholder
-      // name
+      // 密碼
+      pwdpla: '請輸入原本密碼',
+      // 新密碼
+      pwdnewpla: '請輸入新密碼',
+      // 密碼確認
+      pwdnewcfpla: '請確認密碼',
+      // 名字
       namepla: '請輸入姓名',
-      // tel
+      // 手機
       telpla: '請輸入手機號碼',
-      // add
+      // 地址
       addpla: '請輸入地址',
 
       // class
+      // 密碼
+      inpredpwd: '',
+      // 新密碼
+      inprednewpwd: '',
+      // 密碼確認
+      inprednewpwdcf: '',
       // 名字
       inpredname: '',
       // 手機
@@ -158,21 +170,55 @@ Vue.component('member', {
       // 空白檢查
       // 原本密碼空白
       if (this.pwdhtml == "") {
-
+        this.pwdpla = '密碼不可為空';
+        this.inpredpwd = true;
       }
 
       // 新密碼空白
       if (this.newpwdhtml == "") {
-
+        this.pwdnewpla = '新密碼不可為空';
+        this.inprednewpwd = true;
       }
 
       // 確認密碼空白
       if (this.newpwdcfhtml == "") {
-
+        this.pwdnewcfpla = '確認密碼不可為空';
+        this.inprednewpwdcf = true;
       }
 
+      // 格式檢查
+      // 原密碼檢查
+      if (this.pwdhtml != this.idpwdtrue) {
+        this.pwdhtml = '';
+        this.pwdpla = '原密碼輸入錯誤';
+        this.inpredpwd = true;
+      }
+
+      // 新密碼與確認密碼比對
+      if (this.newpwdhtml != this.newpwdcfhtml) {
+        this.newpwdhtml = '';
+        this.newpwdcfhtml = '';
+        this.pwdnewpla = '與確認密碼不同';
+        this.pwdnewcfpla = '與新密碼不同';
+        this.inprednewpwd = true;
+        this.inprednewpwdcf = true;
+      }
+
+      // 新密碼需大於8位數
+      if (this.newpwdcfhtml != '') {
+        if (this.newpwdcfhtml.length < 8) {
+          this.newpwdhtml = '';
+          this.newpwdcfhtml = '';
+          this.pwdnewpla = '密碼字數小於8位數';
+          this.pwdnewcfpla = '密碼字數小於8位數';
+          this.inprednewpwd = true;
+          this.inprednewpwdcf = true;
+        }
+      }
+
+
       // 判斷資料的原密碼與會員輸入的密碼是否一樣如果一樣就可以更新密碼
-      if (this.pwdhtml != '') {
+      if (this.pwdhtml != '' && this.newpwdhtml != "" && this.newpwdcfhtml != "" && this.inpredpwd != true && this.inprednewpwd != true && this.inprednewpwdcf != true) {
         // 密碼更新
         // 這是沒切換成********的原密碼
         // console.log(this.idpwdtrue);
@@ -209,7 +255,7 @@ Vue.component('member', {
 
           // 傳父層 控制newpwd的值
           this.$emit('reloadnewpwd');
-          console.log(this.idpwdtrue);
+          // console.log(this.idpwdtrue);
 
         }
       }
@@ -273,7 +319,7 @@ Vue.component('member', {
       if (this.modadd != '') {
         const addmath = /\d{1}/; //最少要有一個數字
         if ((escape(this.modadd).indexOf("%u") < 0) || (this.modadd.search(addmath) == -1)) {
-          console.log(escape(this.modadd).indexOf("%u"));
+          // console.log(escape(this.modadd).indexOf("%u"));
           this.modadd = '';
           this.addpla = '地址格式不對';
           this.inpredadd = true;
@@ -319,6 +365,21 @@ Vue.component('member', {
       }
 
     },
+    // 原密碼取消class
+    disclasspwd() {
+      this.pwdpla = '請輸入原本密碼';
+      this.inpredpwd = false;
+    },
+    // 新密碼取消class
+    disclasspwdnew() {
+      this.pwdnewpla = '請輸入新密碼';
+      this.inprednewpwd = false;
+    },
+    // 確認密碼取消class
+    disclasspwdnewcf() {
+      this.pwdnewcfpla = '請輸入確認密碼';
+      this.inprednewpwdcf = false;
+    },
     // 名字取消class
     disclassname() {
       this.namepla = '請輸入姓名';
@@ -354,6 +415,8 @@ Vue.component('member', {
           bg.style.backgroundImage = "url('')";
         });
       }
+
+      
     },
     // 傳入父層，控制class
     sync() {

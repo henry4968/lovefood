@@ -5,7 +5,6 @@
 
   // 針對該ID找出名稱
   include("Lib/MemberClass.php");
-
   $Member = new MemberClass();
   
   // 測試印出MEMBERID
