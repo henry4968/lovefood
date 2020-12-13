@@ -1,3 +1,5 @@
+const { FALSE } = require("node-sass");
+
 const app = new Vue({
     el: '.containerPoints',
     data() {
@@ -5,7 +7,8 @@ const app = new Vue({
             pointsOfMember: null,
             issanceLog: null,
             discountLog: null,
-            pointsUpdating: null
+            pointsUpdating: null,
+            isShow: false
         }
     },
 
