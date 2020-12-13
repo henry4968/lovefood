@@ -6,15 +6,15 @@
     $sellerNum = $_POST["sellerNum"];
     $categories = $_POST["categories"];
     $productName = @$_POST["productName"];
-    $boardTime1 = $_POST["boardTime1"];
-    $boardTime2 = $_POST["boardTime2"];
     $expDate = $_POST["expDate"];
     $expTime = $_POST["expTime"];
     $quantity = @$_POST["quantity"];
     $pickupSite = $_POST["pickupSite"];
     $fileUpload = $_POST["fileUpload"];
     $description = $_POST["description"];
-    $price = $_POST["price"];
+    $oriPrice = $_POST["oriPrice"];
+    $spePrice = $_POST["spePrice"];
+
 
     $exp = $expDate." ".$expTime;
 
@@ -44,9 +44,8 @@
         $pdNum = "PD"."000".$subMaxId;
     }
     //最終寫入PRODUCT_ID為 $pdNum;
-    $sql = "INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, `NAME`, `DESCRIPTION`, UNIT_PRICE, STOCK, UPLOAD_DATE, EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
-    VALUES (?,?,?,?,?,?,?,NOW(),?,?,?);
-    ";
+    $sql = "INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, `NAME`, `DESCRIPTION`, ORIGINAL_PRICE,SELLING_PRICE ,STOCK, UPLOAD_DATE, EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
+    VALUES (?,?,?,?,?,?,?,?,NOW(),?,?,?);";
     $statement = $Util->getPDO()->prepare($sql);
 
 
@@ -55,24 +54,26 @@
     $statement->bindValue(3,$sellerNum);
     $statement->bindValue(4,$productName);
     $statement->bindValue(5,$description);
-    $statement->bindValue(6,$price);
-    $statement->bindValue(7,$quantity);
-    $statement->bindValue(8,$exp);
-    $statement->bindValue(9,1);//商品狀態 上架為1
-    $statement->bindValue(10,$fileUpload);
+    $statement->bindValue(6,$oriPrice);
+    $statement->bindValue(7,$spePrice);
+    $statement->bindValue(8,$quantity);
+    $statement->bindValue(9,$exp);
+    $statement->bindValue(10,1);//商品狀態 上架為1
+    $statement->bindValue(11,$fileUpload);
 
     $statement->execute();
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
     // print json_encode($data);
-    echo $pdNum."</br>";
-    echo $categories."</br>";
-    echo $sellerNum."</br>";
-    echo $productName."</br>";
-    echo $description."</br>";
-    echo $price."</br>";
-    echo $quantity."</br>";
-    echo $exp."</br>";
-    echo $fileUpload."</br>";
+    echo $pdNum."\n";
+    echo $categories."\n";
+    echo $sellerNum."\n";
+    echo $productName."\n";
+    echo $oriPrice."\n";
+    echo $spePrice."\n";
+    echo $description."\n";
+    echo $quantity."\n";
+    echo $exp."\n";
+    echo $fileUpload."\n";
     
 
 

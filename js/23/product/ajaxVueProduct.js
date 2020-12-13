@@ -4,6 +4,10 @@ const app = new Vue({
         tableData:null,
         fileName:"",
         categories:[],
+        imgSrc:[],
+        hover:false,
+        dropZone:[0,1,2,3],
+        cover:['封面圖片','圖片1','圖片2','圖片3'],
     },
     
 
@@ -28,26 +32,19 @@ const app = new Vue({
                 let sellerNum = $("input[name='sellerNum']").val();
                 let categories = $("option[name='categories']:selected").val();
                 let productName = $("input[name='productName']").val();
-                let boardTime1 = $("input[name='boardTime[0]']").val();
-                let boardTime2 = $("input[name='boardTime[1]']").val();
-                
                 let expDate = $("input[name='exp[0]']").val();
                 let expTime = $("input[name='exp[1]']").val();
-
                 let quantity = $("input[name='quantity']").val();
-                let price = $("input[name='price']").val();
+                let oriPrice = $("input[name='oriPrice']").val();
+                let spePrice = $("input[name='spePrice']").val();
                 let description = $("textarea[name='description']").val();
                 let pickupSite = $("input[name='pickupSite']:checked").val();
                 let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
-                // console.log(boardTime1);
-                // console.log(boardTime2);
-                // console.log(exp1);
-                // console.log(exp2);
 
                 $.ajax({
 
                     url:'../PHP/backStage/product/newProduct.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                    data:{sellerNum,categories,productName,boardTime1,boardTime2,expDate,expTime,quantity,pickupSite,fileUpload,description,price},
+                    data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice},
                     type:'POST',
                     dataType:'text',
                     traditional: true,
@@ -65,6 +62,36 @@ const app = new Vue({
             const self = this;
             let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
             self.fileName = fileUpload;
+        },
+        imgDrop(e){
+            let self = this;
+            let readFile = new FileReader();
+
+                let files = e.dataTransfer.files;
+                readFile.readAsDataURL(files[0]);
+
+                readFile.addEventListener('load',function(){
+                    // alert(this.result)
+                    self.imgSrc.push(this.result);
+                })
+                console.log($(e.target).closest('.dropZone'));
+                $(e.target).closest('.dropZone').css('border','none')
+            
+        },
+        remove(key,event){
+            const self = this;
+            console.log(event.target.closest('.dropZone'));
+            self.imgSrc.splice(key,1);
+            console.log($('.dropZone')[1]);
+            alert(key)
+            if(key==0){
+                alert();
+                $('.dropZone').eq(1).css('border','1px dashed')
+                $('.dropZone').eq(0).css('border','1px dashed')
+            }else{
+            $(event.target).closest('.dropZone').css('border','1px dashed')
+
+            }
         }
     },
 });
