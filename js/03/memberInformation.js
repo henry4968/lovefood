@@ -27,7 +27,7 @@ Vue.component('member', {
               <div class="passwordBorder">
                 <div class="passwordTitle sameTile">密碼:</div>
                 <span class="passwordContent" :class="{spannone: spn}">{{idpwd}}</span>
-                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor}" v-model="pwdhtml" >
+                <input class="passwordContent" placeholder="請輸入原本密碼" type="password" :class="{inputappor: inpor , inpredpwd:inpredpwd}" v-model="pwdhtml" >
               </div>
               <div class="newpasswordBorder" :class="{divappre: divre}">
                 <div class="newpasswordTitle sameTile">新密碼:</div>
@@ -155,38 +155,28 @@ Vue.component('member', {
     // 更換密碼 關閉input 開啟span
     changespan() {
 
-      // 更新密碼
-      // 建立資料表單
-      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      let data = new FormData();//new FormData() 固定語法
-      // FormData.append()
-      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-      data.append('newpwd', this.newpwdcfhtml);
+      // 空白檢查
+      // 原本密碼空白
+      if (this.pwdhtml == "") {
 
-      let config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
-        }
       }
 
-      // update 名字 手機號碼 地址
-      axios.post('../PHP/Frontend/mamberUpdatepassword.php', data, config).then(res => {
-        // 找出data
-        // console.log(res);
-      });
+      // 新密碼空白
+      if (this.newpwdhtml == "") {
 
-      // 傳父層 控制newpwd的值
-      this.$emit('reloadnewpwd');
+      }
 
+      // 確認密碼空白
+      if (this.newpwdcfhtml == "") {
 
-      console.log(this.idpwdtrue);
+      }
 
       // 判斷資料的原密碼與會員輸入的密碼是否一樣如果一樣就可以更新密碼
       if (this.pwdhtml != '') {
         // 密碼更新
         // 這是沒切換成********的原密碼
         // console.log(this.idpwdtrue);
-        if (this.pwdhtml == this.idpwdtrue) {
+        if (this.pwdhtml == this.idpwdtrue && this.newpwdhtml == this.newpwdcfhtml) {
           // alert('成功');
 
           // input span 切換
@@ -196,6 +186,31 @@ Vue.component('member', {
           this.inpor = false
           this.divre = false
           this.divse = false
+
+          // 更新密碼
+          // 建立資料表單
+          // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+          let data = new FormData();//new FormData() 固定語法
+          // FormData.append()
+          // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+          data.append('newpwd', this.newpwdcfhtml);
+
+          let config = {
+            header: {
+              'Content-Type': 'multipart/form-data'
+            }
+          }
+
+          // update 名字 手機號碼 地址
+          axios.post('../PHP/Frontend/mamberUpdatepassword.php', data, config).then(res => {
+            // 找出data
+            // console.log(res);
+          });
+
+          // 傳父層 控制newpwd的值
+          this.$emit('reloadnewpwd');
+          console.log(this.idpwdtrue);
+
         }
       }
     },
