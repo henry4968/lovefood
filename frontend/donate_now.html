@@ -110,7 +110,7 @@
             <p>獻出一份愛心，分享滿腹的溫暖。</p>
 
             <div class="donateForm">
-                <form action="#">
+                <form action="../PHP/Frontend/donation.php" method="post">
 
                     <div class="donateItem">
 
@@ -235,13 +235,13 @@
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
                                         <input type="radio" class="form-radio-input" id="countryRadio1"
-                                            name="nationality">
+                                            name="nationality" value="1">
                                         <label class="form-radio-label" for="countryRadio1">本國</label>
                                     </div>
 
                                     <div class="form-radio">
                                         <input type="radio" class="form-radio-input" id="countryRadio2"
-                                            name="nationality">
+                                            name="nationality" value="2">
                                         <label class="form-radio-label" for="countryRadio2">外國</label>
                                     </div>
                                 </div>
@@ -309,7 +309,7 @@
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
                                         <input type="email" class="form-text-input-long" id=""
-                                            placeholder="填寫格式：lovefood@gmail.com" name="emal">
+                                            placeholder="填寫格式：lovefood@gmail.com" name="email">
 
                                     </div>
                                 </div>
@@ -325,17 +325,20 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio1" name="gender">
+                                        <input type="radio" class="form-radio-input" id="genderRadio1" name="gender"
+                                            value="1">
                                         <label class="form-radio-label" for="genderRadio1">男</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio2" name="gender">
+                                        <input type="radio" class="form-radio-input" id="genderRadio2" name="gender"
+                                            value="2">
                                         <label class="form-radio-label" for="genderRadio2">女</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio3" name="gender">
+                                        <input type="radio" class="form-radio-input" id="genderRadio3" name="gender"
+                                            value="3">
                                         <label class="form-radio-label" for="genderRadio3">其他</label>
                                     </div>
                                 </div>
@@ -366,7 +369,7 @@
 
                                 <div class="inputArea">
                                     <div class="form-text-message">
-                                        <textarea name="" id="message" cols="30" rows="10" name="remarks"></textarea>
+                                        <textarea id="message" cols="30" rows="10" name="remarks"></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -579,9 +582,7 @@
 
                                 <div class="checkButton">
                                     <input type="submit" class="Button" id="cleanButton" value=清除重填>
-                                    <form action="/PHP/Frontend/donation.php" method="post">
-                                        <input type="submit" class="Button" id="sendButton" value=確認送出>
-                                    </form>
+                                    <input type="submit" class="Button" id="sendButton" value=確認送出>
                                 </div>
 
 
@@ -589,11 +590,6 @@
 
                         </div>
                     </div>
-
-
-
-
-
                 </form>
             </div>
 
