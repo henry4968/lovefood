@@ -236,6 +236,14 @@
                 }
                 
             }
+            #financeShowDonationDetailsPage{
+                border: 1px solid red;
+                padding: 0px 50px;
+                #DonationDetailsBlock{
+                    display: flex;
+                    justify-content: space-between;
+                }
+            }
         }
         #pagination{
             position: absolute;
