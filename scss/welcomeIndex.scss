@@ -42,7 +42,7 @@
         width: 100%;
         // border: 1px solid red;
         // padding: 30px;
-        padding: 3vh;
+        padding: 6vh 0;
         margin: 0 auto;
         @media screen and (max-width: 725px){
             width: 45vh;
@@ -68,13 +68,15 @@
         // border: 1px solid red;
         text-align: center;
         align-items: center;
-        @media screen and (max-width: 700px){
-            // margin: 0px auto 30px;
-            margin: 5vh auto 5vh;
-        }
-        @media screen and (max-width: 600px){
+        // @media screen and (max-width: 700px){
+        //     // margin: 0px auto 30px;
+        //     margin: 5vh auto 5vh;
+        // }
+
+
+        @media screen and (max-width: 724px){
             flex-direction: column;
-            margin: 7vh auto 7vh;
+            margin: 0vh auto 7vh;
         }
         
         a{
@@ -100,6 +102,8 @@
             opacity: 0.7;
             &:hover{
                 background-color: #CFD8B6;
+                transform: scale(1.05);
+                transition: all .3s;
             }
             
             @media screen and (max-width: 1025px){
