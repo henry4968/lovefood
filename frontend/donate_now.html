@@ -13,7 +13,7 @@
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
     <link rel="icon" type="image/png" href="/img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
-    <script src="../js/21/donation.js"></script>
+
     <script>
 
     </script>
@@ -129,18 +129,18 @@
                                     <div class="starTxt">*</div>捐款類別：
                                 </label>
 
-                                <div class="inputArea">
+                                <div class="inputArea" id="donateCategory">
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="categoryRadio1"
-                                            name="donationPlan" value="1">
+                                        <input type="radio" class="form-radio-input" name="donateCategory"
+                                            id="categoryRadio1">
                                         <label class="form-radio-label" for="categoryRadio1">單次扣款</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="categoryRadio2"
-                                            name="donationPlan" value="2">
+                                        <input type="radio" class="form-radio-input" name="donateCategory"
+                                            id="categoryRadio2">
                                         <label class="form-radio-label" for="categoryRadio2">定期捐款 (每月扣款)</label>
                                     </div>
                                 </div>
@@ -234,14 +234,16 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="countryRadio1"
-                                            name="nationality" value="1">
+                                        <!-- <input type="radio" class="form-radio-input" id="countryRadio1"
+                                            name="nationality" value="1"> -->
+                                        <input type="radio" class="form-radio-input" name="country" id="countryRadio1">
                                         <label class="form-radio-label" for="countryRadio1">本國</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="countryRadio2"
-                                            name="nationality" value="2">
+                                        <!-- <input type="radio" class="form-radio-input" id="countryRadio2"
+                                            name="nationality" value="2"> -->
+                                        <input type="radio" class="form-radio-input" name="country" id="countryRadio2">
                                         <label class="form-radio-label" for="countryRadio2">外國</label>
                                     </div>
                                 </div>
@@ -325,20 +327,32 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio1" name="gender"
-                                            value="1">
+                                        <!-- <input type="radio" class="form-radio-input" id="genderRadio1"
+                                            name="gender" value="1"> -->
+
+                                        <input type="radio" class="form-radio-input" name="
+                                        gender" id="genderRadio1">
+
                                         <label class="form-radio-label" for="genderRadio1">男</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio2" name="gender"
-                                            value="2">
+                                        <!-- <input type="radio" class="form-radio-input" id="genderRadio2"
+                                            name="gender" value="2"> -->
+
+                                        <input type="radio" class="form-radio-input" name="
+                                        gender" id="genderRadio2">
+
                                         <label class="form-radio-label" for="genderRadio2">女</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio3" name="gender"
-                                            value="3">
+                                        <!-- <input type="radio" class="form-radio-input" id="genderRadio3"
+                                            name="gender" value="3"> -->
+
+                                        <input type="radio" class="form-radio-input" name="
+                                        gender" id="genderRadio3">
+
                                         <label class="form-radio-label" for="genderRadio3">其他</label>
                                     </div>
                                 </div>
@@ -394,17 +408,17 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio1">
+                                        <input type="radio" class="form-radio-input" name="cardType" id="genderRadio1">
                                         <label class="form-radio-label" for="genderRadio1">Visa</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio2">
+                                        <input type="radio" class="form-radio-input" name="cardType" id="genderRadio2">
                                         <label class="form-radio-label" for="genderRadio2">Master</label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="genderRadio3">
+                                        <input type="radio" class="form-radio-input" name="cardType" id="genderRadio3">
                                         <label class="form-radio-label" for="genderRadio3">JCB</label>
                                     </div>
                                 </div>
@@ -438,13 +452,13 @@
 
                                     <!-- 信用卡卡號表單 -->
                                     <div class="form-text-four">
-                                        <input type="card" class="form-text-input-four" id="">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
                                     </div>
                                 </div>
                             </div>
@@ -542,14 +556,22 @@
 
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="receiptRadio1"
-                                            name="deliveryMethod" value="1">
+                                        <!-- <input type="radio" class="form-radio-input" id="receiptRadio1"
+                                            name="deliveryMethod" value="1"> -->
+
+                                        <input type="radio" class="form-radio-input" name="donateReceipt"
+                                            id="receiptRadio1">
+
                                         <label class="form-radio-label" for="receiptRadio1">免寄收據 </label>
                                     </div>
 
                                     <div class="form-radio">
-                                        <input type="radio" class="form-radio-input" id="receiptRadio2"
-                                            name="deliveryMethod" value="2">
+                                        <!-- <input type="radio" class="form-radio-input" id="receiptRadio2"
+                                            name="deliveryMethod" value="2"> -->
+
+                                        <input type="radio" class="form-radio-input" name="donateReceipt"
+                                            id="receiptRadio2">
+
                                         <label class="form-radio-label" for="receiptRadio2">每次寄發</label>
                                     </div>
                                 </div>
@@ -581,7 +603,7 @@
                             <div class="formRow">
 
                                 <div class="checkButton">
-                                    <input type="submit" class="Button" id="cleanButton" value=清除重填>
+                                    <input type="reset" class="Button" id="cleanButton" value=清除重填>
                                     <input type="submit" class="Button" id="sendButton" value=確認送出>
                                 </div>
 
@@ -614,6 +636,7 @@
             </div>
         </footer>
     </div>
+    <script src="../js/21/donation.js"></script>
 </body>
 
 </html>
