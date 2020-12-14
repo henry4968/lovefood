@@ -10,13 +10,6 @@
     $email = '%'.@$_POST["email"].'%';
     $pID_tID = '%'.@$_POST["pID_tID"].'%';
 
-    $sqlDonationDetails = "SELECT * FROM Lovefood.DONATION WHERE DONATION_ID like ?";
-    $statesmentDonationDetails = $Util->getPDO()->prepare($sqlDonationDetails);
-
-    $statesmentDonationDetails->bindValue(1,$DONATION_ID);
-    $statesmentDonationDetails->execute();
-    $dataDD = $statesmentDonationDetails->fetchAll(PDO::FETCH_ASSOC);
-
     if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
         $sqlDonationLog = "SELECT DONATION_ID, `NAME`,EMAIL , PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, AMOUNT, `DATE` FROM Lovefood.DONATION WHERE DONATION_ID like ? and `NAME` like ? and EMAIL like ? and PERSONAL_ID_OR_TAX_ID like ? and DATE >= ? and DATE <= ?";
@@ -53,8 +46,7 @@
 
     }
 
-    $donationQuery = array('donationDetals' => $dataDD,'donationLog' =>$dataDL);
-    print json_encode($donationQuery);
+    print json_encode($dataDL);
 
     function is_Date($string){
         $arr = explode('-',$string);

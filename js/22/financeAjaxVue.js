@@ -19,29 +19,28 @@ const app = new Vue({
         let dateEnd = $("input[name='dateEnd']").val()
 
         $.ajax({
-            url: '../PHP/backStage/finance/financeQuery.php',
+            url: '../PHP/backStage/finance/donationQuery.php',
             type: 'POST',
             data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
             success: function (res) {
-                self.donationDetals = res.donationDetals;
-                self.donationLog = res.donationLog;
+                self.donationLog = res;
 
-                for (let i = 0; i < res.donationLog.length; i++) {
-                    let donationPlan = res.donationLog[i].DONATION_PLAN;
+                for (let i = 0; i < res.length; i++) {
+                    let donationPlan = res[i].DONATION_PLAN;
 
                     if (donationPlan == 1) {
-                        res.donationLog[i].DONATION_PLAN = "單次扣款";
+                        res[i].DONATION_PLAN = "單次扣款";
                     } else if (donationPlan == 2) {
-                        res.donationLog[i].DONATION_PLAN = "定期捐款";
+                        res[i].DONATION_PLAN = "定期捐款";
                     } else {
-                        res.donationLog[i].DONATION_PLAN = "資料錯誤";
+                        res[i].DONATION_PLAN = "資料錯誤";
                     }
 
                 }
 
                 console.log(res);
                 console.log(res.donationDetals);
-                console.log(res.donationLog);
+                console.log(res);
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -63,30 +62,30 @@ const app = new Vue({
             let dateEnd = $("input[name='dateEnd']").val()
 
             $.ajax({
-                url: '../PHP/backStage/finance/financeQuery.php',
+                url: '../PHP/backStage/finance/donationQuery.php',
                 type: 'POST',
                 data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
                 success: function (res) {
 
                     self.donationDetals = res.donationDetals;
-                    self.donationLog = res.donationLog;
+                    self.donationLog = res;
 
                     for (let i = 0; i < res.donationDetals.length; i++) {
-                        let donationPlan = res.donationLog[i].DONATION_PLAN;
+                        let donationPlan = res[i].DONATION_PLAN;
 
                         if (donationPlan == 1) {
-                            res.donationLog[i].DONATION_PLAN = "單次扣款";
+                            res[i].DONATION_PLAN = "單次扣款";
                         } else if (donationPlan == 2) {
-                            res.donationLog[i].DONATION_PLAN = "定期捐款";
+                            res[i].DONATION_PLAN = "定期捐款";
                         } else {
-                            res.donationLog[i].DONATION_PLAN = "資料錯誤";
+                            res[i].DONATION_PLAN = "資料錯誤";
                         }
 
                     }
 
                     console.log(res);
                     console.log(res.donationDetals);
-                    console.log(res.donationLog);
+                    console.log(res);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -95,8 +94,75 @@ const app = new Vue({
                 dataType: "JSON",
             });
         },
-        showContent() {
-            this.isShow = !this.isShow;
+
+        showContent(e) {
+            this.isShow = true;
+
+            const self = this;
+            let DONATION_ID = $(e.target).data('id');
+
+            $.ajax({
+                url: '../PHP/backStage/finance/donationDetails.php',
+                type: 'POST',
+                data: { DONATION_ID },
+                dataType: "JSON",
+                success: function (res) {
+                    self.donationDetals = res;
+
+                    for (let i = 0; i < res.length; i++) {
+
+                        if (res[i].DONATION_ID = DONATION_ID) {
+                            self.donationDetals = [];
+                            self.donationDetals.push(res[i]);
+                        }
+
+                        let sDD = self.donationDetals;
+
+                        if (sDD[i].GENDER == 1) {
+                            self.donationDetals[i].GENDER = "男";
+                        } else if (sDD[i].GENDER == 2) {
+                            self.donationDetals[i].GENDER = "女";
+                        } else {
+                            self.donationDetals[i].GENDER = "其他";
+                        }
+
+                        if (sDD[i].DONATION_PLAN == 1) {
+                            self.donationDetals[i].DONATION_PLAN = "單次扣款";
+                        } else if (sDD[i].DONATION_PLAN == 2) {
+                            self.donationDetals[i].DONATION_PLAN = "定期捐款";
+                        } else {
+                            self.donationDetals[i].DONATION_PLAN = "資料錯誤";
+                        }
+
+                        if (sDD[i].DONATION_METHOD == 1) {
+                            self.donationDetals[i].DONATION_METHOD = "信用卡";
+                        }
+
+                        if (sDD[i].DELIVERY_METHOD == 1) {
+                            self.donationDetals[i].DELIVERY_METHOD = "免寄收據";
+                        } else if (sDD[i].DELIVERY_METHOD == 2) {
+                            self.donationDetals[i].DELIVERY_METHOD = "每次寄發";
+                        } else {
+                            self.donationDetals[i].DELIVERY_METHOD = "資料錯誤";
+                        }
+
+                        Object.keys(self.donationDetals[0]).forEach(function (key) {
+                            if (self.donationDetals[0][key] === null) {
+                                self.donationDetals[0][key] = "未填寫";
+                            }
+                        });
+
+                    }
+
+                    console.log(res);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+
+            });
+
         }
     }
 })

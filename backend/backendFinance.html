@@ -160,8 +160,8 @@
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             <div>查詢區間</div>
-                            <input type="date" name="dateStart">至
-                            <input type="date" name="dateEnd">
+                            <input type="date" name="dateStart" value="2016-01-01">至
+                            <input type="date" name="dateEnd" value="2020-12-31">
                             <a href="#0">
                                 <div id="financeFilterButton" @click="query">查詢</div>
                             </a>
@@ -185,7 +185,7 @@
                             <img src="../img/22/backend/temp_diagram.png" alt="">
                         </div>
                     </div>
-                    <div id="financeShowDonationPage">
+                    <div id="financeShowDonationPage" v-if="!isShow">
                         <div id="donationDate">
                             查詢時間：2020-10-21～2020-10-31
                         </div>
@@ -215,10 +215,8 @@
                                     <td>{{data["AMOUNT"]}}</td>
                                     <td>{{data["DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
-                                        <form action="financeDetails.html" method="GET">
-                                            <button type="submit" class="btn-sb btn-green">詳情</button>
-                                            <input type="hidden" name="DONATION_ID" :value="data['DONATION_ID']">
-                                        </form>
+                                        <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
+                                            @click="showContent">詳情</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -233,6 +231,27 @@
                             <a href="#0">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
+                    </div>
+                    <div id="financeShowDonationDetailsPage" v-if="isShow">
+                        <h4>捐款詳情：</h4>
+                        <ul v-for="data in donationDetals">
+                            <li><span>捐款編號：</span>{{data["DONATION_ID"]}}</li>
+                            <li><span>姓名／公司：</span>{{data["NAME"]}}</li>
+                            <li><span>國籍：</span>{{data["NATIONALITY"]}}</li>
+                            <li><span>身分證字號／統編（捐款人）：</span>{{data["PERSONAL_ID_OR_TAX_ID"]}}</li>
+                            <li><span>生日：</span>{{data["BIRTHDAY"]}}</li>
+                            <li><span>地址：</span>{{data["ADDRESS"]}}</li>
+                            <li><span>Email：</span>{{data["EMAIL"]}}</li>
+                            <li><span>性別：</span>{{data["GENDER"]}}</li>
+                            <li><span>備註：</span>{{data["REMARKS"]}}</li>
+                            <li><span>捐款類別：</span>{{data["DONATION_METHOD"]}}</li>
+                            <li><span>捐款方式：</span>{{data["DONATION_PLAN"]}}</li>
+                            <li><span>捐款金額：</span>{{data["AMOUNT"]}}</li>
+                            <li><span>捐款日期：</span>{{data["DATE"]}}</li>
+                            <li><span>收據抬頭：</span>{{data["RECEIPT_TITLE"]}}</li>
+                            <li><span>身分證字號／統編（收據）：</span>{{data["PERSONAL_ID_OR_TAX_ID_OF_RECEIPT"]}}</li>
+                            <li><span>捐款收據寄發方式：</span>{{data["DELIVERY_METHOD"]}}</li>
+                        </ul>
                     </div>
                 </div>
             </main>
