@@ -75,9 +75,9 @@ Vue.component('member', {
               <textarea id="fileInfo"></textarea>
             </div> -->
             <div class="fileBorder">
-              <input type="file" id="theFile">
+              <input type="file" id="theFile" name="file" ref="file" @click="uploadimg">
               <button type="button" id="fakeBtn" @click="uploadpicBtn">編輯圖片</button>
-            </div>  
+            </div>
           </div>
         </div>
       </div>
@@ -142,6 +142,9 @@ Vue.component('member', {
       inpredtel: '',
       // 地址
       inpredadd: '',
+
+      // 上傳圖片
+      file: '',
     }
   },
   props: [
@@ -395,6 +398,29 @@ Vue.component('member', {
       this.addpla = '請輸入地址';
       this.inpredadd = false;
     },
+
+    // 實際接收圖片
+    uploadimg() {
+      this.file = this.$refs.file.files[0];
+      // 建立資料表單
+      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+      let data = new FormData();//new FormData() 固定語法
+      // FormData.append()
+      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+      data.append('img', this.file);
+
+      let config = {
+        header: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+
+      axios.post('../PHP/Frontend/uploadImg.php', data, config).then(function (response) {
+        data = response.data;
+        // console.log(response);
+        console.log(data);
+      });
+    },
     // 當按下假的input同時按下真的input
     uploadpicBtn() {
       // 當按下假的input同時按下真的input
@@ -416,24 +442,7 @@ Vue.component('member', {
         });
       }
 
-      // 建立資料表單
-      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      let data = new FormData();//new FormData() 固定語法
-      // FormData.append()
-      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-      data.append('img', (image.src));
-
-      let config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-
-      axios.post('../PHP/Frontend/uploadImg.php', data, config).then(function (response) {
-        data = response.data;
-        // console.log(response);
-        console.log(data);
-      });
+      this.uploadimg();
     },
     // 傳入父層，控制class
     sync() {
