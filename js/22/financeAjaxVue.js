@@ -53,6 +53,8 @@ const app = new Vue({
 
     methods: {
         query() {
+            this.isShow = false;
+
             const self = this;
             let DONATION_ID = $("input[name='DONATION_ID']").val()
             let name = $("input[name='name']").val()
