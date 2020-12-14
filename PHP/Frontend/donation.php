@@ -5,10 +5,10 @@ include("./Lib/connection.php");
 $sqlStatment = "INSERT INTO 
 DONATION(DONATION_ID,DATE,DONATION_PLAN,DONATION_METHOD,AMOUNT,NAME,NATIONALITY,PERSONAL_ID_OR_TAX_ID,BIRTHDAY,ADDRESS,EMAIL,GENDER,REMARKS,RECEIPT_TITLE,PERSONAL_ID_OR_TAX_ID_OF_RECEIPT,DELIVERY_METHOD)
  VALUE ('DN0000004',NOW(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
-// $sqlSelect = "SELECT * FROM DONATION";
+$sqlSelect = "SELECT * FROM DONATION";
 
 $sqlStatment = $pdo->prepare($sqlStatment);
-// $sqlSelect = $pdo->prepare($sqlSelect);
+$sqlSelect = $pdo->prepare($sqlSelect);
 
 $sqlStatment->bindValue(1,$_POST["donationPlan"]);
 $sqlStatment->bindValue(2,$_POST["donationMethod"]);
@@ -26,10 +26,10 @@ $sqlStatment->bindValue(13,$_POST["receipt_pID_tID"]);
 $sqlStatment->bindValue(14,$_POST["deliveryMethod"]);
 
 $sqlStatment->execute();
-// $sqlSelect->execute();
+$sqlSelect->execute();
 
-// $All = $sqlSelect->fetchAll(PDO::FETCH_ASSOC);
+$All = $sqlSelect->fetchAll(PDO::FETCH_ASSOC);
 
-// print_r($All);
+print_r($All);
 
 ?>
