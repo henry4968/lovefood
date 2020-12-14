@@ -2,11 +2,11 @@
     class UtilClass {    
 
         //取得欲放置的檔案路徑
-        // function getFilePath(){
-        //     //Web根目錄真實路徑
-        //     $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
-        //     return $ServerRoot."/EC/Upload/";
-        // }
+        function getFilePath(){
+            //Web根目錄真實路徑
+            $ServerRoot = $_SERVER["DOCUMENT_ROOT"];
+            return $ServerRoot."/lovefood/img/upload";
+        }
 
         //取得PDO物件
         function getPDO(){
