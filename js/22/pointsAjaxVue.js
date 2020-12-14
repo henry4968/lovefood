@@ -1,5 +1,3 @@
-// const { NULL } = require("node-sass");
-
 const app = new Vue({
     el: '.containerPoints',
     data() {
@@ -16,12 +14,12 @@ const app = new Vue({
 
     mounted() {
         const self = this;
-        let id = $("input[name='id']").val()
-        let account = $("input[name='account']").val()
-        let name = $("input[name='name']").val()
-        let phone = $("input[name='phone']").val()
-        let dateStart = $("input[name='dateStart']").val()
-        let dateEnd = $("input[name='dateEnd']").val()
+        let id = $("input[name='id']").val();
+        let account = $("input[name='account']").val();
+        let name = $("input[name='name']").val();
+        let phone = $("input[name='phone']").val();
+        let dateStart = $("input[name='dateStart']").val();
+        let dateEnd = $("input[name='dateEnd']").val();
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
@@ -102,8 +100,8 @@ const app = new Vue({
 
             const self = this;
             let dataId = $(e.target).data('id');
-            let dateStart = $("input[name='dateStart']").val()
-            let dateEnd = $("input[name='dateEnd']").val()
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsDetails.php',
@@ -129,12 +127,12 @@ const app = new Vue({
             this.isShow = false;
 
             const self = this;
-            let id = $("input[name='id']").val()
-            let account = $("input[name='account']").val()
-            let name = $("input[name='name']").val()
-            let phone = $("input[name='phone']").val()
-            let dateStart = $("input[name='dateStart']").val()
-            let dateEnd = $("input[name='dateEnd']").val()
+            let id = $("input[name='id']").val();
+            let account = $("input[name='account']").val();
+            let name = $("input[name='name']").val();
+            let phone = $("input[name='phone']").val();
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
@@ -214,6 +212,10 @@ const app = new Vue({
                 },
                 dataType: "text",
             });
+        },
+
+        backToPreviousPage() {
+            this.isShow = false;
         }
 
     }

@@ -4,6 +4,7 @@ const app = new Vue({
         return {
             donationDetals: null,
             donationLog: null,
+            totalDonation: null,
             isShow: false
         }
     },
@@ -11,12 +12,12 @@ const app = new Vue({
     mounted() {
 
         const self = this;
-        let DONATION_ID = $("input[name='DONATION_ID']").val()
-        let name = $("input[name='name']").val()
-        let email = $("input[name='email']").val()
-        let pID_tID = $("input[name='pID_tID']").val()
-        let dateStart = $("input[name='dateStart']").val()
-        let dateEnd = $("input[name='dateEnd']").val()
+        let DONATION_ID = $("input[name='DONATION_ID']").val();
+        let name = $("input[name='name']").val();
+        let email = $("input[name='email']").val();
+        let pID_tID = $("input[name='pID_tID']").val();
+        let dateStart = $("input[name='dateStart']").val();
+        let dateEnd = $("input[name='dateEnd']").val();
 
         $.ajax({
             url: '../PHP/backStage/finance/donationQuery.php',
@@ -38,7 +39,16 @@ const app = new Vue({
 
                 }
 
-                console.log(res);
+                var totalDonation = 0;
+
+                for (let i = 0; i < res.length; i++) {
+                    let singleDonation = parseInt(res[i].AMOUNT);
+                    totalDonation = totalDonation + singleDonation;
+                }
+
+                self.totalDonation = totalDonation;
+
+                console.log(self.totalDonation);
                 console.log(res.donationDetals);
                 console.log(res);
             },
@@ -56,12 +66,12 @@ const app = new Vue({
             this.isShow = false;
 
             const self = this;
-            let DONATION_ID = $("input[name='DONATION_ID']").val()
-            let name = $("input[name='name']").val()
-            let email = $("input[name='email']").val()
-            let pID_tID = $("input[name='pID_tID']").val()
-            let dateStart = $("input[name='dateStart']").val()
-            let dateEnd = $("input[name='dateEnd']").val()
+            let DONATION_ID = $("input[name='DONATION_ID']").val();
+            let name = $("input[name='name']").val();
+            let email = $("input[name='email']").val();
+            let pID_tID = $("input[name='pID_tID']").val();
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/finance/donationQuery.php',
@@ -72,7 +82,7 @@ const app = new Vue({
                     self.donationDetals = res.donationDetals;
                     self.donationLog = res;
 
-                    for (let i = 0; i < res.donationDetals.length; i++) {
+                    for (let i = 0; i < res.length; i++) {
                         let donationPlan = res[i].DONATION_PLAN;
 
                         if (donationPlan == 1) {
@@ -85,9 +95,26 @@ const app = new Vue({
 
                     }
 
+                    var totalDonation = 0;
+
+                    for (let i = 0; i < res.length; i++) {
+                        let singleDonation = parseInt(res[i].AMOUNT);
+                        totalDonation = totalDonation + singleDonation;
+                    }
+
+                    self.totalDonation = totalDonation;
+
+                    console.log(self.totalDonation);
                     console.log(res);
-                    console.log(res.donationDetals);
-                    console.log(res);
+
+                    let queryDateStart = document.querySelector("#queryDateStart");
+                    let showDateStart = document.querySelector("#showDateStart");
+                    let queryDateEnd = document.querySelector("#queryDateEnd");
+                    let showDateEnd = document.querySelector("#showDateEnd");
+
+                    showDateStart.innerHTML = queryDateStart.value;
+                    showDateEnd.innerHTML = queryDateEnd.value;
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -165,6 +192,57 @@ const app = new Vue({
 
             });
 
+        },
+
+        updateDonationDetails() {
+
+            const self = this;
+
+            let name_ED = $("input[name='name_ED']").val();
+            let nationality_ED = $("input[name='nationality_ED']").val();
+            let pID_tID_ED = $("input[name='pID_tID_ED']").val();
+            let birthday_ED = $("input[name='birthday_ED']").val();
+            let address_ED = $("input[name='address_ED']").val();
+            let email_ED = $("input[name='email_ED']").val();
+            let gender_ED = $("input[name='gender_ED']").val();
+            let remarks_ED = $("input[name='remarks_ED']").val();
+            let receiptTitle_ED = $("input[name='receiptTitle_ED']").val();
+            let receipt_pID_tID_ED = $("input[name='receipt_pID_tID_ED']").val();
+            let deliveryMethod_ED = $("input[name='deliveryMethod_ED']").val();
+            let selectedId_ED = $("input[name='selectedId_ED']").val();
+
+            if (gender_ED == '男') {
+                gender_ED = 1;
+            } else if (gender_ED == '女') {
+                gender_ED = 2;
+            } else {
+                gender_ED = 3;
+            }
+
+            if (deliveryMethod_ED == '免寄收據') {
+                deliveryMethod_ED = 1;
+            } else {
+                deliveryMethod_ED = 2;
+            }
+
+            $.ajax({
+                url: '../PHP/backStage/finance/donationUpdate.php',
+                type: 'POST',
+                data: { name_ED, nationality_ED, pID_tID_ED, birthday_ED, address_ED, email_ED, gender_ED, remarks_ED, receiptTitle_ED, receipt_pID_tID_ED, deliveryMethod_ED, selectedId_ED },
+                success: function (res) {
+                    console.log(res);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+                dataType: "JSON",
+            });
+
+        },
+
+        backToPreviousPage() {
+            this.isShow = false;
         }
     }
 })
