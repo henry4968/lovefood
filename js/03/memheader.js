@@ -55,7 +55,7 @@ Vue.component('memhead', {
                     <img src="../img/03/memcart.png">
                 </a>
                 <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck">
-                    <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
+                    <img v-if="prop" :src='Bigpicchange'>
                     <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
@@ -66,7 +66,7 @@ Vue.component('memhead', {
                     <img src="../img/03/memcart.png" alt="">
                 </a>
                 <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck">
-                    <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
+                    <img v-if="prop" :src='Bigpicchange'>
                     <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
@@ -82,6 +82,8 @@ Vue.component('memhead', {
             seljumpage: '',
             // 賣家會員class
             selloginchangemem: '',
+            // 會員大頭貼
+            Bigpicchange: "../img/03/mempeoplecirclechange.png",
         }
     },
     props: ['prop', 'sleprop'],
@@ -116,6 +118,27 @@ Vue.component('memhead', {
                 this.seljumpage = './signUp_signIn.html';
             }
         },
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        Bitpicupdate() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    this.Bigpicchange = atob(data);
+                }
+            });
+        },
+    },
+    mounted() {
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
+    },
+    updated() {
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
     },
 
 });
@@ -159,5 +182,11 @@ var member = new Vue({
     },
     mounted() {
         this.checklogin();
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
+    },
+    updated() {
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
     },
 });

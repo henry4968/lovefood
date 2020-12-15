@@ -416,8 +416,6 @@ Vue.component('member', {
           bg.style.backgroundImage = "url('')";
 
           this.uploadbigpic = e.target.result;
-          // console.log(this.uploadbigpic);
-
         });
       }
     },
@@ -432,13 +430,11 @@ Vue.component('member', {
 
       axios.post('../PHP/Frontend/appearImg.php').then(function (response) {
         data = response.data;
-        // console.log(response);
         if (data != '') {
           this.uploadbigpic = data;
 
-          // console.log(data);
-          // atob() 函数用来解碼一个已经被base-64编碼過的數據
-          // 如果在PHP有base64_decode()就不用atob()
+          // atob函数用来解碼一个已经被base-64编碼過的數據
+          // 如果在PHP有base64_decode就不用atob
           image = document.getElementById('image');
           image.src = atob(data);
           // image.src = data;
@@ -458,9 +454,10 @@ Vue.component('member', {
       let src = image.src;
 
       // 建立資料表單
-      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      let data = new FormData();//new FormData() 固定語法
-      // FormData.append()
+      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+      let data = new FormData();
+      // new FormData 固定語法
+      // FormData.append
       // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
       data.append('img', src);
 
@@ -474,8 +471,6 @@ Vue.component('member', {
       axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
         data = response.data;
         alert("上傳圖片成功");
-        console.log(data);
-        // console.log(response);
       });
     },
     // 傳入父層，控制class
