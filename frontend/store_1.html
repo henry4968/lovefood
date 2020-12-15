@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城</title>
     <link rel="stylesheet" href="../css/store_1.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
 </head>
 
 <body>
@@ -432,7 +433,9 @@
             <!-- 商品 -->
             <div class="context">
                 <section class="productArea">
+                    
                     <div class="width_2P">
+                        
                         <div class="product">
                             <div class="pdtText">下架倒數
                                 <span class="pdtTime">
@@ -457,15 +460,15 @@
                             <div class="productBottom">
                                 <div class="pdtQuantity">
                                     <span class="productText">數量</span>
-                                    <button class="left">
+                                    <button class="left" @click="sub(count)">
                                         <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                             class="pdtsvg">
                                             <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
                                             </polygon>
                                         </svg>
                                     </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
+                                    <input type="text" :value="count" class="pdtValue" >
+                                    <button type="button" class="right"  @click="add(count)">
                                         <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                             class="pdtsvg">
                                             <polygon
@@ -478,7 +481,7 @@
                                             alt=""></a></button>
                             </div>
                         </div>
-
+                       
                         <div class="product">
                             <div class="pdtText">下架倒數
                                 <span class="pdtTime">
@@ -772,8 +775,8 @@
                                 <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
                                             alt=""></a></button>
                             </div>
-                        </div>
-
+                    </div>
+                    
                     </div>
                 </section>
                 <!-- 頁數 -->
@@ -812,10 +815,9 @@
     <!-- js連結 -->
     <script src="http://maps.google.com/maps/api/js"></script>
     <!-- <script src=" https://maps.googleapis.com/maps/api/geocode/json?"></script> -->
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+    
+    <script src="../js/07/vue.js"></script>
     <script src="../js/07/store_1.js"></script>
-    <!-- <script src="../js/07/vue.js"></script> -->
     <script src="../js/07/data.js"></script>
     <script src="../js/07/store_1Query.js"></script>
 

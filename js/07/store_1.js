@@ -214,17 +214,4 @@ window.addEventListener('load',doFirst);
 
 ////////////////vue///////////////
 //////////////////////////////////
-new Vue({
-    el:'#main',
-    data:{
-        minutes:22,
-        // seconds:'',
-    },
-    methods:{
-        seconds(){
-            let s = new Date();
-            s.getHours();
-        }
-    }
-    
-});
+
