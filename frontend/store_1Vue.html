@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城</title>
     <link rel="stylesheet" href="../css/store_1.css">
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
 </head>
 
 <body>
@@ -59,17 +60,25 @@
                 <a href="#0" id="navIcons01" class="navIcons">
                     <img src="../img/22/index/ch05_nav_search.png" alt="">
                 </a>
-                <a href="#0" id="navIcons02" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                <a href="./store_3.html" id="navIcons02" class="navIcons">
+                    <span  style="position: relative;">
+                        <cart></cart><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    </span>
                 </a>
                 <a href="#0" id="navIcons03" class="navIcons">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
             </nav>
             <nav id="subNavigationForMobile">
-                <a href="#0" id="navIcons04" class="navIconsForMobile">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile">
+                    <span style="position: relative;">
+                        <cart></cart><img src="../img/22/index/ch05_nav_cart.png" alt="" style="position: relative;">
+                        <!-- {{ items.length + (items.length > 1 || items.length === 0 ? " items" : " item") }} -->
+                        <!-- <prdtlist></prdtlist> -->
+                    </span>
                 </a>
+                    
+                    
                 <a href="#0" id="navIcons05" class="navIconsForMobile">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
@@ -121,9 +130,9 @@
                         </ul>
                     </div>
                 </div>
-                <!-- 次級選單 -->
+                    <!-- 次級選單 -->
                 <!-- 全選 -->
-                <!-- <form action="" method="get" id="selectfm"> -->
+                <div id="selectfm">
                     <div class="itemArea" id="selectBlock">
                         <div class="itemName" id="itemName1">
                             <p class="pText">區域</p>
@@ -252,9 +261,9 @@
                             查詢
                         </button>
                     </div>
-                <!-- </form> -->
+                </div>
                 <!-- 區域 -->
-                <!-- <form action="" method="get" id="Area1fm"> -->
+                <div id="Area1fm">
                     <div class="itemArea" id="itemArea1">
                         <div class="itemName" id="itemName7">
                             <p>區域</p>
@@ -290,13 +299,13 @@
                         </div>
                     </div>
                     <div class="btn">
-                        <button id="btn2" type="">
+                        <button id="btn2">
                             查詢
                         </button>
                     </div>
-                <!-- </form> -->
+                </div>
                 <!-- 商家 -->
-                <!-- <form action="" method="get" id="Area2fm"> -->
+                <div id="Area2fm">
                     <div class="itemArea" id="itemArea2">
                         <div class="itemName" id="itemName5">
                             <p>商家</p>
@@ -328,13 +337,13 @@
                         </div>
                     </div>
                     <div class="btn">
-                        <button id="btn3" type="submit">
+                        <button id="btn3">
                             查詢
                         </button>
                     </div>
-                <!-- </form> -->
+                </div>
                 <!-- 種類 -->
-                <!-- <form action="" method="get" id="Area3fm"> -->
+                <div id="Area3fm">
                     <div class="itemArea" id="itemArea3">
                         <div class="itemName" id="itemName6">
                             <p id="itemP">食品種類</p>
@@ -364,13 +373,13 @@
                         </div>
                     </div>
                     <div class="btn">
-                        <button id="btn4" type="submit">
+                        <button id="btn4">
                             查詢
                         </button>
                     </div>
-                <!-- </form> -->
+                </div>
                 <!-- RWDMap -->
-                <form action="" method="get" id="RWDMap">
+                <div id="RWDMap">
                     <div class="itemArea" id="RWDMap">
 
                         <div class="itemName" id="itemName4">
@@ -427,11 +436,13 @@
                     </div>
                     <div id="googlemap" style= "width: 100%; height: 600px;  margin: 0 auto;"></div>
                 </div>
-            </div>
+                </div>
             <!-- 商品 -->
             <div class="context">
                 <section class="productArea">
+                    
                     <div class="width_2P">
+                        <template  v-if = "tableData" v-for="(item, index) in tableData">
                         <div class="product">
                             <div class="pdtText">下架倒數
                                 <span class="pdtTime">
@@ -441,340 +452,29 @@
                                 秒
                             </div>
                             <div class="productCenter">
-                                <a href="./store_2.html"><img src="../img/07/p1.png" alt="" class="pdtImg"></a>
+                                <a href="./store_2.html"><img :src="item.PRODUCT_IMG" alt="" class="pdtImg"></a>
                                 <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
+                                    <ul class="pdtTitle"><a href="./store_2.html">{{item.NAME}}</a>
+                                        <li id="liM">{{item.NAME_PC}}</li>
+                                        <li>{{item.seller}}</li>
                                     </ul>
                                     <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
+                                        <span class="muchSpan">＄{{item.SELLING_PRICE}}</span>
+                                        <del>原價{{item.ORIGINAL_PRICE}}元</del>
                                     </div>
                                 </div>
                             </div>
                             <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
+                                <add-sub :count="count"></add-sub>
+                                <button class="carImg"><img src="../img/07/cart.png"alt="" @click="carImg"></button>
                             </div>
                         </div>
-
-                        <div class="product">
-                            <div class="pdtText">下架倒數
-                                <span class="pdtTime">
-                                    <span class="minutes"></span>:
-                                    <span class="seconds"></span>
-                                </span>
-                                秒
-                            </div>
-                            <div class="productCenter">
-                                <a href="./store_2.html"><img src="../img/07/p2.png" alt="" class="pdtImg"></a>
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">日式紅豆銅鑼燒</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄25</span>
-                                        <del>原價32元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="pdtText">下架倒數
-                                <span class="pdtTime">
-                                    <span class="minutes"></span>:
-                                    <span class="seconds"></span>
-                                </span>
-                                秒
-                            </div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p3.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p4.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-                        <div class="product">
-                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p5.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-
-                        <div class="product">
-                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p6.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation"></a>
-                                    <ul class="pdtTitle"><a href="">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-
-                        <div class="product">
-                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p7.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-
-                        <div class="product">
-                            <div class="pdtText">下架倒數<span class="pdtTime">9:59</span>秒</div>
-                            <div class="productCenter"><a href="./store_2.html"><img src="../img/07/p8.png" alt=""
-                                        class="pdtImg"></a>
-
-                                <div class="pdtExplanation">
-                                    <ul class="pdtTitle"><a href="./store_2.html">蛋黃奶香麵包</a>
-                                        <li id="liM">麵包甜品</li>
-                                        <li>全家天山店</li>
-                                    </ul>
-                                    <div class="much">
-                                        <span class="muchSpan">＄20</span>
-                                        <del>原價25元</del>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="productBottom">
-                                <div class="pdtQuantity">
-                                    <span class="productText">數量</span>
-                                    <button class="left">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
-                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                            class="pdtsvg">
-                                            <polygon
-                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                            </polygon>
-                                        </svg>
-                                    </button>
-                                </div>
-                                <button class="carImg"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt=""></a></button>
-                            </div>
-                        </div>
-
+                       </template>
+                    </div>
+                    
                     </div>
                 </section>
+                
                 <!-- 頁數 -->
                 <div class="page-normal">
                     <span class="page-prev">&lt;</span>
@@ -806,17 +506,18 @@
                     <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
                 </div>
             </div>
+            
         </div>
     </footer>
     <!-- js連結 -->
     <script src="http://maps.google.com/maps/api/js"></script>
     <!-- <script src=" https://maps.googleapis.com/maps/api/geocode/json?"></script> -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
-    <script src="../js/07/store_1.js"></script>
+    
     <!-- <script src="../js/07/vue.js"></script> -->
-    <script src="../js/07/data.js"></script>
     <script src="../js/07/temp.js"></script>
+    <script src="../js/07/store_1.js"></script>
+    <script src="../js/07/data.js"></script>
+    <!-- <script src="../js/07/store_1Query.js"></script> -->
 
 </body>
 

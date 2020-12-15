@@ -168,12 +168,20 @@
                 text-align: center;
                 font-size: 24px;
                 margin: 30px 0px 0px 0px;
+
+                // //當頁底線(RWD)
+                // #donationPage{
+                //     padding: 3px;
+                //     border-bottom: 2px solid #959076;
+                // }
+
                 a{
                     color: #515151;
                     &:hover{
                         color: #D6CAAA;
                         transition: all .3s;
                         transform: scale(1.05);
+                        text-decoration: none;
                     }
                 }
                 #navSepcialAnchorForMobile{
@@ -252,6 +260,12 @@
                 width: 625px;
                 align-items: center;
             }
+
+            // // 當頁底線(桌機)
+            // #donatePageWeb{
+            //     border-bottom: 2px solid #8F8770;
+            // }
+
             a{
                 font-size: 30px;
                 @include newRwd("laptop"){

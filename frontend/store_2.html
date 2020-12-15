@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-商品詳情</title>
     <link rel="stylesheet" href="../css/store2.css">
-    <link rel="stylesheet" href="../css/reset/reset.css">
     <!-- <link rel="stylesheet" href="../js/07/uikit-3.5.9 /css/uikit.min.css"/>
     <script src="../js/07/uikit-3.5.9 /js/uikit.min.js"></script>
     <script src="../js/07/uikit-3.5.9 /js/uikit-icons.min.js"></script> -->
@@ -15,6 +14,7 @@
     <!-- 輪播套件js -->
     <script src="/node_modules/jquery/dist/jquery.js"></script>
     <script src="/node_modules/lightslider/src/js/lightslider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <script src="../js/07/07.js"></script>
 
 </head>
@@ -101,7 +101,7 @@
         </section>
         
         <!-- store_banner結束 -->
-        <div class="main">
+        <div id="main">
             <div class="contents">
                 <!-- 麵包屑 -->
                 <div class="breadcrumbArea">
@@ -140,15 +140,15 @@
                                 <!-- <div class="valueArea"> -->
                                 <span class="productText">數量</span>
                                 <div class="btninput">
-                                    <button class="left">
+                                    <button class="left" @click="sub(count)">
                                     <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                         class="pdtsvg">
                                         <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
                                         </polygon>
                                     </svg>
                                     </button>
-                                    <input type="text" value="0" class="pdtValue">
-                                    <button class="right">
+                                    <input type="text" :value="count" class="pdtValue">
+                                    <button class="right" @click="add(count)">
                                     <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                         class="pdtsvg">
                                         <polygon
@@ -289,5 +289,5 @@
         </div>
     </footer>
 </body>
-
+<!-- js -->
 </html>

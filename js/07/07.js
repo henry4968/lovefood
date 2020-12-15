@@ -1,9 +1,4 @@
-$(function(){
-    $('#search > ul > li').click(function(){
-        itemArea = $('.itemArea').slideDown('slow').css({'display':'flex'});
 
-    });
-}); 
 //////////////輪播////////////
 $(document).ready(function () {
     $('#carouselist').lightSlider({
