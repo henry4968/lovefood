@@ -54,8 +54,8 @@ Vue.component('memhead', {
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/03/memcart.png">
                 </a>
-                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck">
-                    <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
+                    <img v-if="prop" :src='Bigpicchange' >
                     <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
@@ -65,8 +65,8 @@ Vue.component('memhead', {
                 <a href="#0" id="navIcons04" class="navIconsForMobile">
                     <img src="../img/03/memcart.png" alt="">
                 </a>
-                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck">
-                    <img v-if="prop" src='../img/03/mempeoplecirclechange.png'>
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
+                    <img v-if="prop" :src='Bigpicchange' >
                     <img v-else="prop"  src='../img/03/mempeoplecircle.png'>
                 </a>
             </nav>
@@ -82,6 +82,8 @@ Vue.component('memhead', {
             seljumpage: '',
             // 賣家會員class
             selloginchangemem: '',
+            // 會員大頭貼
+            Bigpicchange: "../img/03/mempeoplecirclechange.png",
         }
     },
     props: ['prop', 'sleprop'],
@@ -116,10 +118,74 @@ Vue.component('memhead', {
                 this.seljumpage = './signUp_signIn.html';
             }
         },
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        Bitpicupdate() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    this.Bigpicchange = atob(data);
+
+                }
+            });
+        },
+        // hover取到圖片
+        onhover() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    this.Bigpicchange = atob(data);
+                    console.log(this.Bigpicchange);
+                } else {
+                    $('#navIcons03 img').attr('src', '../img/03/mempeoplecirclechange.png');
+                    // console.log();
+                }
+            });
+        },
+        // leave回到原狀
+        onout() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    this.Bigpicchange = atob(data);
+                    console.log(this.Bigpicchange);
+                } else {
+                    $('#navIcons03 img').attr('src', '../img/03/mempeoplecircle.png');
+                    // console.log();
+                }
+            });
+        },
+    },
+    mounted() {
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
+        // hover取到圖片
+        this.onhover();
+        // leave回到原狀
+        this.onout();
+    },
+    updated() {
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
+        // hover取到圖片
+        this.onhover();
+        // leave回到原狀
+        this.onout();
     },
 
 });
-var member = new Vue({
+new Vue({
     el: '#memheader',
     data: {
         headId: 'memhead',
@@ -156,8 +222,13 @@ var member = new Vue({
                 }
             });
         },
+
     },
     mounted() {
+        // 判斷是否有會員登入及是哪一種會員
+        // 看看是一般會員或是賣家會員
         this.checklogin();
+    },
+    updated() {
     },
 });

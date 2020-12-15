@@ -640,6 +640,7 @@ body{
               background-size: 70%;
               display: flex;
               justify-content: center;
+              align-items: center;
               overflow: hidden;
             }
             .fileBorder{
@@ -659,8 +660,22 @@ body{
               }
               #fakeBtn{
                 position: absolute;
-                left: 50%;
-                transform: translateX(-50%);
+                left: -60%;
+                // transform: translateX(-50%);
+                z-index: 1;
+                width: 81px;
+                height: 24.4px;
+                outline: none;
+                color: #909090;
+                border-radius: 5px;
+                border: 1px solid #909090;
+                background-color: #fff;
+                cursor: pointer;
+              }
+              #uploadaxiosBtn{
+                position: absolute;
+                left: 60%;
+                // transform: translateX(-50%);
                 z-index: 1;
                 width: 81px;
                 height: 24.4px;
