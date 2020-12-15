@@ -142,7 +142,7 @@ Vue.component('memhead', {
                     // atob函数用来解碼一个已经被base-64编碼過的數據
                     // 如果在PHP有base64_decode就不用atob
                     this.Bigpicchange = atob(data);
-                    console.log(this.Bigpicchange);
+                    // console.log(this.Bigpicchange);
                 } else {
                     $('#navIcons03 img').attr('src', '../img/03/mempeoplecirclechange.png');
                     // console.log();
@@ -159,10 +159,9 @@ Vue.component('memhead', {
                     // atob函数用来解碼一个已经被base-64编碼過的數據
                     // 如果在PHP有base64_decode就不用atob
                     this.Bigpicchange = atob(data);
-                    console.log(this.Bigpicchange);
+                    // console.log(this.Bigpicchange);
                 } else {
                     $('#navIcons03 img').attr('src', '../img/03/mempeoplecircle.png');
-                    // console.log();
                 }
             });
         },
@@ -185,7 +184,7 @@ Vue.component('memhead', {
     },
 
 });
-new Vue({
+let header = new Vue({
     el: '#memheader',
     data: {
         headId: 'memhead',
