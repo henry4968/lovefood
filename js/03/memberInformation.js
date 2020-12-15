@@ -71,12 +71,10 @@ Vue.component('member', {
             <div class="imageBorder">
               <img id="image" :src="uploadbigpic">
             </div>
-            <!-- <div>
-              <textarea id="fileInfo"></textarea>
-            </div> -->
             <div class="fileBorder">
               <input type="file" id="theFile" name="file" ref="file" @click="uploadimg" accept="image/*">
-              <button type="button" id="fakeBtn" @click="uploadpicBtn">編輯圖片</button>
+              <button type="button" id="fakeBtn" @click="editPicBtn">編輯圖片</button>
+              <button type="button" id="uploadaxiosBtn" @click="uploadPicBtn">上傳圖片</button>
             </div>
           </div>
         </div>
@@ -401,27 +399,8 @@ Vue.component('member', {
       this.addpla = '請輸入地址';
       this.inpredadd = false;
     },
-    // 撈大頭貼
-    appearImg() {
-      // alert();
-      let config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
-        }
-      }
-      axios.post('../PHP/Frontend/appearImg.php', config).then(function (response) {
-        data = response.data;
-        // console.log(response);
-        console.log(data);
-        if (data != '') {
-          this.uploadbigpic = data;
-        }
-        // this.uploadbigpic = 'data:image/jpg;base64,'.concat(this.uploadbigpic.concat(response.data));
-      });
-    },
     // 實際接收圖片
-    uploadimg(event) {
-
+    uploadimg() {
       // 當真的input被更改狀態時執行以下動作fileChange()
       document.getElementById('theFile').onchange = fileChange;
       function fileChange() {
@@ -431,46 +410,73 @@ Vue.component('member', {
         readFile.addEventListener('load', function (e) {
           image = document.getElementById('image');
           image.src = this.result;
-          image.style.maxWidth = '150px';
-          image.style.maxHeight = '150px';
+          image.style.maxWidth = '130px';
+          image.style.maxHeight = '130px';
           bg = document.getElementsByClassName('imageBorder')[0];
           bg.style.backgroundImage = "url('')";
 
-          // src
           this.uploadbigpic = e.target.result;
           // console.log(this.uploadbigpic);
-          // this.file = this.$refs.file.files[0];
-          // let file = event.target.files[0];
-
-          // 建立資料表單
-          // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-          let data = new FormData();//new FormData() 固定語法
-          // FormData.append()
-          // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-          data.append('img', this.uploadbigpic);
-
-          let config = {
-            header: {
-              'Content-Type': 'multipart/form-data'
-            }
-          }
-
-          axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
-            data = response.data;
-            console.log(data);
-            // console.log(response);
-          });
 
         });
       }
-
-
     },
     // 當按下假的input同時按下真的input
-    uploadpicBtn() {
+    editPicBtn() {
       // 當按下假的input同時按下真的input
       theFile = document.getElementById('theFile');
       theFile.click();
+    },
+    // 撈大頭貼
+    appearImg() {
+
+      axios.post('../PHP/Frontend/appearImg.php').then(function (response) {
+        data = response.data;
+        // console.log(response);
+        if (data != '') {
+          this.uploadbigpic = data;
+
+          // console.log(data);
+          // atob() 函数用来解碼一个已经被base-64编碼過的數據
+          // 如果在PHP有base64_decode()就不用atob()
+          image = document.getElementById('image');
+          image.src = atob(data);
+          // image.src = data;
+          image.style.maxWidth = '130px';
+          image.style.maxHeight = '130px';
+
+          bg = document.getElementsByClassName('imageBorder')[0];
+          bg.style.backgroundImage = "url('')";
+        }
+
+      });
+    },
+    // 上傳大頭貼
+    uploadPicBtn() {
+
+      let image = document.getElementById('image');
+      let src = image.src;
+
+      // 建立資料表單
+      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send() 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+      let data = new FormData();//new FormData() 固定語法
+      // FormData.append()
+      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+      data.append('img', src);
+
+      // console.log(this.uploadbigpic);
+      let config = {
+        header: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+
+      axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
+        data = response.data;
+        alert("上傳圖片成功");
+        console.log(data);
+        // console.log(response);
+      });
     },
     // 傳入父層，控制class
     sync() {
@@ -478,6 +484,10 @@ Vue.component('member', {
     },
   },
   mounted() {
+    // 撈圖像
+    this.appearImg();
+  },
+  updated() {
     // 撈圖像
     this.appearImg();
   },

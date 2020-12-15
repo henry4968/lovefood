@@ -27,6 +27,8 @@
   $statement->bindValue(1, $img);
   $statement->bindValue(2, $Member);
   $statement->execute();
-  $data = $statement->fetchAll();    
+  $data = $statement->fetchAll();
+  
+  
 
 ?>
