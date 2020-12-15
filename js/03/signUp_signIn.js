@@ -379,7 +379,7 @@ Vue.component('seller', {
       // 登記地址需包含中文和數字
       // escape對字串進行編碼時，字元值大於255的以"%u****"格式儲存，而字元值大於255的恰好是非英文字元（一般是中文字元，非中文字元也可以當作中文字元考慮）；indexOf用以判斷在字串中是否存在某子字串
       const addmath = /\d{1}/; //最少要有一個數字
-      if ((escape(this.seladdhtml).indexOf("%u") < 0) && (this.seladdhtml.search(addmath) != 0)) {
+      if ((escape(this.seladdhtml).indexOf("%u") < 0) && (this.seladdhtml.search(addmath) == -1)) {
         this.seladdhtml = '';
         this.seladdpla = '登記地址格式不對';
         this.seladd = true;
@@ -396,7 +396,7 @@ Vue.component('seller', {
 
       // 聯絡電話只能是數字及數字需大於等於10碼
       const phonemath = /\d{10}/;
-      if (this.selphonehtml.search(phonemath) != 0) {
+      if (this.selphonehtml.search(phonemath) != 0 || this.selphonehtml.length != 10) {
         this.selphonehtml = '';
         this.selphonepla = '聯絡電話格式不對';
         this.selphone = true

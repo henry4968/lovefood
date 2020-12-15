@@ -60,6 +60,11 @@
         position: relative;
         cursor: pointer;
         display: none;
+        &:hover{
+            opacity: 0.5;
+            transform: scale(1.05);
+            transition: all .3s;
+        }
         
         @include newRwd("newSmallPhone"){
             margin-left: 5px;
@@ -70,8 +75,8 @@
         span, span::before, span::after{
             content: '';
             display: block;
-            width: 45px;
-            height: 5px;
+            width: 40px;
+            height: 3px;
             border-radius: 10px;
             position: absolute;
             transition-duration: .35s;
@@ -83,16 +88,19 @@
             }
         span{
             top: 45%;
+
             &::before{
                 content: '';
-                top: -15px;
+                top: -12px;
+
                 @include newRwd("newSmallPhone"){
                     top: -10px;
                     }
             }
             &::after{
                 content: '';
-                top: 15px;
+                top: 12px;
+
                 @include newRwd("newSmallPhone"){
                     top: 10px;
                     }
@@ -132,22 +140,27 @@
             position: fixed;
             top: 55px;
             left: -100%;
-            background-color: white;
-            opacity:80%;
+            background-color: #efecb9;
+            opacity: 95%;
             transition-duration: .35s;
             #searchBarForMobile{
                 width: 100%;
                 height: 70px;
-                background-color: lightgrey;
+                background-color: #ddd5af;
                 display: flex;
+
                 #searchInputForMobile{
                     width: 80%;
                     height: 60%;
+                    border: #8F8770;
                     border-radius: 20px;
-                    background-color: #FFFFFF;
+                    background-color: #ececec;
                     display: block;
                     margin: auto;
                     align-self: center;
+                    outline: none;
+                    padding-left: 20px;
+                    font-size: 20px;
                 }
             }
             li{
@@ -157,9 +170,28 @@
                 margin: 30px 0px 0px 0px;
                 a{
                     color: #515151;
-
+                    &:hover{
+                        color: #D6CAAA;
+                        transition: all .3s;
+                        transform: scale(1.05);
+                    }
                 }
-                
+                #navSepcialAnchorForMobile{
+                    div{
+                        width: 119px;
+                        height: 40px;
+                        border-radius: 3px;
+                        line-height: 40px;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                        margin: auto;
+                        background-color: #E8CE67;
+                        &:hover{
+                            background-color: #fde16f;
+                            transition: all .3s;
+                            color: #515151;
+                        }
+                    }
+                }
             }
         }
     }
@@ -187,6 +219,8 @@
             // 首頁由js控制代替的hover變色
             &:hover{
                 content: url('../../../img/22/index/ch0102_header_logo_hover.png');
+                // transform: scale(1.05);
+                transition: all .3s;
             }
             @include newRwd("laptop"){
                 width: 216px;
@@ -232,8 +266,11 @@
             }
             .navGeneralAnchors{
                 color: #8F8770;
+                text-decoration: none;
                 &:hover{
                     color: #D6CAAA;
+                    transform: scale(1.05);
+                    transition: all .3s;
                 }
             }
             :nth-child(2),:nth-child(3){
@@ -248,6 +285,7 @@
             }
             #navSepcialAnchor{
                 color: #858585;
+                text-decoration: none;
                 div{
                     width: 139px;
                     height: 100%;
@@ -258,6 +296,8 @@
                     color: rgb(255, 255, 255);
                     &:hover{
                         background-color: #D6CAAA;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                     margin: 0px 28px;
                     @include newRwd("laptop"){
@@ -273,6 +313,9 @@
                     }
                     &:hover{
                         // content: url('../../../img/22/index/ch04_nav_cart_hover.png');
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                 }
             }
@@ -286,12 +329,22 @@
             display: none;
             @include newRwd("bigPhone"){
                 display: block;
-                width: 96px;
-                height: 40px;
+                width: 90px;
+                // height: 40px;
                 display: flex;
                 justify-content: space-between;
                 position: absolute;
                 right: 10px;
+                img{
+                    // width: 30px;
+                    height: 30px;
+                    margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
+                    }
+                }
             }
             @include newRwd("newSmallPhone"){
                 width: 55px;
@@ -299,6 +352,11 @@
                 img{
                     height: 23px;
                     margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
+                    }
                 }
             }
         }
@@ -306,6 +364,7 @@
     }
 }
 // 標頭結束
+
 .donateBg{
     // background-color: #DCE5C3;
     // z-index: -1;
@@ -621,6 +680,7 @@
                                 // justify-content: center;
                                 align-content: center;
                                 max-width: 494px;
+                                width: 90%;
                                 // align-items: flex-end;
                                 @media screen and (max-width: 500px){
                                     flex-wrap: wrap;

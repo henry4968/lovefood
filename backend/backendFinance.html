@@ -160,8 +160,8 @@
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             <div>查詢區間</div>
-                            <input type="date" name="dateStart">至
-                            <input type="date" name="dateEnd">
+                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart">至
+                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd">
                             <a href="#0">
                                 <div id="financeFilterButton" @click="query">查詢</div>
                             </a>
@@ -185,12 +185,12 @@
                             <img src="../img/22/backend/temp_diagram.png" alt="">
                         </div>
                     </div>
-                    <div id="financeShowDonationPage">
+                    <div id="financeShowDonationPage" v-if="!isShow">
                         <div id="donationDate">
-                            查詢時間：2020-10-21～2020-10-31
+                            查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
                         </div>
                         <div id="donationAmount">
-                            捐款總額：<input type="text">元
+                            捐款總額：<input type="text" :value="totalDonation" disabled>元
                         </div>
                         <table id="donationTable">
                             <tr id="donationTableHeader">
@@ -215,10 +215,8 @@
                                     <td>{{data["AMOUNT"]}}</td>
                                     <td>{{data["DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
-                                        <form action="financeDetails.html" method="GET">
-                                            <button type="submit" class="btn-sb btn-green">詳情</button>
-                                            <input type="hidden" name="DONATION_ID" :value="data['DONATION_ID']">
-                                        </form>
+                                        <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
+                                            @click="showContent">詳情</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -233,6 +231,46 @@
                             <a href="#0">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
+                    </div>
+                    <div id="financeShowDonationDetailsPage" v-if="isShow" v-for="data in donationDetals">
+                        <button @click="backToPreviousPage">
+                            回上頁
+                        </button><br><br>
+                        <h4>編輯【{{data["DONATION_ID"]}}】的捐款詳情：</h4><br>
+                        <div id="DonationDetailsBlock">
+                            <div>
+                                捐款編號：<br><input type="text" :value="data['DONATION_ID']" name="selectedId_ED"
+                                    disabled><br>
+                                姓名／公司：<br><input type="text" :value="data['NAME']" name="name_ED"><br>
+                                國籍：<br><input type="text" :value="data['NATIONALITY']" name="nationality_ED"><br>
+                                身分證字號／統編（捐款人）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID']"
+                                    name="pID_tID_ED"><br>
+                                生日：<br><input type="date" :value="data['BIRTHDAY']" name="birthday_ED"><br>
+                                地址：<br><input type="text" :value="data['ADDRESS']" name="address_ED"><br>
+                                Email：<br><input type="text" :value="data['EMAIL']" name="email_ED"><br>
+                                性別：<br><input type="text" :value="data['GENDER']" name="gender_ED"><br><br>
+                            </div>
+                            <div>
+                                捐款類別：<br><input type="text" :value="data['DONATION_METHOD']" disabled><br>
+                                捐款方式：<br><input type="text" :value="data['DONATION_PLAN']" disabled><br>
+                                捐款金額：<br><input type="text" :value="data['AMOUNT']" disabled><br>
+                                捐款日期：<br><input type="text" :value="data['DATE']" disabled><br><br>
+                            </div>
+                            <div>
+                                收據抬頭：<br><input type="text" :value="data['RECEIPT_TITLE']" name="receiptTitle_ED"><br>
+                                身分證字號／統編（收據）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID_OF_RECEIPT']"
+                                    name="receipt_pID_tID_ED"><br>
+                                捐款收據寄發方式：<br><input type="text" :value="data['DELIVERY_METHOD']"
+                                    name="deliveryMethod_ED"><br><br>
+                            </div>
+                            <div>
+                                備註：<br><textarea cols="20" rows="5" :value="data['REMARKS']"
+                                    name="remarks_ED"></textarea>
+                            </div>
+                        </div>
+                        <button @click="updateDonationDetails">
+                            確認修改
+                        </button>
                     </div>
                 </div>
             </main>

@@ -5,6 +5,7 @@
 
   // 針對該ID找出名稱
   include("Lib/MemberClass.php");
+
   $Member = new MemberClass();
   
   // 測試印出MEMBERID
@@ -12,16 +13,14 @@
   // echo $MemberId;
 
   // 建立SQL(update NAME ADDRESS PHONE)
-  $sql = "update member set NAME = ? , ADDRESS = ? , PHONE = ? where MEMBER_ID = ?";
+  $sql = "update member set PASSWORD = ? where MEMBER_ID = ?";
 
   //執行
   $statement = $Util->getPDO()->prepare($sql);
 
   // 給值
-  $statement->bindValue(1, $_POST["name"]);
-  $statement->bindValue(2, $_POST["add"]);
-  $statement->bindValue(3, $_POST["tel"]);
-  $statement->bindValue(4, $MemberId);
+  $statement->bindValue(1, $_POST["newpwd"]);
+  $statement->bindValue(2, $MemberId);
   $statement->execute();
   $data = $statement->fetchAll();
 ?>

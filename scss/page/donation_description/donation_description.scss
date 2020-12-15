@@ -51,6 +51,11 @@
         position: relative;
         cursor: pointer;
         display: none;
+        &:hover{
+            opacity: 0.5;
+            transform: scale(1.05);
+            transition: all .3s;
+        }
         
         @include newRwd("newSmallPhone"){
             margin-left: 5px;
@@ -61,8 +66,8 @@
         span, span::before, span::after{
             content: '';
             display: block;
-            width: 45px;
-            height: 5px;
+            width: 40px;
+            height: 3px;
             border-radius: 10px;
             position: absolute;
             transition-duration: .35s;
@@ -74,16 +79,19 @@
             }
         span{
             top: 45%;
+            
             &::before{
                 content: '';
-                top: -15px;
+                top: -12px;
+                
                 @include newRwd("newSmallPhone"){
                     top: -10px;
                     }
             }
             &::after{
                 content: '';
-                top: 15px;
+                top: 12px;
+                
                 @include newRwd("newSmallPhone"){
                     top: 10px;
                     }
@@ -123,22 +131,27 @@
             position: fixed;
             top: 55px;
             left: -100%;
-            background-color: white;
-            opacity:80%;
+            background-color: #efecb9;
+            opacity: 95%;
             transition-duration: .35s;
             #searchBarForMobile{
                 width: 100%;
                 height: 70px;
-                background-color: lightgrey;
+                background-color: #ddd5af;
                 display: flex;
+                
                 #searchInputForMobile{
                     width: 80%;
                     height: 60%;
+                    border: #8f7086;
                     border-radius: 20px;
-                    background-color: #FFFFFF;
+                    background-color: #ececec;
                     display: block;
                     margin: auto;
                     align-self: center;
+                    outline: none;
+                    padding-left: 20px;
+                    font-size: 20px;
                 }
             }
             li{
@@ -146,11 +159,31 @@
                 text-align: center;
                 font-size: 24px;
                 margin: 30px 0px 0px 0px;
+                
                 a{
                     color: #515151;
-
+                    &:hover{
+                        color: #D6CAAA;
+                        transition: all .3s;
+                        transform: scale(1.05);
+                    }
                 }
-                
+                #navSepcialAnchorForMobile{
+                    div{
+                        width: 119px;
+                        height: 40px;
+                        border-radius: 3px;
+                        line-height: 40px;
+                        box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+                        margin: auto;
+                        background-color: #E8CE67;
+                        &:hover{
+                            background-color: #fde16f;
+                            transition: all .3s;
+                            color: #515151;
+                        }
+                    }
+                }
             }
         }
     }
@@ -178,6 +211,8 @@
             // 首頁由js控制代替的hover變色
             &:hover{
                 content: url('../../../img/22/index/ch0102_header_logo_hover.png');
+                // transform: scale(1.05);
+                transition: all .3s;
             }
             @include newRwd("laptop"){
                 width: 216px;
@@ -223,8 +258,11 @@
             }
             .navGeneralAnchors{
                 color: #8F8770;
+                text-decoration: none;
                 &:hover{
                     color: #D6CAAA;
+                    transform: scale(1.05);
+                    transition: all .3s;
                 }
             }
             :nth-child(2),:nth-child(3){
@@ -239,6 +277,7 @@
             }
             #navSepcialAnchor{
                 color: #858585;
+                text-decoration: none;
                 div{
                     width: 139px;
                     height: 100%;
@@ -249,6 +288,8 @@
                     color: rgb(255, 255, 255);
                     &:hover{
                         background-color: #D6CAAA;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                     margin: 0px 28px;
                     @include newRwd("laptop"){
@@ -262,34 +303,56 @@
                         width: 30px;
                         
                     }
+
                     &:hover{
-                        // content: url('../../../img/22/index/ch04_nav_cart_hover.png');
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
+
                 }
             }
             #navIcons02, #navIcons03{
                 margin-left: 20px;
             }
+
         }
         // 桌機版導覽列結束
         // 行動版次導覽列開始
         #subNavigationForMobile{
             display: none;
+            margin-right: 5px;
             @include newRwd("bigPhone"){
                 display: block;
-                width: 96px;
-                height: 40px;
+                width: 90px;
+                // height: 40px;
                 display: flex;
                 justify-content: space-between;
                 position: absolute;
                 right: 10px;
+                img{
+                    // width: 30px;
+                    height: 30px;
+                    margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
+                    }
+                }
             }
             @include newRwd("newSmallPhone"){
                 width: 55px;
                 right: 20px;
                 img{
+                    // width: 30px;
                     height: 23px;
                     margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
+                    }
                 }
             }
         }
@@ -297,6 +360,8 @@
     }
 }
 // 標頭結束
+
+
 
 .fullPageBg{
     // border: 1px solid rgb(96, 241, 115);
@@ -421,6 +486,7 @@
 
             &:hover{
                 color: rgb(151, 138, 138);
+                transition: all .3s;
             }
         }
     }
@@ -428,14 +494,19 @@
 
 .bottomNav2{
     display: none;
+
     a{
         // margin: 0 50px;
         text-decoration: none;
         white-space: nowrap;
         color: #000;
+        
 
         &:hover{
             color: rgb(151, 138, 138);
+            // transform: scale(1.05);
+            transition: all .3s;
+            text-decoration: none;
         }
     }
 }
@@ -542,6 +613,7 @@
                 h2{
                     font-size: 50px;
                     display: block;
+                    margin-top: 0px;
                     @include newRwd("mediumPhone"){
                         font-size: 40px;
                     }
@@ -1100,51 +1172,55 @@
             
         }
 
-        .bread{
-            // border: rgb(60, 24, 190) 1px solid;
-            margin: 0 auto 400px;
-            max-width: 1112px;
-            width: 100%;
-            max-height: 193px;
-            // height: 100%;
-            margin: 0 auto 50px;
-            padding: 0 30px;
-            position: relative;
-            // position: fixed;
-            // justify-content: center;
-            // text-align: center;
-            // overflow: hidden;
-            @include  newRwd("miniPhone"){
-                margin: 0 auto 30px;
-            }
-
-            #breadImg{
-                width: 100%;
-                z-index: 2;
-            }
-
-            .breadLine{
+        .breadOut{
+            padding: 30px;
+            .bread{
                 // border: rgb(60, 24, 190) 1px solid;
-                border-radius: 70px;
-                background-color: #E8BF77;
+                margin: 0 auto 400px;
                 max-width: 1112px;
-                width: 0%;
-                // height: 150px;
-                height: 95%;
-                position: absolute;
-                top: 0;
-                z-index: -1;
-                // animation: widthChange 2s linear forwards;
+                width: 100%;
+                max-height: 193px;
+                // height: 100%;
+                margin: 0 auto 50px;
+                // padding: 0 30px;
+                position: relative;
+                // position: fixed;
+                // justify-content: center;
+                // text-align: center;
+                // overflow: hidden;
+                @include  newRwd("miniPhone"){
+                    margin: 0 auto 30px;
+                }
+    
+                #breadImg{
+                    width: 100%;
+                    z-index: 2;
+                }
+    
+                .breadLine{
+                    // border: rgb(60, 24, 190) 1px solid;
+                    border-radius: 70px;
+                    background-color: #E8BF77;
+                    max-width: 1112px;
+                    width: 0%;
+                    // height: 150px;
+                    height: 95%;
+                    position: absolute;
+                    top: 0;
+                    z-index: -1;
+                    // animation: widthChange 2s linear forwards;
+                }
             }
+            // @keyframes widthChange{
+            //     0%{
+            //         width: 0%;
+            //     }
+            //     100%{
+            //         width: 59%;
+            //     }
+            // }
         }
-        @keyframes widthChange{
-            0%{
-                width: 0%;
-            }
-            100%{
-                width: 59%;
-            }
-        }
+        
 
         .txtTxt{
             // border: solid 1px blue;
@@ -1285,15 +1361,28 @@
                     &:hover{
                         opacity: 0.5;
                         transform: rotate(30deg);
-                        cursor: pointer;
+                        // cursor: pointer;
                     }
                     @include  newRwd("miniPhone"){
                         width: 23px;
                     }
                 }
-                #leaf_Dana{
+                #leaf_Daan{
                     left: 44%;
                     top: 68%;
+                    &:hover{
+                        &::after{
+                            content: 'aaa';
+                            display: block;
+                            width: 40px;
+                            height: 3px;
+                            border-radius: 10px;
+                            position: absolute;
+                            transition-duration: .35s;
+                            background-color: #8F8770;
+                        }
+                    }
+
                 }
                 #leaf_Shilin{
                     left: 65%;
@@ -1753,6 +1842,8 @@
                 @include newRwd("pad"){
                     flex-wrap: wrap;
                     flex-direction: column-reverse;
+                    height: 50vh;
+                    min-width: 30px;
                 }
                 
                 .storyTxt{
@@ -1760,7 +1851,7 @@
                     line-height: 30px;
                     margin: 30px 0 0;
                     width: 100%;
-                    max-height: 400px;
+                    max-height: 500px;
                     min-height: 200px;
                     // height: 400px;
                     overflow-y: auto;

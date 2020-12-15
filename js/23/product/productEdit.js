@@ -6,6 +6,7 @@ const app = new Vue({
             isShow:false, //綁定 v-show值
             filterData:null,
             detail:null,
+            categories:null,
         }
     },
     
@@ -27,8 +28,8 @@ const app = new Vue({
                     traditional: true,
                     success: function(res){
                          console.log(res);
-                         self.tableData = res;
-
+                         self.tableData = res.query;
+                         self.categories = res.categories;
                          
                         
                         // for(i=0; i<self.tableData.length; i++){

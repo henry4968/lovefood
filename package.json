@@ -28,6 +28,7 @@
     "gulp-sass": "^4.1.0",
     "gulp-uglify": "^3.0.2",
     "gulp-zip": "^5.0.2",
+    "jquerykeyframes": "^1.0.8",
     "moment": "^2.7.0",
     "node-sass": "^5.0.0",
     "normalize-scss": "^7.0.1"

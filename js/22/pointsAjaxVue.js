@@ -7,23 +7,24 @@ const app = new Vue({
             pointsOfMember: null,
             issanceLog: null,
             discountLog: null,
+            ShowFinalPoints: null,
             isShow: false
         }
     },
 
     mounted() {
         const self = this;
-        let number = $("input[name='number']").val()
-        let account = $("input[name='account']").val()
-        let name = $("input[name='name']").val()
-        let phone = $("input[name='phone']").val()
-        let dateStart = $("input[name='dateStart']").val()
-        let dateEnd = $("input[name='dateEnd']").val()
+        let id = $("input[name='id']").val();
+        let account = $("input[name='account']").val();
+        let name = $("input[name='name']").val();
+        let phone = $("input[name='phone']").val();
+        let dateStart = $("input[name='dateStart']").val();
+        let dateEnd = $("input[name='dateEnd']").val();
 
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
-            data: { number, account, name, phone, dateStart, dateEnd },
+            data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.pointsIssance = res.pointsIssance;
                 self.pointsDiscount = res.pointsDiscount;
@@ -69,39 +70,49 @@ const app = new Vue({
 
     },
 
+    // updated() {
+
+    //     const self = this;
+    //     let selectedId = $("input[name='selectedId']").val();
+    //     let points = $("input[name='points']").val();
+
+    //     $.ajax({
+    //         url: '../PHP/backStage/points/pointsUpdate.php',
+    //         type: 'POST',
+    //         data: { points, selectedId },
+    //         success: function (res) {
+    //             self.pointsUpdating = res;
+    //             console.log(res)
+    //         },
+    //         error: function (res) {
+    //             console.log("回傳失敗！");
+    //             console.log(res.responseText);
+    //         },
+    //         dataType: "text",
+    //     });
+
+    // },
+
     methods: {
+
         showContent(e) {
             this.isShow = true;
 
             const self = this;
             let dataId = $(e.target).data('id');
-            // alert(dataId);
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsDetails.php',
-                type: 'GET',
-                data: { dataId },
+                type: 'POST',
+                data: { dataId, dateStart, dateEnd },
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
                     self.issanceLog = res.issanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
-
-                    // var rMB = res.pointsOfMember;
-
-                    // for (let i = 0; i < rMB.length; i++) {
-                    //     if (rMB[i].MEMBER_ID == number) {
-                    //         self.pointsOfMember = [];
-                    //         self.pointsOfMember.push(rMB[i]);
-                    //     }
-                    // }
-
-                    // console.log(res.pointsOfMember2)
-                    // console.log(res);
-                    // console.log(self.pointsOfMember);
-                    // console.log(self.issanceLog);
-                    // console.log(self.discountLog);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -116,17 +127,17 @@ const app = new Vue({
             this.isShow = false;
 
             const self = this;
-            let number = $("input[name='number']").val()
-            let account = $("input[name='account']").val()
-            let name = $("input[name='name']").val()
-            let phone = $("input[name='phone']").val()
-            let dateStart = $("input[name='dateStart']").val()
-            let dateEnd = $("input[name='dateEnd']").val()
+            let id = $("input[name='id']").val();
+            let account = $("input[name='account']").val();
+            let name = $("input[name='name']").val();
+            let phone = $("input[name='phone']").val();
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsQuery.php',
                 type: 'POST',
-                data: { number, account, name, phone, dateStart, dateEnd },
+                data: { id, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
                     self.pointsIssance = res.pointsIssance;
                     self.pointsDiscount = res.pointsDiscount;
@@ -181,6 +192,31 @@ const app = new Vue({
                 dataType: "JSON",
             });
         },
+
+        update() {
+            const self = this;
+            let selectedId = $("input[name='selectedId']").val();
+            let points = $("input[name='points']").val();
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsUpdate.php',
+                type: 'POST',
+                data: { points, selectedId },
+                success: function (res) {
+                    self.pointsUpdating = res;
+                    console.log(res)
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+                dataType: "text",
+            });
+        },
+
+        backToPreviousPage() {
+            this.isShow = false;
+        }
 
     }
 });
