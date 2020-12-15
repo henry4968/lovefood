@@ -1,6 +1,6 @@
 @import'../../base/var';
 @import'../../mixin/mixins';
-@import'../../base/reset';
+// @import'../../base/reset';
 // @import'./modules/button';
 @import'../../base/fonts';
 
@@ -12,6 +12,7 @@
     font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
     text-decoration: none;
     list-style: none;
+   
 }
 #header{
     width: 100%;
@@ -360,7 +361,9 @@
                     font-size: 70px;
                     padding: 5px;
                     color:  #7D7765;
-                    font-family:"Pc", "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+                    font-family:"PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+                    
+                  
                     @include newRwd("newSmallPhone"){
                         font-size: 42px;
                     }

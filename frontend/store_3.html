@@ -20,16 +20,17 @@
         <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
             <span></span>
         </label>
+        <!-- 行動版行動導覽列開始 -->
         <nav id="navigationForMobile">
             <div id="searchBarForMobile">
                 <input type="text" placeholder="搜尋..." id="searchInputForMobile">
             </div>
             <ul>
                 <li>
-                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
                 </li>
                 <li>
-                    <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
                 </li>
                 <li>
                     <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
@@ -43,16 +44,16 @@
                 </li>
             </ul>
         </nav>
+        <!-- 行動版導覽列結束 -->
         <!-- 漢堡選單結束 -->
         <div id="headerContentContainer">
             <a href="./index.html">
                 <img id="logo" src="../img/22/index/ch05_header_logo.png">
             </a>
-
-            <!-- 導覽列開始 -->
+            <!-- 桌機版導覽列開始 -->
             <nav id="navigationForPC">
-                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="../backend/backendOrder.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
                 <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
@@ -65,19 +66,21 @@
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </a>
-                <a href="#0" id="navIcons03" class="navIcons">
+                <a href="./memberInformation.html" id="navIcons03" class="navIcons">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
             </nav>
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
             <nav id="subNavigationForMobile">
                 <a href="#0" id="navIcons04" class="navIconsForMobile">
                     <img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </a>
-                <a href="#0" id="navIcons05" class="navIconsForMobile">
+                <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
             </nav>
-            <!-- 導覽列結束 -->
+            <!-- 行動版次級導覽列結束 -->
         </div>
     </header>
     <!-- 標頭結束 -->
@@ -335,7 +338,7 @@
                                 <br>
                                 <span>
                                     <label for="points">使用</label>
-                                    <input type="number">
+                                    <input type="number" min="0" max="">
                                     <label for="">點</label>
                                 </span>
                                 <a href="#">
@@ -361,18 +364,16 @@
                 <div>
                     <div class="footer_logo">
                         <a href="index.html"><img src="../img/16/footerLogo.png"></a>
-                        <p class="copyright">&copyLOVE FOOD All right reserved</p>
+                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
                     </div>
                     <div class="info">
                         <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
-                        <a href="#"><img src="../img/16/footerPhoneIcon.png">02- 24708053</a><br>
+                        <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
                         <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
                     </div>
                 </div>
             </div>
         </footer>
-
-
     </article>
 
 
