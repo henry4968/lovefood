@@ -5,7 +5,7 @@ const app = new Vue({
             donationDetals: null,
             donationLog: null,
             totalDonation: null,
-            isShow: false
+            isShow: true
         }
     },
 
@@ -125,7 +125,7 @@ const app = new Vue({
         },
 
         showContent(e) {
-            this.isShow = true;
+            this.isShow = false;
 
             const self = this;
             let DONATION_ID = $(e.target).data('id');
@@ -242,7 +242,7 @@ const app = new Vue({
         },
 
         backToPreviousPage() {
-            this.isShow = false;
+            this.isShow = true;
         }
     }
 })

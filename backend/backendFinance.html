@@ -185,7 +185,7 @@
                             <img src="../img/22/backend/temp_diagram.png" alt="">
                         </div>
                     </div>
-                    <div id="financeShowDonationPage" v-if="!isShow">
+                    <div id="financeShowDonationPage" v-if="isShow == true">
                         <div id="donationDate">
                             查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
                         </div>
@@ -232,7 +232,7 @@
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
-                    <div id="financeShowDonationDetailsPage" v-if="isShow" v-for="data in donationDetals">
+                    <div id="financeShowDonationDetailsPage" v-else v-for="data in donationDetals">
                         <button @click="backToPreviousPage">
                             回上頁
                         </button><br><br>
