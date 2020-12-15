@@ -15,7 +15,7 @@
     main{
         box-sizing: border-box;
         width: 980px;
-        #pointsDataFilterArea, .pointsDataArea{
+        #pointsDataControlArea, .pointsDataArea{
             box-sizing: border-box;
             width: 100%;
             background-color: #F3E9C0;
@@ -23,7 +23,7 @@
             box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
             margin-left: 15px;
         }
-        #pointsDataFilterArea{
+        #pointsDataControlArea{
             padding: 27px 29px 18px 31px;
             height: 267px;
             #pointsDataFilterTabsBlock{
@@ -40,12 +40,13 @@
                     color: #8F8770;
                     text-align: center;
                     line-height: 50px;
+                    cursor: pointer;
                 }
-                #pointsDataFilterTab01{
+                .tabActive{
                     background-color: #FAFDDD;
                 }
             }
-            #pointsDataFilter{
+            #pointsDataFilter, #pointsDataUploader{
                 width: 920px;
                 height: 172px;
                 border-radius: 13px;
@@ -53,6 +54,8 @@
                 padding: 24px 17px 22px 18px;
                 box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 position: relative;
+            }
+            #pointsDataFilter{
                 #pointsDataFilterLeftUpperBlock{
                     width: 560px;
                     height: 80px;
@@ -138,6 +141,9 @@
     
                     }
                 }
+            }
+            #pointsDataUploader{
+                display: none;
             }
         }
         .pointsDataArea{
