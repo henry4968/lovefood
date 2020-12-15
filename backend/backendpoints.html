@@ -11,6 +11,26 @@
     <script src="../node_modules/moment/min/moment.min.js"></script>
     <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
     <script src="../js/23/product/datetime.js"></script>
+    <script>
+        $(function () {
+            $(".pointsDataFilterTab").click(function () {
+                $(".pointsDataFilterTab").removeClass("tabActive");
+                $(this).addClass("tabActive");
+            });
+
+            $("#pointsDataFilterTab01").click(function () {
+                $("#pointsResultData, #pointsLogData, #pointsDataFilter").css("display", "block");
+                $("#pointsDataUploader").css("display", "none");
+
+            });
+
+            $("#pointsDataFilterTab02").click(function () {
+                $("#pointsResultData, #pointsLogData, #pointsDataFilter").css("display", "none");
+                $("#pointsDataUploader").css("display", "block");
+
+            });
+        });
+    </script>
 </head>
 
 <body>
@@ -106,16 +126,16 @@
                 </div>
             </aside>
             <main>
-                <div id="pointsDataFilterArea">
+                <div id="pointsDataControlArea">
                     <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab">單筆編輯</div>
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab tabActive">單筆編輯</div>
                         <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
                     </div>
                     <div id="pointsDataFilter">
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員編號</div>
-                                <input type="text" name="number" class="form-control">
+                                <input type="text" name="id" class="form-control">
                                 <div>會員帳號</div>
                                 <input type="text" name="account" class="form-control">
                             </div>
@@ -157,6 +177,11 @@
                             </div>
                         </div>
                     </div>
+                    <div id="pointsDataUploader">
+                        <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
+                        <input type="file">
+                        <button type="submit">確定上傳</button>
+                    </div>
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-if="!isShow">
                     <table>
@@ -192,11 +217,8 @@
                                     0
                                 </td>
                                 <td>
-                                    <!-- <form method="GET"> -->
                                     <button type="submit" class="btn-sb btn-green" @click="showContent"
-                                        :data-id="data['MEMBER_ID']">詳情</button>
-                                    <!-- <input type="hidden" name="number" :value="data['MEMBER_ID']"> -->
-                                    <!-- </form> -->
+                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">詳情</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -209,11 +231,9 @@
                                 <td>{{data["PHONE"]}}</td>
                                 <td>{{data["POINTS"]}}</td>
                                 <td>
-                                    <!-- <form method="GET"> -->
                                     <button type="submit" class="btn-sb btn-green" @click="showContent"
-                                        :data-id="data['MEMBER_ID']">詳情</button>
-                                    <!-- <input type="hidden" name="number" :value="data['MEMBER_ID']"> -->
-                                    <!-- </form> -->
+                                        :data-id="data['MEMBER_ID']" :data-name="data['NAME']">詳情</button>
+
                                 </td>
                             </tr>
                         </tbody>
@@ -231,17 +251,21 @@
                     </div>
                 </div>
                 <div id="pointsLogData" class="pointsDataArea" v-if="isShow">
+                    <button @click="backToPreviousPage">
+                        回上頁
+                    </button>
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
-                        會員編號：<input class="input-xl" type="text" :placeholder="data['MEMBER_ID']" disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :placeholder="data['ACCOUNT']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :placeholder="data['NAME']" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :placeholder="data['PHONE']" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :placeholder="data['POINTS']" disabled>
+                        會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
+                            disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :value="data['ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :value="data['NAME']" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :value="data['PHONE']" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :value="data['POINTS']" disabled>
                     </div>
                     <div id="">
                         修改點數：<br>
                         <input type="text" name="points">
-                        <button>確認修改</button>
+                        <button @click="update">確認修改</button>
                     </div>
                     <div>
                         使用紀錄：

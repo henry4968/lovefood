@@ -2,14 +2,21 @@
     include("../Lib/UtilClass2.php");
 
     $Util = new UtilClass();
-    $sql = "UPDATE Lovefood.MEMBER SET POINTS = ? WHERE MEMBER_ID = ?";
+    $sqlUpdatePoints = "UPDATE Lovefood.MEMBER SET POINTS = ? WHERE MEMBER_ID = ?";
+    $sqlShowFinalPoints = "SELECT POINTS FROM Lovefood.MEMBER WHERE MEMBER_ID like ?";
 
-    $statement = $Util->getPDO()->prepare($sql);
+    $statementUpdatePoints = $Util->getPDO()->prepare($sqlUpdatePoints);
+    $statementShowFinalPoints = $Util->getPDO()->prepare($sqlShowFinalPoints);
 
-    $statement->bindValue(1,$_POST['points']);
-    $statement->bindValue(2,$_POST['number']);
+    $statementUpdatePoints->bindValue(1,$_POST['points']);
+    $statementUpdatePoints->bindValue(2,$_POST['selectedId']);
+    $statementUpdatePoints->execute();
 
-    $statement->execute();
+    $statementShowFinalPoints->bindValue(1,$_POST['selectedId']);
+    $statementShowFinalPoints->execute();
 
-    echo "php執行了！";
+    $dataSP = $statementShowFinalPoints->fetchAll(PDO::FETCH_ASSOC);
+    print json_encode($dataSP);
+
+    // echo "修改點數的工作執行了！";
 ?>

@@ -13,7 +13,6 @@
 </head>
 
 <body>
-
     <!-- 標頭開始 -->
     <header id="header">
         <!-- 漢堡選單開始 -->
@@ -97,13 +96,13 @@
         </section>
         <section class="breadcrumb_16">
             <div>
-                <span>購物商城</span>
+                <span>樂腹商城</span>
                 <span>|</span>
                 <span>購物車</span>
             </div>
         </section>
         <!-- store_banner結束 -->
-        <section class="cartbgc_16">
+        <div class="cartbgc_16">
             <div class="cart_16">
                 <div class="item1">
                     <p>惜食清單</p>
@@ -124,9 +123,19 @@
                                     <img src="../img/16/foods/bread_104.png">
                                 </div>
                                 <div class="orderDetails">
-                                    <div class="productName">蛋黃奶香麵包</div>
                                     <ul>
+                                        <li class="productName">蛋黃奶香麵包</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
+                                    </ul>
+                                </div>
+
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$19</li>
                                         <li class="quantity">
                                             <form id='myform1' method='POST' action='#'>
@@ -139,6 +148,7 @@
                                         <li><img src="../img/16/trashcanIcon.png"></li>
                                     </ul>
                                 </div>
+
                             </div>
 
                             <hr>
@@ -192,10 +202,19 @@
                                     <img src="../img/16/foods/bread_145.png">
                                 </div>
                                 <div class="orderDetails">
-                                    <div class="productName">日式紅豆銅鑼燒</div>
                                     <ul>
+                                        <li class="productName">日式紅豆銅鑼燒</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
+                                    </ul>
+                                </div>
 
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$23</li>
                                         <li class="quantity">
                                             <form id='myform2' method='POST' action='#'>
@@ -207,28 +226,39 @@
                                         <li class="amount">$92</li>
                                         <li><img src="../img/16/trashcanIcon.png"></li>
                                     </ul>
-
                                 </div>
                             </div>
+                            <hr>
                             <div class="orderInfo">
                                 <div class="imgBlock">
                                     <img src="../img/16/foods/rice.png">
                                 </div>
-                                <ul class="orderDetails">
-                                    <div class="productName">鹽烤松阪豬</div>
+                                <div class="orderDetails">
                                     <ul>
+                                        <li class="productName">鹽烤松阪豬三角飯糰</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
+                                    </ul>
+                                </div>
+
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$24</li>
                                         <li class="quantity">
                                             <form id='myform3' method='POST' action='#'>
                                                 <input type='button' value='-' id='qtyminus3' field='quantity3' />
-                                                <input type='text' name='quantity3' value='0' id='qty3' />
+                                                <input type='text' name='quantity3' value='0' id='qty1' />
                                                 <input type='button' value='+' id='qtyplus3' field='quantity3' />
                                             </form>
                                         </li>
                                         <li class="amount">$72</li>
                                         <li><img src="../img/16/trashcanIcon.png"></li>
                                     </ul>
+                                </div>
                             </div>
 
                             <hr>
@@ -248,11 +278,33 @@
                                         <br>
                                         <input type="checkbox" checked>
                                         <span>捷運站取貨</span>
-                                        <div>南京復興捷運站 8號出口<img src="../img/16/Icon awesome-map-marker-alt.png"
-                                                class="mapIcon"></div>
+                                        <div class="mapIconW">捷運南京復興站 8號出口<img
+                                                src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
+                                        </div>
+
                                     </ul>
                                     <div>
                                         <img src="../img/16/MRT.jpg" class="imgMRT">
+
+                                        <ul id="MRT_Select">
+                                            <li><label for="">請選擇：</label></li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運市政府站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運南京復興站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運忠教復興站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運大安站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運中山站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運台北車站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運西門站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運中正紀念堂站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運大橋頭站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運民權西路站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運石牌站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運內湖站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運南港站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運古亭站</li>
+                                            <li class="mrtSelect"><input type="checkbox">捷運六張犁站</li>
+                                        </ul>
+
                                     </div>
                                 </div>
 
@@ -281,9 +333,11 @@
                                 <label for="points">您的點數尚餘：1000點</label>
 
                                 <br>
-                                <label for="points">使用</label>
-                                <input type="number">
-                                <label for="">點</label>
+                                <span>
+                                    <label for="points">使用</label>
+                                    <input type="number">
+                                    <label for="">點</label>
+                                </span>
                                 <a href="#">
                                     <button class="pointsDiscount">全部扺用</button>
                                 </a>
@@ -301,7 +355,7 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
         <footer>
             <div class="footerBlock">
                 <div>

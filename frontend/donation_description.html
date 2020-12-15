@@ -14,10 +14,15 @@
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
     <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
     <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="icon" type="image/png" href="/img/21/donation_description/map_leaf.png" />
 
     <!-- 自訂js -->
     <script src="../js/21/donation.js"></script>
+    <script src="../node_modules\jquerykeyframes\dist\jquery.keyframes.js"></script>
+    <script src="../js/21/temp.js"></script>
+
 
     <script>
 
@@ -26,37 +31,6 @@
 
 <body>
 
-
-    <!-- <header id="header">
-        <div id="headerContentContainer">
-            <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
-            </a>
-
-
-            <nav id="navigation">
-                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="./signUp_signIn.html" class="navGeneralAnchors">賣家專區</a>
-                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
-                <a href="./donate_now.html" id="navSepcialAnchor">
-                    <div>
-                        立即捐款
-                    </div>
-                </a>
-                <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_search.png" alt="">
-                </a>
-                <a href="#0" id="navIcons02" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                </a>
-                <a href="#0" id="navIcons03" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_member.png" alt="">
-                </a>
-
-            </nav>
-
-        </div>
-    </header> -->
 
     <!-- 標頭開始 -->
     <header id="header">
@@ -99,7 +73,7 @@
             <nav id="navigationForPC">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
                 <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
-                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donation_description.html" class="navGeneralAnchors" id="donatePageWeb">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
                         立即捐款
@@ -374,11 +348,12 @@
                     <img src="/img/21/donation_description/leaf.png" alt="">
                     <h3>本月目標款項&nbsp;&nbsp;50萬元</h3>
                 </div>
-                <div class="bread">
-                    <img id=breadImg src="/img/21/donation_description/bread.png" alt="">
-                    <div class="breadLine"></div>
+                <div class="breadOut">
+                    <div class="bread">
+                        <img id=breadImg src="/img/21/donation_description/bread.png" alt="">
+                        <div class="breadLine"></div>
+                    </div>
                 </div>
-
                 <div class="txtTxt">已達&nbsp;<p id=goalmoney>80</p>
                     <p>%</p>&nbsp;捐款&nbsp;&nbsp;&nbsp;需要您的協助
                 </div>
@@ -395,16 +370,20 @@
                 <div class="mapAndShop">
                     <div class="mapImg">
                         <img id="mapTaipei" src="/img/21/donation_description/map_Taipei.png" alt="">
-                        <!-- <div class="circle" id="circle_dana"></div> -->
-                        <img class="map_leaf" id="leaf_Dana" src="/img/21/donation_description/map_leaf.png" alt="">
-                        <img class="map_leaf" id="leaf_Shilin" src="/img/21/donation_description/map_leaf.png" alt="">
-                        <img class="map_leaf" id="leaf_Neihu" src="/img/21/donation_description/map_leaf.png" alt="">
-                        <img class="map_leaf" id="leaf_Beitou" src="/img/21/donation_description/map_leaf.png" alt="">
+                        <!-- <div class="circle" id="circle_daan"></div> -->
+                        <img class="map_leaf" data-toggle="tooltip" title="大安區" id="leaf_Daan"
+                            src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="士林區" id="leaf_Shilin"
+                            src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="內湖區" id="leaf_Neihu"
+                            src="/img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="北投區" id="leaf_Beitou"
+                            src="/img/21/donation_description/map_leaf.png" alt="">
                     </div>
 
                     <div class="shopChangeOutside">
                         <div class="shopChange" id="shopChange">
-                            <div class="shop" id="shop_Dana">
+                            <div class="shop" id="shop_Daan">
                                 <p>大安區</p>
                                 <p>PAUL台北仁愛店</p>
                                 <img class=shopImg src="/img/21/donation_description/shop_1_Daan.jpg" alt="">
