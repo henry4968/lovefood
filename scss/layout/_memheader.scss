@@ -318,7 +318,7 @@
             #navIcons03{
               img{
                 &:hover{
-                  content: url('../img/03/mempeoplecirclechange.png');
+                //   content: url('../img/03/mempeoplecirclechange.png');
                   transform: scale(1.05);
                   transition: all .3s;
                 }
@@ -347,6 +347,12 @@
                 img{
                     height: 23px;
                     margin: 5px 0px 0px 10px;
+                }
+            }
+            #navIcons05{
+                img{
+                    max-width: 30px;
+                    max-height: 30px;
                 }
             }
         }

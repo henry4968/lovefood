@@ -471,6 +471,7 @@ Vue.component('member', {
       axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
         data = response.data;
         alert("上傳圖片成功");
+
       });
     },
     // 傳入父層，控制class

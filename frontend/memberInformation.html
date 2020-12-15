@@ -61,13 +61,13 @@
         </div>
       </div>
       <component :is="content" :class="{foursameBorderapp:foursameBorderapp}" @my-click="clicked" :idconten="idcont"
-        :idmem="idmemin" :idemail="idemailin" :idpwd="idpwdin" :idname="idnamein" :idphone="idphonein" :idadd="idaddin" @reloadnameaddtel="reloadnameaddtelin" :idpwdtrue="idpwdtruein" @reloadnewpwd="reloadnewpwdin">
+        :idmem="idmemin" :idemail="idemailin" :idpwd="idpwdin" :idname="idnamein" :idphone="idphonein" :idadd="idaddin"
+        @reloadnameaddtel="reloadnameaddtelin" :idpwdtrue="idpwdtruein" @reloadnewpwd="reloadnewpwdin">
       </component>
 
     </div>
   </main>
   <component id="memfooter" :is="footerId"></component>
-
   <script src="../js/03/memheader.js"></script>
   <script src="../js/03/memberInformation.js"></script>
   <script src="../js/03/memfooter.js"></script>
