@@ -12,20 +12,48 @@
 </head>
 
 <body>
-
     <!-- 標頭開始 -->
     <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 漢堡選單結束 -->
         <div id="headerContentContainer">
             <a href="./index.html">
                 <img id="logo" src="../img/22/index/ch05_header_logo.png">
             </a>
 
             <!-- 導覽列開始 -->
-            <nav id="navigation">
-                <a href="store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a href="signUp_signIn.html" class="navGeneralAnchors">賣家專區</a>
-                <a href="donation_description.html" class="navGeneralAnchors">捐款說明</a>
-                <a href="donate_now.html" id="navSepcialAnchor">
+            <nav id="navigationForPC">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a href="../backend/backendOrder.html" class="navGeneralAnchors">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
                         立即捐款
                     </div>
@@ -33,16 +61,22 @@
                 <a href="#0" id="navIcons01" class="navIcons">
                     <img src="../img/22/index/ch05_nav_search.png" alt="">
                 </a>
-                <a href="store_3.html" id="navIcons02" class="navIcons">
+                <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </a>
-                <a href="signUp_signIn.html" id="navIcons03" class="navIcons">
+                <a href="#0" id="navIcons03" class="navIcons">
                     <img src="../img/22/index/ch05_nav_member.png" alt="">
                 </a>
-
+            </nav>
+            <nav id="subNavigationForMobile">
+                <a href="#0" id="navIcons04" class="navIconsForMobile">
+                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                </a>
+                <a href="#0" id="navIcons05" class="navIconsForMobile">
+                    <img src="../img/22/index/ch05_nav_member.png" alt="">
+                </a>
             </nav>
             <!-- 導覽列結束 -->
-
         </div>
     </header>
     <!-- 標頭結束 -->
@@ -61,7 +95,7 @@
         </section>
         <section class="breadcrumb_16">
             <div>
-                <span>購物商城</span>
+                <span>樂腹商城</span>
                 <span>|</span>
                 <span>結帳</span>
             </div>
@@ -75,7 +109,7 @@
 
                 <section class="mainArea">
                     <ul class="list_h">
-                        <li><img src="../img/16/sellerIcon.png"></li>
+                        <li class="tashImg"><img src="../img/16/sellerIcon.png"></li>
                         <li>全家南京復興店</li>
                         <li>單價</li>
                         <li>數量</li>
@@ -92,7 +126,8 @@
                                         </span>
                                     </li>
                                     <li><img src="../img/16/locationIcon.png" class="locationIcon">
-                                        取貨區間：2020/10/20 18:00~21:00
+                                        取貨區間：
+                                        <span>2020/10/20 18:00~21:00</span>
                                     </li>
                                 </ul>
                             </div>
@@ -105,16 +140,27 @@
                                     <img src="../img/16/foods/bread_104.png">
                                 </div>
                                 <div class="orderDetails">
-                                    <div class="productName">蛋黃奶香麵包</div>
                                     <ul>
+                                        <li class="productName">蛋黃奶香麵包</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
+                                    </ul>
+                                </div>
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$19</li>
                                         <li class="quantity">2</li>
                                         <li class="amount">$38</li>
                                     </ul>
                                 </div>
                             </div>
+
                             <hr>
+
                             <div class="orderCount">
                                 <p>單筆訂單金額：$38元</p>
                             </div>
@@ -156,31 +202,51 @@
                                     <img src="../img/16/foods/bread_145.png">
                                 </div>
                                 <div class="orderDetails">
-                                    <div class="productName">日式紅豆銅鑼燒</div>
                                     <ul>
+                                        <li class="productName">日式紅豆銅鑼燒</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
-
+                                    </ul>
+                                </div>
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$23</li>
                                         <li class="quantity">4</li>
                                         <li class="amount">$92</li>
                                     </ul>
-
                                 </div>
                             </div>
+                            <hr>
                             <div class="orderInfo">
                                 <div class="imgBlock">
                                     <img src="../img/16/foods/rice.png">
                                 </div>
-                                <ul class="orderDetails">
-                                    <div class="productName">鹽烤松阪豬</div>
+                                <div class="orderDetails">
                                     <ul>
+                                        <li class="productName">鹽烤松阪豬</li>
                                         <li class="exp">有效期限：2020年10月20日 23:59</li>
+                                    </ul>
+                                </div>
+                                <div class="orderDetails1">
+                                    <ul class="orderTitle">
+                                        <li>單價</li>
+                                        <li>數量</li>
+                                        <li>總計</li>
+                                    </ul>
+                                    <ul class="orders">
                                         <li class="price">$24</li>
                                         <li class="quantity">3</li>
                                         <li class="amount">$72</li>
                                     </ul>
+                                </div>
                             </div>
+
                             <hr>
+
                             <div class="orderCount">
                                 <p>單筆訂單金額：$164元</p>
                             </div>
@@ -195,22 +261,65 @@
                     </ul>
                     <div class="content">
                         <form action="" class="creditCardForm">
-                            <div>
+                            <div class="creditInfo1">
                                 <label for="creditCard">信用卡號：</label>
-                                <input type="text" name="creditCard" class="creditCard">－<input type="text"
-                                    name="creditCard" class="creditCard">－<input type="text" name="creditCard"
-                                    class="creditCard">－<input type="text" name="creditCard" class="creditCard">
+                                <div id="creditCardRwd">
+                                    <input type="text" name="creditCard" class="creditCard" maxlength="4">－<input
+                                        type="text" name="creditCard" class="creditCard" maxlength="4">－<input
+                                        type="text" name="creditCard" class="creditCard" maxlength="4">－<input
+                                        type="text" name="creditCard" class="creditCard" maxlength="4">
+                                </div>
                             </div>
                             <br>
-                            <div>
-                                <label for="expDate" name="expDate">有效日期：</label>
-                                <input type="month" name="month" class="expDate">
-                                <label for="securityCode" class="securityCode">背面末三碼：</label>
-                                <input type="text" name="securityCode" class="securityCode1">
-                            </div>
-                        </form>
+                            <div class="creditInfo2">
+                                <div class="formGroup" id="expirationDate">
+                                    <label>有效日期：</label>
+                                    <select class="expMonth">
+                                        <option value="01">01</option>
+                                        <option value="02">02</option>
+                                        <option value="03">03</option>
+                                        <option value="04">04</option>
+                                        <option value="05">05</option>
+                                        <option value="06">06</option>
+                                        <option value="07">07</option>
+                                        <option value="08">08</option>
+                                        <option value="09">09</option>
+                                        <option value="10">10</option>
+                                        <option value="11">11</option>
+                                        <option value="12">12</option>
+                                    </select>
+                                    <label>月</label>
+                                    <select class="expYear">
+                                        <option value="20"> 2020</option>
+                                        <option value="21"> 2021</option>
+                                        <option value="22"> 2022</option>
+                                        <option value="23"> 2023</option>
+                                        <option value="24"> 2024</option>
+                                        <option value="25"> 2025</option>
+                                        <option value="26"> 2026</option>
+                                        <option value="27"> 2027</option>
+                                        <option value="28"> 2028</option>
+                                        <option value="29"> 2029</option>
+                                        <option value="30"> 2030</option>
+                                    </select>
+                                    <label>年</label>
+                                </div>
 
+
+                                <div id="securityCodeBlock">
+                                    <label for="securityCode" class="securityCode">背面末三碼：</label>
+                                    <input type="text" name="securityCode" class="securityCode1" maxlength="3">
+                                </div>
+                                <div class="formGroup" id="creditCards">
+                                    <img src="../img/16/VISA_300x200.png" id="visa">
+                                    <img src="../img/16/Master_300x200.png" id="mastercard">
+                                    <img src="../img/16/JCB_300x200.png" id="jcb">
+                                </div>
+                            </div>
                     </div>
+                    </form>
+
+
                     <!-- 結帳總金額區 -->
                     <div class="item2">
                         <div>
