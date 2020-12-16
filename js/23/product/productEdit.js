@@ -8,10 +8,11 @@ const app = new Vue({
             detail:null,
             categories:null,
             //以下圖片for拖放區域
-            imgSrc:[],
+            imgSrc:null,
             hover:false,
             cover:['封面圖片','圖片1','圖片2','圖片3'],
             photo:['photo1','photo2','photo3','photo4'],
+            exp:null,
         }
     },
     
@@ -33,9 +34,9 @@ const app = new Vue({
                          console.log(res);
                          self.tableData = res.query;
                          self.categories = res.categories;
-                         for(i=0 ; i<res.query.length;i++){
-                             self.imgSrc.push(res.query[i].PRODUCT_IMG);
-                         }
+                        //  for(i=0 ; i<res.query.length;i++){
+                        //      self.imgSrc.push(res.query[i].PRODUCT_IMG);
+                        //  }
                          console.log(self.imgSrc);
                     },
                     error: function(res){
@@ -54,8 +55,11 @@ const app = new Vue({
                     filterArr.push(self.tableData[i])
                 }
             }
+            // console.log(filterArr);
             console.log(filterArr); //過濾後的陣列
             self.filterData = filterArr;
+            self.exp = filterArr[0].EXP_DATE.split(' ');//有效期限轉日期與時間陣列
+            // console.log(exp);
         },
         imgInput(key,event){ //點擊input
             let self = this;

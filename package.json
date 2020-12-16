@@ -31,7 +31,8 @@
     "jquerykeyframes": "^1.0.8",
     "moment": "^2.7.0",
     "node-sass": "^5.0.0",
-    "normalize-scss": "^7.0.1"
+    "normalize-scss": "^7.0.1",
+    "v-tooltip": "^2.0.3"
   },
   "dependencies": {
     "axios": "^0.21.0",
