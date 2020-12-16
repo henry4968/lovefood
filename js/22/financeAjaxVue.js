@@ -1,12 +1,11 @@
 const app = new Vue({
     el: '.containerFinance',
-    data() {
-        return {
-            donationDetals: null,
-            donationLog: null,
-            totalDonation: null,
-            isShow: true
-        }
+    data: {
+        donationDetals: null,
+        donationLog: null,
+        totalDonation: null,
+        showTab: true,
+        isShow: true,
     },
 
     mounted() {
@@ -240,9 +239,22 @@ const app = new Vue({
             });
 
         },
+        switchTab01() {
+            this.showTab = true;
+        },
+        switchTab02() {
+            this.showTab = false;
+        },
 
         backToPreviousPage() {
             this.isShow = true;
+
+            // var a = document.querySelector("#financeShowDonationPage");
+            // a.style.cssText = "display: block";
         }
-    }
-})
+
+
+    },
+
+
+});

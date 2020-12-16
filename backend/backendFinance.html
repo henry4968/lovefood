@@ -15,20 +15,20 @@
                 $(this).addClass("tabActive");
             });
 
-            $("#financeDataFilterTab01").click(function () {
-                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
-                $("#supplierID").css("display", "block");
-                $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
+            // $("#financeDataFilterTab01").click(function () {
+            //     $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
+            //     $("#supplierID").css("display", "block");
+            //     $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
 
-            });
+            // });
 
-            $("#financeDataFilterTab02").click(function () {
-                $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
-                $("#supplierID").css("display", "none");
-                $("#financeFilterForDonation").css("display", "flex");
-                $("#financeShowDonationPage").css("display", "block");
+            // $("#financeDataFilterTab02").click(function () {
+            //     $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
+            //     $("#supplierID").css("display", "none");
+            //     $("#financeFilterForDonation").css("display", "flex");
+            //     $("#financeShowDonationPage").css("display", "block");
 
-            });
+            // });
         });
     </script>
 </head>
@@ -128,10 +128,13 @@
             <main>
                 <div id="financeDataFilterArea">
                     <div id="financeDataFilterBlock">
-                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive">檢視銷售</div>
-                        <div id="financeDataFilterTab02" class="financeDataFilterTab">檢視捐款</div>
+                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive" @click="switchTab01">
+                            檢視銷售
+                        </div>
+                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="switchTab02">
+                            檢視捐款</div>
                     </div>
-                    <div id="financeFilterForSelling" class="financeFilter">
+                    <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
                             <input type="date">至
@@ -146,7 +149,7 @@
                             <div id="financeFilterButton">查詢</div>
                         </a>
                     </div>
-                    <div id="financeFilterForDonation" class="financeFilter">
+                    <div id="financeFilterForDonation" class="financeFilter" v-show="!showTab">
                         <div id="donationSearchingBlock">
                             <div class="donationSearchingRow" id="donationSearchingTopRow">
                                 <div>捐款編號<input type="text" name="DONATION_ID" class="form-control"></div>
@@ -169,7 +172,7 @@
                     </div>
                 </div>
                 <div id="financeDataArea">
-                    <div id="financeShowSellingPage">
+                    <div id="financeShowSellingPage" v-show="showTab">
                         <div id="financeShowResultBlock">
                             <div class="financeShowResultRow">
                                 查詢時間： 2020-10-21～2020-10-31
@@ -185,7 +188,7 @@
                             <img src="../img/22/backend/temp_diagram.png" alt="">
                         </div>
                     </div>
-                    <div id="financeShowDonationPage" v-if="isShow == true">
+                    <div id="financeShowDonationPage" v-show="!showTab && isShow">
                         <div id="donationDate">
                             查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
                         </div>
@@ -232,7 +235,8 @@
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
-                    <div id="financeShowDonationDetailsPage" v-else v-for="data in donationDetals">
+                    <div id="financeShowDonationDetailsPage" v-show="!showTab && !isShow"
+                        v-for="data in donationDetals">
                         <button @click="backToPreviousPage">
                             回上頁
                         </button><br><br>
