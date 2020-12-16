@@ -1,22 +1,4 @@
-$(function(){
-$("[data-toggle='tooltip']").tooltip(); //tooltip啟用
-$('.categories').unbind('mouseenter').unbind('mouseleave')
-
-$('#upload').click(function(){
-    alert();
-    if($("[name='productName']").val() == ""){
-        alert();
-        $('.categories').tooltip('show');
-    }else{
-        $('.categories').tooltip('hide');
-    }
-})
-
-
-// $('.categories').tooltip('disabled');
-})
-
-
+Vue.use(VTooltip);
 
 const app = new Vue({
     el: '.containerProduct',

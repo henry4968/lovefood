@@ -170,11 +170,11 @@
                                     <th class="subheading" colspan="2">出貨地點</th>
                                 </tr>
                                 <tr v-if="data.isShow" v-for="(subData,subkey) in data.detail">
-                                    <td colspan="2">{{subData[0]}}</td>
-                                    <td>{{subData[1]}}</td>
-                                    <td>{{subData[1] * subData[2]}}</td>
+                                    <td colspan="2">{{subData.NAME}}</td>
+                                    <td>{{subData.QUANTITY}}</td>
+                                    <td>{{subData.QUANTITY* subData.SELLING_PRICE}}</td>
                                     <td>信用卡</td>
-                                    <td colspan="2">{{subData[3]}}</td>
+                                    <td colspan="2">{{subData.NAME_PICKUP}}</td>
                                 </tr>
                             </template>
                            
@@ -183,7 +183,7 @@
                         
                         
                     </table>
-                    <img src="../PHP/backStage/order/test.php" alt="">
+                    <img :src="code" alt="">
                 </main>
             </div>
         </div>

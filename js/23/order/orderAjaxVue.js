@@ -33,7 +33,6 @@ const app = new Vue({
                     success: function(res){
                          console.log(res);
                          self.tableData = res;
-                        
                         for(i=0; i<self.tableData.length; i++){
                             // self.tableData[i].isShow = !isShow;
                             self.$set(self.tableData[i],'isShow',false) //更新self.tableData讓他有isShow
@@ -46,19 +45,20 @@ const app = new Vue({
                 });
             
         },
-        ship(e){
+        ship(e){//出貨生成QR code
             const self = this;
             let orderNum = $(e.target).val();
-            // console.log(orderNum);
+            console.log(orderNum)
             $.ajax({
 
                 url:'../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                 data:{orderNum},
-                type:'POST',
+                type:'GET',
                 dataType:'text',
+                traditional: true,
                 success: function(res){
-                     console.log(res);   
-                     self.code = res;                 
+                     console.log(res);
+                     self.code = res;
                 },
                 error: function(res){
                     console.log(res);

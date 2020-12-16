@@ -6,6 +6,8 @@
     <title>LOVEFOOD管理中心--會員管理</title>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
                     <!-- data time picker -->
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/moment/min/moment.min.js"></script>
@@ -105,9 +107,10 @@
                             <div class="eachOneLeft">
                                 <span>賣家編號<input name="sellerNum" class="form-control" type="text" placeholder="SP0001" value="SP0001" disabled></span>
                                 <span>商品種類
-                                    <select  class="categories">
+                                    <select  class="categories" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
                                         <option name="categories" :value="data.PRODUCT_CATEGORY_ID" v-for="(data,key) in categories">{{data.NAME}}</option>
                                     </select>
+                                    
                                 </span>
                                 <span>商品名稱<input name="productName" class="form-control" type="text"></span>
                                 <div class="time">有效期限 
@@ -149,8 +152,9 @@
                                 </span>
                             </div>
                             <div class="eachOneRight">
-                                <span>商品圖片<input class="form-control" type="text" :value="fileName" placeholder="請選擇檔案" disabled>
-                                <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input name="fileUpload" id="fileUpload" type="file" @input="showName"></label>
+                                <span>商品圖片
+                                    <!-- <input class="form-control" type="text" :value="fileName" placeholder="請選擇檔案" disabled> -->
+                                <!-- <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input name="fileUpload" id="fileUpload" type="file" @input="showName"></label> -->
                                 </span>
                                 <div class="wrapper">
                                     <template v-for="(data,key) in dropZone">
@@ -191,7 +195,7 @@
                                     <textarea class="input-l" name="description" id=""></textarea>
                                 </span>
                                 <span>
-                                   <button class="btn-m btn-brown">預覽</button><button class="btn-m btn-brown" @click="upload">上傳</button>
+                                    <button id="upload" class="btn-m btn-brown" @click="upload">上傳</button>
                                 </span>
                             </div>
                         </div>
@@ -203,7 +207,7 @@
                                 <label class="btn-s btn-brown" for="fileUpload">選擇檔案<input id="fileUpload" type="file"></label>
                             </span>
                             <div>
-                                <button class="btn-m btn-brown">上傳
+                                <button  class="btn-m btn-brown">上傳
                             </div>
                         </div>
                     </div>
@@ -211,6 +215,7 @@
             </div>
         </div>    
     </div>
+    
     
 
     <script>
