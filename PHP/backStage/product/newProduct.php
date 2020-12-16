@@ -18,7 +18,8 @@
 
     $exp = $expDate." ".$expTime;
 
-
+    print_r($fileUpload);
+    
     //判斷日期輸入格式有效
     function is_Date($string) {
             $arr = explode('-', $string);
@@ -64,16 +65,16 @@
     $statement->execute();
     $data = $statement->fetchAll(PDO::FETCH_ASSOC);
     // print json_encode($data);
-    echo $pdNum."\n";
-    echo $categories."\n";
-    echo $sellerNum."\n";
-    echo $productName."\n";
-    echo $oriPrice."\n";
-    echo $spePrice."\n";
-    echo $description."\n";
-    echo $quantity."\n";
-    echo $exp."\n";
-    echo $fileUpload."\n";
+    // echo $pdNum."\n";
+    // echo $categories."\n";
+    // echo $sellerNum."\n";
+    // echo $productName."\n";
+    // echo $oriPrice."\n";
+    // echo $spePrice."\n";
+    // echo $description."\n";
+    // echo $quantity."\n";
+    // echo $exp."\n";
+    // echo $fileUpload."\n";
     
 
 

@@ -117,6 +117,10 @@
                                     margin-right: 10px;
                                     img{
                                         display: block;
+                                        position: absolute;
+                                        top: 0;
+                                        left: 0;
+                                        z-index:19;
                                         max-width:111px;
                                         max-height:111px;
                                     }
@@ -136,6 +140,8 @@
                                         bottom: 0px;
                                         background-color: rgba(0,0,0,.5);
                                         opacity: 0.6;
+                                        z-index: 20;
+
                                         span{
                                             cursor: pointer;
                                             margin:0;

@@ -6,7 +6,7 @@ const app = new Vue({
         }
     },
 
-    beforeMount() {
+    mounted() {
         const self = this;
         let urlParams = new URLSearchParams(window.location.search);
         let number = urlParams.get('number');

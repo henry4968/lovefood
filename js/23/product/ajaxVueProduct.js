@@ -4,10 +4,12 @@ const app = new Vue({
         tableData:null,
         fileName:"",
         categories:[],
-        imgSrc:[],
+        //以下圖片for拖放區域
+        imgSrc:['','','',''],
         hover:false,
         dropZone:[0,1,2,3],
         cover:['封面圖片','圖片1','圖片2','圖片3'],
+        photo:['photo1','photo2','photo3','photo4'],
     },
     
 
@@ -39,8 +41,8 @@ const app = new Vue({
                 let spePrice = $("input[name='spePrice']").val();
                 let description = $("textarea[name='description']").val();
                 let pickupSite = $("input[name='pickupSite']:checked").val();
-                let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
-
+                // let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
+                let fileUpload = self.imgSrc[0];
                 $.ajax({
 
                     url:'../PHP/backStage/product/newProduct.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
@@ -51,9 +53,10 @@ const app = new Vue({
                     success: function(res){
                          console.log(res);
                          self.tableData = res;
+                         
                     },
                     error: function(res){
-                        console.log(res);
+                        // console.log(res);
                     },
                 });
             
@@ -63,19 +66,26 @@ const app = new Vue({
             let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
             self.fileName = fileUpload;
         },
-        imgDrop(e){
+        imgInput(key,event){ //點擊input
+            let self = this;
+            let file = event.target.files[0];
+            // alert(key);
+            self.imgSrc.splice(key,1,URL.createObjectURL(file))
+            $(event.target).closest('.dropZone').css('border','none')
+        },
+        imgDrop(key,event){ //拖曳圖片
             let self = this;
             let readFile = new FileReader();
 
-                let files = e.dataTransfer.files;
-                readFile.readAsDataURL(files[0]);
+            let files = event.dataTransfer.files;
+            readFile.readAsDataURL(files[0]);
 
-                readFile.addEventListener('load',function(){
-                    // alert(this.result)
-                    self.imgSrc.push(this.result);
-                })
-                console.log($(e.target).closest('.dropZone'));
-                $(e.target).closest('.dropZone').css('border','none')
+            readFile.addEventListener('load',function(){
+                // alert(this.result)
+                self.imgSrc.splice(key,1,this.result)
+            })
+            console.log($(event.target).closest('.dropZone'));
+            $(event.target).closest('.dropZone').css('border','none')
             
         },
         remove(key,event){
@@ -83,14 +93,13 @@ const app = new Vue({
             console.log(event.target.closest('.dropZone'));
             self.imgSrc.splice(key,1);
             console.log($('.dropZone')[1]);
-            alert(key)
+            // alert(key)
             if(key==0){
-                alert();
+                // alert();
                 $('.dropZone').eq(1).css('border','1px dashed')
                 $('.dropZone').eq(0).css('border','1px dashed')
             }else{
             $(event.target).closest('.dropZone').css('border','1px dashed')
-
             }
         }
     },

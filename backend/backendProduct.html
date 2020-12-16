@@ -155,12 +155,14 @@
                                 <div class="wrapper">
                                     <template v-for="(data,key) in dropZone">
                                         <div class="zoneSpan">
-                                            <div class="dropZone" @drop="imgDrop" @mouseover="hover=true" @mouseleave="hover=false">
+                                            <div class="dropZone" @drop="imgDrop(key,$event)" @mouseover="hover=true" @mouseleave="hover=false">
                                                 <img :src="imgSrc[key]" alt="">
+                                                <label :for="photo[key]"><input @change="imgInput(key,$event)" type="file" :id="photo[key]" style="display:none;" >
                                                 <svg viewBox="0 0 31 31">
                                                     <path d="M15 15V7.5a.5.5 0 1 1 1 0V15h7.5a.5.5 0 1 1 0 1H16v7.5a.5.5 0 1 1-1 0V16H7.5a.5.5 0 1 1 0-1H15z"></path>
                                                     <path d="M15.5 31C6.94 31 0 24.06 0 15.5 0 6.94 6.94 0 15.5 0 24.06 0 31 6.94 31 15.5 31 24.06 24.06 31 15.5 31zm0-1C23.508 30 30 23.508 30 15.5S23.508 1 15.5 1 1 7.492 1 15.5 7.492 30 15.5 30z"></path>
                                                 </svg>
+                                                </label>
                                                 <div v-show="hover"class="tools" v-if="imgSrc[0]">
                                                     <span>
                                                         <svg viewBox="0 0 32 32">
