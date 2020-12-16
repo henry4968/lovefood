@@ -540,19 +540,19 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div class="orderdetailBorder">
+          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="order in orderList">
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate">2020/11/01</p>
+                <p class="contentsame orderdate" v-if="order.ORDER_DATE">{{order.ORDER_DATE}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderid">訂單編號</h3>
                 </div>
-                <p class="contentsame orderid">2020110100001</p>
+                <p class="contentsame orderid" v-if="order.ORDER_ID">{{order.ORDER_ID}}</p>
               </div>
               <div class="detailsame countBorder">
                 <div class="cattitle">
@@ -672,68 +672,6 @@ Vue.component('order', {
                   </div>
                   <hr>
                 </div>
-                <div class="itemcontBorder">
-                  <div class="itemconttopBorder">
-                    <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
-                    </div>
-                    <div class="itemmiddleBorder">
-                      <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
-                      </div>
-                      <div class="middleitemsame itemordermiddleBorder">
-                        <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
-                      </div>
-                      <div class="middleitemsame itemcountmiddleBorder">
-                        <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
-                      </div>
-                    </div>
-                    <div class="itempriceunitBorder">
-                      <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
-                      </div>
-                      <div class="countpriceBorder">
-                        <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-                <div class="itemcontBorder">
-                  <div class="itemconttopBorder">
-                    <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
-                    </div>
-                    <div class="itemmiddleBorder">
-                      <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
-                      </div>
-                      <div class="middleitemsame itemordermiddleBorder">
-                        <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
-                      </div>
-                      <div class="middleitemsame itemcountmiddleBorder">
-                        <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
-                      </div>
-                    </div>
-                    <div class="itempriceunitBorder">
-                      <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
-                      </div>
-                      <div class="countpriceBorder">
-                        <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                </div>
               </div>
 
 
@@ -770,6 +708,7 @@ Vue.component('order', {
       // 不同的class切換
       chagestatussamebg: 1,
       foursameBorderapp: '',
+      orderList: null,
     }
   },
   methods: {
@@ -783,9 +722,16 @@ Vue.component('order', {
     },
     // 撈全部訂單
     allselect() {
-      console.log(1);
-      axios.post('').then(res => {
-        data = res.data;
+
+      axios.post('../PHP/Frontend/selecAll.php').then(res => {
+        // data = res.data;
+        res.data.forEach(i => {
+          i.ORDER_DATE = i.ORDER_DATE.substr(0, 10);
+        });
+
+        this.orderList = res.data
+
+        // console.log(this.orderList);
       });
     },
   },
