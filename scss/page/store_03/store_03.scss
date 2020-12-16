@@ -382,6 +382,12 @@
 }
 // 標頭結束
 
+// background
+#store_16{
+    background-image: url(../img/16/bgc-greenFruit.jpg);
+    background-repeat: repeat;
+    width: 100%;
+
 //banner_16開始
 .banner_16{
     width: 100%;
@@ -524,52 +530,46 @@
 //麵包屑結束
 
 //購物商城-購物車區
-// background
-.cartbgc_16{
-    
-    background-image: url(../img/16/bgc-greenFruit.jpg);
-    background-repeat: repeat;
-    width: 100%;
 
     .cart_16{
         // border: 1px solid violet;
         position: relative;
         top: 150px;
         display: block;
-        margin: 0 auto;
+        margin: 15% auto;
         width: 1200px;
-        min-height: 2850px;
+        // min-height: 2850px;
         
         @include newRwd("pad"){
             width: 892px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 3350px;
+            // height: 56px;
+            // margin: 10% auto;
+            // min-height: 3350px;
         }
         @include newRwd("bigPhone"){
             width: 768px;
-            height: 56px;
-            margin: 0 auto; 
-            min-height: 3350px;
+            // height: 56px;
+            // margin: 0 auto; 
+            // min-height: 3350px;
         }
         @include newRwd("mediumPhone"){
             width: 570px;
-            height: 56px;
-            margin: 0 auto; 
-            min-height: 3850px;
+            // height: 56px;
+            // margin: 0 auto; 
+            // min-height: 3850px;
         }
         @include newRwd("newSmallPhone"){
             width: 375px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 3300px;
+            // height: 56px;
+            // margin: 0 auto;
+            // min-height: 3300px;
             overflow-x: hidden;
         }
         @include newRwd("miniPhone"){
             width: 319px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 3300px;
+            // height: 56px;
+            // margin: 0 auto;
+            // min-height: 3300px;
             overflow-x: hidden;
             top: 100px;
         }
@@ -1664,5 +1664,6 @@ footer{
             }
         } 
     }  
+
 }
 //footer結束
