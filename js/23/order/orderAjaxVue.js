@@ -6,6 +6,7 @@ const app = new Vue({
             isShow:false, //綁定 v-show值
             paymentMethod:null,
             detail:null,
+            code:null,
         }
     },
     
@@ -45,5 +46,24 @@ const app = new Vue({
                 });
             
         },
+        ship(e){
+            const self = this;
+            let orderNum = $(e.target).val();
+            // console.log(orderNum);
+            $.ajax({
+
+                url:'../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                data:{orderNum},
+                type:'POST',
+                dataType:'text',
+                success: function(res){
+                     console.log(res);   
+                     self.code = res;                 
+                },
+                error: function(res){
+                    console.log(res);
+                },
+            });
+        }
     },
 });
