@@ -446,6 +446,7 @@ Vue.component('member', {
         }
 
       });
+
     },
     // 上傳大頭貼
     uploadPicBtn() {
@@ -473,6 +474,11 @@ Vue.component('member', {
         alert("上傳圖片成功");
 
       });
+
+      // 全域溝通 當member上傳圖片執行headerPic函式，header就變相被執行
+      // memheader.js:237行
+      headerPic();
+
     },
     // 傳入父層，控制class
     sync() {
@@ -1361,7 +1367,6 @@ let vm = new Vue({
       // 撈密碼
       this.pwd();
     },
-
   },
   mounted() {
     (function () {
