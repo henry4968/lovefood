@@ -92,7 +92,6 @@ Vue.component('memhead', {
         logIncheck() {
             if (checkdata != '') {
                 if (checkdata.substr(0, 2) == 'MB') {
-                    this.memberimg = '../img/03/mempeoplecirclechange.png';
                     this.jumppage = './memberInformation.html';
                 } else if ((checkdata.substr(0, 2) == 'SP')) {
                     alert('尚未登入會員，請登入會員');
@@ -198,6 +197,7 @@ let header = new Vue({
         // 看看是一般會員或是賣家會員
         checklogin() {
             axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                console.log(res);
                 // 賣家或是買家ID
                 checkdata = res.data;
                 // console.log(checkdata.substr(0, 2));
