@@ -231,3 +231,16 @@ let header = new Vue({
     updated() {
     },
 });
+
+// 全域溝通 當member上傳圖片執行headerPic函式，header就變相被執行
+// memberInformation.js:477行
+function headerPic() {
+    // 撈圖片
+    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+        data = res.data
+        // console.log(data);
+        if (data != "") {
+            $('#navIcons03 img').attr('src', atob(data));
+        }
+    });
+}
