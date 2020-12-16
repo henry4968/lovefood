@@ -27,7 +27,7 @@ const app = new Vue({
 
                     url:'../PHP/backStage/order/orderQuery.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                     data:{orderNum,memberNum,phone,memberAccount,pick1,pick2,orderStatus},
-                    type:'POST',
+                    type:'GET',
                     dataType:'JSON',
                     traditional: true,
                     success: function(res){
