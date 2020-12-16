@@ -767,17 +767,31 @@ Vue.component('order', {
       `,
   data() {
     return {
+      // 不同的class切換
       chagestatussamebg: 1,
       foursameBorderapp: '',
     }
   },
   methods: {
+    // 不同的class切換
     statussame(num) {
       this.chagestatussamebg = num
     },
     sync() {
+      // 控制父層 class
       this.$emit("my-click", false)
     },
+    // 撈全部訂單
+    allselect() {
+      console.log(1);
+      axios.post('').then(res => {
+        data = res.data;
+      });
+    },
+  },
+  mounted() {
+    // 撈全部訂單
+    this.allselect();
   },
 });
 
