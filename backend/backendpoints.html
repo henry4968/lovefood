@@ -108,9 +108,11 @@
             <main>
                 <div id="pointsDataControlArea">
                     <div id="pointsDataFilterTabsBlock">
-                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab tabActive" @click="switchTab01">
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab" @click="showTab = true"
+                            :class="{'tabActive' : showTab === true}">
                             單筆編輯</div>
-                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab" @click="switchTab02">批次上傳</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab" @click="showTab = false"
+                            :class="{'tabActive' : showTab === false}">批次上傳</div>
                     </div>
                     <div id="pointsDataFilter" v-show="showTab">
                         <div id="pointsDataFilterLeftUpperBlock">
@@ -158,13 +160,15 @@
                             </div>
                         </div>
                     </div>
-                    <div id="pointsDataUploader" v-show="!showTab">
+                    <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
-                        <form action="../PHP/backStage/points/pointsImport.php" method="POST">
+                        <input id="csvFile" type="file" name="importCSV">
+                        <div @click="uploadCSV()" type="div">確認上傳</div>
+                        <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST">
                             <input type="file" name="importCSV" enctype="multipart/form-data">
                             <button type="submit">確認上傳</button>
-                        </form>
-                    </div>
+                        </form> -->
+                    </form>
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
                     <table>
@@ -291,6 +295,9 @@
                             </tbody>
                         </table>
                     </div>
+                </div>
+                <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">
+                    123
                 </div>
             </main>
         </div>
