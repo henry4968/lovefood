@@ -1,15 +1,14 @@
 const app = new Vue({
     el: '.containerPoints',
-    data() {
-        return {
-            pointsIssance: null,
-            pointsDiscount: null,
-            pointsOfMember: null,
-            issanceLog: null,
-            discountLog: null,
-            ShowFinalPoints: null,
-            isShow: false
-        }
+    data: {
+        pointsIssance: null,
+        pointsDiscount: null,
+        pointsOfMember: null,
+        issanceLog: null,
+        discountLog: null,
+        ShowFinalPoints: null,
+        showTab: true,
+        showDetails: true
     },
 
     mounted() {
@@ -96,7 +95,7 @@ const app = new Vue({
     methods: {
 
         showContent(e) {
-            this.isShow = true;
+            this.showDetails = false;
 
             const self = this;
             let dataId = $(e.target).data('id');
@@ -124,7 +123,7 @@ const app = new Vue({
         },
 
         query() {
-            this.isShow = false;
+            this.showDetails = false;
 
             const self = this;
             let id = $("input[name='id']").val();
@@ -214,8 +213,98 @@ const app = new Vue({
             });
         },
 
+        switchTab01() {
+            this.showTab = true;
+
+            let tabs = document.querySelectorAll(".pointsDataFilterTab");
+            let tab01 = document.querySelector("#pointsDataFilterTab01");
+
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("tabActive");
+            }
+            tab01.classList.add("tabActive");
+        },
+
+        switchTab02() {
+            this.showTab = false;
+
+            let tabs = document.querySelectorAll(".pointsDataFilterTab");
+            let tab02 = document.querySelector("#pointsDataFilterTab02");
+
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("tabActive");
+            }
+            tab02.classList.add("tabActive");
+        },
+
         backToPreviousPage() {
-            this.isShow = false;
+            this.showDetails = true;
+
+            const self = this;
+            let id = $("input[name='id']").val();
+            let account = $("input[name='account']").val();
+            let name = $("input[name='name']").val();
+            let phone = $("input[name='phone']").val();
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsQuery.php',
+                type: 'POST',
+                data: { id, account, name, phone, dateStart, dateEnd },
+                success: function (res) {
+                    self.pointsIssance = res.pointsIssance;
+                    self.pointsDiscount = res.pointsDiscount;
+                    self.pointsOfMember = res.pointsOfMember;
+                    self.issanceLog = res.issanceLog;
+                    self.discountLog = res.discountLog;
+
+                    let rMB = res.pointsOfMember;
+                    let rPI = res.pointsIssance;
+                    let rPD = res.pointsDiscount;
+                    let rIL = res.issanceLog;
+                    let rDL = res.discountLog;
+
+                    for (let i = 0; i < rPI.length; i++) {
+
+                        for (let j = 0; j < rMB.length; j++) {
+                            if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
+                                rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                            }
+                        }
+                    }
+
+                    for (let i = 0; i < rPD.length; i++) {
+
+                        for (let j = 0; j < rMB.length; j++) {
+
+                            if (rMB[j].MEMBER_ID == rPD[i].MEMBER_ID_for_OD) {
+                                rMB[j].TOTAL_DISCOUNT = rPD[i].TOTAL_DISCOUNT;
+                            }
+                        }
+                    }
+
+                    console.log(rMB);
+                    console.log(rPI);
+                    console.log(rPD);
+                    console.log(rIL);
+                    console.log(rDL);
+
+                    let queryDateStart = document.querySelector("#queryDateStart");
+                    let showDateStart = document.querySelector("#showDateStart");
+                    let queryDateEnd = document.querySelector("#queryDateEnd");
+                    let showDateEnd = document.querySelector("#showDateEnd");
+
+                    showDateStart.innerHTML = queryDateStart.value;
+                    showDateEnd.innerHTML = queryDateEnd.value;
+
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+                dataType: "JSON",
+            });
         }
 
     }
