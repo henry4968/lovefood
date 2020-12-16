@@ -11,9 +11,12 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
-    <link rel="icon" type="image/png" href="/img/21/donation_description/map_leaf.png" />
+
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
 
+    <!-- <script src="../js/21/donation.js"></script> -->
+    <script src="../js/21/donate_now.js"></script>
     <script>
 
     </script>
@@ -103,20 +106,20 @@
 
 
             <div class="title">
-                <img src="/img/21/donation_description/title_bg.png" alt="">
+                <img src="../img/21/donation_description/title_bg.png" alt="">
                 <h2>立即捐款</h2>
             </div>
 
             <p>獻出一份愛心，分享滿腹的溫暖。</p>
 
             <div class="donateForm">
-                <form action="../PHP/Frontend/donationInsert.php" method="post">
-
+                <form id="form" action="../PHP/Frontend/donationInsert.php" method="post">
+                    <!-- <form id="form"> -->
                     <div class="donateItem">
 
                         <div class="donateLine">
                             <div class="donateTitle">
-                                <img src="/img/21/donation_now/form_icon.png" alt="">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
                                 <span>捐款項目</span>
                             </div>
                         </div>
@@ -165,7 +168,7 @@
 
                             <div class="formRow" id="donateMoney">
                                 <!-- 選單標題 -->
-                                <label class="formlabel">
+                                <label class="formlabel" for="amounttext">
                                     <div class="starTxt">*</div>捐款金額：
                                 </label>
 
@@ -173,7 +176,7 @@
 
                                     <!-- 短版表單 -->
                                     <div class="form-text" id="form_Explanation">
-                                        <input type="text" class="form-text-input" id="amounttext" name="amount">
+                                        <input type="number" class="form-text-input" id="amounttext" name="amount">
                                         <div class="formExplanation">(輸入捐款金額或選取以下金額)
                                         </div>
                                     </div>
@@ -198,7 +201,7 @@
 
                         <div class="donateLine">
                             <div class="donateTitle">
-                                <img src="/img/21/donation_now/form_icon.png" alt="">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
                                 <span>基本資料</span>
                             </div>
                         </div>
@@ -276,7 +279,7 @@
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="text" class="form-text-input-long" id=""
+                                        <input type="date" class="form-text-input-long" id=""
                                             placeholder="填寫格式：1992-01-01" name="birthday">
 
                                     </div>
@@ -328,47 +331,31 @@
                                     <!-- 圓形選單 -->
                                     <div class="form-radio">
 
-                                        <input type="radio" class="form-radio-input" name="
-                                        gender" id="genderRadio1" value="1">
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio1"
+                                            value="1">
 
                                         <label class="form-radio-label" for="genderRadio1">男</label>
                                     </div>
 
                                     <div class="form-radio">
 
-                                        <input type="radio" class="form-radio-input" name="
-                                        gender" id="genderRadio2" value="2">
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio2"
+                                            value="2">
 
                                         <label class="form-radio-label" for="genderRadio2">女</label>
                                     </div>
 
                                     <div class="form-radio">
 
-                                        <input type="radio" class="form-radio-input" name="
-                                        gender" id="genderRadio3" value="3">
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio3"
+                                            value="3">
 
                                         <label class="form-radio-label" for="genderRadio3">其他</label>
                                     </div>
                                 </div>
                             </div>
 
-                            <!-- <div class="formRow-message">
-                                選單標題
-                                <label class="formlabel-message" for="message">
-                                    備註：
-                                </label>
 
-                                <div class="inputArea">
-
-                                    message表單
-                                    <div class="form-message">
-                                        <input type="message" class="form-message-input" id="" placeholder="">
-
-                                    </div>
-                                </div>
-                            </div> -->
-
-                            <!-- message -->
                             <div class="formRow">
                                 <!-- 選單標題 -->
                                 <label class="formlabel">
@@ -386,7 +373,7 @@
 
                         <div class="donateLine" id="donateLine2">
                             <div class="donateTitle">
-                                <img src="/img/21/donation_now/form_icon.png" alt="">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
                                 <span>信用卡資料</span>
                             </div>
                         </div>
@@ -431,7 +418,8 @@
 
                                     <!-- 長版表單 -->
                                     <div class="form-text-long">
-                                        <input type="name" class="form-text-input-long" id="" placeholder="">
+                                        <input type="name" class="form-text-input-long" name="cardName" id=""
+                                            placeholder="">
 
                                     </div>
                                 </div>
@@ -449,13 +437,17 @@
 
                                     <!-- 信用卡卡號表單 -->
                                     <div class="form-text-four">
-                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
                                         <div class="cardNumberLine">-</div>
-                                        <input type="card" class="form-text-input-four" id="" maxlength="4">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
                                     </div>
                                 </div>
                             </div>
@@ -471,10 +463,10 @@
 
                                     <!-- 短版表單 -->
                                     <div class="form-text" id="">
-                                        <input type="text" class="form-text-input" id="cardmonthtext">
+                                        <input type="number" class="form-text-input" id="cardmonthtext" name="cardDate">
                                         <div class="labelTxt">月
                                         </div>
-                                        <input type="text" class="form-text-input" id="cardyeartext">
+                                        <input type="number" class="form-text-input" id="cardyeartext" name="cardDate">
                                         <div class="labelTxt">年
                                         </div>
                                     </div>
@@ -491,7 +483,8 @@
 
                                     <!-- 短版表單 -->
                                     <div class="form-text">
-                                        <input type="text" class="form-text-input" id="cardthreetext">
+                                        <input type="number" class="form-text-input" id="cardthreetext"
+                                            name="cardThree">
                                     </div>
                                 </div>
                             </div>
@@ -501,7 +494,7 @@
 
                         <div class="donateLine">
                             <div class="donateTitle">
-                                <img src="/img/21/donation_now/form_icon.png" alt="">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
                                 <span>收據資訊</span>
                             </div>
                         </div>
@@ -584,7 +577,7 @@
 
                                 <div class="form-check">
                                     <div class="starTxt">*</div>
-                                    <input type="checkbox" class="form-checkbox" id="checkbox1">
+                                    <input type="checkbox" class="form-checkbox" id="finalcheck" name="check">
                                     <label class="form-checkbox-label" for="checkbox1">我已詳閱並同意本協會捐款規章，詳細聲明
                                         <a class="checkInfo" href="">請參閱</a>。</label>
                                 </div>
@@ -597,7 +590,7 @@
 
                                 <div class="checkButton">
                                     <input type="reset" class="Button" id="cleanButton" value=清除重填>
-                                    <input type="submit" class="Button" id="sendButton" value=確認送出>
+                                    <input type="button" class="Button" id="sendButton" value=確認送出 disabled>
                                 </div>
 
 
@@ -629,7 +622,6 @@
             </div>
         </footer>
     </div>
-    <script src="../js/21/donation.js"></script>
 </body>
 
 </html>
