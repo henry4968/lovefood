@@ -8,29 +8,6 @@
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-    <script>
-        $(function () {
-            $(".financeDataFilterTab").click(function () {
-                $(".financeDataFilterTab").removeClass("tabActive");
-                $(this).addClass("tabActive");
-            });
-
-            // $("#financeDataFilterTab01").click(function () {
-            //     $("#financeFilterForSelling, #financeShowSellingPage").css("display", "block");
-            //     $("#supplierID").css("display", "block");
-            //     $("#financeFilterForDonation, #financeShowDonationPage").css("display", "none");
-
-            // });
-
-            // $("#financeDataFilterTab02").click(function () {
-            //     $("#financeFilterForSelling, #financeShowSellingPage").css("display", "none");
-            //     $("#supplierID").css("display", "none");
-            //     $("#financeFilterForDonation").css("display", "flex");
-            //     $("#financeShowDonationPage").css("display", "block");
-
-            // });
-        });
-    </script>
 </head>
 
 <body>
@@ -188,7 +165,7 @@
                             <img src="../img/22/backend/temp_diagram.png" alt="">
                         </div>
                     </div>
-                    <div id="financeShowDonationPage" v-show="!showTab && isShow">
+                    <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">
                             查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
                         </div>
@@ -235,7 +212,7 @@
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
-                    <div id="financeShowDonationDetailsPage" v-show="!showTab && !isShow"
+                    <div id="financeShowDonationDetailsPage" v-show="!showTab && !showDetails"
                         v-for="data in donationDetals">
                         <button @click="backToPreviousPage">
                             回上頁

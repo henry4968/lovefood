@@ -11,26 +11,6 @@
     <script src="../node_modules/moment/min/moment.min.js"></script>
     <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
     <script src="../js/23/product/datetime.js"></script>
-    <script>
-        $(function () {
-            $(".pointsDataFilterTab").click(function () {
-                $(".pointsDataFilterTab").removeClass("tabActive");
-                $(this).addClass("tabActive");
-            });
-
-            $("#pointsDataFilterTab01").click(function () {
-                $("#pointsResultData, #pointsLogData, #pointsDataFilter").css("display", "block");
-                $("#pointsDataUploader").css("display", "none");
-
-            });
-
-            $("#pointsDataFilterTab02").click(function () {
-                $("#pointsResultData, #pointsLogData, #pointsDataFilter").css("display", "none");
-                $("#pointsDataUploader").css("display", "block");
-
-            });
-        });
-    </script>
 </head>
 
 <body>
@@ -128,14 +108,11 @@
             <main>
                 <div id="pointsDataControlArea">
                     <div id="pointsDataFilterTabsBlock">
-                        <a href="#SingleEdit">
-                            <div id="pointsDataFilterTab01" class="pointsDataFilterTab tabActive">單筆編輯</div>
-                        </a>
-                        <a href="#BatchUpload">
-                            <div id="pointsDataFilterTab02" class="pointsDataFilterTab">批次上傳</div>
-                        </a>
+                        <div id="pointsDataFilterTab01" class="pointsDataFilterTab tabActive" @click="switchTab01">
+                            單筆編輯</div>
+                        <div id="pointsDataFilterTab02" class="pointsDataFilterTab" @click="switchTab02">批次上傳</div>
                     </div>
-                    <div id="pointsDataFilter">
+                    <div id="pointsDataFilter" v-show="showTab">
                         <div id="pointsDataFilterLeftUpperBlock">
                             <div id="pointsDataFilterLeftUpperBlockRow01" class="pointsDataFilterLeftUpperBlockRow">
                                 <div>會員編號</div>
@@ -181,7 +158,7 @@
                             </div>
                         </div>
                     </div>
-                    <div id="pointsDataUploader">
+                    <div id="pointsDataUploader" v-show="!showTab">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <form action="../PHP/backStage/points/pointsImport.php" method="POST">
                             <input type="file" name="importCSV" enctype="multipart/form-data">
@@ -189,7 +166,7 @@
                         </form>
                     </div>
                 </div>
-                <div id="pointsResultData" class="pointsDataArea" v-if="!isShow">
+                <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
                     <table>
                         <tr id="pointsDataHeader">
                             <th>序號</th>
@@ -256,7 +233,7 @@
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
-                <div id="pointsLogData" class="pointsDataArea" v-if="isShow">
+                <div id="pointsLogData" class="pointsDataArea" v-show="showTab && !showDetails">
                     <button @click="backToPreviousPage">
                         回上頁
                     </button>

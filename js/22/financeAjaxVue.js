@@ -5,7 +5,7 @@ const app = new Vue({
         donationLog: null,
         totalDonation: null,
         showTab: true,
-        isShow: true,
+        showDetails: true
     },
 
     mounted() {
@@ -62,7 +62,7 @@ const app = new Vue({
 
     methods: {
         query() {
-            this.isShow = false;
+            this.showDetails = false;
 
             const self = this;
             let DONATION_ID = $("input[name='DONATION_ID']").val();
@@ -124,7 +124,7 @@ const app = new Vue({
         },
 
         showContent(e) {
-            this.isShow = false;
+            this.showDetails = false;
 
             const self = this;
             let DONATION_ID = $(e.target).data('id');
@@ -241,16 +241,29 @@ const app = new Vue({
         },
         switchTab01() {
             this.showTab = true;
+
+            let tabs = document.querySelectorAll(".financeDataFilterTab");
+            let tab01 = document.querySelector("#financeDataFilterTab01");
+
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("tabActive");
+            }
+            tab01.classList.add("tabActive");
         },
         switchTab02() {
             this.showTab = false;
+
+            let tabs = document.querySelectorAll(".financeDataFilterTab");
+            let tab02 = document.querySelector("#financeDataFilterTab02");
+
+            for (let i = 0; i < tabs.length; i++) {
+                tabs[i].classList.remove("tabActive");
+            }
+            tab02.classList.add("tabActive");
         },
 
         backToPreviousPage() {
-            this.isShow = true;
-
-            // var a = document.querySelector("#financeShowDonationPage");
-            // a.style.cssText = "display: block";
+            this.showDetails = true;
         }
 
 

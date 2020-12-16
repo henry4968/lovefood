@@ -37,8 +37,9 @@
         //         $statementCSVInsert->execute(); 
         //     }
         // }
-        fclose($handle);
+        // fclose($handle);
 
-        echo "<script>history.back(-1)</script>";
+        echo "<script>history.back(-1);";
+
     }
 ?>
