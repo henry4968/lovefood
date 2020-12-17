@@ -9,7 +9,7 @@ const app = new Vue({
         ShowFinalPoints: null,
         showTab: false,
         showDetails: true,
-        uploadFile: null,
+        uploadCSVLog: null,
     },
 
     mounted() {
@@ -214,37 +214,37 @@ const app = new Vue({
             });
         },
 
-        // uploadCSV() {
+        uploadCSV() {
+            const self = this;
 
-        //     var fileData = $('#csvFile').prop('files')[0];
-        //     var formData = new FormData();
-        //     formData.append('csvFile', fileData, 'csvFile');
+            var fileData = $('#csvFile').prop('files')[0];
+            var formData = new FormData();
+            formData.append('csvFile', fileData, 'csvFile');
 
-        //     console.log(fileData);
-        //     for (var pair of formData.entries()) {
-        //         console.log(pair[0] + ', ' + pair[1]);
-        //     }
-        //     // formData.append('csvFile', '112233');
+            console.log(fileData);
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ', ' + pair[1]);
+            }
 
-        //     $.ajax({
-        //         url: '../PHP/backStage/points/pointsImport.php',
-        //         method: 'POST',
-        //         processData: false,
-        //         contentType: false,
-        //         data: formData,
-        //         success: function (res) {
-        //             alert("ya");
-        //             console.log(res);
-        //             // console.log(uploadFile);
-        //         },
-        //         error: function (res) {
-        //             alert("no");
-        //             console.log(res);
-        //             // console.log(uploadFile);
-        //         }
-        //     });
+            $.ajax({
+                url: '../PHP/backStage/points/pointsImport.php',
+                method: 'POST',
+                processData: false,
+                contentType: false,
+                data: formData,
+                dataType: 'JSON',
+                success: function (res) {
+                    alert("上傳成功！");
+                    self.uploadCSVLog = res;
+                    console.log(res);
+                },
+                error: function (res) {
+                    alert("上傳失敗！請檢察控制台日誌訊息。");
+                    console.log(res.responseText);
+                }
+            });
 
-        // },
+        },
 
     }
 });
