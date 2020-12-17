@@ -1,10 +1,10 @@
 const app = new Vue({
     el: '.containerPoints',
     data: {
-        pointsIssance: null,
+        pointsIssuance: null,
         pointsDiscount: null,
         pointsOfMember: null,
-        issanceLog: null,
+        issuanceLog: null,
         discountLog: null,
         ShowFinalPoints: null,
         showTab: false,
@@ -26,22 +26,22 @@ const app = new Vue({
             type: 'POST',
             data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
-                self.pointsIssance = res.pointsIssance;
+                self.pointsIssuance = res.pointsIssuance;
                 self.pointsDiscount = res.pointsDiscount;
                 self.pointsOfMember = res.pointsOfMember;
-                self.issanceLog = res.issanceLog;
+                self.issuanceLog = res.issuanceLog;
                 self.discountLog = res.discountLog;
 
                 var rMB = res.pointsOfMember;
-                var rPI = res.pointsIssance;
+                var rPI = res.pointsIssuance;
                 var rPD = res.pointsDiscount;
-                var rIL = res.issanceLog;
+                var rIL = res.issuanceLog;
                 var rDL = res.discountLog;
 
                 for (let i = 0; i < rPI.length; i++) {
                     for (let j = 0; j < rMB.length; j++) {
                         if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                            rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                            rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                         }
                     }
                 }
@@ -110,7 +110,7 @@ const app = new Vue({
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
                 },
@@ -139,23 +139,23 @@ const app = new Vue({
                 type: 'POST',
                 data: { id, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
-                    self.pointsIssance = res.pointsIssance;
+                    self.pointsIssuance = res.pointsIssuance;
                     self.pointsDiscount = res.pointsDiscount;
                     self.pointsOfMember = res.pointsOfMember;
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
 
                     let rMB = res.pointsOfMember;
-                    let rPI = res.pointsIssance;
+                    let rPI = res.pointsIssuance;
                     let rPD = res.pointsDiscount;
-                    let rIL = res.issanceLog;
+                    let rIL = res.issuanceLog;
                     let rDL = res.discountLog;
 
                     for (let i = 0; i < rPI.length; i++) {
 
                         for (let j = 0; j < rMB.length; j++) {
                             if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                                rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                                rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                             }
                         }
                     }

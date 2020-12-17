@@ -9,7 +9,7 @@
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-                $sqlSelectMaxId = "SELECT max(POINTS_ISSANCER_ID) FROM Lovefood.POINTS_ISSANCE";
+                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM Lovefood.POINTS_ISSUANCE";
 
                 $statementSelectMaxId  = $pdo->prepare($sqlSelectMaxId);
                 $statementSelectMaxId->execute();
@@ -31,17 +31,17 @@
                     $insertId = "PI00".$maxNumber;
                 }
 
-                $sqlCSVInsert = "INSERT INTO POINTS_ISSANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
+                $sqlCSVInsert = "INSERT INTO POINTS_ISSUANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
                 $statementCSVInsert  = $pdo->prepare($sqlCSVInsert);
                 $statementCSVInsert->execute();
 
-                $sqlPointsUpdate = "UPDATE MEMBER SET POINTS = POINTS + ? WHERE MEMBER_ID = ?";
+                $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
                 $statesmentsqlPointsUpdate = $pdo->prepare($sqlPointsUpdate);
                 $statesmentsqlPointsUpdate->bindValue(1,$data[1]);
                 $statesmentsqlPointsUpdate->bindValue(2,$data[0]);
                 $statesmentsqlPointsUpdate->execute();
 
-                $sqlUploadRow = "SELECT PI.POINTS_ISSANCER_ID, PI.MEMBER_ID_for_PI, MB.ACCOUNT, MB.NAME, PI.ISSANCE_NUM, PI.ISSANCE_DATE FROM POINTS_ISSANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSANCER_ID like ?";
+                $sqlUploadRow = "SELECT PI.POINTS_ISSUANCE_ID, PI.MEMBER_ID_for_PI, MB.MEMBER_ACCOUNT, MB.MEMBER_NAME, PI.POINTS_ISSUANCE_NUM, PI.POINTS_ISSUANCE_DATE, MB.MEMBER_POINTS FROM POINTS_ISSUANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSUANCE_ID like ?";
                 $statesmentUploadRow = $pdo->prepare($sqlUploadRow);
                 $statesmentUploadRow->bindValue(1,'%'.@$insertId.'%');
                 $statesmentUploadRow->execute();

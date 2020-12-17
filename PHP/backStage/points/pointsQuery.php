@@ -3,22 +3,22 @@
     include("../Lib/UtilClass2.php");
     $Util = new UtilClass();
 
-    $sqlMember = "SELECT MEMBER_ID, `ACCOUNT`, `NAME`, PHONE, POINTS FROM `MEMBER` WHERE POINTS >= 0 and MEMBER_ID like ? and ACCOUNT like ? and `NAME` like ? and PHONE like ?";
-    $sqlTotalIssance = "SELECT MEMBER_ID_for_PI, sum(ISSANCE_NUM) as TOTAL_ISSANCE FROM Lovefood.POINTS_ISSANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.ISSANCE_DATE >= MB.REG_DATE && PI.ISSANCE_DATE <= ? GROUP BY MEMBER_ID";
-    $sqlTotalDiscount = "SELECT MEMBER_ID_for_OD, sum(ifnull(DISCOUNT, 0)) as TOTAL_DISCOUNT FROM Lovefood.ORDER WHERE MEMBER_ID_for_OD like ? && ORDER_DATE >= ? && ORDER_DATE <= ? GROUP BY MEMBER_ID_for_OD";
+    $sqlMember = "SELECT MEMBER_ID, `MEMBER_ACCOUNT`, `MEMBER_NAME`, MEMBER_PHONE, MEMBER_POINTS FROM `MEMBER` WHERE MEMBER_CLASS = 1 and MEMBER_ID like ? and MEMBER_ACCOUNT like ? and `MEMBER_NAME` like ? and MEMBER_PHONE like ?";
+    $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM Lovefood.POINTS_ISSUANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.POINTS_ISSUANCE_DATE >= MB.MEMBER_REG_DATE && PI.POINTS_ISSUANCE_DATE <= ? GROUP BY MEMBER_ID";
+    $sqlTotalDiscount = "SELECT MEMBER_ID_for_OD, sum(ifnull(ORDER_DISCOUNT, 0)) as TOTAL_DISCOUNT FROM Lovefood.ORDER WHERE MEMBER_ID_for_OD like ? && ORDER_DATE >= ? && ORDER_DATE <= ? GROUP BY MEMBER_ID_for_OD";
 
     $statesmentMember = $Util->getPDO()->prepare($sqlMember);
-    $statesmentTotalIssance = $Util->getPDO()->prepare($sqlTotalIssance);
+    $statesmentTotalIssuance = $Util->getPDO()->prepare($sqlTotalIssuance);
     $statesmentTotalDiscount = $Util->getPDO()->prepare($sqlTotalDiscount);
 
     // 搜尋功能
     if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
-        $statesmentTotalIssance->bindValue(1,'%'.@$_POST["id"].'%');
-        $statesmentTotalIssance->bindValue(2,$_POST["dateEnd"]);
+        $statesmentTotalIssuance->bindValue(1,'%'.@$_POST["id"].'%');
+        $statesmentTotalIssuance->bindValue(2,$_POST["dateEnd"]);
 
-        $statesmentTotalIssance->execute();
-        $dataIS = $statesmentTotalIssance->fetchAll(PDO::FETCH_ASSOC);
+        $statesmentTotalIssuance->execute();
+        $dataIS = $statesmentTotalIssuance->fetchAll(PDO::FETCH_ASSOC);
 
         $statesmentTotalDiscount->bindValue(1,'%'.@$_POST["id"].'%');
         $statesmentTotalDiscount->bindValue(2,$_POST["dateStart"]);
@@ -35,7 +35,7 @@
         $statesmentMember->execute();
         $dataMB = $statesmentMember->fetchAll(PDO::FETCH_ASSOC); 
 
-        $pointsQueryWithDate = array('pointsOfMember' => $dataMB,'pointsIssance' =>$dataIS, 'pointsDiscount' =>$dataDS);
+        $pointsQueryWithDate = array('pointsOfMember' => $dataMB,'pointsIssuance' =>$dataIS, 'pointsDiscount' =>$dataDS);
         print json_encode($pointsQueryWithDate);
         
     }else{
