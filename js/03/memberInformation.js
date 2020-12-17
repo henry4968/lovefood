@@ -546,7 +546,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate" v-if="order.ORDER_DATE">{{order.ORDER_DATE}}</p>
+                <p class="contentsame orderdate" v-if="datechange == true">{{order.ORDER_DATE}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
@@ -576,7 +576,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle ordercondition">訂單狀態</h3>
                 </div>
-                <p class="contentsame ordercondition">待出貨</p>
+                <p class="contentsame ordercondition" v-if="order.ORDER_STATUS">{{order.ORDER_STATUS}}</p>
               </div>
             </div>
 
@@ -586,31 +586,39 @@ Vue.component('order', {
                 <div class="itemstopBorder">
                   <div class="fourcircleBorder">
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS != '取消' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">成立訂單</span>
-                        <span class="stablishtime">16:30</span>
+                        <span class="stablishtime" v-if="datechange == 2" >{{order.ORDER_DATE}}</span>
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">等待出貨</span>
-                        <span class="stablishtime">00:00</span>
+                      <!--   <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getoutcircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">等待取貨</span>
-                        <span class="stablishtime">00:00</span>
+                      <!-- <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成'" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else="order.ORDER_STATUS != '取貨完成'" src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">已經取貨</span>
-                        <span class="stablishtime">00:00</span>
+                       <span class="stablishtime">00:00</span>
                       </div>
                     </div>
                   </div>
@@ -708,7 +716,9 @@ Vue.component('order', {
       // 不同的class切換
       chagestatussamebg: 1,
       foursameBorderapp: '',
+      // 訂單
       orderList: null,
+      datechange: true,
     }
   },
   methods: {
@@ -724,12 +734,46 @@ Vue.component('order', {
     allselect() {
 
       axios.post('../PHP/Frontend/selecAll.php').then(res => {
-        // data = res.data;
-        res.data.forEach(i => {
-          i.ORDER_DATE = i.ORDER_DATE.substr(0, 10);
+        // 撈order
+        this.orderList = res.data
+
+        // 日期互換時間
+        if (this.datechange == true) {
+          // 訂單日期
+          res.data.forEach(i => {
+            i.ORDER_DATE = i.ORDER_DATE.substr(0, 10);
+          });
+        } else if (this.datechange == 2) {
+          // 訂單日期=>成立時間
+          res.data.forEach(c => {
+            c.ORDER_DATE = c.ORDER_DATE.substr(10, 6);
+          });
+        }
+
+        // 訂單狀態
+        res.data.forEach(a => {
+          // 假如訂單狀態:0=>取消
+          if (a.ORDER_STATUS == 0) {
+            a.ORDER_STATUS = '取消'
+          }
+          // 假如訂單狀態:1=>待出貨
+          if (a.ORDER_STATUS == 1) {
+            a.ORDER_STATUS = '待出貨'
+          }
+          // 假如訂單狀態:2=>待取貨
+          if (a.ORDER_STATUS == 2) {
+            a.ORDER_STATUS = '待取貨'
+          }
+          // 假如訂單狀態:3=>取貨完成
+          if (a.ORDER_STATUS == 3) {
+            a.ORDER_STATUS = '取貨完成'
+          }
+
         });
 
-        this.orderList = res.data
+
+
+
 
         // console.log(this.orderList);
       });

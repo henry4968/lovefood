@@ -12,8 +12,6 @@
     //給值
     $statement->bindValue(1, $_POST["account"]);
     $statement->bindValue(2, $_POST["pwd"]);
-    // $statement->bindValue(1, "j23063519@gmail.com");
-    // $statement->bindValue(2, "1qaz2wsx3e");
     $statement->execute();
     $data = $statement->fetchAll();
 
@@ -71,4 +69,3 @@
         //跳出提示停留在登入頁
         echo "<script>alert('帳號或密碼錯誤!'); location.href = '../../frontend/signUp_signIn.html';</script>"; 
     }
-?>
