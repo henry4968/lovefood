@@ -1,20 +1,3 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-<div class="area2Txt">
-    <img src="../img/21/donation_description/1apple.png" alt="">
-    <div class="area2TxtTxt">
-        <h3>即期食品的第二舞台</h3>
-        <p>餐飲業者通常無法精確掌握實際的需求量，加上食安期效和倉儲成本等考量，通常會丟棄無法賣完的食物。以便利商店為例，為使貨架更新流暢，在食品尚未真正過期前，便會下架丟棄，每年浪費的總價值高達70億臺幣。而Lovefood的建立初衷，正是希望透過平台曝光的方式，為這些即期食品和有需要的人們爭取「黃金時間」。
-        </p>
-    </div>
-</div> -->
-
 <?php
 
 include("./Lib/connection.php");
@@ -70,6 +53,3 @@ $sqlStatment->execute();
 // header("location:http://localhost/Lovefood/frontend/index.html");
 
 ?>
-
-<!-- </body>
-</html> -->

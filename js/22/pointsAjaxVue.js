@@ -9,7 +9,7 @@ const app = new Vue({
         ShowFinalPoints: null,
         showTab: false,
         showDetails: true,
-        uploadFile: null
+        uploadFile: null,
     },
 
     mounted() {
@@ -214,85 +214,37 @@ const app = new Vue({
             });
         },
 
-        uploadCSV() {
-            var formData = new FormData();
+        // uploadCSV() {
 
-            formData.append('file', document.getElementById(
-                'csvFile'
-            ).files[0], document.getElementById(
-                'csvFile'
-            ).files[0].name);
-            // console.log(document.getElementById(
-            //     'csvFile'
-            // ).files[0])
-            // formData.append('abc', '234234')
+        //     var fileData = $('#csvFile').prop('files')[0];
+        //     var formData = new FormData();
+        //     formData.append('csvFile', fileData, 'csvFile');
 
-            // fetch('../PHP/backStage/points/pointsImport.php', {
-            //     method: 'POST',
-            //     body: formData
-            // }).then(res => {
-            //     console.log(res);
+        //     console.log(fileData);
+        //     for (var pair of formData.entries()) {
+        //         console.log(pair[0] + ', ' + pair[1]);
+        //     }
+        //     // formData.append('csvFile', '112233');
 
-            // }).then(json => {
-            //     console.log(json);
+        //     $.ajax({
+        //         url: '../PHP/backStage/points/pointsImport.php',
+        //         method: 'POST',
+        //         processData: false,
+        //         contentType: false,
+        //         data: formData,
+        //         success: function (res) {
+        //             alert("ya");
+        //             console.log(res);
+        //             // console.log(uploadFile);
+        //         },
+        //         error: function (res) {
+        //             alert("no");
+        //             console.log(res);
+        //             // console.log(uploadFile);
+        //         }
+        //     });
 
-            // })
-            //     .catch(error => console.log(error))
-
-
-
-
-            $.ajax({
-                url: '../PHP/backStage/points/pointsImport.php',
-                method: 'POST',
-                // dataType: 'json',
-                processData: false,
-                headers: {
-                    contentType: '"multipart/form-data'
-                },
-                contentType: false,
-                data: formData,
-                success: function (res) {
-                    alert("ya");
-                    console.log(res);
-                    // console.log(uploadFile);
-                },
-                error: function (res) {
-                    alert("no");
-                    console.log(res);
-                    // console.log(uploadFile);
-                }
-            });
-
-        },
-
-        switchTab01() {
-            this.showTab = true;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab01 = document.querySelector("#pointsDataFilterTab01");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab01.classList.add("tabActive");
-        },
-
-        switchTab02() {
-            this.showTab = false;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab02 = document.querySelector("#pointsDataFilterTab02");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab02.classList.add("tabActive");
-        },
-
-        backToPreviousPage() {
-            this.query();
-        }
+        // },
 
     }
 });

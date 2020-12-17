@@ -239,28 +239,29 @@ const app = new Vue({
             });
 
         },
-        switchTab01() {
-            this.showTab = true;
 
-            let tabs = document.querySelectorAll(".financeDataFilterTab");
-            let tab01 = document.querySelector("#financeDataFilterTab01");
+        // switchTab01() {
+        //     this.showTab = true;
 
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab01.classList.add("tabActive");
-        },
-        switchTab02() {
-            this.showTab = false;
+        //     let tabs = document.querySelectorAll(".financeDataFilterTab");
+        //     let tab01 = document.querySelector("#financeDataFilterTab01");
 
-            let tabs = document.querySelectorAll(".financeDataFilterTab");
-            let tab02 = document.querySelector("#financeDataFilterTab02");
+        //     for (let i = 0; i < tabs.length; i++) {
+        //         tabs[i].classList.remove("tabActive");
+        //     }
+        //     tab01.classList.add("tabActive");
+        // },
+        // switchTab02() {
+        //     this.showTab = false;
 
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab02.classList.add("tabActive");
-        },
+        //     let tabs = document.querySelectorAll(".financeDataFilterTab");
+        //     let tab02 = document.querySelector("#financeDataFilterTab02");
+
+        //     for (let i = 0; i < tabs.length; i++) {
+        //         tabs[i].classList.remove("tabActive");
+        //     }
+        //     tab02.classList.add("tabActive");
+        // },
 
         backToPreviousPage() {
             this.showDetails = true;

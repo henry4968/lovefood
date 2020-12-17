@@ -105,10 +105,12 @@
             <main>
                 <div id="financeDataFilterArea">
                     <div id="financeDataFilterBlock">
-                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive" @click="switchTab01">
+                        <div id="financeDataFilterTab01" class="financeDataFilterTab" @click="showTab = true"
+                            :class="{'tabActive' : showTab === true}">
                             檢視銷售
                         </div>
-                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="switchTab02">
+                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="showTab = false"
+                            :class="{'tabActive' : showTab === false}">
                             檢視捐款</div>
                     </div>
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
