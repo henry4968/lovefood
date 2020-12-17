@@ -160,14 +160,14 @@
                             </div>
                         </div>
                     </div>
-                    <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data">
+                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <input id="csvFile" type="file" name="importCSV">
                         <div @click="uploadCSV()" type="div">確認上傳</div>
-                        <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST">
-                            <input type="file" name="importCSV" enctype="multipart/form-data">
-                            <button type="submit">確認上傳</button>
-                        </form> -->
+                    </form> -->
+                    <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="importCSV">
+                        <button type="submit">確認上傳</button>
                     </form>
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
@@ -238,7 +238,7 @@
                     </div>
                 </div>
                 <div id="pointsLogData" class="pointsDataArea" v-show="showTab && !showDetails">
-                    <button @click="backToPreviousPage">
+                    <button @click="query">
                         回上頁
                     </button>
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
