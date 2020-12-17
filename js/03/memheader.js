@@ -197,7 +197,7 @@ let header = new Vue({
         // 看看是一般會員或是賣家會員
         checklogin() {
             axios.post('../PHP/Frontend/sessionR.php').then(res => {
-                console.log(res);
+                // console.log(res);
                 // 賣家或是買家ID
                 checkdata = res.data;
                 // console.log(checkdata.substr(0, 2));

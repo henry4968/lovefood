@@ -12,7 +12,7 @@
   // echo $MemberId;
 
   // 建立SQL(update NAME ADDRESS PHONE)
-  $sql = "update member set NAME = ? , ADDRESS = ? , PHONE = ? where MEMBER_ID = ?";
+  $sql = "update member set MEMBER_NAME = ? , MEMBER_ADDRESS = ? , MEMBER_PHONE = ? where MEMBER_ID = ?";
 
   //執行
   $statement = $Util->getPDO()->prepare($sql);

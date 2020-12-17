@@ -11,7 +11,7 @@ $Member = $Member->getMemberID();
 
 //======================================================== 
 //建立SQL 訂單ID
-$sqlodid = "SELECT ORDER_ID,ORDER_DATE,ORDER_STATUS,PICKUP_DATE,DISCOUNT,PICKUP_METHOD from `lovefood`.`order` where MEMBER_ID_for_OD = ?";
+$sqlodid = "SELECT ORDER_ID,ORDER_DATE,ORDER_STATUS,ORDER_PICKUP_DATE,ORDER_DISCOUNT,ORDER_PICKUP_METHOD from lovefood.order where MEMBER_ID_for_OD = ?";
 
 // 執行
 $orderid = $Util->getPDO()->prepare($sqlodid);
