@@ -160,15 +160,17 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data">
+                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data"> -->
+                    <div id="pointsDataUploader" v-show="!showTab">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <input id="csvFile" type="file" name="importCSV">
                         <div @click="uploadCSV()" type="div">確認上傳</div>
-                    </form> -->
-                    <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
+                    </div>
+                    <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
                         <input type="file" name="importCSV">
                         <button type="submit">確認上傳</button>
-                    </form>
+                    </form> -->
+                    <!-- </form> -->
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
                     <table>
@@ -297,7 +299,29 @@
                     </div>
                 </div>
                 <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">
-                    123
+                    <h4>發放結果：</h4><br>
+                    <table>
+                        <tr id="pointsDataHeader">
+                            <th>序號</th>
+                            <th>發放編號</th>
+                            <th>會員編號</th>
+                            <th>會員帳號</th>
+                            <th>會員姓名</th>
+                            <th>發放點數</th>
+                            <th>發放時間</th>
+                        </tr>
+                        <tbody v-if="uploadCSVLog" v-for="(data,key) in uploadCSVLog">
+                            <tr>
+                                <td>{{key+1}}</td>
+                                <td>{{data["POINTS_ISSANCER_ID"]}}</td>
+                                <td>{{data["MEMBER_ID_for_PI"]}}</td>
+                                <td>{{data["ACCOUNT"]}}</td>
+                                <td>{{data["NAME"]}}</td>
+                                <td>{{data["ISSANCE_NUM"]}}</td>
+                                <td>{{data["ISSANCE_DATE"]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>

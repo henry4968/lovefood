@@ -2,14 +2,12 @@
 
     include("../../backStage/Lib/connection.php");
 
-    // $data = echo json_encode($_FILES);
+    $dataUL = [];
 
-    if (($handle = fopen($_POST, "r")) !== FALSE) {
+    // if (($handle = fopen($_FILES["importCSV"]["tmp_name"], "r")) !== FALSE) {  //直接開啟
+    if (($handle = fopen($_FILES["csvFile"]["tmp_name"], "r")) !== FALSE) {  //AJAX開啟
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
-
-            $num = count($data, COUNT_RECURSIVE);
-            for ($i = 0; $i < $num; $i++) {
 
                 $sqlSelectMaxId = "SELECT max(POINTS_ISSANCER_ID) FROM Lovefood.POINTS_ISSANCE";
 
@@ -36,14 +34,25 @@
                 $sqlCSVInsert = "INSERT INTO POINTS_ISSANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
                 $statementCSVInsert  = $pdo->prepare($sqlCSVInsert);
                 $statementCSVInsert->execute();
-            }
+
+                $sqlPointsUpdate = "UPDATE MEMBER SET POINTS = POINTS + ? WHERE MEMBER_ID = ?";
+                $statesmentsqlPointsUpdate = $pdo->prepare($sqlPointsUpdate);
+                $statesmentsqlPointsUpdate->bindValue(1,$data[1]);
+                $statesmentsqlPointsUpdate->bindValue(2,$data[0]);
+                $statesmentsqlPointsUpdate->execute();
+
+                $sqlUploadRow = "SELECT PI.POINTS_ISSANCER_ID, PI.MEMBER_ID_for_PI, MB.ACCOUNT, MB.NAME, PI.ISSANCE_NUM, PI.ISSANCE_DATE FROM POINTS_ISSANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSANCER_ID like ?";
+                $statesmentUploadRow = $pdo->prepare($sqlUploadRow);
+                $statesmentUploadRow->bindValue(1,'%'.@$insertId.'%');
+                $statesmentUploadRow->execute();
+                $dataUR = $statesmentUploadRow->fetch(PDO::FETCH_ASSOC);
+
+                array_push($dataUL,$dataUR);
 
         }
-        
         fclose($handle);
 
-        echo "<script>history.back(-1);</script>";
-
+        print json_encode($dataUL);
     }
 
 ?>
