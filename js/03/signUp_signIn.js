@@ -586,12 +586,6 @@ new Vue({
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
-        // 測試用
-        // if (checkdata != '') {
-        //   // console.log(checkdata);
-        //   // nav.$data.userid = data;
-        //   // nav.$data.member = './mymember.html';
-        // }
       })
     }());
   },

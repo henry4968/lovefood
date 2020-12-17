@@ -107,14 +107,14 @@ Vue.component('memhead', {
             if (checkdata != '') {
                 if (checkdata.substr(0, 2) == 'MB') {
                     alert('尚未登入會員，請登入賣家會員');
-                    this.seljumpage = './signUp_signIn.html';
+                    this.seljumpage = './sellerSignUp_SignIn.html';
                 } else if ((checkdata.substr(0, 2) == 'SP')) {
                     this.seljumpage = '../backend/backendIndex.html';
                     this.selloginchangemem = true;
                 }
             } else {
                 alert('尚未登入會員，請登入會員');
-                this.seljumpage = './signUp_signIn.html';
+                this.seljumpage = './sellerSignUp_SignIn.html';
             }
         },
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
@@ -241,6 +241,7 @@ function headerPic() {
         // console.log(data);
         if (data != "") {
             $('#navIcons03 img').attr('src', atob(data));
+            $('#navIcons05 img').attr('src', atob(data));
         }
     });
 }
