@@ -13,7 +13,7 @@
   // echo $MemberId;
 
   // 建立SQL(update NAME ADDRESS PHONE)
-  $sql = "update member set PASSWORD = ? where MEMBER_ID = ?";
+  $sql = "update member set MEMBER_PASSWORD = ? where MEMBER_ID = ?";
 
   //執行
   $statement = $Util->getPDO()->prepare($sql);

@@ -1213,9 +1213,9 @@ let vm = new Vue({
         // 找身份別 general or particular
         // console.log(checkdata.data[0].CLASS);
         // 判斷是是哪一種身份
-        if (checkdata.data[0].CLASS == 'general') {
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
           that.idcont = '一般會員';
-        } else if (checkdata.data[0].CLASS == 'particular') {
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
           that.idcont = '特殊會員';
         } else {
           //提醒除錯
@@ -1251,8 +1251,8 @@ let vm = new Vue({
         // console.log(checkdata.dataac[0].ACCOUNT);
 
         // 如果抓到信箱就代入
-        if (checkdata.dataac[0].ACCOUNT != "") {
-          that.idemailin = checkdata.dataac[0].ACCOUNT;
+        if (checkdata.dataac[0].MEMBER_ACCOUNT != "") {
+          that.idemailin = checkdata.dataac[0].MEMBER_ACCOUNT;
         }
 
       })
@@ -1271,10 +1271,10 @@ let vm = new Vue({
         // console.log(checkdata.datapa[0].PASSWORD);
 
         // 如果抓到密碼就代入********
-        if (checkdata.datapa[0].PASSWORD != "") {
+        if (checkdata.datapa[0].MEMBER_PASSWORD != "") {
           that.idpwdin = '********';
           // that.idpwdin = checkdata.datapa[0].PASSWORD;
-          that.idpwdtruein = checkdata.datapa[0].PASSWORD;
+          that.idpwdtruein = checkdata.datapa[0].MEMBER_PASSWORD;
         }
       })
     },
@@ -1292,9 +1292,9 @@ let vm = new Vue({
         // console.log(checkdata.datana[0].NAME);
 
         // 如果抓到名字就代入
-        if (checkdata.datana[0].NAME != "") {
-          if (checkdata.datana[0].NAME != null) {
-            that.idnamein = checkdata.datana[0].NAME;
+        if (checkdata.datana[0].MEMBER_NAME != "") {
+          if (checkdata.datana[0].MEMBER_NAME != null) {
+            that.idnamein = checkdata.datana[0].MEMBER_NAME;
           } else {
             that.idnamein = '請填寫名字';
           }
@@ -1318,10 +1318,10 @@ let vm = new Vue({
         // console.log(checkdata.dataph[0].PHONE);
 
         // 如果抓到手機號碼就代入
-        if (checkdata.dataph[0].PHONE != "") {
-          if (checkdata.dataph[0].PHONE != null) {
-            that.idphonein = checkdata.dataph[0].PHONE;
-          } else if (checkdata.dataph[0].PHONE == null) {
+        if (checkdata.dataph[0].MEMBER_PHONE != "") {
+          if (checkdata.dataph[0].MEMBER_PHONE != null) {
+            that.idphonein = checkdata.dataph[0].MEMBER_PHONE;
+          } else if (checkdata.dataph[0].MEMBER_PHONE == null) {
             that.idphonein = '請填寫手機號碼';
           }
         } else {
@@ -1344,10 +1344,10 @@ let vm = new Vue({
         // console.log(checkdata.dataad[0].ADDRESS);
 
         // 如果抓到地址就代入
-        if (checkdata.dataad[0].ADDRESS != "") {
-          if (checkdata.dataad[0].ADDRESS != null) {
-            that.idaddin = checkdata.dataad[0].ADDRESS;
-          } else if (checkdata.dataad[0].ADDRESS == null) {
+        if (checkdata.dataad[0].MEMBER_ADDRESS != "") {
+          if (checkdata.dataad[0].MEMBER_ADDRESS != null) {
+            that.idaddin = checkdata.dataad[0].MEMBER_ADDRESS;
+          } else if (checkdata.dataad[0].MEMBER_ADDRESS == null) {
             that.idaddin = '請填寫地址';
           }
         } else {

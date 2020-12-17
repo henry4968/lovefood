@@ -4,7 +4,7 @@
 
     // 買家會員
     //建立SQL
-    $sql = "SELECT * FROM member WHERE (CLASS = 'general' or CLASS = 'particular') and ACCOUNT = ? and PASSWORD = ?";
+    $sql = "SELECT * FROM member WHERE (MEMBER_CLASS = 0 or MEMBER_CLASS = 1) and MEMBER_ACCOUNT = ? and MEMBER_PASSWORD = ?";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);
@@ -19,12 +19,12 @@
     $memberName = "";
     foreach($data as $index => $row){
         $memberID = $row["MEMBER_ID"];
-        $memberName = $row["ACCOUNT"];
+        $memberName = $row["MEMBER_ACCOUNT"];
     }
 
     // 賣家會員
     //建立SQL
-    $selsql = "SELECT * FROM supplier WHERE (SUPPLIER_STATUS = 1 or SUPPLIER_STATUS = 2) and ACCOUNT = ? and PASSWORD = ?";
+    $selsql = "SELECT * FROM supplier WHERE (SUPPLIER_STATUS = 1 or SUPPLIER_STATUS = 2) and SUPPLIER_ACCOUNT = ? and SUPPLIER_PASSWORD = ?";
 
     //執行
     $selstatement = $Util->getPDO()->prepare($selsql);
@@ -41,7 +41,7 @@
     $selmemberName = "";
     foreach($seldata as $index => $selrow){
         $selmemberID = $selrow["SUPPLIER_ID"];
-        $selmemberName = $selrow["ACCOUNT"];
+        $selmemberName = $selrow["SUPPLIER_ACCOUNT"];
     }
 
 
