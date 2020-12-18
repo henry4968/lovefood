@@ -1,61 +1,58 @@
 <?php
 
-    // include("../../backStage/Lib/connection.php");
+    include("../../backStage/Lib/connection.php");
 
-    // print_r($_POST);
+    $dataUL = [];
 
-    echo $_POST;
-    echo '423423'
+    // if (($handle = fopen($_FILES["importCSV"]["tmp_name"], "r")) !== FALSE) {  //直接開啟
+    if (($handle = fopen($_FILES["csvFile"]["tmp_name"], "r")) !== FALSE) {  //AJAX開啟
 
-    // if (($handle = fopen($_POST["importCSV"], "r")) !== FALSE) {
+        while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-    //     // echo 123;
+                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM Lovefood.POINTS_ISSUANCE";
 
-    //     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
+                $statementSelectMaxId  = $pdo->prepare($sqlSelectMaxId);
+                $statementSelectMaxId->execute();
+                $maxId = $statementSelectMaxId->fetch();
 
+                $maxNumber = substr( $maxId[0], 2, 7) + 1;
 
-    //         $num = count($data, COUNT_RECURSIVE);
-    //         for ($i = 0; $i < $num; $i++) {
+                $insertId = "";
 
-    //             $sqlSelectMaxId = "SELECT max(POINTS_ISSANCER_ID) FROM Lovefood.POINTS_ISSANCE";
+                if($maxNumber < 10){
+                    $insertId = "PI000000".$maxNumber;
+                }else if($maxNumber < 100 && $maxNumber >= 10){
+                    $insertId = "PI00000".$maxNumber;
+                }else if($maxNumber < 1000 && $maxNumber>=100){
+                    $insertId = "PI0000".$maxNumber;
+                }else if($maxNumber < 10000 && $maxNumber>=1000){
+                    $insertId = "PI000".$maxNumber;
+                }else if($maxNumber < 100000 && $maxNumber>=10000){
+                    $insertId = "PI00".$maxNumber;
+                }
 
-    //             $statementSelectMaxId  = $pdo->prepare($sqlSelectMaxId);
-    //             $statementSelectMaxId->execute();
-    //             $maxId = $statementSelectMaxId->fetch();
+                $sqlCSVInsert = "INSERT INTO POINTS_ISSUANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
+                $statementCSVInsert  = $pdo->prepare($sqlCSVInsert);
+                $statementCSVInsert->execute();
 
-    //             $maxNumber = substr( $maxId[0], 2, 7) + 1;
+                $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
+                $statesmentsqlPointsUpdate = $pdo->prepare($sqlPointsUpdate);
+                $statesmentsqlPointsUpdate->bindValue(1,$data[1]);
+                $statesmentsqlPointsUpdate->bindValue(2,$data[0]);
+                $statesmentsqlPointsUpdate->execute();
 
-    //             $insertId = "";
+                $sqlUploadRow = "SELECT PI.POINTS_ISSUANCE_ID, PI.MEMBER_ID_for_PI, MB.MEMBER_ACCOUNT, MB.MEMBER_NAME, PI.POINTS_ISSUANCE_NUM, PI.POINTS_ISSUANCE_DATE, MB.MEMBER_POINTS FROM POINTS_ISSUANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSUANCE_ID like ?";
+                $statesmentUploadRow = $pdo->prepare($sqlUploadRow);
+                $statesmentUploadRow->bindValue(1,'%'.@$insertId.'%');
+                $statesmentUploadRow->execute();
+                $dataUR = $statesmentUploadRow->fetch(PDO::FETCH_ASSOC);
 
-    //             if($maxNumber < 10){
-    //                 $insertId = "PI000000".$maxNumber;
-    //             }else if($maxNumber < 100 && $maxNumber >= 10){
-    //                 $insertId = "PI00000".$maxNumber;
-    //             }else if($maxNumber < 1000 && $maxNumber>=100){
-    //                 $insertId = "PI0000".$maxNumber;
-    //             }else if($maxNumber < 10000 && $maxNumber>=1000){
-    //                 $insertId = "PI000".$maxNumber;
-    //             }else if($maxNumber < 100000 && $maxNumber>=10000){
-    //                 $insertId = "PI00".$maxNumber;
-    //             }
+                array_push($dataUL,$dataUR);
 
-    //             $sqlCSVInsert = "INSERT INTO POINTS_ISSANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
-    //             $statementCSVInsert  = $pdo->prepare($sqlCSVInsert);
-    //             $statementCSVInsert->execute();
-    //         }
+        }
+        fclose($handle);
 
+        print json_encode($dataUL);
+    }
 
-    //         // print_r($data);
-    //     }
-
-    //     // print_r($data);
-    //     // $dataUP = $data->fetchAll(PDO::FETCH_ASSOC);
-        
-
-
-    //     fclose($handle);
-
-        // echo "<script>history.back(-1);";
-
-    // }
 ?>

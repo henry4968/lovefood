@@ -6,7 +6,7 @@
     // $sql = "INSERT INTO ec_members (Account , PWD , Type , CreateDate ) VALUES (?,?,1,NOW())";
 
     // select max first 
-    $sql ="SELECT max(SUPPLIER_ID) FROM lovefood.supplier;";
+    $sql = "SELECT max(SUPPLIER_ID) FROM lovefood.supplier;";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->execute();
     $maxId = $statement->fetch();
@@ -32,7 +32,7 @@
 
     // 買家帳號重複問題解決
     //建立SQL
-    $sql = "SELECT * FROM member WHERE CLASS = 'general' and ACCOUNT = ?";
+    $sql = "SELECT * FROM member WHERE MEMBER_CLASS = 0 and MEMBER_ACCOUNT = ?";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);
@@ -44,7 +44,7 @@
 
     // 賣家帳號重複問題解決
     //建立SQL
-    $slesql = "SELECT * FROM supplier WHERE SUPPLIER_STATUS = 1 and ACCOUNT = ?";
+    $slesql = "SELECT * FROM supplier WHERE SUPPLIER_STATUS = 1 and SUPPLIER_ACCOUNT = ?";
 
     //執行
     $selstatement = $Util->getPDO()->prepare($slesql);
@@ -59,7 +59,7 @@
         echo "<script>alert('帳號重複請重新註冊!'); location.href = '../../frontend/signUp_signIn.html';</script>";
     }else{
         // INSERT Second //如果帳號不重複就執行程式
-        $sql = "INSERT INTO lovefood.supplier (SUPPLIER_ID,ACCOUNT,PASSWORD,REG_DATE,SUPPLIER_NAME,TAX_ID,SUPPLIER_DISTRICT,SUPPLIER_ADDRESS,SUPPLIER_PHONE,SUPPLIER_STATUS) VALUES (?,?,?,now(),?,?,0,?,?,1);";
+        $sql = "INSERT INTO lovefood.supplier (SUPPLIER_ID,SUPPLIER_ACCOUNT,SUPPLIER_PASSWORD,SUPPLIER_REG_DATE,SUPPLIER_NAME,SUPPLIER_TAX_ID,SUPPLIER_DISTRICT,SUPPLIER_ADDRESS,SUPPLIER_PHONE,SUPPLIER_STATUS) VALUES (?,?,?,now(),?,?,0,?,?,1);";
     
         //執行
         $statement = $Util->getPDO()->prepare($sql);

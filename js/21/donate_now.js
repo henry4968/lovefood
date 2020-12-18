@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
 
+    // 勾選確認閱讀submit鍵會變色且才能送出
+
     let finalcheck = document.querySelector('#finalcheck');
     finalcheck.addEventListener('change', function () {
         if (finalcheck.checked) {
@@ -168,7 +170,7 @@ $(function () {
         }
 
 
-        $('form').submit();
+        // $('form').submit();
 
     });
 });

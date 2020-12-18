@@ -3,12 +3,12 @@
 include("../Lib/UtilClass2.php");
 $Util = new UtilClass();
 
-$sqlMember = "SELECT MEMBER_ID, `ACCOUNT`, `NAME`, PHONE, POINTS FROM `MEMBER` WHERE POINTS >= 0 and MEMBER_ID like ? and ACCOUNT like ? and `NAME` like ? and PHONE like ?";
-$sqlIssanceLog = "SELECT POINTS_ISSANCER_ID, ISSANCE_NUM, ISSANCE_DATE FROM Lovefood.POINTS_ISSANCE WHERE MEMBER_ID_for_PI like ? and ISSANCE_DATE between ? and ?";
-$sqlDiscountLog = "SELECT ORDER_ID, DISCOUNT, ORDER_DATE FROM Lovefood.ORDER WHERE MEMBER_ID_for_OD like ? and PICKUP_DATE between ? and ?";
+$sqlMember = "SELECT MEMBER_ID, MEMBER_ACCOUNT, MEMBER_NAME, MEMBER_PHONE, MEMBER_POINTS FROM `MEMBER` WHERE MEMBER_CLASS = 1 and MEMBER_ID like ? and MEMBER_ACCOUNT like ? and MEMBER_NAME like ? and MEMBER_PHONE like ?";
+$sqlIssuanceLog = "SELECT POINTS_ISSUANCE_ID, POINTS_ISSUANCE_NUM, POINTS_ISSUANCE_DATE FROM Lovefood.POINTS_ISSUANCE WHERE MEMBER_ID_for_PI like ? and POINTS_ISSUANCE_DATE between ? and ?";
+$sqlDiscountLog = "SELECT ORDER_ID, ORDER_DISCOUNT, ORDER_DATE FROM Lovefood.ORDER WHERE MEMBER_ID_for_OD like ? and ORDER_PICKUP_DATE between ? and ?";
 
 $statesmentMember = $Util->getPDO()->prepare($sqlMember);
-$statesmentIssanceLog = $Util->getPDO()->prepare($sqlIssanceLog);
+$statesmentIssuanceLog = $Util->getPDO()->prepare($sqlIssuanceLog);
 $statesmentDiscountLog = $Util->getPDO()->prepare($sqlDiscountLog);
 
 // 會員詳情
@@ -23,11 +23,11 @@ $statesmentDiscountLog = $Util->getPDO()->prepare($sqlDiscountLog);
         $dataMB = $statesmentMember->fetchAll(PDO::FETCH_ASSOC);
 
         // 發放點數
-        $statesmentIssanceLog->bindValue(1,$_POST["dataId"]);
-        $statesmentIssanceLog->bindValue(2,$_POST["dateStart"]);
-        $statesmentIssanceLog->bindValue(3,$_POST["dateEnd"]);
-        $statesmentIssanceLog->execute();
-        $dataIL = $statesmentIssanceLog->fetchAll(PDO::FETCH_ASSOC);
+        $statesmentIssuanceLog->bindValue(1,$_POST["dataId"]);
+        $statesmentIssuanceLog->bindValue(2,$_POST["dateStart"]);
+        $statesmentIssuanceLog->bindValue(3,$_POST["dateEnd"]);
+        $statesmentIssuanceLog->execute();
+        $dataIL = $statesmentIssuanceLog->fetchAll(PDO::FETCH_ASSOC);
 
         // 消費點數
         $statesmentDiscountLog->bindValue(1,$_POST["dataId"]);
@@ -37,7 +37,7 @@ $statesmentDiscountLog = $Util->getPDO()->prepare($sqlDiscountLog);
         $dataDL = $statesmentDiscountLog->fetchAll(PDO::FETCH_ASSOC);
 
         // 統一丟進一個陣列
-        $pointsQueryDetails = array('pointsOfMember' => $dataMB,'issanceLog' =>$dataIL, 'discountLog'=>$dataDL);
+        $pointsQueryDetails = array('pointsOfMember' => $dataMB,'issuanceLog' =>$dataIL, 'discountLog'=>$dataDL);
         print json_encode($pointsQueryDetails);
 
     }

@@ -12,7 +12,7 @@
 
     if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
-        $sqlDonationLog = "SELECT DONATION_ID, `NAME`,EMAIL , PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, AMOUNT, `DATE` FROM Lovefood.DONATION WHERE DONATION_ID like ? and `NAME` like ? and EMAIL like ? and PERSONAL_ID_OR_TAX_ID like ? and DATE >= ? and DATE <= ?";
+        $sqlDonationLog = "SELECT DONATION_ID, DONATION_NAME, DONATION_EMAIL, DONATION_PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, DONATION_AMOUNT, DONATION_DATE FROM Lovefood.DONATION WHERE DONATION_ID like ? and DONATION_NAME like ? and DONATION_EMAIL like ? and DONATION_PERSONAL_ID_OR_TAX_ID like ? and DONATION_DATE >= ? and DONATION_DATE <= ?";
 
         $statesmentDonationLog = $Util->getPDO()->prepare($sqlDonationLog);
 
@@ -30,7 +30,7 @@
         
     }else{
 
-        $sqlDonationLog = "SELECT DONATION_ID, `NAME`,EMAIL , PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, AMOUNT, `DATE` FROM Lovefood.DONATION WHERE DONATION_ID like ? and `NAME` like ? and EMAIL like ? and PERSONAL_ID_OR_TAX_ID like ?";
+        $sqlDonationLog = "SELECT DONATION_ID, DONATION_NAME, DONATION_EMAIL, DONATION_PERSONAL_ID_OR_TAX_ID, DONATION_PLAN, DONATION_AMOUNT, DONATION_DATE FROM Lovefood.DONATION WHERE DONATION_ID like ? and DONATION_NAME like ? and DONATION_EMAIL like ? and DONATION_PERSONAL_ID_OR_TAX_ID like ?";
 
         $statesmentDonationLog = $Util->getPDO()->prepare($sqlDonationLog);
 

@@ -1,15 +1,15 @@
 const app = new Vue({
     el: '.containerPoints',
     data: {
-        pointsIssance: null,
+        pointsIssuance: null,
         pointsDiscount: null,
         pointsOfMember: null,
-        issanceLog: null,
+        issuanceLog: null,
         discountLog: null,
         ShowFinalPoints: null,
         showTab: false,
         showDetails: true,
-        uploadFile: null
+        uploadCSVLog: null,
     },
 
     mounted() {
@@ -26,22 +26,22 @@ const app = new Vue({
             type: 'POST',
             data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
-                self.pointsIssance = res.pointsIssance;
+                self.pointsIssuance = res.pointsIssuance;
                 self.pointsDiscount = res.pointsDiscount;
                 self.pointsOfMember = res.pointsOfMember;
-                self.issanceLog = res.issanceLog;
+                self.issuanceLog = res.issuanceLog;
                 self.discountLog = res.discountLog;
 
                 var rMB = res.pointsOfMember;
-                var rPI = res.pointsIssance;
+                var rPI = res.pointsIssuance;
                 var rPD = res.pointsDiscount;
-                var rIL = res.issanceLog;
+                var rIL = res.issuanceLog;
                 var rDL = res.discountLog;
 
                 for (let i = 0; i < rPI.length; i++) {
                     for (let j = 0; j < rMB.length; j++) {
                         if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                            rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                            rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                         }
                     }
                 }
@@ -110,7 +110,7 @@ const app = new Vue({
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
                 },
@@ -139,23 +139,23 @@ const app = new Vue({
                 type: 'POST',
                 data: { id, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
-                    self.pointsIssance = res.pointsIssance;
+                    self.pointsIssuance = res.pointsIssuance;
                     self.pointsDiscount = res.pointsDiscount;
                     self.pointsOfMember = res.pointsOfMember;
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
 
                     let rMB = res.pointsOfMember;
-                    let rPI = res.pointsIssance;
+                    let rPI = res.pointsIssuance;
                     let rPD = res.pointsDiscount;
-                    let rIL = res.issanceLog;
+                    let rIL = res.issuanceLog;
                     let rDL = res.discountLog;
 
                     for (let i = 0; i < rPI.length; i++) {
 
                         for (let j = 0; j < rMB.length; j++) {
                             if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                                rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                                rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                             }
                         }
                     }
@@ -215,84 +215,36 @@ const app = new Vue({
         },
 
         uploadCSV() {
+            const self = this;
+
+            var fileData = $('#csvFile').prop('files')[0];
             var formData = new FormData();
+            formData.append('csvFile', fileData, 'csvFile');
 
-            formData.append('file', document.getElementById(
-                'csvFile'
-            ).files[0], document.getElementById(
-                'csvFile'
-            ).files[0].name);
-            // console.log(document.getElementById(
-            //     'csvFile'
-            // ).files[0])
-            // formData.append('abc', '234234')
-
-            // fetch('../PHP/backStage/points/pointsImport.php', {
-            //     method: 'POST',
-            //     body: formData
-            // }).then(res => {
-            //     console.log(res);
-
-            // }).then(json => {
-            //     console.log(json);
-
-            // })
-            //     .catch(error => console.log(error))
-
-
-
+            console.log(fileData);
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ', ' + pair[1]);
+            }
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsImport.php',
                 method: 'POST',
-                // dataType: 'json',
                 processData: false,
-                headers: {
-                    contentType: '"multipart/form-data'
-                },
                 contentType: false,
                 data: formData,
+                dataType: 'JSON',
                 success: function (res) {
-                    alert("ya");
+                    alert("上傳成功！");
+                    self.uploadCSVLog = res;
                     console.log(res);
-                    // console.log(uploadFile);
                 },
                 error: function (res) {
-                    alert("no");
-                    console.log(res);
-                    // console.log(uploadFile);
+                    alert("上傳失敗！請檢察控制台日誌訊息。");
+                    console.log(res.responseText);
                 }
             });
 
         },
-
-        switchTab01() {
-            this.showTab = true;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab01 = document.querySelector("#pointsDataFilterTab01");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab01.classList.add("tabActive");
-        },
-
-        switchTab02() {
-            this.showTab = false;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab02 = document.querySelector("#pointsDataFilterTab02");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab02.classList.add("tabActive");
-        },
-
-        backToPreviousPage() {
-            this.query();
-        }
 
     }
 });

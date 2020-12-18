@@ -146,12 +146,12 @@ const app = new Vue({
 
                         let sDD = self.donationDetals;
 
-                        if (sDD[i].GENDER == 1) {
-                            self.donationDetals[i].GENDER = "男";
-                        } else if (sDD[i].GENDER == 2) {
-                            self.donationDetals[i].GENDER = "女";
+                        if (sDD[i].DONATION_GENDER == 1) {
+                            self.donationDetals[i].DONATION_GENDER = "男";
+                        } else if (sDD[i].DONATION_GENDER == 2) {
+                            self.donationDetals[i].DONATION_GENDER = "女";
                         } else {
-                            self.donationDetals[i].GENDER = "其他";
+                            self.donationDetals[i].DONATION_GENDER = "其他";
                         }
 
                         if (sDD[i].DONATION_PLAN == 1) {
@@ -166,12 +166,12 @@ const app = new Vue({
                             self.donationDetals[i].DONATION_METHOD = "信用卡";
                         }
 
-                        if (sDD[i].DELIVERY_METHOD == 1) {
-                            self.donationDetals[i].DELIVERY_METHOD = "免寄收據";
+                        if (sDD[i].DONATION_DELIVERY_METHOD == 1) {
+                            self.donationDetals[i].DONATION_DELIVERY_METHOD = "免寄收據";
                         } else if (sDD[i].DELIVERY_METHOD == 2) {
-                            self.donationDetals[i].DELIVERY_METHOD = "每次寄發";
+                            self.donationDetals[i].DONATION_DELIVERY_METHOD = "每次寄發";
                         } else {
-                            self.donationDetals[i].DELIVERY_METHOD = "資料錯誤";
+                            self.donationDetals[i].DONATION_DELIVERY_METHOD = "資料錯誤";
                         }
 
                         Object.keys(self.donationDetals[0]).forEach(function (key) {
@@ -239,28 +239,29 @@ const app = new Vue({
             });
 
         },
-        switchTab01() {
-            this.showTab = true;
 
-            let tabs = document.querySelectorAll(".financeDataFilterTab");
-            let tab01 = document.querySelector("#financeDataFilterTab01");
+        // switchTab01() {
+        //     this.showTab = true;
 
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab01.classList.add("tabActive");
-        },
-        switchTab02() {
-            this.showTab = false;
+        //     let tabs = document.querySelectorAll(".financeDataFilterTab");
+        //     let tab01 = document.querySelector("#financeDataFilterTab01");
 
-            let tabs = document.querySelectorAll(".financeDataFilterTab");
-            let tab02 = document.querySelector("#financeDataFilterTab02");
+        //     for (let i = 0; i < tabs.length; i++) {
+        //         tabs[i].classList.remove("tabActive");
+        //     }
+        //     tab01.classList.add("tabActive");
+        // },
+        // switchTab02() {
+        //     this.showTab = false;
 
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab02.classList.add("tabActive");
-        },
+        //     let tabs = document.querySelectorAll(".financeDataFilterTab");
+        //     let tab02 = document.querySelector("#financeDataFilterTab02");
+
+        //     for (let i = 0; i < tabs.length; i++) {
+        //         tabs[i].classList.remove("tabActive");
+        //     }
+        //     tab02.classList.add("tabActive");
+        // },
 
         backToPreviousPage() {
             this.showDetails = true;

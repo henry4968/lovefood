@@ -1,110 +1,109 @@
 <?php
-  // 資料庫連線
-  include("Lib/UtilClass.php");
-  $Util = new UtilClass();
+// 資料庫連線
+include("Lib/UtilClass.php");
+$Util = new UtilClass();
 
-  // 針對該ID找出名稱
-  include("Lib/MemberClass.php");
+// 針對該ID找出名稱
+include("Lib/MemberClass.php");
 
-  $Member = new MemberClass();
-  
-  // 測試印出MEMBERID
-  $MemberId = $Member->getMemberID();
-  // echo $MemberId;
+$Member = new MemberClass();
 
-  // 建立SQL(撈CLASS)
-  $sql = "select CLASS from member where MEMBER_ID = ?";
+// 測試印出MEMBERID
+$MemberId = $Member->getMemberID();
+// echo $MemberId;
 
-  //執行
-  $statement = $Util->getPDO()->prepare($sql);
+// 建立SQL(撈CLASS)
+$sql = "select MEMBER_CLASS from member where MEMBER_ID = ?";
 
-  // 給值
-  $statement->bindValue(1, $MemberId);
-  $statement->execute();
-  // $data = $statement->fetchAll();
-  $data = $statement->fetchAll();
+//執行
+$statement = $Util->getPDO()->prepare($sql);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($data);
+// 給值
+$statement->bindValue(1, $MemberId);
+$statement->execute();
+// $data = $statement->fetchAll();
+$data = $statement->fetchAll();
 
-  // 建立SQL(撈ACCOUNT)
-  $sqlac = "select ACCOUNT from member where MEMBER_ID = ?";
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($data);
 
-  //執行
-  $statementac = $Util->getPDO()->prepare($sqlac);
+// 建立SQL(撈ACCOUNT)
+$sqlac = "select MEMBER_ACCOUNT from member where MEMBER_ID = ?";
 
-  // 給值
-  $statementac->bindValue(1, $MemberId);
-  $statementac->execute();
-  // $data = $statement->fetchAll();
-  $dataac = $statementac->fetchAll();
+//執行
+$statementac = $Util->getPDO()->prepare($sqlac);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($dataac);
+// 給值
+$statementac->bindValue(1, $MemberId);
+$statementac->execute();
+// $data = $statement->fetchAll();
+$dataac = $statementac->fetchAll();
 
-  // 建立SQL(撈PASSWORD)
-  $sqlpa = "select PASSWORD from member where MEMBER_ID = ?";
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($dataac);
 
-  //執行
-  $statementpa = $Util->getPDO()->prepare($sqlpa);
+// 建立SQL(撈PASSWORD)
+$sqlpa = "select MEMBER_PASSWORD from member where MEMBER_ID = ?";
 
-  // 給值
-  $statementpa->bindValue(1, $MemberId);
-  $statementpa->execute();
-  // $data = $statement->fetchAll();
-  $datapa = $statementpa->fetchAll();
+//執行
+$statementpa = $Util->getPDO()->prepare($sqlpa);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($datapa);
+// 給值
+$statementpa->bindValue(1, $MemberId);
+$statementpa->execute();
+// $data = $statement->fetchAll();
+$datapa = $statementpa->fetchAll();
 
-  // 建立SQL(撈NAME)
-  $sqlna = "select NAME from member where MEMBER_ID = ?";
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($datapa);
 
-  //執行
-  $statementna = $Util->getPDO()->prepare($sqlna);
+// 建立SQL(撈NAME)
+$sqlna = "select MEMBER_NAME from member where MEMBER_ID = ?";
 
-  // 給值
-  $statementna->bindValue(1, $MemberId);
-  $statementna->execute();
-  // $data = $statement->fetchAll();
-  $datana = $statementna->fetchAll();
+//執行
+$statementna = $Util->getPDO()->prepare($sqlna);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($datana);
+// 給值
+$statementna->bindValue(1, $MemberId);
+$statementna->execute();
+// $data = $statement->fetchAll();
+$datana = $statementna->fetchAll();
 
-  // 建立SQL(撈phone)
-  $sqlph = "select PHONE from member where MEMBER_ID = ?";
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($datana);
 
-  //執行
-  $statementph = $Util->getPDO()->prepare($sqlph);
+// 建立SQL(撈phone)
+$sqlph = "select MEMBER_PHONE from member where MEMBER_ID = ?";
 
-  // 給值
-  $statementph->bindValue(1, $MemberId);
-  $statementph->execute();
-  // $data = $statement->fetchAll();
-  $dataph = $statementph->fetchAll();
+//執行
+$statementph = $Util->getPDO()->prepare($sqlph);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($dataph);
+// 給值
+$statementph->bindValue(1, $MemberId);
+$statementph->execute();
+// $data = $statement->fetchAll();
+$dataph = $statementph->fetchAll();
 
-  // 建立SQL(撈address)
-  $sqlad = "select ADDRESS from member where MEMBER_ID = ?";
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($dataph);
 
-  //執行
-  $statementad = $Util->getPDO()->prepare($sqlad);
+// 建立SQL(撈address)
+$sqlad = "select MEMBER_ADDRESS from member where MEMBER_ID = ?";
 
-  // 給值
-  $statementad->bindValue(1, $MemberId);
-  $statementad->execute();
-  // $data = $statement->fetchAll();
-  $dataad = $statementad->fetchAll();
+//執行
+$statementad = $Util->getPDO()->prepare($sqlad);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  // print json_encode($dataad);
+// 給值
+$statementad->bindValue(1, $MemberId);
+$statementad->execute();
+// $data = $statement->fetchAll();
+$dataad = $statementad->fetchAll();
 
-  // 陣列合併用array('a' => $data, 'b' => $dataac)
-  $dataAll = array('data' => $data, 'dataac' =>  $dataac , 'datapa' => $datapa, 'datana' => $datana , 'dataph' => $dataph, 'dataad' => $dataad);
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+// print json_encode($dataad);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  print json_encode($dataAll);
-?>
+// 陣列合併用array('a' => $data, 'b' => $dataac)
+$dataAll = array('data' => $data, 'dataac' =>  $dataac, 'datapa' => $datapa, 'datana' => $datana, 'dataph' => $dataph, 'dataad' => $dataad);
+
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+print json_encode($dataAll);

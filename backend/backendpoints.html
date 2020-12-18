@@ -161,15 +161,17 @@
                             </div>
                         </div>
                     </div>
-                    <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data">
+                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data"> -->
+                    <div id="pointsDataUploader" v-show="!showTab">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <input id="csvFile" type="file" name="importCSV">
                         <div @click="uploadCSV()" type="div">確認上傳</div>
-                        <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST">
-                            <input type="file" name="importCSV" enctype="multipart/form-data">
-                            <button type="submit">確認上傳</button>
-                        </form> -->
-                    </form>
+                    </div>
+                    <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
+                        <input type="file" name="importCSV">
+                        <button type="submit">確認上傳</button>
+                    </form> -->
+                    <!-- </form> -->
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
                     <table>
@@ -189,17 +191,17 @@
                             <tr>
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
-                                <td>{{data["ACCOUNT"]}}</td>
-                                <td>{{data["NAME"]}}</td>
-                                <td>{{data["PHONE"]}}</td>
-                                <td v-if='data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]'>
-                                    {{data["TOTAL_ISSANCE"] - data["TOTAL_DISCOUNT"]}}
+                                <td>{{data["MEMBER_ACCOUNT"]}}</td>
+                                <td>{{data["MEMBER_NAME"]}}</td>
+                                <td>{{data["MEMBER_PHONE"]}}</td>
+                                <td v-if='data["TOTAL_ISSUANCE"] - data["TOTAL_DISCOUNT"]'>
+                                    {{data["TOTAL_ISSUANCE"] - data["TOTAL_DISCOUNT"]}}
                                 </td>
-                                <td v-else-if='data["TOTAL_ISSANCE"] && !data["TOTAL_DISCOUNT"]'>
-                                    {{data["TOTAL_ISSANCE"] - 0}}
+                                <td v-else-if='data["TOTAL_ISSUANCE"] && !data["TOTAL_DISCOUNT"]'>
+                                    {{data["TOTAL_ISSUANCE"] - 0}}
                                 </td>
-                                <td v-else-if='!data["TOTAL_ISSANCE"] && data["TOTAL_DISCOUNT"]'>
-                                    {{0 - data["TOTAL_DISCOUNT"]}}
+                                <td v-else-if='!data["TOTAL_ISSUANCE"] && data["TOTAL_DISCOUNT"]'>
+                                    {{0 - data["TOTAL_ISSUANCE"]}}
                                 </td>
                                 <td v-else>
                                     0
@@ -214,10 +216,10 @@
                             <tr v-for="(data,key) in pointsOfMember">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
-                                <td>{{data["ACCOUNT"]}}</td>
-                                <td>{{data["NAME"]}}</td>
-                                <td>{{data["PHONE"]}}</td>
-                                <td>{{data["POINTS"]}}</td>
+                                <td>{{data["MEMBER_ACCOUNT"]}}</td>
+                                <td>{{data["MEMBER_NAME"]}}</td>
+                                <td>{{data["MEMBER_PHONE"]}}</td>
+                                <td>{{data["MEMBER_POINTS"]}}</td>
                                 <td>
                                     <button type="submit" class="btn-sb btn-green" @click="showContent"
                                         :data-id="data['MEMBER_ID']" :data-name="data['NAME']">詳情</button>
@@ -239,16 +241,16 @@
                     </div>
                 </div>
                 <div id="pointsLogData" class="pointsDataArea" v-show="showTab && !showDetails">
-                    <button @click="backToPreviousPage">
+                    <button @click="query">
                         回上頁
                     </button>
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
                         會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
                             disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :value="data['ACCOUNT']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :value="data['NAME']" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :value="data['PHONE']" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :value="data['POINTS']" disabled>
+                        會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled>
                     </div>
                     <div id="">
                         修改點數：<br>
@@ -271,7 +273,7 @@
                                 <tr v-for="(data,key) in discountLog">
                                     <td>{{key+1}}</td>
                                     <td>{{data["ORDER_ID"]}}</td>
-                                    <td>{{data["DISCOUNT"]}}</td>
+                                    <td>{{data["ORDER_DISCOUNT"]}}</td>
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
@@ -287,18 +289,42 @@
                                     <th>發放時間</th>
                                 </tr>
                             </thead>
-                            <tbody v-if="issanceLog">
-                                <tr v-for="(data,key) in issanceLog">
+                            <tbody v-if="issuanceLog">
+                                <tr v-for="(data,key) in issuanceLog">
                                     <td>{{key+1}}</td>
-                                    <td>{{data["ISSANCE_DATE"]}}</td>
-                                    <td>{{data["ISSANCE_NUM"]}}</td>
-                                    <td>{{data["POINTS_ISSANCER_ID"]}}</td>
+                                    <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
+                                    <td>{{data["POINTS_ISSUANCE_NUM"]}}</td>
+                                    <td>{{data["POINTS_ISSUANCE_DATE"]}}</td>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">
-                    123
+                    <h4>發放結果：</h4><br>
+                    <table>
+                        <tr id="pointsDataHeader">
+                            <th>序號</th>
+                            <th>發放編號</th>
+                            <th>會員編號</th>
+                            <th>會員帳號</th>
+                            <th>會員姓名</th>
+                            <th>發放點數</th>
+                            <th>發放時間</th>
+                            <th>會員剩餘點數</th>
+                        </tr>
+                        <tbody v-if="uploadCSVLog" v-for="(data,key) in uploadCSVLog">
+                            <tr>
+                                <td>{{key+1}}</td>
+                                <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
+                                <td>{{data["MEMBER_ID_for_PI"]}}</td>
+                                <td>{{data["MEMBER_ACCOUNT"]}}</td>
+                                <td>{{data["MEMBER_NAME"]}}</td>
+                                <td>{{data["POINTS_ISSUANCE_NUM"]}}</td>
+                                <td>{{data["POINTS_ISSUANCE_DATE"]}}</td>
+                                <td>{{data["MEMBER_POINTS"]}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
             </main>
         </div>

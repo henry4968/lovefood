@@ -106,10 +106,12 @@
             <main>
                 <div id="financeDataFilterArea">
                     <div id="financeDataFilterBlock">
-                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive" @click="switchTab01">
+                        <div id="financeDataFilterTab01" class="financeDataFilterTab" @click="showTab = true"
+                            :class="{'tabActive' : showTab === true}">
                             檢視銷售
                         </div>
-                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="switchTab02">
+                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="showTab = false"
+                            :class="{'tabActive' : showTab === false}">
                             檢視捐款</div>
                     </div>
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
@@ -189,12 +191,12 @@
                                 <tr v-for="(data,key) in donationLog">
                                     <td>{{key+1}}</td>
                                     <td>{{data["DONATION_ID"]}}</td>
-                                    <td>{{data["NAME"]}}</td>
-                                    <td>{{data["EMAIL"]}}</td>
-                                    <td>{{data["PERSONAL_ID_OR_TAX_ID"]}}</td>
+                                    <td>{{data["DONATION_NAME"]}}</td>
+                                    <td>{{data["DONATION_EMAIL"]}}</td>
+                                    <td>{{data["DONATION_PERSONAL_ID_OR_TAX_ID"]}}</td>
                                     <td>{{data["DONATION_PLAN"]}}</td>
-                                    <td>{{data["AMOUNT"]}}</td>
-                                    <td>{{data["DATE"]}}</td>
+                                    <td>{{data["DONATION_AMOUNT"]}}</td>
+                                    <td>{{data["DONATION_DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
                                         <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
                                             @click="showContent">詳情</button>
@@ -223,30 +225,33 @@
                             <div>
                                 捐款編號：<br><input type="text" :value="data['DONATION_ID']" name="selectedId_ED"
                                     disabled><br>
-                                姓名／公司：<br><input type="text" :value="data['NAME']" name="name_ED"><br>
-                                國籍：<br><input type="text" :value="data['NATIONALITY']" name="nationality_ED"><br>
-                                身分證字號／統編（捐款人）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID']"
+                                姓名／公司：<br><input type="text" :value="data['DONATION_NAME']" name="name_ED"><br>
+                                國籍：<br><input type="text" :value="data['DONATION_NATIONALITY']"
+                                    name="nationality_ED"><br>
+                                身分證字號／統編（捐款人）：<br><input type="text" :value="data['DONATION_PERSONAL_ID_OR_TAX_ID']"
                                     name="pID_tID_ED"><br>
-                                生日：<br><input type="date" :value="data['BIRTHDAY']" name="birthday_ED"><br>
-                                地址：<br><input type="text" :value="data['ADDRESS']" name="address_ED"><br>
-                                Email：<br><input type="text" :value="data['EMAIL']" name="email_ED"><br>
-                                性別：<br><input type="text" :value="data['GENDER']" name="gender_ED"><br><br>
+                                生日：<br><input type="date" :value="data['DONATION_BIRTHDAY']" name="birthday_ED"><br>
+                                地址：<br><input type="text" :value="data['DONATION_ADDRESS']" name="address_ED"><br>
+                                Email：<br><input type="text" :value="data['DONATION_EMAIL']" name="email_ED"><br>
+                                性別：<br><input type="text" :value="data['DONATION_GENDER']" name="gender_ED"><br><br>
                             </div>
                             <div>
                                 捐款類別：<br><input type="text" :value="data['DONATION_METHOD']" disabled><br>
                                 捐款方式：<br><input type="text" :value="data['DONATION_PLAN']" disabled><br>
-                                捐款金額：<br><input type="text" :value="data['AMOUNT']" disabled><br>
-                                捐款日期：<br><input type="text" :value="data['DATE']" disabled><br><br>
+                                捐款金額：<br><input type="text" :value="data['DONATION_AMOUNT']" disabled><br>
+                                捐款日期：<br><input type="text" :value="data['DONATION_DATE']" disabled><br><br>
                             </div>
                             <div>
-                                收據抬頭：<br><input type="text" :value="data['RECEIPT_TITLE']" name="receiptTitle_ED"><br>
-                                身分證字號／統編（收據）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID_OF_RECEIPT']"
+                                收據抬頭：<br><input type="text" :value="data['DONATION_RECEIPT_TITLE']"
+                                    name="receiptTitle_ED"><br>
+                                身分證字號／統編（收據）：<br><input type="text"
+                                    :value="data['DONATION_PERSONAL_ID_OR_TAX_ID_OF_RECEIPT']"
                                     name="receipt_pID_tID_ED"><br>
-                                捐款收據寄發方式：<br><input type="text" :value="data['DELIVERY_METHOD']"
+                                捐款收據寄發方式：<br><input type="text" :value="data['DONATION_DELIVERY_METHOD']"
                                     name="deliveryMethod_ED"><br><br>
                             </div>
                             <div>
-                                備註：<br><textarea cols="20" rows="5" :value="data['REMARKS']"
+                                備註：<br><textarea cols="20" rows="5" :value="data['DONATION_REMARKS']"
                                     name="remarks_ED"></textarea>
                             </div>
                         </div>

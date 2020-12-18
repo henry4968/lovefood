@@ -9,13 +9,15 @@
     <link rel="stylesheet" href="../css/normalize.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
-    <component id="memheader" :is="headId"></component>
+    <component id="memheader" :is="headId" :prop="login" :sleprop="sellogin"></component>
     <main class="linWrap">
 
-        <div class="signUpsignIn" id="signUpsignIn">
+        <div class="signUpsignIn" id="signUpsignIn" style="z-index: 0;">
 
             <div class="signUp" id="signUp" :class="{signUpmm: movesignUpmm == false}">
                 <h1 class="signUp">成為賣家</h1>
