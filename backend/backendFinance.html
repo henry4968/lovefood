@@ -116,17 +116,15 @@
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
-                            <input type="date">至
-                            <input type="date">
+                            <input type="date" value="2020-01-01" name="dateStart">至
+                            <input type="date" value="2020-12-31" name="dateEnd">
                             <div id="supplierID">
                                 賣家編號
-                                <input type="text">
+                                <input type="text" name="supplierId">
                             </div>
                         </div>
                         <div id="financeFilterDownload">下載：</div>
-                        <a href="">
-                            <div id="financeFilterButton">查詢</div>
-                        </a>
+                        <button id="financeFilterButton" @click="queryFinance">查詢</button>
                     </div>
                     <div id="financeFilterForDonation" class="financeFilter" v-show="!showTab">
                         <div id="donationSearchingBlock">
@@ -152,20 +150,21 @@
                 </div>
                 <div id="financeDataArea">
                     <div id="financeShowSellingPage" v-show="showTab">
-                        <div id="financeShowResultBlock">
-                            <div class="financeShowResultRow">
-                                查詢時間： 2020-10-21～2020-10-31
-                            </div>
-                            <div class="financeShowResultRow">
-                                訂單筆數：<input type="text" class="financeSearchResult">筆
-                            </div>
-                            <div class="financeShowResultRow">
-                                銷售總額：<input type="text" class="financeSearchResult">元
-                            </div>
+                        <div class="infoCards">
+                            總銷售額：
                         </div>
-                        <div id="financeDiagram">
-                            <img src="../img/22/backend/temp_diagram.png" alt="">
+                        <div class="infoCards">
+                            訂單總量：
                         </div>
+                        <div class="infoCards">
+                            平均訂單金額：
+                        </div>
+                        <div class="infoCards">
+                            最熱銷的商品：
+                            最冷門的商品：
+                        </div>
+                        <div id="lineChartBlock"></div>
+                        <div id="pieChartBlock"></div>
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">
