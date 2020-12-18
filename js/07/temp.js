@@ -76,7 +76,7 @@ const main = new Vue({
     data: {
         tableData: null,
         count: 1,
-        cartArray: []
+        cartArray: [],
     },
     methods: {
 
@@ -127,18 +127,29 @@ const main = new Vue({
             }
         },
         addCart(item) {
-            // localStorage
+            var produ = {
+                name: item.PRODUCT_NAME,
+                qty: item.quantity
+            };
+
+            // var produ = {};
+            // produ.name = item.NAME;
+            // produ.color = item.color;
+            this.cartArray.push(produ);
+            // this.cartArray.push(item.NAME,item.quantity);
+            // console.log(this.cartArray);
             // cartArray
-            this.cartArray.push(item)
-            console.log(item.quantity);
+            // localStorage
+            // Storage() {
+                localStorage.setItem('cartArray',JSON.stringify(this.cartArray));
+                // localStorage.JSON.parse(localStorage.getItem("cartArray"));
+                
+            //  }
         }
 
 
     },
-    computed: {
-
-
-    },
+    
 
 
 })
