@@ -1,7 +1,9 @@
 const app = new Vue({
     el: '.containerFinance',
     data: {
-        financeTotalSelling: null,
+        loginAccount: null,
+        financeTotalSelling: 0,
+        financeTotalOrder: 0,
         donationDetals: null,
         donationLog: null,
         totalDonation: null,
@@ -9,57 +11,73 @@ const app = new Vue({
         showDetails: true
     },
 
-    // mounted() {
+    mounted() {
 
-    //     const self = this;
-    //     let DONATION_ID = $("input[name='DONATION_ID']").val();
-    //     let name = $("input[name='name']").val();
-    //     let email = $("input[name='email']").val();
-    //     let pID_tID = $("input[name='pID_tID']").val();
-    //     let dateStart = $("input[name='dateStart']").val();
-    //     let dateEnd = $("input[name='dateEnd']").val();
+        // const self = this;
+        // let DONATION_ID = $("input[name='DONATION_ID']").val();
+        // let name = $("input[name='name']").val();
+        // let email = $("input[name='email']").val();
+        // let pID_tID = $("input[name='pID_tID']").val();
+        // let dateStart = $("input[name='dateStart']").val();
+        // let dateEnd = $("input[name='dateEnd']").val();
 
-    //     $.ajax({
-    //         url: '../PHP/backStage/finance/donationQuery.php',
-    //         type: 'POST',
-    //         data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
-    //         success: function (res) {
-    //             self.donationLog = res;
+        // $.ajax({
+        //     url: '../PHP/backStage/finance/donationQuery.php',
+        //     type: 'POST',
+        //     data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
+        //     success: function (res) {
+        //         self.donationLog = res;
 
-    //             for (let i = 0; i < res.length; i++) {
-    //                 let donationPlan = res[i].DONATION_PLAN;
+        //         for (let i = 0; i < res.length; i++) {
+        //             let donationPlan = res[i].DONATION_PLAN;
 
-    //                 if (donationPlan == 1) {
-    //                     res[i].DONATION_PLAN = "單次扣款";
-    //                 } else if (donationPlan == 2) {
-    //                     res[i].DONATION_PLAN = "定期捐款";
-    //                 } else {
-    //                     res[i].DONATION_PLAN = "資料錯誤";
-    //                 }
+        //             if (donationPlan == 1) {
+        //                 res[i].DONATION_PLAN = "單次扣款";
+        //             } else if (donationPlan == 2) {
+        //                 res[i].DONATION_PLAN = "定期捐款";
+        //             } else {
+        //                 res[i].DONATION_PLAN = "資料錯誤";
+        //             }
 
-    //             }
+        //         }
 
-    //             var totalDonation = 0;
+        //         var totalDonation = 0;
 
-    //             for (let i = 0; i < res.length; i++) {
-    //                 let singleDonation = parseInt(res[i].AMOUNT);
-    //                 totalDonation = totalDonation + singleDonation;
-    //             }
+        //         for (let i = 0; i < res.length; i++) {
+        //             let singleDonation = parseInt(res[i].AMOUNT);
+        //             totalDonation = totalDonation + singleDonation;
+        //         }
 
-    //             self.totalDonation = totalDonation;
+        //         self.totalDonation = totalDonation;
 
-    //             console.log(self.totalDonation);
-    //             console.log(res.donationDetals);
-    //             console.log(res);
-    //         },
-    //         error: function (res) {
-    //             console.log("回傳失敗！");
-    //             console.log(res.responseText);
-    //         },
-    //         dataType: "JSON",
-    //     });
+        //         console.log(self.totalDonation);
+        //         console.log(res.donationDetals);
+        //         console.log(res);
+        //     },
+        //     error: function (res) {
+        //         console.log("回傳失敗！");
+        //         console.log(res.responseText);
+        //     },
+        //     dataType: "JSON",
+        // });
 
-    // },
+        const self = this;
+
+        $.ajax({
+            url: '../PHP/Frontend/sessionR.php',
+            success: function (res) {
+                $.cookie('account', `${res}`, 3);
+                self.loginAccount = res;
+
+                console.log(self.loginAccount);
+            },
+            dataType: "text",
+            error: function (res) {
+                console.log(res);
+            }
+        })
+
+    },
 
     methods: {
 
@@ -77,8 +95,24 @@ const app = new Vue({
                 data: { dateStart, dateEnd, supplierId },
                 dataType: 'JSON',
                 success: function (res) {
-                    console.log(res);
-                    self.financeTotalSelling = res;
+                    // console.log(res);
+
+                    var rTS = res;
+                    var selling = 0;
+
+                    console.log(rTS);
+
+                    for (let i = 0; i < rTS.length; i++) {
+                        selling = selling + (rTS[0].ORDER_DETAIL_QUANTITY * rTS[0].PRODUCT_SELLING_PRICE);
+                    }
+
+                    self.financeTotalSelling = selling;
+
+                    console.log(self.financeTotalSelling);
+
+                    // console.log(rTS);
+                    // console.log(rTS[0].ORDER_DETAIL_QUANTITY * rTS[0].PRODUCT_SELLING_PRICE);
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
