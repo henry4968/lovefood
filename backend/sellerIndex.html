@@ -27,7 +27,7 @@
             <aside>
                 <div>
                     <ul class="member">
-                        <li>管理員</li>
+                        <li>賣家</li>
                         <li>Name</li>
                     </ul>
                     <ul class="sideNav">
@@ -38,7 +38,7 @@
                                     <path id="Path_35" data-name="Path 35" d="M16.9,18.04A5.645,5.645,0,1,0,11.25,12.4,5.645,5.645,0,0,0,16.9,18.04Z" transform="translate(-1.684 -1.011)" fill="#897666" fill-rule="evenodd" />
                                     <path id="Path_36" data-name="Path 36" d="M15.211,1.9a13.31,13.31,0,1,0,13.31,13.31A13.31,13.31,0,0,0,15.211,1.9ZM0,15.211A15.211,15.211,0,1,1,15.211,30.422,15.211,15.211,0,0,1,0,15.211Z" fill="#897666" fill-rule="evenodd" />
                                   </svg>
-                                <li>會員管理</li>
+                                <li>我的檔案</li>
                             </div>
                         </a>
                         <a class="a-sideLink" href="backendOrder.html">
@@ -55,23 +55,7 @@
                                 <svg xmlns="http://www.w3.org/2000/svg" width="30.422" height="30.422" viewBox="0 0 30.422 30.422">
                                     <path id="bag" d="M30.5,10.942H26.153v-.305A8.361,8.361,0,0,0,17.766,2.25h-.544a8.419,8.419,0,0,0-8.453,8.387v.305H4.423L2.25,32.672H32.672Zm-19.557-.305a6.257,6.257,0,0,1,6.281-6.214h.544a6.2,6.2,0,0,1,6.214,6.214v.305H10.942ZM4.681,30.5,6.372,13.115h2.4V15.58a2.173,2.173,0,1,0,2.173,0V13.115H23.98V15.58a2.173,2.173,0,1,0,2.173,0V13.115h2.4L30.248,30.5Z" transform="translate(-2.25 -2.25)" fill="#887664" />
                                   </svg>
-                                <li>商品管理</li>
-                            </div>
-                        </a>
-                        <a class="a-sideLink" href="backendpoints.html">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28.422" height="24.869" viewBox="0 0 28.422 24.869">
-                                    <path id="diamond" d="M24.869,0l3.553,7.105H21.316ZM15.987,0h7.105L19.54,7.105ZM10.658,7.105,14.211,0l3.553,7.105ZM5.329,0h7.105L8.882,7.105ZM0,7.105,3.553,0,7.105,7.105ZM12.435,24.869,0,8.882H7.105ZM19.54,8.882,14.211,24.869,8.882,8.882Zm8.882,0L15.987,24.869,21.316,8.882Z" fill="#887664" />
-                                  </svg>
-                                <li>點數管理</li>
-                            </div>
-                        </a>
-                        <a class="a-sideLink" href="backendFinance.html">
-                            <div>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="28.422" height="28.422" viewBox="0 0 28.422 28.422">
-                                    <path id="Icon_open-folder" data-name="Icon open-folder" d="M0,0V7.105H28.422V3.553H10.658V0ZM0,10.658V26.646a1.759,1.759,0,0,0,1.776,1.776H26.646a1.759,1.759,0,0,0,1.776-1.776V10.658Z" fill="#887664" />
-                                  </svg>
-                                <li>財務管理</li>
+                                <li>我的商品</li>
                             </div>
                         </a>
                         <button class="btn-s btn-brown">登出</button>
@@ -79,36 +63,10 @@
                 </div>
             </aside>
             <div class="headerMainWrapper">
-                <div class="headerWrapper">
-                    <header>
-                            <div>
-                                <a href="backendIndex.html">
-                                    <span class="pageLabel-others">買家會員</span>
-                                </a>
-                                <a href="sellerProfile.html">
-                                    <span class="pageLabel-current">賣家會員</span>
-                                </a>
-                            </div>
-                            <div>
-                                <span>會員編號<input type="text" name="number" size="15"></span>
-                                <span>公司電話<input type="text" name="phone" size="15"></span>
-                                
-                                <span>會員帳號<input type="text" name="account"></span>
-                            </div>
-                            <div>
-                                <div>
-                                    <span>查詢期間<input type="date" name="dataPick1" size="15"></span>   
-                                    <span>至<input type="date" name="datePick2" size="15"></span>   
-                                </div>
-                                <button class="btn-s btn-brown" @click="query">查詢</button>
-                            </div>
-                    </header>
-                </div>   
                 <main>
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>序號</th>
                                 <th>會員編號</th>
                                 <th>會員帳號</th>
                                 <th>公司電話</th>
@@ -119,7 +77,6 @@
                         </thead>
                         <tbody v-if="tableData">
                             <tr v-for="(data,key) in tableData">
-                                <td>{{key+1}}</td>
                                 <td>{{data[0]}}</td>
                                 <td>{{data[1]}}</td>
                                 <td>{{data[7]}}</td>
@@ -145,6 +102,6 @@
             </div>
         </div>    
     </div>
-    <script src="../js/23/member/sellerProfileVue.js"></script>
+    <script src="../js/23/member/sellerIndexVue.js"></script>
 </body>
 </html>

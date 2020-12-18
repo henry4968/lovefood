@@ -6,7 +6,7 @@
     <title>LOVEFOOD管理中心--會員管理</title>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js"></script>
                     <!-- data time picker -->
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
@@ -94,9 +94,6 @@
                                 <a href="productEdit.html">
                                     <span class="pageLabel-others">編輯商品</span>
                                 </a>
-                                <a href="#">
-                                    <span class="pageLabel-others">下架商品</span>
-                                </a>
                             </div>
                     </header>
                 </div>   
@@ -107,17 +104,17 @@
                             <div class="eachOneLeft">
                                 <span>賣家編號<input name="sellerNum" class="form-control" type="text" placeholder="SP0001" value="SP0001" disabled></span>
                                 <span>商品種類
-                                    <select  class="categories" data-toggle="tooltip" data-placement="right" title="Tooltip on right">
+                                    <select  class="categories">
                                         <option name="categories" :value="data.PRODUCT_CATEGORY_ID" v-for="(data,key) in categories">{{data.NAME}}</option>
                                     </select>
                                     
                                 </span>
-                                <span>商品名稱<input name="productName" class="form-control" type="text"></span>
+                                <span>商品名稱<input name="productName"  data-trigger="manual" data-toggle="tooltip" data-placement="top" title="商品名稱不得為空" class="form-control" type="text"></span>
                                 <div class="time">有效期限 
                                             <div class="form-group">
                                                 <label for="dd" class="sr-only">Time Pick</label>
                                                 <div class="input-group DateDemo">
-                                                    <input type="text" name="exp[0]"data-format="MM/DD/YYYY" placeholder="請填寫日期"  class="form-control"/>
+                                                    <input type="text" name="exp[0]" data-trigger="manual" data-toggle="tooltip" data-placement="top" title="有效日期不得為空" data-format="MM/DD/YYYY" placeholder="請填寫日期"  class="form-control"/>
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-calendar fa-4x"></i></button>
                                                     </span>
@@ -126,7 +123,7 @@
                                             <div class="form-group">
                                                 <label for="tt" class="sr-only">Time Pick</label>
                                                 <div class="input-group TimeDemo">
-                                                    <input name="exp[1]" type="text" name="InspectionDate" placeholder="請填寫時間" class="form-control" />
+                                                    <input data-trigger="manual" data-toggle="tooltip" data-placement="top" title="有效時間不得為空" name="exp[1]" type="text" placeholder="請填寫時間" class="form-control" />
                                                     <span class="input-group-btn">
                                                         <button class="btn btn-brown" type="button"><i class="glyphicon glyphicon-time fa-4x"></i></button>
                                                     </span>
@@ -136,12 +133,12 @@
                                          
                                 <span>商品數量
                                     <span class="plusMinor">
-                                    <button  id="minus" class="btn-brown">-</button><input class= "input-quantity" name="quantity" type="number" value="1"><button id="plus" class="btn-brown">+</button>
+                                    <button  id="minus" class="btn-brown">-</button><input  class= "input-quantity" name="quantity" type="number" value="1"><button id="plus" class="btn-brown">+</button>
                                     </span>
                                 </span>
-                                <span class="price">商品原價 <div><div class="pricePreffix">NT$</div><input name="oriPrice" class="input-price" type="number" placeholder="請輸入原價"></div> 
+                                <span class="price">商品原價 <div><div class="pricePreffix">NT$</div><input  data-trigger="manual" name="oriPrice" data-toggle="tooltip" data-placement="top" title="商品原價不得為空" class="input-price" type="number" placeholder="請輸入原價"></div> 
                                 </span>
-                                <span class="price">商品特價 <div><div class="pricePreffix">NT$</div><input name="spePrice" class="input-price" type="number" placeholder="請輸入特價"></div>
+                                <span class="price">商品特價 <div><div class="pricePreffix">NT$</div><input data-trigger="manual" name="spePrice" data-toggle="tooltip" data-placement="top" title="商品特價不得為空" class="input-price" type="number" placeholder="請輸入特價"></div>
                                 </span>
                                     
                                 
@@ -192,7 +189,7 @@
                                 
                                 <span>
                                     <p>商品描述</p>
-                                    <textarea class="input-l" name="description" id=""></textarea>
+                                    <textarea class="input-l" data-trigger="manual" name="description" data-toggle="tooltip" data-placement="top" title="商品描述不得為空"></textarea>
                                 </span>
                                 <span>
                                     <button id="upload" class="btn-m btn-brown" @click="upload">上傳</button>

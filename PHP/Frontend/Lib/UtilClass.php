@@ -15,7 +15,12 @@
             $db_pass = "jeff5076";
             // $db_select = "php";
             $db_select = "lovefood";
-       
+            //廷翰
+            // $db_host = "localhost:3306"; 
+            // $db_user = "test";
+            // $db_pass = "password";
+            // $db_select = "LoveFood";
+            //廷翰
             //建立資料庫連線物件
             $dsn = "mysql:host=".$db_host.";dbname=".$db_select;
        

@@ -61,6 +61,54 @@ const app = new Vue({
             self.exp = filterArr[0].EXP_DATE.split(' ');//有效期限轉日期與時間陣列
             // console.log(exp);
         },
+        offBoard(e){
+            let off = $(e.target).val();
+            $.ajax({
+
+                url:'../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                data:{validation:1,off},
+                type:'POST',
+                dataType:'text',
+                traditional: true,
+                success: function(res){
+                        console.log(res);
+                        alert();
+                },
+                error: function(res){
+                    console.log(res);
+                },
+            });
+        },
+        save(e){
+            const self = this;
+            let sellerNum = $("input[name='sellerNum']").val();
+            let categories = $("option[name='categories']:selected").val();
+            let productName = $("input[name='productName']").val();
+            let expDate = $("input[name='exp[0]']").val();
+            let expTime = $("input[name='exp[1]']").val();
+            let quantity = $("input[name='quantity']").val();
+            let oriPrice = $("input[name='oriPrice']").val();
+            let spePrice = $("input[name='spePrice']").val();
+            let description = $("textarea[name='description']").val();
+            let pickupSite = $("input[name='pickupSite']:checked").val();
+            let fileUpload = self.filterData[0].PRODUCT_IMG;
+            let pdNum = $(e.target).val();
+            $.ajax({
+
+                url:'../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice,validation:0,pdNum},
+                type:'POST',
+                dataType:'text',
+                traditional: true,
+                success: function(res){
+                        console.log(res);
+                },
+                error: function(res){
+                    console.log(res);
+                },
+            });
+
+        },
         imgInput(key,event){ //點擊input
             let self = this;
             let file = event.target.files[0];
