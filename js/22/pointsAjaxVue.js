@@ -7,9 +7,9 @@ const app = new Vue({
         issuanceLog: null,
         discountLog: null,
         ShowFinalPoints: null,
-        showTab: false,
+        showTab: true,
         showDetails: true,
-        uploadCSVLog: null,
+        uploadCSVLog: null
     },
 
     mounted() {
@@ -69,29 +69,6 @@ const app = new Vue({
         });
 
     },
-
-    // updated() {
-
-    //     const self = this;
-    //     let selectedId = $("input[name='selectedId']").val();
-    //     let points = $("input[name='points']").val();
-
-    //     $.ajax({
-    //         url: '../PHP/backStage/points/pointsUpdate.php',
-    //         type: 'POST',
-    //         data: { points, selectedId },
-    //         success: function (res) {
-    //             self.pointsUpdating = res;
-    //             console.log(res)
-    //         },
-    //         error: function (res) {
-    //             console.log("回傳失敗！");
-    //             console.log(res.responseText);
-    //         },
-    //         dataType: "text",
-    //     });
-
-    // },
 
     methods: {
 
@@ -212,6 +189,8 @@ const app = new Vue({
                 },
                 dataType: "text",
             });
+
+            this.pointsOfMember[0].MEMBER_POINTS = points;
         },
 
         uploadCSV() {
