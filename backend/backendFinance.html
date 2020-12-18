@@ -155,14 +155,18 @@
                             總銷售額：{{financeTotalSelling}}
                         </div>
                         <div class="infoCards">
-                            訂單總量：
+                            訂單總量：{{financeTotalOrder}}
                         </div>
                         <div class="infoCards">
-                            平均訂單金額：
+                            平均訂單金額：{{financeTotalSelling / financeTotalOrder}}
                         </div>
                         <div class="infoCards">
-                            最熱銷的商品：
-                            最冷門的商品：
+                            <div v-if="mostPopularGood">
+                                最熱銷的商品：【{{mostPopularGood.PRODUCT_NAME}}】
+                            </div>
+                            <div v-if="mostUnpopularGood">
+                                最冷門的商品：【{{mostUnpopularGood.PRODUCT_NAME}}】
+                            </div>
                         </div>
                         <div id="lineChartBlock"></div>
                         <div id="pieChartBlock"></div>

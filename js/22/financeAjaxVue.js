@@ -4,6 +4,8 @@ const app = new Vue({
         loginAccount: null,
         financeTotalSelling: 0,
         financeTotalOrder: 0,
+        mostPopularGood: null,
+        mostUnpopularGood: null,
         donationDetals: null,
         donationLog: null,
         totalDonation: null,
@@ -95,12 +97,9 @@ const app = new Vue({
                 data: { dateStart, dateEnd, supplierId },
                 dataType: 'JSON',
                 success: function (res) {
-                    // console.log(res);
 
-                    var rTS = res;
+                    var rTS = res.financeTotalSelling;
                     var selling = 0;
-
-                    console.log(rTS);
 
                     for (let i = 0; i < rTS.length; i++) {
                         selling = selling + (rTS[0].ORDER_DETAIL_QUANTITY * rTS[0].PRODUCT_SELLING_PRICE);
@@ -108,10 +107,15 @@ const app = new Vue({
 
                     self.financeTotalSelling = selling;
 
-                    console.log(self.financeTotalSelling);
+                    self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
+                    self.mostPopularGood = res.mostPopularGood[0];
+                    self.mostUnpopularGood = res.mostUnpopularGood[0];
 
-                    // console.log(rTS);
-                    // console.log(rTS[0].ORDER_DETAIL_QUANTITY * rTS[0].PRODUCT_SELLING_PRICE);
+                    console.log(res);
+                    console.log(self.financeTotalSelling);
+                    console.log(self.financeTotalOrder);
+                    console.log(self.mostPopularGood);
+                    console.log(self.mostUnpopularGood);
 
                 },
                 error: function (res) {
