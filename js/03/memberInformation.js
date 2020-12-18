@@ -540,7 +540,7 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="order in orderList">
+          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
@@ -641,7 +641,7 @@ Vue.component('order', {
                   </div>
                   <div class="samebotBorder getlocation">
                     <span class="getlocationtitle">取貨地點: </span>
-                    <span class="getlocation" v-for="orderadd in orderaddList">{{orderadd.MRT_PICKUP_SITE_NAME}}</span>
+                    <span class="getlocation">{{orderaddList[i].MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
@@ -718,8 +718,6 @@ Vue.component('order', {
       foursameBorderapp: '',
       // 訂單
       orderList: null,
-      // 訂單再撈一次
-      orderList1: null,
       // 訂單日期
       orderdate: '',
       // 訂單時間
@@ -785,7 +783,6 @@ Vue.component('order', {
       axios.post('../PHP/Frontend/selecDetail.php').then(resp => {
         // 撈order 取貨地點
         this.orderaddList = resp.data
-        console.log(this.orderaddList);
       });
     },
   },
