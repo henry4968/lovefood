@@ -201,6 +201,7 @@ let header = new Vue({
                 // 賣家或是買家ID
                 checkdata = res.data;
                 // console.log(checkdata.substr(0, 2));
+                // console.log(checkdata);
                 // alert(checkdata);
                 if (checkdata != '') {
                     // 判斷是賣家會員使"賣家專區"變色

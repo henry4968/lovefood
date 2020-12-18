@@ -546,7 +546,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate" v-if="datechange == true">{{order.ORDER_DATE}}</p>
+                <p class="contentsame orderdate" v-if="order.ORDER_DATE">{{orderdate}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
@@ -590,7 +590,7 @@ Vue.component('order', {
                       <img class="orderestablish" v-else src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">成立訂單</span>
-                        <span class="stablishtime" v-if="datechange == 2" >{{order.ORDER_DATE}}</span>
+                        <span class="stablishtime" v-if="order.ORDER_DATE" >{{ordertime}}</span>
                       </div>
                     </div>
                     <div class="orderestablishBorder">
@@ -618,7 +618,7 @@ Vue.component('order', {
                       <img class="orderestablish" v-else="order.ORDER_STATUS != '取貨完成'" src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">已經取貨</span>
-                       <span class="stablishtime">00:00</span>
+                      <!--  <span class="stablishtime">00:00</span>  -->
                       </div>
                     </div>
                   </div>
@@ -629,11 +629,11 @@ Vue.component('order', {
                 <div class="itembotBorder">
                   <div class="samebotBorder itembotId">
                     <span class="itembotIdtitle">訂單編號: </span>
-                    <span class="itembotId">2020110100001</span>
+                    <span class="itembotId" v-if="order.ORDER_ID" >{{order.ORDER_ID}}</span>
                   </div>
                   <div class="samebotBorder gettime">
                     <span class="gettimetitle">取貨截止時間: </span>
-                    <span class="gettime">2020/11/01 20:59分</span>
+                    <span class="gettime" v-if="order.ORDER_PICKUP_DATE">{{order.ORDER_PICKUP_DATE}}</span>
                   </div>
                   <div class="samebotBorder itembotseller">
                     <span class="itembotsellertitle">賣家: </span>
@@ -641,7 +641,7 @@ Vue.component('order', {
                   </div>
                   <div class="samebotBorder getlocation">
                     <span class="getlocationtitle">取貨地點: </span>
-                    <span class="getlocation">捷運南京復興站8號出口</span>
+                    <span class="getlocation" v-for="orderadd in orderaddList">{{orderadd.MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
@@ -692,7 +692,7 @@ Vue.component('order', {
                   </div>
                   <div class="itemendingsame itemdiscount">
                     <span class="itempaywaytitle">點數折扺：</span>
-                    <span class="itempaywaycontent">0點</span>
+                    <span class="itempaywaycontent" v-if="order.ORDER_DISCOUNT">{{order.ORDER_DISCOUNT}}點</span>
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
@@ -718,7 +718,16 @@ Vue.component('order', {
       foursameBorderapp: '',
       // 訂單
       orderList: null,
-      datechange: true,
+      // 訂單再撈一次
+      orderList1: null,
+      // 訂單日期
+      orderdate: '',
+      // 訂單時間
+      ordertime: '',
+      // 點數折抵
+      orderdiscount: '',
+      // 點數地址
+      orderaddList: null,
     }
   },
   methods: {
@@ -737,18 +746,11 @@ Vue.component('order', {
         // 撈order
         this.orderList = res.data
 
-        // 日期互換時間
-        if (this.datechange == true) {
-          // 訂單日期
-          res.data.forEach(i => {
-            i.ORDER_DATE = i.ORDER_DATE.substr(0, 10);
-          });
-        } else if (this.datechange == 2) {
-          // 訂單日期=>成立時間
-          res.data.forEach(c => {
-            c.ORDER_DATE = c.ORDER_DATE.substr(10, 6);
-          });
-        }
+        // 訂單日期 訂單時間
+        res.data.forEach(i => {
+          this.orderdate = i.ORDER_DATE.substr(0, 10);
+          this.ordertime = i.ORDER_DATE.substr(10, 6);
+        });
 
         // 訂單狀態
         res.data.forEach(a => {
@@ -768,14 +770,22 @@ Vue.component('order', {
           if (a.ORDER_STATUS == 3) {
             a.ORDER_STATUS = '取貨完成'
           }
-
         });
 
+        // 點數折抵
+        res.data.forEach(d => {
+          // 假如點數折抵為空值變成0
+          if (d.ORDER_DISCOUNT == null) {
+            d.ORDER_DISCOUNT = '0'
+          }
+        });
 
+      });
 
-
-
-        // console.log(this.orderList);
+      axios.post('../PHP/Frontend/selecDetail.php').then(resp => {
+        // 撈order 取貨地點
+        this.orderaddList = resp.data
+        console.log(this.orderaddList);
       });
     },
   },
