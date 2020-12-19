@@ -540,13 +540,13 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
+          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="order in orderList">
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate" v-if="order.ORDER_DATE">{{orderdate}}</p>
+                <p class="contentsame orderdate">{{orderdate}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
@@ -637,18 +637,18 @@ Vue.component('order', {
                   </div>
                   <div class="samebotBorder itembotseller">
                     <span class="itembotsellertitle">賣家: </span>
-                    <span class="itembotseller">全家天母店</span>
+                    <span class="itembotseller">{{order.detail[0].SUPPLIER_NAME}}</span>
                   </div>
                   <div class="samebotBorder getlocation">
                     <span class="getlocationtitle">取貨地點: </span>
-                    <!-- <span class="getlocation">{{}}</span> -->
+                    <span class="getlocation">{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
 
 
 
-              <div class="itemsBorder">
+              <div class="itemsBorder" v-for="orderdel in order.detail">
                 <div class="itemcontBorder">
                   <div class="itemconttopBorder">
                     <div class="itempicBorder">
@@ -656,15 +656,15 @@ Vue.component('order', {
                     </div>
                     <div class="itemmiddleBorder">
                       <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
+                        <p class="itemmiddle">{{orderdel.PRODUCT_NAME}}</p>
                       </div>
                       <div class="middleitemsame itemordermiddleBorder">
                         <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
+                        <span class="itemordermiddle">{{}}</span>
                       </div>
                       <div class="middleitemsame itemcountmiddleBorder">
                         <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
+                        <span class="itemcountmiddle">{{}}</span>
                       </div>
                     </div>
                     <div class="itempriceunitBorder">
@@ -718,6 +718,10 @@ Vue.component('order', {
       foursameBorderapp: '',
       // 訂單
       orderList: null,
+      // 訂單日期
+      orderdate: null,
+      // 訂單時間
+      ordertime: null,
     }
   },
   methods: {
@@ -741,6 +745,8 @@ Vue.component('order', {
         res.data.forEach(i => {
           this.orderdate = i.ORDER_DATE.substr(0, 10);
           this.ordertime = i.ORDER_DATE.substr(10, 6);
+          console.log(this.orderdate);
+          console.log(this.ordertime);
         });
 
         // 訂單狀態
