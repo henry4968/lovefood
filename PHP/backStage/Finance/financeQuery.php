@@ -15,6 +15,11 @@
                         JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID WHERE T1.ORDER_DATE between ? and ? 
                         and PD.SUPPLIER_ID_for_PD like ? and T1.ORDER_STATUS = 1 GROUP BY PD.SUPPLIER_ID_for_PD";
 
+    $sqlTotalSoldGoods = "SELECT T1.ORDER_ID, T1.ORDER_DATE, T1.PRODUCT_ID_for_ODD, PD.PRODUCT_NAME, T1.ORDER_DETAIL_QUANTITY
+                            FROM (SELECT * FROM `ORDER` OD JOIN ORDER_DETAIL ODD ON OD.ORDER_ID = ODD.ORDER_ID_for_ODD) as T1
+                            JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID WHERE T1.ORDER_DATE between ? and ?
+                            and PD.SUPPLIER_ID_for_PD like ? and T1.ORDER_STATUS = 1";
+
     $sqlMostPopularGood = "SELECT T1.PRODUCT_ID_for_ODD, PD.PRODUCT_NAME, sum(T1.ORDER_DETAIL_QUANTITY) as Total_QUANTITY
                             FROM (SELECT * FROM `ORDER` OD JOIN ORDER_DETAIL ODD ON OD.ORDER_ID = ODD.ORDER_ID_for_ODD) as T1
                             JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID WHERE T1.ORDER_DATE between ? and ? 
@@ -29,6 +34,7 @@
 
     $statesmentTotalSelling = $Util->getPDO()->prepare($sqlTotalSelling);
     $statesmentTotalOrder = $Util->getPDO()->prepare($sqlTotalOrder);
+    $statesmentTotalSoldGoods = $Util->getPDO()->prepare($sqlTotalSoldGoods);
     $statesmentMostPopularGood = $Util->getPDO()->prepare($sqlMostPopularGood);
     $statesmentMostUnpopularGood = $Util->getPDO()->prepare($sqlMostUnpopularGood);
 
@@ -48,6 +54,13 @@
         $statesmentTotalOrder->execute();
         $dataTO = $statesmentTotalOrder->fetchAll(PDO::FETCH_ASSOC);
 
+        $statesmentTotalSoldGoods->bindValue(1,$_POST["dateStart"]);
+        $statesmentTotalSoldGoods->bindValue(2,$_POST["dateEnd"]);
+        $statesmentTotalSoldGoods->bindValue(3,$_POST["supplierId"]);
+
+        $statesmentTotalSoldGoods->execute();
+        $dataSG = $statesmentTotalSoldGoods->fetchAll(PDO::FETCH_ASSOC);
+
         $statesmentMostPopularGood->bindValue(1,$_POST["dateStart"]);
         $statesmentMostPopularGood->bindValue(2,$_POST["dateEnd"]);
         $statesmentMostPopularGood->bindValue(3,$_POST["supplierId"]);
@@ -62,7 +75,7 @@
         $statesmentMostUnpopularGood->execute();
         $dataUG = $statesmentMostUnpopularGood->fetchAll(PDO::FETCH_ASSOC);
 
-        $financeQueryWithDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+        $financeQueryWithDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
         print json_encode($financeQueryWithDate);
         
     }else{
@@ -80,6 +93,13 @@
 
         $statesmentTotalOrder->execute();
         $dataTO = $statesmentTotalOrder->fetchAll(PDO::FETCH_ASSOC);
+        
+        $statesmentTotalSoldGoods->bindValue(1,'2020-01-01');
+        $statesmentTotalSoldGoods->bindValue(2,'2020-12-31');
+        $statesmentTotalSoldGoods->bindValue(3,$_POST["supplierId"]);
+
+        $statesmentTotalSoldGoods->execute();
+        $dataSG = $statesmentTotalSoldGoods->fetchAll(PDO::FETCH_ASSOC);
 
         $statesmentMostPopularGood->bindValue(1,'2020-01-01');
         $statesmentMostPopularGood->bindValue(2,'2020-12-31');
@@ -95,7 +115,7 @@
         $statesmentMostUnpopularGood->execute();
         $dataUG = $statesmentMostUnpopularGood->fetchAll(PDO::FETCH_ASSOC);
 
-        $financeQueryWithoutDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+        $financeQueryWithoutDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
         print json_encode($financeQueryWithoutDate);
         
     }

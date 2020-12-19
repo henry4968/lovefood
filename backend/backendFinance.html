@@ -9,6 +9,8 @@
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- 圖表套件 -->
+    <script src="http://code.highcharts.com/highcharts.js"></script>
 </head>
 
 <body>
@@ -161,11 +163,13 @@
                             平均訂單金額：{{financeTotalSelling / financeTotalOrder}}
                         </div>
                         <div class="infoCards">
-                            <div v-if="mostPopularGood">
-                                最熱銷的商品：【{{mostPopularGood.PRODUCT_NAME}}】
+                            <div>
+                                最熱銷的商品：【<span v-if="mostPopularGood">{{mostPopularGood.PRODUCT_NAME}}</span>
+                                <span v-else>無資料</span>】
                             </div>
-                            <div v-if="mostUnpopularGood">
-                                最冷門的商品：【{{mostUnpopularGood.PRODUCT_NAME}}】
+                            <div>
+                                最冷門的商品：【<span v-if="mostUnpopularGood">{{mostUnpopularGood.PRODUCT_NAME}}</span>
+                                <span v-else>無資料</span>】
                             </div>
                         </div>
                         <div id="lineChartBlock"></div>

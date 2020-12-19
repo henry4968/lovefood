@@ -1,9 +1,11 @@
-const app = new Vue({
+var app = new Vue({
     el: '.containerFinance',
     data: {
         loginAccount: null,
         financeTotalSelling: 0,
         financeTotalOrder: 0,
+        totalSoldGoods: null,
+        pieChartAllData: null,
         mostPopularGood: null,
         mostUnpopularGood: null,
         donationDetals: null,
@@ -14,6 +16,76 @@ const app = new Vue({
     },
 
     mounted() {
+
+        Highcharts.chart('pieChartBlock', {
+            chart: {
+                plotBackgroundColor: null,
+                plotBorderWidth: null,
+                plotShadow: false,
+                type: 'pie'
+            },
+            title: {
+                text: '銷售項目百分比圓餅圖'
+            },
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+            },
+            accessibility: {
+                point: {
+                    valueSuffix: '%'
+                }
+            },
+            plotOptions: {
+                pie: {
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                    }
+                }
+            },
+            series: [{
+                name: 'Brands',
+                colorByPoint: true,
+                data: []
+            }]
+
+            // series: [{
+            //     name: 'Brands',
+            //     colorByPoint: true,
+            //     data: [{
+            //         name: 'Chrome',
+            //         y: 61.41,
+            //         sliced: true,
+            //         selected: true
+            //     }, {
+            //         name: 'Internet Explorer',
+            //         y: 11.84
+            //     }, {
+            //         name: 'Firefox',
+            //         y: 10.85
+            //     }, {
+            //         name: 'Edge',
+            //         y: 4.67
+            //     }, {
+            //         name: 'Safari',
+            //         y: 4.18
+            //     }, {
+            //         name: 'Sogou Explorer',
+            //         y: 1.64
+            //     }, {
+            //         name: 'Opera',
+            //         y: 1.6
+            //     }, {
+            //         name: 'QQ',
+            //         y: 1.2
+            //     }, {
+            //         name: 'Other',
+            //         y: 2.61
+            //     }]
+            // }]
+        });
 
         // const self = this;
         // let DONATION_ID = $("input[name='DONATION_ID']").val();
@@ -110,12 +182,70 @@ const app = new Vue({
                     self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
                     self.mostPopularGood = res.mostPopularGood[0];
                     self.mostUnpopularGood = res.mostUnpopularGood[0];
+                    self.totalSoldGoods = res.totalSoldGoods;
 
                     console.log(res);
                     console.log(self.financeTotalSelling);
                     console.log(self.financeTotalOrder);
                     console.log(self.mostPopularGood);
                     console.log(self.mostUnpopularGood);
+                    console.log(self.totalSoldGoods);
+
+                    var rSG = res.totalSoldGoods;
+                    var totalSoldGoodsAmount = 0;
+                    var pieChartAllData = [];
+
+                    for (let i = 0; i < rSG.length; i++) {
+                        totalSoldGoodsAmount = totalSoldGoodsAmount + parseInt(rSG[i].ORDER_DETAIL_QUANTITY);
+                    }
+
+                    for (let i = 0; i < rSG.length; i++) {
+                        let pieChartData = {};
+                        pieChartData.name = rSG[i].PRODUCT_NAME;
+                        pieChartData.y = parseInt(rSG[i].ORDER_DETAIL_QUANTITY) / totalSoldGoodsAmount;
+                        pieChartData.y = pieChartData.y.toFixed(4) * 100;
+                        console.log(pieChartData.name);
+                        console.log(pieChartData.y);
+                        pieChartAllData.push(pieChartData);
+                    }
+
+                    self.pieChartAllData = pieChartAllData;
+                    console.log(self.pieChartAllData);
+
+                    Highcharts.chart('pieChartBlock', {
+                        chart: {
+                            plotBackgroundColor: null,
+                            plotBorderWidth: null,
+                            plotShadow: false,
+                            type: 'pie'
+                        },
+                        title: {
+                            text: '銷售項目百分比圓餅圖'
+                        },
+                        tooltip: {
+                            pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
+                        },
+                        accessibility: {
+                            point: {
+                                valueSuffix: '%'
+                            }
+                        },
+                        plotOptions: {
+                            pie: {
+                                allowPointSelect: true,
+                                cursor: 'pointer',
+                                dataLabels: {
+                                    enabled: true,
+                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %'
+                                }
+                            }
+                        },
+                        series: [{
+                            name: 'Brands',
+                            colorByPoint: true,
+                            data: pieChartAllData
+                        }]
+                    });
 
                 },
                 error: function (res) {
@@ -313,4 +443,115 @@ const app = new Vue({
     },
 
 
+});
+
+console.log(app.pieChartAllData);
+
+// 長條圖
+Highcharts.chart('lineChartBlock', {
+
+    chart: {
+        scrollablePlotArea: {
+            minWidth: 700
+        }
+    },
+
+    data: {
+        csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
+        beforeParse: function (csv) {
+            return csv.replace(/\n\n/g, '\n');
+        }
+    },
+
+    title: {
+        text: 'Daily sessions at www.highcharts.com'
+    },
+
+    subtitle: {
+        text: 'Source: Google Analytics'
+    },
+
+    xAxis: {
+        tickInterval: 7 * 24 * 3600 * 1000, // one week
+        tickWidth: 0,
+        gridLineWidth: 1,
+        labels: {
+            align: 'left',
+            x: 3,
+            y: -3
+        }
+    },
+
+    yAxis: [{ // left y axis
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'left',
+            x: 3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }, { // right y axis
+        linkedTo: 0,
+        gridLineWidth: 0,
+        opposite: true,
+        title: {
+            text: null
+        },
+        labels: {
+            align: 'right',
+            x: -3,
+            y: 16,
+            format: '{value:.,0f}'
+        },
+        showFirstLabel: false
+    }],
+
+    legend: {
+        align: 'left',
+        verticalAlign: 'top',
+        borderWidth: 0
+    },
+
+    tooltip: {
+        shared: true,
+        crosshairs: true
+    },
+
+    plotOptions: {
+        series: {
+            cursor: 'pointer',
+            point: {
+                events: {
+                    click: function (e) {
+                        hs.htmlExpand(null, {
+                            pageOrigin: {
+                                x: e.pageX || e.clientX,
+                                y: e.pageY || e.clientY
+                            },
+                            headingText: this.series.name,
+                            maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
+                                this.y + ' sessions',
+                            width: 200
+                        });
+                    }
+                }
+            },
+            marker: {
+                lineWidth: 1
+            }
+        }
+    },
+
+    series: [{
+        name: 'All sessions',
+        lineWidth: 4,
+        marker: {
+            radius: 4
+        }
+    }, {
+        name: 'New users'
+    }]
 });
