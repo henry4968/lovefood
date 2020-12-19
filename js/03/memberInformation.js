@@ -641,7 +641,7 @@ Vue.component('order', {
                   </div>
                   <div class="samebotBorder getlocation">
                     <span class="getlocationtitle">取貨地點: </span>
-                    <span class="getlocation">{{orderaddList[i].MRT_PICKUP_SITE_NAME}}</span>
+                    <!-- <span class="getlocation">{{}}</span> -->
                   </div>
                 </div>
               </div>
@@ -718,14 +718,6 @@ Vue.component('order', {
       foursameBorderapp: '',
       // 訂單
       orderList: null,
-      // 訂單日期
-      orderdate: '',
-      // 訂單時間
-      ordertime: '',
-      // 點數折抵
-      orderdiscount: '',
-      // 點數地址
-      orderaddList: null,
     }
   },
   methods: {
@@ -740,9 +732,10 @@ Vue.component('order', {
     // 撈全部訂單
     allselect() {
 
-      axios.post('../PHP/Frontend/selecAll.php').then(res => {
-        // 撈order
+      axios.post('../PHP/Frontend/selectALL.php').then(res => {
+        // 撈order 測試
         this.orderList = res.data
+        console.log(this.orderList);
 
         // 訂單日期 訂單時間
         res.data.forEach(i => {
@@ -778,11 +771,7 @@ Vue.component('order', {
           }
         });
 
-      });
 
-      axios.post('../PHP/Frontend/selecDetail.php').then(resp => {
-        // 撈order 取貨地點
-        this.orderaddList = resp.data
       });
     },
   },
