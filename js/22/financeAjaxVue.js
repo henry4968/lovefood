@@ -51,40 +51,6 @@ var app = new Vue({
                 data: []
             }]
 
-            // series: [{
-            //     name: 'Brands',
-            //     colorByPoint: true,
-            //     data: [{
-            //         name: 'Chrome',
-            //         y: 61.41,
-            //         sliced: true,
-            //         selected: true
-            //     }, {
-            //         name: 'Internet Explorer',
-            //         y: 11.84
-            //     }, {
-            //         name: 'Firefox',
-            //         y: 10.85
-            //     }, {
-            //         name: 'Edge',
-            //         y: 4.67
-            //     }, {
-            //         name: 'Safari',
-            //         y: 4.18
-            //     }, {
-            //         name: 'Sogou Explorer',
-            //         y: 1.64
-            //     }, {
-            //         name: 'Opera',
-            //         y: 1.6
-            //     }, {
-            //         name: 'QQ',
-            //         y: 1.2
-            //     }, {
-            //         name: 'Other',
-            //         y: 2.61
-            //     }]
-            // }]
         });
 
         // const self = this;
@@ -169,6 +135,8 @@ var app = new Vue({
                 data: { dateStart, dateEnd, supplierId },
                 dataType: 'JSON',
                 success: function (res) {
+                    console.log(res);
+
 
                     var rTS = res.financeTotalSelling;
                     var selling = 0;
@@ -179,12 +147,15 @@ var app = new Vue({
 
                     self.financeTotalSelling = selling;
 
-                    self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
+                    if (res.financeTotalOrder.length !== 0) {
+                        self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
+                    } else {
+                        self.financeTotalOrder = 0;
+                    }
                     self.mostPopularGood = res.mostPopularGood[0];
                     self.mostUnpopularGood = res.mostUnpopularGood[0];
                     self.totalSoldGoods = res.totalSoldGoods;
 
-                    console.log(res);
                     console.log(self.financeTotalSelling);
                     console.log(self.financeTotalOrder);
                     console.log(self.mostPopularGood);
@@ -212,6 +183,7 @@ var app = new Vue({
                     self.pieChartAllData = pieChartAllData;
                     console.log(self.pieChartAllData);
 
+                    // 圓餅圖
                     Highcharts.chart('pieChartBlock', {
                         chart: {
                             plotBackgroundColor: null,
@@ -445,113 +417,66 @@ var app = new Vue({
 
 });
 
-console.log(app.pieChartAllData);
-
-// 長條圖
 Highcharts.chart('lineChartBlock', {
-
     chart: {
-        scrollablePlotArea: {
-            minWidth: 700
-        }
+        type: 'line',
+        zoomType: 'x'
     },
-
-    data: {
-        csvURL: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/analytics.csv',
-        beforeParse: function (csv) {
-            return csv.replace(/\n\n/g, '\n');
-        }
-    },
-
     title: {
-        text: 'Daily sessions at www.highcharts.com'
+        text: '銷售狀況折線圖'
     },
-
     subtitle: {
-        text: 'Source: Google Analytics'
+        text: '查詢區間：【2020-01-01】至【2020-12-31】'
     },
-
     xAxis: {
-        tickInterval: 7 * 24 * 3600 * 1000, // one week
-        tickWidth: 0,
-        gridLineWidth: 1,
-        labels: {
-            align: 'left',
-            x: 3,
-            y: -3
+        type: 'datetime'
+    },
+    yAxis: {
+        title: {
+            text: '銷售額（新台幣）'
         }
     },
-
-    yAxis: [{ // left y axis
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'left',
-            x: 3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }, { // right y axis
-        linkedTo: 0,
-        gridLineWidth: 0,
-        opposite: true,
-        title: {
-            text: null
-        },
-        labels: {
-            align: 'right',
-            x: -3,
-            y: 16,
-            format: '{value:.,0f}'
-        },
-        showFirstLabel: false
-    }],
-
     legend: {
-        align: 'left',
-        verticalAlign: 'top',
-        borderWidth: 0
+        enabled: false
     },
-
-    tooltip: {
-        shared: true,
-        crosshairs: true
-    },
-
     plotOptions: {
-        series: {
-            cursor: 'pointer',
-            point: {
-                events: {
-                    click: function (e) {
-                        hs.htmlExpand(null, {
-                            pageOrigin: {
-                                x: e.pageX || e.clientX,
-                                y: e.pageY || e.clientY
-                            },
-                            headingText: this.series.name,
-                            maincontentText: Highcharts.dateFormat('%A, %b %e, %Y', this.x) + ':<br/> ' +
-                                this.y + ' sessions',
-                            width: 200
-                        });
-                    }
-                }
+        area: {
+            fillColor: {
+                linearGradient: {
+                    x1: 0,
+                    y1: 0,
+                    x2: 0,
+                    y2: 1
+                },
+                stops: [
+                    [0, Highcharts.getOptions().colors[0]],
+                    [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
+                ]
             },
             marker: {
-                lineWidth: 1
-            }
+                radius: 2
+            },
+            lineWidth: 1,
+            states: {
+                hover: {
+                    lineWidth: 1
+                }
+            },
+            threshold: null
+        },
+        series: {
+            pointStart: (2020, 0, 1),
+            pointInterval: 24 * 3600 * 1000
+        },
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
         }
     },
-
     series: [{
-        name: 'All sessions',
-        lineWidth: 4,
-        marker: {
-            radius: 4
-        }
-    }, {
-        name: 'New users'
+        name: '每日銷售額',
+        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18.4, 0, 0, 0, 0, 0]
     }]
 });
