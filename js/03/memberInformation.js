@@ -540,13 +540,13 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="order in orderList">
+          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate">{{orderdate}}</p>
+                <p class="contentsame orderdate">{{orderdate[i]}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
@@ -556,15 +556,15 @@ Vue.component('order', {
               </div>
               <div class="detailsame countBorder">
                 <div class="cattitle">
-                  <h3 class="cattitle conut">數量</h3>
+                  <h3 class="cattitle conut">細項</h3>
                 </div>
-                <p class="contentsame conut">3</p>
+                <p class="contentsame conut" >{{order.detail.length}}</p>
               </div>
               <div class="detailsame orderallBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderall">訂單總額</h3>
                 </div>
-                <p class="contentsame orderall">92</p>
+                <p class="contentsame orderall">{{}}</p>
               </div>
               <div class="detailsame paywayBorder">
                 <div class="cattitle">
@@ -590,7 +590,7 @@ Vue.component('order', {
                       <img class="orderestablish" v-else src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
                         <span class="stablish">成立訂單</span>
-                        <span class="stablishtime" v-if="order.ORDER_DATE" >{{ordertime}}</span>
+                        <span class="stablishtime">{{ordertime[i]}}</span>
                       </div>
                     </div>
                     <div class="orderestablishBorder">
@@ -652,7 +652,8 @@ Vue.component('order', {
                 <div class="itemcontBorder">
                   <div class="itemconttopBorder">
                     <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
+                    <!--  <img class="itempic" src="../img/03/eatingitem.png"> -->
+                    <img class="itempic" :src="actimg">
                     </div>
                     <div class="itemmiddleBorder">
                       <div class="middleitemsame itemmiddleborder">
@@ -660,21 +661,21 @@ Vue.component('order', {
                       </div>
                       <div class="middleitemsame itemordermiddleBorder">
                         <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">{{}}</span>
+                        <span class="itemordermiddle">{{orderdatetime[i]}}</span>
                       </div>
                       <div class="middleitemsame itemcountmiddleBorder">
                         <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">{{}}</span>
+                        <span class="itemcountmiddle">{{orderdel.ORDER_DETAIL_QUANTITY}}</span>
                       </div>
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
                         <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
+                        <span class="unitpricecontent">\$\{{orderdel.PRODUCT_ORIGINAL_PRICE}}</span>
                       </div>
                       <div class="countpriceBorder">
                         <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
+                        <span class="countpricecontent">\$\{{(orderdel.PRODUCT_ORIGINAL_PRICE)*(orderdel.ORDER_DETAIL_QUANTITY)}}</span>
                       </div>
                     </div>
                   </div>
@@ -696,7 +697,7 @@ Vue.component('order', {
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
-                    <span class="itempaywaycontent">92元</span>
+                    <span class="itempaywaycontent">{{}}元</span>
                   </div>
                 </div>
                 <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#">
@@ -719,9 +720,13 @@ Vue.component('order', {
       // 訂單
       orderList: null,
       // 訂單日期
-      orderdate: null,
+      orderdate: [],
       // 訂單時間
-      ordertime: null,
+      ordertime: [],
+      // 訂單日期時間少2碼
+      orderdatetime: [],
+      // 產品圖片
+      actimg: [],
     }
   },
   methods: {
@@ -738,16 +743,15 @@ Vue.component('order', {
 
       axios.post('../PHP/Frontend/selectALL.php').then(res => {
         // 撈order 測試
-        this.orderList = res.data
-        console.log(this.orderList);
+        data = res.data;
+        this.orderList = res.data;
 
         // 訂單日期 訂單時間
-        res.data.forEach(i => {
-          this.orderdate = i.ORDER_DATE.substr(0, 10);
-          this.ordertime = i.ORDER_DATE.substr(10, 6);
-          console.log(this.orderdate);
-          console.log(this.ordertime);
-        });
+        res.data.forEach(aa => {
+          this.orderdate.push(aa.ORDER_DATE.substr(0, 10));
+          this.ordertime.push(aa.ORDER_DATE.substr(10, 6));
+          this.orderdatetime.push(aa.ORDER_DATE.substr(0, 16));
+        })
 
         // 訂單狀態
         res.data.forEach(a => {
@@ -776,6 +780,22 @@ Vue.component('order', {
             d.ORDER_DISCOUNT = '0'
           }
         });
+
+        // 訂單總額
+        res.data.forEach(e => {
+          e.detail.forEach(f => {
+            aa = null;
+            aa = f.PRODUCT_ORIGINAL_PRICE * f.ORDER_DETAIL_QUANTITY;
+          })
+
+        });
+
+        // 訂單截止時間
+        res.data.forEach(g => {
+          g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+        });
+
+        // 產品圖片
 
 
       });
