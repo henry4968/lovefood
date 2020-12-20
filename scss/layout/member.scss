@@ -1085,6 +1085,9 @@ body{
                     .itempicBorder{
                       background-color: #fff;
                       border: 2px solid #707070;
+                      display: flex;
+                      justify-content: center;
+                      align-self: center;
                       @include newRwd("pad"){
                         width: 50%;
                         display: flex;
@@ -1093,6 +1096,9 @@ body{
                       }
                       @include newRwd("mediumPhone"){
                         width: 200px;
+                      }
+                      img{
+                        max-width: 200px;
                       }
                     }
                     .itemmiddleBorder{

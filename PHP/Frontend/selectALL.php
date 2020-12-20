@@ -11,8 +11,7 @@ $Member = $Member->getMemberID();
 
 //======================================================== 
 //建立SQL 訂單
-$sqlod = "SELECT * FROM LoveFood.`ORDER` 
-              where MEMBER_ID_for_OD = ?";
+$sqlod = "SELECT * FROM LoveFood.`ORDER` where MEMBER_ID_for_OD = ?";
 
 // 執行
 $order = $Util->getPDO()->prepare($sqlod);
@@ -20,7 +19,7 @@ $order = $Util->getPDO()->prepare($sqlod);
 // 給值
 $order->bindValue(1, $Member);
 $order->execute();
-$dataorder = $order->fetchAll(PDO::FETCH_ASSOC);
+$dataorder = $order->fetchAll();
 
 //======================================================== 
 //建立SQL 訂單細節
@@ -46,7 +45,15 @@ $orderdel = $Util->getPDO()->prepare($sqloddel);
 // 給值
 $orderdel->bindValue(1, $Member);
 $orderdel->execute();
-$dataorderdel = $orderdel->fetchAll(PDO::FETCH_ASSOC);
+$dataorderdel = $orderdel->fetchAll();
+
+
+// 讀取圖片
+foreach ($dataorderdel as $index => $row) {
+  // $row['PRODUCT_IMG'] = base64_decode($row['PRODUCT_IMG']);
+  // echo $row['PRODUCT_IMG'];
+  // echo '<br>';
+}
 
 // 做陣列
 $allData = array('order' => $dataorder, 'detail' => $dataorderdel);
@@ -59,7 +66,7 @@ for ($i = 0; $i < count($dataorder); $i++) {
       $dataorder[$i]['detail'][] = $dataorderdel[$k];
     }
   }
-
 }
+
 // 對變量進行JSON編碼，不能只用print_r是因為它是把裡面的內容轉字串
 print_r(json_encode($dataorder));

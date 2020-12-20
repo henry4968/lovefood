@@ -653,7 +653,7 @@ Vue.component('order', {
                   <div class="itemconttopBorder">
                     <div class="itempicBorder">
                     <!--  <img class="itempic" src="../img/03/eatingitem.png"> -->
-                    <img class="itempic" :src="actimg">
+                    <img class="itempic" :src="actimg[i]"> 
                     </div>
                     <div class="itemmiddleBorder">
                       <div class="middleitemsame itemmiddleborder">
@@ -727,6 +727,7 @@ Vue.component('order', {
       orderdatetime: [],
       // 產品圖片
       actimg: [],
+      bigactimg: [],
     }
   },
   methods: {
@@ -743,15 +744,16 @@ Vue.component('order', {
 
       axios.post('../PHP/Frontend/selectALL.php').then(res => {
         // 撈order 測試
-        data = res.data;
-        this.orderList = res.data;
+        // console.log(atob(res.data));
+        this.orderList = res.data
+        // console.log(res.data);
 
         // 訂單日期 訂單時間
-        res.data.forEach(aa => {
-          this.orderdate.push(aa.ORDER_DATE.substr(0, 10));
-          this.ordertime.push(aa.ORDER_DATE.substr(10, 6));
-          this.orderdatetime.push(aa.ORDER_DATE.substr(0, 16));
-        })
+        res.data.forEach(i => {
+          this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+          this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+          this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+        });
 
         // 訂單狀態
         res.data.forEach(a => {
@@ -783,12 +785,28 @@ Vue.component('order', {
 
         // 訂單總額
         res.data.forEach(e => {
+          // console.log(e.ORDER_ID);
           e.detail.forEach(f => {
+            // console.log(f.ORDER_ID_for_ODD);
+            // aa = f.PRODUCT_ORIGINAL_PRICE * f.ORDER_DETAIL_QUANTITY;
             aa = null;
             aa = f.PRODUCT_ORIGINAL_PRICE * f.ORDER_DETAIL_QUANTITY;
+            e.detail.aa += e.detail.aa;
+            bb = null;
+            bb += aa;
+            // console.log(e.detail.aa);
           })
-
         });
+        for (let e = 0; e < res.data.length; e++) {
+          for (let f = 0; f < res.data[e].detail.length; f++) {
+            res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+            res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            aa = res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            aa += aa;
+            console.log(aa);
+          }
+          console.log('----------------------');
+        }
 
         // 訂單截止時間
         res.data.forEach(g => {
@@ -796,7 +814,13 @@ Vue.component('order', {
         });
 
         // 產品圖片
-
+        res.data.forEach(h => {
+          h.detail.forEach(e => {
+            // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            this.actimg.push(atob(e.PRODUCT_IMG));
+          });
+        });
+        console.log(this.actimg);
 
       });
     },
