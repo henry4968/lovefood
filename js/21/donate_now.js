@@ -62,6 +62,13 @@ document.addEventListener("DOMContentLoaded", function () {
             $('.headup').prepend(`<div class="starTxt">*</div>`);
         }
     });
+
+    // 按reset鍵移除必填
+    $('#cleanButton').on('click', function () {
+        // alert("yes!!");
+        $('.formlabel').removeClass('formlabel-active');
+    });
+
 });
 
 

@@ -1114,13 +1114,11 @@
 }
 
 
-
-    
 //footer開始
 footer{
     width: 100%;
     height: 200px;
-    background-color: #DCE5C3;
+    // background-color:#DCE5C3;
     cursor: pointer;
     font-size: 18px;
     color: #C2B891;
@@ -1153,55 +1151,63 @@ footer{
             
             
             .footer_logo{
-            margin-top: 50px;
-            display: block;
-            width:190px;
-            border-right:1px solid #C2B891;
-            text-align: left;
-            }
+                margin-top: 50px;
+                display: block;
+                width:190px;
+                border-right:1px solid #C2B891;
+                text-align: left;
             
 
-            @media screen and (max-width: 630px){
-                border-right:none;
-                margin-top: 200px;
-            }
-            // @include  newRwd("newSmallPhone"){
-            //     border-right:none;
-            // }
+                @media screen and (max-width: 630px){
+                    border-right:none;
+                    margin-top: 200px;
+                }
 
-            img{
-                width: 162px;
-                padding-top: 13px;
+                // @include  newRwd("newSmallPhone"){
+                //     border-right:none;
+                // }
+                a{
+
+                    img{
+                        // width: 162px;
+                        padding-top: 13px;
+                    }
+                }
+                .copyright{
+                    margin-top:6px;
+                    font-size: 10px;
+                }
             }
-            .copyright{
-                margin-top:6px;
-                font-size: 10px;
-            }
-        }
-        .info{
-            display:block;
-            text-align: left;
-            max-width: 330px;
-            margin-top: 50px;
-            // @include  newRwd("newSmallPhone"){
-            //     margin-top: 30px;
-            // }
-            @media screen and (max-width: 630px){
-                margin-top: 30px;
-            }
-            a{
-                width: 280px;
-                margin: 20px;
-                text-decoration: none;
-                color: #C2B891;
-                font-size: 18px;
-                line-height: 1.5;
+
+
+
+            
+            .info{
+                display:block;
+                text-align: left;
+                max-width: 330px;
+                margin-top: 50px;
+                // @include  newRwd("newSmallPhone"){
+                //     margin-top: 30px;
+                // }
+                @media screen and (max-width: 630px){
+                    margin-top: 30px;
+                }
+                a{
+                    width: 280px;
+                    margin: 20px;
+                    text-decoration: none;
+                    color: #C2B891;
+                    font-size: 18px;
+                    line-height: 1.5;
                     img{
                         padding-right: 10px;
                     }
                 }
-            }
-        } 
+                
+            } 
+        }
     }  
 }
 //footer結束
+

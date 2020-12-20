@@ -225,7 +225,7 @@
             height: 46px;
             // 首頁由js控制代替的hover變色
             &:hover{
-                content: url('../../../img/22/index/ch0102_header_logo_hover.png');
+                content: url('../img/22/index/ch0102_header_logo_hover.png');
                 // transform: scale(1.05);
                 transition: all .3s;
             }
@@ -1144,10 +1144,10 @@
             //     }
             p{
                 font-size: 40px;
-                transform: translateY(-9%);
+                transform: translateY(-20%);
                 @include  newRwd("newSmallPhone"){
                     font-size: 30px;
-                    transform: translateY(0%);
+                    // transform: translateY(0%);
                 }
                 // @include  newRwd("miniPhone"){
                 //     font-size: 25px;
@@ -1189,7 +1189,7 @@
             }
 
             h3{
-                font-size: 40px;
+                font-size: 35px;
                 // display: block;
                 @include newRwd("pad"){
                     font-size: 35px;
@@ -1274,10 +1274,10 @@
                 }
             p{
                 font-size: 40px;
-                transform: translateY(-9%);
+                transform: translateY(-20%);
                 @include  newRwd("newSmallPhone"){
                     font-size: 30px;
-                    transform: translateY(0%);
+                    // transform: translateY(0%);
                 }
                 @include  newRwd("miniPhone"){
                     font-size: 25px;
@@ -2408,99 +2408,99 @@
 
 
 
-    //footer開始
-    footer{
-        width: 100%;
-        height: 200px;
-        background-color:#EFECB9;
-        cursor: pointer;
-        font-size: 18px;
-        color: #C2B891;
-        // @include  newRwd("newSmallPhone"){
-        //     height: 300px;
-        // }
-        @media screen and (max-width: 630px){
-            height: 280px;
-        }
-        .footerBlock{
-            max-width:1200px;
-            margin: -1px auto 0;
-            // border: 1px solid red;
+//footer開始
+footer{
+    width: 100%;
+    height: 200px;
+    background-color:#EFECB9;
+    cursor: pointer;
+    font-size: 18px;
+    color: #C2B891;
+    // @include  newRwd("newSmallPhone"){
+    //     height: 300px;
+    // }
+    @media screen and (max-width: 630px){
+        height: 280px;
+    }
+    .footerBlock{
+        max-width:1200px;
+        margin: -1px auto 0;
+        // border: 1px solid red;
+        
+        div{
+            height: 80px;
+            display: flex;
+            justify-content: flex-end;
+            // border: 1px solid rgb(23, 224, 140);
+            // @include  newRwd("newSmallPhone"){
+            //     flex-wrap: wrap;
+            //     justify-content: center;
+            //     // flex-direction: column-reverse;
+            // }
+            @media screen and (max-width: 630px){
+                flex-direction: column;
+                justify-content: center;
+                margin: 0 auto;
+            }
             
-            div{
-                height: 80px;
-                display: flex;
-                justify-content: flex-end;
-                // border: 1px solid rgb(23, 224, 140);
+            
+            .footer_logo{
+                margin-top: 50px;
+                display: block;
+                width:190px;
+                border-right:1px solid #C2B891;
+                text-align: left;
+            
+
+                @media screen and (max-width: 630px){
+                    border-right:none;
+                    margin-top: 200px;
+                }
+
                 // @include  newRwd("newSmallPhone"){
-                //     flex-wrap: wrap;
-                //     justify-content: center;
-                //     // flex-direction: column-reverse;
+                //     border-right:none;
+                // }
+                a{
+
+                    img{
+                        // width: 162px;
+                        padding-top: 13px;
+                    }
+                }
+                .copyright{
+                    margin-top:6px;
+                    font-size: 10px;
+                }
+            }
+
+
+
+            
+            .info{
+                display:block;
+                text-align: left;
+                max-width: 330px;
+                margin-top: 50px;
+                // @include  newRwd("newSmallPhone"){
+                //     margin-top: 30px;
                 // }
                 @media screen and (max-width: 630px){
-                    flex-direction: column;
-                    justify-content: center;
-                    margin: 0 auto;
+                    margin-top: 30px;
+                }
+                a{
+                    width: 280px;
+                    margin: 20px;
+                    text-decoration: none;
+                    color: #C2B891;
+                    font-size: 18px;
+                    line-height: 1.5;
+                    img{
+                        padding-right: 10px;
+                    }
                 }
                 
-                
-                .footer_logo{
-                    margin-top: 50px;
-                    display: block;
-                    width:190px;
-                    border-right:1px solid #C2B891;
-                    text-align: left;
-                
-
-                    @media screen and (max-width: 630px){
-                        border-right:none;
-                        margin-top: 200px;
-                    }
-
-                    // @include  newRwd("newSmallPhone"){
-                    //     border-right:none;
-                    // }
-                    a{
-
-                        img{
-                            // width: 162px;
-                            padding-top: 13px;
-                        }
-                    }
-                    .copyright{
-                        margin-top:6px;
-                        font-size: 10px;
-                    }
-                }
-
-
-
-                
-                .info{
-                    display:block;
-                    text-align: left;
-                    max-width: 330px;
-                    margin-top: 50px;
-                    // @include  newRwd("newSmallPhone"){
-                    //     margin-top: 30px;
-                    // }
-                    @media screen and (max-width: 630px){
-                        margin-top: 30px;
-                    }
-                    a{
-                        width: 280px;
-                        margin: 20px;
-                        text-decoration: none;
-                        color: #C2B891;
-                        font-size: 18px;
-                        line-height: 1.5;
-                        img{
-                            padding-right: 10px;
-                        }
-                    }
-                    
-                } 
-            }
-        }  
-    }
-    //footer結束
+            } 
+        }
+    }  
+}
+//footer結束
