@@ -894,6 +894,15 @@ body{
           .orderdetailBorder{
             display: flex;
             flex-direction: column;
+            margin-bottom: 15px;
+            position: relative;
+            .cancelorder{
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              z-index: 2;
+              background-color: rgba(144, 144, 144, 0.4);
+            }
             .catalogBorder{
               display: flex;
               justify-content: space-between;
@@ -983,7 +992,7 @@ body{
                     display: flex;
                     justify-content: space-between;
                     width: 100%;
-                    z-index: 2;
+                    z-index: 1;
                     .orderestablishBorder{
                       display: flex;
                       flex-direction: column;
@@ -992,12 +1001,16 @@ body{
                       .orderestablish{
                         width: 36px;
                         margin-bottom: 10px;
+                        z-index: 1;
                       }
                       
                       .stablishBorder{
                         span{
                           color: #ED8149;
                           font-weight: normal;
+                        }
+                        .stablishtimecancel,.stablishcancel{
+                          color: #909090;
                         }
                       }
                     }
@@ -1007,8 +1020,17 @@ body{
                     top: 18px;
                     left: 50%;
                     transform: translateX(-50%);
-                    z-index: 1;
+                    z-index: 0;
                     border-bottom: 3px solid #ED8149;
+                    width: 85%;
+                  }
+                  .midlineBordercancel{
+                    position: absolute;
+                    top: 18px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 0;
+                    border-bottom: 3px solid #909090;
                     width: 85%;
                   }
                 }
@@ -1040,6 +1062,12 @@ body{
                     }
                     .gettimetitle,.gettime,.getlocationtitle,.getlocation{
                       color: #ED8149;
+                    }
+                    .gettimetitlecancel{
+                      color: #909090;
+                    }
+                    .getlocationtitlecancel{
+                      color: #909090;
                     }
                   }
                   .itembotId{

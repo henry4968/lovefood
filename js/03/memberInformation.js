@@ -541,6 +541,7 @@ Vue.component('order', {
           </div>
 
           <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
+            <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div>
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
@@ -564,7 +565,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle orderall">訂單總額</h3>
                 </div>
-                <p class="contentsame orderall">{{}}</p>
+                <p class="contentsame orderall">{{total[i]}}元</p>
               </div>
               <div class="detailsame paywayBorder">
                 <div class="cattitle">
@@ -587,19 +588,23 @@ Vue.component('order', {
                   <div class="fourcircleBorder">
                     <div class="orderestablishBorder">
                       <img class="orderestablish" v-if="order.ORDER_STATUS != '取消' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
                       <img class="orderestablish" v-else src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">成立訂單</span>
-                        <span class="stablishtime">{{ordertime[i]}}</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">成立訂單</span>
+                        <span class="stablish" v-else>成立訂單</span>
+                        <span class="stablishtimecancel" v-if="order.ORDER_STATUS == '取消'">{{ordertime[i]}}</span>
+                        <span class="stablishtime" v-else>{{ordertime[i]}}</span>
                       </div>
                     </div>
                     <div class="orderestablishBorder">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getincircle.png">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
-                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/getoutcircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">等待出貨</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">等待出貨</span>
+                        <span class="stablish" v-else>等待出貨</span>
                       <!--   <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
@@ -607,22 +612,26 @@ Vue.component('order', {
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getoutcircle.png">
-                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/getoutcircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">等待取貨</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">等待取貨</span>
+                        <span class="stablish" v-else>等待取貨</span>
                       <!-- <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
                     <div class="orderestablishBorder">
                       <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成'" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else-if="order.ORDER_STATUS == '取消'" src="../img/03/cancelcircle.png">
                       <img class="orderestablish" v-else="order.ORDER_STATUS != '取貨完成'" src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">已經取貨</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">已經取貨</span>
+                        <span class="stablish" v-else>已經取貨</span>
                       <!--  <span class="stablishtime">00:00</span>  -->
                       </div>
                     </div>
                   </div>
-                  <span class="midlineBorder"></span>
+                  <span class="midlineBordercancel" v-if="order.ORDER_STATUS == '取消'"></span>
+                  <span class="midlineBorder" v-else></span>
                 </div>
 
 
@@ -632,28 +641,29 @@ Vue.component('order', {
                     <span class="itembotId" v-if="order.ORDER_ID" >{{order.ORDER_ID}}</span>
                   </div>
                   <div class="samebotBorder gettime">
-                    <span class="gettimetitle">取貨截止時間: </span>
-                    <span class="gettime" v-if="order.ORDER_PICKUP_DATE">{{order.ORDER_PICKUP_DATE}}</span>
+                    <span class="gettimetitlecancel" v-if="order.ORDER_STATUS == '取消'">取貨截止時間: </span>
+                    <span class="gettimetitle" v-else>取貨截止時間: </span>
+                    <span class="gettime" v-if="order.ORDER_STATUS != '取消' ">{{order.ORDER_PICKUP_DATE}}</span>
                   </div>
                   <div class="samebotBorder itembotseller">
                     <span class="itembotsellertitle">賣家: </span>
                     <span class="itembotseller">{{order.detail[0].SUPPLIER_NAME}}</span>
                   </div>
                   <div class="samebotBorder getlocation">
-                    <span class="getlocationtitle">取貨地點: </span>
-                    <span class="getlocation">{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
+                    <span class="getlocationtitlecancel" v-if="order.ORDER_STATUS == '取消'">取貨地點: </span>
+                    <span class="getlocationtitle" v-else>取貨地點: </span>
+                    <span class="getlocation" v-if="order.ORDER_STATUS != '取消' " >{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
 
 
 
-              <div class="itemsBorder" v-for="orderdel in order.detail">
+              <div class="itemsBorder" v-for="(orderdel,index) in order.detail">
                 <div class="itemcontBorder">
                   <div class="itemconttopBorder">
                     <div class="itempicBorder">
-                    <!--  <img class="itempic" src="../img/03/eatingitem.png"> -->
-                    <img class="itempic" :src="actimg[i]"> 
+                    <img class="itempic" :src="orderdel.PRODUCT_IMG"> 
                     </div>
                     <div class="itemmiddleBorder">
                       <div class="middleitemsame itemmiddleborder">
@@ -697,12 +707,12 @@ Vue.component('order', {
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
-                    <span class="itempaywaycontent">{{}}元</span>
+                    <span class="itempaywaycontent">{{total[i]}}元</span>
                   </div>
                 </div>
-                <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#">
+                <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#" v-if="order.ORDER_STATUS == '待出貨'">
                   <img src="../img/03/trashcancel.png">
-                  <button type="button" id="cancelBtn">取消訂單</button>
+                  <button type="button" id="cancelBtn" @click="cancelorder">取消訂單</button>
                 </form>
               </div>
 
@@ -727,7 +737,8 @@ Vue.component('order', {
       orderdatetime: [],
       // 產品圖片
       actimg: [],
-      bigactimg: [],
+      // 訂單總額
+      total: [],
     }
   },
   methods: {
@@ -784,29 +795,23 @@ Vue.component('order', {
         });
 
         // 訂單總額
-        res.data.forEach(e => {
-          // console.log(e.ORDER_ID);
-          e.detail.forEach(f => {
-            // console.log(f.ORDER_ID_for_ODD);
-            // aa = f.PRODUCT_ORIGINAL_PRICE * f.ORDER_DETAIL_QUANTITY;
-            aa = null;
-            aa = f.PRODUCT_ORIGINAL_PRICE * f.ORDER_DETAIL_QUANTITY;
-            e.detail.aa += e.detail.aa;
-            bb = null;
-            bb += aa;
-            // console.log(e.detail.aa);
-          })
-        });
+        let item = null;
+        let lastitem = 0;
         for (let e = 0; e < res.data.length; e++) {
           for (let f = 0; f < res.data[e].detail.length; f++) {
             res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
             res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
-            aa = res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
-            aa += aa;
-            console.log(aa);
+            item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
           }
-          console.log('----------------------');
+          // 讓累加的第一筆資料被去除
+          let alltotal = item - lastitem;
+          lastitem = item;
+          this.total.push(alltotal);
+          // console.log(this.total);
+          // console.log('----------------------');
         }
+
+
 
         // 訂單截止時間
         res.data.forEach(g => {
@@ -816,13 +821,16 @@ Vue.component('order', {
         // 產品圖片
         res.data.forEach(h => {
           h.detail.forEach(e => {
-            // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
-            this.actimg.push(atob(e.PRODUCT_IMG));
+            e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
           });
         });
-        console.log(this.actimg);
 
       });
+    },
+    // 取消訂單
+    cancelorder(e) {
+      me = e.target;
+
     },
   },
   mounted() {
