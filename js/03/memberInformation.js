@@ -828,8 +828,10 @@ Vue.component('order', {
       });
     },
     // 取消訂單
-    cancelorder(e) {
-      me = e.target;
+    cancelorder() {
+      axios.post('').then(res => {
+
+      });
 
     },
   },
