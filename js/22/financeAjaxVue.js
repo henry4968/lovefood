@@ -3,6 +3,7 @@ var app = new Vue({
     data: {
         loginAccount: null,
         financeTotalSelling: 0,
+        financeDailySelling: null,
         financeTotalOrder: 0,
         totalSoldGoods: null,
         pieChartAllData: null,
@@ -17,6 +18,40 @@ var app = new Vue({
 
     mounted() {
 
+        // 初始化折線圖
+        Highcharts.stockChart('lineChartBlock', {
+
+            rangeSelector: {
+                selected: 1
+            },
+
+            title: {
+                text: '總銷售額圖表'
+            },
+
+            navigator: {
+                enabled: false
+            },
+
+            series: [{
+                name: '每日銷售額',
+                data: [],
+                tooltip: {
+                    valueDecimals: 2
+                }
+            }]
+        });
+
+        var d1 = new Date("2020-01-01");
+        var d2 = new Date("2020-01-02");
+        var d3 = new Date("2020-01-03");
+
+        console.log(d1.getTime());
+        console.log(d2.getTime());
+        console.log(d3.getTime());
+
+
+        // 初始化圓餅圖
         Highcharts.chart('pieChartBlock', {
             chart: {
                 plotBackgroundColor: null,
@@ -25,7 +60,7 @@ var app = new Vue({
                 type: 'pie'
             },
             title: {
-                text: '銷售項目百分比圓餅圖'
+                text: '銷售項目百分比圖表'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -52,54 +87,6 @@ var app = new Vue({
             }]
 
         });
-
-        // const self = this;
-        // let DONATION_ID = $("input[name='DONATION_ID']").val();
-        // let name = $("input[name='name']").val();
-        // let email = $("input[name='email']").val();
-        // let pID_tID = $("input[name='pID_tID']").val();
-        // let dateStart = $("input[name='dateStart']").val();
-        // let dateEnd = $("input[name='dateEnd']").val();
-
-        // $.ajax({
-        //     url: '../PHP/backStage/finance/donationQuery.php',
-        //     type: 'POST',
-        //     data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
-        //     success: function (res) {
-        //         self.donationLog = res;
-
-        //         for (let i = 0; i < res.length; i++) {
-        //             let donationPlan = res[i].DONATION_PLAN;
-
-        //             if (donationPlan == 1) {
-        //                 res[i].DONATION_PLAN = "單次扣款";
-        //             } else if (donationPlan == 2) {
-        //                 res[i].DONATION_PLAN = "定期捐款";
-        //             } else {
-        //                 res[i].DONATION_PLAN = "資料錯誤";
-        //             }
-
-        //         }
-
-        //         var totalDonation = 0;
-
-        //         for (let i = 0; i < res.length; i++) {
-        //             let singleDonation = parseInt(res[i].AMOUNT);
-        //             totalDonation = totalDonation + singleDonation;
-        //         }
-
-        //         self.totalDonation = totalDonation;
-
-        //         console.log(self.totalDonation);
-        //         console.log(res.donationDetals);
-        //         console.log(res);
-        //     },
-        //     error: function (res) {
-        //         console.log("回傳失敗！");
-        //         console.log(res.responseText);
-        //     },
-        //     dataType: "JSON",
-        // });
 
         const self = this;
 
@@ -136,7 +123,7 @@ var app = new Vue({
                 dataType: 'JSON',
                 success: function (res) {
                     console.log(res);
-
+                    console.log(res.financeTDailySelling);
 
                     var rTS = res.financeTotalSelling;
                     var selling = 0;
@@ -147,20 +134,63 @@ var app = new Vue({
 
                     self.financeTotalSelling = selling;
 
+                    var rDS = res.financeTDailySelling;
+                    var dailySellingArr = [];
+                    var resDateArr = [];
+
+                    var realDateStart = new Date(dateStart);
+                    var realDateEnd = new Date(dateEnd);
+
+                    var totalDays = (realDateEnd - realDateStart) / 86400000;
+
+                    for (let i = 0; i < rDS.length; i++) {
+                        let dailySellingDate = new Date(rDS[i].YEAR + "-" + rDS[i].MONTH + "-" + rDS[i].DAY);
+                        let dailySellingAmount = rDS[i].DAILY_SELLING;
+                        resDateArr.push([dailySellingDate, parseInt(dailySellingAmount)]);
+                    }
+                    console.log(resDateArr);
+                    console.log(resDateArr[0][0].getTime());
+
+                    function addDays(date, days) {
+                        var result = new Date(date);
+                        result.setDate(result.getDate() + days);
+                        return result;
+                    }
+
+                    for (let i = 0; i < totalDays; i++) {
+                        let presentDate = addDays(realDateStart, 1 * i);
+                        let hasOrder = false;
+
+                        for (let j = 0; j < resDateArr.length; j++) {
+                            if (presentDate.toDateString() == resDateArr[j][0].toDateString()) {
+                                dailySellingArr.push([resDateArr[j][0].getTime(), resDateArr[j][1]]);
+                                hasOrder = true;
+                            }
+                        }
+
+                        if (!hasOrder) {
+                            dailySellingArr.push([presentDate.getTime(), 0]);
+                        }
+                    }
+
+                    self.financeDailySelling = dailySellingArr;
+                    console.log(self.financeDailySelling);
+
                     if (res.financeTotalOrder.length !== 0) {
                         self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
                     } else {
                         self.financeTotalOrder = 0;
                     }
+
                     self.mostPopularGood = res.mostPopularGood[0];
                     self.mostUnpopularGood = res.mostUnpopularGood[0];
                     self.totalSoldGoods = res.totalSoldGoods;
 
-                    console.log(self.financeTotalSelling);
-                    console.log(self.financeTotalOrder);
-                    console.log(self.mostPopularGood);
-                    console.log(self.mostUnpopularGood);
-                    console.log(self.totalSoldGoods);
+                    // console.log(self.financeTotalSelling);
+                    // console.log(self.financeTotalOrder);
+                    // console.log(self.mostPopularGood);
+                    // console.log(self.mostUnpopularGood);
+                    // console.log(self.totalSoldGoods);
 
                     var rSG = res.totalSoldGoods;
                     var totalSoldGoodsAmount = 0;
@@ -175,15 +205,37 @@ var app = new Vue({
                         pieChartData.name = rSG[i].PRODUCT_NAME;
                         pieChartData.y = parseInt(rSG[i].ORDER_DETAIL_QUANTITY) / totalSoldGoodsAmount;
                         pieChartData.y = pieChartData.y.toFixed(4) * 100;
-                        console.log(pieChartData.name);
-                        console.log(pieChartData.y);
                         pieChartAllData.push(pieChartData);
                     }
 
                     self.pieChartAllData = pieChartAllData;
-                    console.log(self.pieChartAllData);
+                    // console.log(self.pieChartAllData);
 
-                    // 圓餅圖
+                    // 填入折線圖
+                    Highcharts.stockChart('lineChartBlock', {
+
+                        rangeSelector: {
+                            selected: 1
+                        },
+
+                        title: {
+                            text: '總銷售額圖表'
+                        },
+
+                        navigator: {
+                            enabled: false
+                        },
+
+                        series: [{
+                            name: '每日銷售額',
+                            data: self.financeDailySelling,
+                            tooltip: {
+                                valueDecimals: 2
+                            }
+                        }]
+                    });
+
+                    // 填入圓餅圖
                     Highcharts.chart('pieChartBlock', {
                         chart: {
                             plotBackgroundColor: null,
@@ -215,7 +267,7 @@ var app = new Vue({
                         series: [{
                             name: 'Brands',
                             colorByPoint: true,
-                            data: pieChartAllData
+                            data: self.pieChartAllData
                         }]
                     });
 
@@ -228,7 +280,7 @@ var app = new Vue({
 
         },
 
-        query() {
+        queryDonation() {
             this.showDetails = false;
 
             const self = this;
@@ -417,66 +469,32 @@ var app = new Vue({
 
 });
 
-Highcharts.chart('lineChartBlock', {
-    chart: {
-        type: 'line',
-        zoomType: 'x'
-    },
-    title: {
-        text: '銷售狀況折線圖'
-    },
-    subtitle: {
-        text: '查詢區間：【2020-01-01】至【2020-12-31】'
-    },
-    xAxis: {
-        type: 'datetime'
-    },
-    yAxis: {
-        title: {
-            text: '銷售額（新台幣）'
-        }
-    },
-    legend: {
-        enabled: false
-    },
-    plotOptions: {
-        area: {
-            fillColor: {
-                linearGradient: {
-                    x1: 0,
-                    y1: 0,
-                    x2: 0,
-                    y2: 1
-                },
-                stops: [
-                    [0, Highcharts.getOptions().colors[0]],
-                    [1, Highcharts.color(Highcharts.getOptions().colors[0]).setOpacity(0).get('rgba')]
-                ]
-            },
-            marker: {
-                radius: 2
-            },
-            lineWidth: 1,
-            states: {
-                hover: {
-                    lineWidth: 1
-                }
-            },
-            threshold: null
-        },
-        series: {
-            pointStart: (2020, 0, 1),
-            pointInterval: 24 * 3600 * 1000
-        },
-        line: {
-            dataLabels: {
-                enabled: true
-            },
-            enableMouseTracking: false
-        }
-    },
-    series: [{
-        name: '每日銷售額',
-        data: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 18.4, 0, 0, 0, 0, 0]
-    }]
-});
+// $(document).ready(function () {
+//     Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
+
+//         // Create the chart
+//         Highcharts.stockChart('lineChartBlock', {
+
+
+//             rangeSelector: {
+//                 selected: 1
+//             },
+
+//             title: {
+//                 text: 'AAPL Stock Price'
+//             },
+
+//             navigator: {
+//                 enabled: false
+//             },
+
+//             series: [{
+//                 name: 'AAPL Stock Price',
+//                 data: data,
+//                 tooltip: {
+//                     valueDecimals: 2
+//                 }
+//             }]
+//         });
+//     });
+// });

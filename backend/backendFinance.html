@@ -6,11 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- 圖表套件 -->
-    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../node_modules/highcharts/highstock.js"></script>
+
 </head>
 
 <body>
@@ -143,10 +144,11 @@
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             <div>查詢區間</div>
-                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart">至
-                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd">
+                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart"
+                                min="2015-01-01">至
+                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd" max="2020-12-31">
                             <a href="#0">
-                                <div id="financeFilterButton" @click="query">查詢</div>
+                                <div id="financeFilterButton" @click="queryDonation">查詢</div>
                             </a>
                         </div>
                     </div>

@@ -10,6 +10,12 @@
                         JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID
                         WHERE T1.ORDER_DATE between ? and ? and PD.SUPPLIER_ID_for_PD like ? and T1.ORDER_STATUS = 1";
 
+    $sqlDailySelling = "SELECT PD.SUPPLIER_ID_for_PD as SUPPLIER, year(T1.ORDER_DATE) as `YEAR`, month(T1.ORDER_DATE) as `MONTH`, 
+                        day(T1.ORDER_DATE) as `DAY`, sum(PD.PRODUCT_SELLING_PRICE * T1.ORDER_DETAIL_QUANTITY) as DAILY_SELLING 
+                        FROM (SELECT * FROM `ORDER` OD JOIN ORDER_DETAIL ODD ON OD.ORDER_ID = ODD.ORDER_ID_for_ODD) as T1 
+                        JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID WHERE PD.SUPPLIER_ID_for_PD = ? and T1.ORDER_STATUS = 1 
+                        and T1.ORDER_DATE between ? and ? GROUP BY year(T1.ORDER_DATE), month(T1.ORDER_DATE), day(T1.ORDER_DATE)";
+
     $sqlTotalOrder = "SELECT PD.SUPPLIER_ID_for_PD, count(T1.ORDER_ID) as TOTAL_ORDER
                         FROM (SELECT * FROM `ORDER` OD JOIN ORDER_DETAIL ODD ON OD.ORDER_ID = ODD.ORDER_ID_for_ODD) as T1
                         JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID WHERE T1.ORDER_DATE between ? and ? 
@@ -33,6 +39,7 @@
                                 GROUP BY T1.PRODUCT_ID_for_ODD ORDER BY Total_QUANTITY asc LIMIT 1";
 
     $statesmentTotalSelling = $Util->getPDO()->prepare($sqlTotalSelling);
+    $statesmentDailySelling = $Util->getPDO()->prepare($sqlDailySelling);
     $statesmentTotalOrder = $Util->getPDO()->prepare($sqlTotalOrder);
     $statesmentTotalSoldGoods = $Util->getPDO()->prepare($sqlTotalSoldGoods);
     $statesmentMostPopularGood = $Util->getPDO()->prepare($sqlMostPopularGood);
@@ -46,6 +53,13 @@
 
         $statesmentTotalSelling->execute();
         $dataTS = $statesmentTotalSelling->fetchAll(PDO::FETCH_ASSOC);
+
+        $statesmentDailySelling->bindValue(1,$_POST["supplierId"]);
+        $statesmentDailySelling->bindValue(2,$_POST["dateStart"]);
+        $statesmentDailySelling->bindValue(3,$_POST["dateEnd"]);
+
+        $statesmentDailySelling->execute();
+        $dataDS = $statesmentDailySelling->fetchAll(PDO::FETCH_ASSOC);
 
         $statesmentTotalOrder->bindValue(1,$_POST["dateStart"]);
         $statesmentTotalOrder->bindValue(2,$_POST["dateEnd"]);
@@ -75,7 +89,9 @@
         $statesmentMostUnpopularGood->execute();
         $dataUG = $statesmentMostUnpopularGood->fetchAll(PDO::FETCH_ASSOC);
 
-        $financeQueryWithDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+        $financeQueryWithDate = array('financeTotalSelling' => $dataTS,'financeTDailySelling' =>$dataDS, 'financeTotalOrder' =>$dataTO, 
+        'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+
         print json_encode($financeQueryWithDate);
         
     }else{
@@ -86,6 +102,13 @@
 
         $statesmentTotalSelling->execute();
         $dataTS = $statesmentTotalSelling->fetchAll(PDO::FETCH_ASSOC);
+
+        $statesmentDailySelling->bindValue(1,$_POST["supplierId"]);
+        $statesmentDailySelling->bindValue(2,'2020-01-01');
+        $statesmentDailySelling->bindValue(3,'2020-12-31');
+
+        $statesmentDailySelling->execute();
+        $dataDS = $statesmentDailySelling->fetchAll(PDO::FETCH_ASSOC);
 
         $statesmentTotalOrder->bindValue(1,'2020-01-01');
         $statesmentTotalOrder->bindValue(2,'2020-12-31');
@@ -115,7 +138,9 @@
         $statesmentMostUnpopularGood->execute();
         $dataUG = $statesmentMostUnpopularGood->fetchAll(PDO::FETCH_ASSOC);
 
-        $financeQueryWithoutDate = array('financeTotalSelling' => $dataTS,'financeTotalOrder' =>$dataTO, 'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+        $financeQueryWithoutDate = array('financeTotalSelling' => $dataTS,'financeTDailySelling' =>$dataDS, 'financeTotalOrder' =>$dataTO, 
+        'totalSoldGoods' =>$dataSG, 'mostPopularGood' =>$dataPG, 'mostUnpopularGood' =>$dataUG);
+
         print json_encode($financeQueryWithoutDate);
         
     }
