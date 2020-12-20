@@ -1,4 +1,4 @@
-var app = new Vue({
+const app = new Vue({
     el: '.containerFinance',
     data: {
         loginAccount: null,
@@ -17,6 +17,8 @@ var app = new Vue({
     },
 
     mounted() {
+
+        const self = this;
 
         // 初始化折線圖
         Highcharts.stockChart('lineChartBlock', {
@@ -79,8 +81,6 @@ var app = new Vue({
 
         });
 
-        const self = this;
-
         $.ajax({
             url: '../PHP/Frontend/sessionR.php',
             success: function (res) {
@@ -94,6 +94,66 @@ var app = new Vue({
                 console.log(res);
             }
         })
+
+        // 初始化捐款頁
+        let DONATION_ID = $("input[name='DONATION_ID']").val();
+        let name = $("input[name='name']").val();
+        let email = $("input[name='email']").val();
+        let pID_tID = $("input[name='pID_tID']").val();
+        let dateStart = $("input[name='dateStart']").val();
+        let dateEnd = $("input[name='dateEnd']").val();
+
+        $.ajax({
+            url: '../PHP/backStage/finance/donationQuery.php',
+            type: 'POST',
+            dataType: "JSON",
+            data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
+            success: function (res) {
+
+                // console.log(res);
+
+                self.donationDetals = res.donationDetals;
+                self.donationLog = res;
+
+                for (let i = 0; i < res.length; i++) {
+                    let donationPlan = res[i].DONATION_PLAN;
+
+                    if (donationPlan == 1) {
+                        res[i].DONATION_PLAN = "單次扣款";
+                    } else if (donationPlan == 2) {
+                        res[i].DONATION_PLAN = "定期捐款";
+                    } else {
+                        res[i].DONATION_PLAN = "資料錯誤";
+                    }
+
+                }
+
+                var totalDonation = 0;
+
+                for (let i = 0; i < res.length; i++) {
+                    let singleDonation = parseInt(res[i].AMOUNT);
+                    totalDonation = totalDonation + singleDonation;
+                }
+
+                self.totalDonation = totalDonation;
+                console.log(self.totalDonation);
+
+                let queryDateStart = document.querySelector("#queryDateStart");
+                let showDateStart = document.querySelector("#showDateStart");
+                let queryDateEnd = document.querySelector("#queryDateEnd");
+                let showDateEnd = document.querySelector("#showDateEnd");
+
+                showDateStart.innerHTML = queryDateStart.value;
+                showDateEnd.innerHTML = queryDateEnd.value;
+
+            },
+            error: function (res) {
+                console.log("回傳失敗！");
+                console.log(res);
+                console.log(res.responseText);
+            },
+        });
+
 
     },
 
@@ -203,7 +263,7 @@ var app = new Vue({
                     }
 
                     self.pieChartAllData = pieChartAllData;
-                    // console.log(self.pieChartAllData);
+                    // console.log(self.pieChartAllData);s
 
                     // 填入折線圖
                     Highcharts.stockChart('lineChartBlock', {
@@ -275,9 +335,9 @@ var app = new Vue({
         },
 
         queryDonation() {
-            this.showDetails = false;
 
             const self = this;
+
             let DONATION_ID = $("input[name='DONATION_ID']").val();
             let name = $("input[name='name']").val();
             let email = $("input[name='email']").val();
@@ -286,10 +346,13 @@ var app = new Vue({
             let dateEnd = $("input[name='dateEnd']").val();
 
             $.ajax({
-                url: '../PHP/backStage/finance/donationQuery.php',
+                url: '../PHP/backStage/Finance/donationQuery.php',
                 type: 'POST',
+                dataType: 'JSON',
                 data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
                 success: function (res) {
+
+                    console.log(res);
 
                     self.donationDetals = res.donationDetals;
                     self.donationLog = res;
@@ -315,9 +378,7 @@ var app = new Vue({
                     }
 
                     self.totalDonation = totalDonation;
-
                     console.log(self.totalDonation);
-                    console.log(res);
 
                     let queryDateStart = document.querySelector("#queryDateStart");
                     let showDateStart = document.querySelector("#showDateStart");
@@ -332,7 +393,6 @@ var app = new Vue({
                     console.log("回傳失敗！");
                     console.log(res.responseText);
                 },
-                dataType: "JSON",
             });
         },
 

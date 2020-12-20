@@ -25,8 +25,6 @@
 
         $statesmentDonationLog->execute();
         $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
-
-        print json_encode($dataDL);
         
     }else{
 
@@ -41,8 +39,6 @@
 
         $statesmentDonationLog->execute();
         $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
-
-        print json_encode($dataDL);
 
     }
 

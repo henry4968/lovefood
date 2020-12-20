@@ -99,8 +99,9 @@
                 }
             }
             #financeFilterForDonation{
-                border: 1px solid red;
+                display: flex;
                 #donationSearchingBlock{
+                    width: 550px;
                     .donationSearchingRow{
                         width: 510px;
                         margin-bottom: 5px;
@@ -110,9 +111,8 @@
                     }
                 }
                 #donationDateFilter{
-                    
                     margin-left: 50px;
-                    width: 300px;
+                    width: 350px;
                     height: 80px;
                     input{
                         width: 130px;
@@ -166,7 +166,6 @@
             #financeShowDonationPage{
                 width: 100%;
                 height: 100%;
-                border: 1px sold red;
                 #donationDate, #donationAmount{
                     font-size: 16px;
                     color: #707070;
