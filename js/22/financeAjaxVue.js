@@ -42,15 +42,6 @@ var app = new Vue({
             }]
         });
 
-        var d1 = new Date("2020-01-01");
-        var d2 = new Date("2020-01-02");
-        var d3 = new Date("2020-01-03");
-
-        console.log(d1.getTime());
-        console.log(d2.getTime());
-        console.log(d3.getTime());
-
-
         // 初始化圓餅圖
         Highcharts.chart('pieChartBlock', {
             chart: {
@@ -123,17 +114,18 @@ var app = new Vue({
                 dataType: 'JSON',
                 success: function (res) {
                     console.log(res);
-                    console.log(res.financeTDailySelling);
 
+                    // 總銷售額計算
                     var rTS = res.financeTotalSelling;
                     var selling = 0;
 
                     for (let i = 0; i < rTS.length; i++) {
-                        selling = selling + (rTS[0].ORDER_DETAIL_QUANTITY * rTS[0].PRODUCT_SELLING_PRICE);
+                        selling = selling + (rTS[i].ORDER_DETAIL_QUANTITY * rTS[i].PRODUCT_SELLING_PRICE);
                     }
 
                     self.financeTotalSelling = selling;
 
+                    // 每日銷售統計
                     var rDS = res.financeTDailySelling;
                     var dailySellingArr = [];
                     var resDateArr = [];
@@ -157,7 +149,7 @@ var app = new Vue({
                         return result;
                     }
 
-                    for (let i = 0; i < totalDays; i++) {
+                    for (let i = 0; i <= totalDays; i++) {
                         let presentDate = addDays(realDateStart, 1 * i);
                         let hasOrder = false;
 
@@ -176,12 +168,14 @@ var app = new Vue({
                     self.financeDailySelling = dailySellingArr;
                     console.log(self.financeDailySelling);
 
+                    // 總訂單量計算
                     if (res.financeTotalOrder.length !== 0) {
                         self.financeTotalOrder = res.financeTotalOrder[0].TOTAL_ORDER;
                     } else {
                         self.financeTotalOrder = 0;
                     }
 
+                    // 商品受歡迎與否
                     self.mostPopularGood = res.mostPopularGood[0];
                     self.mostUnpopularGood = res.mostUnpopularGood[0];
                     self.totalSoldGoods = res.totalSoldGoods;
@@ -468,33 +462,3 @@ var app = new Vue({
 
 
 });
-
-// $(document).ready(function () {
-//     Highcharts.getJSON('https://demo-live-data.highcharts.com/aapl-c.json', function (data) {
-
-//         // Create the chart
-//         Highcharts.stockChart('lineChartBlock', {
-
-
-//             rangeSelector: {
-//                 selected: 1
-//             },
-
-//             title: {
-//                 text: 'AAPL Stock Price'
-//             },
-
-//             navigator: {
-//                 enabled: false
-//             },
-
-//             series: [{
-//                 name: 'AAPL Stock Price',
-//                 data: data,
-//                 tooltip: {
-//                     valueDecimals: 2
-//                 }
-//             }]
-//         });
-//     });
-// });
