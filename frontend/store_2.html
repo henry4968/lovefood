@@ -22,6 +22,7 @@
 </head>
 
 <body>
+<<<<<<< HEAD
     <!-- 標頭開始 -->
     <header id="header">
         <!-- 漢堡選單開始 -->
@@ -65,10 +66,38 @@
                     @click="sellogIncheck">賣家專區</a>
                 <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
+=======
+    <div id="all">
+   <!-- 標頭開始 -->
+        <header id="header">
+    <!-- 漢堡選單開始 -->
+    <input type="checkbox" id="hamburgerMenuToggle">
+    <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+        <span></span>
+    </label>
+    <!-- 行動版行動導覽列開始 -->
+    <nav id="navigationForMobile">
+        <div id="searchBarForMobile">
+            <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+        </div>
+        <ul>
+            <li>
+                <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
+            </li>
+            <li>
+                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+            </li>
+            <li>
+                <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+            </li>
+            <li>
+                <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+>>>>>>> weiyi
                     <div>
                         立即捐款
                     </div>
                 </a>
+<<<<<<< HEAD
                 <a href="#0" id="navIcons01" class="navIcons">
                     <img src="../img/22/index/ch05_nav_search.png" alt="">
                 </a>
@@ -97,6 +126,58 @@
     </header>
     <!-- 標頭結束 -->
     <div class="wrap">
+=======
+            </li>
+        </ul>
+    </nav>
+    <!-- 行動版導覽列結束 -->
+    <!-- 漢堡選單結束 -->
+    <div id="headerContentContainer">
+        <a href="./index.html">
+            <img id="logo" src="../img/22/index/ch05_header_logo.png">
+        </a>
+        <!-- 桌機版導覽列開始 -->
+        <nav id="navigationForPC">
+            <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+            <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
+            <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+            <a href="./donate_now.html" id="navSepcialAnchor">
+                <div>
+                    立即捐款
+                </div>
+            </a>
+            <a href="#0" id="navIcons01" class="navIcons">
+                <img src="../img/22/index/ch05_nav_search.png" alt="">
+            </a>
+            <a href="./store_3.html" id="navIcons02" class="navIcons">
+                <span style="position: relative;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
+top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                </span>
+            </a>
+            <a href="./memberInformation.html" id="navIcons03" class="navIcons">
+                <img src="../img/22/index/ch05_nav_member.png" alt="">
+            </a>
+        </nav>
+        <!-- 桌機版導覽列結束 -->
+        <!-- 行動版次級導覽列開始 -->
+        <nav id="subNavigationForMobile">
+            <a href="./store_3.html" id="navIcons02" class="navIcons">
+                <span style="position: relative;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
+top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                </span>
+            </a>
+            <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
+                <img src="../img/22/index/ch05_nav_member.png" alt="">
+            </a>
+        </nav>
+        <!-- 行動版次級導覽列結束 -->
+    </div>
+        </header>
+    <!-- 標頭結束 -->
+        <div class="wrap">
+>>>>>>> weiyi
         <!-- store_banner開始 -->
         <section class=banner_16>
             <div>
@@ -183,7 +264,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/C1.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>1</h1>
+                                        <h1>秋鮭鮪魚雙手卷</h1>
                                     </div>
                                 </div>
                             </li>
@@ -192,7 +273,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/c2.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>2</h1>
+                                        <h1>鹽烤松阪豬</h1>
                                     </div>
                                 </div>
                             </li>
@@ -201,7 +282,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/c3.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>3</h1>
+                                        <h1>日式紅豆銅鑼燒</h1>
                                     </div>
                                 </div>
                             </li>
@@ -280,24 +361,26 @@
 
             </div>
         </div>
-    </div>
-    <footer>
-        <div class="footerBlock">
-            <div>
-                <div class="footer_logo">
-                    <a href="index.html"><img src="../img/16/footerLogo.png"></a>
-                    <p class="copyright">&copyLOVE FOOD All right reserved</p>
-                </div>
-                <div class="info">
-                    <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
-                    <a href="#"><img src="../img/16/footerPhoneIcon.png">02- 24708053</a><br>
-                    <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+        </div>
+        <footer>
+            <div class="footerBlock">
+                <div>
+                    <div class="footer_logo">
+                        <a href="index.html"><img src="../img/16/footerLogo.png"></a>
+                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                    </div>
+                    <div class="info">
+                        <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
+                        <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
+                        <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 <!-- js -->
+<<<<<<< HEAD
 <!-- header vue -->
 <script>
     new Vue({
@@ -438,4 +521,7 @@
     });
 </script>
 
+=======
+<script src="../js/07/temp.js"></script>
+>>>>>>> weiyi
 </html>

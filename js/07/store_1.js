@@ -44,6 +44,8 @@ function doFirst(){
         $('#mapBox').hide();
 
     });
+        
+    
     
   
     $('#btnMap').click(function(){
