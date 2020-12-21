@@ -1,99 +1,33 @@
-///////////////js///////////////////
-///////////////////////////////////
-$('.carImg').click(function () {
-    alert('dd');
-});
-
-
-
 
 ////////////////vue///////////////
 //////////////////////////////////
-Vue.component('cart', {
-    // props:[''],
-
-    template: `<div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-    top: -40%;">0</div>`,
-});
-Vue.component('add-sub', {
-    props: ['className', 'product'],
-    data() {
-        return {
-
-        }
-    },
-    mounted() {
-
-    },
-    template: `
-    <div class="productBottom">
-    <div class="pdtQuantity" id="pdtQuantit">
-        <span class="productText">數量</span>
-        <button class="left" @click="sub()">
-            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                class="pdtsvg">
-                <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                </polygon>
-            </svg>
-        </button>
-        <input type="text"  :value="item.quantity" name="qunatity" class="pdtValue" >
-        <button type="button" class="right"  @click="add(index)">
-            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                class="pdtsvg">
-                <polygon
-                    points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                </polygon>
-            </svg>
-        </button>
-    </div>
-    <button class="carImg"><img src="../img/07/cart.png"alt=""></button>
-</div>                
-                               
-                                `,
-
-    methods: {
-        add() {
-            const self = this;
-            self.value++;
-        },
-        sub() {
-            const self = this;
-            if (self.value >= 1) {
-
-                self.value--;
-            }
-        },
-
-
-    },
-
-
-})
-
-
 const main = new Vue({
     el: '#all',
     data: {
         tableData: null,
         count: 1,
         cartArray: [],
-        // 一般會員 href
-        jumppage: '',
-        // 賣家會員 href
-        seljumpage: '',
-        // 賣家會員class
-        selloginchangemem: '',
-        // 會員大頭貼
-        Bigpicchange: "",
-        // 判斷一般會員是否登入
-        login: '',
-        // 判斷賣家會員是否登入
-        sellogin: '',
+        // cartArray:null
     },
     methods: {
+        detail(){
+            let pdID = $("[name='pdID']").val()
+            $.ajax({
+                url:'../PHP/Frontend/EC_07/bridge.php',
+                data:{pdID},
+                type:'GET',
+                success:function(){
+                    return 123;
+                },
+            })
+            // console.log($("[name='pdID']").val());
+            
+        },
 
         query() {
             const self = this;
+            //全選下的食品種類
+            // categories filter
             let itemsCate = $('.item3').find('input');
             console.log(itemsCate);
             var arrCate = new Array();
@@ -109,169 +43,181 @@ const main = new Vue({
                 }
             }
             console.log(arrCate);
-            $.ajax({
-                url: '../PHP/Frontend/EC_07/filter.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                type: 'POST',
-                data: {
-                    arrCate
-                },
-                success: function (res) {
-                    for (let index = 0; index < res.length; index++) {
-                        res[index].quantity = 0
-                    }
-                    self.tableData = res;
-                },
-                error: function (res) {
-                    console.log(res);
-                },
-                dataType: "JSON",
-                // dataType: "html",
-                // dataType: "text",
+                    //全選下的商家seller filter
+            let itemName2Wth = $('.itemName2Wth').find('input');
+            var arrSeller = new Array();
+            for (i = 0; i < itemName2Wth.length; i++) {
+
+                sellerChecked = $(`input[name="seller1[${i}]"]:checked`).val();
+
+                if (sellerChecked != null) {
+                    arrSeller.push(sellerChecked);
+                }
+
+            }
+            console.log(arrSeller); //商家選取陣列
+
+            //////商家//////
+            let itemName5 = $('#itemName5').find('input');
+            console.log(itemName5);
+            var sellers = new Array();
+            for (i = 0; i < itemName5.length; i++) {
+
+                sChecked = $(`input[name="seller2[${i}]"]:checked`).val();
+
+                if (sChecked != null) {
+                    sellers.push(sChecked);
+                }
+
+            }
+            console.log(sellers);
+            
+            ///////種類//////////
+            let itemName6 = $('itemName6').find('input');
+            console.log(itemName6);
+            var arrspecies = new Array();
+            for (i = 0; i < itemName6.length; i++) {
+
+                speciesChecked = $(`input[name="categories2[${i}]"]:checked`).val();
+
+                if (speciesChecked != null) {
+                    arrspecies.push(speciesChecked);
+                }
+
+            }
+            // console.log(arrspecies,);
+            this.queryData('../PHP/Frontend/EC_07/filter.php',{
+                //將陣列放入data透過ajax傳值，php接值
+                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             })
 
         },
         add(index) {
-            this.tableData[index].quantity++
+            this.tableData[index].quantity++;
         },
         sub(index) {
             if (this.tableData[index].quantity >= 1) {
                 this.tableData[index].quantity--;
             }
         },
+        
         addCart(item) {
+            const self = this;
+            var produ = {
+                name: item.PRODUCT_NAME,
+                qty: item.quantity,
+                seller:item.SUPPLIER_NAME,
+                price:item.PRODUCT_SELLING_PRICE,
+                id:item.PRODUCT_ID
+            };
+            this.cartArray.push(produ.qty);
+            console.log(this.cartArray);
+            if(produ.qty == 0){
+                this.cartArray.pop();
+                // console.log(produ.qty);
+            }
             // localStorage
-            // cartArray
-            this.cartArray.push(item)
-            console.log(item.quantity);
+            let itemStorage = [];
+            itemStorage.push(produ);
+            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
+            // Storage() {
+                // localStorage.JSON.parse(localStorage.getItem("cartArray"));
+                
+            //  }
+
         },
+        queryData(url,data = null){
+            const self = this
 
-
-
-        // header=====================================
-
-        // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
-        logIncheck() {
-            if (checkdata != '') {
-                if (checkdata.substr(0, 2) == 'MB') {
-                    this.jumppage = './memberInformation.html';
-                } else if ((checkdata.substr(0, 2) == 'SP')) {
-                    alert('尚未登入會員，請登入會員');
-                    this.jumppage = './signUp_signIn.html';
+            if(self.tableData !== null){
+                // 清除 interval
+                for (let index = 0; index < self.tableData.length; index++) {
+                    clearInterval(self.tableData[index].timer)
+                    self.tableData[index].timer = null
                 }
-            } else {
-                alert('尚未登入會員，請登入會員');
-                this.jumppage = './signUp_signIn.html';
             }
-        },
-        // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
-        sellogIncheck() {
-            if (checkdata != '') {
-                if (checkdata.substr(0, 2) == 'MB') {
-                    alert('尚未登入會員，請登入賣家會員');
-                    this.seljumpage = './sellerSignUp_SignIn.html';
-                } else if ((checkdata.substr(0, 2) == 'SP')) {
-                    this.seljumpage = '../backend/backendIndex.html';
-                    this.selloginchangemem = true;
-                }
-            } else {
-                alert('尚未登入會員，請登入會員');
-                this.seljumpage = './sellerSignUp_SignIn.html';
-            }
-        },
-        // 判斷是否有會員登入及是哪一種會員
-        // 看看是一般會員或是賣家會員
-        checklogin() {
-            axios.post('../PHP/Frontend/sessionR.php').then(res => {
-                // console.log(res);
-                // 賣家或是買家ID
-                checkdata = res.data;
-                // console.log(checkdata.substr(0, 2));
-                // alert(checkdata);
-                if (checkdata != '') {
-                    // 判斷是賣家會員使"賣家專區"變色
-                    if ((checkdata.substr(0, 2) == 'SP')) {
-                        // console.log(checkdata.substr(0, 2));
-                        this.sellogin = true;
-                        // console.log(this.sellogin);
-                    } else {
-                        this.sellogin = false;
-                        // console.log(this.sellogin);
-                    }
-                    // 判斷是一般會員使"會員"變色
-                    if ((checkdata.substr(0, 2) == 'MB')) {
-                        this.login = true;
-                    } else {
-                        this.login = false;
-                    }
-                }
-            });
-        },
-        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-        Bitpicupdate() {
-            // 撈圖片
-            axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                data = res.data
-                // console.log(data);
-                if (data != "") {
-                    // atob函数用来解碼一个已经被base-64编碼過的數據
-                    // 如果在PHP有base64_decode就不用atob
-                    // this.Bigpicchange = atob(data);
-                    $('#navIcons03 img').attr('src', atob(data));
-                    $('#navIcons05 img').attr('src', atob(data));
-                }
-            });
-        },
-        // hover取到圖片
-        onhover() {
-            // 撈圖片
-            axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                data = res.data
-                // console.log(data);
-                if (data != "") {
-                    // atob函数用来解碼一个已经被base-64编碼過的數據
-                    // 如果在PHP有base64_decode就不用atob
-                    // this.Bigpicchange = atob(data);
-                    // console.log(this.Bigpicchange);
-                    $('#navIcons03 img').attr('src', atob(data));
-                    $('#navIcons05 img').attr('src', atob(data));
-                }
-            });
-        },
-        // leave回到原狀
-        onout() {
-            // 撈圖片
-            axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                data = res.data
-                // console.log(data);
-                if (data != "") {
-                    // atob函数用来解碼一个已经被base-64编碼過的數據
-                    // 如果在PHP有base64_decode就不用atob
-                    // this.Bigpicchange = atob(data);
-                    // console.log(this.Bigpicchange);
-                    $('#navIcons03 img').attr('src', atob(data));
-                    $('#navIcons05 img').attr('src', atob(data));
-                }
-            });
-        },
+
+            $.ajax({
+                url,
+                data,
+                type: 'POST',
+                    success: function (res) {
+                        // console.log(res);
+                        for (let index = 0; index < res.length; index++) {
+                            res[index].quantity = 0
+                            res[index].hours = 0
+                            res[index].days = 0
+                            res[index].minutes = 0
+                            res[index].seconds = 0
+                            res[index].timer = null
+                            res[index].PRODUCT_IMG = 'data:image/jpeg;base64,' + window.atob(res[index].PRODUCT_IMG) 
+
+                            console.log(window.btoa(res[index].PRODUCT_IMG) )
+                        }
+                        // self.$forceUpdate() 強制更新 vue data
+
+                        self.tableData = res;
+                        
+                        for (let index = 0; index < self.tableData.length; index++) {
+                          
+                            const updateTime = () =>{
+                                var now = new Date();
+                                var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
+
+                                if(difference <= 0){
+
+                                }else{
+    
+                                    var seconds = Math.floor(difference / 1000);
+                                    var minutes = Math.floor(seconds / 60);
+                                    var hours = Math.floor(minutes / 60);
+                                    var days = Math.floor(hours / 24);
+                                
+                                    hours %= 24;
+                                    minutes %= 60;
+                                    seconds %= 60;
+    
+                                    self.tableData[index].hours = hours
+                                    self.tableData[index].days = days
+                                    self.tableData[index].minutes = minutes
+                                    self.tableData[index].seconds = seconds
+                                }
+                            }
+                            clearInterval(self.tableData[index].timer)
+
+                            self.tableData[index].timer = setInterval(updateTime,1000)
+
+                        }
+                    },
+                    error: function (res,error) {
+                        console.log(res,error);
+                    },
+                dataType:'JSON',
+            })
+        }
 
 
     },
-    computed: {
-
-
-    },
-
-    mounted() {
-        // 看看是一般會員或是賣家會員
-        this.checklogin();
-        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-        this.Bitpicupdate();
-    },
-    updated() {
-        // 看看是一般會員或是賣家會員
-        this.checklogin();
-        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-        this.Bitpicupdate();
+    mounted(){
+        const self = this;
+        // store = new Array();
+        this.queryData('../PHP/Frontend/EC_07/storeCard.php')
+        // $.ajax({
+        //     url:'../PHP/Frontend/EC_07/storeCard.php',
+        //     type: 'POST',
+        //         success: function (res) {
+        //             // let aaa = JSON.parse(res);
+        //             // console.log(res);
+        //             for (let index = 0; index < res.length; index++) {
+        //                 res[index].quantity = 0
+        //             }
+        //             self.tableData = res;
+        //         },
+        //         error: function (res) {
+        //             console.log('bbb');
+        //         },
+        //     dataType:'JSON',
+        // })
     },
 
 

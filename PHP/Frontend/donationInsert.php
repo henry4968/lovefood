@@ -56,6 +56,6 @@ $sqlStatment->bindValue(15,$deliveryMethod);
 
 $sqlStatment->execute();
 
-// header("location:http://localhost/Lovefood/frontend/index.html");
+header("location:http://localhost/Lovefood/frontend/donate_completed.html");
 
 ?>

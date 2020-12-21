@@ -7,13 +7,18 @@ const app = new Vue({
         issuanceLog: null,
         discountLog: null,
         ShowFinalPoints: null,
-        showTab: false,
-        showDetails: true,
-        uploadCSVLog: null,
+        showTab: true,
+        showIssuanceDetails: false,
+        showUsingDetails: false,
+        uploadCSVLog: null
     },
 
     mounted() {
         const self = this;
+
+        this.showIssuanceDetails = false;
+        this.showUsingDetails = false;
+
         let id = $("input[name='id']").val();
         let account = $("input[name='account']").val();
         let name = $("input[name='name']").val();
@@ -24,6 +29,7 @@ const app = new Vue({
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
+            dataType: "JSON",
             data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.pointsIssuance = res.pointsIssuance;
@@ -65,40 +71,17 @@ const app = new Vue({
                 console.log("回傳失敗！");
                 console.log(res.responseText);
             },
-            dataType: "JSON",
         });
 
     },
 
-    // updated() {
-
-    //     const self = this;
-    //     let selectedId = $("input[name='selectedId']").val();
-    //     let points = $("input[name='points']").val();
-
-    //     $.ajax({
-    //         url: '../PHP/backStage/points/pointsUpdate.php',
-    //         type: 'POST',
-    //         data: { points, selectedId },
-    //         success: function (res) {
-    //             self.pointsUpdating = res;
-    //             console.log(res)
-    //         },
-    //         error: function (res) {
-    //             console.log("回傳失敗！");
-    //             console.log(res.responseText);
-    //         },
-    //         dataType: "text",
-    //     });
-
-    // },
-
     methods: {
 
-        showContent(e) {
-            this.showDetails = false;
-
+        showIssuanceLog(e) {
             const self = this;
+
+            this.showIssuanceDetails = true;
+
             let dataId = $(e.target).data('id');
             let dateStart = $("input[name='dateStart']").val();
             let dateEnd = $("input[name='dateEnd']").val();
@@ -123,10 +106,41 @@ const app = new Vue({
 
         },
 
-        query() {
-            this.showDetails = true;
-
+        showUsingLog(e) {
             const self = this;
+
+            this.showUsingDetails = true;
+
+            let dataId = $(e.target).data('id');
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsDetails.php',
+                type: 'POST',
+                data: { dataId, dateStart, dateEnd },
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    self.issuanceLog = res.issuanceLog;
+                    self.discountLog = res.discountLog;
+                    self.pointsOfMember = res.pointsOfMember;
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+
+            });
+
+        },
+
+        queryPoints() {
+            const self = this;
+
+            this.showUsingDetails = false;
+            this.showIssuanceDetails = false;
+
             let id = $("input[name='id']").val();
             let account = $("input[name='account']").val();
             let name = $("input[name='name']").val();
@@ -193,8 +207,9 @@ const app = new Vue({
             });
         },
 
-        update() {
+        updatePoints() {
             const self = this;
+
             let selectedId = $("input[name='selectedId']").val();
             let points = $("input[name='points']").val();
 
@@ -212,14 +227,21 @@ const app = new Vue({
                 },
                 dataType: "text",
             });
+
+            this.pointsOfMember[0].MEMBER_POINTS = points;
         },
 
         uploadCSV() {
             const self = this;
 
-            var fileData = $('#csvFile').prop('files')[0];
+            var fileData = $('#csvFileInput').prop('files')[0];
             var formData = new FormData();
-            formData.append('csvFile', fileData, 'csvFile');
+
+            if (fileData == undefined) {
+                alert("請先選擇檔案！");
+            }
+
+            formData.append('csvFileInput', fileData, 'csvFileInput');
 
             console.log(fileData);
             for (var pair of formData.entries()) {

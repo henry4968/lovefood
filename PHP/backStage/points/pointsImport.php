@@ -5,7 +5,7 @@
     $dataUL = [];
 
     // if (($handle = fopen($_FILES["importCSV"]["tmp_name"], "r")) !== FALSE) {  //直接開啟
-    if (($handle = fopen($_FILES["csvFile"]["tmp_name"], "r")) !== FALSE) {  //AJAX開啟
+    if (($handle = fopen($_FILES["csvFileInput"]["tmp_name"], "r")) !== FALSE) {  //AJAX開啟
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 

@@ -10,15 +10,16 @@
 
         //取得PDO物件
         function getPDO(){
-            // $db_host = "localhost";
-            // $db_user = "root";
+            $db_host = "localhost";
+            $db_user = "root";
             // $db_pass = "jeff5076";
-            // // $db_select = "php";
+            $db_pass = "SQL1933";
+            // $db_select = "php";
             // $db_select = "lovefood";
             //廷翰
-            $db_host = "localhost:3306"; 
-            $db_user = "test";
-            $db_pass = "password";
+            // $db_host = "localhost:3306"; 
+            // $db_user = "test";
+            // $db_pass = "password";
             $db_select = "LoveFood";
             //廷翰
             //建立資料庫連線物件

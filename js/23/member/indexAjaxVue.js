@@ -29,20 +29,20 @@ const app = new Vue({
             },
             dataType: "JSON",
         })
-        // console.log(123);
+
         $.ajax({
-            url:'../PHP/Frontend/sessionR.php',
-            success:function(res){
+            url: '../PHP/Frontend/sessionR.php',
+            success: function (res) {
                 console.log(res);
-                $.cookie('account',`${res}`,3);
-                // $.cookie('account',null,{expires:-1});
+                $.cookie('account', `${res}`, 3);
+
 
             },
-            dataType:"text",
-            error:function(res){
+            dataType: "text",
+            error: function (res) {
                 console.log(res);
             }
-            })
+        })
 
     },
 
