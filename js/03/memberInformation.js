@@ -541,7 +541,7 @@ Vue.component('order', {
           </div>
 
           <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
-            <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div>
+            <!-- <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div> -->
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
@@ -553,7 +553,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle orderid">訂單編號</h3>
                 </div>
-                <p id="addcancel" class="contentsame orderid" v-if="order.ORDER_ID">{{order.ORDER_ID}}</p>
+                <p id="addcancel" class="contentsame orderid" v-if="order.ORDER_ID" @click="openBorder" >{{order.ORDER_ID}}</p>
               </div>
               <div class="detailsame countBorder">
                 <div class="cattitle">
@@ -582,7 +582,7 @@ Vue.component('order', {
             </div>
 
 
-            <div class="itemdetailBorder">
+            <div class="itemdetailBorder itemdetailBorderdb">
               <div class="itemstatusBorder">
                 <div class="itemstopBorder">
                   <div class="fourcircleBorder">
@@ -710,7 +710,7 @@ Vue.component('order', {
                     <span class="itempaywaycontent">{{total[i]}}元</span>
                   </div>
                 </div>
-                <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#" v-if="order.ORDER_STATUS == '待出貨'">
+                <form class="cancelBtnBorder" method="POST" action="#" v-if="order.ORDER_STATUS == '待出貨'">
                   <img src="../img/03/trashcancel.png">
                   <button type="button" id="cancelBtn" @click="cancelorder">取消訂單</button>
                 </form>
@@ -739,12 +739,458 @@ Vue.component('order', {
       actimg: [],
       // 訂單總額
       total: [],
+      // 展開縮和
+      itemdetailBorderdb: '',
     }
   },
   methods: {
-    // 不同的class切換
+    // 不同的class切換及撈不同的class
     statussame(num) {
-      this.chagestatussamebg = num
+      // CLASS切換
+      this.chagestatussamebg = num;
+
+      let self = this
+      // 撈全部
+      if (num == 1) {
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        self.allselect();
+        // 撈待出貨
+      } else if (num == 2) {
+        let num = 1
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // console.log(num);
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // console.log(this.orderList);
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+        // 撈待取貨
+      } else if (num == 3) {
+        let num = 2
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+
+        // 撈取貨完成
+      } else if (num == 4) {
+        let num = 3
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+
+        // 撈取消
+      } else if (num == 5) {
+        let num = 0
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+
+        });
+
+      }
     },
     sync() {
       // 控制父層 class
@@ -758,6 +1204,9 @@ Vue.component('order', {
         // console.log(atob(res.data));
         this.orderList = res.data
         // console.log(res.data);
+
+        // 回復原狀
+        this.itemdetailBorderdb = '';
 
         // 訂單日期 訂單時間
         res.data.forEach(i => {
@@ -851,9 +1300,24 @@ Vue.component('order', {
       let self = this;
       axios.post('../PHP/Frontend/cancelorder.php', data, config).then(res => {
         alert("取消訂單");
-        self.allselect();
+        // self.allselect();
+        // 撈不同訂單狀態
+        let a = 0
+        self.statussame(a);
       });
-      // console.log(this.$el);
+    },
+    // 展開縮和
+    openBorder(e) {
+      let mee = e.target;
+      let tt = mee.closest('div.orderdetailBorder').querySelector('.itemdetailBorder');
+
+      if (tt.classList.contains('itemdetailBorderdb')) {
+        tt.classList.remove('itemdetailBorderdb')
+        // console.log(1);
+      } else {
+        tt.classList.add('itemdetailBorderdb')
+        // console.log(2);
+      }
     },
   },
   mounted() {
