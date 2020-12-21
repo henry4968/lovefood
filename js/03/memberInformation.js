@@ -507,15 +507,15 @@ Vue.component('order', {
               <div class="searchDateBoder">
                 <label class="search">查詢區間 : </label>
                 <div class="dateFromdateTo">
-                  <input id="dateFrom" type="date">
+                  <input id="dateFrom" type="date" v-model="dateFrom">
                   <div class="whitespace">
                     &#32;&#126;&#32;
                   </div>
-                  <input id="dateTo" type="date">
+                  <input id="dateTo" type="date" v-model="dateTo">
                 </div>
               </div>
               <div class="searchBtnBorder">
-                <button id="searchBtnBorder" type="submit">查詢</button>
+                <button id="searchBtnBorder" type="button" @click="searchDate">查詢</button>
               </div>
               <div class="searchNoteBorder">
                 <p class="searchNoteBorder">可查詢90天內之訂單</p>
@@ -540,7 +540,7 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div v-if="orderList.length > 0" class="orderdetailBorder" v-for="(order,i) in orderList">
+          <div v-if="orderList.length > 0 && dateCheck(order)" class="orderdetailBorder" v-for="(order,i) in orderList">
             <!-- <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div> -->
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
@@ -741,9 +741,48 @@ Vue.component('order', {
       total: [],
       // 展開縮和
       itemdetailBorderdb: '',
+      // 開始日期
+      dateFrom: null,
+      dateTrueFrom: null,
+      // 結束日期
+      dateTo: null,
+      dateTrueTo: null,
+
+
     }
   },
   methods: {
+    // 查詢區間
+    dateCheck(order) {
+      // console.log(order.ORDER_DATE);
+      // 尚未選擇日期時全部顯示
+      if (this.dateTrueFrom == null || this.dateTrueTo == null) {
+        return true
+      }
+      // 當裡面有值就計算
+      const tt = new Date(order.ORDER_DATE)
+      if (this.dateTrueFrom <= tt && tt <= this.dateTrueTo) {
+        return true
+      }
+      return false
+    },
+    // 查詢區間
+    searchDate() {
+      // 當不是空值時進行判斷
+      if (this.dateFrom != null && this.dateTo != null) {
+        if (this.dateFrom <= this.dateTo) {
+          this.dateTrueFrom = new Date(this.dateFrom);
+          this.dateTrueTo = new Date(this.dateTo);
+        } else {
+          alert('起始日期不能小於最後日期');
+        }
+      }
+      // 有一個為空或是格式錯誤就報錯
+      if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
+        alert('起始日期或是最後日期有空值');
+      }
+      console.log(this.dateFrom);
+    },
     // 不同的class切換及撈不同的class
     statussame(num) {
       // CLASS切換
