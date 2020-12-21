@@ -8,20 +8,29 @@ include("Lib/MemberClass.php");
 $Member = new MemberClass();
 $MemberId = $Member->getMemberID();
 
-//======================================================== 
-//建立SQL 訂單
-$sql = "select * 
-	from lovefood.member aa 
-    join lovefood.points_issuance bb 
-    on aa.MEMBER_ID = bb.MEMBER_ID_for_PI 
-    where MEMBER_ID = ?";
+//========================================================  
+//建立SQL 花費點數
+$sqlspan = 'SELECT * FROM lovefood.order where (ORDER_DISCOUNT != "" and MEMBER_ID_for_OD = ?)';
 
 // 執行
-$point = $Util->getPDO()->prepare($sql);
+$pointspan = $Util->getPDO()->prepare($sqlspan);
 
 // 取值
-$point->bindValue(1, $MemberId);
-$point->execute();
-$datapoint = $point->fetchAll();
+$pointspan->bindValue(1, $MemberId);
+$pointspan->execute();
+$datapointspan = $pointspan->fetchAll();
 
-print_r(json_encode($datapoint));
+//========================================================  
+//建立SQL 發放點數
+$sqlgetpoint = "SELECT * FROM lovefood.points_issuance where MEMBER_ID_for_PI = ?";
+
+// 執行
+$getpoint = $Util->getPDO()->prepare($sqlgetpoint);
+
+// 取值
+$getpoint->bindValue(1, $MemberId);
+$getpoint->execute();
+$datagetpoint = $getpoint->fetchAll();
+
+$data = array('span' => $datapointspan, 'get' => $datagetpoint);
+print_r(json_encode($data));

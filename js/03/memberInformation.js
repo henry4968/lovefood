@@ -1453,13 +1453,25 @@ Vue.component('points', {
       `,
   data() {
     return {
+      // 控制class往返
       foursameBorderapp: '',
+      // 
     }
   },
   methods: {
+    // 控制Class往返
     sync() {
       this.$emit("my-click", false)
     },
+    // 撈點數
+    mypoint() {
+      axios.post('../PHP/Frontend/mypoints.php').then(res => {
+        console.log(res.data);
+      });
+    },
+  },
+  mounted() {
+    this.mypoint();
   },
 });
 
