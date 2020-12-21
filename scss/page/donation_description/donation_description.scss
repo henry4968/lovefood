@@ -2,15 +2,15 @@
 @import "../../base/var";
 @import "../../mixin/mixins";
 @import "../../base/fonts";
+@import "../../../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 
 *{
     box-sizing: border-box;
     padding: 0;
     margin: 0;
-    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei" !important;
     text-decoration: none;
 }
-
 
 // 標頭開始
 #header{
@@ -21,7 +21,7 @@
     background: transparent;
     z-index: 9;
     background-color: #EFECB9;
-    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
     @include newRwd("bigPhone"){
         width: 100%;
         height: 55px;
@@ -446,6 +446,7 @@
         margin: auto;
         font-size: 45px;
         line-height: 75px;
+        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
         // p{
         //     font-size: 25px;
         //     line-height: 75px;
@@ -533,6 +534,7 @@
     
     .bottomNav{
         // border: 1px solid rgb(224, 32, 57);
+        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
         font-size: 30px;
         max-width: 1200px;
         width: 100%;
@@ -599,6 +601,7 @@
         // margin-top: -48px;
         // padding: 20px;
         font-size: 30px;
+        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
         max-width: 1200px;
         width: 100%;
         a{
@@ -676,6 +679,7 @@
 
                 h2{
                     font-size: 50px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     display: block;
                     margin-top: 0px;
                     @include newRwd("mediumPhone"){
@@ -846,6 +850,7 @@
                 }
                 h3{
                     font-size: 40px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     margin: 100px 0 40px;
                     // border: solid 1px rgb(255, 0, 255);
                     @include newRwd("pad"){
@@ -866,6 +871,7 @@
                 
                 p{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 60px;
                     max-width: 850px;
                     padding-bottom: 60px;
@@ -932,6 +938,7 @@
 
                 h3{
                     font-size: 40px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     margin: 0 auto 40px;
                     // border: solid 1px rgb(255, 0, 255);
                     @include newRwd("pad"){
@@ -947,6 +954,7 @@
                 
                 p{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 60px;
                     max-width: 700px;
                     padding-bottom: 10px;
@@ -1028,6 +1036,7 @@
 
                         p{
                             font-size: 38px;
+                            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                             padding-top: 8px ;
                             @include newRwd("pad"){
                                 font-size: 35px;
@@ -1069,6 +1078,7 @@
 
                         p{
                             font-size: 29px;
+                            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                             margin-top: 20px;
                             line-height: 50px;
                             @include newRwd("pad"){
@@ -1132,6 +1142,7 @@
 
         h2{
             font-size: 50px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             display: block;
             @include newRwd("mediumPhone"){
                 font-size: 40px;
@@ -1158,6 +1169,7 @@
             // border: solid 1px blue;
             max-width: 330px;
             font-size: 30px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             display: flex;
             flex-direction: row;
             white-space: nowrap;
@@ -1177,6 +1189,7 @@
             //     }
             p{
                 font-size: 40px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 transform: translateY(-20%);
                 @include  newRwd("newSmallPhone"){
                     font-size: 30px;
@@ -1223,6 +1236,7 @@
 
             h3{
                 font-size: 35px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 // display: block;
                 @include newRwd("pad"){
                     font-size: 35px;
@@ -1291,6 +1305,7 @@
             // border: solid 1px blue;
             // max-width: 330px;
             font-size: 30px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             // display: inline-block;
             display: flex;
             flex-direction: row;
@@ -1307,6 +1322,7 @@
                 }
             p{
                 font-size: 40px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 transform: translateY(-20%);
                 @include  newRwd("newSmallPhone"){
                     font-size: 30px;
@@ -1344,6 +1360,7 @@
             .enjoyFoodBox{
                 border:  3px solid rgb(0, 0, 0);
                 font-size: 50px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 max-width: 150px;
                 width: 100%;
                 height: 150px;
@@ -1372,6 +1389,7 @@
             }
             p{
                 font-size: 35px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 padding: 20px;
                 text-align:center;
                 // border:  1px solid rgb(0, 0, 0);
@@ -1477,6 +1495,7 @@
                     margin-top: 30px;
                         p{
                             font-size: 30px;
+                            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                             margin: 5px auto;
                         }
                         .shopImg{
@@ -1547,6 +1566,7 @@
 
             h2{
                 font-size: 50px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 display: block;
                 @include newRwd("mediumPhone"){
                     font-size: 40px;
@@ -1581,6 +1601,7 @@
 
                     .date{
                         font-size: 22px;
+                        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                         color: #707070;
                         margin: 0 auto 10px;
                     }
@@ -1626,6 +1647,7 @@
     
                 h3{
                     font-size: 40px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     // display: block;
                     @include newRwd("pad"){
                         font-size: 35px;
@@ -1700,10 +1722,12 @@
         
                             h3{
                                 font-size: 24px;
+                                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                                 margin:0 0 10px 0px;
                             }
                             p{
                                 font-size: 20px;
+                                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                                 margin:0 auto 30px;
                                 line-height: 30px;
                                 min-height: 90px;
@@ -1726,6 +1750,7 @@
                             }
                             span{
                                 font-size: 22px;
+                                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                             }
                         }
         
@@ -1829,6 +1854,7 @@
     
             h3{
                 font-size: 40px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 // display: block;
                 @include newRwd("pad"){
                     font-size: 35px;
@@ -1878,6 +1904,7 @@
     
                 .storyTitle{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
 
                     @include newRwd("pad"){
                         font-size: 25px;
@@ -1913,6 +1940,7 @@
                 
                 .storyTxt{
                     font-size: 20px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 30px;
                     margin: 30px 0 0;
                     width: 100%;
@@ -1995,6 +2023,7 @@
 
         h2{
             font-size: 50px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             display: block;
             @include newRwd("mediumPhone"){
                 font-size: 40px;
@@ -2043,6 +2072,7 @@
 
                 h2{
                     font-size: 40px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     margin-bottom: 40px;
                     @include newRwd("pad"){
                         font-size: 35px;
@@ -2056,6 +2086,7 @@
                 }
                 p{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 60px;
                     @include newRwd("pad"){
                         font-size: 26px;
@@ -2083,6 +2114,7 @@
 
                 h2{
                     font-size: 40px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     margin-bottom: 40px;
                     @include newRwd("pad"){
                         font-size: 35px;
@@ -2096,6 +2128,7 @@
                 }
                 p{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 60px;
                     @include newRwd("pad"){
                         font-size: 26px;
@@ -2121,6 +2154,7 @@
 
         h2{
             font-size: 40px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             margin: 0 auto 70px;
             text-align: center;
             @include newRwd("pad"){
@@ -2168,6 +2202,7 @@
                 }
                 .lifeTitle{
                     font-size: 30px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     margin: 45px auto 20px;
                     @include newRwd("pad"){
                         font-size: 26px;
@@ -2183,6 +2218,7 @@
                 .lifeTxt{
                     max-width: 320px;
                     font-size: 28px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 50px;
                     @include newRwd("pad"){
                         font-size: 24px;
@@ -2244,6 +2280,7 @@
 
         h2{
             font-size: 50px;
+            font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
             display: block;
             @include newRwd("mediumPhone"){
                 font-size: 40px;
@@ -2275,6 +2312,7 @@
 
             .joinTitle{
                 font-size: 40px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 color: #96613E;
                 @include newRwd("pad"){
                     font-size: 35px;
@@ -2343,6 +2381,7 @@
                     }
                     span{
                         font-size: 40px;
+                        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                         color: rgb(255, 255, 255);
                         @include newRwd("pad"){
                             font-size: 30px;
@@ -2363,6 +2402,7 @@
             margin: 0 auto 100px;
             .donationTitle{
                 font-size: 40px;
+                font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 color: #96613E;
                 @include newRwd("pad"){
                     font-size: 35px;
@@ -2425,6 +2465,7 @@
                     }
                     span{
                         font-size: 40px;
+                        font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                         color: rgb(255, 255, 255);
                         @include newRwd("pad"){
                             font-size: 30px;
@@ -2448,6 +2489,7 @@ footer{
     background-color:#EFECB9;
     cursor: pointer;
     font-size: 18px;
+    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
     color: #C2B891;
     // @include  newRwd("newSmallPhone"){
     //     height: 300px;
@@ -2503,6 +2545,7 @@ footer{
                 .copyright{
                     margin-top:6px;
                     font-size: 10px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                 }
             }
 
@@ -2526,6 +2569,7 @@ footer{
                     text-decoration: none;
                     color: #C2B891;
                     font-size: 18px;
+                    font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif","Microsoft JhengHei";
                     line-height: 1.5;
                     img{
                         padding-right: 10px;

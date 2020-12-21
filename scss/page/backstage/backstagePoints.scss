@@ -122,26 +122,102 @@
                     }
                 }
             }
+            #pointsDataUploader{
+                h4{
+                    color: rgb(190, 2, 2);
+                }
+                #uploadCSVBlock{
+                    width: 300px;
+                    display: flex;
+                    justify-items: center;
+                    input{
+                        width: 200px;
+                    }
+                    button{
+                        width: 80px;
+                    }
+                }
+            }
         }
         .pointsDataArea{
             height: 578px;
             margin-top: 20px;
             padding: 27px 17px 27px 17px;
+            .memberProfileBlock{
+                display: flex;
+                justify-content: space-between;
+                margin: 15px 0px 30px 0px;
+                h4{
+                    font-weight: 800;
+                }
+                .memberProfile{
+                    width: 500px;
+                    display: block;
+                    .memberProfileRow{
+                        display: flex;
+                        line-height: 30px;
+                        height: 30px;
+                        margin-bottom: 10px;
+                    }
+                }
+                .memberPointsInput{
+                    width: 330px;
+                    display: block;
+                    input{
+                        margin: 0px 5px 10px 0px;
+                    }
+                }
+            }
+            .systemLogBlock{
+                table tr, tr td{
+                    border: 1px solid #D3D3D3;
+                }
+                table{
+                    width: 945px;
+                    height: 120px;
+                    #pointsDataHeader{
+                        th{
+                            background-color: #887664;
+                            color: #FFFFFF;
+                            font-size: 14px;
+                            text-align: center;
+                        }
+                    }
+                    tbody{
+                        tr, td{
+                            height: 35px;
+                        }
+                        tr:nth-child(2n){
+                            background-color: #FFFFFF;
+                        }
+                        tr:nth-child(2n+1){
+                            background-color: #EBE8E8;
+                        }
+                        tr{
+                            color: #A0754A;
+                            font-size: 14px;
+                            text-align: center;
+                            .pointsDataActionBlock{
+                                display: flex;
+                                justify-content: space-around;
+                                height: 50px;
+                                td{
+                                    align-self: center;
+                                }
+                            }       
+                        }
+                    }
+                }
+            }
+            h4{
+                font-weight: 800;
+            }
             table tr, tr td{
                 border: 1px solid #D3D3D3;
             }
             table{
                 width: 945px;
                 height: 120px;
-                tr, td{
-                    height: 35px;
-                }
-                tr:nth-child(2n){
-                    background-color: #FFFFFF;
-                }
-                tr:nth-child(2n+1){
-                    background-color: #EBE8E8;
-                }
                 #pointsDataHeader{
                     th{
                         background-color: #887664;
@@ -150,29 +226,33 @@
                         text-align: center;
                     }
                 }
-                tr{
-                    color: #A0754A;
-                    font-size: 14px;
-                    text-align: center;
-                    .pointsDataActionBlock{
-                        display: flex;
-                        justify-content: space-around;
-                        height: 50px;
-                        td{
-                            align-self: center;
-                            .pointsDataActionButton{
-                                width: 45px;
-                                height: 26px;
-                                border-radius: 3px;
-                                background-color: #D3E4C6;
-                                font-size: 14px;
-                                text-align: center;
-                                color: #707070;
-                                line-height: 26px;
-                                
+                tbody{
+                    tr, td{
+                        height: 35px;
+                    }
+                    tr:nth-child(2n){
+                        background-color: #FFFFFF;
+                    }
+                    tr:nth-child(2n+1){
+                        background-color: #EBE8E8;
+                    }
+                    tr{
+                        color: #A0754A;
+                        font-size: 14px;
+                        text-align: center;
+                        .pointsDataActionBlock{
+                            display: flex;
+                            justify-content: space-around;
+                            height: 50px;
+                            td{
+                                align-self: center;
                             }
-                        }
-                    }       
+                        }       
+                    }
+                    .btn-xs{
+                        width: 60px;
+                        margin: 0px 5px 0px 5px;
+                    }
                 }
             }
         }
