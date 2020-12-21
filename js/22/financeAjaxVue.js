@@ -100,8 +100,8 @@ const app = new Vue({
         let name = $("input[name='name']").val();
         let email = $("input[name='email']").val();
         let pID_tID = $("input[name='pID_tID']").val();
-        let dateStart = $("input[name='dateStart']").val();
-        let dateEnd = $("input[name='dateEnd']").val();
+        let dateStart = $("input[name='donationQueryDateStart']").val();
+        let dateEnd = $("input[name='donationQueryDateEnd']").val();
 
         $.ajax({
             url: '../PHP/backStage/finance/donationQuery.php',
@@ -131,7 +131,7 @@ const app = new Vue({
                 var totalDonation = 0;
 
                 for (let i = 0; i < res.length; i++) {
-                    let singleDonation = parseInt(res[i].AMOUNT);
+                    let singleDonation = parseInt(res[i].DONATION_AMOUNT);
                     totalDonation = totalDonation + singleDonation;
                 }
 
@@ -163,8 +163,8 @@ const app = new Vue({
 
             const self = this;
 
-            let dateStart = $("input[name='dateStart']").val();
-            let dateEnd = $("input[name='dateEnd']").val();
+            let dateStart = $("input[name='financeQueryDateStart']").val();
+            let dateEnd = $("input[name='financeQueryDateEnd']").val();
             let supplierId = $("input[name='supplierId']").val();
 
             $.ajax({
@@ -342,8 +342,8 @@ const app = new Vue({
             let name = $("input[name='name']").val();
             let email = $("input[name='email']").val();
             let pID_tID = $("input[name='pID_tID']").val();
-            let dateStart = $("input[name='dateStart']").val();
-            let dateEnd = $("input[name='dateEnd']").val();
+            let dateStart = $("input[name='donationQueryDateStart']").val();
+            let dateEnd = $("input[name='donationQueryDateEnd']").val();
 
             $.ajax({
                 url: '../PHP/backStage/Finance/donationQuery.php',
@@ -373,7 +373,7 @@ const app = new Vue({
                     var totalDonation = 0;
 
                     for (let i = 0; i < res.length; i++) {
-                        let singleDonation = parseInt(res[i].AMOUNT);
+                        let singleDonation = parseInt(res[i].DONATION_AMOUNT);
                         totalDonation = totalDonation + singleDonation;
                     }
 

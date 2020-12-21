@@ -120,8 +120,8 @@
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
-                            <input type="date" value="2020-01-01" name="dateStart">至
-                            <input type="date" value="2020-12-31" name="dateEnd">
+                            <input type="date" value="2020-01-01" name="financeQueryDateStart">至
+                            <input type="date" value="2020-12-31" name="financeQueryDateEnd">
                             <div id="supplierID">
                                 賣家編號
                                 <input type="text" name="supplierId" :value="loginAccount">
@@ -144,9 +144,10 @@
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             <div>查詢區間</div>
-                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart"
+                            <input type="date" name="donationQueryDateStart" value="2016-01-01" id="queryDateStart"
                                 min="2015-01-01">至
-                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd" max="2020-12-31">
+                            <input type="date" name="donationQueryDateEnd" value="2020-12-31" id="queryDateEnd"
+                                max="2020-12-31">
                             <button id="financeFilterButton" @click="queryDonation">查詢</button>
                         </div>
                     </div>

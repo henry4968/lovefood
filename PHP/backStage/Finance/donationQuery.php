@@ -25,6 +25,8 @@
 
         $statesmentDonationLog->execute();
         $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
+
+        print json_encode($dataDL);
         
     }else{
 
@@ -40,9 +42,9 @@
         $statesmentDonationLog->execute();
         $dataDL = $statesmentDonationLog->fetchAll(PDO::FETCH_ASSOC);
 
-    }
+        print json_encode($dataDL);
 
-    print json_encode($dataDL);
+    }
 
     function is_Date($string){
         $arr = explode('-',$string);
