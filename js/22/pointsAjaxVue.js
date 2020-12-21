@@ -207,7 +207,7 @@ const app = new Vue({
             });
         },
 
-        update() {
+        updatePoints() {
             const self = this;
 
             let selectedId = $("input[name='selectedId']").val();
@@ -234,9 +234,14 @@ const app = new Vue({
         uploadCSV() {
             const self = this;
 
-            var fileData = $('#csvFile').prop('files')[0];
+            var fileData = $('#csvFileInput').prop('files')[0];
             var formData = new FormData();
-            formData.append('csvFile', fileData, 'csvFile');
+
+            if (fileData == undefined) {
+                alert("請先選擇檔案！");
+            }
+
+            formData.append('csvFileInput', fileData, 'csvFileInput');
 
             console.log(fileData);
             for (var pair of formData.entries()) {
