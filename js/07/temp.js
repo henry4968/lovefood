@@ -9,79 +9,20 @@ $('.carImg').click(function () {
 
 ////////////////vue///////////////
 //////////////////////////////////
-Vue.component('cart', {
-    // props:[''],
-
-    template: `<div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-    top: -40%;">0</div>`,
-});
-Vue.component('add-sub', {
-    props: ['className', 'product'],
-    data() {
-        return {
-
-        }
-    },
-    mounted() {
-
-    },
-    template: `
-    <div class="productBottom">
-    <div class="pdtQuantity" id="pdtQuantit">
-        <span class="productText">數量</span>
-        <button class="left" @click="sub()">
-            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                class="pdtsvg">
-                <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                </polygon>
-            </svg>
-        </button>
-        <input type="text"  :value="item.quantity" name="qunatity" class="pdtValue" >
-        <button type="button" class="right"  @click="add(index)">
-            <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                class="pdtsvg">
-                <polygon
-                    points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                </polygon>
-            </svg>
-        </button>
-    </div>
-    <button class="carImg"><img src="../img/07/cart.png"alt=""></button>
-</div>                
-                               
-                                `,
-
-    methods: {
-        add() {
-            const self = this;
-            self.value++;
-        },
-        sub() {
-            const self = this;
-            if (self.value >= 1) {
-
-                self.value--;
-            }
-        },
-
-
-    },
-
-
-})
-
-
 const main = new Vue({
     el: '#all',
     data: {
         tableData: null,
         count: 1,
         cartArray: [],
+        // cartArray:null
     },
     methods: {
 
         query() {
             const self = this;
+            //全選下的食品種類
+            // categories filter
             let itemsCate = $('.item3').find('input');
             console.log(itemsCate);
             var arrCate = new Array();
@@ -97,13 +38,60 @@ const main = new Vue({
                 }
             }
             console.log(arrCate);
+                    //全選下的商家seller filter
+            let itemName2Wth = $('.itemName2Wth').find('input');
+            var arrSeller = new Array();
+            for (i = 0; i < itemName2Wth.length; i++) {
+
+                sellerChecked = $(`input[name="seller1[${i}]"]:checked`).val();
+
+                if (sellerChecked != null) {
+                    arrSeller.push(sellerChecked);
+                }
+
+            }
+            console.log(arrSeller); //商家選取陣列
+
+            //////商家//////
+            let itemName5 = $('#itemName5').find('input');
+            console.log(itemName5);
+            var sellers = new Array();
+            for (i = 0; i < itemName5.length; i++) {
+
+                sChecked = $(`input[name="seller2[${i}]"]:checked`).val();
+
+                if (sChecked != null) {
+                    sellers.push(sChecked);
+                }
+
+            }
+            console.log(sellers);
+            
+            ///////種類//////////
+            let itemName6 = $('itemName6').find('input');
+            console.log(itemName6);
+            var arrspecies = new Array();
+            for (i = 0; i < itemName6.length; i++) {
+
+                speciesChecked = $(`input[name="categories2[${i}]"]:checked`).val();
+
+                if (speciesChecked != null) {
+                    arrspecies.push(speciesChecked);
+                }
+
+            }
+            console.log(arrspecies);
+
             $.ajax({
                 url: '../PHP/Frontend/EC_07/filter.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                 type: 'POST',
                 data: {
-                    arrCate
+                    //將陣列放入data透過ajax傳值，php接值
+                    arrCate,arrSeller,sellers,arrspecies               
                 },
                 success: function (res) {
+                    // alert();
+                    console.log(res);
                     for (let index = 0; index < res.length; index++) {
                         res[index].quantity = 0
                     }
@@ -119,37 +107,62 @@ const main = new Vue({
 
         },
         add(index) {
-            this.tableData[index].quantity++
+            this.tableData[index].quantity++;
         },
         sub(index) {
             if (this.tableData[index].quantity >= 1) {
                 this.tableData[index].quantity--;
             }
         },
+        
         addCart(item) {
+            const self = this;
             var produ = {
                 name: item.PRODUCT_NAME,
-                qty: item.quantity
+                qty: item.quantity,
+                seller:item.SUPPLIER_NAME,
+                price:item.PRODUCT_SELLING_PRICE,
+                id:item.PRODUCT_ID
             };
-
-            // var produ = {};
-            // produ.name = item.NAME;
-            // produ.color = item.color;
-            this.cartArray.push(produ);
-            // this.cartArray.push(item.NAME,item.quantity);
-            // console.log(this.cartArray);
-            // cartArray
+            this.cartArray.push(produ.qty);
+            console.log(this.cartArray);
+            if(produ.qty == 0){
+                this.cartArray.pop();
+                // console.log(produ.qty);
+            }
             // localStorage
+            let itemStorage = [];
+            itemStorage.push(produ);
+            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
             // Storage() {
-                localStorage.setItem('cartArray',JSON.stringify(this.cartArray));
                 // localStorage.JSON.parse(localStorage.getItem("cartArray"));
                 
             //  }
+
         }
 
 
     },
-    
+    mounted(){
+        const self = this;
+        // store = new Array();
+        $.ajax({
+            url:'../PHP/Frontend/EC_07/storeCard.php',
+            type: 'POST',
+                success: function (res) {
+                    // let aaa = JSON.parse(res);
+                    // console.log(res);
+                    for (let index = 0; index < res.length; index++) {
+                        res[index].quantity = 0
+                    }
+                    self.tableData = res;
+                },
+                error: function (res) {
+                    console.log('bbb');
+                },
+            dataType:'JSON',
+        })
+    },
 
 
 })

@@ -578,6 +578,7 @@
         display: flex;
     }
     .itemName{
+        padding: 0 50px;
         line-height: 2;
         .itemName2Wth{
             border-right: 2px solid #F3E9C0;
@@ -679,7 +680,7 @@
             padding: 20px 0;
         }
         div.btn{
-            width: 96.5%;
+            width: 97% !important;
         }
 
 }
@@ -941,6 +942,7 @@ svg.pdtsvg{
 div.buttons{
     display: flex;
     justify-content: center;
+    background-color: #FBFFE0;
     button{
         margin:20px 10px;
         font-size: 25px;
