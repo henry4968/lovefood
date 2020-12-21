@@ -164,9 +164,11 @@
                         </div>
                     </div>
                     <div id="pointsDataUploader" v-show="!showTab">
-                        <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
-                        <input id="csvFile" type="file" name="importCSV">
-                        <div @click="uploadCSV()" type="div">確認上傳</div>
+                        <h4>★ 注意：請上傳規範內容的csv檔，以執行批次發放點數</h4>
+                        <div id="uploadCSVBlock">
+                            <input id="csvFileInput" type="file" name="importCSV">
+                            <button @click="uploadCSV" id="uploadCSVButton" class="btn-s btn-brown">確認上傳</button>
+                        </div>
                     </div>
                 </div>
                 <div id="pointsResultData" class="pointsDataArea"
@@ -182,7 +184,7 @@
                             <th>查閱詳情</th>
                         </tr>
                         <tbody v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
-                            <h4>查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
+                            <h4>▊ 查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
                                     id="showDateEnd">2020-12-31</span>】
                             </h4><br>
                             <tr>
@@ -245,21 +247,28 @@
                     <button @click="queryPoints">
                         回上頁
                     </button>
-                    <div id="memberProfile" v-for="(data,key) in pointsOfMember">
-                        會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
-                            disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled>
+                    <div class="memberProfileBlock">
+                        <div class="memberProfile" v-for="(data,key) in pointsOfMember">
+                            <h4>▊ 所選會員</h4>
+                            <div class="memberProfileRow">
+                                會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
+                                    disabled>
+                                會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled>
+                            </div>
+                            <div class="memberProfileRow">
+                                會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled>
+                                會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled>
+                            </div>
+                        </div>
+                        <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
+                            <h4>▊ 點數修改</h4>
+                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
+                            修改點數：<input class="input-xl" type="text" name="points"><button
+                                @click="updatePoints">確認修改</button>
+                        </div>
                     </div>
-                    <div id="">
-                        修改點數：<br>
-                        <input type="text" name="points">
-                        <button @click="update">確認修改</button>
-                    </div>
-                    <div>
-                        使用紀錄：
+                    <div class="systemLogBlock">
+                        <h4>▊ 使用紀錄</h4>
                         <table>
                             <thead>
                                 <tr>
@@ -283,21 +292,28 @@
                     <button @click="queryPoints">
                         回上頁
                     </button>
-                    <div id="memberProfile" v-for="(data,key) in pointsOfMember">
-                        會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
-                            disabled><br>
-                        會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled><br>
-                        會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled><br>
-                        會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled><br>
-                        擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled>
+                    <div class="memberProfileBlock">
+                        <div class="memberProfile" v-for="(data,key) in pointsOfMember">
+                            <h4>▊ 所選會員</h4>
+                            <div class="memberProfileRow">
+                                會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
+                                    disabled>
+                                會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled>
+                            </div>
+                            <div class="memberProfileRow">
+                                會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled>
+                                會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled>
+                            </div>
+                        </div>
+                        <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
+                            <h4>▊ 點數修改</h4>
+                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
+                            修改點數：<input class="input-xl" type="text" name="points"><button
+                                @click="updatePoints">確認修改</button>
+                        </div>
                     </div>
-                    <div id="">
-                        修改點數：<br>
-                        <input type="text" name="points">
-                        <button @click="update">確認修改</button>
-                    </div>
-                    <div>
-                        發放紀錄：
+                    <div class="systemLogBlock">
+                        <h4>▊ 發放紀錄：</h4>
                         <table>
                             <thead>
                                 <tr>
