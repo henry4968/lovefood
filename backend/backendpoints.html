@@ -166,10 +166,9 @@
                     <div id="pointsDataUploader" v-show="!showTab">
                         <h4>★ 注意：請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <div id="uploadCSVBlock">
-                            <label class="form-control" for="csvFileInput">請上傳檔案
-                                <input id="csvFileInput" type="file" name="importCSV" class="form-control"
-                                    style="display:none">
-                            </label>
+                            <label id="labelForCSVFileInput" class="form-control" for="csvFileInput">點擊選擇檔案</label>
+                            <input id="csvFileInput" type="file" name="importCSV" class="form-control"
+                                @input="showFileName" style="display: none;">
                             <button @click="uploadCSV" id="uploadCSVButton" class="btn-s btn-brown">確認上傳</button>
                         </div>
                     </div>

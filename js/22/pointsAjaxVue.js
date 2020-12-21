@@ -267,6 +267,13 @@ const app = new Vue({
             });
 
         },
+        showFileName() {
+
+            let csvFileInput = document.querySelector("#csvFileInput");
+            let labelForCSVFileInput = document.querySelector("#labelForCSVFileInput");
+
+            labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
+        }
 
     }
 });
