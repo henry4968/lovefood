@@ -8,12 +8,17 @@ const app = new Vue({
         discountLog: null,
         ShowFinalPoints: null,
         showTab: true,
-        showDetails: true,
+        showIssuanceDetails: false,
+        showUsingDetails: false,
         uploadCSVLog: null
     },
 
     mounted() {
         const self = this;
+
+        this.showIssuanceDetails = false;
+        this.showUsingDetails = false;
+
         let id = $("input[name='id']").val();
         let account = $("input[name='account']").val();
         let name = $("input[name='name']").val();
@@ -24,6 +29,7 @@ const app = new Vue({
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
+            dataType: "JSON",
             data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
                 self.pointsIssuance = res.pointsIssuance;
@@ -65,17 +71,17 @@ const app = new Vue({
                 console.log("回傳失敗！");
                 console.log(res.responseText);
             },
-            dataType: "JSON",
         });
 
     },
 
     methods: {
 
-        showContent(e) {
-            this.showDetails = false;
-
+        showIssuanceLog(e) {
             const self = this;
+
+            this.showIssuanceDetails = true;
+
             let dataId = $(e.target).data('id');
             let dateStart = $("input[name='dateStart']").val();
             let dateEnd = $("input[name='dateEnd']").val();
@@ -100,10 +106,41 @@ const app = new Vue({
 
         },
 
-        query() {
-            this.showDetails = true;
-
+        showUsingLog(e) {
             const self = this;
+
+            this.showUsingDetails = true;
+
+            let dataId = $(e.target).data('id');
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsDetails.php',
+                type: 'POST',
+                data: { dataId, dateStart, dateEnd },
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    self.issuanceLog = res.issuanceLog;
+                    self.discountLog = res.discountLog;
+                    self.pointsOfMember = res.pointsOfMember;
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+
+            });
+
+        },
+
+        queryPoints() {
+            const self = this;
+
+            this.showUsingDetails = false;
+            this.showIssuanceDetails = false;
+
             let id = $("input[name='id']").val();
             let account = $("input[name='account']").val();
             let name = $("input[name='name']").val();
@@ -172,6 +209,7 @@ const app = new Vue({
 
         update() {
             const self = this;
+
             let selectedId = $("input[name='selectedId']").val();
             let points = $("input[name='points']").val();
 

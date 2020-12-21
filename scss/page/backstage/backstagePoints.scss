@@ -133,15 +133,6 @@
             table{
                 width: 945px;
                 height: 120px;
-                tr, td{
-                    height: 35px;
-                }
-                tr:nth-child(2n){
-                    background-color: #FFFFFF;
-                }
-                tr:nth-child(2n+1){
-                    background-color: #EBE8E8;
-                }
                 #pointsDataHeader{
                     th{
                         background-color: #887664;
@@ -150,29 +141,33 @@
                         text-align: center;
                     }
                 }
-                tr{
-                    color: #A0754A;
-                    font-size: 14px;
-                    text-align: center;
-                    .pointsDataActionBlock{
-                        display: flex;
-                        justify-content: space-around;
-                        height: 50px;
-                        td{
-                            align-self: center;
-                            .pointsDataActionButton{
-                                width: 45px;
-                                height: 26px;
-                                border-radius: 3px;
-                                background-color: #D3E4C6;
-                                font-size: 14px;
-                                text-align: center;
-                                color: #707070;
-                                line-height: 26px;
-                                
+                tbody{
+                    tr, td{
+                        height: 35px;
+                    }
+                    tr:nth-child(2n){
+                        background-color: #FFFFFF;
+                    }
+                    tr:nth-child(2n+1){
+                        background-color: #EBE8E8;
+                    }
+                    tr{
+                        color: #A0754A;
+                        font-size: 14px;
+                        text-align: center;
+                        .pointsDataActionBlock{
+                            display: flex;
+                            justify-content: space-around;
+                            height: 50px;
+                            td{
+                                align-self: center;
                             }
-                        }
-                    }       
+                        }       
+                    }
+                    .btn-xs{
+                        width: 60px;
+                        margin: 0px 5px 0px 5px;
+                    }
                 }
             }
         }
