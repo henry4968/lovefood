@@ -77,48 +77,48 @@ function doFirst(){
     navigator.geolocation.getCurrentPosition(succCallback);
     ////////////倒數計時器///////////
     ///////////////////////////////
-    var timer;
-    var compareDate = new Date();
-    compareDate.setMinutes(compareDate.getMinutes() + 15);// 模擬七天後的時間,串後端
-    timer = setInterval(function() {    
-        timeBetweenDates(compareDate);
-    }, 1000);
+    // var timer;
+    // var compareDate = new Date();
+    // compareDate.setMinutes(compareDate.getMinutes() + 15);// 模擬七天後的時間,串後端
+    // timer = setInterval(function() {    
+    //     timeBetweenDates(compareDate);
+    // }, 1000);
 
-    const current = new Date();
-    function timeBetweenDates(toDate) {
-        var dateEntered = toDate;
-        var now = new Date();
-        var difference = dateEntered.getTime() - now.getTime();
-        // var product = $('div.width_2P');
+    // const current = new Date();
+    // function timeBetweenDates(toDate) {
+    //     var dateEntered = toDate;
+    //     var now = new Date();
+    //     var difference = dateEntered.getTime() - now.getTime();
+    //     // var product = $('div.width_2P');
 
-        if (difference <= 0) {
-            // clearInterval(timer);
+    //     if (difference <= 0) {
+    //         // clearInterval(timer);
 
-            let prds = document.querySelectorAll('.seconds');
+    //         let prds = document.querySelectorAll('.seconds');
             
-            prds.forEach(element=> {
-                if(parseInt(element.innerText) === 0){
-                    element.closest('.product').remove();
-                }
-            });
+    //         prds.forEach(element=> {
+    //             if(parseInt(element.innerText) === 0){
+    //                 element.closest('.product').remove();
+    //             }
+    //         });
         
-        } else {
+    //     } else {
         
-            var seconds = Math.floor(difference / 1000);
-            //   console.log(seconds);
-            var minutes = Math.floor(seconds / 60);
-            //   console.log(minutes);
-            //   var hours = Math.floor(minutes / 60);
-            //   var days = Math.floor(hours / 24);
+    //         var seconds = Math.floor(difference / 1000);
+    //         //   console.log(seconds);
+    //         var minutes = Math.floor(seconds / 60);
+    //         //   console.log(minutes);
+    //         //   var hours = Math.floor(minutes / 60);
+    //         //   var days = Math.floor(hours / 24);
 
-            //   hours %= 24;
-            minutes %= 60;
-            seconds %= 60;
-            $('.pdtTime').children('.minutes').text(minutes);
-            $('.pdtTime').children('.seconds').text(seconds);
+    //         //   hours %= 24;
+    //         minutes %= 60;
+    //         seconds %= 60;
+    //         $('.pdtTime').children('.minutes').text(minutes);
+    //         $('.pdtTime').children('.seconds').text(seconds);
             
-        }
-    }
+    //     }
+    // }
 
     
 }

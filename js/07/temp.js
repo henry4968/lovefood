@@ -1,11 +1,3 @@
-///////////////js///////////////////
-///////////////////////////////////
-$('.carImg').click(function () {
-    alert('dd');
-});
-
-
-
 
 ////////////////vue///////////////
 //////////////////////////////////
@@ -18,6 +10,19 @@ const main = new Vue({
         // cartArray:null
     },
     methods: {
+        detail(){
+            let pdID = $("[name='pdID']").val()
+            $.ajax({
+                url:'../PHP/Frontend/EC_07/bridge.php',
+                data:{pdID},
+                type:'GET',
+                success:function(){
+                    return 123;
+                },
+            })
+            // console.log($("[name='pdID']").val());
+            
+        },
 
         query() {
             const self = this;
@@ -80,29 +85,10 @@ const main = new Vue({
                 }
 
             }
-            console.log(arrspecies);
-
-            $.ajax({
-                url: '../PHP/Frontend/EC_07/filter.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                type: 'POST',
-                data: {
-                    //將陣列放入data透過ajax傳值，php接值
-                    arrCate,arrSeller,sellers,arrspecies               
-                },
-                success: function (res) {
-                    // alert();
-                    console.log(res);
-                    for (let index = 0; index < res.length; index++) {
-                        res[index].quantity = 0
-                    }
-                    self.tableData = res;
-                },
-                error: function (res) {
-                    console.log(res);
-                },
-                dataType: "JSON",
-                // dataType: "html",
-                // dataType: "text",
+            // console.log(arrspecies,);
+            this.queryData('../PHP/Frontend/EC_07/filter.php',{
+                //將陣列放入data透過ajax傳值，php接值
+                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             })
 
         },
@@ -139,6 +125,75 @@ const main = new Vue({
                 
             //  }
 
+        },
+        queryData(url,data = null){
+            const self = this
+
+            if(self.tableData !== null){
+                // 清除 interval
+                for (let index = 0; index < self.tableData.length; index++) {
+                    clearInterval(self.tableData[index].timer)
+                    self.tableData[index].timer = null
+                }
+            }
+
+            $.ajax({
+                url,
+                data,
+                type: 'POST',
+                    success: function (res) {
+                        // console.log(res);
+                        for (let index = 0; index < res.length; index++) {
+                            res[index].quantity = 0
+                            res[index].hours = 0
+                            res[index].days = 0
+                            res[index].minutes = 0
+                            res[index].seconds = 0
+                            res[index].timer = null
+                            res[index].PRODUCT_IMG = 'data:image/jpeg;base64,' + window.atob(res[index].PRODUCT_IMG) 
+
+                            console.log(window.btoa(res[index].PRODUCT_IMG) )
+                        }
+                        // self.$forceUpdate() 強制更新 vue data
+
+                        self.tableData = res;
+                        
+                        for (let index = 0; index < self.tableData.length; index++) {
+                          
+                            const updateTime = () =>{
+                                var now = new Date();
+                                var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
+
+                                if(difference <= 0){
+
+                                }else{
+    
+                                    var seconds = Math.floor(difference / 1000);
+                                    var minutes = Math.floor(seconds / 60);
+                                    var hours = Math.floor(minutes / 60);
+                                    var days = Math.floor(hours / 24);
+                                
+                                    hours %= 24;
+                                    minutes %= 60;
+                                    seconds %= 60;
+    
+                                    self.tableData[index].hours = hours
+                                    self.tableData[index].days = days
+                                    self.tableData[index].minutes = minutes
+                                    self.tableData[index].seconds = seconds
+                                }
+                            }
+                            clearInterval(self.tableData[index].timer)
+
+                            self.tableData[index].timer = setInterval(updateTime,1000)
+
+                        }
+                    },
+                    error: function (res,error) {
+                        console.log(res,error);
+                    },
+                dataType:'JSON',
+            })
         }
 
 
@@ -146,22 +201,23 @@ const main = new Vue({
     mounted(){
         const self = this;
         // store = new Array();
-        $.ajax({
-            url:'../PHP/Frontend/EC_07/storeCard.php',
-            type: 'POST',
-                success: function (res) {
-                    // let aaa = JSON.parse(res);
-                    // console.log(res);
-                    for (let index = 0; index < res.length; index++) {
-                        res[index].quantity = 0
-                    }
-                    self.tableData = res;
-                },
-                error: function (res) {
-                    console.log('bbb');
-                },
-            dataType:'JSON',
-        })
+        this.queryData('../PHP/Frontend/EC_07/storeCard.php')
+        // $.ajax({
+        //     url:'../PHP/Frontend/EC_07/storeCard.php',
+        //     type: 'POST',
+        //         success: function (res) {
+        //             // let aaa = JSON.parse(res);
+        //             // console.log(res);
+        //             for (let index = 0; index < res.length; index++) {
+        //                 res[index].quantity = 0
+        //             }
+        //             self.tableData = res;
+        //         },
+        //         error: function (res) {
+        //             console.log('bbb');
+        //         },
+        //     dataType:'JSON',
+        // })
     },
 
 
