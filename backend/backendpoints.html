@@ -131,47 +131,42 @@
                             </div>
                         </div>
                         <div id="pointsDataFilterRightBlock">
-                            <div class="form-group">
-                                查詢區間
-                                <label class="sr-only">Time Pick</label>
-                                <div class="input-group DateDemo" id="">
-                                    <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
-                                        class="form-control" id="queryDateStart" />至
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-brown" type="button"><i
-                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
-                                    </span>
+                            查詢區間<br>
+                            <div id="queryDateRow">
+                                <div class="form-group">
+                                    <label class="sr-only">Time Pick</label>
+                                    <div class="input-group DateDemo" id="">
+                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
+                                            class="form-control" id="queryDateStart" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-brown" type="button"><i
+                                                    class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span>
+                                    至
+                                </span>
+                                <div class="form-group">
+                                    <label class="sr-only">Time Pick</label>
+                                    <div class="input-group DateDemo">
+                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
+                                            class="form-control" id="queryDateEnd" />
+                                        <span class="input-l input-group-btn">
+                                            <button class="btn btn-brown" type="button"><i
+                                                    class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only">Time Pick</label>
-                                <div class="input-group DateDemo">
-                                    <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
-                                        class="form-control" id="queryDateEnd" />
-                                    <span class="input-l input-group-btn">
-                                        <button class="btn btn-brown" type="button"><i
-                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
-                                    </span>
-                                </div>
-                            </div>
-                            <div id="membersPointsActionBlock">
-                                <a href="#0" @click="query">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
-                                </a>
-                            </div>
+                            <button id="pointsDataFilterButton01" class="btn-s btn-brown" @click="query">查詢</button>
                         </div>
                     </div>
-                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data"> -->
                     <div id="pointsDataUploader" v-show="!showTab">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <input id="csvFile" type="file" name="importCSV">
                         <div @click="uploadCSV()" type="div">確認上傳</div>
                     </div>
-                    <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="importCSV">
-                        <button type="submit">確認上傳</button>
-                    </form> -->
-                    <!-- </form> -->
                 </div>
                 <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
                     <table>
@@ -207,7 +202,7 @@
                                     0
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn-sb btn-green" @click="showContent"
+                                    <button type="submit" class="btn-xs btn-brown" @click="showContent"
                                         :data-id="data['MEMBER_ID']" :data-id="data['NAME']">詳情</button>
                                 </td>
                             </tr>
