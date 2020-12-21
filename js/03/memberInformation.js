@@ -553,7 +553,7 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle orderid">訂單編號</h3>
                 </div>
-                <p id="addcancel" class="contentsame orderid" v-if="order.ORDER_ID" @click="openBorder" >{{order.ORDER_ID}}</p>
+                <p class="contentsame orderid" v-if="order.ORDER_ID" @click="openBorder" >{{order.ORDER_ID}}</p>
               </div>
               <div class="detailsame countBorder">
                 <div class="cattitle">
@@ -712,7 +712,7 @@ Vue.component('order', {
                 </div>
                 <form class="cancelBtnBorder" method="POST" action="#" v-if="order.ORDER_STATUS == '待出貨'">
                   <img src="../img/03/trashcancel.png">
-                  <button type="button" id="cancelBtn" @click="cancelorder">取消訂單</button>
+                  <button type="button" id="cancelBtn" @click="cancelorder(order.ORDER_ID)">取消訂單</button>
                 </form>
               </div>
 
@@ -1277,10 +1277,10 @@ Vue.component('order', {
       });
     },
     // 取消訂單
-    cancelorder(e) {
+    cancelorder(idtext) {
       // 找到點擊的該筆訂單編號
-      let me = e.target;
-      let idtext = me.closest('div.orderdetailBorder').querySelector('#addcancel').innerText;
+      // let me = e.target;
+      // let idtext = me.closest('div.orderdetailBorder').querySelector('#addcancel').innerText;
       // console.log(idtext);
 
       // 建立資料表單
@@ -1298,13 +1298,23 @@ Vue.component('order', {
         }
       }
       let self = this;
+
+      // ORDER_ID
+      let aa = document.getElementsByClassName('allBorder')[0];
+
       axios.post('../PHP/Frontend/cancelorder.php', data, config).then(res => {
         alert("取消訂單");
-        // self.allselect();
-        // 撈不同訂單狀態
-        let a = 0
-        self.statussame(a);
+        this.orderList.forEach((order, key) => {
+          if (order.ORDER_ID === idtext) {
+            if (aa.classList.contains('chagestatussamebg')) {
+              this.orderList[key].ORDER_STATUS = '取消'
+            } else {
+              this.orderList.splice(key, 1)
+            }
+          }
+        });
       });
+
     },
     // 展開縮和
     openBorder(e) {
