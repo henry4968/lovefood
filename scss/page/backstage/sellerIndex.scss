@@ -1,4 +1,4 @@
-.containerSeller{
+.containerSellerIndex{
     .asideMainWrapper{
         padding-top:110px;
         display: flex;
@@ -36,17 +36,6 @@
                                 right:3px;
                             }
                         }
-                     
-                    div:nth-child(2){
-                        justify-content: space-between;
-                    }
-                    div:nth-child(3){
-                        padding: 0;
-                        justify-content: space-between;
-                        div span input{
-                            text-align: right;
-                        }
-                    }
                 }
             }
             main{
@@ -61,6 +50,8 @@
                 div{
                     margin-top: 60px;
                     position: relative;
+                    display: flex;
+                    flex-direction: column;
                 }
                 .profile{
                     display: flex;
@@ -70,11 +61,12 @@
                     position: relative;
                     top: 25px;
                     .btn-brown{
-                        width:100px;
+                        width:130px;
                         color:#fff;
                     }
                     h3, h2{
                         color:$brown;
+                        display: inline-block;
                         select{
                             margin: 0 8px;
                         }
@@ -85,13 +77,10 @@
                             margin-left:8px;
                         }
                     }
-                    
                 }
-                
-                }
+            }
         }
     }
-    
 }
 
 

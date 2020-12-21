@@ -36,7 +36,7 @@ $(function(){
 
 
 const app = new Vue({
-    el: '.containerProduct',
+    el: '.containerSellerProduct',
     data : {
         tableData:null,
         fileName:"",
@@ -97,30 +97,6 @@ const app = new Vue({
                         // console.log(res);
                     },
                 });
-            
-        },
-        // showName(){ //顯示上傳檔案名稱
-        //     const self = this;
-        //     let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
-        //     self.fileName = fileUpload;
-        // },
-        next(){
-            $.ajax({
-
-                url:'../PHP/backStage/Lib/page.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice},
-                type:'POST',
-                dataType:'text',
-                traditional: true,
-                success: function(res){
-                     console.log(res);
-                     self.tableData = res;
-                     
-                },
-                error: function(res){
-                    // console.log(res);
-                },
-            });
             
         },
         imgInput(key,event){ //點擊input
