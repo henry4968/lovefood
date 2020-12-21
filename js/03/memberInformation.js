@@ -830,31 +830,37 @@ Vue.component('order', {
     // 取消訂單
     cancelorder(e) {
       // 找到點擊的該筆訂單編號
-      me = e.target;
-      // console.log(me.parentElement.parentElement.parentElement.querySelector('.catalogBorder'));
+      let me = e.target;
+      let idtext = me.closest('div.orderdetailBorder').querySelector('#addcancel').innerText;
+      // console.log(idtext);
 
       // 建立資料表單
       // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      // let data = new FormData();
+      let data = new FormData();
       // new FormData 固定語法
       // FormData.append
       // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-      // data.append('orderID');
+      data.append('orderID', idtext);
 
       // console.log(this.uploadbigpic);
-      // let config = {
-      //   header: {
-      //     'Content-Type': 'multipart/form-data'
-      //   }
-      // }
-      // axios.post('../PHP/Frontend/cancelorder.php', data, config).then(res => {
-      //   alert("取消訂單");
-      // });
+      let config = {
+        header: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+      let self = this;
+      axios.post('../PHP/Frontend/cancelorder.php', data, config).then(res => {
+        alert("取消訂單");
+        self.allselect();
+      });
+      // console.log(this.$el);
     },
   },
   mounted() {
     // 撈全部訂單
     this.allselect();
+  },
+  updated() {
   },
 });
 
