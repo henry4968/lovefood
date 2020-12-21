@@ -1455,6 +1455,8 @@ Vue.component('points', {
     return {
       // 控制class往返
       foursameBorderapp: '',
+      // pointdetail
+      pointList: [],
       // 
     }
   },
@@ -1466,7 +1468,10 @@ Vue.component('points', {
     // 撈點數
     mypoint() {
       axios.post('../PHP/Frontend/mypoints.php').then(res => {
-        console.log(res.data);
+        this.pointList = res.data;
+        for (let i = 0; i < this.pointList.get.length; i++) {
+          console.log(this.pointList.get[i].POINTS_ISSUANCE_DATE);
+        }
       });
     },
   },
