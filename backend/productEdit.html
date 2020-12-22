@@ -32,7 +32,7 @@
                 <div>
                     <ul class="member">
                         <li>管理員</li>
-                        <li>Name</li>
+                        <user></user>
                     </ul>
 
                     <ul class="sideNav">
@@ -132,17 +132,17 @@
                                     <th>商品編號</th>
                                     <th>商品名稱</th>
                                     <th>商品單價</th>
-                                    <th>上架狀態</th>
+                                    <th>商品庫存</th>
                                     <th>功能鍵</th>
                                 </tr>
                             </thead>
-                            <tbody v-if="tableData">
-                                <tr v-for="(data,key) in tableData">
+                            <tbody v-if="pageView">
+                                <tr v-for="(data,key) in pageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data.PRODUCT_ID}}</td>
-                                    <td>{{data.NAME}}</td>
-                                    <td>{{data.SELLING_PRICE}}</td>
-                                    <td>{{data.PRODUCT_STATUS}}</td>
+                                    <td>{{data.PRODUCT_NAME}}</td>
+                                    <td>{{data.PRODUCT_SELLING_PRICE}}</td>
+                                    <td>{{data.PRODUCT_STOCK}}</td>
                                     <td>
                                         <button name="edit" :value="data.PRODUCT_ID" class="btn-sb btn-green"
                                             @click="filter">編輯</button>
@@ -154,27 +154,23 @@
 
                             </tbody>
                         </table>
-<<<<<<< HEAD
-                        
-=======
->>>>>>> 16b062493da19bddcd66d8d10e0280210927c9f0
-                        <div class="eachOne" v-if="filterData">
+                        <div class="eachOne" v-if="filterData" v-show="isShow">
                             <div class="eachOneLeft">
                                 <span>賣家編號<input name="sellerNum" class="form-control" type="text" placeholder="SP0001"
-                                        value="SP0001" disabled></span>
+                                        :value="filterData[0].SUPPLIER_ID_for_PD" disabled></span>
                                 <span>商品種類
                                     <select class="categories">
                                         <option name="categories" :value="data.PRODUCT_CATEGORY_ID"
-                                            v-for="(data,key) in categories">{{data.NAME}}</option>
+                                            v-for="(data,key) in categories">{{data.PRODUCT_CATEGORY_NAME}}</option>
                                     </select>
                                 </span>
                                 <span>商品名稱<input name="productName" class="form-control" type="text"
-                                        :placeholder="filterData[0].NAME"></span>
+                                        v-model="filterData[0].PRODUCT_NAME"></span>
                                 <div class="time">有效期限
                                     <div class="form-group">
                                         <label for="dd" class="sr-only">Time Pick</label>
                                         <div class="input-group DateDemo">
-                                            <input type="text" :value="exp[0]" name="exp[0]" data-format="MM/DD/YYYY"
+                                            <input type="text" v-model="exp[0]" name="exp[0]" data-format="MM/DD/YYYY"
                                                 placeholder="請填寫日期" class="form-control" />
                                             <span class="input-group-btn">
                                                 <button class="btn btn-brown" type="button"><i
@@ -195,31 +191,23 @@
                                     </div>
                                 </div>
 
-                                <span>商品數量
+                                <span>商品庫存
                                     <span class="plusMinor">
-                                        <button id="minus" class="btn-brown">-</button><input class="input-quantity"
-                                            name="quantity" type="number" value="1"><button id="plus"
-                                            class="btn-brown">+</button>
+                                        <button id="minus" class="btn-brown" @click="addMinus()">-</button><input class="input-quantity"
+                                            name="quantity" type="number" v-model="filterData[0].PRODUCT_STOCK"
+                                            ><button id="plus"
+                                            class="btn-brown" @click="addMinus('add')">+</button>
                                     </span>
                                 </span>
                                 <span class="price">商品原價 <div>
                                         <div class="pricePreffix">NT$</div><input name="oriPrice" class="input-price"
-                                            type="number" :value="filterData[0].SELLING_PRICE">
+                                            type="number" v-model="filterData[0].PRODUCT_ORIGINAL_PRICE">
                                     </div>
                                 </span>
                                 <span class="price">商品特價 <div>
                                         <div class="pricePreffix">NT$</div><input name="spePrice" class="input-price"
-                                            type="number" :value="filterData[0].SELLING_PRICE">
+                                            type="number" v-model="filterData[0].PRODUCT_SELLING_PRICE">
                                     </div>
-                                </span>
-
-
-
-
-                                <span>取貨點:
-                                    <input name="pickupSite" class="input-checkbox" type="checkbox">皆可
-                                    <input name="pickupSite" class="input-checkbox" type="checkbox">僅限到店自取
-                                    <input name="pickupSite" class="input-checkbox" type="checkbox">僅限捷運站點
                                 </span>
                             </div>
                             <div class="eachOneRight">
@@ -227,10 +215,9 @@
                                 </span>
                                 <div class="wrapper">
                                     <template>
-                                        <div class="zoneSpan" v-for="(data,key) in [0,1,2,3]">
-                                            <div class="dropZone" @drop="imgDrop(key,$event)" @mouseover="hover=true"
-                                                @mouseleave="hover=false">
-                                                <img :src="filterData[0].PRODUCT_IMG" alt="">
+                                        <div class="zoneSpan" v-for="(data,key) in imgOrder">
+                                            <div class="dropZone" @drop="imgDrop(key,$event)">
+                                                <img :src="imgSrc[key]" alt="">
                                                 <label :for="photo[key]"><input @change="imgInput(key,$event)"
                                                         type="file" :id="photo[key]" style="display:none;">
                                                     <svg viewBox="0 0 31 31">
@@ -242,7 +229,7 @@
                                                         </path>
                                                     </svg>
                                                 </label>
-                                                <div v-show="hover" class="tools" v-if="filterData.PRODUCT_IMG">
+                                                <div v-show="hover" class="tools"v-show="hover" class="tools" v-if="imgSrc[key]">
                                                     <span>
                                                         <svg viewBox="0 0 32 32">
                                                             <path
@@ -272,42 +259,14 @@
                                 <span>
                                     <p>商品描述</p>
                                     <textarea class="input-l" name="description" id=""
-                                        :value="filterData[0].DESCRIPTION"></textarea>
+                                        v-model="filterData[0].PRODUCT_DESCRIPTION"></textarea>
                                 </span>
                                 <span>
-                                    <button class="btn-m btn-brown" @click="save"
+                                    <button class="btn-m btn-brown" @click="save" 
                                         :value="filterData[0].PRODUCT_ID">保存</button>
                                 </span>
                             </div>
                         </div>
-                        <div class="btn-brown pageLabel-s">商品列表</div>
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th>序號</th>
-                                    <th>商品編號</th>
-                                    <th>商品名稱</th>
-                                    <th>商品單價</th>
-                                    <th>上架狀態</th>
-                                    <th>功能鍵</th>
-                                </tr>
-                            </thead>
-                            <tbody v-if = "pageView">
-                                <tr v-for="(data,key) in pageView">
-                                    <td>{{key+1}}</td>
-                                    <td>{{data.PRODUCT_ID}}</td>
-                                    <td>{{data.NAME}}</td>
-                                    <td>{{data.SELLING_PRICE}}</td>
-                                    <td>{{data.PRODUCT_STATUS}}</td>
-                                    <td>
-                                        <button name="edit" :value="data.PRODUCT_ID" class="btn-sb btn-green" @click="filter">編輯</button>
-                                        <button name="offBoard" :value="data.PRODUCT_ID" class="btn-sb btn-green" @click="offBoard">下架</button>
-                                    </td>
-                                   
-                                </tr>
-    
-                            </tbody>
-                        </table>
 
                         <div id="pagination" v-if = "pageView">
                             <a href="#0" @click="pageChange(0)">＜</a>
@@ -333,6 +292,7 @@
         });
     </script>
     <script src="../js/23/product/productEdit.js"></script>
+    <!-- <script src="../js/23/lib/userName.js"></script> -->
 </body>
 
 </html>

@@ -32,7 +32,7 @@
                 <div>
                     <ul class="member">
                         <li>管理員</li>
-                        <li>Name</li>
+                        <user></user>
                     </ul>
 
                     <ul class="sideNav">
@@ -118,7 +118,6 @@
                         <div class="headerMiddle">
                             <span>會員帳號<input class="input-ld" type="text" name="memberAccount"></span>
                             <span>會員手機<input class="input-ld" type="text" name="phone"></span>
-                            <!-- <button class="btn-s btn-brown" type="submit">查詢</button> -->
                         </div>
                         <div class="headerBottom">
                             <span>訂單狀態
@@ -172,11 +171,11 @@
                                     <th class="subheading" colspan="2">出貨地點</th>
                                 </tr>
                                 <tr v-if="data.isShow" v-for="(subData,subkey) in data.detail">
-                                    <td colspan="2">{{subData.NAME}}</td>
-                                    <td>{{subData.QUANTITY}}</td>
-                                    <td>{{subData.QUANTITY* subData.SELLING_PRICE}}</td>
+                                    <td colspan="2">{{subData.PRODUCT_NAME}}</td>
+                                    <td>{{subData.ORDER_DETAIL_QUANTITY}}</td>
+                                    <td>{{subData.ORDER_DETAIL_QUANTITY* subData.PRODUCT_SELLING_PRICE}}</td>
                                     <td>信用卡</td>
-                                    <td colspan="2">{{subData.NAME_PICKUP}}</td>
+                                    <td colspan="2">{{subData.MRT_PICKUP_SITE_NAME}}</td>
                                 </tr>
                             </template>
 

@@ -271,6 +271,8 @@
         @media all and (max-width: 991px) {
           #header #headerContentContainer #navigationForPC a {
             display: none; } }
+      #header #headerContentContainer #navigationForPC .navGeneralAnchors:nth-child(2).selloginchangemem {
+        color: #d4c7a5; }
       #header #headerContentContainer #navigationForPC .navGeneralAnchors {
         color: #FDFBBA; }
         #header #headerContentContainer #navigationForPC .navGeneralAnchors:hover {
@@ -317,6 +319,9 @@
           #header #headerContentContainer #subNavigationForMobile img {
             height: 23px;
             margin: 5px 0px 0px 10px; } }
+      #header #headerContentContainer #subNavigationForMobile #navIcons05 img {
+        max-width: 30px;
+        max-height: 30px; }
 
 #chapter01, #chapter02, #chapter03,
 #chapter04, #chapter05, #chapter06 {

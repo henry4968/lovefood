@@ -16,7 +16,6 @@ Vue.component('user',{
 })
 
 
-
 const app = new Vue({
     el: '.containerProductEdit',
     data: {
@@ -36,7 +35,7 @@ const app = new Vue({
             pageNow:null,//現在在第幾頁
     },
     
-
+ 
 
     methods: {
         query(){
@@ -46,7 +45,7 @@ const app = new Vue({
                 
                 $.ajax({
                     url:'../PHP/backStage/product/productQuery.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                    data:{pdNum1,pdNum2,idendity:0},
+                    data:{pdNum1,pdNum2,idendity:1},
                     type:'POST',
                     dataType:'JSON',
                     traditional: true,
@@ -181,11 +180,12 @@ const app = new Vue({
             let oriPrice = $("input[name='oriPrice']").val();
             let spePrice = $("input[name='spePrice']").val();
             let description = $("textarea[name='description']").val();
+            let pickupSite = $("input[name='pickupSite']:checked").val();
             let fileUpload = self.filterData[0].PRODUCT_IMG;
             let pdNum = $(e.target).val();
             $.ajax({
                 url:'../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                data:{sellerNum,categories,productName,expDate,expTime,quantity,fileUpload,description,oriPrice,spePrice,validation:0,pdNum},
+                data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice,validation:0,pdNum},
                 type:'POST',
                 dataType:'text',
                 traditional: true,
@@ -197,7 +197,6 @@ const app = new Vue({
                 },
             });
             return self.isShow = !self.isShow;
-            self.$forceUpdate();
         },
         imgInput(key,event){ //點擊input
             let self = this;

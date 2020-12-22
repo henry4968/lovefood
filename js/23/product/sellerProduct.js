@@ -1,3 +1,5 @@
+
+
 $(function(){
     $("[data-toggle='tooltip']").tooltip(); //tooltip啟用
                 //===============input變數設變數==============
@@ -34,6 +36,21 @@ $(function(){
 // ==================new Vue=========================
 
 
+Vue.component('user',{
+    template:`
+    <div>
+        <li>{{user}}</li>
+    </div>
+    `,
+    data(){
+        return{
+            user: null
+        }
+    },
+    created(){
+        this.user = $.cookie('account');
+    }
+})
 
 const app = new Vue({
     el: '.containerSellerProduct',

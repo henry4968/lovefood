@@ -6,12 +6,10 @@
     
 
     $validation = $_POST["validation"];
-    //上架: 1  下架: 2
+    //上架: 1  下架: 2 
     if($validation == 1){ //下架
         $off = $_POST["off"];
         //sql語法
-        //下架
-        $off = $_POST["off"];
         $sql = "UPDATE PRODUCT
         SET PRODUCT_STATUS = 2
         WHERE PRODUCT_ID = ?
@@ -27,7 +25,6 @@
         $expDate = $_POST["expDate"];
         $expTime = $_POST["expTime"];
         $quantity = @$_POST["quantity"];
-        $pickupSite = $_POST["pickupSite"];
         $fileUpload = $_POST["fileUpload"];
         $description = $_POST["description"];
         $oriPrice = $_POST["oriPrice"];
@@ -36,9 +33,9 @@
         $exp = $expDate." ".$expTime;
 
         $sql = "UPDATE PRODUCT 
-        SET PRODUCT_CATEGORY_ID_for_PD = ?, `NAME` = ?, `DESCRIPTION` = ?, ORIGINAL_PRICE = ?,
-        SELLING_PRICE = ?, STOCK = ?, UPLOAD_DATE = NOW(),
-        EXP_DATE = ?, PRODUCT_IMG = ? 
+        SET PRODUCT_CATEGORY_ID_for_PD = ?, PRODUCT_NAME = ?, PRODUCT_DESCRIPTION = ?, PRODUCT_ORIGINAL_PRICE = ?,
+        PRODUCT_SELLING_PRICE = ?, PRODUCT_STOCK = ?, PRODUCT_UPLOAD_DATE = NOW(),
+        PRODUCT_EXP_DATE = ?, PRODUCT_IMG= ? 
         WHERE PRODUCT_ID = ?
         ";
         $statement = $Util->getPDO()->prepare($sql);
@@ -55,7 +52,6 @@
         
         $statement->execute();
     }
-    echo 123;
 
     
 ?>

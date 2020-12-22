@@ -72,11 +72,11 @@ const main = new Vue({
                 }
 
             }
-            // console.log(arrspecies,);
-            // this.queryData('../PHP/Frontend/EC_07/filter.php',{
-            //     //將陣列放入data透過ajax傳值，php接值
-            //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
-            // })
+            console.log(arrspecies);
+            this.queryData('../PHP/Frontend/EC_07/filter.php',{
+                //將陣列放入data透過ajax傳值，php接值
+                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
+            })
             
 
         },
@@ -180,7 +180,7 @@ const main = new Vue({
                     error: function (res,error) {
                         console.log(res,error);
                     },
-                dataType:'JSON',
+                dataType:'text',
             })
         }
 

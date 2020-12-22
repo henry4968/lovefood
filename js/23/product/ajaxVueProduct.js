@@ -8,6 +8,7 @@ $(function(){
     let spePrice = $("[name='spePrice']");
     let description = $("[name='description']");
 
+
     let inputArr = [productName,exp0,exp1,oriPrice,spePrice,description];
 
     // document.addEventListener('click',e=>console.log(e.target));
@@ -33,7 +34,21 @@ $(function(){
 
 // ==================new Vue=========================
 
-
+Vue.component('user',{
+    template:`
+    <div>
+        <li>{{user}}</li>
+    </div>
+    `,
+    data(){
+        return{
+            user: null
+        }
+    },
+    created(){
+        this.user = $.cookie('account');
+    }
+})
 
 const app = new Vue({
     el: '.containerProduct',
@@ -43,7 +58,7 @@ const app = new Vue({
         categories:[],
         //以下圖片for拖放區域
         imgSrc:['','','',''],
-        hover:false,
+        hover:[false,false,false,false],
         dropZone:[0,1,2,3],
         cover:['封面圖片','圖片1','圖片2','圖片3'],
         photo:['photo1','photo2','photo3','photo4'],
@@ -99,37 +114,12 @@ const app = new Vue({
                 });
             
         },
-        // showName(){ //顯示上傳檔案名稱
-        //     const self = this;
-        //     let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
-        //     self.fileName = fileUpload;
-        // },
-        next(){
-            $.ajax({
-
-                url:'../PHP/backStage/Lib/page.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice},
-                type:'POST',
-                dataType:'text',
-                traditional: true,
-                success: function(res){
-                     console.log(res);
-                     self.tableData = res;
-                     
-                },
-                error: function(res){
-                    // console.log(res);
-                },
-            });
-            
-        },
         imgInput(key,event){ //點擊input
             let self = this;
             let file = event.target.files[0];
-            // alert(key);
-            
             self.imgSrc.splice(key,1,URL.createObjectURL(file))
             $(event.target).closest('.dropZone').css('border','none')
+
         },
         imgDrop(key,event){ //拖曳圖片
             let self = this;
@@ -143,28 +133,17 @@ const app = new Vue({
                 self.imgSrc.splice(key,1,this.result)
             })
             console.log($(event.target).closest('.dropZone'));
-            $(event.target).closest('.dropZone').css('border','none')
+            $(event.target).closest('.dropZone').css('border','none')   
             
         },
         remove(key,event){
             const self = this;
             console.log(event.target.closest('.dropZone'));
-            self.imgSrc.splice(key,1);
+            self.imgSrc.splice(key,1,'');
             console.log($('.dropZone')[1]);
             // alert(key)
-            if(key==0){
-                // alert();
-                $('.dropZone').eq(1).css('border','1px dashed')
-                $('.dropZone').eq(0).css('border','1px dashed')
-            }else{
-            $(event.target).closest('.dropZone').css('border','1px dashed')
-            }
-        }
-    },
-    computed:{
+            $(event.target).closest('.dropZone').css('border','3px dashed #897666')
 
-        tooltip(){
-            return false;
         }
     },
 });
