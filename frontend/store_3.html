@@ -7,383 +7,284 @@
     <title>樂腹商城-購物車</title>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/reset/reset.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+    <!-- <link rel="stylesheet" href="../css/reset/reset.css"> -->
     <link rel="stylesheet" href="../css/store_03.css">
-    <script src="../js/16/store_03.js"></script>
-    <script src="../node_modules/vue/dist/vue.js"></script>
-    <!-- axios套件 -->
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
     <!-- 標頭開始 -->
-    <header id="header">
-        <!-- 漢堡選單開始 -->
-        <input type="checkbox" id="hamburgerMenuToggle">
-        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
-            <span></span>
-        </label>
-        <!-- 行動版行動導覽列開始 -->
-        <nav id="navigationForMobile">
-            <div id="searchBarForMobile">
-                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
-            </div>
-            <ul>
-                <li>
-                    <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
-                </li>
-                <li>
-                    <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
-                </li>
-                <li>
-                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
-                </li>
-                <li>
-                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+    <div id="all">
+        <header id="header">
+            <!-- 漢堡選單開始 -->
+            <input type="checkbox" id="hamburgerMenuToggle">
+            <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+                <span></span>
+            </label>
+            <!-- 行動版行動導覽列開始 -->
+            <nav id="navigationForMobile">
+                <div id="searchBarForMobile">
+                    <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+                </div>
+                <ul>
+                    <li>
+                        <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
+                    </li>
+                    <li>
+                        <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                    </li>
+                    <li>
+                        <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+                    </li>
+                    <li>
+                        <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                            <div>
+                                立即捐款
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- 行動版導覽列結束 -->
+            <!-- 漢堡選單結束 -->
+            <div id="headerContentContainer">
+                <a href="./index.html">
+                    <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                </a>
+                <!-- 桌機版導覽列開始 -->
+                <nav id="navigationForPC">
+                    <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
+                    <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                    <a href="./donate_now.html" id="navSepcialAnchor">
                         <div>
                             立即捐款
                         </div>
                     </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- 行動版導覽列結束 -->
-        <!-- 漢堡選單結束 -->
-        <div id="headerContentContainer">
-            <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
-            </a>
-            <!-- 桌機版導覽列開始 -->
-            <nav id="navigationForPC">
-                <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
-                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
-                    @click="sellogIncheck">賣家專區</a>
-                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
-                <a href="./donate_now.html" id="navSepcialAnchor">
-                    <div>
-                        立即捐款
-                    </div>
-                </a>
-                <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_search.png" alt="">
-                </a>
-                <a href="#0" id="navIcons02" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                </a>
-                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
-                    <img v-if="login" :src='Bigpicchange'>
-                    <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
-                </a>
-            </nav>
-            <!-- 桌機版導覽列結束 -->
-            <!-- 行動版次級導覽列開始 -->
-            <nav id="subNavigationForMobile">
-                <a href="#0" id="navIcons04" class="navIconsForMobile">
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                </a>
-                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
-                    <img v-if="login" :src='Bigpicchange'>
-                    <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
-                </a>
-            </nav>
-            <!-- 行動版次級導覽列結束 -->
-        </div>
-    </header>
-    <!-- 標頭結束 -->
+                    <a href="#0" id="navIcons01" class="navIcons">
+                        <img src="../img/22/index/ch05_nav_search.png" alt="">
+                    </a>
+                    <a href="#0" id="navIcons02" class="navIcons">
+                        <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    </a>
+                    <a href="./memberInformation.html" id="navIcons03" class="navIcons">
+                        <img src="../img/22/index/ch05_nav_member.png" alt="">
+                    </a>
+                </nav>
+                <!-- 桌機版導覽列結束 -->
+                <!-- 行動版次級導覽列開始 -->
+                <nav id="subNavigationForMobile">
+                    <a href="#0" id="navIcons04" class="navIconsForMobile">
+                        <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    </a>
+                    <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
+                        <img src="../img/22/index/ch05_nav_member.png" alt="">
+                    </a>
+                </nav>
+                <!-- 行動版次級導覽列結束 -->
+            </div>
+        </header>
+        <!-- 標頭結束 -->
 
 
-    <article id="store_16">
-        <!-- store_banner開始 -->
-        <section class=banner_16>
-            <div>
-                <img src="../img/16/storeApple.png">
+        <article id="store_16">
+            <!-- store_banner開始 -->
+            <section class=banner_16>
                 <div>
-                    <h1>樂腹商城</h1>
-                    <p>Food waste, not in good taste.</p>
-                </div>
-            </div>
-        </section>
-        <section class="breadcrumb_16">
-            <div>
-                <span>樂腹商城</span>
-                <span>|</span>
-                <span>購物車</span>
-            </div>
-        </section>
-        <!-- store_banner結束 -->
-        <div class="cartbgc_16">
-            <div class="cart_16">
-                <div class="item1">
-                    <p>惜食清單</p>
-                </div>
-
-                <section class="mainArea">
-                    <ul class="list_h">
-                        <li class="tashImg"><img src="../img/16/sellerIcon.png"></li>
-                        <li>全家南京復興店</li>
-                        <li>單價</li>
-                        <li>數量</li>
-                        <li>總計</li>
-                    </ul>
-                    <div class="content">
-                        <div class="orderItem">
-                            <div class="orderInfo">
-                                <div class="imgBlock">
-                                    <img src="../img/16/foods/bread_104.png">
-                                </div>
-                                <div class="orderDetails">
-                                    <ul>
-                                        <li class="productName">蛋黃奶香麵包</li>
-                                        <li class="exp">有效期限：2020年10月20日 23:59</li>
-                                    </ul>
-                                </div>
-
-                                <div class="orderDetails1">
-                                    <ul class="orderTitle">
-                                        <li>單價</li>
-                                        <li>數量</li>
-                                        <li>總計</li>
-                                    </ul>
-                                    <ul class="orders">
-                                        <li class="price">$19</li>
-                                        <li class="quantity">
-                                            <form id='myform1' method='POST' action='#'>
-                                                <input type='button' value='-' id='qtyminus1' field='quantity1' />
-                                                <input type='text' name='quantity1' value='0' id='qty1' />
-                                                <input type='button' value='+' id='qtyplus1' field='quantity1' />
-                                            </form>
-                                        </li>
-                                        <li class="amount">$38</li>
-                                        <li><img src="../img/16/trashcanIcon.png"></li>
-                                    </ul>
-                                </div>
-
-                            </div>
-
-                            <hr>
-
-                            <div class=" pickUpInfo">
-                                <p>取貨資訊</p>
-                                <div>
-                                    <ul>
-                                        <li><img src="../img/16/locationIcon.png" class="locationIcon">
-                                            取貨區間：2020/10/20 18:00~21:00
-                                        </li>
-                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">
-                                            取貨地點：</li>
-                                        <input type="checkbox" checked>
-                                        <span>到店自取</span>
-                                        <div>台北市 松山區 南京東路三段253號<img src="../img/16/Icon awesome-map-marker-alt.png"
-                                                class="mapIcon">
-                                        </div>
-                                        <br>
-                                        <input type="checkbox">
-                                        <span>捷運站取貨</span>
-                                    </ul>
-                                    <div>
-                                        <img src="../img/16/MRT.jpg" class="imgMRT" style="display:none;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="orderCount">
-                                <p>單筆訂單金額：$38元</p>
-                            </div>
-
-                        </div>
-
+                    <img src="../img/16/storeApple.png">
+                    <div>
+                        <h1>樂腹商城</h1>
+                        <p>Food waste, not in good taste.</p>
                     </div>
-                </section>
-                <section class="mainArea">
-                    <ul class="list_h">
-                        <li><img src="../img/16/sellerIcon.png"></li>
-                        <li>全家天山店</li>
-                        <li>單價</li>
-                        <li>數量</li>
-                        <li>總計</li>
-                    </ul>
-                    <div class="content">
-                        <div class="orderItem">
-                            <div class="orderInfo">
-                                <div class="imgBlock">
-                                    <img src="../img/16/foods/bread_145.png">
-                                </div>
-                                <div class="orderDetails">
-                                    <ul>
-                                        <li class="productName">日式紅豆銅鑼燒</li>
-                                        <li class="exp">有效期限：2020年10月20日 23:59</li>
-                                    </ul>
-                                </div>
-
-                                <div class="orderDetails1">
-                                    <ul class="orderTitle">
-                                        <li>單價</li>
-                                        <li>數量</li>
-                                        <li>總計</li>
-                                    </ul>
-                                    <ul class="orders">
-                                        <li class="price">$23</li>
-                                        <li class="quantity">
-                                            <form id='myform2' method='POST' action='#'>
-                                                <input type='button' value='-' id='qtyminus2' field='quantity2' />
-                                                <input type='text' name='quantity2' value='0' id='qty2' />
-                                                <input type='button' value='+' id='qtyplus2' field='quantity2' />
-                                            </form>
-                                        </li>
-                                        <li class="amount">$92</li>
-                                        <li><img src="../img/16/trashcanIcon.png"></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <hr>
-                            <div class="orderInfo">
-                                <div class="imgBlock">
-                                    <img src="../img/16/foods/rice.png">
-                                </div>
-                                <div class="orderDetails">
-                                    <ul>
-                                        <li class="productName">鹽烤松阪豬三角飯糰</li>
-                                        <li class="exp">有效期限：2020年10月20日 23:59</li>
-                                    </ul>
-                                </div>
-
-                                <div class="orderDetails1">
-                                    <ul class="orderTitle">
-                                        <li>單價</li>
-                                        <li>數量</li>
-                                        <li>總計</li>
-                                    </ul>
-                                    <ul class="orders">
-                                        <li class="price">$24</li>
-                                        <li class="quantity">
-                                            <form id='myform3' method='POST' action='#'>
-                                                <input type='button' value='-' id='qtyminus3' field='quantity3' />
-                                                <input type='text' name='quantity3' value='0' id='qty1' />
-                                                <input type='button' value='+' id='qtyplus3' field='quantity3' />
-                                            </form>
-                                        </li>
-                                        <li class="amount">$72</li>
-                                        <li><img src="../img/16/trashcanIcon.png"></li>
-                                    </ul>
-                                </div>
-                            </div>
-
-                            <hr>
-
-                            <div class="pickUpInfo">
-                                <p>取貨資訊</p>
-                                <div>
-                                    <ul>
-                                        <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：2020/10/20
-                                            18:00~21:00</li>
-                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：</li>
-                                        <input type="checkbox">
-                                        <span>到店自取</span>
-                                        <div style="display: none;">台北市 松山區 南京東路三段253號<img
-                                                src="../img/16/Icon awesome-map-marker-alt.png">
-                                        </div>
-                                        <br>
-                                        <input type="checkbox" checked>
-                                        <span>捷運站取貨</span>
-                                        <div class="mapIconW">捷運南京復興站 8號出口<img
-                                                src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
+                </div>
+            </section>
+            <section class="breadcrumb_16">
+                <div>
+                    <span>樂腹商城</span>
+                    <span>|</span>
+                    <span>購物車</span>
+                </div>
+            </section>
+            <!-- store_banner結束 -->
+            <div class="cartbgc_16">
+                <div class="cart_16">
+                    <div class="item1">
+                        <p>惜食清單</p>
+                    </div>
+                    <div class="mainArea">
+                        <ul class="list_h">
+                            <li><img src="../img/16/sellerIcon.png"></li>
+                            <li>全家天山店</li>
+                            <li>單價</li>
+                            <li>數量</li>
+                            <li>總計</li>
+                        </ul>
+                        <div class="content">
+                            <div class="orderItem">
+                                <template v-for="(item, index) in cartArray">
+                                    <div class="orderInfo">
+                                        <div class="imgBlock">
+                                            <img :src="item.img">
                                         </div>
 
-                                    </ul>
+                                        <div class="orderDetails">
+                                            <ul>
+                                                <li class="productName">{{item.name}}</li>
+                                                <li class="exp">有效期限：{{item.exp}}</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="orderDetails1">
+                                            <ul class="orderTitle">
+                                                <li>單價</li>
+                                                <li>數量</li>
+                                                <li>總計</li>
+                                            </ul>
+                                            <ul class="orders">
+                                                <li class="price">{{item.price}}</li>
+                                                <li class="quantity">
+                                                    <div>
+                                                        <button class="btn qtyReduce" @click="reduce(index)">-</button>
+                                                        <input type="text" name="quantity" class="inputQty"
+                                                            v-model="item.qty" />
+                                                        <button class="btn qtyAdd" @click="add(index)">+</button>
+                                                        <!-- v-model="item.qty" -->
+                                                        <!-- :value="item.qty" @input="setQty"-->
+                                                    </div>
+                                                </li>
+                                                <li class="amount">${{item.price * item.qty}}</li>
+                                                <li><img src="../img/16/trashcanIcon.png" @click="del(index)"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                </template>
+
+                                <div class="pickUpInfo">
+                                    <p>取貨資訊</p>
                                     <div>
-                                        <img src="../img/16/MRT.jpg" class="imgMRT">
+                                        <ul>
+                                            <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：
+                                                <!-- {{pickUpExp}} -->
+                                            </li>
+                                            <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨方式：
+                                                <br>
+                                                <input type="radio" name="pickUpLocation" @click="content='selfPickUp'"
+                                                    checked>
+                                                <span>到店自取</span>
+                                                <!-- <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
+                                                    src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div> -->
+                                                <br>
+                                                <input type="radio" name="pickUpLocation" @click="content='showMap'">
+                                                <span>捷運站取貨</span>
+                                                <!-- <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
+                                                    src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
+                                            </div> -->
+                                            </li>
+                                            <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
+                                                <component :is="content"></component>
+                                            </li>
 
-                                        <ul id="MRT_Select">
-                                            <li><label for="">請選擇：</label></li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運市政府站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運南京復興站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運忠教復興站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運大安站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運中山站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運台北車站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運西門站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運中正紀念堂站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運大橋頭站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運民權西路站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運石牌站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運內湖站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運南港站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運古亭站</li>
-                                            <li class="mrtSelect"><input type="checkbox">捷運六張犁站</li>
+
+
+
                                         </ul>
+                                        <!-- <div>
+                                            <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
+                                                    src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
+                                            </div>
+                                            <img src="../img/16/MRT.jpg" class="imgMRT">
 
+                                            <ul id="MRT_Select">
+                                                <li><label for="">請選擇：</label></li>
+                                                <li class="mrtSelect" id="mrt1"><input type="checkbox">捷運市政府站</li>
+                                                <li class="mrtSelect" id="mrt2"><input type="checkbox">捷運南京復興站</li>
+                                                <li class="mrtSelect" id="mrt3"><input type="checkbox">捷運忠教復興站</li>
+                                                <li class="mrtSelect" id="mrt4"><input type="checkbox">捷運大安站</li>
+                                                <li class="mrtSelect" id="mrt5"><input type="checkbox">捷運中山站</li>
+                                                <li class="mrtSelect" id="mrt6"><input type="checkbox">捷運台北車站</li>
+                                                <li class="mrtSelect" id="mrt7"><input type="checkbox">捷運西門站</li>
+                                                <li class="mrtSelect" id="mrt8"><input type="checkbox">捷運中正紀念堂站</li>
+                                                <li class="mrtSelect" id="mrt9"><input type="checkbox">捷運大橋頭站</li>
+                                                <li class="mrtSelect" id="mrt10"><input type="checkbox">捷運民權西路站</li>
+                                                <li class="mrtSelect" id="mrt11"><input type="checkbox">捷運石牌站</li>
+                                                <li class="mrtSelect" id="mrt12"><input type="checkbox">捷運內湖站</li>
+                                                <li class="mrtSelect" id="mrt13"><input type="checkbox">捷運南港站</li>
+                                                <li class="mrtSelect" id="mrt14"><input type="checkbox">捷運古亭站</li>
+                                                <li class="mrtSelect" id="mrt15"><input type="checkbox">捷運六張犁站</li>
+                                            </ul>
+
+                                        </div> -->
                                     </div>
+
+
+
                                 </div>
 
+                                <hr>
 
+                                <div class="orderCount">
+                                    <p>單筆訂單金額：${{total}}</p>
+                                </div>
 
                             </div>
 
-                            <hr>
-
-                            <div class="orderCount">
-                                <p>單筆訂單金額：$164元</p>
+                        </div>
+                    </div>
+                    <div class="cart_16FinalCount">
+                        <div class="cart_16FinalCount_Main">
+                            <div class="keepShop">
+                                <a href="store_1.html"><img src="../img/16/backArrow.png">繼續購物</a>
                             </div>
+                            <div class="pointsDetails">
+                                <img src="../img/16/pointsIcon.png">
+                                <div>
+                                    <label for="points">您的點數尚餘：{{points}}點</label>
 
+                                    <br>
+                                    <span>
+                                        <label for="points">使用</label>
+                                        <input type="number" min="0" max="">
+                                        <label for="">點</label>
+                                    </span>
+                                    <a href="#">
+                                        <button class="pointsDiscount">全部扺用</button>
+                                    </a>
+                                    <p>註：一點為一元</p>
+                                </div>
+                            </div>
                         </div>
 
                     </div>
-                </section>
-                <div class="cart_16FinalCount">
-                    <div class="cart_16FinalCount_Main">
-                        <div class="keepShop">
-                            <a href="#"><img src="../img/16/backArrow.png">繼續購物</a>
-                        </div>
-                        <div class="pointsDetails">
-                            <img src="../img/16/pointsIcon.png">
-                            <div>
-                                <label for="points">您的點數尚餘：1000點</label>
-
-                                <br>
-                                <span>
-                                    <label for="points">使用</label>
-                                    <input type="number" min="0" max="">
-                                    <label for="">點</label>
-                                </span>
-                                <a href="#">
-                                    <button class="pointsDiscount">全部扺用</button>
-                                </a>
-                                <p>註：一點為一元</p>
-                            </div>
+                    <div class="item2">
+                        <div>
+                            <span>結帳總金額：</sapn>
+                                <span class="dollars">${{total}}</span>
+                                <button type="submit"><a href="./store_4.html">$結帳</a></button>
                         </div>
                     </div>
-
                 </div>
-                <div class="item2">
+            </div>
+
+            <footer>
+                <div class="footerBlock">
                     <div>
-                        <span>結帳總金額：</sapn>
-                            <span class="dollars">$182元</span>
-                            <button type="submit"><a href="./store_4.html">$結帳</a></button>
+                        <div class="footer_logo">
+                            <a href="index.html"><img src="../img/16/footerLogo.png"></a>
+                            <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                        </div>
+                        <div class="info">
+                            <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
+                            <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
+                            <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <footer>
-            <div class="footerBlock">
-                <div>
-                    <div class="footer_logo">
-                        <a href="index.html"><img src="../img/16/footerLogo.png"></a>
-                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
-                    </div>
-                    <div class="info">
-                        <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
-                        <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
-                        <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </article>
-
+            </footer>
+        </article>
+    </div>
+    <script src="../js/16/store_03.js"></script>
+    <script src="../js/16/vue_16.js"></script>
 
 </body>
 <!-- header vue -->

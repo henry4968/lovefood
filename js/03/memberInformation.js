@@ -704,7 +704,9 @@ Vue.component('order', {
                   </div>
                   <div class="itemendingsame itemdiscount">
                     <span class="itempaywaytitle">點數折扺：</span>
-                    <span class="itempaywaycontent" v-if="order.ORDER_DISCOUNT">{{order.ORDER_DISCOUNT}}點</span>
+                    <span class="itempaywaycontent" v-if="order.ORDER_DISCOUNT && idcont == '特殊會員'">{{order.ORDER_DISCOUNT}}點</span>
+                    <span class="itempaywaycontent" v-else>0點</span>
+                    <span class="itempaywaycontent" v-if=""></span>
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
@@ -748,8 +750,8 @@ Vue.component('order', {
       // 結束日期
       dateTo: null,
       dateTrueTo: null,
-
-
+      // 撈身分別
+      idcont: null,
     }
   },
   methods: {
@@ -1369,10 +1371,34 @@ Vue.component('order', {
         // console.log(2);
       }
     },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+        // 找到值
+        checkdata = res.data;
+
+        // 找身份別 general or particular
+        // console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
+          that.idcont = '一般會員';
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
+          that.idcont = '特殊會員';
+        } else {
+          //提醒除錯
+          // alert(checkdata[0]);
+        }
+      })
+    },
   },
   mounted() {
     // 撈全部訂單
     this.allselect();
+    // 撈該ID的身份別
+    this.memberInf();
   },
   updated() {
   },
@@ -1719,18 +1745,18 @@ Vue.component('memberApply', {
                 </div>
                 <div class="samememberBord memberIdBorder">
                   <span class="samemembertitleBord memberIDtitle">會員編號 : </span>
-                  <span class="sameconten memberID">AA2020103000001</span>
+                  <span class="sameconten memberID">{{idmemin}}</span>
                 </div>
                 <div class="samememberBord memberEmailBorder">
                   <span class="samemembertitleBord memberEmailtitle">帳 號 : </span>
-                  <span class="sameconten memberEmail">jabiden@gmail.com</span>
+                  <span class="sameconten memberEmail">{{idemailin}}</span>
                 </div>
                 <div class="samememberBord memberNameBorder">
                   <span class="samemembertitleBord memberNametitle">姓 名 : </span>
-                  <span class="sameconten memberName">甲必丹</span>
+                  <span class="sameconten memberName">{{idnamein}}</span>
                 </div>
               </div>
-              <form class="uploadfileBorder" id="uploadfileBorder" method="POST" action="#">
+              <form class="uploadfileBorder" id="uploadfileBorder" method="POST" action="">
                 <div class="apllybookBorder">
                   <textarea id="fileInfor"></textarea>
                   <input type="file" id="thefile" multiple>
@@ -1764,13 +1790,109 @@ Vue.component('memberApply', {
       none: '',
       block: '',
       foursameBorderapp: '',
+      // 身分別
+      idcont: null,
+      // 會員編號
+      idmemin: null,
+      // email
+      idemailin: null,
+      // 名字
+      idnamein: null,
     }
   },
   methods: {
-    tononetoblock() {
-      this.none = true
-      this.block = true
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+        // 找到值
+        checkdata = res.data;
+
+        // 找身份別 general or particular
+        // console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
+          that.idcont = '一般會員';
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
+          that.idcont = '特殊會員';
+        } else {
+          //提醒除錯
+          // alert(checkdata[0]);
+        }
+      })
     },
+    // 將ID塞入會員編號
+    ID() {
+      let that = this;
+      // 用箭頭函式(res=>{})才能解決父傳子傳值的問題
+      axios.post('../PHP/Frontend/sessionR.php').then(res => {
+
+        checkdata = res.data;
+        // console.log(checkdata);
+        if (checkdata != '') {
+          that.idmemin = checkdata;
+          // console.log(that.idmemin);
+        }
+      });
+    },
+    // 撈該ID的信箱
+    email() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找email 
+        // console.log(checkdata.dataac[0].ACCOUNT);
+
+        // 如果抓到信箱就代入
+        if (checkdata.dataac[0].MEMBER_ACCOUNT != "") {
+          that.idemailin = checkdata.dataac[0].MEMBER_ACCOUNT;
+        }
+
+      })
+    },
+    // 撈該ID的名字
+    name() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(function (res) {
+
+        // 找到值
+        checkdata = res.data;
+
+        // 找名字
+        // console.log(checkdata.datana[0].NAME);
+
+        // 如果抓到名字就代入
+        if (checkdata.datana[0].MEMBER_NAME != "") {
+          if (checkdata.datana[0].MEMBER_NAME != null) {
+            that.idnamein = checkdata.datana[0].MEMBER_NAME;
+          } else {
+            that.idnamein = '請填寫名字';
+          }
+        } else {
+          that.idnamein = '請填寫名字';
+        }
+
+      })
+    },
+    // 翻頁切換
+    tononetoblock() {
+      if (this.idcont == '一般會員') {
+        this.none = true
+        this.block = true
+      } else {
+        alert('你已是特殊會員不需申請');
+      }
+    },
+    // 檔案上傳
     uploadmultiplefile() {
       // 當按下假的input時等同於按下真的按鈕
       thefile = document.getElementById('thefile');
@@ -1794,8 +1916,8 @@ Vue.component('memberApply', {
         }
       }
     },
+    // 電子簽章
     canvasfuction() {
-      // 電子簽章
       let isDrawing = false;
       let x = 0;
       let y = 0;
@@ -1839,11 +1961,22 @@ Vue.component('memberApply', {
         context.closePath();
       }
     },
+    // class切換
     sync() {
       this.$emit("my-click", false)
       this.none = false
       this.block = false
     },
+  },
+  mounted() {
+    // 撈該ID的身份別
+    this.memberInf();
+    // 將ID塞入會員編號
+    this.ID();
+    // 撈該ID的信箱
+    this.email();
+    // 撈該ID的名字
+    this.name();
   },
 });
 

@@ -1,3 +1,22 @@
+
+Vue.component('user',{
+    template:`
+    <div>
+        <li>{{user}}</li>
+    </div>
+    `,
+    data(){
+        return{
+            user: null
+        }
+    },
+    created(){
+        this.user = $.cookie('account');
+    }
+})
+
+
+
 const app = new Vue({
     el: '.containerOrder',
     data:{
@@ -57,7 +76,6 @@ const app = new Vue({
                     //  console.log(res);
                      self.code = res;
                      console.log(self.code);
-                    //  self.$set(this.code,res);
                 },
                 error: function(res){
                     console.log(res);

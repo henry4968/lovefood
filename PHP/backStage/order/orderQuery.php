@@ -19,11 +19,11 @@
     
     if(is_Date($_POST["pick1"]) && is_Date($_POST["pick2"]) ){
         $sql =
-        "SELECT ORDER_ID, ORDER_DATE, bb.PHONE, DISCOUNT, REG_DATE, ORDER_STATUS
+        "SELECT ORDER_ID, ORDER_DATE, bb.MEMBER_PHONE, ORDER_DISCOUNT, MEMBER_REG_DATE, ORDER_STATUS
         FROM LoveFood.`ORDER` as aa
         join LoveFood.MEMBER as bb
         on aa.MEMBER_ID_for_OD = bb.MEMBER_ID
-        where ORDER_ID like ? and bb.MEMBER_ID like ? and bb.ACCOUNT like ? and PHONE like ? and ORDER_STATUS like ? and (ORDER_DATE between ? and ?)";
+        where ORDER_ID like ? and bb.MEMBER_ID like ? and bb.MEMBER_ACCOUNT like ? and MEMBER_PHONE like ? and ORDER_STATUS like ? and (ORDER_DATE between ? and ?)";
         $statement = $Util->getPDO()->prepare($sql);
 
         
@@ -40,11 +40,11 @@
 
     }else{
         $sql =
-        "SELECT ORDER_ID, ORDER_DATE, bb.PHONE, DISCOUNT, REG_DATE, ORDER_STATUS, bb.MEMBER_ID
+        "SELECT ORDER_ID, ORDER_DATE, bb.MEMBER_PHONE,ORDER_DISCOUNT , MEMBER_REG_DATE, ORDER_STATUS, bb.MEMBER_ID
         FROM LoveFood.`ORDER` as aa
         join LoveFood.MEMBER as bb
         on aa.MEMBER_ID_for_OD = bb.MEMBER_ID
-        where ORDER_ID like ? and bb.MEMBER_ID like ? and bb.ACCOUNT like ? and PHONE like ? and ORDER_STATUS like ? ";
+        where ORDER_ID like ? and bb.MEMBER_ID like ? and bb.MEMBER_ACCOUNT like ? and MEMBER_PHONE like ? and ORDER_STATUS like ? ";
         $statement = $Util->getPDO()->prepare($sql);
 
         $statement->bindValue(1,$orderNum);

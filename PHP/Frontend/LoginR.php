@@ -62,8 +62,12 @@
         //將會員資訊寫入session
         $Member->setMemberInfo($selmemberID, $selmemberName);
 
-        //導回產品頁        
-        echo "<script>alert('登入成功!'); location.href = '../../backend/backendIndex.html';</script>"; 
+        //導回產品頁
+        if($selmemberID  == 'SP0001'){ //廷翰加判斷式 判斷是不是超級管理員進不同網站
+            echo "<script>alert('登入成功!'); location.href = '../../backend/backendIndex.html';</script>"; 
+        }else{
+            echo "<script>alert('登入成功!'); location.href = '../../backend/sellerIndex.html';</script>"; 
+        }        
         
     }else{
         //跳出提示停留在登入頁
