@@ -138,7 +138,7 @@ const main = new Vue({
                             res[index].minutes = 0
                             res[index].seconds = 0
                             res[index].timer = null
-                            res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG) 
+                            res[index].PRODUCT_IMG = 'data:image/jpeg;base64,' + window.atob(res[index].PRODUCT_IMG) 
 
                             // console.log(window.btoa(res[index].PRODUCT_IMG) )
                         }
