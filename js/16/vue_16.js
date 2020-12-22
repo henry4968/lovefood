@@ -38,7 +38,7 @@ Vue.component('showMap', {
 const main = new Vue({
     el: '#all',
     data: {
-        cartArray: [],
+        itemStorage: [],
         content: 'selfPickUp',
         exp: '',
 
@@ -51,15 +51,15 @@ const main = new Vue({
         },
         add(index) {
             // alert(index);
-            this.cartArray[index].qty++;
+            this.itemStorage[index].qty++;
         },
         reduce(index) {
-            if (this.cartArray[index].qty >= 1) {
-                this.cartArray[index].qty--;
+            if (this.itemStorage[index].qty >= 1) {
+                this.itemStorage[index].qty--;
             }
         },
         del(index) {
-            this.cartArray.splice(index, 1);
+            this.itemStorage.splice(index, 1);
         },
 
         points() {
@@ -67,14 +67,14 @@ const main = new Vue({
         },
         // sum() {
         // var sum = 0
-        // for (var i in this.cartArray) {
-        //     sum += parseInt(this.cartArray[i].price) * parseFloat(this.price)
+        // for (var i in this.itemStorage) {
+        //     sum += parseInt(this.itemStorage[i].price) * parseFloat(this.price)
         // }
         // return total
         // },
         pickUpExp() {
             // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
-            this.cartArray.exp
+            this.itemStorage.exp
         },
 
 
@@ -86,18 +86,18 @@ const main = new Vue({
         //計算總金額
         total() {
             var total = 0;
-            for (var i in this.cartArray) {
-                total += this.cartArray[i].price * this.cartArray[i].qty;
+            for (var i in this.itemStorage) {
+                total += this.itemStorage[i].price * this.itemStorage[i].qty;
             }
             return total;
         },
     },
     mounted() {
 
-        // this.cartArray = JSON.parse(localStorage.getItem("cartArray"));
-        let test = JSON.parse(localStorage.getItem("cartArray"));
+        // this.itemStorage = JSON.parse(localStorage.getItem("itemStorage"));
+        let test = JSON.parse(localStorage.getItem("itemStorage"));
 
-        this.cartArray = test;
+        this.itemStorage = test;
 
 
     },
