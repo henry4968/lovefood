@@ -13,7 +13,7 @@
   // echo $MemberId;
 
   // 建立SQL
-  $sql = "select name from member where MEMBER_ID = ?";
+  $sql = "select MEMBER_NAME from member where MEMBER_ID = ?";
 
   //執行
   $statement = $Util->getPDO()->prepare($sql);

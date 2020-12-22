@@ -47,10 +47,13 @@
                         display: flex;
                         flex-direction: column;
                         .time{
+                            align-items: center;
                             margin:8px 20px;
                             display:flex;
                             flex-direction: row;
-                            
+                            .form-group{
+                                margin-bottom:0;
+                            }
                         }
                         span{
                             margin:8px 20px;
@@ -113,7 +116,7 @@
                                     position: relative;
                                     width: 111px;
                                     height: 111px;
-                                    border: 1px dashed;
+                                    border: 3px dashed $brown;
                                     margin-right: 10px;
                                     img{
                                         display: block;
@@ -131,6 +134,9 @@
                                         height: 100%;
                                         margin: 0 auto;
                                         vertical-align: middle;
+                                        path{
+                                            fill:$brown;
+                                        }
                                     }
                                     .tools{
                                         position: absolute;

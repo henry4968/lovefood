@@ -6,8 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- 圖表套件 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
+    <script src="../node_modules/highcharts/highstock.js"></script>
+
 </head>
 
 <body>
@@ -105,26 +110,48 @@
             <main>
                 <div id="financeDataFilterArea">
                     <div id="financeDataFilterBlock">
-                        <div id="financeDataFilterTab01" class="financeDataFilterTab tabActive" @click="switchTab01">
+                        <div id="financeDataFilterTab01" class="financeDataFilterTab" @click="showTab = true"
+                            :class="{'tabActive' : showTab === true}">
                             檢視銷售
                         </div>
-                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="switchTab02">
+                        <div id="financeDataFilterTab02" class="financeDataFilterTab" @click="showTab = false"
+                            :class="{'tabActive' : showTab === false}">
                             檢視捐款</div>
                     </div>
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
-                            <input type="date">至
-                            <input type="date">
-                            <div id="supplierID">
-                                賣家編號
-                                <input type="text">
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo" id="">
+                                    <input type="text" name="financeQueryDateStart" data-format="MM/DD/YYYY"
+                                        value="2020-01-01" class="form-control" id="queryDateStart" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <span>
+                                至
+                            </span>
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo">
+                                    <input type="text" name="financeQueryDateEnd" data-format="MM/DD/YYYY"
+                                        value="2020-12-31" class="form-control" id="queryDateEnd" />
+                                    <span class="input-l input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div id="financeFilterDownload">下載：</div>
-                        <a href="">
-                            <div id="financeFilterButton">查詢</div>
-                        </a>
+                        <div id="supplierID">
+                            賣家編號
+                            <input type="text" name="supplierId" :value="loginAccount" class="form-control">
+                        </div>
+                        <button id="financeFilterButton" @click="queryFinance" class="btn-s btn-brown">查詢</button>
                     </div>
                     <div id="financeFilterForDonation" class="financeFilter" v-show="!showTab">
                         <div id="donationSearchingBlock">
@@ -139,30 +166,67 @@
                         </div>
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
-                            <div>查詢區間</div>
-                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart">至
-                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd">
-                            <a href="#0">
-                                <div id="financeFilterButton" @click="query">查詢</div>
-                            </a>
+                            查詢時間
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo" id="">
+                                    <input type="text" name="donationQueryDateStart" data-format="MM/DD/YYYY"
+                                        value="2016-01-01" class="form-control" id="queryDonationDateStart" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="character">至</div>
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo">
+                                    <input type="text" name="donationQueryDateEnd" data-format="MM/DD/YYYY"
+                                        value="2020-12-31" class="form-control" id="queryDonationDateEnd" />
+                                    <span class="input-l input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+                        <button id="financeFilterButton" @click="queryDonation" class="btn-s btn-brown">查詢</button>
                     </div>
                 </div>
                 <div id="financeDataArea">
                     <div id="financeShowSellingPage" v-show="showTab">
-                        <div id="financeShowResultBlock">
-                            <div class="financeShowResultRow">
-                                查詢時間： 2020-10-21～2020-10-31
+                        <div id="infoCardsBlock">
+                            <div class="infoCards">
+                                總銷售額<br><br>
+                                <span>{{financeTotalSelling}}元</span>
                             </div>
-                            <div class="financeShowResultRow">
-                                訂單筆數：<input type="text" class="financeSearchResult">筆
+                            <div class="infoCards">
+                                訂單總量<br><br>
+                                <span>{{financeTotalOrder}}張</span>
                             </div>
-                            <div class="financeShowResultRow">
-                                銷售總額：<input type="text" class="financeSearchResult">元
+                            <div class="infoCards">
+                                平均訂單金額<br><br>
+                                <span>{{financeTotalSelling / financeTotalOrder}}元</span>
+                            </div>
+                            <div class="infoCards">
+                                <div>
+                                    最熱銷的商品<br><br>
+                                    <span v-if="mostPopularGood">{{mostPopularGood.PRODUCT_NAME}}</span>
+                                    <span v-else>無資料</span>
+                                </div>
+                            </div>
+                            <div class="infoCards">
+                                <div>
+                                    最冷門的商品<br><br>
+                                    <span v-if="mostUnpopularGood">{{mostUnpopularGood.PRODUCT_NAME}}</span>
+                                    <span v-else>無資料</span>
+                                </div>
                             </div>
                         </div>
-                        <div id="financeDiagram">
-                            <img src="../img/22/backend/temp_diagram.png" alt="">
+                        <div id="chartBlock">
+                            <div id="lineChartBlock"></div>
+                            <div id="pieChartBlock"></div>
                         </div>
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
@@ -188,12 +252,12 @@
                                 <tr v-for="(data,key) in donationLog">
                                     <td>{{key+1}}</td>
                                     <td>{{data["DONATION_ID"]}}</td>
-                                    <td>{{data["NAME"]}}</td>
-                                    <td>{{data["EMAIL"]}}</td>
-                                    <td>{{data["PERSONAL_ID_OR_TAX_ID"]}}</td>
+                                    <td>{{data["DONATION_NAME"]}}</td>
+                                    <td>{{data["DONATION_EMAIL"]}}</td>
+                                    <td>{{data["DONATION_PERSONAL_ID_OR_TAX_ID"]}}</td>
                                     <td>{{data["DONATION_PLAN"]}}</td>
-                                    <td>{{data["AMOUNT"]}}</td>
-                                    <td>{{data["DATE"]}}</td>
+                                    <td>{{data["DONATION_AMOUNT"]}}</td>
+                                    <td>{{data["DONATION_DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
                                         <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
                                             @click="showContent">詳情</button>
@@ -222,30 +286,33 @@
                             <div>
                                 捐款編號：<br><input type="text" :value="data['DONATION_ID']" name="selectedId_ED"
                                     disabled><br>
-                                姓名／公司：<br><input type="text" :value="data['NAME']" name="name_ED"><br>
-                                國籍：<br><input type="text" :value="data['NATIONALITY']" name="nationality_ED"><br>
-                                身分證字號／統編（捐款人）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID']"
+                                姓名／公司：<br><input type="text" :value="data['DONATION_NAME']" name="name_ED"><br>
+                                國籍：<br><input type="text" :value="data['DONATION_NATIONALITY']"
+                                    name="nationality_ED"><br>
+                                身分證字號／統編（捐款人）：<br><input type="text" :value="data['DONATION_PERSONAL_ID_OR_TAX_ID']"
                                     name="pID_tID_ED"><br>
-                                生日：<br><input type="date" :value="data['BIRTHDAY']" name="birthday_ED"><br>
-                                地址：<br><input type="text" :value="data['ADDRESS']" name="address_ED"><br>
-                                Email：<br><input type="text" :value="data['EMAIL']" name="email_ED"><br>
-                                性別：<br><input type="text" :value="data['GENDER']" name="gender_ED"><br><br>
+                                生日：<br><input type="date" :value="data['DONATION_BIRTHDAY']" name="birthday_ED"><br>
+                                地址：<br><input type="text" :value="data['DONATION_ADDRESS']" name="address_ED"><br>
+                                Email：<br><input type="text" :value="data['DONATION_EMAIL']" name="email_ED"><br>
+                                性別：<br><input type="text" :value="data['DONATION_GENDER']" name="gender_ED"><br><br>
                             </div>
                             <div>
                                 捐款類別：<br><input type="text" :value="data['DONATION_METHOD']" disabled><br>
                                 捐款方式：<br><input type="text" :value="data['DONATION_PLAN']" disabled><br>
-                                捐款金額：<br><input type="text" :value="data['AMOUNT']" disabled><br>
-                                捐款日期：<br><input type="text" :value="data['DATE']" disabled><br><br>
+                                捐款金額：<br><input type="text" :value="data['DONATION_AMOUNT']" disabled><br>
+                                捐款日期：<br><input type="text" :value="data['DONATION_DATE']" disabled><br><br>
                             </div>
                             <div>
-                                收據抬頭：<br><input type="text" :value="data['RECEIPT_TITLE']" name="receiptTitle_ED"><br>
-                                身分證字號／統編（收據）：<br><input type="text" :value="data['PERSONAL_ID_OR_TAX_ID_OF_RECEIPT']"
+                                收據抬頭：<br><input type="text" :value="data['DONATION_RECEIPT_TITLE']"
+                                    name="receiptTitle_ED"><br>
+                                身分證字號／統編（收據）：<br><input type="text"
+                                    :value="data['DONATION_PERSONAL_ID_OR_TAX_ID_OF_RECEIPT']"
                                     name="receipt_pID_tID_ED"><br>
-                                捐款收據寄發方式：<br><input type="text" :value="data['DELIVERY_METHOD']"
+                                捐款收據寄發方式：<br><input type="text" :value="data['DONATION_DELIVERY_METHOD']"
                                     name="deliveryMethod_ED"><br><br>
                             </div>
                             <div>
-                                備註：<br><textarea cols="20" rows="5" :value="data['REMARKS']"
+                                備註：<br><textarea cols="20" rows="5" :value="data['DONATION_REMARKS']"
                                     name="remarks_ED"></textarea>
                             </div>
                         </div>

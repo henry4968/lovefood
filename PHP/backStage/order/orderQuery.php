@@ -36,6 +36,8 @@
         $statement->bindValue(7,$pick2);
         $statement->execute();
         $data1 = $statement->fetchAll();
+        // print_r($data1);
+
     }else{
         $sql =
         "SELECT ORDER_ID, ORDER_DATE, bb.PHONE, DISCOUNT, REG_DATE, ORDER_STATUS, bb.MEMBER_ID
@@ -52,14 +54,16 @@
         $statement->bindValue(5,$orderStatus);
         $statement->execute();
         $data1 = $statement->fetchAll();
+    // print_r($data1);
+        
     }
-
-    $sql = "SELECT bb.NAME, QUANTITY,bb.UNIT_PRICE,dd.NAME, cc.ORDER_ID FROM  ORDER_DETAIL as aa
+    
+    $sql = "SELECT * FROM ORDER_DETAIL as aa
     join PRODUCT as bb
     on aa.PRODUCT_ID_for_ODD = bb.PRODUCT_ID
     join `ORDER` as cc
     on cc.ORDER_ID = aa.ORDER_ID_for_ODD
-    join MRT_PICKUP_SITE as dd
+    left join MRT_PICKUP_SITE as dd
     on cc.MRT_PICKUP_SITE_ID_for_OD = dd.MRT_PICKUP_SITE_ID
     where ORDER_ID_for_ODD like ? 
     ";
@@ -67,15 +71,17 @@
     $statement->bindValue(1,$orderNum);
     $statement->execute();
     $data2 = $statement->fetchAll();
+    // print_r($data2);
 
+
+    $allData = array('order' => $data1, 'detail' => $data2);
     for ($i = 0; $i < count($data1); $i++) {
 
         for ($k = 0; $k < count($data2); $k++) {
-            if ($data1[$i]['ORDER_ID'] === $data2[$k]['ORDER_ID']) {
+            if ($data1[$i]['ORDER_ID'] === $data2[$k]['ORDER_ID_for_ODD']) {
                 $data1[$i]['detail'][] = $data2[$k];
             }
         }
     }
-    // $allData = array('order' => $data1, 'detail' => $data2);
     print json_encode($data1);
 ?>

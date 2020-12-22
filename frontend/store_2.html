@@ -12,31 +12,36 @@
     <!-- 輪播套件css -->
     <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
     <!-- 輪播套件js -->
-    <script src="/node_modules/jquery/dist/jquery.js"></script>
-    <script src="/node_modules/lightslider/src/js/lightslider.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/lightslider/src/js/lightslider.js"></script>
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
-    <script src="../js/07/07.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
 
 </head>
 
 <body>
+    <div id="all">
    <!-- 標頭開始 -->
-   <header id="header">
+        <header id="header">
     <!-- 漢堡選單開始 -->
     <input type="checkbox" id="hamburgerMenuToggle">
     <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
         <span></span>
     </label>
+    <!-- 行動版行動導覽列開始 -->
     <nav id="navigationForMobile">
         <div id="searchBarForMobile">
             <input type="text" placeholder="搜尋..." id="searchInputForMobile">
         </div>
         <ul>
             <li>
-                <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
             </li>
             <li>
-                <a href="../backend/backendOrder.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
             </li>
             <li>
                 <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
@@ -50,16 +55,16 @@
             </li>
         </ul>
     </nav>
+    <!-- 行動版導覽列結束 -->
     <!-- 漢堡選單結束 -->
     <div id="headerContentContainer">
         <a href="./index.html">
             <img id="logo" src="../img/22/index/ch05_header_logo.png">
         </a>
-
-        <!-- 導覽列開始 -->
+        <!-- 桌機版導覽列開始 -->
         <nav id="navigationForPC">
-            <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-            <a href="../backend/backendOrder.html" class="navGeneralAnchors">賣家專區</a>
+            <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+            <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
             <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
             <a href="./donate_now.html" id="navSepcialAnchor">
                 <div>
@@ -69,26 +74,34 @@
             <a href="#0" id="navIcons01" class="navIcons">
                 <img src="../img/22/index/ch05_nav_search.png" alt="">
             </a>
-            <a href="#0" id="navIcons02" class="navIcons">
-                <img src="../img/22/index/ch05_nav_cart.png" alt="">
+            <a href="./store_3.html" id="navIcons02" class="navIcons">
+                <span style="position: relative;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
+top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                </span>
             </a>
-            <a href="#0" id="navIcons03" class="navIcons">
+            <a href="./memberInformation.html" id="navIcons03" class="navIcons">
                 <img src="../img/22/index/ch05_nav_member.png" alt="">
             </a>
         </nav>
+        <!-- 桌機版導覽列結束 -->
+        <!-- 行動版次級導覽列開始 -->
         <nav id="subNavigationForMobile">
-            <a href="#0" id="navIcons04" class="navIconsForMobile">
-                <img src="../img/22/index/ch05_nav_cart.png" alt="">
+            <a href="./store_3.html" id="navIcons02" class="navIcons">
+                <span style="position: relative;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
+top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                </span>
             </a>
-            <a href="#0" id="navIcons05" class="navIconsForMobile">
+            <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
                 <img src="../img/22/index/ch05_nav_member.png" alt="">
             </a>
         </nav>
-        <!-- 導覽列結束 -->
+        <!-- 行動版次級導覽列結束 -->
     </div>
-</header>
-<!-- 標頭結束 -->
-    <div class="wrap">
+        </header>
+    <!-- 標頭結束 -->
+        <div class="wrap">
         <!-- store_banner開始 -->
         <section class=banner_16>
             <div>
@@ -99,7 +112,7 @@
                 </div>
             </div>
         </section>
-        
+
         <!-- store_banner結束 -->
         <div id="main">
             <div class="contents">
@@ -126,7 +139,7 @@
                             <img src="../img/07/p1.png" alt="">
                         </div>
                         <div class="itemText">
-                            <h1>蛋黃奶香麵包</h1>
+                            <h1>{{tableData[0].PRODUCT_NAME}}</h1>
                             <h2>麵包甜品</h2>
                             <div class="mr">
                                 <span>＄20</span><del>原價25元</del>
@@ -140,26 +153,25 @@
                                 <!-- <div class="valueArea"> -->
                                 <span class="productText">數量</span>
                                 <div class="btninput">
-                                    <button class="left" @click="sub(count)">
-                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                        class="pdtsvg">
-                                        <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
-                                        </polygon>
-                                    </svg>
+                                    <button class="left" @click="sub(count--)">
+                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                            class="pdtsvg">
+                                            <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
+                                            </polygon>
+                                        </svg>
                                     </button>
                                     <input type="text" :value="count" class="pdtValue">
-                                    <button class="right" @click="add(count)">
-                                    <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
-                                        class="pdtsvg">
-                                        <polygon
-                                            points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
-                                        </polygon>
-                                    </svg>
+                                    <button class="right" @click="count++">
+                                        <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
+                                            class="pdtsvg">
+                                            <polygon
+                                                points="10 4.5 5.5 4.5 5.5 0 4.5 0 4.5 4.5 0 4.5 0 5.5 4.5 5.5 4.5 10 5.5 10 5.5 5.5 10 5.5">
+                                            </polygon>
+                                        </svg>
                                     </button>
                                 </div>
                                 <!-- </div> -->
-                                <button class="btn"><a href="./store_3.html"><img src="../img/07/cart.png"
-                                            alt="">加入購物車</a></button>
+                                <button class="btn" @click='addCart()'><img src="../img/07/cart.png" alt="">加入購物車</button>
                             </div>
 
                         </div>
@@ -175,7 +187,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/C1.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>1</h1>
+                                        <h1>秋鮭鮪魚雙手卷</h1>
                                     </div>
                                 </div>
                             </li>
@@ -184,7 +196,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/c2.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>2</h1>
+                                        <h1>鹽烤松阪豬</h1>
                                     </div>
                                 </div>
                             </li>
@@ -193,7 +205,7 @@
                                 <div class="uk-panel">
                                     <img src="../img/07/c3.png" alt="">
                                     <div class="uk-position-center uk-panel">
-                                        <h1>3</h1>
+                                        <h1>日式紅豆銅鑼燒</h1>
                                     </div>
                                 </div>
                             </li>
@@ -272,22 +284,25 @@
 
             </div>
         </div>
-    </div>
-    <footer>
-        <div class="footerBlock">
-            <div>
-                <div class="footer_logo">
-                    <a href="index.html"><img src="../img/16/footerLogo.png"></a>
-                    <p class="copyright">&copyLOVE FOOD All right reserved</p>
-                </div>
-                <div class="info">
-                    <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
-                    <a href="#"><img src="../img/16/footerPhoneIcon.png">02- 24708053</a><br>
-                    <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+        </div>
+        <footer>
+            <div class="footerBlock">
+                <div>
+                    <div class="footer_logo">
+                        <a href="index.html"><img src="../img/16/footerLogo.png"></a>
+                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                    </div>
+                    <div class="info">
+                        <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
+                        <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
+                        <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
+    </div>
 </body>
 <!-- js -->
+<!-- <script src="../js/07/temp.js"></script> -->
+<script src="../js/07/07.js"></script>
 </html>

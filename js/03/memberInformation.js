@@ -1,3 +1,4 @@
+const bus = new Vue();
 Vue.component('member', {
   template: `
       <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
@@ -507,15 +508,15 @@ Vue.component('order', {
               <div class="searchDateBoder">
                 <label class="search">查詢區間 : </label>
                 <div class="dateFromdateTo">
-                  <input id="dateFrom" type="date">
+                  <input id="dateFrom" type="date" v-model="dateFrom">
                   <div class="whitespace">
                     &#32;&#126;&#32;
                   </div>
-                  <input id="dateTo" type="date">
+                  <input id="dateTo" type="date" v-model="dateTo">
                 </div>
               </div>
               <div class="searchBtnBorder">
-                <button id="searchBtnBorder" type="submit">查詢</button>
+                <button id="searchBtnBorder" type="button" @click="searchDate">查詢</button>
               </div>
               <div class="searchNoteBorder">
                 <p class="searchNoteBorder">可查詢90天內之訂單</p>
@@ -540,31 +541,32 @@ Vue.component('order', {
             </div>
           </div>
 
-          <div class="orderdetailBorder">
+          <div v-if="orderList.length > 0 && dateCheck(order)" class="orderdetailBorder" v-for="(order,i) in orderList">
+            <!-- <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div> -->
             <div class="catalogBorder">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
                 </div>
-                <p class="contentsame orderdate">2020/11/01</p>
+                <p class="contentsame orderdate">{{orderdate[i]}}</p>
               </div>
               <div class="detailsame orderidBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderid">訂單編號</h3>
                 </div>
-                <p class="contentsame orderid">2020110100001</p>
+                <p class="contentsame orderid" v-if="order.ORDER_ID" @click="openBorder" >{{order.ORDER_ID}}</p>
               </div>
               <div class="detailsame countBorder">
                 <div class="cattitle">
-                  <h3 class="cattitle conut">數量</h3>
+                  <h3 class="cattitle conut">細項</h3>
                 </div>
-                <p class="contentsame conut">3</p>
+                <p class="contentsame conut" >{{order.detail.length}}</p>
               </div>
               <div class="detailsame orderallBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderall">訂單總額</h3>
                 </div>
-                <p class="contentsame orderall">92</p>
+                <p class="contentsame orderall">{{total[i]}}元</p>
               </div>
               <div class="detailsame paywayBorder">
                 <div class="cattitle">
@@ -576,159 +578,115 @@ Vue.component('order', {
                 <div class="cattitle">
                   <h3 class="cattitle ordercondition">訂單狀態</h3>
                 </div>
-                <p class="contentsame ordercondition">待出貨</p>
+                <p class="contentsame ordercondition" v-if="order.ORDER_STATUS">{{order.ORDER_STATUS}}</p>
               </div>
             </div>
 
 
-            <div class="itemdetailBorder">
+            <div class="itemdetailBorder itemdetailBorderdb">
               <div class="itemstatusBorder">
                 <div class="itemstopBorder">
                   <div class="fourcircleBorder">
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS != '取消' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
+                      <img class="orderestablish" v-else src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">成立訂單</span>
-                        <span class="stablishtime">16:30</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">成立訂單</span>
+                        <span class="stablish" v-else>成立訂單</span>
+                        <span class="stablishtimecancel" v-if="order.ORDER_STATUS == '取消'">{{ordertime[i]}}</span>
+                        <span class="stablishtime" v-else>{{ordertime[i]}}</span>
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">等待出貨</span>
-                        <span class="stablishtime">00:00</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">等待出貨</span>
+                        <span class="stablish" v-else>等待出貨</span>
+                      <!--   <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待取貨' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成' " src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '待出貨' " src="../img/03/getoutcircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取消' " src="../img/03/cancelcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">等待取貨</span>
-                        <span class="stablishtime">00:00</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">等待取貨</span>
+                        <span class="stablish" v-else>等待取貨</span>
+                      <!-- <span class="stablishtime">00:00</span> -->
                       </div>
                     </div>
                     <div class="orderestablishBorder">
-                      <img class="orderestablish" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-if="order.ORDER_STATUS == '取貨完成'" src="../img/03/getincircle.png">
+                      <img class="orderestablish" v-else-if="order.ORDER_STATUS == '取消'" src="../img/03/cancelcircle.png">
+                      <img class="orderestablish" v-else="order.ORDER_STATUS != '取貨完成'" src="../img/03/getoutcircle.png">
                       <div class="stablishBorder">
-                        <span class="stablish">已經取貨</span>
-                        <span class="stablishtime">00:00</span>
+                        <span class="stablishcancel" v-if="order.ORDER_STATUS == '取消'">已經取貨</span>
+                        <span class="stablish" v-else>已經取貨</span>
+                      <!--  <span class="stablishtime">00:00</span>  -->
                       </div>
                     </div>
                   </div>
-                  <span class="midlineBorder"></span>
+                  <span class="midlineBordercancel" v-if="order.ORDER_STATUS == '取消'"></span>
+                  <span class="midlineBorder" v-else></span>
                 </div>
 
 
                 <div class="itembotBorder">
                   <div class="samebotBorder itembotId">
                     <span class="itembotIdtitle">訂單編號: </span>
-                    <span class="itembotId">2020110100001</span>
+                    <span class="itembotId" v-if="order.ORDER_ID" >{{order.ORDER_ID}}</span>
                   </div>
                   <div class="samebotBorder gettime">
-                    <span class="gettimetitle">取貨截止時間: </span>
-                    <span class="gettime">2020/11/01 20:59分</span>
+                    <span class="gettimetitlecancel" v-if="order.ORDER_STATUS == '取消'">取貨截止時間: </span>
+                    <span class="gettimetitle" v-else>取貨截止時間: </span>
+                    <span class="gettime" v-if="order.ORDER_STATUS != '取消' ">{{order.ORDER_PICKUP_DATE}}</span>
                   </div>
                   <div class="samebotBorder itembotseller">
                     <span class="itembotsellertitle">賣家: </span>
-                    <span class="itembotseller">全家天母店</span>
+                    <span class="itembotseller">{{order.detail[0].SUPPLIER_NAME}}</span>
                   </div>
                   <div class="samebotBorder getlocation">
-                    <span class="getlocationtitle">取貨地點: </span>
-                    <span class="getlocation">捷運南京復興站8號出口</span>
+                    <span class="getlocationtitlecancel" v-if="order.ORDER_STATUS == '取消'">取貨地點: </span>
+                    <span class="getlocationtitle" v-else>取貨地點: </span>
+                    <span class="getlocation" v-if="order.ORDER_STATUS != '取消' " >{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
 
 
 
-              <div class="itemsBorder">
+              <div class="itemsBorder" v-for="(orderdel,index) in order.detail">
                 <div class="itemcontBorder">
                   <div class="itemconttopBorder">
                     <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
+                    <img class="itempic" :src="orderdel.PRODUCT_IMG"> 
                     </div>
                     <div class="itemmiddleBorder">
                       <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
+                        <p class="itemmiddle">{{orderdel.PRODUCT_NAME}}</p>
                       </div>
                       <div class="middleitemsame itemordermiddleBorder">
                         <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
+                        <span class="itemordermiddle">{{orderdatetime[i]}}</span>
                       </div>
                       <div class="middleitemsame itemcountmiddleBorder">
                         <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
+                        <span class="itemcountmiddle">{{orderdel.ORDER_DETAIL_QUANTITY}}</span>
                       </div>
                     </div>
                     <div class="itempriceunitBorder">
                       <div class="unitpriceBorder">
                         <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
+                        <span class="unitpricecontent">\$\{{orderdel.PRODUCT_ORIGINAL_PRICE}}</span>
                       </div>
                       <div class="countpriceBorder">
                         <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-                <div class="itemcontBorder">
-                  <div class="itemconttopBorder">
-                    <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
-                    </div>
-                    <div class="itemmiddleBorder">
-                      <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
-                      </div>
-                      <div class="middleitemsame itemordermiddleBorder">
-                        <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
-                      </div>
-                      <div class="middleitemsame itemcountmiddleBorder">
-                        <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
-                      </div>
-                    </div>
-                    <div class="itempriceunitBorder">
-                      <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
-                      </div>
-                      <div class="countpriceBorder">
-                        <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
-                      </div>
-                    </div>
-                  </div>
-                  <hr>
-                </div>
-                <div class="itemcontBorder">
-                  <div class="itemconttopBorder">
-                    <div class="itempicBorder">
-                      <img class="itempic" src="../img/03/eatingitem.png">
-                    </div>
-                    <div class="itemmiddleBorder">
-                      <div class="middleitemsame itemmiddleborder">
-                        <p class="itemmiddle">秋鮭雙手卷</p>
-                      </div>
-                      <div class="middleitemsame itemordermiddleBorder">
-                        <span class="itemordermiddletitle">訂貨時間：</span>
-                        <span class="itemordermiddle">2020/11/01 16：30</span>
-                      </div>
-                      <div class="middleitemsame itemcountmiddleBorder">
-                        <span class="itemcountmiddle">數量：</span>
-                        <span class="itemcountmiddle">1</span>
-                      </div>
-                    </div>
-                    <div class="itempriceunitBorder">
-                      <div class="unitpriceBorder">
-                        <span class="unitpricetitle">單價:</span>
-                        <span class="unitpricecontent">$27</span>
-                      </div>
-                      <div class="countpriceBorder">
-                        <span class="countpricetitle">小計:</span>
-                        <span class="countpricecontent">$27</span>
+                        <span class="countpricecontent">\$\{{(orderdel.PRODUCT_ORIGINAL_PRICE)*(orderdel.ORDER_DETAIL_QUANTITY)}}</span>
                       </div>
                     </div>
                   </div>
@@ -746,16 +704,16 @@ Vue.component('order', {
                   </div>
                   <div class="itemendingsame itemdiscount">
                     <span class="itempaywaytitle">點數折扺：</span>
-                    <span class="itempaywaycontent">0點</span>
+                    <span class="itempaywaycontent" v-if="order.ORDER_DISCOUNT">{{order.ORDER_DISCOUNT}}點</span>
                   </div>
                   <div class="itemendingsame itemorderall">
                     <span class="itempaywaytitle">訂單總額：</span>
-                    <span class="itempaywaycontent">92元</span>
+                    <span class="itempaywaycontent">{{total[i]}}元</span>
                   </div>
                 </div>
-                <form class="cancelBtnBorder" id="cancelBtnBorder" method="POST" action="#">
+                <form class="cancelBtnBorder" method="POST" action="#" v-if="order.ORDER_STATUS == '待出貨'">
                   <img src="../img/03/trashcancel.png">
-                  <button type="button" id="cancelBtn">取消訂單</button>
+                  <button type="button" id="cancelBtn" @click="cancelorder(order.ORDER_ID)">取消訂單</button>
                 </form>
               </div>
 
@@ -767,17 +725,656 @@ Vue.component('order', {
       `,
   data() {
     return {
+      // 不同的class切換
       chagestatussamebg: 1,
       foursameBorderapp: '',
+      // 訂單
+      orderList: null,
+      // 訂單日期
+      orderdate: [],
+      // 訂單時間
+      ordertime: [],
+      // 訂單日期時間少2碼
+      orderdatetime: [],
+      // 產品圖片
+      actimg: [],
+      // 訂單總額
+      total: [],
+      // 展開縮和
+      itemdetailBorderdb: '',
+      // 開始日期
+      dateFrom: null,
+      dateTrueFrom: null,
+      // 結束日期
+      dateTo: null,
+      dateTrueTo: null,
+
+
     }
   },
   methods: {
+    // 查詢區間
+    dateCheck(order) {
+      // console.log(order.ORDER_DATE);
+      // 尚未選擇日期時全部顯示
+      if (this.dateTrueFrom == null || this.dateTrueTo == null) {
+        return true
+      }
+      // 當裡面有值就計算
+      const tt = new Date(order.ORDER_DATE)
+      if (this.dateTrueFrom <= tt && tt <= this.dateTrueTo) {
+        return true
+      }
+      return false
+    },
+    // 查詢區間
+    searchDate() {
+      // 當不是空值時進行判斷
+      if (this.dateFrom != null && this.dateTo != null) {
+        if (this.dateFrom <= this.dateTo) {
+          this.dateTrueFrom = new Date(this.dateFrom);
+          this.dateTrueTo = new Date(this.dateTo);
+        } else {
+          alert('起始日期不能小於最後日期');
+        }
+      }
+      // 有一個為空或是格式錯誤就報錯
+      if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
+        alert('起始日期或是最後日期有空值');
+      }
+      console.log(this.dateFrom);
+    },
+    // 不同的class切換及撈不同的class
     statussame(num) {
-      this.chagestatussamebg = num
+      // CLASS切換
+      this.chagestatussamebg = num;
+
+      let self = this
+      // 撈全部
+      if (num == 1) {
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        self.allselect();
+        // 撈待出貨
+      } else if (num == 2) {
+        let num = 1
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // console.log(num);
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // console.log(this.orderList);
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+        // 撈待取貨
+      } else if (num == 3) {
+        let num = 2
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+
+        // 撈取貨完成
+      } else if (num == 4) {
+        let num = 3
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+        });
+
+        // 撈取消
+      } else if (num == 5) {
+        let num = 0
+        // console.log(num);
+
+        // 全部清空
+        // 訂單
+        this.orderList = null;
+        // 訂單日期
+        this.orderdate = [];
+        // 訂單時間
+        this.ordertime = [];
+        // 訂單日期時間少2碼
+        this.orderdatetime = [];
+        // 產品圖片
+        this.actimg = [];
+        // 訂單總額
+        this.total = [];
+        // 展開縮和
+        this.itemdetailBorderdb = '';
+
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('num', num);
+
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
+        }
+
+        axios.post('../PHP/Frontend/selectwaitproduct.php', data, config).then(res => {
+          this.orderList = res.data
+          // 訂單日期 訂單時間
+          res.data.forEach(i => {
+            this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+            this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+            this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+          });
+
+          // 訂單狀態
+          res.data.forEach(a => {
+            // 假如訂單狀態:0=>取消
+            if (a.ORDER_STATUS == 0) {
+              a.ORDER_STATUS = '取消'
+            }
+            // 假如訂單狀態:1=>待出貨
+            if (a.ORDER_STATUS == 1) {
+              a.ORDER_STATUS = '待出貨'
+            }
+            // 假如訂單狀態:2=>待取貨
+            if (a.ORDER_STATUS == 2) {
+              a.ORDER_STATUS = '待取貨'
+            }
+            // 假如訂單狀態:3=>取貨完成
+            if (a.ORDER_STATUS == 3) {
+              a.ORDER_STATUS = '取貨完成'
+            }
+          });
+
+          // 點數折抵
+          res.data.forEach(d => {
+            // 假如點數折抵為空值變成0
+            if (d.ORDER_DISCOUNT == null) {
+              d.ORDER_DISCOUNT = '0'
+            }
+          });
+
+          // 訂單總額
+          let item = null;
+          let lastitem = 0;
+          for (let e = 0; e < res.data.length; e++) {
+            for (let f = 0; f < res.data[e].detail.length; f++) {
+              res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+              res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+              item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            }
+            // 讓累加的第一筆資料被去除
+            let alltotal = item - lastitem;
+            lastitem = item;
+            this.total.push(alltotal);
+            // console.log(this.total);
+            // console.log('----------------------');
+          }
+
+
+
+          // 訂單截止時間
+          res.data.forEach(g => {
+            g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+          });
+
+          // 產品圖片
+          res.data.forEach(h => {
+            h.detail.forEach(e => {
+              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            });
+          });
+
+        });
+
+      }
     },
     sync() {
+      // 控制父層 class
       this.$emit("my-click", false)
     },
+    // 撈全部訂單
+    allselect() {
+
+      axios.post('../PHP/Frontend/selectALL.php').then(res => {
+        // 撈order 測試
+        // console.log(atob(res.data));
+        this.orderList = res.data
+        // console.log(res.data);
+
+        // 回復原狀
+        this.itemdetailBorderdb = '';
+
+        // 訂單日期 訂單時間
+        res.data.forEach(i => {
+          this.orderdate.push(i.ORDER_DATE.substr(0, 10));
+          this.ordertime.push(i.ORDER_DATE.substr(10, 6));
+          this.orderdatetime.push(i.ORDER_DATE.substr(0, 16));
+        });
+
+        // 訂單狀態
+        res.data.forEach(a => {
+          // 假如訂單狀態:0=>取消
+          if (a.ORDER_STATUS == 0) {
+            a.ORDER_STATUS = '取消'
+          }
+          // 假如訂單狀態:1=>待出貨
+          if (a.ORDER_STATUS == 1) {
+            a.ORDER_STATUS = '待出貨'
+          }
+          // 假如訂單狀態:2=>待取貨
+          if (a.ORDER_STATUS == 2) {
+            a.ORDER_STATUS = '待取貨'
+          }
+          // 假如訂單狀態:3=>取貨完成
+          if (a.ORDER_STATUS == 3) {
+            a.ORDER_STATUS = '取貨完成'
+          }
+        });
+
+        // 點數折抵
+        res.data.forEach(d => {
+          // 假如點數折抵為空值變成0
+          if (d.ORDER_DISCOUNT == null) {
+            d.ORDER_DISCOUNT = '0'
+          }
+        });
+
+        // 訂單總額
+        let item = null;
+        let lastitem = 0;
+        for (let e = 0; e < res.data.length; e++) {
+          for (let f = 0; f < res.data[e].detail.length; f++) {
+            res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE;
+            res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+            item += res.data[e].detail[f].PRODUCT_ORIGINAL_PRICE * res.data[e].detail[f].ORDER_DETAIL_QUANTITY;
+          }
+          // 讓累加的第一筆資料被去除
+          let alltotal = item - lastitem;
+          lastitem = item;
+          this.total.push(alltotal);
+          // console.log(this.total);
+          // console.log('----------------------');
+        }
+
+
+
+        // 訂單截止時間
+        res.data.forEach(g => {
+          g.ORDER_PICKUP_DATE = g.ORDER_PICKUP_DATE.substr(0, 16);
+        });
+
+        // 產品圖片
+        res.data.forEach(h => {
+          h.detail.forEach(e => {
+            e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+          });
+        });
+
+      });
+    },
+    // 取消訂單
+    cancelorder(idtext) {
+      // 找到點擊的該筆訂單編號
+      // let me = e.target;
+      // let idtext = me.closest('div.orderdetailBorder').querySelector('#addcancel').innerText;
+      // console.log(idtext);
+
+      // 建立資料表單
+      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+      let data = new FormData();
+      // new FormData 固定語法
+      // FormData.append
+      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+      data.append('orderID', idtext);
+
+      // console.log(this.uploadbigpic);
+      let config = {
+        header: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }
+      let self = this;
+
+      // ORDER_ID
+      let aa = document.getElementsByClassName('allBorder')[0];
+
+      axios.post('../PHP/Frontend/cancelorder.php', data, config).then(res => {
+        alert("取消訂單");
+        this.orderList.forEach((order, key) => {
+          if (order.ORDER_ID === idtext) {
+            if (aa.classList.contains('chagestatussamebg')) {
+              this.orderList[key].ORDER_STATUS = '取消'
+            } else {
+              this.orderList.splice(key, 1)
+            }
+          }
+        });
+      });
+
+    },
+    // 展開縮和
+    openBorder(e) {
+      let mee = e.target;
+      let tt = mee.closest('div.orderdetailBorder').querySelector('.itemdetailBorder');
+
+      if (tt.classList.contains('itemdetailBorderdb')) {
+        tt.classList.remove('itemdetailBorderdb')
+        // console.log(1);
+      } else {
+        tt.classList.add('itemdetailBorderdb')
+        // console.log(2);
+      }
+    },
+  },
+  mounted() {
+    // 撈全部訂單
+    this.allselect();
+  },
+  updated() {
   },
 });
 
@@ -794,8 +1391,11 @@ Vue.component('points', {
                 特殊會員狀態：
               </span>
               <img src="../img/03/specialpic.png">
-              <span class="conditionDateContent">
-                2020/09/28
+              <span class="conditionDateContent" v-if="catchclass == '一般會員'">
+                目前尚未成為特殊會員
+              </span>
+              <span class="conditionDateContent" v-if="catchclass == '特殊會員'">
+                特殊會員
               </span>
             </div>
             <div class="specialmemberID">
@@ -803,17 +1403,20 @@ Vue.component('points', {
                 會員編號：
               </span>
               <span class="specialmemIDcontent">
-                AA2020103000001
+                {{memberId}}
               </span>
             </div>
             <div class="specailmemberpoints">
               <span class="specialmemtitle">
                 剩餘點數：
               </span>
-              <span class="specialmemcontent">
-                946點
+              <span class="specialmemcontent" v-if="catchclass == '一般會員'">
+                0點
               </span>
-              <span class="specialmemlimit">
+              <span class="specialmemcontent" v-if="catchclass == '特殊會員'">
+                {{Allpoints}}點
+              </span>
+              <span class="specialmemlimit" v-if="catchclass == '特殊會員'">
                 點數請於2020/12/31 24:00 前使用完畢
               </span>
             </div>
@@ -821,50 +1424,181 @@ Vue.component('points', {
               <div class="leftspecialduration">
                 <label class="specialdurationtitle">期間：</label>
                   <div class="durFromdurTo">
-                    <input id="durFrom" type="date">
+                    <input id="durFrom" type="date" v-model="dateFrom">
                     <span class="durwhitespace">
                       &#32;&#126;&#32;
                     </span>
-                    <input id="durTo" type="date">
+                    <input id="durTo" type="date" v-model="dateTo">
                   </div>
               </div>
-              <button id="dursearchBtnBorder" type="submit">查詢</button>
+              <button id="dursearchBtnBorder" type="button" @click="searchDate">查詢</button>
             </div>
           </div>
         </div>
 
-        <div class="bottompointsBorder">
+        <div class="bottompointsBorder" >
           <div class="bottommiddlepointsBorder">
-            <div class="itempoint">
+            <div class="itempoint" v-if="catchclass == '特殊會員' && dateCheck(point)" v-for="point in pointList.get" >
               <div class="iteminclude">
                 <div class="dateandidBorder">
                   <div class="leftdateandidBorder">
                     <span class="itempointitle">日期：</span>
-                    <span class="itempointcontent">2020/11/05</span>
+                    <span class="itempointcontent">{{point.POINTS_ISSUANCE_DATE}}</span>
+                  </div>
+                  <div class="rightdateandidBorder" v-if="pointList == ''">
+                    <span class="itempointidtitle">訂單編號：</span>
+                    <span class="itempointidcontent"></span>
+                  </div>
+                </div>
+                <span class="itempointplus">+{{point.POINTS_ISSUANCE_NUM}}點</span>
+              </div>
+              <span class="line"></span>
+            </div>
+            <div class="itempoint" v-if="catchclass == '特殊會員' && dateCheck(point)" v-for="point in pointList.span">
+              <div class="iteminclude">
+                <div class="dateandidBorder">
+                  <div class="leftdateandidBorder">
+                    <span class="itempointitle">日期：</span>
+                    <span class="itempointcontent">{{point.ORDER_DATE}}</span>
                   </div>
                   <div class="rightdateandidBorder">
                     <span class="itempointidtitle">訂單編號：</span>
-                    <span class="itempointidcontent">2020102000001</span>
+                    <span class="itempointidcontent">{{point.ORDER_ID}}</span>
                   </div>
                 </div>
-                <span class="itempointplus">+500點</span>
+                <span class="itempointplus">-{{point.ORDER_DISCOUNT}}點</span>
               </div>
               <span class="line"></span>
             </div>
           </div>
         </div>
+
+
       </div>
       `,
   data() {
     return {
+      // 控制class往返
       foursameBorderapp: '',
+      // pointdetail
+      pointList: [],
+      // 接收身分別
+      catchclass: null,
+      // 特殊會員狀態
+      specialStatus: null,
+      // 會員編號
+      memberId: null,
+      // 剩餘點數
+      Allpoints: null,
+      // 開始日期
+      dateFrom: null,
+      dateTrueFrom: null,
+      // 結束日期
+      dateTo: null,
+      dateTrueTo: null,
     }
   },
   methods: {
+    // 控制Class往返
     sync() {
       this.$emit("my-click", false)
     },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(res => {
+        // 找到值
+        checkdata = res.data;
+        // 找身份別 general or particular
+        // console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
+          that.catchclass = '一般會員';
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
+          that.catchclass = '特殊會員';
+        }
+      })
+    },
+    // 撈點數
+    mypoint() {
+      let that = this
+      axios.post('../PHP/Frontend/mypoints.php').then(res => {
+        // 將點數建立成陣列
+        this.pointList = res.data;
+        // 給會員編號
+        that.memberId = res.data.get[0].MEMBER_ID_for_PI
+        console.log(this.pointList);
+        if (that.catchclass == '特殊會員') {
+          // 只取日期:獲取
+          res.data.get.forEach(a => {
+            a.POINTS_ISSUANCE_DATE = a.POINTS_ISSUANCE_DATE.substr(0, 10);
+          });
+          // 只取日期:花費
+          res.data.span.forEach(b => {
+            b.ORDER_DATE = b.ORDER_DATE.substr(0, 10);
+          });
+          // 點數加總
+          let tt = null
+          res.data.get.forEach(a => {
+            // 將字串轉數值
+            tt += parseInt(a.POINTS_ISSUANCE_NUM)
+          });
+          let ss = null
+          res.data.span.forEach(b => {
+            // 將字串轉數值
+            ss += parseInt(b.ORDER_DISCOUNT)
+          });
+          // 點數總和
+          that.Allpoints = tt - ss
+        }
+      });
+    },
+    // 查詢區間
+    dateCheck(point) {
+      // console.log(order.ORDER_DATE);
+      // 尚未選擇日期時全部顯示
+      if (this.dateTrueFrom == null || this.dateTrueTo == null) {
+        return true
+      }
+      // 當裡面有值就計算
+      const tt = new Date(point.POINTS_ISSUANCE_DATE)
+      if (this.dateTrueFrom <= tt && tt <= this.dateTrueTo) {
+        return true
+      }
+      const pp = new Date(point.ORDER_DATE)
+      if (this.dateTrueFrom <= pp && pp <= this.dateTrueTo) {
+        return true
+      }
+
+      return false
+    },
+    // 查詢區間
+    searchDate() {
+      // 當不是空值時進行判斷
+      if (this.dateFrom != null && this.dateTo != null) {
+        if (this.dateFrom <= this.dateTo) {
+          this.dateTrueFrom = new Date(this.dateFrom);
+          this.dateTrueTo = new Date(this.dateTo);
+        } else {
+          alert('起始日期不能小於最後日期');
+        }
+      }
+      // 有一個為空或是格式錯誤就報錯
+      if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
+        alert('起始日期或是最後日期有空值');
+      }
+      console.log(this.dateFrom);
+    },
   },
+  mounted() {
+    // 接收身分別
+    this.memberInf();
+    // 撈點數
+    this.mypoint();
+  },
+
 });
 
 Vue.component('memberApply', {
@@ -1209,9 +1943,9 @@ let vm = new Vue({
         // 找身份別 general or particular
         // console.log(checkdata.data[0].CLASS);
         // 判斷是是哪一種身份
-        if (checkdata.data[0].CLASS == 'general') {
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
           that.idcont = '一般會員';
-        } else if (checkdata.data[0].CLASS == 'particular') {
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
           that.idcont = '特殊會員';
         } else {
           //提醒除錯
@@ -1247,8 +1981,8 @@ let vm = new Vue({
         // console.log(checkdata.dataac[0].ACCOUNT);
 
         // 如果抓到信箱就代入
-        if (checkdata.dataac[0].ACCOUNT != "") {
-          that.idemailin = checkdata.dataac[0].ACCOUNT;
+        if (checkdata.dataac[0].MEMBER_ACCOUNT != "") {
+          that.idemailin = checkdata.dataac[0].MEMBER_ACCOUNT;
         }
 
       })
@@ -1267,10 +2001,10 @@ let vm = new Vue({
         // console.log(checkdata.datapa[0].PASSWORD);
 
         // 如果抓到密碼就代入********
-        if (checkdata.datapa[0].PASSWORD != "") {
+        if (checkdata.datapa[0].MEMBER_PASSWORD != "") {
           that.idpwdin = '********';
           // that.idpwdin = checkdata.datapa[0].PASSWORD;
-          that.idpwdtruein = checkdata.datapa[0].PASSWORD;
+          that.idpwdtruein = checkdata.datapa[0].MEMBER_PASSWORD;
         }
       })
     },
@@ -1288,9 +2022,9 @@ let vm = new Vue({
         // console.log(checkdata.datana[0].NAME);
 
         // 如果抓到名字就代入
-        if (checkdata.datana[0].NAME != "") {
-          if (checkdata.datana[0].NAME != null) {
-            that.idnamein = checkdata.datana[0].NAME;
+        if (checkdata.datana[0].MEMBER_NAME != "") {
+          if (checkdata.datana[0].MEMBER_NAME != null) {
+            that.idnamein = checkdata.datana[0].MEMBER_NAME;
           } else {
             that.idnamein = '請填寫名字';
           }
@@ -1314,10 +2048,10 @@ let vm = new Vue({
         // console.log(checkdata.dataph[0].PHONE);
 
         // 如果抓到手機號碼就代入
-        if (checkdata.dataph[0].PHONE != "") {
-          if (checkdata.dataph[0].PHONE != null) {
-            that.idphonein = checkdata.dataph[0].PHONE;
-          } else if (checkdata.dataph[0].PHONE == null) {
+        if (checkdata.dataph[0].MEMBER_PHONE != "") {
+          if (checkdata.dataph[0].MEMBER_PHONE != null) {
+            that.idphonein = checkdata.dataph[0].MEMBER_PHONE;
+          } else if (checkdata.dataph[0].MEMBER_PHONE == null) {
             that.idphonein = '請填寫手機號碼';
           }
         } else {
@@ -1340,10 +2074,10 @@ let vm = new Vue({
         // console.log(checkdata.dataad[0].ADDRESS);
 
         // 如果抓到地址就代入
-        if (checkdata.dataad[0].ADDRESS != "") {
-          if (checkdata.dataad[0].ADDRESS != null) {
-            that.idaddin = checkdata.dataad[0].ADDRESS;
-          } else if (checkdata.dataad[0].ADDRESS == null) {
+        if (checkdata.dataad[0].MEMBER_ADDRESS != "") {
+          if (checkdata.dataad[0].MEMBER_ADDRESS != null) {
+            that.idaddin = checkdata.dataad[0].MEMBER_ADDRESS;
+          } else if (checkdata.dataad[0].MEMBER_ADDRESS == null) {
             that.idaddin = '請填寫地址';
           }
         } else {

@@ -91,9 +91,13 @@ new Vue({
             this.movesignUpmm = true
             this.movesignInmm = true
         },
-        tt(){
-            
-        },
+    },
+    mounted() {
+        (function () {
+            axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
+                checkdata = res.data;
+            })
+        }());
     },
 });
 
@@ -138,49 +142,5 @@ function changeTosignupf() {
         overlayContainer.classList.add('overL');
     }
 }
-// 
-// function back() {
-//   winwidth = window.innerWidth;
-//   if (winwidth >= 701) {
-//     // signUp
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signUp.classList.remove('signUpmm');
-//     // signIn
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     signIn.classList.remove('signInmm');
-//     // overlayContainer
-//     overlayContainer = document.getElementById('overlayContainer');
-//     overlayContainer.classList.remove('overL');
-//     // container
-//     container = document.getElementsByClassName('container')[0];
-//     container.classList.remove('overm');
-//     // signInL
-//     signInL = document.getElementsByClassName('signInL')[0];
-//     signInL.classList.remove('msignInL');
-//     // signUpR
-//     signUpR = document.getElementsByClassName('signUpR')[0];
-//     signInL.classList.add('msignUpR');
-//   }
-// }
 window.addEventListener('load', doFirst);
 document.addEventListener("click", doFirst);
-
-// window.addEventListener('click', function (e) {
-//   if (e.target.classList.contains('changeTosignup')) {
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     console.log(e.target.id);
-//   };
-//   if (e.target.id == "changeTosignup") {
-//     signUp = document.getElementById('signUp');
-//     signUp.classList.remove('rwdsignUp');
-//     signIn = document.getElementById('signIn');
-//     signIn.classList.remove('rwdsignIn');
-//     console.log(signUp);
-//     console.log(signIn);
-//   };
-// });

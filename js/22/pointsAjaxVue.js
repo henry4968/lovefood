@@ -1,18 +1,24 @@
 const app = new Vue({
     el: '.containerPoints',
     data: {
-        pointsIssance: null,
+        pointsIssuance: null,
         pointsDiscount: null,
         pointsOfMember: null,
-        issanceLog: null,
+        issuanceLog: null,
         discountLog: null,
         ShowFinalPoints: null,
         showTab: true,
-        showDetails: true
+        showIssuanceDetails: false,
+        showUsingDetails: false,
+        uploadCSVLog: null
     },
 
     mounted() {
         const self = this;
+
+        this.showIssuanceDetails = false;
+        this.showUsingDetails = false;
+
         let id = $("input[name='id']").val();
         let account = $("input[name='account']").val();
         let name = $("input[name='name']").val();
@@ -23,24 +29,25 @@ const app = new Vue({
         $.ajax({
             url: '../PHP/backStage/points/pointsQuery.php',
             type: 'POST',
+            dataType: "JSON",
             data: { id, account, name, phone, dateStart, dateEnd },
             success: function (res) {
-                self.pointsIssance = res.pointsIssance;
+                self.pointsIssuance = res.pointsIssuance;
                 self.pointsDiscount = res.pointsDiscount;
                 self.pointsOfMember = res.pointsOfMember;
-                self.issanceLog = res.issanceLog;
+                self.issuanceLog = res.issuanceLog;
                 self.discountLog = res.discountLog;
 
                 var rMB = res.pointsOfMember;
-                var rPI = res.pointsIssance;
+                var rPI = res.pointsIssuance;
                 var rPD = res.pointsDiscount;
-                var rIL = res.issanceLog;
+                var rIL = res.issuanceLog;
                 var rDL = res.discountLog;
 
                 for (let i = 0; i < rPI.length; i++) {
                     for (let j = 0; j < rMB.length; j++) {
                         if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                            rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                            rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                         }
                     }
                 }
@@ -64,40 +71,17 @@ const app = new Vue({
                 console.log("回傳失敗！");
                 console.log(res.responseText);
             },
-            dataType: "JSON",
         });
 
     },
 
-    // updated() {
-
-    //     const self = this;
-    //     let selectedId = $("input[name='selectedId']").val();
-    //     let points = $("input[name='points']").val();
-
-    //     $.ajax({
-    //         url: '../PHP/backStage/points/pointsUpdate.php',
-    //         type: 'POST',
-    //         data: { points, selectedId },
-    //         success: function (res) {
-    //             self.pointsUpdating = res;
-    //             console.log(res)
-    //         },
-    //         error: function (res) {
-    //             console.log("回傳失敗！");
-    //             console.log(res.responseText);
-    //         },
-    //         dataType: "text",
-    //     });
-
-    // },
-
     methods: {
 
-        showContent(e) {
-            this.showDetails = false;
-
+        showIssuanceLog(e) {
             const self = this;
+
+            this.showIssuanceDetails = true;
+
             let dataId = $(e.target).data('id');
             let dateStart = $("input[name='dateStart']").val();
             let dateEnd = $("input[name='dateEnd']").val();
@@ -109,7 +93,7 @@ const app = new Vue({
                 dataType: "JSON",
                 success: function (res) {
                     console.log(res);
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
                 },
@@ -122,10 +106,41 @@ const app = new Vue({
 
         },
 
-        query() {
-            this.showDetails = false;
-
+        showUsingLog(e) {
             const self = this;
+
+            this.showUsingDetails = true;
+
+            let dataId = $(e.target).data('id');
+            let dateStart = $("input[name='dateStart']").val();
+            let dateEnd = $("input[name='dateEnd']").val();
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsDetails.php',
+                type: 'POST',
+                data: { dataId, dateStart, dateEnd },
+                dataType: "JSON",
+                success: function (res) {
+                    console.log(res);
+                    self.issuanceLog = res.issuanceLog;
+                    self.discountLog = res.discountLog;
+                    self.pointsOfMember = res.pointsOfMember;
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res);
+                },
+
+            });
+
+        },
+
+        queryPoints() {
+            const self = this;
+
+            this.showUsingDetails = false;
+            this.showIssuanceDetails = false;
+
             let id = $("input[name='id']").val();
             let account = $("input[name='account']").val();
             let name = $("input[name='name']").val();
@@ -138,23 +153,23 @@ const app = new Vue({
                 type: 'POST',
                 data: { id, account, name, phone, dateStart, dateEnd },
                 success: function (res) {
-                    self.pointsIssance = res.pointsIssance;
+                    self.pointsIssuance = res.pointsIssuance;
                     self.pointsDiscount = res.pointsDiscount;
                     self.pointsOfMember = res.pointsOfMember;
-                    self.issanceLog = res.issanceLog;
+                    self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
 
                     let rMB = res.pointsOfMember;
-                    let rPI = res.pointsIssance;
+                    let rPI = res.pointsIssuance;
                     let rPD = res.pointsDiscount;
-                    let rIL = res.issanceLog;
+                    let rIL = res.issuanceLog;
                     let rDL = res.discountLog;
 
                     for (let i = 0; i < rPI.length; i++) {
 
                         for (let j = 0; j < rMB.length; j++) {
                             if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                                rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
+                                rMB[j].TOTAL_ISSUANCE = rPI[i].TOTAL_ISSUANCE;
                             }
                         }
                     }
@@ -192,8 +207,9 @@ const app = new Vue({
             });
         },
 
-        update() {
+        updatePoints() {
             const self = this;
+
             let selectedId = $("input[name='selectedId']").val();
             let points = $("input[name='points']").val();
 
@@ -211,100 +227,52 @@ const app = new Vue({
                 },
                 dataType: "text",
             });
+
+            this.pointsOfMember[0].MEMBER_POINTS = points;
         },
 
-        switchTab01() {
-            this.showTab = true;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab01 = document.querySelector("#pointsDataFilterTab01");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab01.classList.add("tabActive");
-        },
-
-        switchTab02() {
-            this.showTab = false;
-
-            let tabs = document.querySelectorAll(".pointsDataFilterTab");
-            let tab02 = document.querySelector("#pointsDataFilterTab02");
-
-            for (let i = 0; i < tabs.length; i++) {
-                tabs[i].classList.remove("tabActive");
-            }
-            tab02.classList.add("tabActive");
-        },
-
-        backToPreviousPage() {
-            this.showDetails = true;
-
+        uploadCSV() {
             const self = this;
-            let id = $("input[name='id']").val();
-            let account = $("input[name='account']").val();
-            let name = $("input[name='name']").val();
-            let phone = $("input[name='phone']").val();
-            let dateStart = $("input[name='dateStart']").val();
-            let dateEnd = $("input[name='dateEnd']").val();
+
+            var fileData = $('#csvFileInput').prop('files')[0];
+            var formData = new FormData();
+
+            if (fileData == undefined) {
+                alert("請先選擇檔案！");
+            }
+
+            formData.append('csvFileInput', fileData, 'csvFileInput');
+
+            console.log(fileData);
+            for (var pair of formData.entries()) {
+                console.log(pair[0] + ', ' + pair[1]);
+            }
 
             $.ajax({
-                url: '../PHP/backStage/points/pointsQuery.php',
-                type: 'POST',
-                data: { id, account, name, phone, dateStart, dateEnd },
+                url: '../PHP/backStage/points/pointsImport.php',
+                method: 'POST',
+                processData: false,
+                contentType: false,
+                data: formData,
+                dataType: 'JSON',
                 success: function (res) {
-                    self.pointsIssance = res.pointsIssance;
-                    self.pointsDiscount = res.pointsDiscount;
-                    self.pointsOfMember = res.pointsOfMember;
-                    self.issanceLog = res.issanceLog;
-                    self.discountLog = res.discountLog;
-
-                    let rMB = res.pointsOfMember;
-                    let rPI = res.pointsIssance;
-                    let rPD = res.pointsDiscount;
-                    let rIL = res.issanceLog;
-                    let rDL = res.discountLog;
-
-                    for (let i = 0; i < rPI.length; i++) {
-
-                        for (let j = 0; j < rMB.length; j++) {
-                            if (rMB[j].MEMBER_ID == rPI[i].MEMBER_ID_for_PI) {
-                                rMB[j].TOTAL_ISSANCE = rPI[i].TOTAL_ISSANCE;
-                            }
-                        }
-                    }
-
-                    for (let i = 0; i < rPD.length; i++) {
-
-                        for (let j = 0; j < rMB.length; j++) {
-
-                            if (rMB[j].MEMBER_ID == rPD[i].MEMBER_ID_for_OD) {
-                                rMB[j].TOTAL_DISCOUNT = rPD[i].TOTAL_DISCOUNT;
-                            }
-                        }
-                    }
-
-                    console.log(rMB);
-                    console.log(rPI);
-                    console.log(rPD);
-                    console.log(rIL);
-                    console.log(rDL);
-
-                    let queryDateStart = document.querySelector("#queryDateStart");
-                    let showDateStart = document.querySelector("#showDateStart");
-                    let queryDateEnd = document.querySelector("#queryDateEnd");
-                    let showDateEnd = document.querySelector("#showDateEnd");
-
-                    showDateStart.innerHTML = queryDateStart.value;
-                    showDateEnd.innerHTML = queryDateEnd.value;
-
+                    alert("上傳成功！");
+                    self.uploadCSVLog = res;
+                    console.log(res);
                 },
                 error: function (res) {
-                    console.log("回傳失敗！");
+                    alert("上傳失敗！請檢察控制台日誌訊息。");
                     console.log(res.responseText);
-                },
-                dataType: "JSON",
+                }
             });
+
+        },
+        showFileName() {
+
+            let csvFileInput = document.querySelector("#csvFileInput");
+            let labelForCSVFileInput = document.querySelector("#labelForCSVFileInput");
+
+            labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
         }
 
     }

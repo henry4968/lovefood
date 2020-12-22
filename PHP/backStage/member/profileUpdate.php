@@ -3,7 +3,7 @@
     include("../Lib/UtilClass.php");
 
     $Util = new UtilClass();
-    $sql = "UPDATE LoveFood.MEMBER SET ADDRESS = ?, PHONE = ? WHERE MEMBER_ID= ?";
+    $sql = "UPDATE Lovefood.MEMBER SET MEMBER_ADDRESS = ?, MEMBER_PHONE = ? WHERE MEMBER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
     
     $statement->bindValue(1,$_POST['address']);

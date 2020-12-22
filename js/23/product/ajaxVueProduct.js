@@ -1,3 +1,40 @@
+$(function(){
+    $("[data-toggle='tooltip']").tooltip(); //tooltip啟用
+                //===============input變數設變數==============
+    let productName = $("[name='productName']");
+    let exp0 = $("[name='exp[0]']");
+    let exp1 = $("[name='exp[1]']");
+    let oriPrice = $("[name='oriPrice']");
+    let spePrice = $("[name='spePrice']");
+    let description = $("[name='description']");
+
+    let inputArr = [productName,exp0,exp1,oriPrice,spePrice,description];
+
+    // document.addEventListener('click',e=>console.log(e.target));
+
+                //==============阻止hover行為===============
+    
+            //==============點擊送出顯示tooltip===============
+    $('#upload').click(function(){
+        for(i=0;i<inputArr.length;i++){
+            if(inputArr[i].val() == ""){
+                    console.log(inputArr[i])
+                    inputArr[i].tooltip('show');
+                    inputArr[i].css('border-color','red');
+                    inputArr[i].click(function(e){
+                        $(e.target).tooltip('hide');
+                        $(e.target).css('border-color','#ccc');
+        
+                    })
+            }
+        }
+    })
+})
+
+// ==================new Vue=========================
+
+
+
 const app = new Vue({
     el: '.containerProduct',
     data : {
@@ -29,6 +66,7 @@ const app = new Vue({
         });
     },
     methods: {
+        
         upload(){
                 const self = this;
                 let sellerNum = $("input[name='sellerNum']").val();
@@ -61,15 +99,35 @@ const app = new Vue({
                 });
             
         },
-        showName(){ //顯示上傳檔案名稱
-            const self = this;
-            let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
-            self.fileName = fileUpload;
+        // showName(){ //顯示上傳檔案名稱
+        //     const self = this;
+        //     let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
+        //     self.fileName = fileUpload;
+        // },
+        next(){
+            $.ajax({
+
+                url:'../PHP/backStage/Lib/page.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice},
+                type:'POST',
+                dataType:'text',
+                traditional: true,
+                success: function(res){
+                     console.log(res);
+                     self.tableData = res;
+                     
+                },
+                error: function(res){
+                    // console.log(res);
+                },
+            });
+            
         },
         imgInput(key,event){ //點擊input
             let self = this;
             let file = event.target.files[0];
             // alert(key);
+            
             self.imgSrc.splice(key,1,URL.createObjectURL(file))
             $(event.target).closest('.dropZone').css('border','none')
         },
@@ -101,6 +159,12 @@ const app = new Vue({
             }else{
             $(event.target).closest('.dropZone').css('border','1px dashed')
             }
+        }
+    },
+    computed:{
+
+        tooltip(){
+            return false;
         }
     },
 });
