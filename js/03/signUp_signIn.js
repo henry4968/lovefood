@@ -58,15 +58,15 @@ Vue.component('member', {
             <button class="subSignup" :type="signUpbutton" @click="check">註冊</button>
             <button class="changeTOmember" type="button">會員登入</button>
           </form>
-          <div class="lineBor">
+          <!-- <div class="lineBor">
             <div class="lineL"></div>
             <span class="signUp">你可以快速註冊</span>
             <div class="lineR"></div>
-          </div>
+          </div> 
           <div class="fbgoogle">
             <img src="../img/03/Icon awesome-facebook.png">
             <img src="../img/03/Icon awesome-google-plus.png">
-          </div>
+          </div> -->
         </div>
       `,
   methods: {

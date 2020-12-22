@@ -13,10 +13,10 @@ class UtilClass
     //取得PDO物件
     function getPDO()
     {
-        // $db_host = "localhost";
-        // $db_user = "root";
-        // $db_pass = "jeff5076";
-        // $db_select = "lovefood";
+        $db_host = "localhost";
+        $db_user = "root";
+        $db_pass = "jeff5076";
+        $db_select = "lovefood";
 
 
         // $db_pass = "SQL1933";
@@ -29,10 +29,10 @@ class UtilClass
         //廷翰
 
         // 強哥
-        $db_host = "localhost";
-        $db_user = "root";
-        $db_pass = "SQL1933";
-        $db_select = "Lovefood";
+        // $db_host = "localhost";
+        // $db_user = "root";
+        // $db_pass = "SQL1933";
+        // $db_select = "Lovefood";
         // 強哥
 
 
