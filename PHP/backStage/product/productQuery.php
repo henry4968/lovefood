@@ -24,25 +24,47 @@
         }elseif($pdNum2 < 1000 && $pdNum2 >= 100){
             $pdNum2Sql = 'PD0000'.$pdNum2;
         }
-        $sql = "SELECT * FROM LoveFood.PRODUCT 
-        WHERE PRODUCT_ID between ? and ?
-        ";
-        $statement = $Util->getPDO()->prepare($sql);
-        $statement->bindValue(1,$pdNum1Sql);
-        $statement->bindValue(2,$pdNum2Sql);
-        $statement->execute();
-        $data1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+        if($_POST['idendity'] == '0'){
+            $sql = "SELECT * FROM Lovefood.PRODUCT 
+            WHERE PRODUCT_ID between ? and ?
+            ";
+            $statement = $Util->getPDO()->prepare($sql);
+            $statement->bindValue(1,$pdNum1Sql);
+            $statement->bindValue(2,$pdNum2Sql);
+            $statement->execute();
+            $data1 = $statement->fetchAll(PDO::FETCH_ASSOC);
 
+            
+            // ==============商品種類==================
+
+            $sql = "SELECT * FROM PRODUCT_CATEGORY";
+            $statement = $Util->getPDO()->prepare($sql);
+            $statement->execute();
+            $data2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $dataAll = array('query' => $data1, 'categories' => $data2);
+            print json_encode($dataAll);
+        }else{
+            $sql = "SELECT * FROM Lovefood.PRODUCT 
+            WHERE PRODUCT_ID between ? and ? AND
+            SUPPLIER_ID_for_PD = 'SP0001'
+            ";
+            $statement = $Util->getPDO()->prepare($sql);
+            $statement->bindValue(1,$pdNum1Sql);
+            $statement->bindValue(2,$pdNum2Sql);
+            $statement->execute();
+            $data1 = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+            
+            // ==============商品種類==================
+
+            $sql = "SELECT * FROM PRODUCT_CATEGORY";
+            $statement = $Util->getPDO()->prepare($sql);
+            $statement->execute();
+            $data2 = $statement->fetchAll(PDO::FETCH_ASSOC);
+            $dataAll = array('query' => $data1, 'categories' => $data2);
+            print json_encode($dataAll);
+        }
         
-        // ==============商品種類==================
-
-        $sql = "SELECT * FROM PRODUCT_CATEGORY";
-        $statement = $Util->getPDO()->prepare($sql);
-        $statement->execute();
-        $data2 = $statement->fetchAll(PDO::FETCH_ASSOC);
-        $dataAll = array('query' => $data1, 'categories' => $data2);
-        print json_encode($dataAll);
-
 
     
     

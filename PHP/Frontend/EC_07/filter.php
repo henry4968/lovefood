@@ -11,11 +11,11 @@
     $arrSeller = $_POST['arrSeller'];
     $seller = "'".implode("','",$arrSeller)."'";
     //商家
-    $sellers = @$_POST["sellers"];
-    $SELLERS = "'".implode("','",$sellers)."'";
-    //種類
-    $arrspecies = @$_POST["arrspecies"];
-    $species = "'".implode("','",$arrspecies)."'";
+    // $sellers = @$_POST["sellers"];
+    // $SELLERS = "'".implode("','",$sellers)."'";
+    // //種類
+    // $arrspecies = @$_POST["arrspecies"];
+    // $species = "'".implode("','",$arrspecies)."'";
 
     //判斷日期輸入格式有效
     $sqlAll = "SELECT * FROM PRODUCT as aa 
@@ -32,9 +32,9 @@
     $dataAll = $state->fetchAll(PDO::FETCH_ASSOC); //第五步 將資料封裝成$data
 
     // print_r($dataAll);
-    print json_encode($dataAll);
+    // print json_encode($dataAll);
     //第六步印出來JSON格式讓ajax呼叫
-
+    echo 123;
 
 
 ?>

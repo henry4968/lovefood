@@ -1,8 +1,26 @@
+
+Vue.component('user',{
+    template:`
+    <div>
+        <li>{{user}}</li>
+    </div>
+    `,
+    data(){
+        return{
+            user: null
+        }
+    },
+    created(){
+        this.user = $.cookie('account');
+    }
+})
+
 const app = new Vue({
-    el: '.containerOrder',
+    el: '.containerSellerOrder',
     data:{
         
             tableData:null,
+            tableDataOne:null,
             isShow:false, //綁定 v-show值
             paymentMethod:null,
             detail:null,
