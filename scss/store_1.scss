@@ -766,12 +766,14 @@
             box-shadow:3px 3px 6px rgba(0,0,0,0.2);
 
             .pdtTime{
-                margin: -4px 0;
+                // margin: -4px 0;
+                width: 260px;
             }
-            .pdtTime > span.minutes, .pdtTime > span.seconds{
-                font-size: 30px;
-                margin: -5px 7px;
+            .pdtTime > span.minutes, .pdtTime > span.seconds,.pdtTime > span.days,.pdtTime > span.hours{
+                font-size: 26px;
+                margin: -5px 0px;
                 color: red;
+                }
             }
         }
 
@@ -812,7 +814,7 @@
             }
         }
     }
-}
+
 
 .productCenter{
     box-shadow:3px 3px 6px rgba(0,0,0,0.2);
@@ -848,6 +850,8 @@
         background-color:$F2;
         width: 300px;
         cursor: pointer;
+        max-height: 280px;
+
     }
 }
 .much{

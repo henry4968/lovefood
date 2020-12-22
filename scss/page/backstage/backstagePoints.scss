@@ -130,11 +130,16 @@
                     width: 300px;
                     display: flex;
                     justify-items: center;
-                    input{
-                        width: 200px;
+                    label{
+                        width: 500px;
+                        margin-right: 5px;
                     }
+                    // input{
+                    //     width: 500px;
+                    //     margin-right: 5px;
+                    // }
                     button{
-                        width: 80px;
+                        width: 180px;
                     }
                 }
             }
