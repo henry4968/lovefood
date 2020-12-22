@@ -12,7 +12,7 @@
         function getPDO(){
             $db_host = "localhost:3306";
             $db_user = "root";
-            $db_pass = "";
+            $db_pass = "SQL1933";
             $db_select = "loveFood";
        
             //建立資料庫連線物件
