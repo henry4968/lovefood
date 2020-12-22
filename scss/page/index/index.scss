@@ -148,7 +148,7 @@
                 display: flex;
                 #searchInputForMobile{
                     background-color: #FFFFFF !important;
-                    background-image: url("/img/22/index/hamburger_menu_search.png");
+                    background-image: url("../img/22/index/hamburger_menu_search.png");
                     background-repeat: no-repeat;
                     background-position: left 2% center;
                     padding: 3px 3px 3px 50px;
@@ -589,7 +589,7 @@
     position: relative;
     z-index: -2;
     background-image: 
-    url(../../../img/22/index/ch0101_bg_green_screen.png);
+    url(../img/22/index/ch0101_bg_green_screen.png);
     background-repeat: no-repeat;;
     .ch01BgShining{
         position: absolute;
@@ -613,16 +613,16 @@
         }
     }
     #ch01Slide02{
-        background-image: url(../../../img/22/index/ch0102_bg.jpg);
+        background-image: url(../img/22/index/ch0102_bg.jpg);
         #mainSlogan02{
             color: #E4C962;
         }
     }
     #ch01Slide03{
-        background-image: url(../../../img/22/index/ch0103_bg.jpg);
+        background-image: url(../img/22/index/ch0103_bg.jpg);
     }
     #ch01Slide04{
-        background-image: url(../../../img/22/index/ch0104_bg.jpg);
+        background-image: url(../img/22/index/ch0104_bg.jpg);
         #mainSlogan04{
             color: #E4C962;
         }
@@ -1277,7 +1277,7 @@
 
 // 第四章：「樂腹商城」開始
 #chapter04{
-    background-image: url(../../../img/22/index/ch04_bg.jpg);
+    background-image: url(../img/22/index/ch04_bg.jpg);
     position: relative;
     text-align: center;
     h3{
@@ -1698,7 +1698,7 @@
         position: relative;
         #ch06contactUsArea{
             width: 50%;
-            background-image: url(../../../img/22/index/ch06_bg01.png);
+            background-image: url(../img/22/index/ch06_bg01.png);
             padding: 235px 0px 0px 0px;
             @include newRwd("laptop"){
                 width: 100%;
