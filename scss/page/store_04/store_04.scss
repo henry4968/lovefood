@@ -286,6 +286,11 @@
     }
 }
 // 標頭結束
+#store_16{
+    background-image: url(../img/16/bgc-greenFruit.jpg);
+    background-repeat: repeat;
+    width: 100%;
+
 
 //banner_16開始
 .banner_16{
@@ -433,50 +438,34 @@
 //購物商城-結帳頁
 
 //background
-.cartbgc_16{
-    background-image: url(../img/16/bgc-greenFruit.jpg);
-    background-repeat: repeat;
-    width: 100%;
-
-    .cart_16{
+.cart_16{
         // border: 1px solid violet;
-        position: relative;
+        // position: relative;
         top: 150px;
         display: block;
-        margin: 0 auto;
+        margin: 100px auto;
         width: 1200px;
-        min-height: 2050px;
 
         @include newRwd("pad"){
             width: 892px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 2350px;
+            margin: 100px auto;
         }
         @include newRwd("bigPhone"){
             width: 768px;
-            height: 56px;
-            margin: 0 auto; 
-            min-height: 2350px;
+            margin: 100px auto;
         }
         @include newRwd("mediumPhone"){
             width: 570px;
-            height: 56px;
-            margin: 0 auto; 
+            margin: 100px auto; 
             min-height: 2550px;
         }
         @include newRwd("newSmallPhone"){
             width: 375px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 2600px;
             overflow-x: hidden;
         }
         @include newRwd("miniPhone"){
             width: 319px;
-            height: 56px;
-            margin: 0 auto;
-            min-height: 2350px;
+            margin: 50px auto;
             overflow-x: hidden;
             top: 100px;
         }
@@ -1400,7 +1389,7 @@
             }
         }
 
-    }
+   
 //結帳區結束
 
 //FOOTER開始
@@ -1487,6 +1476,7 @@ footer{
              }
          } 
     }  
+}
 }
 
 //FOOTER結束

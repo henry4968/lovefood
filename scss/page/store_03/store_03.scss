@@ -381,12 +381,11 @@
     }
 }
 // 標頭結束
-
-// background
 #store_16{
     background-image: url(../img/16/bgc-greenFruit.jpg);
     background-repeat: repeat;
     width: 100%;
+
 
 //banner_16開始
 .banner_16{
@@ -530,45 +529,37 @@
 //麵包屑結束
 
 //購物商城-購物車區
+// background
+// .cartbgc_16{
+    
     .cart_16{
         // border: 1px solid violet;
-        position: relative;
+        // position: relative;
         top: 150px;
         display: block;
-        margin: 15% auto;
+        margin: 100px auto;
         width: 1200px;
-        // min-height: 2850px;
         
         @include newRwd("pad"){
             width: 892px;
-            // height: 56px;
-            // margin: 10% auto;
-            // min-height: 3350px;
+            margin: 100px auto;
         }
         @include newRwd("bigPhone"){
             width: 768px;
-            // height: 56px;
-            // margin: 0 auto; 
-            // min-height: 3350px;
+            margin: 100px auto; 
         }
         @include newRwd("mediumPhone"){
             width: 570px;
-            // height: 56px;
-            // margin: 0 auto; 
-            // min-height: 3850px;
+            margin: 100px auto; 
         }
         @include newRwd("newSmallPhone"){
             width: 375px;
-            // height: 56px;
-            // margin: 0 auto;
-            // min-height: 3300px;
+            margin: 50px auto;
             overflow-x: hidden;
         }
         @include newRwd("miniPhone"){
             width: 319px;
-            // height: 56px;
-            // margin: 0 auto;
-            // min-height: 3300px;
+            margin: 50px auto;
             overflow-x: hidden;
             top: 100px;
         }
@@ -1009,7 +1000,7 @@
                                     @include newRwd ("newSmallPhone"){
                                         margin: 0px 20px 0px 0px;
                                     }
-                                    #myform1, #myform2, #myform3{
+                                    div{
                                         display: flex;
                                         position: relative;
                                         justify-content: center;
@@ -1020,7 +1011,7 @@
                                         box-sizing: border-box;
                                         border-radius: 4px;
                                     
-                                        #qty1, #qty2, #qty3 {
+                                        .inputQty{
                                             width: 50px;
                                             height: 29px;
                                             text-align: center;
@@ -1030,13 +1021,13 @@
                                             border: none;
                                             font-size:20px;
                                             color: #909090;
-                                            font-weight: bold;
+                                            // font-weight: bold;
                                             position: relative;
                                             
                                         }
                                         
                                         
-                                        #qtyplus1, #qtyplus2, #qtyplus3 {
+                                        .qtyAdd {
                                             width: 25px;
                                             height: 30px;
                                             border: 1px solid #C9BE9F;
@@ -1051,7 +1042,7 @@
                                             border-radius: 0 3px 3px 0;
                                         }
                                         
-                                        #qtyminus1, #qtyminus2, #qtyminus3 {
+                                        .qtyReduce{
                                             width: 25px;
                                             height: 30px;
                                             border: 1px solid #C9BE9F;
@@ -1158,13 +1149,15 @@
                             }
                             .mapIconW{
                                 width: 400px;
-                                margin-left: 84px;
+                                margin-left: 10px;
                                 @include newRwd("bigPhone"){
                                     // margin-left: 0px;
                               
                                 }
                                 @include newRwd("mediumPhone"){
-                                    margin-left: 65px;
+                                    margin-left: 10px;
+                                    width: 350px;
+
                               
                                 }
 
@@ -1194,8 +1187,11 @@
                                 div{
                                     margin-left: 80px;
                                     margin-top: 5px;
+                                    @include newRwd("mediumPhone"){
+                                        margin-left: 10px;
+                                    }
                                     @include newRwd("newSmallPhone"){
-                                        margin-left: 50px;
+                                        margin-left: 0px;
                                     }
                                 }
                                 
@@ -1204,6 +1200,7 @@
                                     margin: 50px 20px 20px 20px;
                                     font-size: 18px;
                                     color: #707070;
+                                    
                                     @include newRwd("newSmallPhone"){
                                         width: 300px;
                                         margin: 10px auto;
@@ -1282,8 +1279,6 @@
 
                                 #MRT_Select{
                                     display: none;
-                                    margin: 30px auto;
-                                    
                                     @include newRwd("newSmallPhone"){
                                         display: flex;
                                         flex-wrap: wrap;
@@ -1504,7 +1499,7 @@
        }
     } 
 
-    }
+    // }
     .item2{
         background-color: #F2F0D7;
         height: 100px;
@@ -1663,6 +1658,6 @@ footer{
             }
         } 
     }  
-
+}
 }
 //footer結束
