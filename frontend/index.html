@@ -239,18 +239,18 @@
             <!-- 第二章背景圖結束 -->
 
             <div id="conversionUnitIconBlock">
-                <a href="#0">
+                <a href="#HowMuchWeWasted">
                     <img src="../img/22/index/ch02_icon_elephant_light.png" id="elephantIcon"
                         class="conversionUnitIcon">
                 </a>
-                <a href="#0">
+                <a href="#HowMuchWeWasted">
                     <img src="../img/22/index/ch02_icon_cruise_ship_dark.png" id="cruiseShipIcon"
                         class="conversionUnitIcon">
                 </a>
-                <a href="#0">
+                <a href="#HowMuchWeWasted">
                     <img src="../img/22/index/ch02_icon_plane_dark.png" id="planeIcon" class="conversionUnitIcon">
                 </a>
-                <a href="#0">
+                <a href="#HowMuchWeWasted">
                     <img src="../img/22/index/ch02_icon_car_dark.png" id="carIcon" class="conversionUnitIcon">
                 </a>
             </div>
@@ -744,14 +744,14 @@
                 if (checkdata != '') {
                     if (checkdata.substr(0, 2) == 'MB') {
                         alert('尚未登入會員，請登入賣家會員');
-                        this.seljumpage = './sellerSignUp_SignIn.html';
+                        this.seljumpage = './signUp_signIn.html';
                     } else if ((checkdata.substr(0, 2) == 'SP')) {
                         this.seljumpage = '../backend/backendIndex.html';
                         this.selloginchangemem = true;
                     }
                 } else {
                     alert('尚未登入會員，請登入會員');
-                    this.seljumpage = './sellerSignUp_SignIn.html';
+                    this.seljumpage = './signUp_signIn.html';
                 }
             },
             // 判斷是否有會員登入及是哪一種會員
