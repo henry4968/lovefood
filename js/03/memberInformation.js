@@ -1,3 +1,4 @@
+const bus = new Vue();
 Vue.component('member', {
   template: `
       <div class="rightBorder" :class="{foursameBorderapp:foursameBorderapp == 1}">
@@ -1390,8 +1391,11 @@ Vue.component('points', {
                 特殊會員狀態：
               </span>
               <img src="../img/03/specialpic.png">
-              <span class="conditionDateContent">
-                2020/09/28
+              <span class="conditionDateContent" v-if="catchclass == '一般會員'">
+                目前尚未成為特殊會員
+              </span>
+              <span class="conditionDateContent" v-if="catchclass == '特殊會員'">
+                特殊會員
               </span>
             </div>
             <div class="specialmemberID">
@@ -1399,17 +1403,20 @@ Vue.component('points', {
                 會員編號：
               </span>
               <span class="specialmemIDcontent">
-                AA2020103000001
+                {{memberId}}
               </span>
             </div>
             <div class="specailmemberpoints">
               <span class="specialmemtitle">
                 剩餘點數：
               </span>
-              <span class="specialmemcontent">
-                946點
+              <span class="specialmemcontent" v-if="catchclass == '一般會員'">
+                0點
               </span>
-              <span class="specialmemlimit">
+              <span class="specialmemcontent" v-if="catchclass == '特殊會員'">
+                {{Allpoints}}點
+              </span>
+              <span class="specialmemlimit" v-if="catchclass == '特殊會員'">
                 點數請於2020/12/31 24:00 前使用完畢
               </span>
             </div>
@@ -1417,38 +1424,56 @@ Vue.component('points', {
               <div class="leftspecialduration">
                 <label class="specialdurationtitle">期間：</label>
                   <div class="durFromdurTo">
-                    <input id="durFrom" type="date">
+                    <input id="durFrom" type="date" v-model="dateFrom">
                     <span class="durwhitespace">
                       &#32;&#126;&#32;
                     </span>
-                    <input id="durTo" type="date">
+                    <input id="durTo" type="date" v-model="dateTo">
                   </div>
               </div>
-              <button id="dursearchBtnBorder" type="submit">查詢</button>
+              <button id="dursearchBtnBorder" type="button" @click="searchDate">查詢</button>
             </div>
           </div>
         </div>
 
-        <div class="bottompointsBorder">
+        <div class="bottompointsBorder" >
           <div class="bottommiddlepointsBorder">
-            <div class="itempoint">
+            <div class="itempoint" v-if="catchclass == '特殊會員' && dateCheck(point)" v-for="point in pointList.get" >
               <div class="iteminclude">
                 <div class="dateandidBorder">
                   <div class="leftdateandidBorder">
                     <span class="itempointitle">日期：</span>
-                    <span class="itempointcontent">2020/11/05</span>
+                    <span class="itempointcontent">{{point.POINTS_ISSUANCE_DATE}}</span>
+                  </div>
+                  <div class="rightdateandidBorder" v-if="pointList == ''">
+                    <span class="itempointidtitle">訂單編號：</span>
+                    <span class="itempointidcontent"></span>
+                  </div>
+                </div>
+                <span class="itempointplus">+{{point.POINTS_ISSUANCE_NUM}}點</span>
+              </div>
+              <span class="line"></span>
+            </div>
+            <div class="itempoint" v-if="catchclass == '特殊會員' && dateCheck(point)" v-for="point in pointList.span">
+              <div class="iteminclude">
+                <div class="dateandidBorder">
+                  <div class="leftdateandidBorder">
+                    <span class="itempointitle">日期：</span>
+                    <span class="itempointcontent">{{point.ORDER_DATE}}</span>
                   </div>
                   <div class="rightdateandidBorder">
                     <span class="itempointidtitle">訂單編號：</span>
-                    <span class="itempointidcontent">2020102000001</span>
+                    <span class="itempointidcontent">{{point.ORDER_ID}}</span>
                   </div>
                 </div>
-                <span class="itempointplus">+500點</span>
+                <span class="itempointplus">-{{point.ORDER_DISCOUNT}}點</span>
               </div>
               <span class="line"></span>
             </div>
           </div>
         </div>
+
+
       </div>
       `,
   data() {
@@ -1457,7 +1482,20 @@ Vue.component('points', {
       foursameBorderapp: '',
       // pointdetail
       pointList: [],
-      // 
+      // 接收身分別
+      catchclass: null,
+      // 特殊會員狀態
+      specialStatus: null,
+      // 會員編號
+      memberId: null,
+      // 剩餘點數
+      Allpoints: null,
+      // 開始日期
+      dateFrom: null,
+      dateTrueFrom: null,
+      // 結束日期
+      dateTo: null,
+      dateTrueTo: null,
     }
   },
   methods: {
@@ -1465,19 +1503,102 @@ Vue.component('points', {
     sync() {
       this.$emit("my-click", false)
     },
+    // 撈該ID的身份別
+    memberInf() {
+      // 因為axios和ajax指的this是自己的事件物，而vue的this指的是vue實例，所以這裡要宣告一個變數that等於vue的this
+      // 或是在vue那裏宣告一個vm ==> vm.username
+      let that = this;
+      axios.post('../PHP/Frontend/memberInfor.php').then(res => {
+        // 找到值
+        checkdata = res.data;
+        // 找身份別 general or particular
+        // console.log(checkdata.data[0].CLASS);
+        // 判斷是是哪一種身份
+        if (checkdata.data[0].MEMBER_CLASS == 0) {
+          that.catchclass = '一般會員';
+        } else if (checkdata.data[0].MEMBER_CLASS == 1) {
+          that.catchclass = '特殊會員';
+        }
+      })
+    },
     // 撈點數
     mypoint() {
+      let that = this
       axios.post('../PHP/Frontend/mypoints.php').then(res => {
+        // 將點數建立成陣列
         this.pointList = res.data;
-        for (let i = 0; i < this.pointList.get.length; i++) {
-          console.log(this.pointList.get[i].POINTS_ISSUANCE_DATE);
+        // 給會員編號
+        that.memberId = res.data.get[0].MEMBER_ID_for_PI
+        console.log(this.pointList);
+        if (that.catchclass == '特殊會員') {
+          // 只取日期:獲取
+          res.data.get.forEach(a => {
+            a.POINTS_ISSUANCE_DATE = a.POINTS_ISSUANCE_DATE.substr(0, 10);
+          });
+          // 只取日期:花費
+          res.data.span.forEach(b => {
+            b.ORDER_DATE = b.ORDER_DATE.substr(0, 10);
+          });
+          // 點數加總
+          let tt = null
+          res.data.get.forEach(a => {
+            // 將字串轉數值
+            tt += parseInt(a.POINTS_ISSUANCE_NUM)
+          });
+          let ss = null
+          res.data.span.forEach(b => {
+            // 將字串轉數值
+            ss += parseInt(b.ORDER_DISCOUNT)
+          });
+          // 點數總和
+          that.Allpoints = tt - ss
         }
       });
     },
+    // 查詢區間
+    dateCheck(point) {
+      // console.log(order.ORDER_DATE);
+      // 尚未選擇日期時全部顯示
+      if (this.dateTrueFrom == null || this.dateTrueTo == null) {
+        return true
+      }
+      // 當裡面有值就計算
+      const tt = new Date(point.POINTS_ISSUANCE_DATE)
+      if (this.dateTrueFrom <= tt && tt <= this.dateTrueTo) {
+        return true
+      }
+      const pp = new Date(point.ORDER_DATE)
+      if (this.dateTrueFrom <= pp && pp <= this.dateTrueTo) {
+        return true
+      }
+
+      return false
+    },
+    // 查詢區間
+    searchDate() {
+      // 當不是空值時進行判斷
+      if (this.dateFrom != null && this.dateTo != null) {
+        if (this.dateFrom <= this.dateTo) {
+          this.dateTrueFrom = new Date(this.dateFrom);
+          this.dateTrueTo = new Date(this.dateTo);
+        } else {
+          alert('起始日期不能小於最後日期');
+        }
+      }
+      // 有一個為空或是格式錯誤就報錯
+      if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
+        alert('起始日期或是最後日期有空值');
+      }
+      console.log(this.dateFrom);
+    },
   },
   mounted() {
+    // 接收身分別
+    this.memberInf();
+    // 撈點數
     this.mypoint();
   },
+
 });
 
 Vue.component('memberApply', {
