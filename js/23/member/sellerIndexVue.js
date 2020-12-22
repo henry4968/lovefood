@@ -1,67 +1,65 @@
-//v-model="select"綁定從資料庫取出來的值,從nuw Vue向下傳遞 props給profile,用select接selected
-Vue.component('profile',{ 
-    props:['change','select'],
-    template:`<div>
-                <h2 class="btn-brown">賣家檔案</h2>
-                <h3>會員編號 <input class="input-xl" type="text" name="numberUp" :value="change[0][0]" disabled></h3>
-                <h3>會員帳號 <input class="input-xl" type="text" name="accountUp" :value="change[0][1]" disabled></h3>
-                <h3>公司名稱 <input class="input-xl" type="password" name="nameUp" :value="change[0][4]" disabled></h3>
-                <h3>公司電話 <input class="input-xl" type="text" name="phoneUp" :value="change[0][7]"></h3>
-                <h3>登記地址 <input class="input-xl" type="text" name="addressUp" :value="change[0][6]" size="45"></h3>
-                <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown">儲存</button></span>
-                </div>`,  
-    data(){
-        return{
-            tableDataOne : null,
-            selected:null,
-        };
-    },
-})
-
-
 const app = new Vue({
-        el:'.containerSeller',
-        data(){
-            return{
+        el:'.containerSellerIndex',
+        data:{
                 tableDataOne : null,
-                tableData : null,
+                tableDataSave : null,
                 selected: null,
-            }
+                fileName: null
         },
         mounted(){
+            const self = this;
+            let sellerNum = $.cookie('account');
             $.ajax({
                 url:'../PHP/Frontend/sessionR.php',
+                data:{sellerNum},
                 success:function(res){
                     console.log(res);
                     $.cookie('account',`${res}`,3);
-                    // $.cookie('account',null,{expires:-1});
-
                 },
                 dataType:"text",
                 error:function(res){
                     console.log(res);
                 }
-                })
+            })
+            $.ajax({
+                url:'../PHP/backStage/member/seller/sellerIndex.php',
+                type:'POST',
+                data:{sellerNum},
+                success:function(res){
+                    console.log(res);
+                    self.tableDataOne = res;
+                    self.fileName = res[0].SUPPLIER_DOCUMENTS;
+                },
+                dataType:"JSON",
+                error:function(res){
+                    console.log(res);
+                }
+            })
         },
-        // mounted(){
-        //         let id = $("input[name='id']").val();
-
-        //         const self = this;
-        //         $.ajax({
-        //         url:'../PHP/backStage/member/seller/sellerProfileR.php',
-        //         type:'GET',
-        //         data:{id},
-        //         success:function(res){
-        //             console.log(res[0][0]);
-        //             self.tableDataOne = res;
-        //             self.selected= res[0][8];//assign選單預設值
-        //         },
-        //         dataType:"json",
-        //         })
-        // },
         methods:{
-            
-            
-            
+            save(){
+                const self = this;
+                self.tableDataSave = self.tableDataOne;
+                let tableDataSave = self.tableDataSave;
+                let fileName = self.fileName;
+                $.ajax({
+                    url:'../PHP/backStage/member/seller/sellerIndexUpdate.php',
+                    type:'POST',
+                    data:{tableDataSave,fileName},
+                    success:function(res){
+                        console.log(res);
+                        // self.tableDataOne = res;
+                    },
+                    dataType:"text",
+                    error:function(res){
+                        console.log(res);
+                    }
+                })
+            },
+            showName(){ //顯示上傳檔案名稱
+            const self = this;
+            let fileUpload = $("input[type='file']").val().replace(/C:\\fakepath\\/i, '');//去除路徑
+            self.fileName = fileUpload;
+            },
         },
  })

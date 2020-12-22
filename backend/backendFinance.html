@@ -10,6 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <!-- 圖表套件 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
     <script src="../node_modules/highcharts/highstock.js"></script>
 
 </head>
@@ -120,15 +121,37 @@
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
-                            <input type="date" value="2020-01-01" name="financeQueryDateStart">至
-                            <input type="date" value="2020-12-31" name="financeQueryDateEnd">
-                            <div id="supplierID">
-                                賣家編號
-                                <input type="text" name="supplierId" :value="loginAccount">
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo" id="">
+                                    <input type="text" name="financeQueryDateStart" data-format="MM/DD/YYYY"
+                                        value="2020-01-01" class="form-control" id="queryDateStart" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <span>
+                                至
+                            </span>
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo">
+                                    <input type="text" name="financeQueryDateEnd" data-format="MM/DD/YYYY"
+                                        value="2020-12-31" class="form-control" id="queryDateEnd" />
+                                    <span class="input-l input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
                             </div>
                         </div>
-                        <div id="financeFilterDownload">下載：</div>
-                        <button id="financeFilterButton" @click="queryFinance">查詢</button>
+                        <div id="supplierID">
+                            賣家編號
+                            <input type="text" name="supplierId" :value="loginAccount" class="form-control">
+                        </div>
+                        <button id="financeFilterButton" @click="queryFinance" class="btn-s btn-brown">查詢</button>
                     </div>
                     <div id="financeFilterForDonation" class="financeFilter" v-show="!showTab">
                         <div id="donationSearchingBlock">
@@ -143,38 +166,68 @@
                         </div>
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
-                            <div>查詢區間</div>
-                            <input type="date" name="donationQueryDateStart" value="2016-01-01" id="queryDateStart"
-                                min="2015-01-01">至
-                            <input type="date" name="donationQueryDateEnd" value="2020-12-31" id="queryDateEnd"
-                                max="2020-12-31">
-                            <button id="financeFilterButton" @click="queryDonation">查詢</button>
+                            查詢時間
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo" id="">
+                                    <input type="text" name="donationQueryDateStart" data-format="MM/DD/YYYY"
+                                        value="2016-01-01" class="form-control" id="queryDonationDateStart" />
+                                    <span class="input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                            <div id="character">至</div>
+                            <div class="form-group">
+                                <label class="sr-only">Time Pick</label>
+                                <div class="input-group DateDemo">
+                                    <input type="text" name="donationQueryDateEnd" data-format="MM/DD/YYYY"
+                                        value="2020-12-31" class="form-control" id="queryDonationDateEnd" />
+                                    <span class="input-l input-group-btn">
+                                        <button class="btn btn-brown" type="button"><i
+                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                    </span>
+                                </div>
+                            </div>
                         </div>
+                        <button id="financeFilterButton" @click="queryDonation" class="btn-s btn-brown">查詢</button>
                     </div>
                 </div>
                 <div id="financeDataArea">
                     <div id="financeShowSellingPage" v-show="showTab">
-                        <div class="infoCards">
-                            總銷售額：{{financeTotalSelling}}
-                        </div>
-                        <div class="infoCards">
-                            訂單總量：{{financeTotalOrder}}
-                        </div>
-                        <div class="infoCards">
-                            平均訂單金額：{{financeTotalSelling / financeTotalOrder}}
-                        </div>
-                        <div class="infoCards">
-                            <div>
-                                最熱銷的商品：【<span v-if="mostPopularGood">{{mostPopularGood.PRODUCT_NAME}}</span>
-                                <span v-else>無資料</span>】
+                        <div id="infoCardsBlock">
+                            <div class="infoCards">
+                                總銷售額<br><br>
+                                <span>{{financeTotalSelling}}元</span>
                             </div>
-                            <div>
-                                最冷門的商品：【<span v-if="mostUnpopularGood">{{mostUnpopularGood.PRODUCT_NAME}}</span>
-                                <span v-else>無資料</span>】
+                            <div class="infoCards">
+                                訂單總量<br><br>
+                                <span>{{financeTotalOrder}}張</span>
+                            </div>
+                            <div class="infoCards">
+                                平均訂單金額<br><br>
+                                <span>{{financeTotalSelling / financeTotalOrder}}元</span>
+                            </div>
+                            <div class="infoCards">
+                                <div>
+                                    最熱銷的商品<br><br>
+                                    <span v-if="mostPopularGood">{{mostPopularGood.PRODUCT_NAME}}</span>
+                                    <span v-else>無資料</span>
+                                </div>
+                            </div>
+                            <div class="infoCards">
+                                <div>
+                                    最冷門的商品<br><br>
+                                    <span v-if="mostUnpopularGood">{{mostUnpopularGood.PRODUCT_NAME}}</span>
+                                    <span v-else>無資料</span>
+                                </div>
                             </div>
                         </div>
-                        <div id="lineChartBlock"></div>
-                        <div id="pieChartBlock"></div>
+                        <div id="chartBlock">
+                            <div id="lineChartBlock"></div>
+                            <div id="pieChartBlock"></div>
+                        </div>
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">

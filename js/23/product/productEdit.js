@@ -1,7 +1,6 @@
 const app = new Vue({
     el: '.containerProductEdit',
-    data() {
-        return {
+    data: {
             tableData:null,
             isShow:false, //綁定 v-show值
             filterData:null,
@@ -13,7 +12,8 @@ const app = new Vue({
             cover:['封面圖片','圖片1','圖片2','圖片3'],
             photo:['photo1','photo2','photo3','photo4'],
             exp:null,
-        }
+            pageView:null,//當前頁面的陣列
+            pageNow:null,//現在在第幾頁
     },
     
 
@@ -26,7 +26,7 @@ const app = new Vue({
                 
                 $.ajax({
                     url:'../PHP/backStage/product/productQuery.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                    data:{pdNum1,pdNum2},
+                    data:{pdNum1,pdNum2,next:2},
                     type:'POST',
                     dataType:'JSON',
                     traditional: true,
@@ -34,15 +34,86 @@ const app = new Vue({
                          console.log(res);
                          self.tableData = res.query;
                          self.categories = res.categories;
-                        //  for(i=0 ; i<res.query.length;i++){
-                        //      self.imgSrc.push(res.query[i].PRODUCT_IMG);
-                        //  }
-                         console.log(self.imgSrc);
+                         self.pageView = res.query.filter(function(item,index,array){
+                             return index < 2;
+                         })
+                         pageNow = 0;
+                         setTimeout(() => {
+                                 $('#pagination').find('a').eq(1).css({
+                                     backgroundColor:'#887664',
+                                     color:'#FFF'})
+                             }, 1);
+                           
+   
                     },
                     error: function(res){
                         console.log(res);
                     },
                 });
+                // self.$set()
+            
+                
+        },
+            //==============換頁function=============
+        pageChange(page){
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if(self.pageNow == 0){
+                page = pageNow+1;
+            }
+            //==============直接換頁=============
+            if(page > 0){
+                self.pageView = self.tableData.filter(function(item,index,array){
+                    return index >= 2 * (page-1) && index < 2*(page);
+                })
+                pageNow = page-1;
+                //頁碼變色
+                $('#pagination').find('a').css({ 
+                    backgroundColor:'transparent',
+                    color:'#887664'})
+                $('#pagination').find('a').eq(`${page}`).css({
+                    backgroundColor:'#887664',
+                    color:'#FFF'})
+            //==============上一頁=============
+            }else if(page == 0){
+            //    alert('這是page前'+page)
+            //    alert('這是pageNow'+pageNow)
+                if(pageNow == 0){ //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                }else{
+                    //頁碼變色
+                    $('#pagination').find('a').css({  
+                        backgroundColor:'transparent',
+                        color:'#887664'})
+                    $('#pagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor:'#887664',
+                        color:'#FFF'})
+                    self.pageView = self.tableData.filter(function(item,index,array){
+                        return index >= 2 * (pageNow-1) && index < 2*(pageNow);
+                    })
+                    pageNow = pageNow -1;
+                }
+            //==============下一頁=============
+            }else if(page == 'next' ){ 
+                alert('這是page後'+page)
+                alert('這是pageNow'+pageNow)
+                if(pageNow == Math.floor(self.tableData.length/2)-1){
+                    alert('當前已是最末頁，無法繼續前進');
+                }else{
+                    //頁碼變色
+                    $('#pagination').find('a').css({  
+                        backgroundColor:'transparent',
+                        color:'#887664'})
+                    $('#pagination').find('a').eq(`${pageNow+2}`).css({
+                        backgroundColor:'#887664',
+                        color:'#FFF'})
+                    self.pageView = self.tableData.filter(function(item,index,array){
+                        return index >= 2 * (pageNow+1) && index < 2*(pageNow +2);
+                    })
+                    pageNow = pageNow +1;
+                }
+            }
+            console.log(self.pageView);
         },
         filter(e){
             let that = $(e.target).val();
@@ -59,12 +130,11 @@ const app = new Vue({
             console.log(filterArr); //過濾後的陣列
             self.filterData = filterArr;
             self.exp = filterArr[0].EXP_DATE.split(' ');//有效期限轉日期與時間陣列
-            // console.log(exp);
+            return self.isShow = !self.isShow;
         },
         offBoard(e){
             let off = $(e.target).val();
             $.ajax({
-
                 url:'../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                 data:{validation:1,off},
                 type:'POST',
@@ -94,7 +164,6 @@ const app = new Vue({
             let fileUpload = self.filterData[0].PRODUCT_IMG;
             let pdNum = $(e.target).val();
             $.ajax({
-
                 url:'../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                 data:{sellerNum,categories,productName,expDate,expTime,quantity,pickupSite,fileUpload,description,oriPrice,spePrice,validation:0,pdNum},
                 type:'POST',
@@ -107,7 +176,7 @@ const app = new Vue({
                     console.log(res);
                 },
             });
-
+            return self.isShow = !self.isShow;
         },
         imgInput(key,event){ //點擊input
             let self = this;
@@ -143,7 +212,6 @@ const app = new Vue({
                 $('.dropZone').eq(0).css('border','1px dashed')
             }else{
             $(event.target).closest('.dropZone').css('border','1px dashed')
-
             }
         }
         

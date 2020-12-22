@@ -3,28 +3,13 @@
     $Util = new UtilClass();
 
     //先令變數
-    $sellerNum = $_POST["sellerNum"];
-    $categories = $_POST["categories"];
-    $productName = @$_POST["productName"];
-    $expDate = $_POST["expDate"];
-    $expTime = $_POST["expTime"];
-    $quantity = @$_POST["quantity"];
-    $pickupSite = $_POST["pickupSite"];
-    $fileUpload = $_POST["fileUpload"];
-    $description = $_POST["description"];
-    $oriPrice = $_POST["oriPrice"];
-    $spePrice = $_POST["spePrice"];
-    $pdNum = $_POST["pdNum"];
-    $exp = $expDate." ".$expTime;
-
-    //下架
-    $validation = $_POST["validation"];
     
-    //sql語法
 
+    $validation = $_POST["validation"];
     //上架: 1  下架: 2
-    if($validation == 1){
-        
+    if($validation == 1){ //下架
+        $off = $_POST["off"];
+        //sql語法
         //下架
         $off = $_POST["off"];
         $sql = "UPDATE PRODUCT
@@ -35,7 +20,21 @@
         $statement->bindValue(1,$off);
         $statement->execute();
         
-    }else{
+    }else{ //更新商品資訊
+        $sellerNum = $_POST["sellerNum"];
+        $categories = $_POST["categories"];
+        $productName = @$_POST["productName"];
+        $expDate = $_POST["expDate"];
+        $expTime = $_POST["expTime"];
+        $quantity = @$_POST["quantity"];
+        $pickupSite = $_POST["pickupSite"];
+        $fileUpload = $_POST["fileUpload"];
+        $description = $_POST["description"];
+        $oriPrice = $_POST["oriPrice"];
+        $spePrice = $_POST["spePrice"];
+        $pdNum = $_POST["pdNum"];
+        $exp = $expDate." ".$expTime;
+
         $sql = "UPDATE PRODUCT 
         SET PRODUCT_CATEGORY_ID_for_PD = ?, `NAME` = ?, `DESCRIPTION` = ?, ORIGINAL_PRICE = ?,
         SELLING_PRICE = ?, STOCK = ?, UPLOAD_DATE = NOW(),
@@ -56,9 +55,6 @@
         
         $statement->execute();
     }
-    
-    // $data = $statement->fetchAll(PDO::FETCH_ASSOC);
-    // print json_encode($data);
     echo 123;
 
     

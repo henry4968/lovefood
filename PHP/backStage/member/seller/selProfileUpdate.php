@@ -1,7 +1,7 @@
 <?php 
     include("../Lib/UtilClass.php");
     $Util = new UtilClass();
-    $sql = "UPDATE LoveFood.MEMBER SET ADDRESS = ?, PHONE = ? WHERE MEMBER_ID= ?";
+    $sql = "UPDATE LoveFood.SUPPLIER SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
     
     $statement->bindValue(1,$_POST['address']);

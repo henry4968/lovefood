@@ -1,4 +1,5 @@
 <?php
+
 // 資料庫連線
 include("Lib/UtilClass.php");
 $Util = new UtilClass();
@@ -8,33 +9,22 @@ include("Lib/MemberClass.php");
 $Member = new MemberClass();
 $Member = $Member->getMemberID();
 
-// =========================================
-// 從前台匯入ORDERID
-$orderID = $_POST["orderID"];
-
-// 建立SQL
-$sql = "update `order` set  ORDER_STATUS = 0 where (ORDER_ID = ? and MEMBER_ID_for_OD = ?)";
-
-// 執行
-$ordercancel = $Util->getPDO()->prepare($sql);
-
-// 給值
-$ordercancel->bindValue(1, $orderID);
-$ordercancel->bindValue(2, $Member);
-$ordercancel->execute();
-$ordercancelAll = $ordercancel->fetchAll();
+// 從前台匯入ORDER_STATUS
+$orderSatus = $_POST["num"];
 
 //======================================================== 
+
 //建立SQL 訂單
-$sqlod = "SELECT * FROM LoveFood.`ORDER` where MEMBER_ID_for_OD = ?";
+$sqlod = "SELECT * FROM LoveFood.`ORDER` where (MEMBER_ID_for_OD = ? and ORDER_STATUS = ?)";
 
 // 執行
 $order = $Util->getPDO()->prepare($sqlod);
 
 // 給值
 $order->bindValue(1, $Member);
+$order->bindValue(2, $orderSatus);
 $order->execute();
-// $dataorder = $order->fetchAll();
+$dataorder = $order->fetchAll();
 
 //======================================================== 
 //建立SQL 訂單細節
@@ -52,13 +42,14 @@ $sqloddel = "SELECT *
         join lovefood.supplier ee
         on
         dd.SUPPLIER_ID_for_PD = ee.SUPPLIER_ID
-        where aa.MEMBER_ID_for_OD = ?";
+        where (aa.MEMBER_ID_for_OD = ? and aa.ORDER_STATUS = ?)";
 
 // 執行
 $orderdel = $Util->getPDO()->prepare($sqloddel);
 
 // 給值
 $orderdel->bindValue(1, $Member);
+$orderdel->bindValue(2, $orderSatus);
 $orderdel->execute();
 $dataorderdel = $orderdel->fetchAll();
 

@@ -191,6 +191,21 @@
                     }
                 }
             }
+            #pagination{
+                position: absolute;
+                transform: translate(-50% , 50%);
+                left: 55%;
+                bottom: 0px;
+                font-size: 27px;
+                a{
+                    color: #887664;
+                    text-decoration: none;
+                    &:hover{
+                        background-color: #887664;
+                        color: #FFFFFF;
+                    }
+                }
+            }
         }
     }
 }
