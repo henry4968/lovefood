@@ -1555,7 +1555,7 @@ Vue.component('points', {
         this.pointList = res.data;
         // 給會員編號
         that.memberId = res.data.get[0].MEMBER_ID_for_PI
-        console.log(this.pointList);
+        // console.log(this.pointList);
         if (that.catchclass == '特殊會員') {
           // 只取日期:獲取
           res.data.get.forEach(a => {
@@ -1766,7 +1766,7 @@ Vue.component('memberApply', {
                   <canvas id="myPics" width="300" height="150" @mouseenter="canvasfuction"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
-                  <button type="submit" id="manyfileupload">上傳</button>
+                  <button type="submit" id="manyfileupload" onclick="window.alert('文件已上傳請等候消息')">上傳</button>
                 </div>
               </form>
             </div>

@@ -58,15 +58,6 @@ Vue.component('member', {
             <button class="subSignup" :type="signUpbutton" @click="check">註冊</button>
             <button class="changeTOmember" type="button">會員登入</button>
           </form>
-          <!-- <div class="lineBor">
-            <div class="lineL"></div>
-            <span class="signUp">你可以快速註冊</span>
-            <div class="lineR"></div>
-          </div> 
-          <div class="fbgoogle">
-            <img src="../img/03/Icon awesome-facebook.png">
-            <img src="../img/03/Icon awesome-google-plus.png">
-          </div> -->
         </div>
       `,
   methods: {
@@ -570,18 +561,23 @@ new Vue({
 
     // 登入信箱input 回復原狀
     clearredac() {
-      this.loginachtml = '';
-      this.loingacplace = '信箱';
-      this.loginredac = false;
+      if (this.loginredac == true) {
+        this.loginachtml = '';
+        this.loingacplace = '信箱';
+        this.loginredac = false;
+      }
     },
 
     // 登入密碼input 回復原狀
     clearredpa() {
-      this.loginpahtml = '';
-      this.loingpaplace = '密碼';
-      this.loginredpa = false;
-    }
+      if (this.loginredpa == true) {
+        this.loginpahtml = '';
+        this.loingpaplace = '密碼';
+        this.loginredpa = false;
+      }
+    },
   },
+
   mounted() {
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
