@@ -1,21 +1,19 @@
 
-Vue.component('user',{
-    template:`
+Vue.component('user', {
+    template: `
     <div>
         <li>{{user}}</li>
     </div>
     `,
-    data(){
-        return{
+    data() {
+        return {
             user: null
         }
     },
-    created(){
+    created() {
         this.user = $.cookie('account');
     }
 })
-
-
 
 const app = new Vue({
     el: '.containerPoints',
@@ -29,7 +27,9 @@ const app = new Vue({
         showTab: true,
         showIssuanceDetails: false,
         showUsingDetails: false,
-        uploadCSVLog: null
+        uploadCSVLog: null,
+        pageView: null,
+        pageNow: null,
     },
 
     mounted() {
@@ -115,6 +115,18 @@ const app = new Vue({
                     self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
+
+                    self.pageView = res.issuanceLog.filter(function (item, index, array) {
+                        return index < 5;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -231,11 +243,14 @@ const app = new Vue({
 
             let selectedId = $("input[name='selectedId']").val();
             let points = $("input[name='points']").val();
+            let points01 = $("input[name='points01']").val();
+            let points02 = $("input[name='points02']").val();
+            let updatePointsInput = document.getElementsByClassName("updatePointsInput");
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsUpdate.php',
                 type: 'POST',
-                data: { points, selectedId },
+                data: { points, points01, points02, selectedId },
                 success: function (res) {
                     self.pointsUpdating = res;
                     console.log(res)
@@ -247,7 +262,19 @@ const app = new Vue({
                 dataType: "text",
             });
 
-            this.pointsOfMember[0].MEMBER_POINTS = points;
+            if (points01) {
+                this.pointsOfMember[0].MEMBER_POINTS = points01;
+            } else if (points02) {
+                this.pointsOfMember[0].MEMBER_POINTS = points02;
+            }
+
+
+            for (let i = 0; i < updatePointsInput.length; i++) {
+                updatePointsInput[i].value = "";
+            }
+
+
+
         },
 
         uploadCSV() {
@@ -286,13 +313,81 @@ const app = new Vue({
             });
 
         },
+
         showFileName() {
 
             let csvFileInput = document.querySelector("#csvFileInput");
             let labelForCSVFileInput = document.querySelector("#labelForCSVFileInput");
 
             labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
-        }
+        },
+
+        pageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.pageView = self.issuanceLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#pagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#pagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#pagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 5) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#pagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.pageView);
+        },
 
     }
 });

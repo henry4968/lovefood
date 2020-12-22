@@ -3,8 +3,6 @@
     include("../Lib/UtilClass2.php");
     $Util = new UtilClass();
 
-    // $supplierId = $_POST["supplierId"];
-
     $sqlTotalSelling = "SELECT T1.ORDER_ID, T1.ORDER_DETAIL_QUANTITY, PD.PRODUCT_SELLING_PRICE, PD.SUPPLIER_ID_for_PD
                         FROM (SELECT * FROM `ORDER` OD JOIN ORDER_DETAIL ODD ON OD.ORDER_ID = ODD.ORDER_ID_for_ODD) as T1 
                         JOIN PRODUCT PD ON T1.PRODUCT_ID_for_ODD = PD.PRODUCT_ID

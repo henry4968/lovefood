@@ -198,20 +198,18 @@
                 height: 100%;
                 #donationDate, #donationAmount{
                     font-size: 16px;
-                    color: #707070;
                     display: inline-block;
                 }
                 #donationDate{
                     margin: 0px 10px 0px 0px;
                 }
                 #donationAmount{
-                    input{
-                        width: 150px;
-                        height: 30px;
-                        border: 1px solid #B9AF94;
-                        border-radius: 10px;
-                        background-color: #FFFFFF;
-                        margin: 0px 20px 0px 0px;
+                    h4{
+                        span{
+                            font-size: 22px;
+                            font-weight: 700;
+                            color: rgb(180, 0, 0);
+                        }
                     }
                 }
                 table tr, tr td{
@@ -241,36 +239,26 @@
                         color: #A0754A;
                         font-size: 14px;
                         text-align: center;
-                        .pointsDataActionBlock{
-                            display: flex;
-                            justify-content: space-around;
-                            height: 100%;
-                            a{
-                                display: block;
-                                align-self: center;
-                                .pointsDataActionButton{
-                                    width: 45px;
-                                    height: 26px;
-                                    border-radius: 3px;
-                                    background-color: #D3E4C6;
-                                    font-size: 14px;
-                                    text-align: center;
-                                    color: #707070;
-                                    line-height: 26px;
-                                    
-                                }
-                            }
-                        }      
+                        td{
+                            padding: 10px;
+                        }    
                     }
     
                 }
             }
             #financeShowDonationDetailsPage{
                 padding: 0px 50px;
+                position: relative;
                 #DonationDetailsBlock{
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-between;  
                 }
+                .btn-xl{
+                    position: absolute;
+                    right: 50px;
+                    bottom: 0px;
+
+                } 
             }
         }
         #pagination{
