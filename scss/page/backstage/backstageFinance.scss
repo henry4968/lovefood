@@ -198,7 +198,6 @@
                 height: 100%;
                 #donationDate, #donationAmount{
                     font-size: 16px;
-                    color: #707070;
                     display: inline-block;
                 }
                 #donationDate{
@@ -240,36 +239,26 @@
                         color: #A0754A;
                         font-size: 14px;
                         text-align: center;
-                        .pointsDataActionBlock{
-                            display: flex;
-                            justify-content: space-around;
-                            height: 100%;
-                            a{
-                                display: block;
-                                align-self: center;
-                                .pointsDataActionButton{
-                                    width: 45px;
-                                    height: 26px;
-                                    border-radius: 3px;
-                                    background-color: #D3E4C6;
-                                    font-size: 14px;
-                                    text-align: center;
-                                    color: #707070;
-                                    line-height: 26px;
-                                    
-                                }
-                            }
-                        }      
+                        td{
+                            padding: 10px;
+                        }    
                     }
     
                 }
             }
             #financeShowDonationDetailsPage{
                 padding: 0px 50px;
+                position: relative;
                 #DonationDetailsBlock{
                     display: flex;
-                    justify-content: space-between;
+                    justify-content: space-between;  
                 }
+                .btn-xl{
+                    position: absolute;
+                    right: 50px;
+                    bottom: 0px;
+
+                } 
             }
         }
         #pagination{

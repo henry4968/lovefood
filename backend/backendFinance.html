@@ -249,7 +249,7 @@
                                 <th id="donationPlan">捐款類別</th>
                                 <th>捐款金額</th>
                                 <th>捐款時間</th>
-                                <th>功能鍵</th>
+                                <th>編輯詳情</th>
                             </tr>
                             <tbody v-if="donationLog">
                                 <tr v-for="(data,key) in donationLog">
@@ -262,8 +262,8 @@
                                     <td>{{data["DONATION_AMOUNT"]}}</td>
                                     <td>{{data["DONATION_DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
-                                        <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
-                                            @click="showContent">詳情</button>
+                                        <button type="submit" class="btn-xs btn-brown" :data-id="data['DONATION_ID']"
+                                            @click="showContent">編輯</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -284,7 +284,7 @@
                         <button @click="backToPreviousPage">
                             回上頁
                         </button><br><br>
-                        <h4>編輯【{{data["DONATION_ID"]}}】的捐款詳情：</h4><br>
+                        <h4> ▊ 編輯序號【{{data["DONATION_ID"]}}】的捐款詳情：</h4><br>
                         <div id="DonationDetailsBlock">
                             <div>
                                 捐款編號：<br><input type="text" :value="data['DONATION_ID']" name="selectedId_ED"
@@ -319,7 +319,7 @@
                                     name="remarks_ED"></textarea>
                             </div>
                         </div>
-                        <button @click="updateDonationDetails">
+                        <button class="btn-xl btn-brown" @click="updateDonationDetails">
                             確認修改
                         </button>
                     </div>
