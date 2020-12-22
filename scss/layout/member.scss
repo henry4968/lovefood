@@ -956,6 +956,9 @@ body{
                 }
               }
             }
+            .itemdetailBorder.itemdetailBorderdb{
+              display: none;
+            }
             .itemdetailBorder{
               // border: 1px solid black;
               background-color: #EFF1E1;
@@ -1525,7 +1528,7 @@ body{
                 }
                 .itempointplus{
                   // border: 1px solid black;
-                  margin-left: 20%;
+                  margin-left: 5%;
                   @include newRwd("pad"){
                     width: 20%;
                     margin-left: 0%;
