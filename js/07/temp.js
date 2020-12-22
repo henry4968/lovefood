@@ -6,8 +6,8 @@ const main = new Vue({
     data: {
         tableData: null,
         count: 1,
-        cartArray: [],
-        // cartArray:null
+        itemStorage: [],
+        itemQty: 0,
     },
     methods: {
 
@@ -46,7 +46,7 @@ const main = new Vue({
 
             //////商家//////
             let itemName5 = $('#itemName5').find('input');
-            console.log(itemName5);
+            // console.log(itemName5);
             var sellers = new Array();
             for (i = 0; i < itemName5.length; i++) {
 
@@ -73,10 +73,10 @@ const main = new Vue({
 
             }
             // console.log(arrspecies,);
-            // this.queryData('../PHP/Frontend/EC_07/filter.php',{
-            //     //將陣列放入data透過ajax傳值，php接值
-            //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
-            // })
+            this.queryData('../PHP/Frontend/EC_07/filter.php',{
+                //將陣列放入data透過ajax傳值，php接值
+                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
+            })
             
 
         },
@@ -90,24 +90,27 @@ const main = new Vue({
         },
         
         addCart(item) {
+            // if($('input.pdtValue') == 0){
+            //     return
+            // }
             const self = this;
             var produ = {
                 name: item.PRODUCT_NAME,
                 qty: item.quantity,
                 seller:item.SUPPLIER_NAME,
                 price:item.PRODUCT_SELLING_PRICE,
-                id:item.PRODUCT_ID
+                id:item.PRODUCT_ID,
             };
-            this.cartArray.push(produ.qty);
-            console.log(this.cartArray);
-            if(produ.qty == 0){
-                this.cartArray.pop();
-                // console.log(produ.qty);
+            // let itemStorage = [];
+            if(item.quantity>0){
+                // localStorage
+                self.itemStorage.push(produ);
+                return self.itemQty++;
             }
-            // localStorage
-            let itemStorage = [];
-            itemStorage.push(produ);
-            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
+            localStorage.setItem('itemStorage',JSON.stringify(self.itemStorage));
+            console.log(self.itemStorage);
+            
+            // self.itemStorage.$forceUpdate();
             // Storage() {
                 // localStorage.JSON.parse(localStorage.getItem("cartArray"));
                 
@@ -138,7 +141,7 @@ const main = new Vue({
                             res[index].minutes = 0
                             res[index].seconds = 0
                             res[index].timer = null
-                            res[index].PRODUCT_IMG = 'data:image/jpeg;base64,' + window.atob(res[index].PRODUCT_IMG) 
+                            res[index].PRODUCT_IMG =  window.atob(res[index].PRODUCT_IMG) 
 
                             // console.log(window.btoa(res[index].PRODUCT_IMG) )
                         }
@@ -189,7 +192,7 @@ const main = new Vue({
     mounted(){
         const self = this;
         // store = new Array();
-        this.queryData('../PHP/Frontend/EC_07/storeCard.php')
+        self.queryData('../PHP/Frontend/EC_07/storeCard.php')
         // $.ajax({
         //     url:'../PHP/Frontend/EC_07/storeCard.php',
         //     type: 'POST',
