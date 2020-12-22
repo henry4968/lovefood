@@ -164,7 +164,6 @@
                                 <div>身分證字號／統編<input type="text" name="pID_tID" class="form-control"></div>
                             </div>
                         </div>
-                        <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             查詢時間
                             <div class="form-group">
@@ -207,7 +206,8 @@
                             </div>
                             <div class="infoCards">
                                 平均訂單金額<br><br>
-                                <span>{{financeTotalSelling / financeTotalOrder}}元</span>
+                                <span v-if="financeTotalOrder == 0">0元</span>
+                                <span v-else>{{financeTotalSelling / financeTotalOrder}}元</span>
                             </div>
                             <div class="infoCards">
                                 <div>
@@ -231,10 +231,13 @@
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">
-                            查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
+                            <h4>
+                                ▊ 查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span
+                                    id="showDateEnd">2020-12-31</span>】
+                            </h4>
                         </div>
                         <div id="donationAmount">
-                            捐款總額：<input type="text" :value="totalDonation" disabled>元
+                            <h4> ▊ 捐款總額： <span>{{totalDonation}}</span> 元</h4>
                         </div>
                         <table id="donationTable">
                             <tr id="donationTableHeader">

@@ -265,8 +265,8 @@
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
                             擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl" type="text" name="points"><button
-                                @click="updatePoints">確認修改</button>
+                            修改點數：<input class="input-xl" type="text" name="points01" class="updatePointsInput">
+                            <button @click="updatePoints">確認修改</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -310,8 +310,8 @@
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
                             擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl" type="text" name="points"><button
-                                @click="updatePoints">確認修改</button>
+                            修改點數：<input class="input-xl" type="text" name="points02" class="updatePointsInput">
+                            <button @click="updatePoints">確認修改</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">

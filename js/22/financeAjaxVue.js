@@ -1,16 +1,16 @@
 
-Vue.component('user',{
-    template:`
+Vue.component('user', {
+    template: `
     <div>
         <li>{{user}}</li>
     </div>
     `,
-    data(){
-        return{
+    data() {
+        return {
             user: null
         }
     },
-    created(){
+    created() {
         this.user = $.cookie('account');
     }
 })
@@ -216,8 +216,8 @@ const app = new Vue({
                         let dailySellingAmount = rDS[i].DAILY_SELLING;
                         resDateArr.push([dailySellingDate, parseInt(dailySellingAmount)]);
                     }
+
                     console.log(resDateArr);
-                    console.log(resDateArr[0][0].getTime());
 
                     function addDays(date, days) {
                         var result = new Date(date);
@@ -225,20 +225,33 @@ const app = new Vue({
                         return result;
                     }
 
-                    for (let i = 0; i <= totalDays; i++) {
-                        let presentDate = addDays(realDateStart, 1 * i);
-                        let hasOrder = false;
+                    if (resDateArr.length == 0) {
 
-                        for (let j = 0; j < resDateArr.length; j++) {
-                            if (presentDate.toDateString() == resDateArr[j][0].toDateString()) {
-                                dailySellingArr.push([resDateArr[j][0].getTime(), resDateArr[j][1]]);
-                                hasOrder = true;
+                        for (let i = 0; i <= totalDays; i++) {
+                            let presentDate = addDays(realDateStart, 1 * i);
+                            dailySellingArr.push([presentDate.getTime(), 0]);
+                        }
+
+                    } else {
+
+                        console.log(resDateArr[0][0].getTime());
+
+                        for (let i = 0; i <= totalDays; i++) {
+                            let presentDate = addDays(realDateStart, 1 * i);
+                            let hasOrder = false;
+
+                            for (let j = 0; j < resDateArr.length; j++) {
+                                if (presentDate.toDateString() == resDateArr[j][0].toDateString()) {
+                                    dailySellingArr.push([resDateArr[j][0].getTime(), resDateArr[j][1]]);
+                                    hasOrder = true;
+                                }
+                            }
+
+                            if (!hasOrder) {
+                                dailySellingArr.push([presentDate.getTime(), 0]);
                             }
                         }
 
-                        if (!hasOrder) {
-                            dailySellingArr.push([presentDate.getTime(), 0]);
-                        }
                     }
 
                     self.financeDailySelling = dailySellingArr;
@@ -266,20 +279,31 @@ const app = new Vue({
                     var totalSoldGoodsAmount = 0;
                     var pieChartAllData = [];
 
-                    for (let i = 0; i < rSG.length; i++) {
-                        totalSoldGoodsAmount = totalSoldGoodsAmount + parseInt(rSG[i].ORDER_DETAIL_QUANTITY);
-                    }
+                    if (rSG.length == 0) {
 
-                    for (let i = 0; i < rSG.length; i++) {
                         let pieChartData = {};
-                        pieChartData.name = rSG[i].PRODUCT_NAME;
-                        pieChartData.y = parseInt(rSG[i].ORDER_DETAIL_QUANTITY) / totalSoldGoodsAmount;
-                        pieChartData.y = pieChartData.y.toFixed(4) * 100;
+                        pieChartData.name = "無資料";
+                        pieChartData.y = 100;
                         pieChartAllData.push(pieChartData);
+
+                    } else {
+
+                        for (let i = 0; i < rSG.length; i++) {
+                            totalSoldGoodsAmount = totalSoldGoodsAmount + parseInt(rSG[i].ORDER_DETAIL_QUANTITY);
+                        }
+
+                        for (let i = 0; i < rSG.length; i++) {
+                            let pieChartData = {};
+                            pieChartData.name = rSG[i].PRODUCT_NAME;
+                            pieChartData.y = parseInt(rSG[i].ORDER_DETAIL_QUANTITY) / totalSoldGoodsAmount;
+                            pieChartData.y = pieChartData.y.toFixed(4) * 100;
+                            pieChartAllData.push(pieChartData);
+                        }
+
                     }
 
                     self.pieChartAllData = pieChartAllData;
-                    // console.log(self.pieChartAllData);s
+                    // console.log(self.pieChartAllData);
 
                     // 填入折線圖
                     Highcharts.stockChart('lineChartBlock', {

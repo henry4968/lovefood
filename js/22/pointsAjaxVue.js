@@ -15,8 +15,6 @@ Vue.component('user', {
     }
 })
 
-
-
 const app = new Vue({
     el: '.containerPoints',
     data: {
@@ -245,11 +243,14 @@ const app = new Vue({
 
             let selectedId = $("input[name='selectedId']").val();
             let points = $("input[name='points']").val();
+            let points01 = $("input[name='points01']").val();
+            let points02 = $("input[name='points02']").val();
+            let updatePointsInput = document.getElementsByClassName("updatePointsInput");
 
             $.ajax({
                 url: '../PHP/backStage/points/pointsUpdate.php',
                 type: 'POST',
-                data: { points, selectedId },
+                data: { points, points01, points02, selectedId },
                 success: function (res) {
                     self.pointsUpdating = res;
                     console.log(res)
@@ -261,7 +262,26 @@ const app = new Vue({
                 dataType: "text",
             });
 
-            this.pointsOfMember[0].MEMBER_POINTS = points;
+            if (points01) {
+
+                this.pointsOfMember[0].MEMBER_POINTS = points01;
+
+            } else if (points02) {
+
+                this.pointsOfMember[0].MEMBER_POINTS = points02;
+
+            }
+
+            console.log(updatePointsInput.length);
+
+            for (let i = 0; i < updatePointsInput.length; i++) {
+
+                updatePointsInput[i].val = "";
+
+            }
+
+
+
         },
 
         uploadCSV() {
