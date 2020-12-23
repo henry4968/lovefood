@@ -30,7 +30,7 @@ const main = new Vue({
                 }
             }
             // console.log(arrCate);
-                    //全選下的商家seller filter
+            //全選下的商家seller filter
             let itemName2Wth = $('.itemName2Wth').find('input');
             var arrSeller = new Array();
             for (i = 0; i < itemName2Wth.length; i++) {
@@ -58,7 +58,7 @@ const main = new Vue({
 
             }
             console.log(sellers);
-            
+
             ///////種類//////////
             let itemName6 = $('itemName6').find('input');
             console.log(itemName6);
@@ -77,7 +77,7 @@ const main = new Vue({
             //     //將陣列放入data透過ajax傳值，php接值
             //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             // })
-            
+
 
         },
         add(index) {
@@ -88,36 +88,37 @@ const main = new Vue({
                 this.tableData[index].quantity--;
             }
         },
-        
+
         addCart(item) {
             const self = this;
             var produ = {
                 name: item.PRODUCT_NAME,
                 qty: item.quantity,
-                seller:item.SUPPLIER_NAME,
-                price:item.PRODUCT_SELLING_PRICE,
-                id:item.PRODUCT_ID
+                seller: item.SUPPLIER_NAME,
+                price: item.PRODUCT_SELLING_PRICE,
+                id: item.PRODUCT_ID,
+                img: item.PRODUCT_IMG
             };
             this.cartArray.push(produ.qty);
             console.log(this.cartArray);
-            if(produ.qty == 0){
+            if (produ.qty == 0) {
                 this.cartArray.pop();
                 // console.log(produ.qty);
             }
             // localStorage
             let itemStorage = [];
             itemStorage.push(produ);
-            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
+            localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
             // Storage() {
-                // localStorage.JSON.parse(localStorage.getItem("cartArray"));
-                
+            // localStorage.JSON.parse(localStorage.getItem("cartArray"));
+
             //  }
 
         },
-        queryData(url,data = null){
+        queryData(url, data = null) {
             const self = this
 
-            if(self.tableData !== null){
+            if (self.tableData !== null) {
                 // 清除 interval
                 for (let index = 0; index < self.tableData.length; index++) {
                     clearInterval(self.tableData[index].timer)
@@ -129,64 +130,64 @@ const main = new Vue({
                 url,
                 data,
                 type: 'POST',
-                    success: function (res) {
-                        // console.log(res);
-                        for (let index = 0; index < res.length; index++) {
-                            res[index].quantity = 0
-                            res[index].hours = 0
-                            res[index].days = 0
-                            res[index].minutes = 0
-                            res[index].seconds = 0
-                            res[index].timer = null
-                            res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG) 
+                success: function (res) {
+                    // console.log(res);
+                    for (let index = 0; index < res.length; index++) {
+                        res[index].quantity = 0
+                        res[index].hours = 0
+                        res[index].days = 0
+                        res[index].minutes = 0
+                        res[index].seconds = 0
+                        res[index].timer = null
+                        res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG)
 
-                            // console.log(window.btoa(res[index].PRODUCT_IMG) )
-                        }
-                        // self.$forceUpdate() 強制更新 vue data
+                        // console.log(window.btoa(res[index].PRODUCT_IMG) )
+                    }
+                    // self.$forceUpdate() 強制更新 vue data
 
-                        self.tableData = res;
-                        
-                        for (let index = 0; index < self.tableData.length; index++) {
-                          
-                            const updateTime = () =>{
-                                var now = new Date();
-                                var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
+                    self.tableData = res;
 
-                                if(difference <= 0){
+                    for (let index = 0; index < self.tableData.length; index++) {
 
-                                }else{
-    
-                                    var seconds = Math.floor(difference / 1000);
-                                    var minutes = Math.floor(seconds / 60);
-                                    var hours = Math.floor(minutes / 60);
-                                    var days = Math.floor(hours / 24);
-                                
-                                    hours %= 24;
-                                    minutes %= 60;
-                                    seconds %= 60;
-    
-                                    self.tableData[index].hours = hours
-                                    self.tableData[index].days = days
-                                    self.tableData[index].minutes = minutes
-                                    self.tableData[index].seconds = seconds
-                                }
+                        const updateTime = () => {
+                            var now = new Date();
+                            var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
+
+                            if (difference <= 0) {
+
+                            } else {
+
+                                var seconds = Math.floor(difference / 1000);
+                                var minutes = Math.floor(seconds / 60);
+                                var hours = Math.floor(minutes / 60);
+                                var days = Math.floor(hours / 24);
+
+                                hours %= 24;
+                                minutes %= 60;
+                                seconds %= 60;
+
+                                self.tableData[index].hours = hours
+                                self.tableData[index].days = days
+                                self.tableData[index].minutes = minutes
+                                self.tableData[index].seconds = seconds
                             }
-                            clearInterval(self.tableData[index].timer)
-
-                            self.tableData[index].timer = setInterval(updateTime,1000)
-
                         }
-                    },
-                    error: function (res,error) {
-                        console.log(res,error);
-                    },
-                dataType:'JSON',
+                        clearInterval(self.tableData[index].timer)
+
+                        self.tableData[index].timer = setInterval(updateTime, 1000)
+
+                    }
+                },
+                error: function (res, error) {
+                    console.log(res, error);
+                },
+                dataType: 'JSON',
             })
         }
 
 
     },
-    mounted(){
+    mounted() {
         const self = this;
         // store = new Array();
         this.queryData('../PHP/Frontend/EC_07/storeCard.php')
