@@ -6,7 +6,7 @@ const main = new Vue({
     data: {
         tableData: null,
         count: 1,
-        itemStorage: [],
+        itemStorage:[],
         itemQty: 0,
         pageView:null,//當前頁面的陣列
         pageNow:null,//現在在第幾頁
@@ -75,10 +75,6 @@ const main = new Vue({
                     //將陣列放入data透過ajax傳值，php接值
                     arrCate:arrCate,arrSeller:arrSeller,onlySellersArr:onlySellersArr,onlyCateArr:onlyCateArr, onlyRWDMapArr:onlyRWDMapArr              
                 })
-            this.queryData('../PHP/Frontend/EC_07/filter.php',{
-                //將陣列放入data透過ajax傳值，php接值
-                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
-            })
         },
         add(index) {
             this.tableData[index].quantity++;
@@ -102,17 +98,10 @@ const main = new Vue({
             if(item.quantity>0){
                 // localStorage
                 self.itemStorage.push(produ);
-                return self.itemQty++;
+                self.itemQty++;
             }
-            localStorage.setItem('itemStorage',JSON.stringify(self.itemStorage));
             console.log(self.itemStorage);
-            
-            // self.itemStorage.$forceUpdate();
-            // Storage() {
-                // localStorage.JSON.parse(localStorage.getItem("cartArray"));
-                
-            //  }
-
+            localStorage.setItem('itemStorage',JSON.stringify(self.itemStorage));
         },
         queryData(url,data = null){
             const self = this
@@ -174,6 +163,9 @@ const main = new Vue({
 
                             self.tableData[index].timer = setInterval(updateTime,1000)
                         }
+                        self.pageView = self.tableData.filter(function(item,index,array){
+                            return index < 9;
+                        })
                     },
                     error: function (res, error) {
                         console.log(res, error);
@@ -251,7 +243,7 @@ const main = new Vue({
         //換頁載入＝＝＝＝＝
         setTimeout(() => {
             self.pageView = self.tableData.filter(function(item,index,array){
-                return index < 8;
+                return index < 9;
             })
             pageNow = 0;
             $('#pagination').find('a').eq(1).css({
