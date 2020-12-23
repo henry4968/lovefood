@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="../css/fullpage.css">
     <!-- 輪播套件css（客製化） -->
     <link rel="stylesheet" href="../css/lightslider.css">
-    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <!-- 計數套件 -->
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
@@ -23,9 +22,11 @@
     <script src="../node_modules/fullpage.js/vendors/scrolloverflow.min.js"></script>
     <script src="../node_modules/fullpage.js/dist/fullpage.extensions.min.js"></script>
     <!-- 輪播套件js -->
-    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <!-- <script src="../node_modules/lightslider/dist/js/lightslider.js"></script> -->
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <!-- 自訂js -->
     <script src="../js/22/index.js"></script>
+    <script src="../js/07/data.js"></script>
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
@@ -422,9 +423,35 @@
 
             <!-- 商城輪播開始 -->
             <div id="productCarouselContainer">
-                <ul id="productCarouselList">
+                <ul id="productCarouselList" v-for="(item, index) in tableData">
 
                     <li class="productCarouseItem">
+                        <div class="productCard">
+
+                            <div class="countdown">
+                                下架倒數<span> 12:09:59 </span>秒
+                            </div>
+                            <div class="productAvatarBlock">
+                                <a href="#0">
+                                    <div class="productAvatar">
+                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
+                                    </div>
+                                    <div class="productMainInfo">
+
+                                        <span class="productName">{{item.PRODUCT_NAME}}</span>
+                                        <span class="productSellingPrice">＄20</span>
+
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="productSubInfo">
+                                <span class="ProductCategory">輕食</span>
+                                <span class="productOriginalPrice">原價25元</span>
+                            </div>
+                        </div>
+                    </li>
+
+                    <!-- <li class="productCarouseItem">
                         <div class="productCard">
 
                             <div class="countdown">
@@ -522,10 +549,11 @@
                                 <span class="productOriginalPrice">原價25元</span>
                             </div>
                         </div>
-                    </li>
+                    </li>-->
 
                 </ul>
             </div>
+
             <!-- 商城輪播結束 -->
 
             <h4>合作夥伴</h4>
