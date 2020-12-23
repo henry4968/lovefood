@@ -19,7 +19,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-
+    <!-- <script src="../js/07/store_2Vue.js"></script> -->
 </head>
 
 <body>
@@ -90,7 +90,7 @@ top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=
             <a href="./store_3.html" id="navIcons02" class="navIcons">
                 <span style="position: relative;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </span>
             </a>
             <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
@@ -160,7 +160,7 @@ top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.pn
                                             </polygon>
                                         </svg>
                                     </button>
-                                    <input type="text" :value="count" class="pdtValue">
+                                    <input type="text" v-model="count" class="pdtValue">
                                     <button class="right" @click="count++">
                                         <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                             class="pdtsvg">
@@ -304,5 +304,6 @@ top: -40%;">{{cartArray.length}}</div><img src="../img/22/index/ch05_nav_cart.pn
 </body>
 <!-- js -->
 <!-- <script src="../js/07/temp.js"></script> -->
-<script src="../js/07/07.js"></script>
+<script src="../js/07/07copy.js"></script>
+
 </html>

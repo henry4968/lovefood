@@ -73,19 +73,11 @@ const main = new Vue({
 
             }
             // console.log(arrspecies,);
-<<<<<<< HEAD
             this.queryData('../PHP/Frontend/EC_07/filter.php',{
                 //將陣列放入data透過ajax傳值，php接值
                 arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             })
             
-=======
-            // this.queryData('../PHP/Frontend/EC_07/filter.php',{
-            //     //將陣列放入data透過ajax傳值，php接值
-            //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
-            // })
-
->>>>>>> store
 
         },
         add(index) {
@@ -105,7 +97,6 @@ const main = new Vue({
             var produ = {
                 name: item.PRODUCT_NAME,
                 qty: item.quantity,
-<<<<<<< HEAD
                 seller:item.SUPPLIER_NAME,
                 price:item.PRODUCT_SELLING_PRICE,
                 id:item.PRODUCT_ID,
@@ -120,30 +111,6 @@ const main = new Vue({
             console.log(self.itemStorage);
             
             // self.itemStorage.$forceUpdate();
-=======
-                seller: item.SUPPLIER_NAME,
-                price: item.PRODUCT_SELLING_PRICE,
-                id: item.PRODUCT_ID,
-                img: item.PRODUCT_IMG,
-                exp: item.PRODUCT_EXP_DATE
-            };
-            this.cartArray.push(produ.qty);
-            console.log(this.cartArray);
-            if (produ.qty == 0) {
-                this.cartArray.pop();
-                // console.log(produ.qty);
-            }
-            // localStorage
-            let itemStorage = [];
-            itemStorage.push(produ);
-
-            localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
-
-            // for (let i = 0; i < this.cartArray.length; i++) {
-            //     localStorage.setItem(`itemStorage${i}`, JSON.stringify(itemStorage));
-            // }
-
->>>>>>> store
             // Storage() {
             // localStorage.JSON.parse(localStorage.getItem("cartArray"));
 
@@ -165,7 +132,6 @@ const main = new Vue({
                 url,
                 data,
                 type: 'POST',
-<<<<<<< HEAD
                     success: function (res) {
                         // console.log(res);
                         for (let index = 0; index < res.length; index++) {
@@ -207,55 +173,13 @@ const main = new Vue({
                                     self.tableData[index].minutes = minutes
                                     self.tableData[index].seconds = seconds
                                 }
-=======
-                success: function (res) {
-                    // console.log(res);
-                    for (let index = 0; index < res.length; index++) {
-                        res[index].quantity = 0
-                        res[index].hours = 0
-                        res[index].days = 0
-                        res[index].minutes = 0
-                        res[index].seconds = 0
-                        res[index].timer = null
-                        res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG)
-
-                        // console.log(window.btoa(res[index].PRODUCT_IMG) )
-                    }
-                    // self.$forceUpdate() 強制更新 vue data
-
-                    self.tableData = res;
-
-                    for (let index = 0; index < self.tableData.length; index++) {
-
-                        const updateTime = () => {
-                            var now = new Date();
-                            var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
-
-                            if (difference <= 0) {
-
-                            } else {
-
-                                var seconds = Math.floor(difference / 1000);
-                                var minutes = Math.floor(seconds / 60);
-                                var hours = Math.floor(minutes / 60);
-                                var days = Math.floor(hours / 24);
-
-                                hours %= 24;
-                                minutes %= 60;
-                                seconds %= 60;
-
-                                self.tableData[index].hours = hours
-                                self.tableData[index].days = days
-                                self.tableData[index].minutes = minutes
-                                self.tableData[index].seconds = seconds
->>>>>>> store
                             }
                         }
                         clearInterval(self.tableData[index].timer)
 
                         self.tableData[index].timer = setInterval(updateTime, 1000)
 
-                    }
+                    
                 },
                 error: function (res, error) {
                     console.log(res, error);
