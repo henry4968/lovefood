@@ -460,14 +460,15 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
                             <!-- {{item}} -->
                                 <div class="product" v-if="!(item.hours === 0 && item.days === 0 && item.seconds === 0 && item.minutes === 0 )">
                                     
-                                    <div class="pdtText">下架倒數
+                                    <div class="pdtText">
                                         <span class="pdtTime">
+                                            下架倒數
                                             <span class="days" v-text="item.days"></span>:
                                             <span class="hours" v-text="item.hours"></span>:
                                             <span class="minutes" v-text="item.minutes"></span>:
                                             <span class="seconds" v-text="item.seconds"></span>
                                         </span>
-                                        秒
+                                        
                                     </div>
                                     <div class="productCenter">
                                         <a 
