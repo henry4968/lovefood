@@ -385,6 +385,13 @@ Vue.component('seller', {
         event.preventDefault();
       }
 
+      // 檢查電話號碼前兩碼必須為09
+      if (this.modphone.substr(0, 2) != 09) {
+        this.modphone = '';
+        this.telpla = '手機格式錯誤';
+        this.inpredtel = true;
+      }
+
       // 聯絡電話只能是數字及數字需大於等於10碼
       const phonemath = /\d{10}/;
       if (this.selphonehtml.search(phonemath) != 0 || this.selphonehtml.length != 10) {
