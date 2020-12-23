@@ -6,15 +6,10 @@ const main = new Vue({
     data: {
         tableData: null,
         count: 1,
-<<<<<<< HEAD
         itemStorage: [],
         itemQty: 0,
         pageView:null,//當前頁面的陣列
         pageNow:null,//現在在第幾頁
-=======
-        cartArray: [],
-        // cartArray:null
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
     },
     methods: {
         query(button) {
@@ -34,7 +29,6 @@ const main = new Vue({
                         arrCate.push(cateChecked);//filter.php收值 arrCate
                     }
                 }
-<<<<<<< HEAD
                 let itemName2Wth = $('.itemName2Wth').find('input');//商家搜尋
                 for (i = 0; i < itemName2Wth.length; i++) {
                     sellerChecked = $(`input[name="seller1[${i}]"]:checked`).val();
@@ -73,65 +67,18 @@ const main = new Vue({
                     if (RWDMapArr != null) {
                         onlyRWDMapArr.push(RWDMapArr);//filter.php收值onlyCateArr
                     }
-=======
-            }
-            // console.log(arrCate);
-                    //全選下的商家seller filter
-            let itemName2Wth = $('.itemName2Wth').find('input');
-            var arrSeller = new Array();
-            for (i = 0; i < itemName2Wth.length; i++) {
-
-                sellerChecked = $(`input[name="seller1[${i}]"]:checked`).val();
-
-                if (sellerChecked != null) {
-                    arrSeller.push(sellerChecked);
-                }
-
-            }
-            console.log(arrSeller); //商家選取陣列
-
-            //////商家//////
-            let itemName5 = $('#itemName5').find('input');
-            console.log(itemName5);
-            var sellers = new Array();
-            for (i = 0; i < itemName5.length; i++) {
-
-                sChecked = $(`input[name="seller2[${i}]"]:checked`).val();
-
-                if (sChecked != null) {
-                    sellers.push(sChecked);
-                }
-
-            }
-            console.log(sellers);
-            
-            ///////種類//////////
-            let itemName6 = $('itemName6').find('input');
-            console.log(itemName6);
-            var arrspecies = new Array();
-            for (i = 0; i < itemName6.length; i++) {
-
-                speciesChecked = $(`input[name="categories2[${i}]"]:checked`).val();
-
-                if (speciesChecked != null) {
-                    arrspecies.push(speciesChecked);
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
                 }
             }
-<<<<<<< HEAD
+
+            // console.log(arrspecies,);
                 this.queryData('../PHP/Frontend/EC_07/filter.php',{
                     //將陣列放入data透過ajax傳值，php接值
                     arrCate:arrCate,arrSeller:arrSeller,onlySellersArr:onlySellersArr,onlyCateArr:onlyCateArr, onlyRWDMapArr:onlyRWDMapArr              
                 })
-=======
-            console.log(arrspecies);
             this.queryData('../PHP/Frontend/EC_07/filter.php',{
                 //將陣列放入data透過ajax傳值，php接值
                 arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             })
-            
-
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
         },
         add(index) {
             this.tableData[index].quantity++;
@@ -149,7 +96,6 @@ const main = new Vue({
                 qty: item.quantity,
                 seller:item.SUPPLIER_NAME,
                 price:item.PRODUCT_SELLING_PRICE,
-<<<<<<< HEAD
                 id:item.PRODUCT_ID,
             };
             // let itemStorage = [];
@@ -162,20 +108,6 @@ const main = new Vue({
             console.log(self.itemStorage);
             
             // self.itemStorage.$forceUpdate();
-=======
-                id:item.PRODUCT_ID
-            };
-            this.cartArray.push(produ.qty);
-            console.log(this.cartArray);
-            if(produ.qty == 0){
-                this.cartArray.pop();
-                // console.log(produ.qty);
-            }
-            // localStorage
-            let itemStorage = [];
-            itemStorage.push(produ);
-            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
             // Storage() {
                 // localStorage.JSON.parse(localStorage.getItem("cartArray"));
                 
@@ -206,7 +138,7 @@ const main = new Vue({
                             res[index].minutes = 0
                             res[index].seconds = 0
                             res[index].timer = null
-                            res[index].PRODUCT_IMG = 'data:image/jpeg;base64,' + window.atob(res[index].PRODUCT_IMG) 
+                            res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG) 
 
                             // console.log(window.btoa(res[index].PRODUCT_IMG) )
                         }
@@ -241,17 +173,12 @@ const main = new Vue({
                             clearInterval(self.tableData[index].timer)
 
                             self.tableData[index].timer = setInterval(updateTime,1000)
-
                         }
                     },
-                    error: function (res,error) {
-                        console.log(res,error);
+                    error: function (res, error) {
+                        console.log(res, error);
                     },
-<<<<<<< HEAD
-                dataType:'JSON',
-=======
-                dataType:'text',
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
+                    dataType:'JSON',
             })
         },
         pageChange(page){
@@ -320,7 +247,6 @@ const main = new Vue({
     mounted(){
         const self = this;
         // store = new Array();
-<<<<<<< HEAD
         self.queryData('../PHP/Frontend/EC_07/storeCard.php')
         //換頁載入＝＝＝＝＝
         setTimeout(() => {
@@ -333,9 +259,6 @@ const main = new Vue({
                 color:'#FFF'})
         }, 1000);
         //換頁載入＝＝＝＝＝
-=======
-        this.queryData('../PHP/Frontend/EC_07/storeCard.php')
->>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
         // $.ajax({
         //     url:'../PHP/Frontend/EC_07/storeCard.php',
         //     type: 'POST',
