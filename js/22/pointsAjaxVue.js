@@ -263,21 +263,14 @@ const app = new Vue({
             });
 
             if (points01) {
-
                 this.pointsOfMember[0].MEMBER_POINTS = points01;
-
             } else if (points02) {
-
                 this.pointsOfMember[0].MEMBER_POINTS = points02;
-
             }
 
-            console.log(updatePointsInput.length);
 
             for (let i = 0; i < updatePointsInput.length; i++) {
-
-                updatePointsInput[i].val = "";
-
+                updatePointsInput[i].value = "";
             }
 
 
@@ -320,6 +313,7 @@ const app = new Vue({
             });
 
         },
+
         showFileName() {
 
             let csvFileInput = document.querySelector("#csvFileInput");
@@ -327,7 +321,7 @@ const app = new Vue({
 
             labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
         },
-        //==============換頁function=============
+
         pageChange(page) {
             //==============標記當前在第幾頁=============
             const self = this;

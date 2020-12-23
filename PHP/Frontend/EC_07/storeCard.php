@@ -25,7 +25,6 @@
         $dataAll[$i]['PRODUCT_IMG'] = base64_encode($dataAll[$i]['PRODUCT_IMG']);
     }
     // print_r($dataAll);
-    // echo'444';
     print json_encode($dataAll);
     //第六步印出來JSON格式讓ajax呼叫
 
