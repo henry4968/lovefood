@@ -6,8 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
-    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <!-- 圖表套件 -->
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../node_modules/highcharts/highstock.js"></script>
+
 </head>
 
 <body>
@@ -116,17 +120,15 @@
                     <div id="financeFilterForSelling" class="financeFilter" v-show="showTab">
                         <div id="financeDateFilterBlock">
                             查詢時間
-                            <input type="date">至
-                            <input type="date">
+                            <input type="date" value="2020-01-01" name="financeQueryDateStart">至
+                            <input type="date" value="2020-12-31" name="financeQueryDateEnd">
                             <div id="supplierID">
                                 賣家編號
-                                <input type="text">
+                                <input type="text" name="supplierId" :value="loginAccount">
                             </div>
                         </div>
                         <div id="financeFilterDownload">下載：</div>
-                        <a href="">
-                            <div id="financeFilterButton">查詢</div>
-                        </a>
+                        <button id="financeFilterButton" @click="queryFinance">查詢</button>
                     </div>
                     <div id="financeFilterForDonation" class="financeFilter" v-show="!showTab">
                         <div id="donationSearchingBlock">
@@ -142,30 +144,37 @@
                         <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             <div>查詢區間</div>
-                            <input type="date" name="dateStart" value="2016-01-01" id="queryDateStart">至
-                            <input type="date" name="dateEnd" value="2020-12-31" id="queryDateEnd">
-                            <a href="#0">
-                                <div id="financeFilterButton" @click="query">查詢</div>
-                            </a>
+                            <input type="date" name="donationQueryDateStart" value="2016-01-01" id="queryDateStart"
+                                min="2015-01-01">至
+                            <input type="date" name="donationQueryDateEnd" value="2020-12-31" id="queryDateEnd"
+                                max="2020-12-31">
+                            <button id="financeFilterButton" @click="queryDonation">查詢</button>
                         </div>
                     </div>
                 </div>
                 <div id="financeDataArea">
                     <div id="financeShowSellingPage" v-show="showTab">
-                        <div id="financeShowResultBlock">
-                            <div class="financeShowResultRow">
-                                查詢時間： 2020-10-21～2020-10-31
+                        <div class="infoCards">
+                            總銷售額：{{financeTotalSelling}}
+                        </div>
+                        <div class="infoCards">
+                            訂單總量：{{financeTotalOrder}}
+                        </div>
+                        <div class="infoCards">
+                            平均訂單金額：{{financeTotalSelling / financeTotalOrder}}
+                        </div>
+                        <div class="infoCards">
+                            <div>
+                                最熱銷的商品：【<span v-if="mostPopularGood">{{mostPopularGood.PRODUCT_NAME}}</span>
+                                <span v-else>無資料</span>】
                             </div>
-                            <div class="financeShowResultRow">
-                                訂單筆數：<input type="text" class="financeSearchResult">筆
-                            </div>
-                            <div class="financeShowResultRow">
-                                銷售總額：<input type="text" class="financeSearchResult">元
+                            <div>
+                                最冷門的商品：【<span v-if="mostUnpopularGood">{{mostUnpopularGood.PRODUCT_NAME}}</span>
+                                <span v-else>無資料</span>】
                             </div>
                         </div>
-                        <div id="financeDiagram">
-                            <img src="../img/22/backend/temp_diagram.png" alt="">
-                        </div>
+                        <div id="lineChartBlock"></div>
+                        <div id="pieChartBlock"></div>
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">

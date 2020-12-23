@@ -1,0 +1,1750 @@
+@font-face {
+  font-family: "Didot-Bo1d-1";
+  src: url("../fonts/Didot-Bold-1.ttf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "Didot-Italic-2";
+  src: url("../fonts/Didot-Italic-2.ttf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "Flexure";
+  src: url("../fonts/Flexure.ttf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "Fuji-Extended Bold";
+  src: url("../fonts/Fuji-Extended Bold.ttf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Black";
+  src: url("../fonts/NotoSansCJKtc-Black.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Bold";
+  src: url("../fonts/NotoSansCJKtc-Bold.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-DemiLight";
+  src: url("../fonts/NotoSansCJKtc-DemiLight.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Light";
+  src: url("../fonts/NotoSansCJKtc-Light.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Medium";
+  src: url("../fonts/NotoSansCJKtc-Medium.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Regular";
+  src: url("../fonts/NotoSansCJKtc-Regular.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansCJKtc-Thin";
+  src: url("../fonts/NotoSansCJKtc-Thin.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansMonoCJKtc-Bold";
+  src: url("../fonts/NotoSansMonoCJKtc-Bold.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "NotoSansMonoCJKtc-Regular";
+  src: url("../fonts/NotoSansMonoCJKtc-Regular.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "PingFang";
+  src: url("../fonts/PingFang.ttc");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "PingFang-TC-Regular-2";
+  src: url("../fonts/PingFang-TC-Regular-2.otf");
+  font-display: fallback; }
+
+@font-face {
+  font-family: "plantc";
+  src: url("../fonts/plantc.ttf");
+  font-display: fallback; }
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif";
+  text-decoration: none; }
+
+#header {
+  width: 100%;
+  height: 123px;
+  display: flex;
+  position: fixed;
+  background: transparent;
+  z-index: 9;
+  background-color: #EFECB9;
+  font-family: "PingFang-TC-thin","NotoSansCJKtc-Thin","sans-serif"; }
+  @media all and (max-width: 991px) {
+    #header {
+      width: 100%;
+      height: 55px; } }
+  #header #hamburgerMenuToggle {
+    opacity: 0; }
+    #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span {
+      transform: rotate(45deg); }
+      #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::before {
+        top: 0;
+        transform: rotate(0deg); }
+      #header #hamburgerMenuToggle:checked + #hamburgerMenuButton > span::after {
+        top: 0;
+        transform: rotate(90deg); }
+    #header #hamburgerMenuToggle:checked ~ #navigationForMobile {
+      left: 0; }
+  #header #hamburgerMenuButton {
+    width: 45px;
+    height: 35px;
+    align-self: center;
+    margin-left: 10px;
+    position: relative;
+    cursor: pointer;
+    display: none; }
+    #header #hamburgerMenuButton:hover {
+      opacity: 0.5;
+      transform: scale(1.05);
+      transition: all .3s; }
+    @media all and (max-width: 575px) {
+      #header #hamburgerMenuButton {
+        margin-left: 5px; } }
+    #header #hamburgerMenuButton span {
+      display: block; }
+    #header #hamburgerMenuButton span, #header #hamburgerMenuButton span::before, #header #hamburgerMenuButton span::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 3px;
+      border-radius: 10px;
+      position: absolute;
+      transition-duration: .35s;
+      background-color: #8F8770; }
+      @media all and (max-width: 575px) {
+        #header #hamburgerMenuButton span, #header #hamburgerMenuButton span::before, #header #hamburgerMenuButton span::after {
+          width: 36px;
+          height: 3px; } }
+    #header #hamburgerMenuButton span {
+      top: 45%; }
+      #header #hamburgerMenuButton span::before {
+        content: '';
+        top: -12px; }
+        @media all and (max-width: 575px) {
+          #header #hamburgerMenuButton span::before {
+            top: -10px; } }
+      #header #hamburgerMenuButton span::after {
+        content: '';
+        top: 12px; }
+        @media all and (max-width: 575px) {
+          #header #hamburgerMenuButton span::after {
+            top: 10px; } }
+    @media all and (max-width: 991px) {
+      #header #hamburgerMenuButton {
+        display: block; } }
+  #header .hamburgerMenuColorForCh01 span, #header .hamburgerMenuColorForCh01 span::before, #header .hamburgerMenuColorForCh01 span::after {
+    background-color: #FDFBBA; }
+  #header .hamburgerMenuColorForCh0102 span, #header .hamburgerMenuColorForCh0102 span::before, #header .hamburgerMenuColorForCh0102 span::after {
+    background-color: #946C1E; }
+  #header .hamburgerMenuColorForCh02 span, #header .hamburgerMenuColorForCh02 span::before, #header .hamburgerMenuColorForCh02 span::after {
+    background-color: #FFFFFF; }
+  #header #navigationForMobile {
+    display: none; }
+    @media all and (max-width: 991px) {
+      #header #navigationForMobile {
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 55px;
+        left: -100%;
+        background-color: #efecb9;
+        opacity: 95%;
+        transition-duration: .35s; }
+        #header #navigationForMobile #searchBarForMobile {
+          width: 100%;
+          height: 70px;
+          background-color: #ddd5af;
+          display: flex; }
+          #header #navigationForMobile #searchBarForMobile #searchInputForMobile {
+            width: 80%;
+            height: 60%;
+            border: #8f7086;
+            border-radius: 20px;
+            background-color: #ececec;
+            display: block;
+            margin: auto;
+            align-self: center;
+            outline: none;
+            padding-left: 20px;
+            font-size: 20px; }
+        #header #navigationForMobile li {
+          list-style: none;
+          text-align: center;
+          font-size: 24px;
+          margin: 30px 0px 0px 0px; }
+          #header #navigationForMobile li #donationPage {
+            padding: 3px;
+            border-bottom: 2px solid #959076; }
+          #header #navigationForMobile li a {
+            color: #515151; }
+            #header #navigationForMobile li a:hover {
+              color: #D6CAAA;
+              transition: all .3s;
+              transform: scale(1.05);
+              text-decoration: none; }
+            #header #navigationForMobile li a:focus {
+              text-decoration: none; }
+          #header #navigationForMobile li #navSepcialAnchorForMobile div {
+            width: 119px;
+            height: 40px;
+            border-radius: 3px;
+            line-height: 40px;
+            box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
+            margin: auto;
+            background-color: #E8CE67; }
+            #header #navigationForMobile li #navSepcialAnchorForMobile div:hover {
+              background-color: #fde16f;
+              transition: all .3s;
+              color: #515151; } }
+  #header #headerContentContainer {
+    width: 1180px;
+    height: 50px;
+    margin: 38px 0px 0px 364px;
+    display: flex;
+    justify-content: space-between; }
+    @media all and (max-width: 1599px) {
+      #header #headerContentContainer {
+        width: 970px;
+        margin: auto;
+        align-items: center; } }
+    @media all and (max-width: 1199px) {
+      #header #headerContentContainer {
+        width: 920px;
+        margin: auto;
+        align-items: center; } }
+    #header #headerContentContainer #logo {
+      width: 264px;
+      height: 46px; }
+      #header #headerContentContainer #logo:hover {
+        content: url("../../../img/22/index/ch0102_header_logo_hover.png");
+        transition: all .3s; }
+      @media all and (max-width: 1599px) {
+        #header #headerContentContainer #logo {
+          width: 216px;
+          height: 38px;
+          align-self: center; } }
+      @media all and (max-width: 1199px) {
+        #header #headerContentContainer #logo {
+          width: 216px;
+          height: 38px;
+          align-self: center; } }
+      @media all and (max-width: 991px) {
+        #header #headerContentContainer #logo {
+          position: absolute;
+          transform: translate(-50%, -50%);
+          left: 50%; } }
+      @media all and (max-width: 991px) {
+        #header #headerContentContainer #logo {
+          width: 158px;
+          height: 27px; } }
+    #header #headerContentContainer #navigationForPC {
+      width: 762px;
+      height: 50px;
+      display: flex;
+      align-items: center; }
+      @media all and (max-width: 1599px) {
+        #header #headerContentContainer #navigationForPC {
+          width: 625px;
+          align-items: center; } }
+      #header #headerContentContainer #navigationForPC #donatePageWeb {
+        border-bottom: 2px solid #8F8770; }
+      #header #headerContentContainer #navigationForPC a {
+        font-size: 30px; }
+        @media all and (max-width: 1599px) {
+          #header #headerContentContainer #navigationForPC a {
+            font-size: 20px; } }
+        @media all and (max-width: 1199px) {
+          #header #headerContentContainer #navigationForPC a {
+            font-size: 20px; } }
+        @media all and (max-width: 991px) {
+          #header #headerContentContainer #navigationForPC a {
+            display: none; } }
+      #header #headerContentContainer #navigationForPC .navGeneralAnchors {
+        color: #8F8770;
+        text-decoration: none; }
+        #header #headerContentContainer #navigationForPC .navGeneralAnchors:hover {
+          color: #D6CAAA;
+          transform: scale(1.05);
+          transition: all .3s; }
+      #header #headerContentContainer #navigationForPC :nth-child(2), #header #headerContentContainer #navigationForPC :nth-child(3) {
+        margin-left: 25px; }
+        @media all and (max-width: 1599px) {
+          #header #headerContentContainer #navigationForPC :nth-child(2), #header #headerContentContainer #navigationForPC :nth-child(3) {
+            margin-left: 20px; } }
+      #header #headerContentContainer #navigationForPC #navSepcialAnchor {
+        color: #858585;
+        text-decoration: none; }
+        #header #headerContentContainer #navigationForPC #navSepcialAnchor div {
+          width: 139px;
+          height: 100%;
+          border-radius: 3px;
+          text-align: center;
+          padding: 3px 0;
+          background-color: #8F8770;
+          color: white;
+          margin: 0px 28px; }
+          #header #headerContentContainer #navigationForPC #navSepcialAnchor div:hover {
+            background-color: #D6CAAA;
+            transform: scale(1.05);
+            transition: all .3s; }
+          @media all and (max-width: 1599px) {
+            #header #headerContentContainer #navigationForPC #navSepcialAnchor div {
+              width: 114px; } }
+      @media all and (max-width: 1599px) {
+        #header #headerContentContainer #navigationForPC .navIcons img {
+          width: 30px; } }
+      #header #headerContentContainer #navigationForPC .navIcons img:hover {
+        opacity: 0.5;
+        transform: scale(1.05);
+        transition: all .3s; }
+      #header #headerContentContainer #navigationForPC #navIcons02, #header #headerContentContainer #navigationForPC #navIcons03 {
+        margin-left: 20px; }
+    #header #headerContentContainer #subNavigationForMobile {
+      display: none;
+      margin-right: 5px; }
+      @media all and (max-width: 991px) {
+        #header #headerContentContainer #subNavigationForMobile {
+          display: block;
+          width: 90px;
+          display: flex;
+          justify-content: space-between;
+          position: absolute;
+          right: 10px; }
+          #header #headerContentContainer #subNavigationForMobile img {
+            height: 30px;
+            margin: 5px 0px 0px 10px; }
+            #header #headerContentContainer #subNavigationForMobile img:hover {
+              opacity: 0.5;
+              transform: scale(1.05);
+              transition: all .3s; } }
+      @media all and (max-width: 575px) {
+        #header #headerContentContainer #subNavigationForMobile {
+          width: 55px;
+          right: 20px; }
+          #header #headerContentContainer #subNavigationForMobile img {
+            height: 23px;
+            margin: 5px 0px 0px 10px; }
+            #header #headerContentContainer #subNavigationForMobile img:hover {
+              opacity: 0.5;
+              transform: scale(1.05);
+              transition: all .3s; } }
+
+.fullPageBg {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-color: #EFECB9;
+  background-repeat: no-repeat;
+  background-image: url("../img/21/donation_description/banner.png");
+  background-size: cover;
+  background-position: center;
+  min-width: 320px;
+  min-height: 600px; }
+  .fullPageBg .bannerTitle {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    z-index: 5;
+    background-color: #EFECB9;
+    width: 500px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    font-size: 25px;
+    line-height: 75px; }
+  @media all and (max-width: 1199px) {
+    .fullPageBg .bannerTitle {
+      width: 400px;
+      height: 250px;
+      font-size: 20px;
+      line-height: 65px; } }
+  @media all and (max-width: 991px) {
+    .fullPageBg .bannerTitle {
+      width: 300px;
+      height: 200px;
+      font-size: 18px;
+      line-height: 56px; } }
+  .fullPageBg .bannerRound {
+    background-image: url("../img/21/donation_description/banner_round.png");
+    position: absolute;
+    bottom: 60px;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    max-height: 92px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center; }
+  @media screen and (max-width: 900px) {
+    .fullPageBg .bannerRound {
+      z-index: 0;
+      bottom: 0; } }
+
+.secondNav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #EFECB9;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  height: 61px;
+  padding: 0 30px; }
+  .secondNav .bottomNav {
+    font-size: 30px;
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    z-index: 5;
+    margin-top: -30px; }
+    .secondNav .bottomNav a {
+      text-decoration: none;
+      white-space: nowrap;
+      color: #000; }
+      .secondNav .bottomNav a:hover {
+        color: #978a8a;
+        transition: all .3s; }
+
+.bottomNav2 {
+  display: none; }
+  .bottomNav2 a {
+    text-decoration: none;
+    white-space: nowrap;
+    color: #000; }
+    .bottomNav2 a:hover {
+      color: #978a8a;
+      transition: all .3s;
+      text-decoration: none; }
+
+@media screen and (max-width: 900px) {
+  .secondNav {
+    display: none; }
+    .secondNav .bottomNav {
+      display: none; }
+      .secondNav .bottomNav a {
+        display: none; }
+  .bottomNav2 {
+    display: block;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EFECB9;
+    font-size: 30px;
+    max-width: 1200px;
+    width: 100%; }
+    .bottomNav2 a {
+      transform: translateY(-190%);
+      margin: 8px auto;
+      text-decoration: none;
+      white-space: nowrap;
+      color: #000;
+      z-index: 5; }
+      .bottomNav2 a:hover {
+        color: #978a8a; } }
+
+.projectDetails .projectDetailsBg {
+  background-repeat: no-repeat;
+  background-image: url("../img/21/donation_description/background1.png");
+  background-size: cover;
+  background-position: center;
+  height: 100%;
+  height: 1081px;
+  width: 100%; }
+  .projectDetails .projectDetailsBg .projectDetailsIn {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 100px; }
+    .projectDetails .projectDetailsBg .projectDetailsIn .title {
+      position: relative;
+      display: block;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      height: 100px;
+      margin: 0 auto 105px; }
+      .projectDetails .projectDetailsBg .projectDetailsIn .title img {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: -25px; }
+        @media all and (max-width: 575px) {
+          .projectDetails .projectDetailsBg .projectDetailsIn .title img {
+            bottom: 21px;
+            left: 2px;
+            width: 87%; } }
+      .projectDetails .projectDetailsBg .projectDetailsIn .title h2 {
+        font-size: 50px;
+        display: block;
+        margin-top: 0px; }
+        @media all and (max-width: 767px) {
+          .projectDetails .projectDetailsBg .projectDetailsIn .title h2 {
+            font-size: 40px; } }
+    .projectDetails .projectDetailsBg .projectDetailsIn .area1 {
+      display: flex;
+      flex-wrap: wrap-reverse;
+      justify-content: space-around; }
+      .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt {
+        margin: 80px 30px 30px 30px;
+        max-width: 680px;
+        min-width: 320px;
+        text-align: justify;
+        padding: 0 30px; }
+        .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt h3 {
+          font-size: 40px;
+          margin-bottom: 40px; }
+        .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt p {
+          font-size: 30px;
+          line-height: 60px; }
+      .projectDetails .projectDetailsBg .projectDetailsIn .area1 .area2TxtImg {
+        max-width: 380px;
+        width: 50%;
+        margin: 30px; }
+        .projectDetails .projectDetailsBg .projectDetailsIn .area1 .area2TxtImg #area2TxtImg {
+          max-width: 100%; }
+    @media screen and (max-width: 1200px) {
+      .projectDetails .projectDetailsBg .projectDetailsIn .title {
+        margin: 0 auto; }
+      .projectDetails .projectDetailsBg .projectDetailsIn .area1 {
+        justify-content: center;
+        flex-direction: column-reverse; }
+        .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt {
+          margin: -95px auto 0;
+          max-width: 700px; }
+          .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt h3 {
+            font-size: 35px;
+            margin-bottom: 20px; }
+          .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt p {
+            font-size: 26px;
+            line-height: 50px; }
+        .projectDetails .projectDetailsBg .projectDetailsIn .area1 .area2TxtImg {
+          transform: rotate(270deg);
+          margin: 0px auto 30px;
+          max-height: 679px; }
+          .projectDetails .projectDetailsBg .projectDetailsIn .area1 .area2TxtImg #area2TxtImg {
+            max-width: 100%; } }
+    @media all and (max-width: 575px) {
+      .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt h3 {
+        font-size: 35px;
+        margin-bottom: 20px; } }
+  @media all and (max-width: 575px) and (min-width: 319px) and (max-width: 374px) {
+    .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt h3 {
+      font-size: 30px; } }
+    @media all and (max-width: 575px) {
+      .projectDetails .projectDetailsBg .projectDetailsIn .area1 .txt p {
+        font-size: 22px;
+        line-height: 40px; } }
+  @media screen and (max-width: 900px) {
+    .projectDetails .projectDetailsBg .projectDetailsIn {
+      padding-top: 0px; } }
+
+.projectDetails .area2 {
+  max-width: 1200px;
+  margin: 0 auto 100px;
+  padding-top: 110px; }
+  @media all and (max-width: 1199px) {
+    .projectDetails .area2 {
+      padding-top: 180px;
+      margin: 0 auto 50px; } }
+  @media all and (max-width: 767px) {
+    .projectDetails .area2 {
+      padding-top: 0px; } }
+  .projectDetails .area2 .area2Txt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+    @media all and (max-width: 1199px) {
+      .projectDetails .area2 .area2Txt {
+        display: flex;
+        flex-direction: column;
+        align-items: center; } }
+    .projectDetails .area2 .area2Txt img {
+      max-width: 216px;
+      height: 260px;
+      margin: 0 0 0 30px; }
+      @media all and (max-width: 1199px) {
+        .projectDetails .area2 .area2Txt img {
+          max-width: 180px;
+          height: 200px; } }
+    .projectDetails .area2 .area2Txt .area2TxtTxt {
+      padding: 30px 30px 30px 0; }
+      @media all and (max-width: 1199px) {
+        .projectDetails .area2 .area2Txt .area2TxtTxt {
+          padding: 30px;
+          max-width: 700px; } }
+      .projectDetails .area2 .area2Txt .area2TxtTxt h3 {
+        font-size: 40px;
+        margin: 100px 0 40px; }
+        @media all and (max-width: 1199px) {
+          .projectDetails .area2 .area2Txt .area2TxtTxt h3 {
+            font-size: 35px;
+            margin: 10px 0 40px;
+            display: flex;
+            justify-content: center; } }
+        @media all and (max-width: 575px) {
+          .projectDetails .area2 .area2Txt .area2TxtTxt h3 {
+            font-size: 35px;
+            margin-bottom: 20px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .projectDetails .area2 .area2Txt .area2TxtTxt h3 {
+            font-size: 30px; } }
+      .projectDetails .area2 .area2Txt .area2TxtTxt p {
+        font-size: 30px;
+        line-height: 60px;
+        max-width: 850px;
+        padding-bottom: 60px;
+        text-align: justify; }
+        @media all and (max-width: 1199px) {
+          .projectDetails .area2 .area2Txt .area2TxtTxt p {
+            font-size: 26px;
+            line-height: 50px; } }
+        @media all and (max-width: 575px) {
+          .projectDetails .area2 .area2Txt .area2TxtTxt p {
+            font-size: 22px;
+            line-height: 40px; } }
+
+.projectDetails .area3 {
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  .projectDetails .area3 .area3_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-repeat: no-repeat;
+    background-image: url("../img/21/donation_description/background2.png");
+    background-size: cover;
+    background-position: center;
+    height: 1900px;
+    width: 100%;
+    z-index: -1; }
+  .projectDetails .area3 .howDo {
+    max-width: 1200px;
+    width: 100%; }
+    .projectDetails .area3 .howDo .howDoTitle {
+      margin: 0px auto 140px;
+      text-align: center; }
+      .projectDetails .area3 .howDo .howDoTitle h3 {
+        font-size: 40px;
+        margin: 0 auto 40px; }
+        @media all and (max-width: 1199px) {
+          .projectDetails .area3 .howDo .howDoTitle h3 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .projectDetails .area3 .howDo .howDoTitle h3 {
+            font-size: 35px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .projectDetails .area3 .howDo .howDoTitle h3 {
+            font-size: 30px; } }
+      .projectDetails .area3 .howDo .howDoTitle p {
+        font-size: 30px;
+        line-height: 60px;
+        max-width: 700px;
+        padding-bottom: 10px;
+        margin: 0 auto;
+        padding: 0 30px; }
+        @media all and (max-width: 1199px) {
+          .projectDetails .area3 .howDo .howDoTitle p {
+            font-size: 26px;
+            line-height: 50px; } }
+        @media all and (max-width: 575px) {
+          .projectDetails .area3 .howDo .howDoTitle p {
+            font-size: 22px;
+            line-height: 40px; } }
+    .projectDetails .area3 .howDo #howDoFlower {
+      position: absolute;
+      right: 0;
+      top: 28%;
+      max-width: 817px;
+      width: 100%;
+      z-index: 1;
+      opacity: 0.8; }
+      @media all and (max-width: 1599px) {
+        .projectDetails .area3 .howDo #howDoFlower {
+          opacity: 0.5; } }
+      @media all and (max-width: 1199px) {
+        .projectDetails .area3 .howDo #howDoFlower {
+          opacity: 0.5; } }
+      @media all and (max-width: 575px) {
+        .projectDetails .area3 .howDo #howDoFlower {
+          opacity: 0.4; } }
+    .projectDetails .area3 .howDo .stepArea_1, .projectDetails .area3 .howDo .stepArea_2 {
+      display: flex;
+      flex-direction: row;
+      justify-content: center; }
+      @media all and (max-width: 1199px) {
+        .projectDetails .area3 .howDo .stepArea_1, .projectDetails .area3 .howDo .stepArea_2 {
+          flex-wrap: wrap; } }
+      .projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        max-width: 360px;
+        margin: 0 20px 150px;
+        z-index: 3; }
+        @media all and (max-width: 1199px) {
+          .projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
+            margin: 0 20px 100px; } }
+        @media all and (max-width: 575px) {
+          .projectDetails .area3 .howDo .stepArea_1 .step, .projectDetails .area3 .howDo .stepArea_2 .step {
+            margin: 0 20px 80px; } }
+        .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border {
+          width: 222px;
+          height: 70px;
+          border-radius: 15px;
+          text-align: center;
+          background: #E7E7E7;
+          position: relative;
+          margin: 0 auto 30px; }
+          @media all and (max-width: 1199px) {
+            .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border {
+              width: 200px; } }
+          @media all and (max-width: 575px) {
+            .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border {
+              width: 180px; } }
+          .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border p, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border p {
+            font-size: 38px;
+            padding-top: 8px; }
+            @media all and (max-width: 1199px) {
+              .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border p, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border p {
+                font-size: 35px;
+                padding-top: 14px; } }
+            @media all and (max-width: 575px) {
+              .projectDetails .area3 .howDo .stepArea_1 .step .mwt_border p, .projectDetails .area3 .howDo .stepArea_2 .step .mwt_border p {
+                font-size: 30px;
+                padding-top: 15px; } }
+        .projectDetails .area3 .howDo .stepArea_1 .step .arrow_b_int, .projectDetails .area3 .howDo .stepArea_2 .step .arrow_b_int {
+          border-width: 15px;
+          border-style: solid;
+          border-color: #E7E7E7 transparent transparent transparent;
+          position: absolute;
+          bottom: -30px;
+          left: 44%; }
+        .projectDetails .area3 .howDo .stepArea_1 .step .stepImg, .projectDetails .area3 .howDo .stepArea_2 .step .stepImg {
+          width: 225px;
+          margin: 0 auto 27px; }
+          @media all and (max-width: 1199px) {
+            .projectDetails .area3 .howDo .stepArea_1 .step .stepImg, .projectDetails .area3 .howDo .stepArea_2 .step .stepImg {
+              width: 200px;
+              margin: 0 auto; } }
+          @media all and (max-width: 575px) {
+            .projectDetails .area3 .howDo .stepArea_1 .step .stepImg, .projectDetails .area3 .howDo .stepArea_2 .step .stepImg {
+              width: 180px; } }
+        .projectDetails .area3 .howDo .stepArea_1 .step .stepTxt, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt {
+          text-align: center; }
+          .projectDetails .area3 .howDo .stepArea_1 .step .stepTxt p, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt p {
+            font-size: 29px;
+            margin-top: 20px;
+            line-height: 50px; }
+            @media all and (max-width: 1199px) {
+              .projectDetails .area3 .howDo .stepArea_1 .step .stepTxt p, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt p {
+                font-size: 26px;
+                line-height: 50px; } }
+            @media all and (max-width: 575px) {
+              .projectDetails .area3 .howDo .stepArea_1 .step .stepTxt p, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt p {
+                font-size: 24px;
+                line-height: 40px; } }
+          .projectDetails .area3 .howDo .stepArea_1 .step .stepTxt .line, .projectDetails .area3 .howDo .stepArea_2 .step .stepTxt .line {
+            width: 225px;
+            border: 1px solid #C3CCC0;
+            margin: 1px auto; }
+
+.operationResult {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; }
+  .operationResult .title {
+    position: relative;
+    display: block;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    height: 100px;
+    margin: 135px auto 38px; }
+    @media all and (max-width: 1199px) {
+      .operationResult .title {
+        margin: 35px auto 38px; } }
+    .operationResult .title img {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: -25px; }
+      @media all and (max-width: 575px) {
+        .operationResult .title img {
+          bottom: 21px;
+          left: 2px;
+          width: 87%; } }
+    .operationResult .title h2 {
+      font-size: 50px;
+      display: block; }
+      @media all and (max-width: 767px) {
+        .operationResult .title h2 {
+          font-size: 40px; } }
+  .operationResult .txt {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 80px 30px 0; }
+    @media all and (max-width: 991px) {
+      .operationResult .txt {
+        flex-direction: column;
+        margin: 0 30px; } }
+    .operationResult .txt .txtTxt {
+      max-width: 330px;
+      font-size: 30px;
+      display: flex;
+      flex-direction: row;
+      white-space: nowrap; }
+      @media all and (max-width: 991px) {
+        .operationResult .txt .txtTxt {
+          margin: 10px auto;
+          justify-content: center;
+          text-align: right; } }
+      @media all and (max-width: 575px) {
+        .operationResult .txt .txtTxt {
+          font-size: 25px; } }
+      .operationResult .txt .txtTxt p {
+        font-size: 40px;
+        transform: translateY(-9%); }
+        @media all and (max-width: 575px) {
+          .operationResult .txt .txtTxt p {
+            font-size: 30px;
+            transform: translateY(0%); } }
+  .operationResult .goal {
+    margin: 0 auto 220px; }
+    @media all and (max-width: 991px) {
+      .operationResult .goal {
+        margin: 0 auto 120px; } }
+    @media all and (max-width: 575px) {
+      .operationResult .goal {
+        margin: 0 auto 100px; } }
+    .operationResult .goal .goalTitle {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 200px auto 65px; }
+      .operationResult .goal .goalTitle img {
+        position: absolute;
+        max-width: 500px;
+        width: 100%;
+        padding: 0 20px; }
+      .operationResult .goal .goalTitle h3 {
+        font-size: 40px; }
+        @media all and (max-width: 1199px) {
+          .operationResult .goal .goalTitle h3 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .operationResult .goal .goalTitle h3 {
+            font-size: 30px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .operationResult .goal .goalTitle h3 {
+            font-size: 21px; } }
+    .operationResult .goal .breadOut {
+      padding: 30px; }
+      .operationResult .goal .breadOut .bread {
+        margin: 0 auto 400px;
+        max-width: 1112px;
+        width: 100%;
+        max-height: 193px;
+        margin: 0 auto 50px;
+        position: relative; }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .operationResult .goal .breadOut .bread {
+            margin: 0 auto 30px; } }
+        .operationResult .goal .breadOut .bread #breadImg {
+          width: 100%;
+          z-index: 2; }
+        .operationResult .goal .breadOut .bread .breadLine {
+          border-radius: 70px;
+          background-color: #E8BF77;
+          max-width: 1112px;
+          width: 0%;
+          height: 95%;
+          position: absolute;
+          top: 0;
+          z-index: -1; }
+    .operationResult .goal .txtTxt {
+      font-size: 30px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      margin: 0 30px;
+      white-space: nowrap; }
+      @media all and (max-width: 575px) {
+        .operationResult .goal .txtTxt {
+          font-size: 25px; } }
+      @media all and (min-width: 319px) and (max-width: 374px) {
+        .operationResult .goal .txtTxt {
+          font-size: 21px; } }
+      .operationResult .goal .txtTxt p {
+        font-size: 40px;
+        transform: translateY(-9%); }
+        @media all and (max-width: 575px) {
+          .operationResult .goal .txtTxt p {
+            font-size: 30px;
+            transform: translateY(0%); } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .operationResult .goal .txtTxt p {
+            font-size: 25px;
+            transform: translateY(0%); } }
+  .operationResult .enjoyFood {
+    max-width: 1200px;
+    width: 100%; }
+    .operationResult .enjoyFood .enjoyFoodTitle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 60px;
+      flex-wrap: wrap; }
+      @media all and (max-width: 991px) {
+        .operationResult .enjoyFood .enjoyFoodTitle {
+          margin: 0 auto 10px; } }
+      .operationResult .enjoyFood .enjoyFoodTitle .enjoyFoodBox {
+        border: 3px solid black;
+        font-size: 50px;
+        max-width: 150px;
+        width: 100%;
+        height: 150px;
+        line-height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: bold;
+        margin: 20px; }
+        @media all and (max-width: 1199px) {
+          .operationResult .enjoyFood .enjoyFoodTitle .enjoyFoodBox {
+            font-size: 45px;
+            line-height: 50px;
+            max-width: 130px;
+            height: 130px; } }
+        @media all and (max-width: 575px) {
+          .operationResult .enjoyFood .enjoyFoodTitle .enjoyFoodBox {
+            font-size: 40px;
+            max-width: 120px;
+            height: 120px; } }
+      .operationResult .enjoyFood .enjoyFoodTitle p {
+        font-size: 35px;
+        padding: 20px;
+        text-align: center; }
+        @media all and (max-width: 1199px) {
+          .operationResult .enjoyFood .enjoyFoodTitle p {
+            font-size: 30px; } }
+        @media all and (max-width: 575px) {
+          .operationResult .enjoyFood .enjoyFoodTitle p {
+            font-size: 25px; } }
+    .operationResult .enjoyFood .mapAndShop {
+      display: flex;
+      justify-content: space-around; }
+      @media all and (max-width: 1199px) {
+        .operationResult .enjoyFood .mapAndShop {
+          flex-wrap: wrap; } }
+      .operationResult .enjoyFood .mapAndShop .mapImg {
+        position: relative;
+        margin: 25px; }
+        .operationResult .enjoyFood .mapAndShop .mapImg #mapTaipei {
+          max-width: 426px;
+          width: 100%; }
+        .operationResult .enjoyFood .mapAndShop .mapImg .circle {
+          width: 15px;
+          height: 15px;
+          border-radius: 999em;
+          background-color: #C2B891;
+          position: absolute; }
+          .operationResult .enjoyFood .mapAndShop .mapImg .circle:hover {
+            background-color: #ddd5af; }
+        .operationResult .enjoyFood .mapAndShop .mapImg .map_leaf {
+          width: 26px;
+          position: absolute; }
+          .operationResult .enjoyFood .mapAndShop .mapImg .map_leaf:hover {
+            opacity: 0.5;
+            transform: rotate(30deg); }
+          @media all and (min-width: 319px) and (max-width: 374px) {
+            .operationResult .enjoyFood .mapAndShop .mapImg .map_leaf {
+              width: 23px; } }
+        .operationResult .enjoyFood .mapAndShop .mapImg #leaf_Daan {
+          left: 44%;
+          top: 68%; }
+          .operationResult .enjoyFood .mapAndShop .mapImg #leaf_Daan:hover::after {
+            content: 'aaa';
+            display: block;
+            width: 40px;
+            height: 3px;
+            border-radius: 10px;
+            position: absolute;
+            transition-duration: .35s;
+            background-color: #8F8770; }
+        .operationResult .enjoyFood .mapAndShop .mapImg #leaf_Shilin {
+          left: 65%;
+          top: 45%; }
+        .operationResult .enjoyFood .mapAndShop .mapImg #leaf_Neihu {
+          left: 50%;
+          top: 30%; }
+        .operationResult .enjoyFood .mapAndShop .mapImg #leaf_Beitou {
+          left: 30%;
+          top: 21%; }
+      .operationResult .enjoyFood .mapAndShop .shopChangeOutside {
+        max-width: 600px;
+        width: 100%;
+        padding: 20px; }
+        .operationResult .enjoyFood .mapAndShop .shopChangeOutside .shopChange {
+          width: 100%; }
+          .operationResult .enjoyFood .mapAndShop .shopChangeOutside .shopChange .shop {
+            text-align: center;
+            margin-top: 30px; }
+            .operationResult .enjoyFood .mapAndShop .shopChangeOutside .shopChange .shop p {
+              font-size: 30px;
+              margin: 5px auto; }
+            .operationResult .enjoyFood .mapAndShop .shopChangeOutside .shopChange .shop .shopImg {
+              max-width: 480px;
+              max-height: 320px;
+              width: 100%;
+              margin: 25px auto; }
+
+.thankYou {
+  display: flex;
+  justify-content: center;
+  position: relative; }
+  .thankYou .thankYou_bg {
+    background-repeat: no-repeat;
+    background-image: url("../img/21/donation_description/background3.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 1662px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: -1; }
+  .thankYou .thankYouArea {
+    max-width: 1200px;
+    width: 100%; }
+    .thankYou .thankYouArea .title {
+      position: relative;
+      display: block;
+      text-align: center;
+      max-width: 400px;
+      width: 100%;
+      height: 100px;
+      margin: 400px auto 105px; }
+      .thankYou .thankYouArea .title img {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: -25px; }
+        @media all and (max-width: 575px) {
+          .thankYou .thankYouArea .title img {
+            bottom: 21px;
+            left: 2px;
+            width: 87%; } }
+      .thankYou .thankYouArea .title h2 {
+        font-size: 50px;
+        display: block; }
+        @media all and (max-width: 767px) {
+          .thankYou .thankYouArea .title h2 {
+            font-size: 40px; } }
+    .thankYou .thankYouArea .heartArea {
+      width: 100%; }
+      .thankYou .thankYouArea .heartArea .heart {
+        position: relative;
+        display: flex;
+        justify-content: center; }
+        .thankYou .thankYouArea .heartArea .heart .donationData {
+          position: absolute;
+          top: 0;
+          text-align: center;
+          margin: 53px auto; }
+          .thankYou .thankYouArea .heartArea .heart .donationData .date {
+            font-size: 22px;
+            color: #707070;
+            margin: 0 auto 10px; }
+          .thankYou .thankYouArea .heartArea .heart .donationData .donation {
+            font-size: 22px;
+            color: #707070;
+            margin: 0 auto 20px; }
+          .thankYou .thankYouArea .heartArea .heart .donationData .name {
+            font-size: 24px;
+            color: #96613E; }
+    .thankYou .thankYouArea .loveRecycle .loveRecycleTitle {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      margin: 200px auto 65px; }
+      .thankYou .thankYouArea .loveRecycle .loveRecycleTitle img {
+        position: absolute;
+        max-width: 500px;
+        width: 100%;
+        padding: 0 20px; }
+      .thankYou .thankYouArea .loveRecycle .loveRecycleTitle h3 {
+        font-size: 40px; }
+        @media all and (max-width: 1199px) {
+          .thankYou .thankYouArea .loveRecycle .loveRecycleTitle h3 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .thankYou .thankYouArea .loveRecycle .loveRecycleTitle h3 {
+            font-size: 30px; } }
+    .thankYou .thankYouArea .storyArea {
+      max-width: 1200px;
+      width: 100%; }
+      .thankYou .thankYouArea .storyArea .storyAll {
+        display: flex;
+        justify-content: space-around;
+        height: 530px; }
+        .thankYou .thankYouArea .storyArea .storyAll .storyBox .story {
+          max-width: 300px;
+          height: 523px;
+          width: 100%;
+          background-color: #FFF8DD;
+          border-radius: 10px;
+          box-shadow: 3px 3px 6px #00000024;
+          margin: 0 auto;
+          padding: 5px; }
+          .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .storyImg {
+            border: 5px solid #EFDEDD;
+            border-radius: 10px;
+            background-color: #FEFEEA;
+            max-width: 260px;
+            width: 100%;
+            max-height: 235px;
+            height: 100%;
+            margin: 20px auto;
+            overflow: hidden; }
+            .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .storyImg img {
+              margin: auto;
+              max-height: 235px;
+              width: 100%;
+              padding: 15px; }
+          .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .storyTxt {
+            max-width: 260px;
+            margin: 20px auto; }
+            .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .storyTxt h3 {
+              font-size: 24px;
+              margin: 0 0 10px 0px; }
+            .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .storyTxt p {
+              font-size: 20px;
+              margin: 0 auto 30px;
+              line-height: 30px;
+              min-height: 90px; }
+          .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .readMoreButton {
+            max-width: 260px;
+            max-height: 58px;
+            height: 100%;
+            background-color: #EADBB2;
+            border-radius: 10px;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 3px 3px 6px #00000024; }
+            .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .readMoreButton img {
+              margin: 0 10px 0 0; }
+            .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .readMoreButton span {
+              font-size: 22px; }
+          .thankYou .thankYouArea .storyArea .storyAll .storyBox .story .readMoreButton:hover {
+            background-color: #f0d489;
+            cursor: pointer; }
+
+.Overlay_All {
+  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  transition: all 0.5s; }
+  .Overlay_All .storyOverlay_Bg {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.3); }
+  .Overlay_All .storyOverlay {
+    max-width: 1000px;
+    width: 90%;
+    height: 90%;
+    border-radius: 87px;
+    background-color: #FFF8DD;
+    box-shadow: 3px 3px 30px #00000024;
+    padding: 60px;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+    @media all and (max-width: 1199px) {
+      .Overlay_All .storyOverlay {
+        padding: 50px;
+        border-radius: 50px; } }
+    @media all and (max-width: 575px) {
+      .Overlay_All .storyOverlay {
+        padding: 40px; } }
+    @media all and (min-width: 319px) and (max-width: 374px) {
+      .Overlay_All .storyOverlay {
+        padding: 30px; } }
+    .Overlay_All .storyOverlay .loveRecycleTitle {
+      position: relative;
+      display: block;
+      text-align: center;
+      margin: 20px auto 40px; }
+      @media all and (max-width: 1199px) {
+        .Overlay_All .storyOverlay .loveRecycleTitle {
+          margin: 20px auto 10px; } }
+      .Overlay_All .storyOverlay .loveRecycleTitle img {
+        position: absolute;
+        bottom: -90%;
+        z-index: -1;
+        transform: translate(-50%, -50%); }
+        @media all and (max-width: 1199px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle img {
+            width: 50%; } }
+        @media all and (max-width: 991px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle img {
+            width: 60%; } }
+        @media all and (max-width: 767px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle img {
+            width: 70%; } }
+        @media all and (max-width: 575px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle img {
+            width: 80%; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle img {
+            width: 100%; } }
+      .Overlay_All .storyOverlay .loveRecycleTitle h3 {
+        font-size: 40px; }
+        @media all and (max-width: 1199px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle h3 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle h3 {
+            font-size: 25px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .Overlay_All .storyOverlay .loveRecycleTitle h3 {
+            font-size: 25px; } }
+    .Overlay_All .storyOverlay .readMore_close {
+      position: absolute;
+      right: 40px;
+      top: 40px; }
+      @media all and (max-width: 575px) {
+        .Overlay_All .storyOverlay .readMore_close {
+          right: 30px;
+          top: 30px; } }
+      @media all and (min-width: 319px) and (max-width: 374px) {
+        .Overlay_All .storyOverlay .readMore_close {
+          right: 20px;
+          top: 20px;
+          width: 30px; } }
+      .Overlay_All .storyOverlay .readMore_close:hover {
+        opacity: 0.5;
+        cursor: pointer; }
+    .Overlay_All .storyOverlay .storyArea .storyTitleTxt {
+      border-bottom: 2px solid #8B7A69;
+      padding: 20px 0 20px;
+      display: flex;
+      align-items: flex-end;
+      flex-wrap: wrap; }
+      @media all and (min-width: 319px) and (max-width: 374px) {
+        .Overlay_All .storyOverlay .storyArea .storyTitleTxt {
+          white-space: nowrap;
+          flex-direction: column;
+          align-items: flex-start; } }
+      .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyTitle {
+        font-size: 30px; }
+        @media all and (max-width: 1199px) {
+          .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyTitle {
+            font-size: 25px; } }
+        @media all and (max-width: 575px) {
+          .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyTitle {
+            font-size: 20px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyTitle {
+            font-size: 20px; } }
+      .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyDate {
+        font-size: 20px;
+        margin: 0 20px;
+        transform: translateY(-3%); }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .Overlay_All .storyOverlay .storyArea .storyTitleTxt .storyDate {
+            margin: 5px 0; } }
+    .Overlay_All .storyOverlay .storyArea .storyTxtArea {
+      display: flex;
+      justify-content: space-around;
+      align-items: center; }
+      @media all and (max-width: 1199px) {
+        .Overlay_All .storyOverlay .storyArea .storyTxtArea {
+          flex-wrap: wrap;
+          flex-direction: column-reverse;
+          height: 50vh;
+          min-width: 30px; } }
+      .Overlay_All .storyOverlay .storyArea .storyTxtArea .storyTxt {
+        font-size: 20px;
+        line-height: 30px;
+        margin: 30px 0 0;
+        width: 100%;
+        max-height: 500px;
+        min-height: 200px;
+        overflow-y: auto;
+        padding: 0 20px 0 0;
+        text-align: justify;
+        text-justify: inter-ideograph;
+        -ms-text-justify: inter-ideograph;
+        /*IE9*/
+        -moz-text-align-last: justify;
+        /*Firefox*/
+        -webkit-text-align-last: justify;
+        /*Chrome*/ }
+      .Overlay_All .storyOverlay .storyArea .storyTxtArea .storyImgOver {
+        border: 5px solid #EFDEDD;
+        border-radius: 10px;
+        background-color: #FEFEEA;
+        width: 30%;
+        max-height: 300px;
+        margin: 30px;
+        overflow: hidden;
+        display: flex; }
+        @media all and (max-width: 1199px) {
+          .Overlay_All .storyOverlay .storyArea .storyTxtArea .storyImgOver {
+            display: none; } }
+        .Overlay_All .storyOverlay .storyArea .storyTxtArea .storyImgOver img {
+          margin: auto;
+          width: 100%;
+          padding: 10px; }
+
+.Overlay_All.-on {
+  opacity: 1;
+  z-index: 10; }
+
+.foodItem .title {
+  position: relative;
+  display: block;
+  text-align: center;
+  max-width: 400px;
+  width: 100%;
+  height: 100px;
+  margin: 180px auto 0px; }
+  @media all and (max-width: 575px) {
+    .foodItem .title {
+      margin: 100px auto 0px; } }
+  .foodItem .title img {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: -25px; }
+    @media all and (max-width: 575px) {
+      .foodItem .title img {
+        bottom: 21px;
+        left: 2px;
+        width: 87%; } }
+  .foodItem .title h2 {
+    font-size: 50px;
+    display: block; }
+    @media all and (max-width: 767px) {
+      .foodItem .title h2 {
+        font-size: 40px; } }
+
+.foodItem .overFoodBg {
+  background-repeat: no-repeat;
+  background-image: url("../img/21//donation_description/background4.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin-bottom: 50px; }
+  .foodItem .overFoodBg .txt {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto; }
+    .foodItem .overFoodBg .txt .txt1 {
+      margin-bottom: 160px;
+      background-repeat: no-repeat;
+      background-image: url("../img/21//donation_description/overTxt1.png");
+      background-size: cover;
+      background-position: center;
+      width: 100%;
+      margin: 0 auto;
+      padding: 120px; }
+      @media all and (max-width: 1199px) {
+        .foodItem .overFoodBg .txt .txt1 {
+          padding: 60px; } }
+      @media all and (max-width: 575px) {
+        .foodItem .overFoodBg .txt .txt1 {
+          padding: 30px; } }
+      .foodItem .overFoodBg .txt .txt1 h2 {
+        font-size: 40px;
+        margin-bottom: 40px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .overFoodBg .txt .txt1 h2 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .overFoodBg .txt .txt1 h2 {
+            font-size: 35px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .foodItem .overFoodBg .txt .txt1 h2 {
+            font-size: 30px; } }
+      .foodItem .overFoodBg .txt .txt1 p {
+        font-size: 30px;
+        line-height: 60px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .overFoodBg .txt .txt1 p {
+            font-size: 26px;
+            line-height: 50px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .overFoodBg .txt .txt1 p {
+            font-size: 22px;
+            line-height: 40px; } }
+    .foodItem .overFoodBg .txt .txt2 {
+      margin-bottom: 160px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 120px; }
+      @media all and (max-width: 1199px) {
+        .foodItem .overFoodBg .txt .txt2 {
+          padding: 60px; } }
+      @media all and (max-width: 575px) {
+        .foodItem .overFoodBg .txt .txt2 {
+          padding: 30px; } }
+      .foodItem .overFoodBg .txt .txt2 h2 {
+        font-size: 40px;
+        margin-bottom: 40px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .overFoodBg .txt .txt2 h2 {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .overFoodBg .txt .txt2 h2 {
+            font-size: 35px; } }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .foodItem .overFoodBg .txt .txt2 h2 {
+            font-size: 30px; } }
+      .foodItem .overFoodBg .txt .txt2 p {
+        font-size: 30px;
+        line-height: 60px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .overFoodBg .txt .txt2 p {
+            font-size: 26px;
+            line-height: 50px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .overFoodBg .txt .txt2 p {
+            font-size: 22px;
+            line-height: 40px; } }
+
+.foodItem .loveFoodLife {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto; }
+  .foodItem .loveFoodLife h2 {
+    font-size: 40px;
+    margin: 0 auto 70px;
+    text-align: center; }
+    @media all and (max-width: 1199px) {
+      .foodItem .loveFoodLife h2 {
+        font-size: 35px;
+        margin: 0 auto 30px; } }
+    @media all and (max-width: 575px) {
+      .foodItem .loveFoodLife h2 {
+        font-size: 35px;
+        margin: 0 auto 30px; } }
+    @media all and (min-width: 319px) and (max-width: 374px) {
+      .foodItem .loveFoodLife h2 {
+        font-size: 30px; } }
+  .foodItem .loveFoodLife .loveFoodArea {
+    max-width: 1200px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    margin: 0 auto; }
+    @media screen and (max-width: 450px) {
+      .foodItem .loveFoodLife .loveFoodArea {
+        flex-wrap: wrap; } }
+    .foodItem .loveFoodLife .loveFoodArea .loveFood {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 20px; }
+      .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeImg {
+        max-width: 270px;
+        min-width: 116px;
+        min-height: 27px;
+        width: 100%;
+        margin: 0 auto 0; }
+        @media all and (min-width: 319px) and (max-width: 374px) {
+          .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeImg {
+            padding: 20px; } }
+      .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTitle {
+        font-size: 30px;
+        margin: 45px auto 20px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTitle {
+            font-size: 26px;
+            line-height: 50px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTitle {
+            font-size: 22px;
+            line-height: 40px;
+            margin: 5px auto; } }
+      .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTxt {
+        max-width: 320px;
+        font-size: 28px;
+        line-height: 50px; }
+        @media all and (max-width: 1199px) {
+          .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTxt {
+            font-size: 24px;
+            line-height: 40px; } }
+        @media all and (max-width: 575px) {
+          .foodItem .loveFoodLife .loveFoodArea .loveFood .lifeTxt {
+            font-size: 20px;
+            line-height: 35px; } }
+
+.joinUs {
+  background-repeat: no-repeat;
+  background-image: url("../img/21//donation_description/background5.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 1680px;
+  padding-top: 380px; }
+  @media screen and (max-width: 1000px) {
+    .joinUs {
+      height: 100%; } }
+  .joinUs .title {
+    position: relative;
+    display: block;
+    text-align: center;
+    max-width: 400px;
+    width: 100%;
+    height: 100px;
+    margin: 0 auto 105px; }
+    @media all and (min-width: 319px) and (max-width: 374px) {
+      .joinUs .title {
+        margin: 0 auto 50px; } }
+    .joinUs .title img {
+      display: block;
+      position: absolute;
+      bottom: 0;
+      left: -25px; }
+      @media all and (max-width: 575px) {
+        .joinUs .title img {
+          bottom: 21px;
+          left: 2px;
+          width: 87%; } }
+    .joinUs .title h2 {
+      font-size: 50px;
+      display: block; }
+      @media all and (max-width: 767px) {
+        .joinUs .title h2 {
+          font-size: 40px; } }
+  .joinUs .joinUsArea {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; }
+    @media screen and (max-width: 450px) {
+      .joinUs .joinUsArea {
+        flex-wrap: wrap; } }
+    .joinUs .joinUsArea .join {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto 100px; }
+      .joinUs .joinUsArea .join .joinTitle {
+        font-size: 40px;
+        color: #96613E; }
+        @media all and (max-width: 1199px) {
+          .joinUs .joinUsArea .join .joinTitle {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .joinUs .joinUsArea .join .joinTitle {
+            font-size: 35px; } }
+      .joinUs .joinUsArea .join .joinImg {
+        max-width: 500px;
+        width: 100%;
+        margin: 50px auto;
+        padding: 0 10px; }
+        @media all and (max-width: 575px) {
+          .joinUs .joinUsArea .join .joinImg {
+            margin: 0 auto;
+            padding: 20px; } }
+      .joinUs .joinUsArea .join .joinButton {
+        background-color: #CAD4B0;
+        border-radius: 10px;
+        margin: auto;
+        box-shadow: 3px 3px 6px #00000024; }
+        .joinUs .joinUsArea .join .joinButton:hover {
+          background-color: #b9c993; }
+        .joinUs .joinUsArea .join .joinButton a {
+          text-decoration: none;
+          white-space: nowrap;
+          width: 257px;
+          max-height: 80px;
+          width: 100%;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 20px; }
+          .joinUs .joinUsArea .join .joinButton a img {
+            margin: 0 10px 0 0; }
+            @media all and (max-width: 1199px) {
+              .joinUs .joinUsArea .join .joinButton a img {
+                width: 35px; } }
+            @media all and (max-width: 575px) {
+              .joinUs .joinUsArea .join .joinButton a img {
+                width: 30px; } }
+          .joinUs .joinUsArea .join .joinButton a span {
+            font-size: 40px;
+            color: white; }
+            @media all and (max-width: 1199px) {
+              .joinUs .joinUsArea .join .joinButton a span {
+                font-size: 30px; } }
+            @media all and (max-width: 575px) {
+              .joinUs .joinUsArea .join .joinButton a span {
+                font-size: 25px; } }
+    .joinUs .joinUsArea .donation {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      text-align: center;
+      margin: 0 auto 100px; }
+      .joinUs .joinUsArea .donation .donationTitle {
+        font-size: 40px;
+        color: #96613E; }
+        @media all and (max-width: 1199px) {
+          .joinUs .joinUsArea .donation .donationTitle {
+            font-size: 35px; } }
+        @media all and (max-width: 575px) {
+          .joinUs .joinUsArea .donation .donationTitle {
+            font-size: 35px; } }
+      .joinUs .joinUsArea .donation .donationImg {
+        max-width: 500px;
+        width: 100%;
+        margin: 50px auto;
+        padding: 0 10px; }
+        @media all and (max-width: 575px) {
+          .joinUs .joinUsArea .donation .donationImg {
+            margin: 0 auto;
+            padding: 20px; } }
+      .joinUs .joinUsArea .donation .donationButton {
+        background-color: #8F8770;
+        border-radius: 10px;
+        margin: auto;
+        box-shadow: 3px 3px 6px #00000024; }
+        .joinUs .joinUsArea .donation .donationButton:hover {
+          background-color: #D6CAAA; }
+        .joinUs .joinUsArea .donation .donationButton a {
+          text-decoration: none;
+          white-space: nowrap;
+          width: 257px;
+          max-height: 80px;
+          width: 100%;
+          border-radius: 10px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          padding: 10px 20px; }
+          .joinUs .joinUsArea .donation .donationButton a img {
+            margin: 0 10px 0 0; }
+            @media all and (max-width: 1199px) {
+              .joinUs .joinUsArea .donation .donationButton a img {
+                width: 35px; } }
+            @media all and (max-width: 575px) {
+              .joinUs .joinUsArea .donation .donationButton a img {
+                width: 30px; } }
+          .joinUs .joinUsArea .donation .donationButton a span {
+            font-size: 40px;
+            color: white; }
+            @media all and (max-width: 1199px) {
+              .joinUs .joinUsArea .donation .donationButton a span {
+                font-size: 30px; } }
+            @media all and (max-width: 575px) {
+              .joinUs .joinUsArea .donation .donationButton a span {
+                font-size: 25px; } }
+
+footer {
+  width: 100%;
+  height: 200px;
+  background-color: #EFECB9;
+  cursor: pointer;
+  font-size: 18px;
+  color: #C2B891; }
+  @media screen and (max-width: 630px) {
+    footer {
+      height: 300px; } }
+  footer .footerBlock {
+    max-width: 1200px;
+    margin: -1px auto 0; }
+    footer .footerBlock div {
+      height: 80px;
+      display: flex;
+      justify-content: flex-end; }
+      @media screen and (max-width: 630px) {
+        footer .footerBlock div {
+          flex-direction: column;
+          justify-content: center;
+          margin: 0 auto; } }
+      footer .footerBlock div .footer_logo {
+        margin-top: 50px;
+        display: block;
+        width: 190px;
+        border-right: 1px solid #C2B891;
+        text-align: left; }
+        @media screen and (max-width: 630px) {
+          footer .footerBlock div .footer_logo {
+            border-right: none;
+            margin-top: 200px; } }
+        footer .footerBlock div .footer_logo img {
+          width: 162px;
+          padding-top: 13px; }
+        footer .footerBlock div .footer_logo .copyright {
+          margin-top: 6px;
+          font-size: 10px; }
+      footer .footerBlock div .info {
+        display: block;
+        text-align: left;
+        max-width: 330px;
+        margin-top: 50px; }
+        @media screen and (max-width: 630px) {
+          footer .footerBlock div .info {
+            margin-top: 30px; } }
+        footer .footerBlock div .info a {
+          width: 280px;
+          margin: 20px;
+          text-decoration: none;
+          color: #C2B891;
+          font-size: 18px;
+          line-height: 1.5; }
+          footer .footerBlock div .info a img {
+            padding-right: 10px; }

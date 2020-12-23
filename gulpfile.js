@@ -25,3 +25,24 @@ function style() {
 exports.default = function watchs(){
     watch(["scss/page/backstage/*.scss"], style)
 }
+
+var paths2 = {
+    styles: {
+
+        src:["scss/page/*/*.scss","!scss/page/backstage/*"] ,
+
+        dest: "css/"
+    }
+ 
+};
+
+function frontStyle(){
+    return src(paths2.styles.src)
+    .pipe(sass())
+    .on('error', sass.logError)
+    .pipe(dest(paths2.styles.dest))
+}
+
+exports.front = function watchs(){
+    watch(["scss/page/*/*.scss","!scss/page/backstage/*"], frontStyle)
+}

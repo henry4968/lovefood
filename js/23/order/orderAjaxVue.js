@@ -1,13 +1,12 @@
 const app = new Vue({
     el: '.containerOrder',
-    data() {
-        return {
+    data:{
+        
             tableData:null,
             isShow:false, //綁定 v-show值
             paymentMethod:null,
             detail:null,
-            code:null,
-        }
+            code:'',
     },
     
 
@@ -24,10 +23,9 @@ const app = new Vue({
                 let orderStatus = $("input[name='orderStatus']:checked").val();
 
                 $.ajax({
-
                     url:'../PHP/backStage/order/orderQuery.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                     data:{orderNum,memberNum,phone,memberAccount,pick1,pick2,orderStatus},
-                    type:'GET',
+                    type:'POST',
                     dataType:'JSON',
                     traditional: true,
                     success: function(res){
@@ -37,7 +35,6 @@ const app = new Vue({
                             // self.tableData[i].isShow = !isShow;
                             self.$set(self.tableData[i],'isShow',false) //更新self.tableData讓他有isShow
                         }
-                        
                     },
                     error: function(res){
                         console.log(res);
@@ -57,8 +54,10 @@ const app = new Vue({
                 dataType:'text',
                 traditional: true,
                 success: function(res){
-                     console.log(res);
+                    //  console.log(res);
                      self.code = res;
+                     console.log(self.code);
+                    //  self.$set(this.code,res);
                 },
                 error: function(res){
                     console.log(res);

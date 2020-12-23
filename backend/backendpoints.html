@@ -11,6 +11,7 @@
     <script src="../node_modules/moment/min/moment.min.js"></script>
     <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
     <script src="../js/23/product/datetime.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
 </head>
 
 <body>
@@ -130,49 +131,46 @@
                             </div>
                         </div>
                         <div id="pointsDataFilterRightBlock">
-                            <div class="form-group">
-                                查詢區間
-                                <label class="sr-only">Time Pick</label>
-                                <div class="input-group DateDemo" id="">
-                                    <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
-                                        class="form-control" id="queryDateStart" />至
-                                    <span class="input-group-btn">
-                                        <button class="btn btn-brown" type="button"><i
-                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
-                                    </span>
+                            查詢區間<br>
+                            <div id="queryDateRow">
+                                <div class="form-group">
+                                    <label class="sr-only">Time Pick</label>
+                                    <div class="input-group DateDemo" id="">
+                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
+                                            class="form-control" id="queryDateStart" />
+                                        <span class="input-group-btn">
+                                            <button class="btn btn-brown" type="button"><i
+                                                    class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                        </span>
+                                    </div>
+                                </div>
+                                <span>
+                                    至
+                                </span>
+                                <div class="form-group">
+                                    <label class="sr-only">Time Pick</label>
+                                    <div class="input-group DateDemo">
+                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
+                                            class="form-control" id="queryDateEnd" />
+                                        <span class="input-l input-group-btn">
+                                            <button class="btn btn-brown" type="button"><i
+                                                    class="glyphicon glyphicon-calendar fa-4x"></i></button>
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="sr-only">Time Pick</label>
-                                <div class="input-group DateDemo">
-                                    <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
-                                        class="form-control" id="queryDateEnd" />
-                                    <span class="input-l input-group-btn">
-                                        <button class="btn btn-brown" type="button"><i
-                                                class="glyphicon glyphicon-calendar fa-4x"></i></button>
-                                    </span>
-                                </div>
-                            </div>
-                            <div id="membersPointsActionBlock">
-                                <a href="#0" @click="query">
-                                    <div id="pointsDataFilterButton01" class="pointsDataFilterButton">查詢</div>
-                                </a>
-                            </div>
+                            <button id="pointsDataFilterButton01" class="btn-s btn-brown"
+                                @click="queryPoints">查詢</button>
                         </div>
                     </div>
-                    <!-- <form id="pointsDataUploader" v-show="!showTab" enctype="multipart/form-data"> -->
                     <div id="pointsDataUploader" v-show="!showTab">
                         <h4>請上傳規範內容的csv檔，以執行批次發放點數</h4>
                         <input id="csvFile" type="file" name="importCSV">
                         <div @click="uploadCSV()" type="div">確認上傳</div>
                     </div>
-                    <!-- <form action="../PHP/backStage/points/pointsImport.php" method="POST" enctype="multipart/form-data">
-                        <input type="file" name="importCSV">
-                        <button type="submit">確認上傳</button>
-                    </form> -->
-                    <!-- </form> -->
                 </div>
-                <div id="pointsResultData" class="pointsDataArea" v-show="showTab && showDetails">
+                <div id="pointsResultData" class="pointsDataArea"
+                    v-show="showTab && !showIssuanceDetails && !showUsingDetails">
                     <table>
                         <tr id="pointsDataHeader">
                             <th>序號</th>
@@ -181,7 +179,7 @@
                             <th>會員姓名</th>
                             <th>會員手機</th>
                             <th>擁有點數</th>
-                            <th>功能鍵</th>
+                            <th>查閱詳情</th>
                         </tr>
                         <tbody v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
                             <h4>查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
@@ -206,8 +204,10 @@
                                     0
                                 </td>
                                 <td>
-                                    <button type="submit" class="btn-sb btn-green" @click="showContent"
-                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">詳情</button>
+                                    <button type="submit" class="btn-xs btn-brown" @click="showUsingLog"
+                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">使用紀錄</button>
+                                    <button type="submit" class="btn-xs btn-brown" @click="showIssuanceLog"
+                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">發放紀錄</button>
                                 </td>
                             </tr>
                         </tbody>
@@ -220,8 +220,10 @@
                                 <td>{{data["MEMBER_PHONE"]}}</td>
                                 <td>{{data["MEMBER_POINTS"]}}</td>
                                 <td>
-                                    <button type="submit" class="btn-sb btn-green" @click="showContent"
-                                        :data-id="data['MEMBER_ID']" :data-name="data['NAME']">詳情</button>
+                                    <button type="submit" class="btn-xs btn-brown" @click="showUsingLog"
+                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">使用紀錄</button>
+                                    <button type="submit" class="btn-xs btn-brown" @click="showIssuanceLog"
+                                        :data-id="data['MEMBER_ID']" :data-id="data['NAME']">發放紀錄</button>
 
                                 </td>
                             </tr>
@@ -239,8 +241,8 @@
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
-                <div id="pointsLogData" class="pointsDataArea" v-show="showTab && !showDetails">
-                    <button @click="query">
+                <div id="pointsUsingLogData" class="pointsDataArea" v-show="showTab && showUsingDetails">
+                    <button @click="queryPoints">
                         回上頁
                     </button>
                     <div id="memberProfile" v-for="(data,key) in pointsOfMember">
@@ -265,7 +267,6 @@
                                     <th>訂單編號</th>
                                     <th>使用點數</th>
                                     <th>使用時間</th>
-                                    <th>功能鍵</th>
                                 </tr>
                             </thead>
                             <tbody v-if="discountLog">
@@ -276,6 +277,24 @@
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
+                    </div>
+                </div>
+                <div id="pointsIssuanceLogData" class="pointsDataArea" v-show="showTab && showIssuanceDetails">
+                    <button @click="queryPoints">
+                        回上頁
+                    </button>
+                    <div id="memberProfile" v-for="(data,key) in pointsOfMember">
+                        會員編號：<input class="input-xl" type="text" :value="data['MEMBER_ID']" name="selectedId"
+                            disabled><br>
+                        會員帳號：<input class="input-xl" type="text" :value="data['MEMBER_ACCOUNT']" disabled><br>
+                        會員姓名：<input class="input-xl" type="text" :value="data['MEMBER_NAME']" disabled><br>
+                        會員手機：<input class="input-xl" type="text" :value="data['MEMBER_PHONE']" disabled><br>
+                        擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled>
+                    </div>
+                    <div id="">
+                        修改點數：<br>
+                        <input type="text" name="points">
+                        <button @click="update">確認修改</button>
                     </div>
                     <div>
                         發放紀錄：

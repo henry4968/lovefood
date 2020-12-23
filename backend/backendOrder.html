@@ -7,6 +7,7 @@
     <title>LOVEFOOD管理中心--訂單管理</title>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
 </head>
 
@@ -106,29 +107,29 @@
             <div class="headerMainWrapper">
                 <div class="headerWrapper">
                     <header>
-                            <div class="headerTop">
-                                <span>訂單編號<input class="input-l" type="text" name="orderNum"></span>
-                                <span>會員編號<input class="input-l" type="text" name="memberNum"></span>
-                                <div class="datePicker">
-                                    <span>查詢區間<input class="input-ld" type="date" name="datePick1"></span>至
-                                    <span><input class="input-ld" type="date" name="datePick2"></span>
-                                </div>
+                        <div class="headerTop">
+                            <span>訂單編號<input class="input-l" type="text" name="orderNum"></span>
+                            <span>會員編號<input class="input-l" type="text" name="memberNum"></span>
+                            <div class="datePicker">
+                                <span>查詢區間<input class="input-ld" type="date" name="datePick1"></span>至
+                                <span><input class="input-ld" type="date" name="datePick2"></span>
                             </div>
-                            <div class="headerMiddle">
-                                <span>會員帳號<input class="input-ld" type="text" name="memberAccount"></span>
-                                <span>會員手機<input class="input-ld" type="text" name="phone"></span>
-                                <!-- <button class="btn-s btn-brown" type="submit">查詢</button> -->
-                            </div>
-                            <div class="headerBottom">
-                                <span>訂單狀態
-                                    <input class="input-checkbox" type="checkbox" name="orderStatus">全選
-                                    <input class="input-checkbox" type="checkbox" name="orderStatus">已完成
-                                    <input class="input-checkbox" type="checkbox" name="orderStatus">待出貨
-                                    <input class="input-checkbox" type="checkbox" name="orderStatus">待取貨
-                                    <input class="input-checkbox" type="checkbox" name="orderStatus">已取消
-                                </span>
-                                <button class="btn-s btn-brown" @click="query">查詢</button>
-                            </div>
+                        </div>
+                        <div class="headerMiddle">
+                            <span>會員帳號<input class="input-ld" type="text" name="memberAccount"></span>
+                            <span>會員手機<input class="input-ld" type="text" name="phone"></span>
+                            <!-- <button class="btn-s btn-brown" type="submit">查詢</button> -->
+                        </div>
+                        <div class="headerBottom">
+                            <span>訂單狀態
+                                <input class="input-checkbox" type="checkbox" name="orderStatus">全選
+                                <input class="input-checkbox" type="checkbox" name="orderStatus">已完成
+                                <input class="input-checkbox" type="checkbox" name="orderStatus">待出貨
+                                <input class="input-checkbox" type="checkbox" name="orderStatus">待取貨
+                                <input class="input-checkbox" type="checkbox" name="orderStatus">已取消
+                            </span>
+                            <button class="btn-s btn-brown" @click="query">查詢</button>
+                        </div>
                     </header>
                 </div>
                 <main>
@@ -145,10 +146,10 @@
                                 <th>功能鍵</th>
                             </tr>
                         </thead>
-                        <tbody  v-if="tableData">
-                            
+                        <tbody v-if="tableData">
+
                             <template v-for="(data,key) in tableData">
-                                <tr> 
+                                <tr>
                                     <td>{{key+1}}</td>
                                     <td>{{data[0]}}</td>
                                     <td>{{data[6]}}</td>
@@ -157,10 +158,11 @@
                                     <td>{{data[1]}}</td>
                                     <td>{{data[5]}}</td>
                                     <td>
-                                        <button class="btn-s btn-brown orderDetail" @click="data.isShow = !data.isShow" :value="data[0]">詳情</button>
+                                        <button class="btn-s btn-brown orderDetail" @click="data.isShow = !data.isShow"
+                                            :value="data[0]">詳情</button>
                                         <button class="btn-sb btn-green" :value="data[0]" @click="ship">出貨</button>
                                     </td>
-                                    
+
                                 </tr>
                                 <tr v-if="data.isShow">
                                     <th class="subheading" colspan="2">商品名稱</th>
@@ -177,11 +179,11 @@
                                     <td colspan="2">{{subData.NAME_PICKUP}}</td>
                                 </tr>
                             </template>
-                           
+
                         </tbody>
-                            
-                        
-                        
+
+
+
                     </table>
                     <img :src="code" alt="">
                 </main>

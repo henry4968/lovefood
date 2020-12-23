@@ -379,6 +379,39 @@
 }
 // 標頭結束
 
+/* back to top SCSS */
+
+.back_to_top {
+    background-color: #e3ecc8;
+    /* border: 1px solid white; */
+    border-radius: 50%;
+    max-width: 50px;
+    width: 50%;
+    height: 50px;
+    bottom: 20px;
+    color: #fff8f8;
+    font-size: 34px;
+    font-weight: 700;
+    display: none;
+    padding: 9px 14px;
+    position: fixed;
+    right: 30px;
+    text-decoration: none;
+    z-index: 990;
+    box-shadow: 2px 2px 5px rgba(20%,20%,40%,0.5);
+    img{
+        position: absolute;
+        position: absolute;
+        top: 7px;
+        left: 13px;
+        width: 50%;
+    }
+
+    &:hover{
+        background-color: rgb(203, 218, 164);
+    }
+}
+
 
 
 .fullPageBg{

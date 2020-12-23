@@ -25,7 +25,6 @@
         }
         #pointsDataControlArea{
             padding: 27px 29px 18px 31px;
-            height: 267px;
             #pointsDataFilterTabsBlock{
                 width: 550px;
                 height: 50px;
@@ -54,14 +53,12 @@
             }
             #pointsDataFilter, #pointsDataUploader{
                 width: 920px;
-                height: 172px;
                 border-radius: 13px;
-                background-color: #EBECE3;
                 padding: 24px 17px 22px 18px;
-                box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
                 position: relative;
             }
             #pointsDataFilter{
+                display: flex;
                 #pointsDataFilterLeftUpperBlock{
                     width: 560px;
                     height: 80px;
@@ -81,56 +78,33 @@
                         div:nth-child(3){
                             margin: 3px 0px 0px 5px;
                         }
-                        input{
-                            width: 200px;
-                            height: 30px;
-                            border: .5px solid #BFBCBC;
-                            border-radius: 10px;
-                            background-color: #FFFFFF;
-                            margin-left: 5px;
-                        }
                     }
                 }
-                #pointsDataFilterLeftDownerBlock{
-                    width: 253px;
-                    height: 25px;
-                    font-size: 16px;
-                    color: #707070;
-                    margin-top: 30px;
-                    input{
-                        border: 1px solid #B9AF94;
-                        border-radius: 3px;
-                        background-color: #FFFFFF;
-                    }
+                #pointsDataFilterButton01{
+                    margin: 0px 0px 0px 250px;
                 }
+                
                 #pointsDataFilterRightBlock{
-                    border: 1px solid red;
-                    width: 310px;
-                    height: 140px;
-                    position: absolute;
-                    right: 22px;
-                    top: 17px;
+                    width: 350px;
                     font-size: 16px;
                     color: #707070;
-                    div{
-                        input{
-                            width: 130px;
-                            border-radius: 5px;
-                            margin: 0px 5px 0px 5px;
-                        }
+                    #queryDateRow{
+                        display: flex;
                     }
-                    a{
-                        .pointsDataFilterButton{
-                            width: 60px;
-                            height: 26px;
-                            border-radius: 5px;
-                            background-color: #887664;
-                            color: #FFFFFF;
-                            box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
-                            text-align: center;
-                            line-height: 26px;
-                        } 
+                    span{
+                        margin: 5px 0px 5px 5px;
                     }
+                    .pointsDataFilterButton{
+                        width: 60px;
+                        height: 26px;
+                        border-radius: 5px; 
+                        background-color: #887664;
+                        color: #FFFFFF;
+                        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                        text-align: center;
+                        line-height: 26px;
+                        margin-left: 250px;
+                    } 
                     #membersPointsActionBlock{
                         margin-top: 15px;
                         position: relative;
@@ -148,9 +122,6 @@
                     }
                 }
             }
-            #pointsDataUploader{
-                // display: none;
-            }
         }
         .pointsDataArea{
             height: 578px;
@@ -162,12 +133,6 @@
             table{
                 width: 945px;
                 height: 120px;
-                tr:nth-child(2n){
-                    background-color: #FFFFFF;
-                }
-                tr:nth-child(2n+1){
-                    background-color: #EBE8E8;
-                }
                 #pointsDataHeader{
                     th{
                         background-color: #887664;
@@ -176,30 +141,33 @@
                         text-align: center;
                     }
                 }
-                tr{
-                    color: #A0754A;
-                    font-size: 14px;
-                    text-align: center;
-                    .pointsDataActionBlock{
-                        display: flex;
-                        justify-content: space-around;
-                        height: 50px;
-                        a{
-                            display: block;
-                            align-self: center;
-                            .pointsDataActionButton{
-                                width: 45px;
-                                height: 26px;
-                                border-radius: 3px;
-                                background-color: #D3E4C6;
-                                font-size: 14px;
-                                text-align: center;
-                                color: #707070;
-                                line-height: 26px;
-                                
+                tbody{
+                    tr, td{
+                        height: 35px;
+                    }
+                    tr:nth-child(2n){
+                        background-color: #FFFFFF;
+                    }
+                    tr:nth-child(2n+1){
+                        background-color: #EBE8E8;
+                    }
+                    tr{
+                        color: #A0754A;
+                        font-size: 14px;
+                        text-align: center;
+                        .pointsDataActionBlock{
+                            display: flex;
+                            justify-content: space-around;
+                            height: 50px;
+                            td{
+                                align-self: center;
                             }
-                        }
-                    }       
+                        }       
+                    }
+                    .btn-xs{
+                        width: 60px;
+                        margin: 0px 5px 0px 5px;
+                    }
                 }
             }
         }

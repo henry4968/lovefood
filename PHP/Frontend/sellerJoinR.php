@@ -13,7 +13,7 @@
     // print_r($maxId[0]); //value
 
     // 分割SP0000從第三位開始並加數字1
-    $maxValue = substr( $maxId[0] , 3 ,) + 1;
+    $maxValue = substr( $maxId[0] , 3 ) + 1;
     // echo $maxValue; //測試用
 
     // 針對SUPPLIER_ID裡面做數字增加
