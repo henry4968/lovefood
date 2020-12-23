@@ -14,6 +14,7 @@
             $db_user = "root";
             $db_pass = "";
             $db_select = "Lovefood";
+<<<<<<< HEAD
            
             // ========廷翰=========
             // $db_host = "localhost:3306";
@@ -26,6 +27,8 @@
             // $db_user = "root";
             // $db_pass = "SQL1933";
             // $db_select = "Lovefood";
+=======
+>>>>>>> 85a69bb1e61cdf910168074f393cb7a1197e731a
            
             // ========廷翰=========
             // $db_host = "localhost:3306";
