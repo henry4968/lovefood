@@ -85,6 +85,9 @@ const main = new Vue({
             //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
             // })
 
+<<<<<<< HEAD
+>>>>>>> store
+=======
 >>>>>>> store
 
         },
@@ -106,6 +109,7 @@ const main = new Vue({
                 name: item.PRODUCT_NAME,
                 qty: item.quantity,
 <<<<<<< HEAD
+<<<<<<< HEAD
                 seller:item.SUPPLIER_NAME,
                 price:item.PRODUCT_SELLING_PRICE,
                 id:item.PRODUCT_ID,
@@ -126,6 +130,12 @@ const main = new Vue({
                 id: item.PRODUCT_ID,
                 img: item.PRODUCT_IMG,
                 exp: item.PRODUCT_EXP_DATE
+=======
+                seller: item.SUPPLIER_NAME,
+                price: item.PRODUCT_SELLING_PRICE,
+                id: item.PRODUCT_ID,
+                img: item.PRODUCT_IMG
+>>>>>>> store
             };
             this.cartArray.push(produ.qty);
             console.log(this.cartArray);
@@ -136,6 +146,7 @@ const main = new Vue({
             // localStorage
             let itemStorage = [];
             itemStorage.push(produ);
+<<<<<<< HEAD
 
             localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
 
@@ -143,6 +154,9 @@ const main = new Vue({
             //     localStorage.setItem(`itemStorage${i}`, JSON.stringify(itemStorage));
             // }
 
+>>>>>>> store
+=======
+            localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
 >>>>>>> store
             // Storage() {
             // localStorage.JSON.parse(localStorage.getItem("cartArray"));
@@ -165,6 +179,7 @@ const main = new Vue({
                 url,
                 data,
                 type: 'POST',
+<<<<<<< HEAD
 <<<<<<< HEAD
                     success: function (res) {
                         // console.log(res);
@@ -208,6 +223,8 @@ const main = new Vue({
                                     self.tableData[index].seconds = seconds
                                 }
 =======
+=======
+>>>>>>> store
                 success: function (res) {
                     // console.log(res);
                     for (let index = 0; index < res.length; index++) {
@@ -230,6 +247,7 @@ const main = new Vue({
                         const updateTime = () => {
                             var now = new Date();
                             var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
+<<<<<<< HEAD
 
                             if (difference <= 0) {
 
@@ -255,6 +273,32 @@ const main = new Vue({
 
                         self.tableData[index].timer = setInterval(updateTime, 1000)
 
+=======
+
+                            if (difference <= 0) {
+
+                            } else {
+
+                                var seconds = Math.floor(difference / 1000);
+                                var minutes = Math.floor(seconds / 60);
+                                var hours = Math.floor(minutes / 60);
+                                var days = Math.floor(hours / 24);
+
+                                hours %= 24;
+                                minutes %= 60;
+                                seconds %= 60;
+
+                                self.tableData[index].hours = hours
+                                self.tableData[index].days = days
+                                self.tableData[index].minutes = minutes
+                                self.tableData[index].seconds = seconds
+                            }
+                        }
+                        clearInterval(self.tableData[index].timer)
+
+                        self.tableData[index].timer = setInterval(updateTime, 1000)
+
+>>>>>>> store
                     }
                 },
                 error: function (res, error) {

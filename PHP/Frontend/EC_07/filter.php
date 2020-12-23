@@ -1,6 +1,6 @@
-<?php 
-    // include("../Lib/UtilClass.php");
-    include("../Lib/UtilClass07.php");
+<?php
+include("../Lib/UtilClass.php");
+// include("../Lib/UtilClass07.php");
 
     $start = new UtilClass();
       
@@ -47,3 +47,7 @@
 
 ?>
 
+// print_r($dataAll);
+// print json_encode($dataAll);
+//第六步印出來JSON格式讓ajax呼叫
+echo 123;
