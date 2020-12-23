@@ -2078,7 +2078,7 @@ let vm = new Vue({
           }
         } else {
           //提醒除錯
-          alert(checkdata[0]);
+          // alert(checkdata[0]);
         }
       })
     },
