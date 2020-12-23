@@ -164,7 +164,6 @@
                                 <div>身分證字號／統編<input type="text" name="pID_tID" class="form-control"></div>
                             </div>
                         </div>
-                        <!-- <div id="financeFilterDownload">下載：</div> -->
                         <div id="donationDateFilter">
                             查詢時間
                             <div class="form-group">
@@ -207,7 +206,8 @@
                             </div>
                             <div class="infoCards">
                                 平均訂單金額<br><br>
-                                <span>{{financeTotalSelling / financeTotalOrder}}元</span>
+                                <span v-if="financeTotalOrder == 0">0元</span>
+                                <span v-else>{{financeTotalSelling / financeTotalOrder}}元</span>
                             </div>
                             <div class="infoCards">
                                 <div>
@@ -231,10 +231,13 @@
                     </div>
                     <div id="financeShowDonationPage" v-show="!showTab && showDetails">
                         <div id="donationDate">
-                            查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span id="showDateEnd">2020-12-31</span>】
+                            <h4>
+                                ▊ 查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span
+                                    id="showDateEnd">2020-12-31</span>】
+                            </h4>
                         </div>
                         <div id="donationAmount">
-                            捐款總額：<input type="text" :value="totalDonation" disabled>元
+                            <h4> ▊ 捐款總額： <span>{{totalDonation}}</span> 元</h4>
                         </div>
                         <table id="donationTable">
                             <tr id="donationTableHeader">
@@ -246,7 +249,7 @@
                                 <th id="donationPlan">捐款類別</th>
                                 <th>捐款金額</th>
                                 <th>捐款時間</th>
-                                <th>功能鍵</th>
+                                <th>編輯詳情</th>
                             </tr>
                             <tbody v-if="donationLog">
                                 <tr v-for="(data,key) in donationLog">
@@ -259,8 +262,8 @@
                                     <td>{{data["DONATION_AMOUNT"]}}</td>
                                     <td>{{data["DONATION_DATE"]}}</td>
                                     <td class="pointsDataActionBlock">
-                                        <button type="submit" class="btn-sb btn-green" :data-id="data['DONATION_ID']"
-                                            @click="showContent">詳情</button>
+                                        <button type="submit" class="btn-xs btn-brown" :data-id="data['DONATION_ID']"
+                                            @click="showContent">編輯</button>
                                     </td>
                                 </tr>
                             </tbody>
@@ -281,7 +284,7 @@
                         <button @click="backToPreviousPage">
                             回上頁
                         </button><br><br>
-                        <h4>編輯【{{data["DONATION_ID"]}}】的捐款詳情：</h4><br>
+                        <h4> ▊ 編輯序號【{{data["DONATION_ID"]}}】的捐款詳情：</h4><br>
                         <div id="DonationDetailsBlock">
                             <div>
                                 捐款編號：<br><input type="text" :value="data['DONATION_ID']" name="selectedId_ED"
@@ -316,7 +319,7 @@
                                     name="remarks_ED"></textarea>
                             </div>
                         </div>
-                        <button @click="updateDonationDetails">
+                        <button class="btn-xl btn-brown" @click="updateDonationDetails">
                             確認修改
                         </button>
                     </div>

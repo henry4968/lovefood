@@ -1,16 +1,16 @@
 
-Vue.component('user',{
-    template:`
+Vue.component('user', {
+    template: `
     <div>
         <li>{{user}}</li>
     </div>
     `,
-    data(){
-        return{
+    data() {
+        return {
             user: null
         }
     },
-    created(){
+    created() {
         this.user = $.cookie('account');
     }
 })
@@ -90,6 +90,11 @@ const app = new Vue({
                     console.log(res);
                 },
             });
+        },
+        logOut() {
+
+
+
         }
     }
 });

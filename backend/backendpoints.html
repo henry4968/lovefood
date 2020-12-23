@@ -265,8 +265,8 @@
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
                             擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl" type="text" name="points"><button
-                                @click="updatePoints">確認修改</button>
+                            修改點數：<input class="input-xl updatePointsInput" type="text" name="points01">
+                            <button class="btn-xs btn-brown" @click="updatePoints">確認修改</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -310,8 +310,8 @@
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
                             擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl" type="text" name="points"><button
-                                @click="updatePoints">確認修改</button>
+                            修改點數：<input class="input-xl updatePointsInput" type="text" name="points02">
+                            <button class="btn-xs btn-brown" @click="updatePoints">確認修改</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -326,13 +326,23 @@
                                 </tr>
                             </thead>
                             <tbody v-if="issuanceLog">
-                                <tr v-for="(data,key) in issuanceLog">
+                                <tr v-for="(data,key) in pageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_NUM"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_DATE"]}}</td>
                             </tbody>
                         </table>
+                    </div>
+                    <div id="pagination" v-if="pageView">
+                        <a href="#0" @click="pageChange(0)">＜</a>
+                        <a href="#0" @click="pageChange(1)">1</a>
+                        <a href="#0" @click="pageChange(2)">2</a>
+                        <a href="#0" @click="pageChange(3)">3</a>
+                        <a href="#0" @click="pageChange(4)">4</a>
+                        <a href="#0" @click="pageChange(5)">5</a>
+                        <a href="#0" @click="pageChange('next')">＞</a>
+                        <a href="#0">最末頁</a>
                     </div>
                 </div>
                 <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">

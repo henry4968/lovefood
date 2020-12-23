@@ -16,10 +16,22 @@
             // $db_select = "loveFood";
            
             // ========廷翰=========
-            $db_host = "localhost:3306";
-            $db_user = "test";
-            $db_pass = "password";
+            // $db_host = "localhost:3306";
+            // $db_user = "test";
+            // $db_pass = "password";
+            // $db_select = "Lovefood";
+            
+            // ======強哥======
+            $db_host = "localhost";
+            $db_user = "root";
+            $db_pass = "SQL1933";
             $db_select = "Lovefood";
+           
+            // ========廷翰=========
+            // $db_host = "localhost:3306";
+            // $db_user = "test";
+            // $db_pass = "password";
+            // $db_select = "Lovefood";
        
             //建立資料庫連線物件
             $dsn = "mysql:host=".$db_host.";dbname=".$db_select;

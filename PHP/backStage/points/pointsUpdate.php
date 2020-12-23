@@ -8,7 +8,15 @@
     $statementUpdatePoints = $Util->getPDO()->prepare($sqlUpdatePoints);
     $statementShowFinalPoints = $Util->getPDO()->prepare($sqlShowFinalPoints);
 
-    $statementUpdatePoints->bindValue(1,$_POST['points']);
+    if(!$_POST['points01'] == ""){
+
+        $statementUpdatePoints->bindValue(1,$_POST['points01']);
+
+    }else if(!$_POST['points02'] == ""){
+
+        $statementUpdatePoints->bindValue(1,$_POST['points02']);
+    }
+
     $statementUpdatePoints->bindValue(2,$_POST['selectedId']);
     $statementUpdatePoints->execute();
 
