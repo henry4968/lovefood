@@ -695,7 +695,7 @@
         width: 91%;
     }
 }
-
+// @media screen and (max-wid)
 
     
 
@@ -703,9 +703,10 @@
     display: flex;
     justify-content: center;
     background-color: $FB;
-    width: 94%;
+    width: 1325px;
     margin: 0 auto;
-    padding: 10px;
+    padding: 20px 40px;
+
     #btn1,#btn2,#btn3,#btn4,#btn5{
         box-shadow:3px 3px 6px rgba(0,0,0,0.2);
         background-color: $C9;

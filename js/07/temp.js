@@ -5,7 +5,6 @@ const main = new Vue({
     el: '#all',
     data: {
         tableData: null,
-        count: 1,
         itemStorage:[],
         itemQty: 0,
         pageView:null,//當前頁面的陣列
@@ -76,12 +75,12 @@ const main = new Vue({
                     arrCate:arrCate,arrSeller:arrSeller,onlySellersArr:onlySellersArr,onlyCateArr:onlyCateArr, onlyRWDMapArr:onlyRWDMapArr              
                 })
         },
-        add(index) {
-            this.tableData[index].quantity++;
+        add(item) {
+            item.quantity++;
         },
-        sub(index) {
-            if (this.tableData[index].quantity >= 1) {
-                this.tableData[index].quantity--;
+        sub(item) {
+            if ( item.quantity>= 1) {
+                item.quantity--;
             }
         },
         
@@ -106,14 +105,7 @@ const main = new Vue({
         queryData(url,data = null){
             const self = this
 
-            if(self.tableData !== null){
-                // 清除 interval
-                for (let index = 0; index < self.tableData.length; index++) {
-                    clearInterval(self.tableData[index].timer)
-                    self.tableData[index].timer = null
-                }
-            }
-
+            
             $.ajax({
                 url,
                 data,
@@ -134,6 +126,14 @@ const main = new Vue({
                         // self.$forceUpdate() 強制更新 vue data
 
                         self.tableData = res;
+                        if(self.tableData !== null){
+                // 清除 interval
+                for (let index = 0; index < self.tableData.length; index++) {
+                    clearInterval(self.tableData[index].timer)
+                    self.tableData[index].timer = null
+                }
+            }
+
                         for (let index = 0; index < self.tableData.length; index++) {
                           
                             const updateTime = () =>{

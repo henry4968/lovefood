@@ -5,4 +5,10 @@
 // @import "../node_modules/normalize-scss/sass/normalize/import-now"; 
 // @import './base/fonts';
 @import '../../layout/applestore';
+@import '../../modules/input';
 @import '../../layout/footer';
+// input[type=number]::-webkit-outer-spin-button,
+//     input[type=number]::-webkit-inner-spin-button{
+//     -webkit-appearance: none;
+//     margin: 0;
+//     }

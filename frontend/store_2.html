@@ -134,9 +134,16 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
                     <div class="desItem">
                         <div class="itemImg">
                             <div class="pdtText">
-                                <p>下架倒數<span class="pdtTime">9:59</span>秒</p>
+                                <span class="pdtTime">
+                                    下架倒數
+                                    <span class="days" v-text="tableData[0].days"></span>:
+                                    <span class="hours" v-text="tableData[0].hours"></span>:
+                                    <span class="minutes" v-text="tableData[0].minutes"></span>:
+                                    <span class="seconds" v-text="tableData[0].seconds"></span>
+                                </span>
+                                
                             </div>
-                            <img src="../img/07/p1.png" alt="">
+                            <img :src="tableData[0].PRODUCT_IMG" alt="">
                         </div>
                         <div class="itemText">
                             <h1>{{tableData[0].PRODUCT_NAME}}</h1>
@@ -304,6 +311,7 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
 </body>
 <!-- js -->
 <!-- <script src="../js/07/temp.js"></script> -->
+<script src="../js/07/store_1.js"></script>
 <script src="../js/07/07.js"></script>
 
 </html>
