@@ -154,7 +154,7 @@ body{
               border: 2px solid red;
             }
             input{
-              margin: 0px 0px 20px 0px;
+              margin: 10px 0px 20px 0px;
               padding-left: 10px;
               border-radius: 5px;
               font-weight: bold;
@@ -168,7 +168,7 @@ body{
             div.checkEmail{
               display: flex;
               width: 270px;
-              margin: 0px 0px 20px 0px;
+              margin: 10px 0px 20px 0px;
               // border: 1px solid black;
               input.checkEmail.redbordercolorsendcheck{
                 border-radius: 5px;
@@ -404,7 +404,7 @@ body{
           color: #8f8770;
           font-size: 22px;
           font-weight: bold;
-          margin: 28% 0px 12% 0px;
+          margin: 43% 0px 12% 0px;
         }
         form#signIn{
           display: flex;
@@ -472,6 +472,9 @@ body{
                   color: #8f8770;
                 }
               }
+            }
+            div.forget{
+              cursor: pointer;
             }
           }
           button.changeTosignup{
