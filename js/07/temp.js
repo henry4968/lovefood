@@ -5,12 +5,7 @@ const main = new Vue({
     el: '#all',
     data: {
         tableData: null,
-<<<<<<< HEAD
         itemStorage:[],
-=======
-        count: 1,
-        itemStorage: [],
->>>>>>> a15542d92cc6f20cb9e824c8f8a016f3db328e6f
         itemQty: 0,
         pageView: null,//當前頁面的陣列
         pageNow: null,//現在在第幾頁
@@ -110,9 +105,6 @@ const main = new Vue({
         queryData(url, data = null) {
             const self = this
 
-<<<<<<< HEAD
-            
-=======
             if (self.tableData !== null) {
                 // 清除 interval
                 for (let index = 0; index < self.tableData.length; index++) {
@@ -121,7 +113,6 @@ const main = new Vue({
                 }
             }
 
->>>>>>> a15542d92cc6f20cb9e824c8f8a016f3db328e6f
             $.ajax({
                 url,
                 data,
@@ -141,25 +132,8 @@ const main = new Vue({
                     }
                     // self.$forceUpdate() 強制更新 vue data
 
-<<<<<<< HEAD
-                        self.tableData = res;
-                        if(self.tableData !== null){
-                // 清除 interval
-                for (let index = 0; index < self.tableData.length; index++) {
-                    clearInterval(self.tableData[index].timer)
-                    self.tableData[index].timer = null
-                }
-            }
-
-                        for (let index = 0; index < self.tableData.length; index++) {
-                          
-                            const updateTime = () =>{
-                                var now = new Date();
-                                var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
-=======
                     self.tableData = res;
                     for (let index = 0; index < self.tableData.length; index++) {
->>>>>>> a15542d92cc6f20cb9e824c8f8a016f3db328e6f
 
                         const updateTime = () => {
                             var now = new Date();
