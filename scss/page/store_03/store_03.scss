@@ -1244,10 +1244,10 @@
                              }
                             div{
                                 // margin-left: 70px;
-                                line-height: 2;
+                                // line-height: 2;
                                 font-size: 18px;
                                 color: #707070;
-                                width: 460px;
+                                width: 700px;
                                 overflow: hidden;
                                 position: relative;
                                 
@@ -1281,9 +1281,11 @@
                                     
                                 }
                                 .mapImg{
-                                    position: absolute;
+                                    
                                     .map_leaf{
+                                        position: absolute;
                                         width: 20px;
+                                        top: 100px;
                                     }
                                 }
 

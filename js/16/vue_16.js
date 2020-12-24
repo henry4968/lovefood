@@ -41,6 +41,7 @@ const main = new Vue({
         itemStorage: [],
         content: 'selfPickUp',
         exp: '',
+        total: ''
 
 
     },
