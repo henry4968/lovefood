@@ -965,6 +965,7 @@ div.buttons{
         border-radius: 5px;
         &:focus{
             border: 1px solid $F3;
+            outline: none;
         }
     }
 }
