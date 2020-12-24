@@ -72,10 +72,10 @@ const main = new Vue({
         // }
         // return total
         // },
-        pickUpExp() {
-            // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
-            this.itemStorage.exp
-        },
+        // pickUpExp() {
+        // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
+        // this.itemStorage.exp
+        // },
 
 
 
