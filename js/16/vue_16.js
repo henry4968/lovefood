@@ -41,9 +41,58 @@ const main = new Vue({
         itemStorage: [],
         content: 'selfPickUp',
         exp: '',
+        sessionId: null,
+        storgeValue: null,
+        membersPoints: null,
+        inputValue: 0
+    },
 
+    mounted() {
+
+        const self = this;
+
+        let test = JSON.parse(localStorage.getItem("itemStorage"));
+
+        this.itemStorage = test;
+
+        $.ajax({
+            url: '../PHP/Frontend/sessionR.php',
+            type: 'POST',
+            dataType: "text",
+            success: function (res) {
+                self.sessionId = res;
+                console.log(self.sessionId);
+            },
+            error: function (res) {
+                console.log("回傳失敗！");
+                console.log(res.responseText);
+            },
+        });
+
+
+        setTimeout(function () {
+
+            let loggnedInId = self.sessionId;
+
+            $.ajax({
+                url: '../PHP/Frontend/cartShowPoints.php',
+                type: 'POST',
+                dataType: "JSON",
+                data: { loggnedInId },
+                success: function (res) {
+                    console.log(res);
+                    self.membersPoints = res[0].MEMBER_POINTS;
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+            });
+
+        }, 100)
 
     },
+
     methods: {
         setQty(item) {
             this.qty = item.qty.value;
@@ -72,10 +121,31 @@ const main = new Vue({
         // }
         // return total
         // },
-        pickUpExp() {
-            // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
-            this.itemStorage.exp
-        },
+        // pickUpExp() {
+        // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
+        // this.itemStorage.exp
+        // },
+
+        checkOut() {
+
+            const self = this;
+
+            let discount = $("input[name='discount']").val();
+
+            $.ajax({
+                url: '../PHP/Frontend/cartCheckout.php',
+                type: 'POST',
+                dataType: "text",
+                data: { discount },
+                success: function (res) {
+                    console.log(res);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+            });
+        }
 
 
 
@@ -87,19 +157,11 @@ const main = new Vue({
         total() {
             var total = 0;
             for (var i in this.itemStorage) {
+                console.log(i);
                 total += this.itemStorage[i].price * this.itemStorage[i].qty;
             }
             return total;
         },
-    },
-    mounted() {
-
-        // this.itemStorage = JSON.parse(localStorage.getItem("itemStorage"));
-        let test = JSON.parse(localStorage.getItem("itemStorage"));
-
-        this.itemStorage = test;
-
-
     },
 
 });
