@@ -489,7 +489,7 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
                                     <div class="productBottom">
                                         <div class="pdtQuantity" id="pdtQuantit">
                                             <span class="productText">數量</span>
-                                            <button class="left" @click="sub(index)">
+                                            <button class="left" @click="sub(item)">
                                                 <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                                     class="pdtsvg">
                                                     <polygon
@@ -498,7 +498,7 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
                                                 </svg>
                                             </button>
                                             <input type="text" :value="item.quantity" name="qunatity" class="pdtValue">
-                                            <button type="button" class="right" @click="add(index)">
+                                            <button type="button" class="right" @click="add(item)">
                                                 <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                                     class="pdtsvg">
                                                     <polygon
