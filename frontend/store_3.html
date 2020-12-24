@@ -239,8 +239,12 @@
                             <div class="pointsDetails">
                                 <img src="../img/16/pointsIcon.png">
                                 <div>
-                                    <label>您的點數尚餘：<span v-if="membersPoints - inputValue >= 0">{{membersPoints -
-                                            inputValue}}點</span><span v-else style="color: red">折抵超過額度！</span></label>
+                                    <!-- <label>您的點數尚餘：<span v-if="membersPoints - inputValue >= 0">{{membersPoints -
+                                            inputValue}}點</span><span v-else-if="membersPoints - inputValue < 0"
+                                            style="color: red">折抵超過額度！</span>
+                                    </label> -->
+                                    <label>您的點數尚餘：<span>{{membersPoints - inputValue}}</span>點
+                                    </label>
 
                                     <br>
                                     <span>
@@ -249,7 +253,7 @@
                                         <label for="">點</label>
                                     </span>
                                     <a href="#">
-                                        <button class="pointsDiscount">全部扺用</button>
+                                        <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
                                     </a>
                                     <p>註：一點為一元</p>
                                 </div>
@@ -261,7 +265,9 @@
                         <div>
                             <span>結帳總金額：</sapn>
                                 <span class="dollars">${{total}}</span>
-                                <button type="submit"><a href="./store_4.html">$結帳</a></button>
+                                <button type="submit" v-if="membersPoints - inputValue >= 0"><a
+                                        href="./store_4.html">$結帳</a></button>
+                                <button type="submit" v-else disabled .prevent>$結帳</button>
                         </div>
                     </div>
                 </div>
