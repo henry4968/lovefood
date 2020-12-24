@@ -795,7 +795,7 @@ Vue.component('order', {
       if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
         alert('起始日期或是最後日期有空值');
       }
-      console.log(this.dateFrom);
+      // console.log(this.dateFrom);
     },
     // 不同的class切換及撈不同的class
     statussame(num) {
@@ -1570,7 +1570,7 @@ Vue.component('points', {
       axios.post('../PHP/Frontend/mypoints.php').then(res => {
         // 將點數建立成陣列
         this.pointList = res.data;
-        console.log(res.data);
+        // console.log(res.data);
         // 給會員編號
         that.memberId = res.data.get[0].MEMBER_ID_for_PI
         // console.log(this.pointList);
