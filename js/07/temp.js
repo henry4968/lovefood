@@ -6,10 +6,10 @@ const main = new Vue({
     data: {
         tableData: null,
         count: 1,
-        itemStorage:[],
+        itemStorage: [],
         itemQty: 0,
-        pageView:null,//當前頁面的陣列
-        pageNow:null,//現在在第幾頁
+        pageView: null,//當前頁面的陣列
+        pageNow: null,//現在在第幾頁
     },
     methods: {
         query(button) {
@@ -17,9 +17,9 @@ const main = new Vue({
             let arrCate = new Array();
             let arrSeller = new Array();
             let onlySellersArr = new Array();
-            var onlyCateArr= new Array();
+            var onlyCateArr = new Array();
             let onlyRWDMapArr = new Array();
-            if(button == 1){//全選篩選條件
+            if (button == 1) {//全選篩選條件
                 let itemsCate = $('.item3').find('input');//商品種類搜尋
                 console.log(itemsCate);
                 for (i = 0; i < itemsCate.length; i++) {
@@ -33,12 +33,12 @@ const main = new Vue({
                 for (i = 0; i < itemName2Wth.length; i++) {
                     sellerChecked = $(`input[name="seller1[${i}]"]:checked`).val();
                     if (sellerChecked != null) {
-                    arrSeller.push(sellerChecked);//filter.php收值 arrSeller
+                        arrSeller.push(sellerChecked);//filter.php收值 arrSeller
                     }
                 }
-            }else if(button == 2){
-                
-            }else if(button == 3){
+            } else if (button == 2) {
+
+            } else if (button == 3) {
                 let itemName5 = $('#itemName5').find('input');//單一商家搜尋
                 // console.log(itemName5);
                 for (i = 0; i < itemName5.length; i++) {
@@ -48,7 +48,7 @@ const main = new Vue({
                     }
                 }
                 console.log(onlySellersArr);
-            }else if(button == 4){
+            } else if (button == 4) {
                 ///////種類//////////
                 let itemName6 = $('#itemName6').find('input');//單一種類搜尋
                 // console.log(itemName6);
@@ -58,7 +58,7 @@ const main = new Vue({
                         onlyCateArr.push(speciesChecked);//filter.php收值onlyCateArr
                     }
                 }
-            }else if(button == 5){
+            } else if (button == 5) {
                 ///////RWDMap///////
                 let RWDMap = $('#itemName4').find('input');
                 // console.log($('#itemName4').find('input'));
@@ -69,32 +69,12 @@ const main = new Vue({
                     }
                 }
             }
-<<<<<<< HEAD
+
             // console.log(arrspecies,);
-<<<<<<< HEAD
-            this.queryData('../PHP/Frontend/EC_07/filter.php',{
+            this.queryData('../PHP/Frontend/EC_07/filter.php', {
                 //將陣列放入data透過ajax傳值，php接值
-                arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
+                arrCate: arrCate, arrSeller: arrSeller, onlySellersArr: onlySellersArr, onlyCateArr: onlyCateArr, onlyRWDMapArr: onlyRWDMapArr
             })
-            
-=======
-            // this.queryData('../PHP/Frontend/EC_07/filter.php',{
-            //     //將陣列放入data透過ajax傳值，php接值
-            //     arrCate:arrCate,arrSeller:arrSeller,sellers:sellers,arrspecies:arrspecies               
-            // })
-
-<<<<<<< HEAD
-=======
->>>>>>> store
->>>>>>> bf3e42c0bb3552e5d1ea24abe85bf1d34f3d9023
-=======
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
-
-            // console.log(arrspecies,);
-                this.queryData('../PHP/Frontend/EC_07/filter.php',{
-                    //將陣列放入data透過ajax傳值，php接值
-                    arrCate:arrCate,arrSeller:arrSeller,onlySellersArr:onlySellersArr,onlyCateArr:onlyCateArr, onlyRWDMapArr:onlyRWDMapArr              
-                })
         },
         add(index) {
             this.tableData[index].quantity++;
@@ -104,78 +84,29 @@ const main = new Vue({
                 this.tableData[index].quantity--;
             }
         },
-        
+
         addCart(item) {
             const self = this;
             var produ = {
                 name: item.PRODUCT_NAME,
                 qty: item.quantity,
-<<<<<<< HEAD
-<<<<<<< HEAD
                 seller: item.SUPPLIER_NAME,
                 price: item.PRODUCT_SELLING_PRICE,
                 id: item.PRODUCT_ID,
-                img: item.PRODUCT_IMG
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
-                seller:item.SUPPLIER_NAME,
-                price:item.PRODUCT_SELLING_PRICE,
-                id:item.PRODUCT_ID,
             };
             // let itemStorage = [];
-            if(item.quantity>0){
+            if (item.quantity > 0) {
                 // localStorage
                 self.itemStorage.push(produ);
                 self.itemQty++;
             }
             console.log(self.itemStorage);
-<<<<<<< HEAD
-            
-            // self.itemStorage.$forceUpdate();
-=======
-                seller: item.SUPPLIER_NAME,
-                price: item.PRODUCT_SELLING_PRICE,
-                id: item.PRODUCT_ID,
-                img: item.PRODUCT_IMG,
-                exp: item.PRODUCT_EXP_DATE
->>>>>>> bf3e42c0bb3552e5d1ea24abe85bf1d34f3d9023
-            };
-            this.cartArray.push(produ.qty);
-            console.log(this.cartArray);
-            if (produ.qty == 0) {
-                this.cartArray.pop();
-                // console.log(produ.qty);
-            }
-            // localStorage
-            let itemStorage = [];
-            itemStorage.push(produ);
-<<<<<<< HEAD
-            localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
-=======
-
-            localStorage.setItem('itemStorage', JSON.stringify(itemStorage));
-
-            // for (let i = 0; i < this.cartArray.length; i++) {
-            //     localStorage.setItem(`itemStorage${i}`, JSON.stringify(itemStorage));
-            // }
-
->>>>>>> store
->>>>>>> bf3e42c0bb3552e5d1ea24abe85bf1d34f3d9023
-            // Storage() {
-            // localStorage.JSON.parse(localStorage.getItem("cartArray"));
-
-            //  }
-
-=======
-            localStorage.setItem('itemStorage',JSON.stringify(self.itemStorage));
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
+            localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
         },
-        queryData(url,data = null){
+        queryData(url, data = null) {
             const self = this
 
-            if(self.tableData !== null){
+            if (self.tableData !== null) {
                 // 清除 interval
                 for (let index = 0; index < self.tableData.length; index++) {
                     clearInterval(self.tableData[index].timer)
@@ -187,57 +118,8 @@ const main = new Vue({
                 url,
                 data,
                 type: 'POST',
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
-                    success: function (res) {
-                        console.log(res);
-                        for (let index = 0; index < res.length; index++) {
-                            res[index].quantity = 0
-                            res[index].hours = 0
-                            res[index].days = 0
-                            res[index].minutes = 0
-                            res[index].seconds = 0
-                            res[index].timer = null
-                            res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG) 
-
-                            // console.log(window.btoa(res[index].PRODUCT_IMG) )
-                        }
-                        // self.$forceUpdate() 強制更新 vue data
-
-                        self.tableData = res;
-                        for (let index = 0; index < self.tableData.length; index++) {
-                          
-                            const updateTime = () =>{
-                                var now = new Date();
-                                var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
-
-                                if(difference <= 0){
-
-                                }else{
-    
-                                    var seconds = Math.floor(difference / 1000);
-                                    var minutes = Math.floor(seconds / 60);
-                                    var hours = Math.floor(minutes / 60);
-                                    var days = Math.floor(hours / 24);
-                                
-                                    hours %= 24;
-                                    minutes %= 60;
-                                    seconds %= 60;
-    
-                                    self.tableData[index].hours = hours
-                                    self.tableData[index].days = days
-                                    self.tableData[index].minutes = minutes
-                                    self.tableData[index].seconds = seconds
-                                }
-<<<<<<< HEAD
-=======
->>>>>>> bf3e42c0bb3552e5d1ea24abe85bf1d34f3d9023
                 success: function (res) {
-                    // console.log(res);
+                    console.log(res);
                     for (let index = 0; index < res.length; index++) {
                         res[index].quantity = 0
                         res[index].hours = 0
@@ -252,13 +134,11 @@ const main = new Vue({
                     // self.$forceUpdate() 強制更新 vue data
 
                     self.tableData = res;
-
                     for (let index = 0; index < self.tableData.length; index++) {
 
                         const updateTime = () => {
                             var now = new Date();
                             var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
-<<<<<<< HEAD
 
                             if (difference <= 0) {
 
@@ -277,115 +157,84 @@ const main = new Vue({
                                 self.tableData[index].days = days
                                 self.tableData[index].minutes = minutes
                                 self.tableData[index].seconds = seconds
-=======
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
-                            }
-                            clearInterval(self.tableData[index].timer)
-
-<<<<<<< HEAD
-=======
-
-                            if (difference <= 0) {
-
-                            } else {
-
-                                var seconds = Math.floor(difference / 1000);
-                                var minutes = Math.floor(seconds / 60);
-                                var hours = Math.floor(minutes / 60);
-                                var days = Math.floor(hours / 24);
-
-                                hours %= 24;
-                                minutes %= 60;
-                                seconds %= 60;
-
-                                self.tableData[index].hours = hours
-                                self.tableData[index].days = days
-                                self.tableData[index].minutes = minutes
-                                self.tableData[index].seconds = seconds
->>>>>>> store
                             }
                         }
                         clearInterval(self.tableData[index].timer)
 
                         self.tableData[index].timer = setInterval(updateTime, 1000)
-
->>>>>>> bf3e42c0bb3552e5d1ea24abe85bf1d34f3d9023
                     }
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index < 9;
+                    })
                 },
                 error: function (res, error) {
                     console.log(res, error);
                 },
                 dataType: 'JSON',
-=======
-                            self.tableData[index].timer = setInterval(updateTime,1000)
-                        }
-                        self.pageView = self.tableData.filter(function(item,index,array){
-                            return index < 9;
-                        })
-                    },
-                    error: function (res, error) {
-                        console.log(res, error);
-                    },
-                    dataType:'JSON',
->>>>>>> 3a3e3ce7c37c0d97565c29931014ee9a269cd975
             })
         },
-        pageChange(page){
+        pageChange(page) {
             //==============標記當前在第幾頁=============
             const self = this;
-            if(self.pageNow == 0){
-                page = pageNow+1;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
             }
             //==============直接換頁=============
-            if(page > 0){
-                self.pageView = self.tableData.filter(function(item,index,array){
-                    return index >= 8 * (page-1) && index < 8*(page);
+            if (page > 0) {
+                self.pageView = self.tableData.filter(function (item, index, array) {
+                    return index >= 8 * (page - 1) && index < 8 * (page);
                 })
-                pageNow = page-1;
+                pageNow = page - 1;
                 //頁碼變色
-                $('#pagination').find('a').css({ 
-                    backgroundColor:'transparent',
-                    color:'#887664'})
+                $('#pagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
                 $('#pagination').find('a').eq(`${page}`).css({
-                    backgroundColor:'#887664',
-                    color:'#FFF'})
-            //==============上一頁=============
-            }else if(page == 0){
-            //    alert('這是page前'+page)
-            //    alert('這是pageNow'+pageNow)
-                if(pageNow == 0){ //已經在最前頁
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
                     alert('當前已是最前頁，無法繼續後退');
-                }else{
+                } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({  
-                        backgroundColor:'transparent',
-                        color:'#887664'})
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
                     $('#pagination').find('a').eq(`${pageNow}`).css({
-                        backgroundColor:'#887664',
-                        color:'#FFF'})
-                    self.pageView = self.tableData.filter(function(item,index,array){
-                        return index >= 8 * (pageNow-1) && index < 8*(pageNow);
+                        backgroundColor: '#887664',
+                        color: '#FFF'
                     })
-                    pageNow = pageNow -1;
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 8 * (pageNow - 1) && index < 8 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
                 }
-            //==============下一頁=============
-            }else if(page == 'next' ){ 
-                alert('這是page後'+page)
-                alert('這是pageNow'+pageNow)
-                if(pageNow == Math.floor(self.tableData.length/8)-1){
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 8) - 1) {
                     alert('當前已是最末頁，無法繼續前進');
-                }else{
+                } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({  
-                        backgroundColor:'transparent',
-                        color:'#887664'})
-                    $('#pagination').find('a').eq(`${pageNow+2}`).css({
-                        backgroundColor:'#887664',
-                        color:'#FFF'})
-                    self.pageView = self.tableData.filter(function(item,index,array){
-                        return index >= 8 * (pageNow+1) && index < 8*(pageNow +2);
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
                     })
-                    pageNow = pageNow +1;
+                    $('#pagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 8 * (pageNow + 1) && index < 8 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
                 }
             }
             console.log(self.pageView);
@@ -393,19 +242,20 @@ const main = new Vue({
 
 
     },
-    mounted(){
+    mounted() {
         const self = this;
         // store = new Array();
         self.queryData('../PHP/Frontend/EC_07/storeCard.php')
         //換頁載入＝＝＝＝＝
         setTimeout(() => {
-            self.pageView = self.tableData.filter(function(item,index,array){
+            self.pageView = self.tableData.filter(function (item, index, array) {
                 return index < 9;
             })
             pageNow = 0;
             $('#pagination').find('a').eq(1).css({
-                backgroundColor:'#887664',
-                color:'#FFF'})
+                backgroundColor: '#887664',
+                color: '#FFF'
+            })
         }, 1000);
         //換頁載入＝＝＝＝＝
         // $.ajax({
