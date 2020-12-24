@@ -107,10 +107,4 @@ include("../Lib/UtilClass07.php");
     print json_encode($dataAll);
     // print_r($dataAll);
     //第六步印出來JSON格式讓ajax呼叫
-
 ?>
-
-// print_r($dataAll);
-// print json_encode($dataAll);
-//第六步印出來JSON格式讓ajax呼叫
-echo 123;
