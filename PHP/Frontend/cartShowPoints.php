@@ -4,7 +4,6 @@ include("Lib/UtilClass.php");
 $Util = new UtilClass();
 
 $loggnedInId = $_POST["loggnedInId"];
-$discount = $_POST["discount"];
 
 $sqlQueryPoints = "SELECT MEMBER_ID, MEMBER_POINTS FROM MEMBER WHERE MEMBER_ID = ?";
 
