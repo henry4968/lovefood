@@ -1,5 +1,8 @@
 
 ////////////////vue///////////////
+
+const { time } = require("highcharts");
+
 //////////////////////////////////
 const main = new Vue({
     el: '#all',
@@ -96,9 +99,16 @@ const main = new Vue({
             // let itemStorage = [];
             if (item.quantity > 0) {
                 // localStorage
-                self.itemStorage.push(produ);
+                for(i=0;i<itemStorage.length;i++){
+                    if(itemStorage[i].name == produ.name){
+                        itemStorage[i].qty += item.quantity
+                    }else{
+                        self.itemStorage.push(produ);
+                    }
+                }
                 self.itemQty++;
             }
+            
             console.log(self.itemStorage);
             localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
         },
