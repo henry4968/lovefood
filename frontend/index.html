@@ -16,19 +16,20 @@
     <!-- 計數套件 -->
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <!-- 輪播套件js -->
+    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
     <!-- 全屏滾動套件js -->
     <script src="../node_modules/fullpage.js/dist/fullpage.js"></script>
     <script src="../node_modules/fullpage.js/vendors/easings.min.js"></script>
     <script src="../node_modules/fullpage.js/vendors/scrolloverflow.min.js"></script>
     <script src="../node_modules/fullpage.js/dist/fullpage.extensions.min.js"></script>
-    <!-- 輪播套件js -->
-    <!-- <script src="../node_modules/lightslider/dist/js/lightslider.js"></script> -->
     <script src="../node_modules/vue/dist/vue.js"></script>
     <!-- 自訂js -->
     <script src="../js/22/index.js"></script>
     <script src="../js/07/data.js"></script>
-    <!-- axios套件 -->
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
 
 <body>
@@ -423,9 +424,9 @@
 
             <!-- 商城輪播開始 -->
             <div id="productCarouselContainer">
-                <ul id="productCarouselList" v-for="(item, index) in tableData">
+                <ul id="productCarouselList">
 
-                    <li class="productCarouseItem">
+                    <li class="productCarouseItem" v-for="(item, index) in tableData">
                         <div class="productCard">
 
                             <div class="countdown">
@@ -451,7 +452,7 @@
                         </div>
                     </li>
 
-                    <!-- <li class="productCarouseItem">
+                    <li class="productCarouseItem">
                         <div class="productCard">
 
                             <div class="countdown">
@@ -549,7 +550,7 @@
                                 <span class="productOriginalPrice">原價25元</span>
                             </div>
                         </div>
-                    </li>-->
+                    </li>
 
                 </ul>
             </div>

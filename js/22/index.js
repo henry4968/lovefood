@@ -650,7 +650,7 @@ $(document).ready(function () {
 window.addEventListener('load', function () {
 
     const vm = new Vue({
-        el: '#chapter04',
+        el: '#productCarouselList',
         data: {
             tableData: null
         },
@@ -682,8 +682,13 @@ window.addEventListener('load', function () {
                     data,
                     type: 'POST',
                     success: function (res) {
+
                         console.log(res);
+
+                        res.splice(6);
+
                         for (let index = 0; index < res.length; index++) {
+
                             res[index].quantity = 0
                             res[index].hours = 0
                             res[index].days = 0
@@ -699,6 +704,7 @@ window.addEventListener('load', function () {
                         self.tableData = res;
 
                         for (let index = 0; index < self.tableData.length; index++) {
+
 
                             const updateTime = () => {
                                 var now = new Date();
@@ -732,7 +738,7 @@ window.addEventListener('load', function () {
                     error: function (res, error) {
                         console.log(res, error);
                     },
-                    dataType: 'text',
+                    dataType: 'JSON',
                 })
             }
 
