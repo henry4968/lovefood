@@ -262,6 +262,7 @@
             }
 
             a{
+                white-space: nowrap;
                 font-size: 30px;
                 @include newRwd("laptop"){
                     font-size: 20px;
@@ -370,12 +371,6 @@
                         transform: scale(1.05);
                         transition: all .3s;
                     }
-                }
-            }
-            #navIcons05{
-                img{
-                    max-width: 30px;
-                    max-height: 30px;
                 }
             }
         }
@@ -743,6 +738,11 @@
     }
 
 }
+@media screen and (max-width: 1033px){
+    #selectfm{
+        display: none;
+    }
+}
 
 .width_2P{
     display: flex;
@@ -759,7 +759,7 @@
         .pdtText{
             // width: 190px;//(190px)/2
             margin: 0 auto;
-            padding: 20px;
+            padding: 25px;
             border-radius: 30px 30px 0 0;
             background-color: $FB;
             display: flex;
@@ -768,8 +768,10 @@
 
             .pdtTime{
                 margin: -4px 0;
+                width: 250px;
+                font-size: 16px;
             }
-            .pdtTime > span.minutes, .pdtTime > span.seconds,.pdtTime > span.days,.pdtTime > span.hours,{
+            .pdtTime > span.minutes, .pdtTime > span.seconds,.pdtTime > span.days,.pdtTime > span.hours{
                 font-size: 25px;
                 // margin: -5px 7px;
                 color: red;
@@ -817,6 +819,8 @@
 
 .productCenter{
     box-shadow:3px 3px 6px rgba(0,0,0,0.2);
+    display:inline-block;
+    font-size: 0;
     .pdtExplanation{
         padding: 15px 0px 15px 15px;
         display: flex;
@@ -914,6 +918,7 @@ svg.pdtsvg{
         color: #C9BE9F;
         // -webkit-appearance: none;
     }
+    
 /////////////頁數/////////////////
 .page-normal{
     display: flex;
