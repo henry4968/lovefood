@@ -1,29 +1,28 @@
 <?php
-  // 資料庫連線
-  include("Lib/UtilClass.php");
-  $Util = new UtilClass();
+// 資料庫連線
+include("Lib/frontendUtilClass.php");
+$Util = new UtilClass();
 
-  // 針對該ID找出名稱
-  include("Lib/MemberClass.php");
+// 針對該ID找出名稱
+include("Lib/MemberClass.php");
 
-  $Member = new MemberClass();
-  
-  // 測試印出MEMBERID
-  $MemberId = $Member->getMemberID();
-  // echo $MemberId;
+$Member = new MemberClass();
 
-  // 建立SQL
-  $sql = "select MEMBER_NAME from member where MEMBER_ID = ?";
+// 測試印出MEMBERID
+$MemberId = $Member->getMemberID();
+// echo $MemberId;
 
-  //執行
-  $statement = $Util->getPDO()->prepare($sql);
+// 建立SQL
+$sql = "select MEMBER_NAME from member where MEMBER_ID = ?";
 
-  // 給值
-  $statement->bindValue(1, $MemberId);
-  $statement->execute();
-  // $data = $statement->fetchAll();
-  $data = $statement->fetch();
+//執行
+$statement = $Util->getPDO()->prepare($sql);
 
-  // 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
-  print json_encode($data);
-?>
+// 給值
+$statement->bindValue(1, $MemberId);
+$statement->execute();
+// $data = $statement->fetchAll();
+$data = $statement->fetch();
+
+// 對變量進行JSON編碼，不能用print_r是因為它是把裡面的內容轉字串
+print json_encode($data);
