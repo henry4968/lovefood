@@ -44,7 +44,7 @@ const main = new Vue({
         sessionId: null,
         storgeValue: null,
         membersPoints: null,
-        inputValue: 0
+        inputValue: null
     },
 
     mounted() {
@@ -89,7 +89,6 @@ const main = new Vue({
             });
 
         }, 100)
-
     },
 
     methods: {
@@ -113,6 +112,17 @@ const main = new Vue({
         points() {
 
         },
+        inputKeyUp() {
+            const self = this;
+            let discountInput = document.querySelector("#discountInput");
+
+            if (self.inputValue > parseInt(self.membersPoints)) {
+                alert("重新輸入啦");
+                // self.membersPoints = res[0].MEMBER_POINTS;
+                // self.inputValue = this.inputValue;
+                // discountInput.value = "";
+            }
+        }
         // sum() {
         // var sum = 0
         // for (var i in this.itemStorage) {
@@ -138,6 +148,13 @@ const main = new Vue({
 
 
     },
+    // watch: {
+    //     inputValue: function () {
+    //         if (this.inputValue > this.membersPoints) {
+    //             alert('超過啦');
+    //         }
+    //     }
+    // },
 
     computed: {
 
@@ -153,11 +170,8 @@ const main = new Vue({
 
         inputKeyUp() {
 
-            if (inputValue > membersPoints) {
-                alert("超過啦");
-            }
+
 
         },
     },
-
 });

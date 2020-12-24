@@ -1,14 +1,9 @@
 
-////////////////vue///////////////
-
-const { time } = require("highcharts");
-
-//////////////////////////////////
 const main = new Vue({
     el: '#all',
     data: {
         tableData: null,
-        itemStorage:[],
+        itemStorage: [],
         itemQty: 0,
         pageView: null,//當前頁面的陣列
         pageNow: null,//現在在第幾頁
@@ -82,7 +77,7 @@ const main = new Vue({
             item.quantity++;
         },
         sub(item) {
-            if ( item.quantity>= 1) {
+            if (item.quantity >= 1) {
                 item.quantity--;
             }
         },
@@ -99,16 +94,16 @@ const main = new Vue({
             // let itemStorage = [];
             if (item.quantity > 0) {
                 // localStorage
-                for(i=0;i<itemStorage.length;i++){
-                    if(itemStorage[i].name == produ.name){
+                for (i = 0; i < itemStorage.length; i++) {
+                    if (itemStorage[i].name == produ.name) {
                         itemStorage[i].qty += item.quantity
-                    }else{
+                    } else {
                         self.itemStorage.push(produ);
                     }
                 }
                 self.itemQty++;
             }
-            
+
             console.log(self.itemStorage);
             localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
         },

@@ -279,17 +279,20 @@
                                             inputValue}}點</span><span v-else-if="membersPoints - inputValue < 0"
                                             style="color: red">折抵超過額度！</span>
                                     </label> -->
-                                    <label>您的點數尚餘：<span>{{membersPoints - inputValue}}</span>點
+                                    <!-- <label>您的點數尚餘：<span>{{membersPoints - inputValue}}</span>點、 -->
+                                    <label v-if="membersPoints">您的點數尚餘：<span>{{membersPoints - inputValue}}</span>點
+
                                     </label>
 
                                     <br>
                                     <span>
                                         <label for="points">使用</label>
-                                        <input type="number" name="discount" min="0" max="">
+                                        <input type="number" id="discountInput" name="discount" min="0" max=""
+                                            v-model="inputValue">
                                         <label for="">點</label>
                                     </span>
                                     <a href="#">
-                                        <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
+                                        <button class="pointsDiscount">全部扺用</button>
                                     </a>
                                     <p>註：一點為一元</p>
                                 </div>
