@@ -11,7 +11,7 @@ $Member = $Member->getMemberID();
 
 //======================================================== 
 //建立SQL 訂單
-$sqlod = "SELECT * FROM LoveFood.`ORDER` where MEMBER_ID_for_OD = ?";
+$sqlod = "SELECT * FROM `ORDER` where MEMBER_ID_for_OD = ?";
 
 // 執行
 $order = $Util->getPDO()->prepare($sqlod);
@@ -24,17 +24,17 @@ $dataorder = $order->fetchAll();
 //======================================================== 
 //建立SQL 訂單細節
 $sqloddel = "SELECT *
-        FROM LoveFood.`ORDER` as aa
-        join lovefood.order_detail as bb
+        FROM `ORDER` as aa
+        join order_detail as bb
         on
         aa.ORDER_ID = bb.ORDER_ID_for_ODD
-        join lovefood.mrt_pickup_site cc
+        join mrt_pickup_site cc
         on
         aa.MRT_PICKUP_SITE_ID_for_OD = cc.MRT_PICKUP_SITE_ID
-        join lovefood.product dd
+        join product dd
         on
         bb.PRODUCT_ID_for_ODD = dd.PRODUCT_ID
-        join lovefood.supplier ee
+        join supplier ee
         on
         dd.SUPPLIER_ID_for_PD = ee.SUPPLIER_ID
         where aa.MEMBER_ID_for_OD = ?";
