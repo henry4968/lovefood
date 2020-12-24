@@ -10,7 +10,7 @@ $MemberId = $Member->getMemberID();
 
 //========================================================  
 //建立SQL 花費點數
-$sqlspan = 'SELECT * FROM order where (ORDER_DISCOUNT != "" and MEMBER_ID_for_OD = ?)';
+$sqlspan = 'SELECT * FROM `order` where (ORDER_DISCOUNT != "" and MEMBER_ID_for_OD = ?)';
 
 // 執行
 $pointspan = $Util->getPDO()->prepare($sqlspan);
