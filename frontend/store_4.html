@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-結帳頁</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/reset/reset.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="../css/reset/reset.css"> -->
     <link rel="stylesheet" href="../css/store_04.css">
-    <script src="../js/16/store_04.js"></script>
+    <!-- <script src="../js/16/store_04.js"></script> -->
     <script src="../node_modules/vue/dist/vue.js"></script>
     <!-- axios套件 -->
-    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <!-- <script src="../node_modules/axios/dist/axios.min.js"></script> -->
 </head>
 
 <body>
@@ -200,15 +201,19 @@
 
                     </div>
                     <!-- 信用卡付款區 -->
-                    <ul class="list_h">
+                    <!-- <ul class="list_h">
                         <li><img src="../img/16/creditCardIcon.png"></li>
                         <li>信用卡付款</li>
                     </ul>
                     <div class="content">
                         <form action="" class="creditCardForm">
-                            <div class="creditInfo1">
+                            <div class="form-group owner">
+                                <label for="owner">持卡人：</label>
+                                <input type="text" class="form-control" id="owner" placeholder="與信用卡簽名相同">
+                            </div>
+                            <div class="creditInfo1" id="card-number-field">
                                 <label for="creditCard">信用卡號：</label>
-                                <div id="creditCardRwd">
+                                <div id="creditCardRwd cardNumber">
                                     <input type="text" name="creditCard" class="creditCard" maxlength="4">－<input
                                         type="text" name="creditCard" class="creditCard" maxlength="4">－<input
                                         type="text" name="creditCard" class="creditCard" maxlength="4">－<input
@@ -251,26 +256,80 @@
                                 </div>
 
 
-                                <div id="securityCodeBlock">
-                                    <label for="securityCode" class="securityCode">背面末三碼：</label>
-                                    <input type="text" name="securityCode" class="securityCode1" maxlength="3">
+                                <div id="securityCodeBlock CVV">
+                                    <label for="cvv" class="securityCode">背面末三碼：</label>
+                                    <input type="text" name="securityCode" class="securityCode1 form-control"
+                                        maxlength="3" id="cvv">
                                 </div>
                                 <div class="formGroup" id="creditCards">
                                     <img src="../img/16/VISA_300x200.png" id="visa">
                                     <img src="../img/16/Master_300x200.png" id="mastercard">
-                                    <img src="../img/16/JCB_300x200.png" id="jcb">
+                                    <img src="../img/16/JCB_300x200.png" id="amex">
                                 </div>
                             </div>
                     </div>
-                    </form>
+                    </form> -->
+
+                    <div class="creditCardForm">
+
+                        <div class="payment">
+                            <form>
+                                <div class="form-group owner">
+                                    <label for="owner">持卡人：</label>
+                                    <input type="text" class="form-control" id="owner">
+                                </div>
+                                <div class="form-group CVV">
+                                    <label for="cvv">驗證碼</label>
+                                    <input type="text" class="form-control" id="cvv">
+                                </div>
+                                <div class="form-group" id="card-number-field">
+                                    <label for="cardNumber">信用卡卡號</label>
+                                    <input type="text" class="form-control" id="cardNumber">
+                                </div>
+                                <div class="form-group" id="expiration-date">
+                                    <label>有效期限</label>
+                                    <select>
+                                        <option value="01">January</option>
+                                        <option value="02">February </option>
+                                        <option value="03">March</option>
+                                        <option value="04">April</option>
+                                        <option value="05">May</option>
+                                        <option value="06">June</option>
+                                        <option value="07">July</option>
+                                        <option value="08">August</option>
+                                        <option value="09">September</option>
+                                        <option value="10">October</option>
+                                        <option value="11">November</option>
+                                        <option value="12">December</option>
+                                    </select>
+                                    <select>
+                                        <option value="16"> 2016</option>
+                                        <option value="17"> 2017</option>
+                                        <option value="18"> 2018</option>
+                                        <option value="19"> 2019</option>
+                                        <option value="20"> 2020</option>
+                                        <option value="21"> 2021</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" id="credit_cards">
+                                    <img src="../img/16/VISA_300x200.png" id="visa">
+                                    <img src="../img/16/Master_300x200.png" id="mastercard">
+                                    <img src="../img/16/JCB_300x200.png" id="amex">
+                                </div>
+                                <!-- <div class="form-group" id="pay-now">
+                                    <button type="submit" class="btn btn-default" id="confirm-purchase">Confirm</button>
+                                </div> -->
+                            </form>
+                        </div>
+                    </div>
 
 
                     <!-- 結帳總金額區 -->
                     <div class="item2">
-                        <div>
+                        <div id="pay-now">
                             <span>結帳總金額：</sapn>
                                 <span class="dollars">$182元</span>
-                                <button type="button" class="btn_modal">$結帳</button>
+                                <button type="button" class="btn_modal" id="confirm-purchase">$結帳</button>
 
                                 <div class="overlay">
                                     <article>
@@ -312,143 +371,145 @@
     </article>
 </body>
 <!-- header vue -->
+<script src="../js/16/jquery.payform.min.js"></script>
+<script src="../js/16/script.js"></script>
 <script>
-    new Vue({
-        el: 'header',
-        data: {
-            // 一般會員 href
-            jumppage: '',
-            // 賣家會員 href
-            seljumpage: '',
-            // 賣家會員class
-            selloginchangemem: '',
-            // 會員大頭貼
-            Bigpicchange: "",
-            // 判斷一般會員是否登入
-            login: '',
-            // 判斷賣家會員是否登入
-            sellogin: '',
-        },
-        methods: {
+    // new Vue({
+    //     el: 'header',
+    //     data: {
+    //         // 一般會員 href
+    //         jumppage: '',
+    //         // 賣家會員 href
+    //         seljumpage: '',
+    //         // 賣家會員class
+    //         selloginchangemem: '',
+    //         // 會員大頭貼
+    //         Bigpicchange: "",
+    //         // 判斷一般會員是否登入
+    //         login: '',
+    //         // 判斷賣家會員是否登入
+    //         sellogin: '',
+    //     },
+    //     methods: {
             // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
-            logIncheck() {
-                if (checkdata != '') {
-                    if (checkdata.substr(0, 2) == 'MB') {
-                        this.jumppage = './memberInformation.html';
-                    } else if ((checkdata.substr(0, 2) == 'SP')) {
-                        alert('尚未登入會員，請登入會員');
-                        this.jumppage = './signUp_signIn.html';
-                    }
-                } else {
-                    alert('尚未登入會員，請登入會員');
-                    this.jumppage = './signUp_signIn.html';
-                }
-            },
+            // logIncheck() {
+            //     if (checkdata != '') {
+            //         if (checkdata.substr(0, 2) == 'MB') {
+            //             this.jumppage = './memberInformation.html';
+            //         } else if ((checkdata.substr(0, 2) == 'SP')) {
+            //             alert('尚未登入會員，請登入會員');
+            //             this.jumppage = './signUp_signIn.html';
+            //         }
+            //     } else {
+            //         alert('尚未登入會員，請登入會員');
+            //         this.jumppage = './signUp_signIn.html';
+            //     }
+            // },
             // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
-            sellogIncheck() {
-                if (checkdata != '') {
-                    if (checkdata.substr(0, 2) == 'MB') {
-                        alert('尚未登入會員，請登入賣家會員');
-                        this.seljumpage = './sellerSignUp_SignIn.html';
-                    } else if ((checkdata.substr(0, 2) == 'SP')) {
-                        this.seljumpage = '../backend/backendIndex.html';
-                        this.selloginchangemem = true;
-                    }
-                } else {
-                    alert('尚未登入會員，請登入會員');
-                    this.seljumpage = './sellerSignUp_SignIn.html';
-                }
-            },
+            // sellogIncheck() {
+            //     if (checkdata != '') {
+            //         if (checkdata.substr(0, 2) == 'MB') {
+            //             alert('尚未登入會員，請登入賣家會員');
+            //             this.seljumpage = './sellerSignUp_SignIn.html';
+            //         } else if ((checkdata.substr(0, 2) == 'SP')) {
+            //             this.seljumpage = '../backend/backendIndex.html';
+            //             this.selloginchangemem = true;
+            //         }
+            //     } else {
+            //         alert('尚未登入會員，請登入會員');
+            //         this.seljumpage = './sellerSignUp_SignIn.html';
+            //     }
+            // },
             // 判斷是否有會員登入及是哪一種會員
             // 看看是一般會員或是賣家會員
-            checklogin() {
-                axios.post('../PHP/Frontend/sessionR.php').then(res => {
-                    // console.log(res);
-                    // 賣家或是買家ID
-                    checkdata = res.data;
-                    // console.log(checkdata.substr(0, 2));
-                    // alert(checkdata);
-                    if (checkdata != '') {
-                        // 判斷是賣家會員使"賣家專區"變色
-                        if ((checkdata.substr(0, 2) == 'SP')) {
-                            // console.log(checkdata.substr(0, 2));
-                            this.sellogin = true;
-                            // console.log(this.sellogin);
-                        } else {
-                            this.sellogin = false;
-                            // console.log(this.sellogin);
-                        }
-                        // 判斷是一般會員使"會員"變色
-                        if ((checkdata.substr(0, 2) == 'MB')) {
-                            this.login = true;
-                        } else {
-                            this.login = false;
-                        }
-                    }
-                });
-            },
+            // checklogin() {
+            //     axios.post('../PHP/Frontend/sessionR.php').then(res => {
+            //         // console.log(res);
+            //         // 賣家或是買家ID
+            //         checkdata = res.data;
+            //         // console.log(checkdata.substr(0, 2));
+            //         // alert(checkdata);
+            //         if (checkdata != '') {
+            //             // 判斷是賣家會員使"賣家專區"變色
+            //             if ((checkdata.substr(0, 2) == 'SP')) {
+            //                 // console.log(checkdata.substr(0, 2));
+            //                 this.sellogin = true;
+            //                 // console.log(this.sellogin);
+            //             } else {
+            //                 this.sellogin = false;
+            //                 // console.log(this.sellogin);
+            //             }
+            //             // 判斷是一般會員使"會員"變色
+            //             if ((checkdata.substr(0, 2) == 'MB')) {
+            //                 this.login = true;
+            //             } else {
+            //                 this.login = false;
+            //             }
+            //         }
+            //     });
+            // },
             // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            Bitpicupdate() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
-                    }
-                });
-            },
+            // Bitpicupdate() {
+            //     // 撈圖片
+            //     axios.post('../PHP/Frontend/appearImg.php').then(res => {
+            //         data = res.data
+            //         // console.log(data);
+            //         if (data != "") {
+            //             // atob函数用来解碼一个已经被base-64编碼過的數據
+            //             // 如果在PHP有base64_decode就不用atob
+            //             // this.Bigpicchange = atob(data);
+            //             $('#navIcons03 img').attr('src', atob(data));
+            //             $('#navIcons05 img').attr('src', atob(data));
+            //         }
+            //     });
+            // },
             // hover取到圖片
-            onhover() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        // console.log(this.Bigpicchange);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
-                    }
-                });
-            },
+            // onhover() {
+            //     // 撈圖片
+            //     axios.post('../PHP/Frontend/appearImg.php').then(res => {
+            //         data = res.data
+            //         // console.log(data);
+            //         if (data != "") {
+            //             // atob函数用来解碼一个已经被base-64编碼過的數據
+            //             // 如果在PHP有base64_decode就不用atob
+            //             // this.Bigpicchange = atob(data);
+            //             // console.log(this.Bigpicchange);
+            //             $('#navIcons03 img').attr('src', atob(data));
+            //             $('#navIcons05 img').attr('src', atob(data));
+            //         }
+            //     });
+            // },
             // leave回到原狀
-            onout() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        // console.log(this.Bigpicchange);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
-                    }
-                });
-            },
+            //     onout() {
+            //         // 撈圖片
+            //         axios.post('../PHP/Frontend/appearImg.php').then(res => {
+            //             data = res.data
+            //             // console.log(data);
+            //             if (data != "") {
+            //                 // atob函数用来解碼一个已经被base-64编碼過的數據
+            //                 // 如果在PHP有base64_decode就不用atob
+            //                 // this.Bigpicchange = atob(data);
+            //                 // console.log(this.Bigpicchange);
+            //                 $('#navIcons03 img').attr('src', atob(data));
+            //                 $('#navIcons05 img').attr('src', atob(data));
+            //             }
+            //         });
+            //     },
 
-        },
-        mounted() {
-            // 看看是一般會員或是賣家會員
-            this.checklogin();
-            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            this.Bitpicupdate();
-        },
-        updated() {
-            // 看看是一般會員或是賣家會員
-            this.checklogin();
-            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            this.Bitpicupdate();
-        },
-    });
+            // },
+            // mounted() {
+                // 看看是一般會員或是賣家會員
+                // this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                // this.Bitpicupdate();
+            // },
+            // updated() {
+                // 看看是一般會員或是賣家會員
+                // this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                // this.Bitpicupdate();
+        //     },
+        // });
 </script>
 
 </html>
