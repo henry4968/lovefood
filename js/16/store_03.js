@@ -32,13 +32,13 @@ const app = new Vue({
 
 
         // self.storgeValue = JSON.parse(localStorage.getItem('itemStorage'));
+
         setTimeout(function () {
 
             let loggnedInId = self.sessionId;
-            console.log(typeof (aa));
 
             $.ajax({
-                url: '../PHP/Frontend/cart.php',
+                url: '../PHP/Frontend/cartShowPoints.php',
                 type: 'POST',
                 dataType: "text",
                 data: { loggnedInId },
@@ -59,7 +59,26 @@ const app = new Vue({
 
     methods: {
 
+        checkOut() {
 
+            const self = this;
+
+            let discount = $("input[name='discount']").val();
+
+            $.ajax({
+                url: '../PHP/Frontend/cartCheckout.php',
+                type: 'POST',
+                dataType: "text",
+                data: { discount },
+                success: function (res) {
+                    console.log(res);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+            });
+        }
 
 
     },

@@ -87,6 +87,7 @@ const main = new Vue({
         total() {
             var total = 0;
             for (var i in this.itemStorage) {
+                console.log(i);
                 total += this.itemStorage[i].price * this.itemStorage[i].qty;
             }
             return total;
