@@ -98,7 +98,6 @@ $(function () {
 $(function () {
     let headup_check;
     $('#sendButton').on('click', function (e) {
-
         e.preventDefault();
         let donationPlan = $("[name='donationPlan']:checked").val();
         let donationMethod = $("[name='donationMethod']:checked").val();
@@ -114,7 +113,6 @@ $(function () {
         let deliveryMethod = $("[name='deliveryMethod']:checked").val();
         let receiptTitle = $("[name='receiptTitle']").val();
         let receipt_pID_tID = $("[name='receipt_pID_tID']").val();
-
         let check = $("[name='check']:checked").val();
         let finalcheck = document.querySelector('#finalcheck');
         let receiptRadio1 = document.querySelector('#receiptRadio1');
@@ -222,6 +220,34 @@ $(function () {
 
 
     });
+
+    // 展示用帶入
+    $('#show1').on('click', function () {
+        // alert("yes!!");
+        $("[name='name']").val("黃曉姬");
+        $("[name='email']").val("chickenhuang@gmail.com");
+    })
+
+    $('#show2').on('click', function () {
+        // alert("yes!!");
+        $("[name='cardType']").val(2).attr("checked", true);
+        $("[name='cardName']").val("黃曉姬");
+        $("[name='cardNumberLine']").eq(0).val("4311");
+        $("[name='cardNumberLine']").eq(1).val("2312");
+        $("[name='cardNumberLine']").eq(2).val("0288");
+        $("[name='cardNumberLine']").eq(3).val("1164");
+        $("[name='cardDate']").eq(0).val(12);
+        $("[name='cardDate']").eq(1).val(22);
+        $("[name='cardThree']").val(132);
+
+    });
+
+    $('#show3').on('click', function () {
+        // alert("yes!!");
+        $("[name='receiptTitle']").val("黃曉姬");
+        $("[name='receipt_pID_tID']").val("C181714206");
+    })
+
 });
 
 
