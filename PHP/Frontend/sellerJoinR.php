@@ -59,7 +59,7 @@
         echo "<script>alert('帳號重複請重新註冊!'); location.href = '../../frontend/signUp_signIn.html';</script>";
     }else{
         // INSERT Second //如果帳號不重複就執行程式
-        $sql = "INSERT INTO lovefood.supplier (SUPPLIER_ID,SUPPLIER_ACCOUNT,SUPPLIER_PASSWORD,SUPPLIER_REG_DATE,SUPPLIER_NAME,SUPPLIER_TAX_ID,SUPPLIER_DISTRICT,SUPPLIER_ADDRESS,SUPPLIER_PHONE,SUPPLIER_STATUS) VALUES (?,?,?,now(),?,?,0,?,?,1);";
+        $sql = "INSERT INTO supplier (SUPPLIER_ID,SUPPLIER_ACCOUNT,SUPPLIER_PASSWORD,SUPPLIER_REG_DATE,SUPPLIER_NAME,SUPPLIER_TAX_ID,SUPPLIER_DISTRICT,SUPPLIER_ADDRESS,SUPPLIER_PHONE,SUPPLIER_STATUS) VALUES (?,?,?,now(),?,?,0,?,?,1);";
     
         //執行
         $statement = $Util->getPDO()->prepare($sql);

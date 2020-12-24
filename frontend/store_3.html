@@ -159,75 +159,111 @@
                                     </div>
                                     <hr>
                                 </template>
-                            </div>
-                            <div class="pickUpInfo">
-                                <p>取貨資訊</p>
-                                <div>
-                                    <ul>
-                                        <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：
-                                            <!-- {{pickUpExp}} -->
-                                        </li>
-                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨方式：
-                                            <br>
-                                            <input type="radio" name="pickUpLocation" @click="content='selfPickUp'"
-                                                checked>
-                                            <span>到店自取</span>
-                                            <!-- <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
+
+                                <div class="pickUpInfo">
+                                    <p>取貨資訊</p>
+                                    <div>
+                                        <ul>
+                                            <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：
+                                                <!-- {{pickUpExp}} -->
+                                            </li>
+                                            <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨方式：
+                                                <br>
+                                                <input type="radio" name="pickUpLocation" @click="content='selfPickUp'"
+                                                    checked>
+                                                <span>到店自取</span>
+                                                <!-- <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
                                                     src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div> -->
-                                            <br>
-                                            <input type="radio" name="pickUpLocation" @click="content='showMap'">
-                                            <span>捷運站取貨</span>
-                                            <!-- <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
+                                                <br>
+                                                <input type="radio" name="pickUpLocation" @click="content='showMap'">
+                                                <span>捷運站取貨</span>
+                                                <!-- <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
                                                     src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
                                             </div> -->
-                                        </li>
-                                        <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
-                                            <!-- <component :is="content"></component> -->
-                                            <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口
-                                                <img src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
-                                            </div>
-                                            <div class="MRT">
-                                                <img src="../img/16/MRT.jpg" class="imgMRT">
-                                                <div class="mapImg">
-                                                    <img class="map_leaf" data-toggle="tooltip" title="捷運大安站"
-                                                        id="leaf_Daan"
-                                                        src="../img/21/donation_description/map_leaf.png">
-                                                    <img class="map_leaf" data-toggle="tooltip" title="士林區"
-                                                        id="leaf_Shilin"
-                                                        src="../img/21/donation_description/map_leaf.png" alt="">
-                                                    <img class="map_leaf" data-toggle="tooltip" title="內湖區"
-                                                        id="leaf_Neihu"
-                                                        src="../img/21/donation_description/map_leaf.png" alt="">
-                                                    <img class="map_leaf" data-toggle="tooltip" title="北投區"
-                                                        id="leaf_Beitou"
-                                                        src="../img/21/donation_description/map_leaf.png" alt="">
+                                            </li>
+                                            <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
+                                                <!-- <component :is="content"></component> -->
+                                                <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口
+                                                    <img src="../img/16/Icon awesome-map-marker-alt.png"
+                                                        class="mapIcon">
                                                 </div>
+                                                <div class="MRT">
+                                                    <div class="mapImg">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運市政府站"
+                                                            id="TaipeiCityHall"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運南京復興站"
+                                                            id="Nanjing"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運忠孝復興站"
+                                                            id="leaf_Neihu"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運大安站"
+                                                            id="leafDaan"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運中山站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運台北車站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運西門站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運中正紀念堂站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運大橋頭站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運民權西路站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運石牌站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運內湖站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運南港站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運古亭站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運六張犁站"
+                                                            id="leaf_Beitou"
+                                                            src="../img/16/Icon awesome-map-marker-alt.png">
+                                                    </div>
+                                                    <img src="../img/16/MRT.jpg" class="imgMRT">
 
-                                                <!-- <ul id="MRT_Select">
-                                                    <li><label for="">請選擇：</label></li>
-                                                    <li class="mrtSelect" id="mrt1"><input type="checkbox">捷運市政府站</li>
-                                                    <li class="mrtSelect" id="mrt2"><input type="checkbox">捷運南京復興站</li>
-                                                    <li class="mrtSelect" id="mrt3"><input type="checkbox">捷運忠教復興站</li>
-                                                    <li class="mrtSelect" id="mrt4"><input type="checkbox">捷運大安站</li>
-                                                    <li class="mrtSelect" id="mrt5"><input type="checkbox">捷運中山站</li>
-                                                    <li class="mrtSelect" id="mrt6"><input type="checkbox">捷運台北車站</li>
-                                                    <li class="mrtSelect" id="mrt7"><input type="checkbox">捷運西門站</li>
-                                                    <li class="mrtSelect" id="mrt8"><input type="checkbox">捷運中正紀念堂站</li>
-                                                    <li class="mrtSelect" id="mrt9"><input type="checkbox">捷運大橋頭站</li>
-                                                    <li class="mrtSelect" id="mrt10"><input type="checkbox">捷運民權西路站</li>
-                                                    <li class="mrtSelect" id="mrt11"><input type="checkbox">捷運石牌站</li>
-                                                    <li class="mrtSelect" id="mrt12"><input type="checkbox">捷運內湖站</li>
-                                                    <li class="mrtSelect" id="mrt13"><input type="checkbox">捷運南港站</li>
-                                                    <li class="mrtSelect" id="mrt14"><input type="checkbox">捷運古亭站</li>
-                                                    <li class="mrtSelect" id="mrt15"><input type="checkbox">捷運六張犁站</li>
-                                                </ul> -->
-                                            </div>
-                                        </li>
+                                                    <!-- <ul id="MRT_Select">
+                                                        <li><label for="">請選擇：</label></li>
+                                                        <li class="mrtSelect" id="mrt1"><input type="checkbox">捷運市政府站</li>
+                                                        <li class="mrtSelect" id="mrt2"><input type="checkbox">捷運南京復興站</li>
+                                                        <li class="mrtSelect" id="mrt3"><input type="checkbox">捷運忠孝復興站</li>
+                                                        <li class="mrtSelect" id="mrt4"><input type="checkbox">捷運大安站</li>
+                                                        <li class="mrtSelect" id="mrt5"><input type="checkbox">捷運中山站</li>
+                                                        <li class="mrtSelect" id="mrt6"><input type="checkbox">捷運台北車站</li>
+                                                        <li class="mrtSelect" id="mrt7"><input type="checkbox">捷運西門站</li>
+                                                        <li class="mrtSelect" id="mrt8"><input type="checkbox">捷運中正紀念堂站</li>
+                                                        <li class="mrtSelect" id="mrt9"><input type="checkbox">捷運大橋頭站</li>
+                                                        <li class="mrtSelect" id="mrt10"><input type="checkbox">捷運民權西路站</li>
+                                                        <li class="mrtSelect" id="mrt11"><input type="checkbox">捷運石牌站</li>
+                                                        <li class="mrtSelect" id="mrt12"><input type="checkbox">捷運內湖站</li>
+                                                        <li class="mrtSelect" id="mrt13"><input type="checkbox">捷運南港站</li>
+                                                        <li class="mrtSelect" id="mrt14"><input type="checkbox">捷運古亭站</li>
+                                                        <li class="mrtSelect" id="mrt15"><input type="checkbox">捷運六張犁站</li>
+                                                     </ul> -->
+                                                </div>
+                                            </li>
+                                    </div>
                                 </div>
-                            </div>
-                            <hr>
-                            <div class="orderCount">
-                                <p>單筆訂單金額：${{total}}</p>
+
+                                <hr>
+                                <div class="orderCount">
+                                    <p>單筆訂單金額：${{total}}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -239,13 +275,12 @@
                             <div class="pointsDetails">
                                 <img src="../img/16/pointsIcon.png">
                                 <div>
-                                    <label>您的點數尚餘：<span v-if="membersPoints - inputValue >= 0">{{membersPoints -
-                                            inputValue}}點</span><span v-else style="color: red">折抵超過額度！</span></label>
+                                    <label>您的點數尚餘：{{membersPoints}}點</label>
 
                                     <br>
                                     <span>
                                         <label for="points">使用</label>
-                                        <input type="number" name="discount" min="0" value="0" v-model="inputValue">
+                                        <input type="number" name="discount" min="0" max="">
                                         <label for="">點</label>
                                     </span>
                                     <a href="#">

@@ -74,8 +74,8 @@ Vue.component('member', {
             </div>
             <div class="fileBorder">
               <input type="file" id="theFile" name="file" ref="file" @click="uploadimg" accept="image/*">
-              <button type="button" id="fakeBtn" @click="editPicBtn">編輯圖片</button>
-              <button type="button" id="uploadaxiosBtn" @click="uploadPicBtn">上傳圖片</button>
+              <button type="button" id="fakeBtn" @click="editPicBtn">上傳圖片</button>
+              <button type="button" id="uploadaxiosBtn" @click="uploadPicBtn">綁定圖片</button>
             </div>
           </div>
         </div>
@@ -308,7 +308,7 @@ Vue.component('member', {
         // 假如姓名位數超過6位數抱錯，左邊會員標題字數有限
         if (this.modname.length > 6) {
           // 抓姓名字數
-          alert(this.modname.length);
+          // alert(this.modname.length);
 
           this.modname = ''
           this.namepla = '名字不可超過6位數';
@@ -795,7 +795,7 @@ Vue.component('order', {
       if (this.dateFrom == null || this.dateTo == null || this.dateTo == '' || this.dateFrom == '') {
         alert('起始日期或是最後日期有空值');
       }
-      console.log(this.dateFrom);
+      // console.log(this.dateFrom);
     },
     // 不同的class切換及撈不同的class
     statussame(num) {
@@ -2077,8 +2077,8 @@ let vm = new Vue({
             alert('請輸入名字');
           }
         } else {
-          //提醒除錯
-          // alert(checkdata[0]);
+          that.username = '某某某';
+          alert('請輸入名字');
         }
       })
     },
@@ -2257,7 +2257,7 @@ let vm = new Vue({
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
-        console.log(checkdata);
+        // console.log(checkdata);
       })
     }());
     // 撈名字
