@@ -78,6 +78,7 @@ const main = new Vue({
         },
         add(index) {
             this.tableData[index].quantity++;
+
         },
         sub(index) {
             if (this.tableData[index].quantity >= 1) {

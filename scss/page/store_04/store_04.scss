@@ -1020,11 +1020,13 @@
                 }
                 .creditCardForm{
                     // border: 1px solid red;
-                    margin: 50px auto;
+                    margin: 30px auto;
                     width: 800px;
                     font-size: 24px;
                     font-family: "PingFang-TC-thin","sans-serif";
                     color: #9D9D9D;
+                    display: flex;
+                    flex-wrap: wrap;
                     @include newRwd("pad"){
                         width: 600px;
                     }
@@ -1040,11 +1042,30 @@
                     @include newRwd("miniPhone"){
                         width: 290px;
                     }
+                    .formGroup{
+                        width:350px;
+                        margin: 10px 0px;
+                        
+                        .formControl{
+                            width: 170px;
+                            height: 35px;
+                            border:1px solid #9D9D9D;
+                            border-radius: 5px;
+                            outline: none;
+                            padding: 5px;
+                            box-shadow:3px 3px 6px rgba(0,0,0,0.2);
+                            &:focus{
+                                border: 2px solid #C9BE9F;
+                            }
+                        }
+
+                    }
                     .creditInfo1{
-                        display: flex;
-                        flex-wrap: wrap;
+                        width:400px;
+                        margin: 10px 0px 10px 50px ;
+                        
                         @include newRwd("pad"){
-                            width: 600px;
+                            width: 300px;
                             margin: 0 auto;
                         }
                         @include newRwd("mediumPhone"){
@@ -1057,20 +1078,15 @@
                         @include newRwd("miniPhone"){
                             width: 290px;
                         }
-                        #creditCardRwd{
-                            @include newRwd("newSmallPhone"){
-                                margin-top: 10px;
-                            }
-                            @include newRwd("miniPhone"){
-                                margin: 10px auto;
-                            }
+                        
                         .creditCard{
-                            width: 145px;
+                            width: 250px;
                             height: 35px;
                             border:1px solid #9D9D9D;
                             border-radius: 5px;
                             outline: none;
                             padding: 5px;
+                            font-size: 16px;
                             box-shadow:3px 3px 6px rgba(0,0,0,0.2);
                             &:focus{
                                 border: 2px solid #C9BE9F;
@@ -1093,12 +1109,19 @@
                                 width: 55px;
                             }
                             }
+                            #creditCardRwd{
+                                @include newRwd("newSmallPhone"){
+                                    margin-top: 10px;
+                                }
+                                @include newRwd("miniPhone"){
+                                    margin: 10px auto;
+                                }
                         }
                      }
                     .creditInfo2{
                         display: flex;
                         flex-wrap: wrap;
-                        justify-content: space-between;
+                        // justify-content: space-between;
 
                         width: 780px;
                         @include newRwd("pad"){
@@ -1117,8 +1140,9 @@
                             width: 290px;
                         }
                         .expMonth{
-                            width: 80px;
+                            width: 55px;
                             height: 35px;
+                            margin-left: 7px;
                             border:1px solid #9D9D9D;
                             border-radius: 5px;
                             outline: none;
@@ -1170,6 +1194,7 @@
 
                         }
                         #securityCodeBlock{
+                            margin-left: 50px;
                             @include newRwd("pad"){
                                 margin-top: 20px;
                             }
@@ -1207,6 +1232,9 @@
                                 @include newRwd("miniPhone"){
                                     width: 90px;
                                 }
+                            }
+                            .transparent{
+                                opacity: 0.2;
                             }
     
                         }
