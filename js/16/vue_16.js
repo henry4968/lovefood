@@ -1,13 +1,13 @@
 Vue.component('selfPickUp', {
     template: `
-    <div class="pickUpLocal">item.address<img
+    <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
      src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div>
     `,
 });
 Vue.component('showMap', {
     template: `
     <div>
-        <div class="mapIconW pickUpLocal">南京復興站 8號出口
+        <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口
         <img src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div>
     <img src="../img/16/MRT.jpg" class="imgMRT">
 
