@@ -77,7 +77,7 @@
             <a href="./store_3.html" id="navIcons02" class="navIcons">
                 <span style="position: relative;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </span>
             </a>
             <a href="./memberInformation.html" id="navIcons03" class="navIcons">
@@ -90,7 +90,7 @@ top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=
             <a href="./store_3.html" id="navIcons02" class="navIcons">
                 <span style="position: relative;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </span>
             </a>
             <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
@@ -140,28 +140,28 @@ top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=
                         </div>
                         <div class="itemText">
                             <h1>{{tableData[0].PRODUCT_NAME}}</h1>
-                            <h2>麵包甜品</h2>
+                            <h2>{{tableData[0].PRODUCT_CATEGORY_NAME}}</h2>
                             <div class="mr">
-                                <span>＄20</span><del>原價25元</del>
-                                <p class="mrP">有效期限：2020-10-20 23:59</p>
+                                <span>＄20</span><del>原價{{tableData[0].PRODUCT_ORIGINAL_PRICE}}元</del>
+                                <p class="mrP">有效期限：{{tableData[0].PRODUCT_EXP_DATE}}</p>
                             </div>
                             <div class="mrB">
                                 <p>商品說明</p>
-                                <p>濃郁蛋香一口接一口，單純的好味道。</p>
+                                <p>{{tableData[0].PRODUCT_DESCRIPTION}}</p>
                             </div>
                             <div class="pdtQuantity">
                                 <!-- <div class="valueArea"> -->
                                 <span class="productText">數量</span>
                                 <div class="btninput">
-                                    <button class="left" @click="sub(count--)">
+                                    <button class="left" @click="addSub(0)">
                                         <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                             class="pdtsvg">
                                             <polygon points="4.5 4.5 3.5 4.5 0 4.5 0 5.5 3.5 5.5 4.5 5.5 10 5.5 10 4.5">
                                             </polygon>
                                         </svg>
                                     </button>
-                                    <input type="text" v-model="count" class="pdtValue">
-                                    <button class="right" @click="count++">
+                                    <input type="number" v-model="count" class="pdtValue">
+                                    <button class="right" @click="addSub()">
                                         <svg enable-background="new 0 0 10 10" viewBox="0 0 10 10" x="0" y="0"
                                             class="pdtsvg">
                                             <polygon
@@ -171,7 +171,7 @@ top: -40%;">{{cartArray}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=
                                     </button>
                                 </div>
                                 <!-- </div> -->
-                                <button class="btn" @click='addCart()'><img src="../img/07/cart.png" alt="">加入購物車</button>
+                                <button class="btn" @click='addToCart(tableData[0])'><img src="../img/07/cart.png" alt="">加入購物車</button>
                             </div>
 
                         </div>

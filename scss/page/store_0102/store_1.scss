@@ -768,9 +768,9 @@
             .pdtTime{
                 margin: -4px 0;
             }
-            .pdtTime > span.minutes, .pdtTime > span.seconds{
-                font-size: 30px;
-                margin: -5px 7px;
+            .pdtTime > span.minutes, .pdtTime > span.seconds,.pdtTime > span.days,.pdtTime > span.hours,{
+                font-size: 25px;
+                // margin: -5px 7px;
                 color: red;
             }
         }
@@ -847,6 +847,7 @@
         padding: 13px;
         background-color:$F2;
         width: 300px;
+        max-height: 270px;
         cursor: pointer;
     }
 }
