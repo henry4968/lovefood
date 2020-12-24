@@ -43,7 +43,8 @@ const main = new Vue({
         exp: '',
         sessionId: null,
         storgeValue: null,
-        membersPoints: null
+        membersPoints: null,
+        inputValue: 0
     },
 
     mounted() {
@@ -53,9 +54,6 @@ const main = new Vue({
         let test = JSON.parse(localStorage.getItem("itemStorage"));
 
         this.itemStorage = test;
-
-        // self.storgeValue = JSON.parse(localStorage.getItem('itemStorage'));
-        // 一些防呆功能待寫
 
         $.ajax({
             url: '../PHP/Frontend/sessionR.php',

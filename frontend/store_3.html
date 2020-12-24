@@ -239,12 +239,13 @@
                             <div class="pointsDetails">
                                 <img src="../img/16/pointsIcon.png">
                                 <div>
-                                    <label>您的點數尚餘：{{membersPoints}}點</label>
+                                    <label>您的點數尚餘：<span v-if="membersPoints - inputValue >= 0">{{membersPoints -
+                                            inputValue}}點</span><span v-else style="color: red">折抵超過額度！</span></label>
 
                                     <br>
                                     <span>
                                         <label for="points">使用</label>
-                                        <input type="number" name="discount" min="0" max="">
+                                        <input type="number" name="discount" min="0" value="0" v-model="inputValue">
                                         <label for="">點</label>
                                     </span>
                                     <a href="#">
