@@ -59,29 +59,29 @@ $(function () {
             alert("Everything is correct");
         }
 
-        if () {
-            // 開啟 Modal 彈跳視窗
-            $("div.overlay").addClass("-on");
+        // if () {
+        // 開啟 Modal 彈跳視窗
+        // $("div.overlay").addClass("-on");
 
 
-            // $("button.btn_modal").on("click", function () {
+        // $("button.btn_modal").on("click", function () {
 
-            // });
+        // });
 
-            // 關閉 Modal
-            $("button.btn_modal_close").on("click", function () {
-                $("div.overlay").addClass("-opacity-zero");
+        // 關閉 Modal
+        // $("button.btn_modal_close").on("click", function () {
+        //     $("div.overlay").addClass("-opacity-zero");
 
-                // 設定隔一秒後，移除相關 class
-                setTimeout(function () {
-                    $("div.overlay").removeClass("-on -opacity-zero");
-                }, 1000);
-            });
+        // 設定隔一秒後，移除相關 class
+        //     setTimeout(function () {
+        //         $("div.overlay").removeClass("-on -opacity-zero");
+        //     }, 1000);
+        // });
 
-            //點擊其他地方關閉 Madal
-            $("div.overlay").on("click", function () {
-                $("div.overlay").removeClass("-on -opacity-zero");
-            });
-        }
+        //點擊其他地方關閉 Madal
+        // $("div.overlay").on("click", function () {
+        //     $("div.overlay").removeClass("-on -opacity-zero");
+        // });
+        // }
     });
 });
