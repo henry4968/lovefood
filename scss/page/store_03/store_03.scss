@@ -1194,6 +1194,8 @@
                                         margin-left: 0px;
                                     }
                                 }
+
+
                                 
                                 li{ 
                                     
@@ -1206,6 +1208,7 @@
                                         margin: 10px auto;
                                         font-size: 14px;
                                     }
+                                    
                                     .locationIcon{
                                         width: 30px;
                                         vertical-align: middle;
@@ -1215,12 +1218,12 @@
                                         }
                                         
                                     }
-                                    
-
+                            
                                 }
                                 li:first-child{
                                     color: #c00202;
                                 }
+                                
                                 input{
                                 margin-left: 65px;
                                 margin-top: 20px;
@@ -1246,6 +1249,7 @@
                                 color: #707070;
                                 width: 460px;
                                 overflow: hidden;
+                                position: relative;
                                 
                                 @include newRwd("mediumPhone"){
                                     margin: 10px auto;
@@ -1262,7 +1266,7 @@
                                 }
 
                                 .imgMRT{
-                                    margin-top: 50px;
+                                    margin-top: 30px;
                                     position: relative;
                                     // right: 10%;
                                     top: 0px;
@@ -1275,6 +1279,12 @@
                                         display: none;
                                     }
                                     
+                                }
+                                .mapImg{
+                                    position: absolute;
+                                    .map_leaf{
+                                        width: 20px;
+                                    }
                                 }
 
                                 #MRT_Select{

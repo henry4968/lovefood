@@ -6,10 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>樂腹商城-結帳頁</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="../css/reset/reset.css">
     <link rel="stylesheet" href="../css/store_04.css">
     <script src="../js/16/store_04.js"></script>
     <script src="../node_modules/vue/dist/vue.js"></script>
+    <script src="../js/16/jquery.payform.min.js"></script>
+    <script src="../js/16/script.js"></script>
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
@@ -206,19 +207,18 @@
                     </ul>
                     <div class="content">
                         <form action="" class="creditCardForm">
-                            <div class="creditInfo1">
-                                <label for="creditCard">信用卡號：</label>
-                                <div id="creditCardRwd">
-                                    <input type="text" name="creditCard" class="creditCard" maxlength="4">－<input
-                                        type="text" name="creditCard" class="creditCard" maxlength="4">－<input
-                                        type="text" name="creditCard" class="creditCard" maxlength="4">－<input
-                                        type="text" name="creditCard" class="creditCard" maxlength="4">
-                                </div>
+                            <div class="formGroup owner">
+                                <label for="owner">持卡人姓名：</label>
+                                <input type="text" class="formControl empty" id="owner">
+                            </div>
+                            <div class="creditInfo1" id="card-number-field">
+                                <label for="cardNumber">信用卡卡號：</label>
+                                <input type="text" name="creditCard" class="creditCard" maxlength="20" id="cardNumber">
                             </div>
                             <br>
                             <div class="creditInfo2">
                                 <div class="formGroup" id="expirationDate">
-                                    <label>有效日期：</label>
+                                    <label>有 效 日 期：</label>
                                     <select class="expMonth">
                                         <option value="01">01</option>
                                         <option value="02">02</option>
@@ -235,30 +235,32 @@
                                     </select>
                                     <label>月</label>
                                     <select class="expYear">
-                                        <option value="20"> 2020</option>
-                                        <option value="21"> 2021</option>
-                                        <option value="22"> 2022</option>
-                                        <option value="23"> 2023</option>
-                                        <option value="24"> 2024</option>
-                                        <option value="25"> 2025</option>
-                                        <option value="26"> 2026</option>
-                                        <option value="27"> 2027</option>
-                                        <option value="28"> 2028</option>
-                                        <option value="29"> 2029</option>
-                                        <option value="30"> 2030</option>
+                                        <option value="20"> 2021</option>
+                                        <option value="21"> 2022</option>
+                                        <option value="22"> 2023</option>
+                                        <option value="23"> 2024</option>
+                                        <option value="24"> 2025</option>
+                                        <option value="25"> 2026</option>
+                                        <option value="26"> 2027</option>
+                                        <option value="27"> 2028</option>
+                                        <option value="28"> 2029</option>
+                                        <option value="29"> 2030</option>
+                                        <option value="30"> 2031</option>
                                     </select>
                                     <label>年</label>
                                 </div>
 
 
-                                <div id="securityCodeBlock">
-                                    <label for="securityCode" class="securityCode">背面末三碼：</label>
-                                    <input type="text" name="securityCode" class="securityCode1" maxlength="3">
+
+                                <div id="securityCodeBlock" class="formGroup CVV">
+                                    <label for="cvv" class="securityCode">背面末三碼：</label>
+                                    <input type="text" name="securityCode" class="securityCode1 empty" maxlength="3"
+                                        id="cvv">
                                 </div>
                                 <div class="formGroup" id="creditCards">
                                     <img src="../img/16/VISA_300x200.png" id="visa">
                                     <img src="../img/16/Master_300x200.png" id="mastercard">
-                                    <img src="../img/16/JCB_300x200.png" id="jcb">
+                                    <img src="../img/16/AE_300x200.png" id="amex">
                                 </div>
                             </div>
                     </div>
@@ -268,9 +270,9 @@
                     <!-- 結帳總金額區 -->
                     <div class="item2">
                         <div>
-                            <span>結帳總金額：</sapn>
+                            <span d="pay-now">結帳總金額：</sapn>
                                 <span class="dollars">$182元</span>
-                                <button type="button" class="btn_modal">$結帳</button>
+                                <button type="button" class="btn_modal" id="confirm-purchase">$結帳</button>
 
                                 <div class="overlay">
                                     <article>

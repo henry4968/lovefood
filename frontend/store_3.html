@@ -8,10 +8,11 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+    <link rel="stylesheet" href="../css/store_03.css">
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
-    <!-- <link rel="stylesheet" href="../css/reset/reset.css"> -->
-    <link rel="stylesheet" href="../css/store_03.css">
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+
 </head>
 
 <body>
@@ -184,7 +185,26 @@
                                             </div> -->
                                             </li>
                                             <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
-                                                <component :is="content"></component>
+                                                <!-- <component :is="content"></component> -->
+                                                <div>
+                                                    <img src="../img/16/MRT.jpg" class="imgMRT">
+
+                                                    <div class="mapImg">
+
+                                                        <img class="map_leaf" data-toggle="tooltip" title="捷運大安站"
+                                                            id="leaf_Daan"
+                                                            src="../img/21/donation_description/map_leaf.png">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="士林區"
+                                                            id="leaf_Shilin"
+                                                            src="../img/21/donation_description/map_leaf.png" alt="">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="內湖區"
+                                                            id="leaf_Neihu"
+                                                            src="../img/21/donation_description/map_leaf.png" alt="">
+                                                        <img class="map_leaf" data-toggle="tooltip" title="北投區"
+                                                            id="leaf_Beitou"
+                                                            src="../img/21/donation_description/map_leaf.png" alt="">
+                                                    </div>
+                                                </div>
                                             </li>
 
 
@@ -287,6 +307,7 @@
     </div>
     <script src="../js/16/store_03.js"></script>
     <script src="../js/16/vue_16.js"></script>
+
 
 </body>
 <!-- header vue -->
