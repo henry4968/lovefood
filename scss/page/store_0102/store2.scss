@@ -541,6 +541,11 @@
     }
     
 }
+@media screen and (max-width:680px){
+    .local > p{
+        padding: 10px 0 !important;
+    }
+}
 @media screen and (max-width:376px){
     .local{
         padding: 0;
