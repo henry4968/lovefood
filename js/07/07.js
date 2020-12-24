@@ -2,17 +2,16 @@ let all = new Vue({
     el:'#all',
     data:{
         count:0,
-        cartArray:[],
+        itemQty:0,
         tableData:null,
+        getStorage:null,
     },
-    beforeMount(){
+    mounted(){
         const self = this;
-        console.log(location.search)
-
+        // console.log(location.search)
         const urlParams = new URLSearchParams(location.search);
         const pdNum = urlParams.get('pdID')
         $.ajax({
-            
             url:'../PHP/Frontend/EC_07/unitProduct.php',
             data:{pdNum},
             dataType:'JSON',
@@ -40,7 +39,6 @@ let all = new Vue({
                 console.log(error);
             }
         })
-<<<<<<< HEAD
         .then(function(res){
             // console.log(res);
             // for (let index = 0; index < self.tableData.length; index++) {  
@@ -88,23 +86,37 @@ let all = new Vue({
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         self.getStorage = cartAllItems;//購物車items陣列
         self.itemQty = cartAllItems.length//購物車圖標
-=======
-
->>>>>>> a15542d92cc6f20cb9e824c8f8a016f3db328e6f
     },
     methods: {
-        sub(){
-            
-        },
-        addCart(){
-            // const self = this;
-            // this.cartArray.push(this.count);
-            // if(this.count==0){
-            //     this.cartArray.pop();   
-            // }
-            localStorage.setItem('itemStorage',JSON.stringify(itemStorage));
-            
+       addSub(type){ //數量加減
+           if(type == 0){
+               if(this.count>0)
+               return this.count--;
+           }else{
+               return this.count++;
+           }
+       },
+       addToCart(item){
+           const self = this;
+        var produ = {
+            name: item.PRODUCT_NAME,
+            qty: self.count,
+            seller:item.SUPPLIER_NAME,
+            price:item.PRODUCT_SELLING_PRICE,
+            id:item.PRODUCT_ID,
+        };
+        if(self.getStorage != null){
+            alert();
+            let arrAll = new Array; 
+            for(i=0; i < self.getStorage.length; i++){
+                arrAll.push(self.getStorage[i]);
+            }
+            arrAll.push(produ);
+            // console.log(arrAll);
+            self.itemQty++; //購物車圖標
+            localStorage.setItem('itemStorage',JSON.stringify(arrAll));
         }
+       },
     },
     // updated(){
     //     const self = this;
