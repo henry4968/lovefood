@@ -10,7 +10,7 @@ $MemberId = $Member->getMemberID();
 
 //========================================================  
 //建立SQL 花費點數
-$sqlspan = 'SELECT * FROM lovefood.order where (ORDER_DISCOUNT != "" and MEMBER_ID_for_OD = ?)';
+$sqlspan = 'SELECT * FROM order where (ORDER_DISCOUNT != "" and MEMBER_ID_for_OD = ?)';
 
 // 執行
 $pointspan = $Util->getPDO()->prepare($sqlspan);
@@ -22,7 +22,7 @@ $datapointspan = $pointspan->fetchAll();
 
 //========================================================  
 //建立SQL 發放點數
-$sqlgetpoint = "SELECT * FROM lovefood.points_issuance where MEMBER_ID_for_PI = ?";
+$sqlgetpoint = "SELECT * FROM points_issuance where MEMBER_ID_for_PI = ?";
 
 // 執行
 $getpoint = $Util->getPDO()->prepare($sqlgetpoint);

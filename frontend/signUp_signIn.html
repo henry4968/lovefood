@@ -16,7 +16,7 @@
 </head>
 
 <body>
-  <component id="memheader" :is="headId" :prop="login" :sleprop="sellogin" ></component>
+  <component id="memheader" :is="headId" :prop="login" :sleprop="sellogin"></component>
   <main class="linWrap">
 
     <div class="signUpsignIn" id="signUpsignIn">
@@ -42,25 +42,12 @@
             <div class="button">
               <button class="subsignIn" :type="logintype" @click="loginfun">登入</button>
             </div>
-            <div class="forget">
-              <a href="#">忘記密碼</a>
+            <div class="forget" style="opacity: 0;">
+              <a>忘記密碼</a>
             </div>
           </div>
           <button class="changeTosignup" id="changeTosignup" type="button">註冊</button>
         </form>
-        <div class="lineBor">
-          <div class="lineL"></div>
-          <span class="signUp">你可以快速登入</span>
-          <div class="lineR"></div>
-        </div>
-        <div class="fbgoogle">
-          <a href="">
-            <img src="../img/03/Icon awesome-facebook.png">
-          </a>
-          <a href="">
-            <img src="../img/03/Icon awesome-google-plus.png">
-          </a>
-        </div>
       </div>
 
       <div class="overlayContainer" id="overlayContainer" :class="{overL: overlay == false}">
@@ -86,7 +73,6 @@
     </div>
   </main>
   <component id="memfooter" :is="footerId"></component>
-
 
   <script src="../js/03/memheader.js"></script>
   <script src="../js/03/signUp_signIn.js"></script>

@@ -146,7 +146,7 @@ Vue.component('member', {
       file: '',
 
       // 圖片綁定
-      uploadbigpic: '',
+      uploadbigpic: null,
     }
   },
   props: [
@@ -286,6 +286,13 @@ Vue.component('member', {
       // 檢查手機號碼空白
       if (this.modphone == '') {
         this.telpla = '手機不可為空';
+        this.inpredtel = true;
+      }
+
+      // 檢查手機號碼前兩碼必須為09
+      if (this.modphone.substr(0, 2) != 09) {
+        this.modphone = '';
+        this.telpla = '手機格式錯誤';
         this.inpredtel = true;
       }
 
@@ -455,30 +462,34 @@ Vue.component('member', {
       let image = document.getElementById('image');
       let src = image.src;
 
-      // 建立資料表單
-      // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
-      let data = new FormData();
-      // new FormData 固定語法
-      // FormData.append
-      // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
-      data.append('img', src);
+      if (src != '') {
+        // 建立資料表單
+        // 為表單資料中的欄位/值建立相對應的的鍵/值對（key/value）集合，之後便可使用 XMLHttpRequest.send 方法來送出資料。它在編碼類型設定為 multipart/form-data 時會採用與表單相同的格式送出。
+        let data = new FormData();
+        // new FormData 固定語法
+        // FormData.append
+        // 追加新值到 FormData 物件已有的對應鍵上；若該鍵不存在，則為其追加新的鍵。
+        data.append('img', src);
 
-      // console.log(this.uploadbigpic);
-      let config = {
-        header: {
-          'Content-Type': 'multipart/form-data'
+        // console.log(this.uploadbigpic);
+        let config = {
+          header: {
+            'Content-Type': 'multipart/form-data'
+          }
         }
+
+        axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
+          data = response.data;
+          alert("上傳圖片成功");
+
+        });
+
+        // 全域溝通 當member上傳圖片執行headerPic函式，header就變相被執行
+        // memheader.js:237行
+        headerPic();
+      } else {
+        alert('請選擇圖片');
       }
-
-      axios.post('../PHP/Frontend/uploadImg.php', data, config).then(response => {
-        data = response.data;
-        alert("上傳圖片成功");
-
-      });
-
-      // 全域溝通 當member上傳圖片執行headerPic函式，header就變相被執行
-      // memheader.js:237行
-      headerPic();
 
     },
     // 傳入父層，控制class
@@ -731,7 +742,7 @@ Vue.component('order', {
       chagestatussamebg: 1,
       foursameBorderapp: '',
       // 訂單
-      orderList: null,
+      orderList: [],
       // 訂單日期
       orderdate: [],
       // 訂單時間
@@ -912,7 +923,7 @@ Vue.component('order', {
           // 產品圖片
           res.data.forEach(h => {
             h.detail.forEach(e => {
-              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+              // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
             });
           });
         });
@@ -1016,7 +1027,7 @@ Vue.component('order', {
           // 產品圖片
           res.data.forEach(h => {
             h.detail.forEach(e => {
-              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+              // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
             });
           });
         });
@@ -1121,7 +1132,7 @@ Vue.component('order', {
           // 產品圖片
           res.data.forEach(h => {
             h.detail.forEach(e => {
-              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+              // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
             });
           });
         });
@@ -1226,7 +1237,7 @@ Vue.component('order', {
           // 產品圖片
           res.data.forEach(h => {
             h.detail.forEach(e => {
-              e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+              // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
             });
           });
 
@@ -1245,7 +1256,13 @@ Vue.component('order', {
         // 撈order 測試
         // console.log(atob(res.data));
         this.orderList = res.data
-        // console.log(res.data);
+
+        this.orderList.forEach(q => {
+          q.detail.forEach(qq => {
+            // console.log(qq.PRODUCT_IMG);
+          })
+        })
+
 
         // 回復原狀
         this.itemdetailBorderdb = '';
@@ -1312,7 +1329,7 @@ Vue.component('order', {
         // 產品圖片
         res.data.forEach(h => {
           h.detail.forEach(e => {
-            e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
+            // e.PRODUCT_IMG = atob(e.PRODUCT_IMG);
           });
         });
 
@@ -1553,9 +1570,10 @@ Vue.component('points', {
       axios.post('../PHP/Frontend/mypoints.php').then(res => {
         // 將點數建立成陣列
         this.pointList = res.data;
+        // console.log(res.data);
         // 給會員編號
         that.memberId = res.data.get[0].MEMBER_ID_for_PI
-        console.log(this.pointList);
+        // console.log(this.pointList);
         if (that.catchclass == '特殊會員') {
           // 只取日期:獲取
           res.data.get.forEach(a => {
@@ -1766,7 +1784,7 @@ Vue.component('memberApply', {
                   <canvas id="myPics" width="300" height="150" @mouseenter="canvasfuction"></canvas>
                 </div>
                 <div class="uploadBtnBorder">
-                  <button type="submit" id="manyfileupload">上傳</button>
+                  <button type="submit" id="manyfileupload" onclick="window.alert('文件已上傳請等候消息')">上傳</button>
                 </div>
               </form>
             </div>
@@ -2060,7 +2078,7 @@ let vm = new Vue({
           }
         } else {
           //提醒除錯
-          alert(checkdata[0]);
+          // alert(checkdata[0]);
         }
       })
     },

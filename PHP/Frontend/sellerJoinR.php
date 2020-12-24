@@ -6,7 +6,7 @@
     // $sql = "INSERT INTO ec_members (Account , PWD , Type , CreateDate ) VALUES (?,?,1,NOW())";
 
     // select max first 
-    $sql = "SELECT max(SUPPLIER_ID) FROM lovefood.supplier;";
+    $sql = "SELECT max(SUPPLIER_ID) FROM supplier;";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->execute();
     $maxId = $statement->fetch();
