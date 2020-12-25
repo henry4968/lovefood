@@ -1,9 +1,6 @@
 <?php 
-<<<<<<< HEAD
-=======
     // include("../Lib/UtilClass.php");
     // include("../Lib/UtilClass2.php");
->>>>>>> Chou
     include("../Lib/frontendUtilClass.php");
 
 $start = new UtilClass();

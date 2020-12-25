@@ -1,9 +1,6 @@
 
-<<<<<<< HEAD
-=======
 ////////////////vue///////////////
 //////////////////////////////////
->>>>>>> Chou
 const main = new Vue({
     el: '#all',
     data: {
@@ -102,14 +99,6 @@ const main = new Vue({
             let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
             console.log(cartAllItems);
             if (item.quantity > 0) {
-<<<<<<< HEAD
-                // localStorage
-                for (i = 0; i < itemStorage.length; i++) {
-                    if (itemStorage[i].name == produ.name) {
-                        itemStorage[i].qty += item.quantity
-                    } else {
-                        self.itemStorage.push(produ);
-=======
                 if(cartAllItems == null){ //不存在localstorage
                     self.itemStorage.push(produ);
                     self.itemQty++;
@@ -129,7 +118,6 @@ const main = new Vue({
                         cartAllItems.push(produ);
                         self.itemQty++;//購物車圖標
                         // alert('不同')
->>>>>>> Chou
                     }
                     localStorage.setItem('itemStorage', JSON.stringify(cartAllItems));
                     console.log(self.itemStorage);
@@ -139,13 +127,7 @@ const main = new Vue({
             }else{
                 alert('請選擇數量');
             }
-<<<<<<< HEAD
-
-            console.log(self.itemStorage);
-            localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
-=======
             item.quantity = 0;
->>>>>>> Chou
         },
         queryData(url, data = null) {
             const self = this

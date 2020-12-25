@@ -1,11 +1,6 @@
 <?php 
-<<<<<<< HEAD
-    include("../Lib/frontendUtilClass.php");
-
-=======
     // include("../Lib/UtilClass.php");
     include("../Lib/frontendUtilClass.php");
->>>>>>> Chou
     $start = new UtilClass();
     
     $pdNum = $_POST['pdNum'];
