@@ -292,3 +292,27 @@ $(document).ready(function (e) {
     });
 
 });
+
+const app = new Vue({
+    el: '#main',
+    data: {
+    },
+
+    mounted() {
+
+        const self = this;
+
+        $.ajax({
+            url: '../PHP/Frontend/donationQuery.php',
+            success: function (res) {
+                console.log(res);
+                document.cookie = res;
+            },
+            dataType: "JSON",
+            error: function (res) {
+                console.log(res);
+            }
+        })
+    },
+
+});

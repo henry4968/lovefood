@@ -57,6 +57,16 @@ $sqlStatment->bindValue(15,$deliveryMethod);
 
 $sqlStatment->execute();
 
+$sqlDonationCompleted = "SELECT DONATION_ID, DONATION_AMOUNT, DONATION_METHOD, year(DONATION_DATE), month(DONATION_DATE), day(DONATION_DATE) FROM DONATION WHERE DONATION_ID = ?";
+
+$statementDonationCompleted = $Util->getPDO()->prepare($sqlDonationCompleted);
+$statementDonationCompleted->bindValue(1,$insertId);
+$statementDonationCompleted->execute();
+
+$dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
+
+print $dataDC;
+
 header("location:http://localhost/Lovefood/frontend/donate_completed.html");
 
 ?>
