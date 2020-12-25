@@ -18,10 +18,10 @@ class UtilClass
         // $db_select = "loveFood";
 
         // ======強哥======
-        $db_host = "localhost";
-        $db_user = "root";
-        $db_pass = "SQL1933";
-        $db_select = "Lovefood";
+        // $db_host = "localhost";
+        // $db_user = "root";
+        // $db_pass = "SQL1933";
+        // $db_select = "Lovefood";
 
         // ========廷翰=========
         // $db_host = "localhost:3306";
@@ -30,10 +30,10 @@ class UtilClass
         // $db_select = "Lovefood";
 
         // ======怡欣======
-        // $db_host = "localhost";
-        // $db_user = "root";
-        // $db_pass = "";
-        // $db_select = "LoveFood";
+        $db_host = "localhost";
+        $db_user = "root";
+        $db_pass = "";
+        $db_select = "LoveFood";
 
 
 

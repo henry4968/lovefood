@@ -7,9 +7,44 @@ Vue.component('selfPickUp', {
 Vue.component('showMap', {
     template: `
     <div>
-        <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口
-        <img src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div>
-    <img src="../img/16/MRT.jpg" class="imgMRT">
+    <div class="mapIconW pickUpLocal" v-text="MRT">{{MRT}}
+    <img src="../img/16/Icon awesome-map-marker-alt.png"
+        class="mapIcon">
+    </div>
+    <div class="MRT">
+    <div class="mapImg">
+        <img src="../img/16/MRT.jpg" class="imgMRT">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運市政府站"
+            id="TaipeiCityHall" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運南京復興站"
+            id="Nanjing" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運忠孝復興站"
+            id="Zhongxiao" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運大安站"
+            id="Daan" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運中山站"
+            id="Zhongshan" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運台北車站"
+            id="TaipeiMainStaiton" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運西門站"
+            id="Ximen" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運中正紀念堂站"
+            id="MemorialHal" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運大橋頭站"
+            id="Daqiaotou" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運民權西路站"
+            id="MinquanWRoad" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運石牌站"
+            id="Shipai" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運內湖站"
+            id="Neihu" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運南港站"
+            id="Nanggong" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運古亭站"
+            id="Guting" src="../img/16/IconYellow.png">
+        <img class="mapLocate" data-toggle="tooltip" title="捷運六張犁站"
+            id="Liuzhangli" src="../img/16/IconYellow.png">
+    </div>
 
     <ul id="MRT_Select">
         <li><label for="">請選擇：</label></li>
@@ -30,7 +65,7 @@ Vue.component('showMap', {
         <li class="mrtSelect" id="mrt15"><input type="checkbox">捷運六張犁站</li>
     </ul>
 
-    </div>
+</div>
     `,
 });
 
@@ -43,7 +78,10 @@ const main = new Vue({
         exp: '',
         sessionId: null,
         storgeValue: null,
-        membersPoints: null
+        membersPoints: null,
+        newStorage: [],
+        seller: [],
+
     },
 
     mounted() {
@@ -54,8 +92,37 @@ const main = new Vue({
 
         this.itemStorage = test;
 
-        // self.storgeValue = JSON.parse(localStorage.getItem('itemStorage'));
-        // 一些防呆功能待寫
+        console.log(this.itemStorage);
+        let seller = this.seller;
+        let newStorage = this.newStorage;
+        let itemStorage = this.itemStorage;
+        itemStorage.map(item => {
+            if (seller.indexOf(item.seller) === -1) {
+                newStorage.push({
+                    seller: item.seller,
+                    goodList: [{
+                        name: item.name,
+                        qty: item.qty,
+                        seller: item.seller,
+                        price: item.price,
+                        id: item.id,
+                        img: item.img,
+                    }]
+                });
+                seller.push(item.seller)
+            }
+        });
+        newStorage.map(item => {
+            itemStorage.map(items => {
+                if (item.seller == items.seller) {
+                    item.newStorage.push(items)
+                }
+            })
+        })
+
+
+        localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
+        console.log(newStorage);
 
         $.ajax({
             url: '../PHP/Frontend/sessionR.php',
@@ -93,29 +160,27 @@ const main = new Vue({
 
         }, 100)
 
+
+
     },
 
     methods: {
-        setQty(item) {
-            this.qty = item.qty.value;
 
-        },
         add(index) {
-            // alert(index);
-            this.itemStorage[index].qty++;
+            alert("!!!");
+            this.newStorage[index].goodList.qty++;
         },
         reduce(index) {
-            if (this.itemStorage[index].qty >= 1) {
-                this.itemStorage[index].qty--;
+            if (this.newStorage[index].goodList.qty >= 1) {
+                this.newStorage[index].goodList.qty--;
+
             }
         },
         del(index) {
-            this.itemStorage.splice(index, 1);
+            this.newStorage.splice(index, 1);
         },
 
-        points() {
 
-        },
         // sum() {
         // var sum = 0
         // for (var i in this.itemStorage) {

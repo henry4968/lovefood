@@ -1058,7 +1058,7 @@
                                     }
 
                                 }
-                                    .amount{
+                                .amount{
                                         font-size: 24px;
                                         color:#707070;
                                         margin: 0px 20px;
@@ -1079,14 +1079,14 @@
                                             font-size: 20px;
                                             width: 40px;
                                         }
-                                    }
+                                }
                             }
                         }
                    
                          
                 }
-            }
-            hr{
+           
+               hr{
                 @include newRwd("pad"){
                     width: 728px;
                     margin: 0 auto;
@@ -1105,7 +1105,7 @@
                     width: 300px;
 
                 }
-            }
+                }
                     .pickUpInfo{
                         // border: 1px solid blue;
                         width: 950px;
@@ -1147,32 +1147,8 @@
                                 width: 300px;
                                 margin: 0 auto;
                             }
-                            .mapIconW{
-                                width: 400px;
-                                margin-left: 10px;
-                                @include newRwd("bigPhone"){
-                                    // margin-left: 0px;
-                              
-                                }
-                                @include newRwd("mediumPhone"){
-                                    margin-left: 10px;
-                                    width: 350px;
-
-                              
-                                }
-
-                                @include newRwd("newSmallPhone"){
-                                    justify-content: center;
-                                    width: 310px;
-                                    margin-left: 0px;
-                                }
-                            }
-                            .mapIcon{
-                                width: 15px;
-                                height: 20px;
-                                margin-top: 6px;
-                                
-                            }
+                            
+                            
                             ul{
                                 
                                 @include newRwd("pad"){
@@ -1185,7 +1161,7 @@
                                     width: 306px;
                                 }
                                 div{
-                                    margin-left: 80px;
+                                    // margin-left: 80px;
                                     margin-top: 5px;
                                     @include newRwd("mediumPhone"){
                                         margin-left: 10px;
@@ -1202,6 +1178,7 @@
                                     margin: 50px 20px 20px 20px;
                                     font-size: 18px;
                                     color: #707070;
+                                    // width: ;
                                     
                                     @include newRwd("newSmallPhone"){
                                         width: 300px;
@@ -1219,11 +1196,34 @@
                                         
                                     }
                             
-                                }
+                               
                                 li:first-child{
                                     color: #c00202;
                                 }
-                                
+                                .mapIconW{
+                                    width: 400px;
+                                    margin-left: 40px;
+                                    @include newRwd("bigPhone"){
+                                        // margin-left: 0px;
+                                  
+                                    }
+                                    @include newRwd("mediumPhone"){
+                                        margin-left: 10px;
+                                        width: 350px;
+                                    }
+    
+                                    @include newRwd("newSmallPhone"){
+                                        justify-content: center;
+                                        width: 310px;
+                                        margin-left: 0px;
+                                    }
+                                    .mapIcon{
+                                        width: 15px;
+                                        height: 20px;
+                                        margin-top: 6px;
+                                        
+                                    }
+                                }
                                 input{
                                 margin-left: 65px;
                                 margin-top: 20px;
@@ -1241,15 +1241,13 @@
                                     }
 
                                 }
-                             }
-                            div{
+                            
+                            .MRT{
                                 // margin-left: 70px;
-                                // line-height: 2;
-                                font-size: 18px;
-                                color: #707070;
-                                width: 700px;
+                                
+                                width: 500px;
                                 overflow: hidden;
-                                position: relative;
+                                // position: relative;
                                 
                                 @include newRwd("mediumPhone"){
                                     margin: 10px auto;
@@ -1265,31 +1263,205 @@
                                     width: 290px;
                                 }
 
-                                .imgMRT{
-                                    margin-top: 30px;
-                                    position: relative;
-                                    // right: 10%;
-                                    top: 0px;
-
-                                    @include newRwd("mediumPhone"){
-                                        margin-top: 20px;
-                                        width: 406px;
-                                    }
-                                    @include newRwd("newSmallPhone"){
-                                        display: none;
-                                    }
-                                    
-                                }
+                                
                                 .mapImg{
-                                    
-                                    .map_leaf{
-                                        position: absolute;
-                                        width: 20px;
-                                        top: 100px;
+                                    margin-left: 40px;
+                                    width: 500px;
+                                    position: relative;
+
+                                    .imgMRT{
+                                        margin-top: 30px;
+                                        // position: relative;
+                                        // right: 10%;
+                                        top: 0px;
+    
+                                        @include newRwd("mediumPhone"){
+                                            margin-top: 20px;
+                                            width: 406px;
+                                        }
+                                        @include newRwd("newSmallPhone"){
+                                            display: none;
+                                        }
+                                        
                                     }
+                                    
+                                    .mapLocate{
+                                        width: 23px;
+                                        position: absolute;
+                    
+                                        &:hover{
+                                            opacity: 1;
+                                            // transform: rotate(30deg);
+                                            // cursor: pointer;
+                                            
+                                        }
+                                        @include  newRwd("miniPhone"){
+                                            width: 23px;
+                                        }
+
+                                    }
+                                    @keyframes icon {
+                                        from {
+                                            transform: scaleY(0); 
+                                          }
+                                        
+                                          to {
+                                            transform: scaleY(1);
+                                          }
+                                        
+                                    }
+                                    #TaipeiCityHall{
+                                        opacity: 0;
+                                        left: 293px;
+                                        top: 339px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                    
+                                    }
+                                    #Nanjing{
+                                        opacity: 0;
+                                        left: 239px;
+                                        top: 301px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 2s;
+                                            // &::after{
+                                            //     content: '';
+                                            //     display: block;
+                                            //     width: 40px;
+                                            //     height: 3px;
+                                            //     border-radius: 10px;
+                                            //     position: absolute;
+                                            //     transition-duration: .3s;
+                                            //     background-color: #8F8770;
+                                    }
+
                                 }
+                                    #Zhongxiao{
+                                        opacity: 0;
+                                        left: 239px;
+                                        top: 340px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                        
+                                    }
+                                    #Daan{
+                                        opacity: 0;
+                                        left: 239px;
+                                        top: 374px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Zhongshan{
+                                        opacity: 0;
+                                        left: 167px;
+                                        top: 303px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #TaipeiMainStaiton{
+                                        opacity: 0;
+                                        left: 168px;
+                                        top: 340px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Ximen{
+                                        opacity: 0;
+                                        left: 139px;
+                                        top: 348px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #MemorialHal{
+                                        opacity: 0;
+                                        left: 167px;
+                                        top: 374px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Daqiaotou{
+                                        opacity: 0;
+                                        left: 136px;
+                                        top: 264px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #MinquanWRoad{
+                                        opacity: 0;
+                                        left: 167px;
+                                        top: 264px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Shipai{
+                                        opacity: 0;
+                                        left: 158px;
+                                        top: 159px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Neihu{
+                                        opacity: 0;
+                                        left: 350px;
+                                        top: 227px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Nanggong{
+                                        opacity: 0;
+                                        left: 356px;
+                                        top: 339px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Guting{
+                                        opacity: 0;
+                                        left: 183px;
+                                        top: 389px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
+                                    #Liuzhangli{
+                                        opacity: 0;
+                                        left: 262px;
+                                        top: 402px;
+                                        &:hover{
+                                            opacity: 1;
+                                            animation: icon 1s;
+                                        }
+                                    }
 
                                 #MRT_Select{
+                                    line-height: 2;
+                                    font-size: 18px;
+                                    color: #707070;
                                     display: none;
                                     @include newRwd("newSmallPhone"){
                                         display: flex;
@@ -1317,13 +1489,15 @@
                                         
                                     }
                                 }
+                             }
     
                                 
                             }
+                        }
                             
                         }
-                    }
-            }
+                          }
+                   }
                 .orderCount{
                     font-size: 24px;
                     text-align: right;
@@ -1331,8 +1505,9 @@
                 }
 
             }
-        }
-     .cart_16FinalCount{
+            }
+        }       
+        .cart_16FinalCount{
          
          background-color: #FBFFE0;
          @include newRwd("pad"){
@@ -1509,10 +1684,8 @@
                      }
                 }
        }
-    } 
-
-    // }
-    .item2{
+        } 
+        .item2{
         background-color: #F2F0D7;
         height: 100px;
         @include newRwd("miniPhone"){
@@ -1581,11 +1754,12 @@
                 }
             }
          }
+    }
 }
 //購物車區結束
 
 //footer開始
-footer{
+  footer{
     width: 100%;
     height: 200px;
     background-color:#FBFFE0;
@@ -1670,6 +1844,7 @@ footer{
             }
         } 
     }  
+  }
 }
-}
+
 //footer結束
