@@ -4,7 +4,7 @@ class UtilClass
     function getPDO()
     {
         
-        $db_host = "localhost:3306";
+        $db_host = "localhost";
         $db_user = "root";
         $db_pass = "SQL1933";
         $db_select = "Lovefood";

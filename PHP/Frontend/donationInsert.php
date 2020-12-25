@@ -65,8 +65,8 @@ $statementDonationCompleted->execute();
 
 $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
 
-print $dataDC;
+print json_encode($dataDC);
 
-header("location:http://localhost/Lovefood/frontend/donate_completed.html");
+// header("location:http://localhost:8087/Lovefood/frontend/donate_completed.html");
 
 ?>
