@@ -158,47 +158,6 @@ $(document).ready(function () {
     });
 });
 
-// 愛心輪播
-$(document).ready(function () {
-    $('#heartArea').lightSlider({
-        pager: true,
-        auto: true,
-        item: 3,
-        loop: true,
-        slideMove: 1,
-        controls: true,
-        // slideMargin: 0,
-        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 600,
-        responsive: [
-            {
-                breakpoint: 1100,
-                settings: {
-                    adaptiveHeight: false,
-                    item: 2,
-                    pager: true,
-                    loop: true,
-                    slideMove: 1,
-                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-                    speed: 600
-                }
-            },
-            {
-                breakpoint: 750,
-                settings: {
-                    item: 1,
-                    pager: true,
-                    loop: true,
-                    slideMove: 1,
-                    easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-                    speed: 600
-                }
-            }
-        ]
-    });
-});
-
-
 // 愛心故事
 $(document).ready(function () {
     $('#storyAll').lightSlider({
@@ -319,3 +278,73 @@ $(document).ready(function (e) {
 // $('#sendButton').addClass('allow').css({
 //     'background-color': '#B2C6A6',
 //     'cursor': 'pointer'
+
+const app = new Vue({
+    el: '#main',
+    data: {
+        donationLog: null
+    },
+
+    mounted() {
+
+        const self = this;
+
+        $.ajax({
+            url: '../PHP/Frontend/donationQuery.php',
+            success: function (res) {
+                self.donationLog = res;
+                console.log(self.donationLog);
+            },
+            dataType: "JSON",
+            error: function (res) {
+                console.log(res);
+            }
+        })
+    },
+    updated() {
+
+        // 愛心輪播
+        $(document).ready(function () {
+            $('#heartArea').lightSlider({
+                pager: true,
+                auto: true,
+                item: 3,
+                loop: true,
+                slideMove: 1,
+                controls: true,
+                // slideMargin: 0,
+                easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                speed: 600,
+                responsive: [
+                    {
+                        breakpoint: 1100,
+                        settings: {
+                            adaptiveHeight: false,
+                            item: 2,
+                            pager: true,
+                            loop: true,
+                            slideMove: 1,
+                            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                            speed: 600
+                        }
+                    },
+                    {
+                        breakpoint: 750,
+                        settings: {
+                            item: 1,
+                            pager: true,
+                            loop: true,
+                            slideMove: 1,
+                            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+                            speed: 600
+                        }
+                    }
+                ]
+            });
+        });
+
+    }
+
+
+
+});

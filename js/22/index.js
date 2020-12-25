@@ -634,6 +634,7 @@ const vm = new Vue({
     },
     updated() {
 
+        // lightslider控制項目：第四章
         $('#productCarouselList').lightSlider({
             item: 3,
             loop: true,

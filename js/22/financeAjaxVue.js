@@ -14,6 +14,7 @@ Vue.component('user', {
         this.user = $.cookie('account');
     }
 })
+
 const app = new Vue({
     el: '.containerFinance',
     data: {
