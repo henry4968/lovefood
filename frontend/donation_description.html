@@ -83,9 +83,12 @@
                         立即捐款
                     </div>
                 </a>
+                <!-- 點放大鏡伸縮搜尋欄 -->
                 <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch04_nav_search.png" alt="">
+                    <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
+
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
@@ -736,7 +739,7 @@
 <!-- header vue -->
 <script>
     new Vue({
-        el: 'header',
+        el: '#header',
         data: {
             // 一般會員 href
             jumppage: '',
