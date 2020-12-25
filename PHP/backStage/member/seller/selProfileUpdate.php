@@ -1,5 +1,5 @@
 <?php 
-    include("../Lib/UtilClass.php");
+    include("../Lib/backendUtilClass.php");
     $Util = new UtilClass();
     $sql = "UPDATE LoveFood.SUPPLIER SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);

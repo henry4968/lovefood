@@ -96,70 +96,48 @@ let all = new Vue({
                return this.count++;
            }
        },
-       addToCart(item){
-           const self = this;
+       addToCart(item) {
+        const self = this;
         var produ = {
             name: item.PRODUCT_NAME,
             qty: self.count,
-            seller:item.SUPPLIER_NAME,
-            price:item.PRODUCT_SELLING_PRICE,
-            id:item.PRODUCT_ID,
-        };
-        if(self.getStorage != null){
-            alert();
-            let arrAll = new Array; 
-            for(i=0; i < self.getStorage.length; i++){
-                arrAll.push(self.getStorage[i]);
-            }
-            arrAll.push(produ);
-            // console.log(arrAll);
-            self.itemQty++; //購物車圖標
-            localStorage.setItem('itemStorage',JSON.stringify(arrAll));
+            seller: item.SUPPLIER_NAME,
+            price: item.PRODUCT_SELLING_PRICE,
+            id: item.PRODUCT_ID,
         }
-       },
+        // console.log(cartAllItems);
+        if (self.count > 0) {
+            if(self.getStorage == null){ //不存在localstorage
+                self.itemStorage.push(produ);
+                self.itemQty++;
+                localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
+            }else{
+                var temp = self.getStorage.some(function(item){
+                    return item.name == produ.name;
+                })
+                if(temp){
+                    for(i=0;i<self.getStorage.length;i++){
+                        if(self.getStorage[i].name == produ.name){
+                            self.getStorage[i].qty += produ.qty
+                        }
+                        // alert('相同')
+                    }
+                }else{
+                    self.getStorage.push(produ);
+                    self.itemQty++;//購物車圖標
+                    // alert('不同')
+                }
+                localStorage.setItem('itemStorage', JSON.stringify(self.getStorage));
+                console.log(self.itemStorage);
+                // alert('寫入')
+            }
+        alert('成功加入購物車');
+        }else{
+            alert('請選擇數量');
+        }
+        self.count = 0;
+        },
     },
-    // updated(){
-    //     const self = this;
-    //     for (let index = 0; index < self.tableData.length; index++) {  
-    //         self.tableData.quantity = 0
-    //         self.tableData.hours = 0
-    //         self.tableData.days = 0
-    //         self.tableData.minutes = 0
-    //         self.tableData.seconds = 0
-    //         self.tableData.timer = null
-    //         // res[index].PRODUCT_IMG = window.atob(res[index].PRODUCT_IMG) 
-    //          // console.log(window.btoa(res[index].PRODUCT_IMG) )
-    //     }
-
-    //                 const updateTime = () =>{
-    //                     var now = new Date();
-    //                     var difference = new Date(self.tableData[index].PRODUCT_EXP_DATE) - now.getTime();
-    //                     // console.log(difference);
-    //                     if(difference <= 0){
-
-    //                     }else{
-    //                         var seconds = Math.floor(difference / 1000);
-    //                         var minutes = Math.floor(seconds / 60);
-    //                         var hours = Math.floor(minutes / 60);
-    //                         var days = Math.floor(hours / 24);
-                            
-    //                         hours %= 24;
-    //                         minutes %= 60;
-    //                         seconds %= 60;
-                            
-    //                         self.tableData[index].hours = hours
-    //                         self.tableData[index].days = days
-    //                         self.tableData[index].minutes = minutes
-    //                         self.tableData[index].seconds = seconds
-    //                         console.log(self.tableData[index].seconds);
-    //                     }
-    //                 }
-    //                 clearInterval(self.tableData[index].timer)
-
-    //                 self.tableData[index].timer = setInterval(updateTime,1000)
-
-
-    // }
 });
 
 //////////////輪播////////////
