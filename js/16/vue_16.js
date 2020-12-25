@@ -81,7 +81,6 @@ const main = new Vue({
         membersPoints: null,
         newStorage: [],
         seller: [],
-
     },
 
     mounted() {
@@ -95,6 +94,7 @@ const main = new Vue({
         let seller = this.seller;
         let newStorage = this.newStorage;
         let itemStorage = this.itemStorage;
+
         itemStorage.map(item => {
             if (seller.indexOf(item.seller) === -1) {
                 newStorage.push({
@@ -111,10 +111,10 @@ const main = new Vue({
                 seller.push(item.seller)
             }
         });
-        newStorage.map(item => {
-            itemStorage.map(items => {
-                if (item.seller == items.seller) {
-                    item.newStorage.push(items)
+        newStorage.map(itemList => {
+            itemStorage.map(item => {
+                if (itemList.seller == item.seller) {
+                    itemList.newStorage.push(item)
                 }
             })
         })
@@ -166,7 +166,7 @@ const main = new Vue({
     methods: {
 
         add(index) {
-            alert("!!!");
+            // alert("!!!");
             this.newStorage[index].goodList.qty++;
         },
         reduce(index) {

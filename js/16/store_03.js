@@ -11,6 +11,7 @@ window.addEventListener('load', function () {
 
         mounted() {
 
+
             // const self = this;
 
             // self.storgeValue = JSON.parse(localStorage.getItem('itemStorage'));
@@ -55,6 +56,7 @@ window.addEventListener('load', function () {
         },
 
         methods: {
+
 
             // checkOut() {
 
