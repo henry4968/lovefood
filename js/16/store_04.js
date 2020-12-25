@@ -1,5 +1,5 @@
 new Vue({
-    el: '#header',
+    el: '#all04',
     data: {
         // 一般會員 href
         jumppage: '',
@@ -13,6 +13,10 @@ new Vue({
         login: '',
         // 判斷賣家會員是否登入
         sellogin: '',
+
+        //localStorage取值
+        newStorage: [],
+        goodList: []
     },
 
     mounted() {
@@ -20,6 +24,10 @@ new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
+
+        //localStorage取值
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        this.newStorage = test;
     },
     updated() {
         // 看看是一般會員或是賣家會員
@@ -161,30 +169,41 @@ new Vue({
 
 
     },
+    computed: {
+        total() {
+            var total = 0;
+            for (var i in this.goodList) {
+                total += this.goodList[i].price * this.goodList[i].qty;
+            }
+            return total;
+        },
+    }
 
 });
 
 
-$(function () {
+// $(function () {
 
-    // 開啟 Modal 彈跳視窗
-    $("button.btn_modal").on("click", function () {
-        $("div.overlay").addClass("-on");
-    });
+//     // 開啟 Modal 彈跳視窗
+//     $("button.btn_modal").on("click", function () {
+//         $("div.overlay").addClass("-on");
+//     });
 
-    // 關閉 Modal
-    $("button.btn_modal_close").on("click", function () {
-        $("div.overlay").addClass("-opacity-zero");
+//     // 關閉 Modal
+//     $("button.btn_modal_close").on("click", function () {
+//         $("div.overlay").addClass("-opacity-zero");
 
-        // 設定隔一秒後，移除相關 class
-        setTimeout(function () {
-            $("div.overlay").removeClass("-on -opacity-zero");
-        }, 1000);
-    });
+//         // 設定隔一秒後，移除相關 class
+//         setTimeout(function () {
+//             $("div.overlay").removeClass("-on -opacity-zero");
+//         }, 1000);
+//     });
 
-    //點擊其他地方關閉 Madal
-    $("div.overlay").on("click", function () {
-        $("div.overlay").removeClass("-on -opacity-zero");
-    });
+//     //點擊其他地方關閉 Madal
+//     $("div.overlay").on("click", function () {
+//         $("div.overlay").removeClass("-on -opacity-zero");
+//     });
 
-});
+// });
+
+

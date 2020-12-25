@@ -51,39 +51,47 @@ $(function () {
         if (owner.val().length < 5) {
             alert("請輸入持卡人姓名");
         } else if (!isCardValid) {
-            alert("請輸入信用卡卡號");
+            alert("請輸入正確信用卡卡號");
         } else if (!isCvvValid) {
             alert("請輸入驗證碼");
         } else {
             // Everything is correct. Add your form submission code here.
             alert("Everything is correct");
+
+            $("div.overlay").addClass("-on");
+            // 關閉 Modal
+            $("button.btn_modal_close").on("click", function () {
+                $("div.overlay").addClass("-opacity-zero");
+
+                setTimeout(function () {
+                    $("div.overlay").removeClass("-on -opacity-zero");
+                }, 1000);
+                
+                // 點擊其他地方關閉 Madal
+                $("div.overlay").on("click", function () {
+                    $("div.overlay").removeClass("-on -opacity-zero");
+                });
+            });
         }
 
         // if () {
         // 開啟 Modal 彈跳視窗
-        $("div.overlay").addClass("-on");
+
 
 
         // $("button.btn_modal").on("click", function () {
 
         // });
 
-        // 關閉 Modal
-        $("button.btn_modal_close").on("click", function () {
-            $("div.overlay").addClass("-opacity-zero");
 
-            // 設定隔一秒後，移除相關 class
-            setTimeout(function () {
-                $("div.overlay").removeClass("-on -opacity-zero");
-            }, 1000);
-        });
 
-        // 點擊其他地方關閉 Madal
-        $("div.overlay").on("click", function () {
-            $("div.overlay").removeClass("-on -opacity-zero");
-        });
+        // 設定隔一秒後，移除相關 class
+
+
+
+
         // }
     });
 });
-// 地圖上區標籤
+
 

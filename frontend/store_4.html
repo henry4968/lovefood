@@ -163,7 +163,7 @@
                                                 <li>總計</li>
                                             </ul>
                                             <ul class="orders">
-                                                <li class="price">${{detail.price}</li>
+                                                <li class="price">${{detail.price}}</li>
                                                 <li class="quantity">{{detail.qty}}</li>
                                                 <li class="amount">${{detail.price * detail.qty}}</li>
                                             </ul>
@@ -245,7 +245,7 @@
                         <div class="item2">
                             <div>
                                 <span d="pay-now">結帳總金額：</sapn>
-                                    <span class="dollars">$182元</span>
+                                    <span class="dollars">${{total}}</span>
                                     <button type="button" class="btn_modal" id="confirm-purchase">$結帳</button>
 
                                     <div class="overlay">
@@ -286,9 +286,10 @@
         </article>
     </div>
 </body>
-<<<<<<< HEAD
-<!-- header vue -->
+
 <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+<script src="../js/16/script.js"></script>
+<script src="../js/16/store_04.js"></script>
 <script>
     new Vue({
         el: 'header',
@@ -427,9 +428,5 @@
         },
     });
 </script>
-=======
-<script src="../js/16/store_04.js"></script>
-<script src="../js/16/script.js"></script>
->>>>>>> 38f5500fa5107cd540a5f7f6c4bfa96cd3febd5f
 
 </html>
