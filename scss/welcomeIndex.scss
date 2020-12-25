@@ -17,9 +17,9 @@
     //     padding: 3vh;
     // }
     .welcomeBg{
-        width: 100vw;
+        width: 100%;
         height: 100vh;
-        background-image: url("../img/21/welcome/welcome_bg.jpg");
+        background-image: url("../img/21/welcome/donate_completed_bg.png");
         // background-size: cover;
         background-position: top;
         // background-position: center;
@@ -29,7 +29,31 @@
         position: absolute;
         z-index: -1;
         @media screen and (max-width: 725px){
-            padding: 3vh;
+            // padding: 3vh;
+        }
+
+        #flower_left{
+            position: absolute;
+            // border: 1px solid red;
+            left: 0;
+            bottom: 0;
+            max-width: 349px;
+            width: 30%;
+            @media screen and (max-width: 1200px){
+                opacity: 0.8;
+            }
+        }
+
+        #flower_right{
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 99;
+            max-width: 349px;
+            width: 30%;
+            @media screen and (max-width: 1200px){
+                opacity: 0.8;
+            }
         }
     }
 

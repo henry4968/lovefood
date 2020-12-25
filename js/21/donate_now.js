@@ -267,3 +267,28 @@ $(document).ready(function () {
         }
     });
 });
+
+
+// 桌機板search bar js
+$(document).ready(function (e) {
+    $("#navIcons01").click(function () {
+    });
+
+    $("#navIcons01").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#navIconsImg").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#searchInputForWeb").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#searchInputForWeb").blur(function () {
+        $("#searchInputForWeb").removeClass('block');
+
+    });
+
+});
