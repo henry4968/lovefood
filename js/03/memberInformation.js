@@ -2257,7 +2257,7 @@ let vm = new Vue({
     (function () {
       axios.post('../PHP/Frontend/sessionR.php').then(function (res) {
         checkdata = res.data;
-        // console.log(checkdata);
+        console.log(checkdata);
       })
     }());
     // 撈名字

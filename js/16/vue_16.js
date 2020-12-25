@@ -82,6 +82,19 @@ const main = new Vue({
         newStorage: [],
         seller: [],
 
+        // 一般會員 href
+        jumppage: '',
+        // 賣家會員 href
+        seljumpage: '',
+        // 賣家會員class
+        selloginchangemem: '',
+        // 會員大頭貼
+        Bigpicchange: '../img/22/index/ch04_nav_member.png',
+        // 判斷一般會員是否登入
+        login: '',
+        // 判斷賣家會員是否登入
+        sellogin: '',
+
     },
 
     mounted() {
@@ -159,8 +172,17 @@ const main = new Vue({
 
         }, 100)
 
+        // 看看是一般會員或是賣家會員
+        this.checklogin();
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
 
-
+    },
+    updated() {
+        // 看看是一般會員或是賣家會員
+        this.checklogin();
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        this.Bitpicupdate();
     },
 
     methods: {
@@ -203,6 +225,113 @@ const main = new Vue({
 
         // }
 
+        // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
+        logIncheck() {
+            if (checkdata != '') {
+                if (checkdata.substr(0, 2) == 'MB') {
+                    this.jumppage = './memberInformation.html';
+                } else if ((checkdata.substr(0, 2) == 'SP')) {
+                    alert('尚未登入會員，請登入會員');
+                    this.jumppage = './signUp_signIn.html';
+                }
+            } else {
+                alert('尚未登入會員，請登入會員');
+                this.jumppage = './signUp_signIn.html';
+            }
+        },
+        // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
+        sellogIncheck() {
+            if (checkdata != '') {
+                if (checkdata.substr(0, 2) == 'MB') {
+                    alert('尚未登入會員，請登入賣家會員');
+                    this.seljumpage = './signUp_signIn.html';
+                } else if ((checkdata.substr(0, 2) == 'SP')) {
+                    this.seljumpage = '../backend/sellerIndex.html';
+                    this.selloginchangemem = true;
+                }
+            } else {
+                alert('尚未登入會員，請登入會員');
+                this.seljumpage = './signUp_signIn.html';
+            }
+        },
+        // 判斷是否有會員登入及是哪一種會員
+        // 看看是一般會員或是賣家會員
+        checklogin() {
+            axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                // console.log(res);
+                // 賣家或是買家ID
+                checkdata = res.data;
+                // console.log(checkdata.substr(0, 2));
+                // alert(checkdata);
+                if (checkdata != '') {
+                    // 判斷是賣家會員使"賣家專區"變色
+                    if ((checkdata.substr(0, 2) == 'SP')) {
+                        // console.log(checkdata.substr(0, 2));
+                        this.sellogin = true;
+                        // console.log(this.sellogin);
+                    } else {
+                        this.sellogin = false;
+                        // console.log(this.sellogin);
+                    }
+                    // 判斷是一般會員使"會員"變色
+                    if ((checkdata.substr(0, 2) == 'MB')) {
+                        this.login = true;
+                    } else {
+                        this.login = false;
+                    }
+                }
+            });
+        },
+        // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+        Bitpicupdate() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    // this.Bigpicchange = atob(data);
+                    $('#navIcons03 img').attr('src', atob(data));
+                    $('#navIcons05 img').attr('src', atob(data));
+                } else {
+                    $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                    $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                }
+            });
+        },
+        // hover取到圖片
+        onhover() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    // this.Bigpicchange = atob(data);
+                    // console.log(this.Bigpicchange);
+                    $('#navIcons03 img').attr('src', atob(data));
+                    $('#navIcons05 img').attr('src', atob(data));
+                }
+            });
+        },
+        // leave回到原狀
+        onout() {
+            // 撈圖片
+            axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                data = res.data
+                // console.log(data);
+                if (data != "") {
+                    // atob函数用来解碼一个已经被base-64编碼過的數據
+                    // 如果在PHP有base64_decode就不用atob
+                    // this.Bigpicchange = atob(data);
+                    // console.log(this.Bigpicchange);
+                    $('#navIcons03 img').attr('src', atob(data));
+                    $('#navIcons05 img').attr('src', atob(data));
+                }
+            });
+        },
 
     },
     // watch: {
