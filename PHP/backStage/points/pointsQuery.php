@@ -1,6 +1,6 @@
 <?php
 
-    include("../Lib/UtilClass2.php");
+    include("../Lib/backendUtilClass.php");
     $Util = new UtilClass();
 
     $sqlMember = "SELECT MEMBER_ID, `MEMBER_ACCOUNT`, `MEMBER_NAME`, MEMBER_PHONE, MEMBER_POINTS FROM `MEMBER` WHERE MEMBER_CLASS = 1 and MEMBER_ID like ? and MEMBER_ACCOUNT like ? and `MEMBER_NAME` like ? and MEMBER_PHONE like ?";

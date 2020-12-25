@@ -1,5 +1,5 @@
 <?php 
-    include("Lib/MemberClass.php");
+    include("Lib/frontendUtilClass.php");
 
     $Member = new MemberClass();
 

@@ -1,6 +1,6 @@
 <?php 
     // include("../Lib/UtilClass.php");
-    include("../Lib/UtilClass.php");
+    include("../Lib/backendUtilClass.php");
 
     $Util = new UtilClass();
     $sql = "UPDATE Lovefood.MEMBER SET MEMBER_ADDRESS = ?, MEMBER_PHONE = ? WHERE MEMBER_ID= ?";

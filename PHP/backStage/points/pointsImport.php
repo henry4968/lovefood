@@ -1,6 +1,6 @@
 <?php
 
-    include("../../backStage/Lib/connection.php");
+    include("../../backStage/Lib/backendUtilClass.php");
 
     $dataUL = [];
 
@@ -11,7 +11,7 @@
 
                 $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM Lovefood.POINTS_ISSUANCE";
 
-                $statementSelectMaxId  = $pdo->prepare($sqlSelectMaxId);
+                $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
                 $statementSelectMaxId->execute();
                 $maxId = $statementSelectMaxId->fetch();
 
@@ -32,17 +32,17 @@
                 }
 
                 $sqlCSVInsert = "INSERT INTO POINTS_ISSUANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
-                $statementCSVInsert  = $pdo->prepare($sqlCSVInsert);
+                $statementCSVInsert  = $Util->getPDO()->prepare($sqlCSVInsert);
                 $statementCSVInsert->execute();
 
                 $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
-                $statesmentsqlPointsUpdate = $pdo->prepare($sqlPointsUpdate);
+                $statesmentsqlPointsUpdate = $Util->getPDO()->prepare($sqlPointsUpdate);
                 $statesmentsqlPointsUpdate->bindValue(1,$data[1]);
                 $statesmentsqlPointsUpdate->bindValue(2,$data[0]);
                 $statesmentsqlPointsUpdate->execute();
 
                 $sqlUploadRow = "SELECT PI.POINTS_ISSUANCE_ID, PI.MEMBER_ID_for_PI, MB.MEMBER_ACCOUNT, MB.MEMBER_NAME, PI.POINTS_ISSUANCE_NUM, PI.POINTS_ISSUANCE_DATE, MB.MEMBER_POINTS FROM POINTS_ISSUANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSUANCE_ID like ?";
-                $statesmentUploadRow = $pdo->prepare($sqlUploadRow);
+                $statesmentUploadRow = $Util->getPDO()->prepare($sqlUploadRow);
                 $statesmentUploadRow->bindValue(1,'%'.@$insertId.'%');
                 $statesmentUploadRow->execute();
                 $dataUR = $statesmentUploadRow->fetch(PDO::FETCH_ASSOC);
