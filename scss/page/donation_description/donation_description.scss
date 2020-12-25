@@ -331,15 +331,21 @@
                 }
             }
 
-            #navIcons01{
-                border: 1px solid red;
-                // &::after{
+            // #navIcons01{
+            //     // border: 1px solid red;
+            //     // &::after{
 
-                // }
-            }
+            //     // }
+            // }
 
             #navIcons02, #navIcons03{
                 margin-left: 20px;
+            }
+            #navIcons03{
+              img{
+                  max-width: 30px;
+                  max-height: 30px;
+              }
             }
 
         }
@@ -379,6 +385,12 @@
                         transform: scale(1.05);
                         transition: all .3s;
                     }
+                }
+            }
+            #navIcons05{
+                img{
+                    max-width: 30px;
+                    max-height: 30px;
                 }
             }
         }
