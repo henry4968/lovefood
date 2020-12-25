@@ -337,64 +337,135 @@ body{
                         }
                     }
                 }
-                #navIcons02, #navIcons03{
-                    margin-left: 20px;
+                
+            // #navIcons01{
+            //     // border: 1px solid red;
+            //     // &::after{
+
+            //     // }
+            // }
+
+
+            #navIcons02, #navIcons03{
+                margin-left: 20px;
+            }
+            #navIcons03{
+              img{
+                  max-width: 30px;
+                  max-height: 30px;
+              }
+            }
+
+            // 點放大鏡伸縮搜尋欄
+            #navIcons01{
+                position: relative;
+            }
+            #searchInputForWeb{
+                width: 25px;
+                height: 48px;
+                border: #8f7086;
+                border-radius: 26px;
+                background-color: #ececec;
+                align-self: center;
+                outline: none;
+                padding-left: 20px;
+                font-size: 17px;
+                padding: 3px 3px 3px 10px;
+                position: absolute;
+                left: -30px;
+                bottom: -3px;
+                background-image: url(../img/22/index/ch04_nav_search.png);
+                background-repeat: no-repeat;
+                background-position: right 6% bottom 45%;
+                background-size: 13%;
+                margin-left: 20px;
+                transition: all 0.8s;
+
+                opacity: 0;
+
+
+                &.block{
+                    width: 207px;
+                    opacity: 1;
+                    
+                    @include newRwd("laptop"){
+                        left: -26px;
+                        width: 150px;
+                        height: 38px;
+                    }
+                    // animation-name: block;
+                    // animation-duration: 0.5s;
+                    // animation-fill-mode: both;
+                    // @keyframes block{
+                    //     from{
+                    //         width: 0%;
+                    //         // margin-left: 230px;
+                    //         opacity: 0;
+                    //     }
+                    //     to{
+                    //         opacity: 1;
+                    //         width:207px;
+                    //         // margin-left: 0px;
+                    //     }
+                    // }
                 }
-                #navIcons03{
-                    img{
-                        max-width: 30px;
-                        max-height: 30px;
+
+            }
+
+
+
+        }
+        // 桌機版導覽列結束
+        // 行動版次導覽列開始
+        #subNavigationForMobile{
+            display: none;
+            margin-right: 5px;
+            @include newRwd("bigPhone"){
+                display: block;
+                width: 90px;
+                // height: 40px;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                right: 10px;
+                img{
+                    // width: 30px;
+                    height: 30px;
+                    margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                 }
             }
-            // 桌機版導覽列結束
-            // 行動版次導覽列開始
-            #subNavigationForMobile{
-                display: none;
-                @include newRwd("bigPhone"){
-                    display: block;
-                    width: 90px;
-                    // height: 40px;
-                    display: flex;
-                    justify-content: space-between;
-                    position: absolute;
-                    right: 10px;
-                    img{
-                        // width: 30px;
-                        height: 30px;
-                        margin: 5px 0px 0px 10px;
-                        &:hover{
-                            opacity: 0.5;
-                            transform: scale(1.05);
-                            transition: all .3s;
-                        }
+            @include newRwd("newSmallPhone"){
+                width: 55px;
+                right: 20px;
+                img{
+                    // width: 30px;
+                    height: 23px;
+                    margin: 5px 0px 0px 10px;
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                 }
-                @include newRwd("newSmallPhone"){
-                    width: 55px;
-                    right: 20px;
-                    img{
-                        height: 23px;
-                        margin: 5px 0px 0px 10px;
-                        &:hover{
-                            opacity: 0.5;
-                            transform: scale(1.05);
-                            transition: all .3s;
-                        }
-                    }
-                }
-                #navIcons05{
+            }
+            #navIcons05{
                 img{
                     max-width: 30px;
                     max-height: 30px;
                 }
             }
-            }
-            // 行動版次導覽列結束
         }
+        // 行動版次導覽列結束
     }
-    // 標頭結束
+}
+// 標頭結束
 
+/* back to top SCSS */
 
     #background{
         // position: relative;
