@@ -48,8 +48,9 @@ Vue.component('memhead', {
                         立即捐款
                     </div>
                 </a>
-                <a href="#0" id="navIcons01" class="navIcons">
+                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
                     <img src="../img/03/memmagnifier.png">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/03/memcart.png">
@@ -166,6 +167,18 @@ Vue.component('memhead', {
                 }
             });
         },
+        // 出現放大鏡
+        longsearch() {
+            // 桌機板search bar js
+            $("#navIcons01").focus(function () {
+                $("#searchInputForWeb").addClass('block');
+                $("#searchInputForWeb").focus();
+            })
+            $("#searchInputForWeb").blur(function () {
+                $("#searchInputForWeb").removeClass('block');
+            });
+        },
+
     },
     mounted() {
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
