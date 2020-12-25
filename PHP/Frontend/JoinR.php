@@ -1,5 +1,6 @@
 <?php
-include("Lib/UtilClass.php");
+// 資料庫連線
+include("Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 // 建立SQL 測試用

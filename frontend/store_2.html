@@ -14,8 +14,6 @@
     <!-- 輪播套件js -->
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/lightslider/src/js/lightslider.js"></script>
-
-    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
@@ -76,8 +74,7 @@
             </a>
             <a href="./store_3.html" id="navIcons02" class="navIcons">
                 <span style="position: relative;">
-                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    <div style="width: 25px; height: 23px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </span>
             </a>
             <a href="./memberInformation.html" id="navIcons03" class="navIcons">
@@ -89,7 +86,7 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
         <nav id="subNavigationForMobile">
             <a href="./store_3.html" id="navIcons02" class="navIcons">
                 <span style="position: relative;">
-                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: red; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
+                    <div style="width: 25px; height: 23px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
 top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                 </span>
             </a>
@@ -136,10 +133,10 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
                             <div class="pdtText">
                                 <span class="pdtTime">
                                     下架倒數
-                                    <span class="days" v-text="tableData[0].days"></span>:
-                                    <span class="hours" v-text="tableData[0].hours"></span>:
-                                    <span class="minutes" v-text="tableData[0].minutes"></span>:
-                                    <span class="seconds" v-text="tableData[0].seconds"></span>
+                                    <span class="days" v-text="tableData[0].days"></span>天
+                                    <span class="hours" v-text="tableData[0].hours"></span>時
+                                    <span class="minutes" v-text="tableData[0].minutes"></span>分
+                                    <span class="seconds" v-text="tableData[0].seconds"></span>秒
                                 </span>
                                 
                             </div>

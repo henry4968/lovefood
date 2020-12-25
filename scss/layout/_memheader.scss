@@ -317,11 +317,11 @@
             }
             #navIcons03{
               img{
-                &:hover{
-                //   content: url('../img/03/mempeoplecirclechange.png');
-                  transform: scale(1.05);
-                  transition: all .3s;
-                }
+                  max-width: 30px;
+                // &:hover{
+                //   transform: scale(1.05);
+                //   transition: all .3s;
+                // }
               }
             }
             #navIcons02, #navIcons03{

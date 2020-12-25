@@ -89,7 +89,6 @@ const main = new Vue({
         const self = this;
 
         let test = JSON.parse(localStorage.getItem("itemStorage"));
-
         this.itemStorage = test;
 
         console.log(this.itemStorage);
@@ -193,30 +192,26 @@ const main = new Vue({
         // this.itemStorage.exp
         // },
 
-        checkOut() {
 
-            const self = this;
+        // discountAllPoints() {
 
-            let discount = $("input[name='discount']").val();
+        //     if (inputValue > self.membersPoints){
 
-            $.ajax({
-                url: '../PHP/Frontend/cartCheckout.php',
-                type: 'POST',
-                dataType: "text",
-                data: { discount },
-                success: function (res) {
-                    console.log(res);
-                },
-                error: function (res) {
-                    console.log("回傳失敗！");
-                    console.log(res.responseText);
-                },
-            });
-        }
+        //     }
 
+
+
+        // }
 
 
     },
+    // watch: {
+    //     inputValue: function () {
+    //         if (this.inputValue > this.membersPoints) {
+    //             alert('超過啦');
+    //         }
+    //     }
+    // },
 
     computed: {
 
@@ -229,6 +224,11 @@ const main = new Vue({
             }
             return total;
         },
-    },
 
+        inputKeyUp() {
+
+
+
+        },
+    },
 });

@@ -1,6 +1,6 @@
 <?php
 
-include("Lib/UtilClass.php");
+include("Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 $discount = $_POST["discount"];

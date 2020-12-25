@@ -1,11 +1,11 @@
 <?php
 
-include("./Lib/connection.php");
+include("./Lib/frontendUtilClass.php");
 
 // 尋找目前流水號最大者，製造下一號並裝入變數
 $sqlSelectMaxId = "SELECT max(DONATION_ID) FROM DONATION;";
 
-$statementSelectMaxId  = $pdo->prepare($sqlSelectMaxId);
+$statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
 $statementSelectMaxId->execute();
 $maxId = $statementSelectMaxId->fetch();
 
@@ -31,7 +31,7 @@ DONATION(DONATION_ID, DONATION_DATE, DONATION_PLAN, DONATION_METHOD, DONATION_AM
 DONATION_PERSONAL_ID_OR_TAX_ID,DONATION_BIRTHDAY, DONATION_ADDRESS, DONATION_EMAIL, DONATION_GENDER, DONATION_REMARKS, DONATION_RECEIPT_TITLE, 
 DONATION_PERSONAL_ID_OR_TAX_ID_OF_RECEIPT, DONATION_DELIVERY_METHOD) VALUE (?,NOW(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
-$sqlStatment = $pdo->prepare($sqlStatment);
+$sqlStatment = $Util->getPDO()->prepare($sqlStatment);
 
 $nationlity = !empty($_POST["nationality"]) ? $_POST["nationality"] : null;
 $gender = !empty($_POST["gender"]) ? $_POST["gender"] : null;

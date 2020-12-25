@@ -1,6 +1,6 @@
 <?php
 // 資料庫連線
-include("Lib/UtilClass.php");
+include("Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 // 找出ID

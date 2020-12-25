@@ -1,5 +1,5 @@
 <?php 
-    include("../Lib/UtilClass2.php");
+    include("../Lib/backendUtilClass.php");
 
     $Util = new UtilClass();
     $sqlUpdatePoints = "UPDATE Lovefood.MEMBER SET MEMBER_POINTS = ? WHERE MEMBER_ID = ?";

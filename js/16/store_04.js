@@ -1,3 +1,49 @@
+
+const main = new Vue({
+    el: '#all',
+    data: {
+    },
+
+    mounted() {
+
+    },
+
+    methods: {
+
+        checkOut() {
+
+            const self = this;
+
+            let discount = $("input[name='discount']").val();
+
+            $.ajax({
+                url: '../PHP/Frontend/cartCheckout.php',
+                type: 'POST',
+                dataType: "text",
+                data: { discount },
+                success: function (res) {
+                    console.log(res);
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+            });
+        }
+
+
+
+    },
+
+});
+
+
+
+
+
+
+
+
 $(function () {
 
     // 開啟 Modal 彈跳視窗

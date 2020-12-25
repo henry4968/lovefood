@@ -263,6 +263,7 @@
             }
 
             a{
+                white-space: nowrap;
                 font-size: 30px;
                 @include newRwd("laptop"){
                     font-size: 20px;
@@ -371,12 +372,6 @@
                         transform: scale(1.05);
                         transition: all .3s;
                     }
-                }
-            }
-            #navIcons05{
-                img{
-                    max-width: 30px;
-                    max-height: 30px;
                 }
             }
         }
@@ -546,6 +541,11 @@
     }
     
 }
+@media screen and (max-width:680px){
+    .local > p{
+        padding: 10px 0 !important;
+    }
+}
 @media screen and (max-width:376px){
     .local{
         padding: 0;
@@ -664,7 +664,9 @@ svg.pdtsvg{
         }
         span{
             color: red;
-            margin: 0 5px;
+            // margin: 0 5px;
+            padding: 8px;
+            font-size: 28px;
         }
 
     }

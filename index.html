@@ -7,7 +7,10 @@
     <title>Lovefood │ welcome</title>
     <link rel="stylesheet" href="./css/welcomeIndex.css">
     <link rel="icon" type="image/png" href="./img/21/donation_description/map_leaf.png" />
-
+    <!-- axios套件 -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <!-- vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
 </head>
 
 <body>
@@ -22,7 +25,7 @@
                     前台
                 </div>
             </a>
-            <a href="./backend/backendIndex.html">
+            <a @click="session" style="cursor: pointer;">
                 <div id="backendButton" class="welcomeButton">
                     後台
                 </div>
@@ -47,5 +50,31 @@
     </main>
 
 </body>
+<script>
+    let page = new Vue({
+        el: '#background',
+        data: {
+            change: '',
+        },
+        methods: {
+            session() {
+                axios.post('./PHP/Frontend/sessionR.php').then(function (res) {
+                    checkdata = res.data
+                    if (checkdata != '') {
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            alert('尚未登入會員，請登入賣家會員');
+                            location.href = './frontend/signUp_signIn.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            location.href = './backend/sellerIndex.html';
+                        }
+                    } else {
+                        alert('尚未登入會員，請登入會員');
+                        location.href = './frontend/signUp_signIn.html';
+                    }
+                });
+            },
+        },
+    });
+</script>
 
 </html>
