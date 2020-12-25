@@ -83,9 +83,12 @@
                         立即捐款
                     </div>
                 </a>
+                <!-- 點放大鏡伸縮搜尋欄 -->
                 <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch04_nav_search.png" alt="">
+                    <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
+
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
@@ -736,7 +739,7 @@
 <!-- header vue -->
 <script>
     new Vue({
-        el: 'header',
+        el: '#header',
         data: {
             // 一般會員 href
             jumppage: '',
@@ -745,7 +748,7 @@
             // 賣家會員class
             selloginchangemem: '',
             // 會員大頭貼
-            Bigpicchange: "",
+            Bigpicchange: '../img/22/index/ch04_nav_member.png',
             // 判斷一般會員是否登入
             login: '',
             // 判斷賣家會員是否登入
@@ -771,14 +774,14 @@
                 if (checkdata != '') {
                     if (checkdata.substr(0, 2) == 'MB') {
                         alert('尚未登入會員，請登入賣家會員');
-                        this.seljumpage = './sellerSignUp_SignIn.html';
+                        this.seljumpage = './signUp_signIn.html';
                     } else if ((checkdata.substr(0, 2) == 'SP')) {
-                        this.seljumpage = '../backend/backendIndex.html';
+                        this.seljumpage = '../backend/sellerIndex.html';
                         this.selloginchangemem = true;
                     }
                 } else {
                     alert('尚未登入會員，請登入會員');
-                    this.seljumpage = './sellerSignUp_SignIn.html';
+                    this.seljumpage = './signUp_signIn.html';
                 }
             },
             // 判斷是否有會員登入及是哪一種會員
@@ -821,6 +824,9 @@
                         // this.Bigpicchange = atob(data);
                         $('#navIcons03 img').attr('src', atob(data));
                         $('#navIcons05 img').attr('src', atob(data));
+                    } else {
+                        $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                        $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
                     }
                 });
             },

@@ -1,8 +1,6 @@
-<?php 
-    include("Lib/frontendUtilClass.php");
+<?php
+include("Lib/MemberClass.php");
 
-    $Member = new MemberClass();
+$Member = new MemberClass();
 
-    echo $Member->getMemberID();
-
-?>
+echo $Member->getMemberID();

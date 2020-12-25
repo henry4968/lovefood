@@ -54,7 +54,7 @@ $(function () {
     }]);
     $('.breadLine').playKeyframe(
         'trapdoor-sequence 1s linear 0s infinite normal forwards',
-        complete
+        // complete
     );
 });
 
@@ -256,3 +256,66 @@ $(document).ready(function () {
         }
     });
 });
+
+// 桌機板search bar
+// let searchButtonWeb = document.querySelector('#navIcons01');
+// searchButtonWeb.addEventListener('click', function () {
+//     $('#searchInputForWeb').toggleClass('allow').css({
+//         'display': 'none',
+//     })
+// });
+
+// 桌機板search bar
+$(document).ready(function (e) {
+    $("#navIcons01").click(function () {
+
+        // if ($("#searchInputForWeb")[0].style.display == 'block') {
+        //     $("#searchInputForWeb").css({
+        //         'display': 'none',
+        //         ''
+        //     });
+
+        // } else {
+        //     $("#searchInputForWeb").css({
+        //         'display': 'block',
+        //     })
+
+        // }
+
+        // if ($("#searchInputForWeb")[0].style.opacity == 0) {
+        //     $("#searchInputForWeb").addClass('block');
+        // } else if ($(e.target) != $("#searchInputForWeb")) {
+        //     $("#searchInputForWeb").removeClass('block');
+        // }
+
+        // $("#searchInputForWeb").toggleClass('block');
+    });
+
+    $("#navIcons01").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#navIconsImg").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#searchInputForWeb").focus(function () {
+        $("#searchInputForWeb").addClass('block');
+        $("#searchInputForWeb").focus();
+    })
+    $("#searchInputForWeb").blur(function () {
+        $("#searchInputForWeb").removeClass('block');
+        // alert()
+    });
+    // document.addEventListener("click", function (e) {
+    //     if (e.target.classList.contains("searchInputBlur")) {
+    //         $("#searchInputForWeb").addClass('block');
+    //     } else {
+    //         $("#searchInputForWeb").removeClass('block');
+    //     }
+    // });
+});
+
+// $('#sendButton').addClass('allow').css({
+//     'background-color': '#B2C6A6',
+//     'cursor': 'pointer'

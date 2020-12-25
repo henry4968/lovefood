@@ -1,9 +1,9 @@
 <?php
-    // 資料庫連線
-    include("Lib/frontendUtilClass.php");
-    $Util = new UtilClass();
+include("Lib/MemberClass.php");
 
-    //清空session
-    $Member->clearSession();
+$Member = new MemberClass();
+
+//清空session
+$Member->clearSession();
 
     // echo "<script>alert('登出成功!'); location.href = '../../frontend/index.html';</script>";  

@@ -1,6 +1,7 @@
 <?php
 
-include("./Lib/frontendUtilClass.php");
+include("Lib/frontendUtilClass.php");
+$Util = new UtilClass();
 
 // 尋找目前流水號最大者，製造下一號並裝入變數
 $sqlSelectMaxId = "SELECT max(DONATION_ID) FROM DONATION;";
