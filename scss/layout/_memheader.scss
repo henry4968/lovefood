@@ -318,10 +318,11 @@
             #navIcons03{
               img{
                   max-width: 30px;
-                // &:hover{
-                //   transform: scale(1.05);
-                //   transition: all .3s;
-                // }
+                  max-height: 30px;
+                &:hover{
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
               }
             }
             #navIcons02, #navIcons03{
@@ -352,7 +353,10 @@
             #navIcons05{
                 img{
                     max-width: 30px;
-                    max-height: 30px;
+                }
+                &:hover{
+                  transform: scale(1.05);
+                  transition: all .3s;
                 }
             }
         }

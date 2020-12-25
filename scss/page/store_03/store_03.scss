@@ -336,6 +336,12 @@
             #navIcons02, #navIcons03{
                 margin-left: 20px;
             }
+            #navIcons03{
+              img{
+                  max-width: 30px;
+                  max-height: 30px;
+              }
+            }
 
         }
         // 桌機版導覽列結束
@@ -374,6 +380,12 @@
                         transform: scale(1.05);
                         transition: all .3s;
                     }
+                }
+            }
+            #navIcons05{
+                img{
+                    max-width: 30px;
+                    max-height: 30px;
                 }
             }
         }
