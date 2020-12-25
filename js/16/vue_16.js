@@ -134,7 +134,7 @@ const main = new Vue({
         })
 
 
-        localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
+        // localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
         console.log(newStorage);
 
         $.ajax({
@@ -192,7 +192,7 @@ const main = new Vue({
             // alert("!!!");
             this.newStorage[index].goodList.qty++;
         },
-        reduce(index) {
+        reduce(i,index) {
             if (this.newStorage[index].goodList.qty >= 1) {
                 this.newStorage[index].goodList.qty--;
 

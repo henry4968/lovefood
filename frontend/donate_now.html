@@ -7,11 +7,10 @@
     <title>Love food│立即捐款</title>
     <!-- 自訂css -->
     <link rel="stylesheet" href="../css/donate_now.css">
-    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
 
@@ -123,7 +122,7 @@
             <p>獻出一份愛心，分享滿腹的溫暖。</p>
 
             <div class="donateForm">
-                <form id="form" action="../PHP/Frontend/donationInsert.php" method="post">
+                <form id="form" action="donate_completed.php" method="post">
                     <!-- <form id="form"> -->
                     <div class="donateItem">
 
@@ -636,6 +635,7 @@
         </footer>
     </div>
 </body>
+<script src="../node_modules/vue/dist/vue.js"></script>
 <!-- header vue -->
 <script>
     new Vue({

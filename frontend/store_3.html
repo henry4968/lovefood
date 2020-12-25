@@ -121,7 +121,7 @@
                         <p>惜食清單</p>
                     </div>
                     <div class="mainArea">
-                        <template v-for="(item, i) in newStorage">
+                        <template v-for="(item, index) in newStorage">
                             <ul class="list_h" v-for="(detail, i) in item.goodList">
                                 <li><img src="../img/16/sellerIcon.png"></li>
                                 <li>{{detail.seller}}</li>
@@ -156,12 +156,9 @@
                                                 <li class="price">${{detail.price}}</li>
                                                 <li class="quantity">
                                                     <div>
-                                                        <button class="btn qtyReduce" @click="reduce(i)">-</button>
-                                                        <input type="text" name="quantity" class="inputQty" />
-                                                        <button class="btn qtyAdd" @click="add()">+</button>
-                                                        <!-- v-model="item.qty" -->
-                                                        <!-- :value="item.qty" @input="setQty"-->
-                                                        <!-- {{detail.qty}} -->
+                                                        <button class="btn qtyReduce" @click="reduce(i,index)">-</button>
+                                                        <input type="text" name="quantity" class="inputQty" v-model="detail.qty" />
+                                                        <button class="btn qtyAdd" @click="add(i,index)">+</button>
                                                     </div>
                                                 </li>
                                                 <li class="amount">${{detail.price * detail.qty}}</li>

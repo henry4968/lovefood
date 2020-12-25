@@ -87,4 +87,9 @@
                 }
             }        
         }
+    @media screen and (max-width:320px){
+        .banner_16 div{
+            left: 0% !important;
+        }
+    }
 }

@@ -8,19 +8,15 @@
     <!-- 自訂css -->
     <link rel="stylesheet" href="../css/donation_description.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="../node_modules/vue/dist/vue.js"></script>
     <script src="../node_modules/jquery/dist/jquery.js"></script>
     <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
     <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
-    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
     <script src="../node_modules\bootstrap-sass\assets\javascripts\bootstrap.js"></script>
     <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
-
-    <!-- 自訂js -->
-    <script src="../js/21/donation.js"></script>
     <script src="../node_modules\jquerykeyframes\dist\jquery.keyframes.js"></script>
     <!-- <script src="../js/21/temp.js"></script> -->
 
@@ -432,32 +428,18 @@
                 </div>
 
                 <div class="heartArea" id="heartArea">
-                    <div class="heart">
-                        <img src="../img/21/donation_description/heartImg.png" alt="" id="heartImg">
-                        <div class="donationData">
-                            <p class="date">12/22</p>
-                            <p class="donation">捐贈了<span class="money">5000</span>元</p>
-                            <p class="name">黃O姬</p>
-                        </div>
-                    </div>
 
-                    <div class="heart">
-                        <img src="../img/21/donation_description/heartImg.png" alt="" id="heartImg">
-                        <div class="donationData">
-                            <p class="date">12/21</p>
-                            <p class="donation">捐贈了<span class="money">3000</span>元</p>
-                            <p class="name">甲O丹</p>
+                    <template v-for="(value, key) in donationLog">
+                        <div class="heart">
+                            <img src="../img/21/donation_description/heartImg.png" alt="" id="heartImg">
+                            <div class="donationData">
+                                <p class="date">{{value.MONTH}}/{{value.DAY}}</p>
+                                <p class="donation">捐贈了<span class="money">{{value.DONATION_AMOUNT}}</span>元</p>
+                                <p class="name">{{value.DONATION_NAME}}</p>
+                            </div>
                         </div>
-                    </div>
+                    </template>
 
-                    <div class="heart">
-                        <img src="../img/21/donation_description/heartImg.png" alt="" id="heartImg">
-                        <div class="donationData">
-                            <p class="date">12/21</p>
-                            <p class="donation">捐贈了<span class="money">5000</span>元</p>
-                            <p class="name">施O欣</p>
-                        </div>
-                    </div>
                 </div>
 
                 <!-- 讓愛循環不止 -->
@@ -735,148 +717,151 @@
         </div>
     </footer>
 
-</body>
-<!-- header vue -->
-<script>
-    new Vue({
-        el: '#header',
-        data: {
-            // 一般會員 href
-            jumppage: '',
-            // 賣家會員 href
-            seljumpage: '',
-            // 賣家會員class
-            selloginchangemem: '',
-            // 會員大頭貼
-            Bigpicchange: '../img/22/index/ch04_nav_member.png',
-            // 判斷一般會員是否登入
-            login: '',
-            // 判斷賣家會員是否登入
-            sellogin: '',
-        },
-        methods: {
-            // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
-            logIncheck() {
-                if (checkdata != '') {
-                    if (checkdata.substr(0, 2) == 'MB') {
-                        this.jumppage = './memberInformation.html';
-                    } else if ((checkdata.substr(0, 2) == 'SP')) {
+    <!-- header vue -->
+    <script>
+        new Vue({
+            el: '#header',
+            data: {
+                // 一般會員 href
+                jumppage: '',
+                // 賣家會員 href
+                seljumpage: '',
+                // 賣家會員class
+                selloginchangemem: '',
+                // 會員大頭貼
+                Bigpicchange: '../img/22/index/ch04_nav_member.png',
+                // 判斷一般會員是否登入
+                login: '',
+                // 判斷賣家會員是否登入
+                sellogin: '',
+            },
+            methods: {
+                // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
+                logIncheck() {
+                    if (checkdata != '') {
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            this.jumppage = './memberInformation.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            alert('尚未登入會員，請登入會員');
+                            this.jumppage = './signUp_signIn.html';
+                        }
+                    } else {
                         alert('尚未登入會員，請登入會員');
                         this.jumppage = './signUp_signIn.html';
                     }
-                } else {
-                    alert('尚未登入會員，請登入會員');
-                    this.jumppage = './signUp_signIn.html';
-                }
-            },
-            // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
-            sellogIncheck() {
-                if (checkdata != '') {
-                    if (checkdata.substr(0, 2) == 'MB') {
-                        alert('尚未登入會員，請登入賣家會員');
-                        this.seljumpage = './signUp_signIn.html';
-                    } else if ((checkdata.substr(0, 2) == 'SP')) {
-                        this.seljumpage = '../backend/sellerIndex.html';
-                        this.selloginchangemem = true;
-                    }
-                } else {
-                    alert('尚未登入會員，請登入會員');
-                    this.seljumpage = './signUp_signIn.html';
-                }
-            },
-            // 判斷是否有會員登入及是哪一種會員
-            // 看看是一般會員或是賣家會員
-            checklogin() {
-                axios.post('../PHP/Frontend/sessionR.php').then(res => {
-                    // console.log(res);
-                    // 賣家或是買家ID
-                    checkdata = res.data;
-                    // console.log(checkdata.substr(0, 2));
-                    // alert(checkdata);
+                },
+                // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
+                sellogIncheck() {
                     if (checkdata != '') {
-                        // 判斷是賣家會員使"賣家專區"變色
-                        if ((checkdata.substr(0, 2) == 'SP')) {
-                            // console.log(checkdata.substr(0, 2));
-                            this.sellogin = true;
-                            // console.log(this.sellogin);
-                        } else {
-                            this.sellogin = false;
-                            // console.log(this.sellogin);
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            alert('尚未登入會員，請登入賣家會員');
+                            this.seljumpage = './signUp_signIn.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            this.seljumpage = '../backend/sellerIndex.html';
+                            this.selloginchangemem = true;
                         }
-                        // 判斷是一般會員使"會員"變色
-                        if ((checkdata.substr(0, 2) == 'MB')) {
-                            this.login = true;
-                        } else {
-                            this.login = false;
-                        }
-                    }
-                });
-            },
-            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            Bitpicupdate() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
                     } else {
-                        $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
-                        $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                        alert('尚未登入會員，請登入會員');
+                        this.seljumpage = './signUp_signIn.html';
                     }
-                });
-            },
-            // hover取到圖片
-            onhover() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        // console.log(this.Bigpicchange);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
-                    }
-                });
-            },
-            // leave回到原狀
-            onout() {
-                // 撈圖片
-                axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                    data = res.data
-                    // console.log(data);
-                    if (data != "") {
-                        // atob函数用来解碼一个已经被base-64编碼過的數據
-                        // 如果在PHP有base64_decode就不用atob
-                        // this.Bigpicchange = atob(data);
-                        // console.log(this.Bigpicchange);
-                        $('#navIcons03 img').attr('src', atob(data));
-                        $('#navIcons05 img').attr('src', atob(data));
-                    }
-                });
-            },
+                },
+                // 判斷是否有會員登入及是哪一種會員
+                // 看看是一般會員或是賣家會員
+                checklogin() {
+                    axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                        // console.log(res);
+                        // 賣家或是買家ID
+                        checkdata = res.data;
+                        // console.log(checkdata.substr(0, 2));
+                        // alert(checkdata);
+                        if (checkdata != '') {
+                            // 判斷是賣家會員使"賣家專區"變色
+                            if ((checkdata.substr(0, 2) == 'SP')) {
+                                // console.log(checkdata.substr(0, 2));
+                                this.sellogin = true;
+                                // console.log(this.sellogin);
+                            } else {
+                                this.sellogin = false;
+                                // console.log(this.sellogin);
+                            }
+                            // 判斷是一般會員使"會員"變色
+                            if ((checkdata.substr(0, 2) == 'MB')) {
+                                this.login = true;
+                            } else {
+                                this.login = false;
+                            }
+                        }
+                    });
+                },
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                Bitpicupdate() {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        } else {
+                            $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                            $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                        }
+                    });
+                },
+                // hover取到圖片
+                onhover() {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            // console.log(this.Bigpicchange);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                },
+                // leave回到原狀
+                onout() {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            // console.log(this.Bigpicchange);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                },
 
-        },
-        mounted() {
-            // 看看是一般會員或是賣家會員
-            this.checklogin();
-            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            this.Bitpicupdate();
-        },
-        updated() {
-            // 看看是一般會員或是賣家會員
-            this.checklogin();
-            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
-            this.Bitpicupdate();
-        },
-    });
-</script>
+            },
+            mounted() {
+                // 看看是一般會員或是賣家會員
+                this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                this.Bitpicupdate();
+            },
+            updated() {
+                // 看看是一般會員或是賣家會員
+                this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                this.Bitpicupdate();
+            },
+        });
+    </script>
+    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <!-- 自訂js -->
+    <script src="../js/21/donation.js"></script>
+</body>
 
 </html>
