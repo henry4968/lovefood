@@ -1,35 +1,39 @@
 
 const main = new Vue({
-    el: '#all',
+    el: '#all04',
     data: {
+        newStorage: [],
     },
 
     mounted() {
+        // const self = this;
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        this.newStorage = test;
 
     },
 
     methods: {
 
-        checkOut() {
+        // checkOut() {
 
-            const self = this;
+        //     const self = this;
 
-            let discount = $("input[name='discount']").val();
+        //     let discount = $("input[name='discount']").val();
 
-            $.ajax({
-                url: '../PHP/Frontend/cartCheckout.php',
-                type: 'POST',
-                dataType: "text",
-                data: { discount },
-                success: function (res) {
-                    console.log(res);
-                },
-                error: function (res) {
-                    console.log("回傳失敗！");
-                    console.log(res.responseText);
-                },
-            });
-        }
+        //     $.ajax({
+        //         url: '../PHP/Frontend/cartCheckout.php',
+        //         type: 'POST',
+        //         dataType: "text",
+        //         data: { discount },
+        //         success: function (res) {
+        //             console.log(res);
+        //         },
+        //         error: function (res) {
+        //             console.log("回傳失敗！");
+        //             console.log(res.responseText);
+        //         },
+        //     });
+        // }
 
 
 
