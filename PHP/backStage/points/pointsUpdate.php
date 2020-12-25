@@ -1,7 +1,7 @@
 <?php 
     include("../Lib/backendUtilClass.php");
-
     $Util = new UtilClass();
+
     $sqlUpdatePoints = "UPDATE Lovefood.MEMBER SET MEMBER_POINTS = ? WHERE MEMBER_ID = ?";
     $sqlShowFinalPoints = "SELECT MEMBER_POINTS FROM Lovefood.MEMBER WHERE MEMBER_ID like ?";
 

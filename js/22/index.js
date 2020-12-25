@@ -617,35 +617,6 @@ $(document).ready(function () {
     });
 });
 
-// lightslider控制項目：第四章
-$(document).ready(function () {
-    $('#productCarouselList').lightSlider({
-        item: 3,
-        loop: true,
-        slideMove: 1,
-        easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
-        speed: 3000,
-        pause: 5000,
-        auto: true,
-        responsive: [
-            {
-                breakpoint: 1199,
-                settings: {
-                    item: 2,
-                    slideMove: 1,
-                    slideMargin: 6,
-                }
-            },
-            {
-                breakpoint: 767,
-                settings: {
-                    item: 1,
-                    slideMove: 1
-                }
-            }
-        ]
-    });
-});
 
 const vm = new Vue({
     el: '#productCarouselList',
@@ -660,6 +631,66 @@ const vm = new Vue({
         // 取得商城商品
         this.queryData('../PHP/Frontend/EC_07/storeCard.php');
 
+        // lightslider控制項目：第四章
+        // $('#productCarouselList').lightSlider({
+        //     item: 3,
+        //     loop: true,
+        //     slideMove: 1,
+        //     easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+        //     speed: 3000,
+        //     pause: 5000,
+        //     auto: true,
+        //     responsive: [
+        //         {
+        //             breakpoint: 1199,
+        //             settings: {
+        //                 item: 2,
+        //                 slideMove: 1,
+        //                 slideMargin: 6,
+        //             }
+        //         },
+        //         {
+        //             breakpoint: 767,
+        //             settings: {
+        //                 item: 1,
+        //                 slideMove: 1
+        //             }
+        //         }
+        //     ]
+        // }).refresh();
+        // setTimeout(function () {
+
+        // }, 1000);
+
+    },
+    updated() {
+
+        $('#productCarouselList').lightSlider({
+            item: 3,
+            loop: true,
+            slideMove: 1,
+            easing: 'cubic-bezier(0.25, 0, 0.25, 1)',
+            speed: 3000,
+            pause: 5000,
+            auto: true,
+            responsive: [
+                {
+                    breakpoint: 1199,
+                    settings: {
+                        item: 2,
+                        slideMove: 1,
+                        slideMargin: 6,
+                    }
+                },
+                {
+                    breakpoint: 767,
+                    settings: {
+                        item: 1,
+                        slideMove: 1
+                    }
+                }
+            ]
+        });
     },
 
     methods: {

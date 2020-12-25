@@ -47,8 +47,24 @@
 
         $statesmentMember->execute();
         $dataMB = $statesmentMember->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach($dataMB as $row => $data){
+            echo $data;
+        }
+
+        // foreach ($qData as $qIndex => $qRow) {
+        //     $qCurrent = $qData[$qIndex];
+        //     echo "<section class='inQuiz' style='background-image: url(../images/quiz/background/" . $qCurrent["qBackground"] . ");'>" . "<div class='blueBg'>" . "<div class='question' data-answer='" . $qRow["qAnswer"] . "'>" . htmlspecialchars($qRow["qContent"]) . "</div>" . "<div class='answer'>";
+        //     foreach ($sData as $sIndex => $sRow) {
+        //         $sCurrent = $sData[$sIndex];
+        //         if ($sCurrent["sQuiz"] === $qCurrent["qNumber"]) {
+        //             echo  "<label>" . "<input class='selection' value='" . $sRow["sOption"] . "' type='radio' name='selection'>" . $sRow["sOption"] . ". " . htmlspecialchars($sRow["sContent"]) . "</label>";
+        //         }
+        //     }
+        //     echo "</div>" . "</div>" . "<button class='nextQuestion'>下一題</button>" . "</section>";
+        // }
         
-        echo json_encode($dataMB);
+        // echo json_encode($dataMB);
         
     }
 

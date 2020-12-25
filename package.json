@@ -30,7 +30,7 @@
     "gulp-zip": "^5.0.2",
     "highcharts": "^8.2.2",
     "jquerykeyframes": "^1.0.8",
-    "moment": "^2.7.0",
+    "moment": "^2.29.1",
     "node-sass": "^5.0.0",
     "normalize-scss": "^7.0.1",
     "v-tooltip": "^2.0.3"
@@ -43,6 +43,7 @@
     "lightslider": "^1.1.6",
     "uikit": "^3.5.10-dev.aab2b26c6",
     "vue": "^2.6.12",
+    "vue-carousel": "^0.18.0",
     "waypoints": "^4.0.1"
   }
 }

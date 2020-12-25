@@ -422,131 +422,33 @@
             <div id="productCarouselContainer">
                 <ul id="productCarouselList">
 
-                    <li class="productCarouseItem" v-if="tableData">
-                        <div class="productCard">
+                    <template v-for="(data, index) in tableData">
+                        <li class="productCarouseItem">
+                            <div class="productCard">
 
-                            <div class="countdown">
-                                下架倒數<span> 12:09:59 </span>秒
-                            </div>
-                            <div class="productAvatarBlock">
-                                <a href="#0">
-                                    <div class="productAvatar">
-                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
-                                    </div>
-                                    <div class="productMainInfo">
+                                <div class="countdown">
+                                    下架倒數<span> 12:09:59 </span>秒
+                                </div>
+                                <div class="productAvatarBlock">
+                                    <a :href="'store_2.html?pdID='+data.PRODUCT_ID">
+                                        <div class="productAvatar">
+                                            <img :src="data.PRODUCT_IMG" alt="">
+                                        </div>
+                                        <div class="productMainInfo">
 
-                                        <span class="productName">{{item[0].PRODUCT_NAME}}</span>
-                                        <span class="productSellingPrice">＄20</span>
+                                            <span class="productName">{{data.PRODUCT_NAME}}</span>
+                                            <span class="productSellingPrice">＄{{data.PRODUCT_SELLING_PRICE}}</span>
 
-                                    </div>
-                                </a>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="productSubInfo">
+                                    <span class="ProductCategory">{{data.PRODUCT_CATEGORY_NAME}}</span>
+                                    <span class="productOriginalPrice">原價{{data.PRODUCT_ORIGINAL_PRICE}}元</span>
+                                </div>
                             </div>
-                            <div class="productSubInfo">
-                                <span class="ProductCategory">輕食</span>
-                                <span class="productOriginalPrice">原價25元</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <!-- <li class="productCarouseItem">
-                        <div class="productCard">
-
-                            <div class="countdown">
-                                下架倒數<span> 12:09:59 </span>秒
-                            </div>
-                            <div class="productAvatarBlock">
-                                <a href="#0">
-                                    <div class="productAvatar">
-                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
-                                    </div>
-                                    <div class="productMainInfo">
-
-                                        <span class="productName">蛋黃奶香麵包</span>
-                                        <span class="productSellingPrice">＄20</span>
-
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="productSubInfo">
-                                <span class="ProductCategory">輕食</span>
-                                <span class="productOriginalPrice">原價25元</span>
-                            </div>
-                        </div>
-                    </li> -->
-
-                    <li class="productCarouseItem">
-                        <div class="productCard">
-
-                            <div class="countdown">
-                                下架倒數<span> 12:09:59 </span>秒
-                            </div>
-                            <div class="productAvatarBlock">
-                                <a href="#0">
-                                    <div class="productAvatar">
-                                        <img src="../img/22/index/ch04_product_ricerolls.png" alt="">
-                                    </div>
-                                    <div class="productMainInfo">
-                                        <span class="productName">鹽烤松阪豬</span>
-                                        <span class="productSellingPrice">＄33</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="productSubInfo">
-                                <span class="ProductCategory">輕食</span>
-                                <span class="productOriginalPrice">原價42元</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="productCarouseItem">
-                        <div class="productCard">
-
-                            <div class="countdown">
-                                下架倒數<span> 12:09:59 </span>秒
-                            </div>
-                            <div class="productAvatarBlock">
-                                <a href="#0">
-                                    <div class="productAvatar">
-                                        <img src="../img/22/index/ch04_product_bread02.png" alt="">
-                                    </div>
-                                    <div class="productMainInfo">
-                                        <span class="productName">日式紅豆銅鑼燒</span>
-                                        <span class="productSellingPrice">＄25</span>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="productSubInfo">
-                                <span class="ProductCategory">輕食</span>
-                                <span class="productOriginalPrice">原價32元</span>
-                            </div>
-                        </div>
-                    </li>
-
-                    <li class="productCarouseItem">
-                        <div class="productCard">
-
-                            <div class="countdown">
-                                下架倒數<span> 12:09:59 </span>秒
-                            </div>
-                            <div class="productAvatarBlock">
-                                <a href="#0">
-                                    <div class="productAvatar">
-                                        <img src="../img/22/index/ch04_product_bread01.png" alt="">
-                                    </div>
-                                    <div class="productMainInfo">
-
-                                        <span class="productName">蛋黃奶香麵包</span>
-                                        <span class="productSellingPrice">＄20</span>
-
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="productSubInfo">
-                                <span class="ProductCategory">輕食</span>
-                                <span class="productOriginalPrice">原價25元</span>
-                            </div>
-                        </div>
-                    </li>
+                        </li>
+                    </template>
 
                 </ul>
             </div>
@@ -888,12 +790,12 @@
             });
         }
     </script>
-    <!-- 自訂js -->
     <script src="../node_modules/vue/dist/vue.js"></script>
-    <script src="../js/07/data.js"></script>
-    <script src="../js/22/index.js"></script>
     <!-- 輪播套件js -->
     <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <!-- 自訂js -->
+    <script src="../js/07/data.js"></script>
+    <script src="../js/22/index.js"></script>
 </body>
 
 </html>
