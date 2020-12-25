@@ -139,29 +139,26 @@
             position: fixed;
             top: 55px;
             left: -100%;
-            background-color: white;
-            opacity:80%;
+            background-color: #dce5c3;
+            opacity: 95%;
             transition-duration: .35s;
             #searchBarForMobile{
                 width: 100%;
                 height: 70px;
+                background-color: #ddd5af;
                 display: flex;
                 #searchInputForMobile{
-                    background-color: #FFFFFF !important;
-                    background-image: url("../img/22/index/hamburger_menu_search.png");
-                    background-repeat: no-repeat;
-                    background-position: left 2% center;
-                    padding: 3px 3px 3px 50px;
                     width: 80%;
                     height: 60%;
-                    border-radius: 10px;
-                    font-size: 21px;
-                    line-height: 28px;
+                    border: #8F8770;
+                    border-radius: 20px;
+                    background-color: #ececec;
+                    display: block;
                     margin: auto;
                     align-self: center;
-                    &:focus{
-                        outline: none;
-                    }
+                    outline: none;
+                    padding-left: 20px;
+                    font-size: 20px;
                 }
             }
             li{
@@ -171,18 +168,26 @@
                 margin: 30px 0px 0px 0px;
                 a{
                     color: #515151;
+                    &:hover{
+                        color: #D6CAAA;
+                        transition: all .3s;
+                        transform: scale(1.05);
+                        text-decoration: none;
+                    }
                 }
                 #navSepcialAnchorForMobile{
                     div{
                         width: 119px;
-                        height: 41px;
+                        height: 40px;
                         border-radius: 3px;
-                        line-height: 48px;
+                        line-height: 40px;
                         box-shadow: 0px 3px 6px 0px rgba(0, 0, 0, 0.2);
                         margin: auto;
                         background-color: #E8CE67;
                         &:hover{
-                            background-color: #F9FBD1;
+                            background-color: #fde16f;
+                            transition: all .3s;
+                            color: #515151;
                         }
                     }
                 }
@@ -263,6 +268,8 @@
                 color: #FDFBBA;
                 &:hover{
                     color: #FFE45E;
+                    transform: scale(1.05);
+                    transition: all .3s;
                 }
             }
             :nth-child(2),:nth-child(3){
@@ -281,6 +288,8 @@
                     background-color: #FFFF9B;
                     &:hover{
                         background-color: #FFE45E;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                     margin: 0px 28px;
                     @include newRwd("laptop"){
@@ -293,6 +302,11 @@
                     @include newRwd("laptop"){
                         width: 30px;
                         
+                    }
+                    &:hover{
+                        opacity: 0.5;
+                        transform: scale(1.05);
+                        transition: all .3s;
                     }
                 }
             }
