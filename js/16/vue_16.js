@@ -187,7 +187,7 @@ const main = new Vue({
         //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         if (cartAllItems) {
-            self.itemQty = cartAllItems.length
+            this.itemQty = cartAllItems.length
         }
     },
     updated() {
@@ -401,12 +401,12 @@ const main = new Vue({
             return subtotal;
         },
         //購物車
-        itemQty() {
-            if (this.newStorage == []) {
-                return 0;
-            } else {
-                return this.newStorage.length
-            }
-        }
+        // itemQty() {
+        //     if (this.newStorage == []) {
+        //         return 0;
+        //     } else {
+        //         return this.newStorage.length
+        //     }
+        // }
     },
 });
