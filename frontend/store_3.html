@@ -156,8 +156,10 @@
                                                 <li class="price">${{detail.price}}</li>
                                                 <li class="quantity">
                                                     <div>
-                                                        <button class="btn qtyReduce" @click="reduce(i,index)">-</button>
-                                                        <input type="text" name="quantity" class="inputQty" v-model="detail.qty" />
+                                                        <button class="btn qtyReduce"
+                                                            @click="reduce(i,index)">-</button>
+                                                        <input type="text" name="quantity" class="inputQty"
+                                                            v-model="detail.qty" />
                                                         <button class="btn qtyAdd" @click="add(i,index)">+</button>
                                                     </div>
                                                 </li>
@@ -214,17 +216,18 @@
                     <div class="pointsDetails">
                         <img src="../img/16/pointsIcon.png">
                         <div>
-                            <label>您的點數尚餘：{{membersPoints}}點</label>
-
+                            <label v-if="membersPoints >= inputValue">您的點數尚餘：{{membersPoints - inputValue}}點</label>
+                            <label v-else-if="membersPoints == 0 && inputValue == null">您的點數尚餘：{{membersPoints -
+                                inputValue}}點</label>
+                            <label v-else-if="membersPoints < inputValue">您的點數尚餘：{{membersPoints -
+                                membersPoints}}點<span style="color:rgb(170, 0, 0)">（折抵超過餘額，請更正！）</span></label>
                             <br>
                             <span>
                                 <label for="points">使用</label>
-                                <input type="number" name="discount" min="0" max="">
+                                <input type="number" name="discount" min="0" max="" v-model="inputValue">
                                 <label for="">點</label>
                             </span>
-                            <a href="#">
-                                <button class="pointsDiscount">全部扺用</button>
-                            </a>
+                            <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
                             <p>註：一點為一元</p>
                         </div>
                     </div>

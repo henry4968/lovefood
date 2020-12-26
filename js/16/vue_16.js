@@ -79,6 +79,7 @@ const main = new Vue({
         sessionId: null,
         storgeValue: null,
         membersPoints: null,
+        inputValue: null,
         newStorage: [],
         seller: [],
 
@@ -125,13 +126,13 @@ const main = new Vue({
                 seller.push(item.seller)
             }
         });
-        newStorage.map(itemList => {
-            itemStorage.map(item => {
-                if (itemList.seller == item.seller) {
-                    itemList.newStorage.push(item)
-                }
-            })
-        })
+        // newStorage.map(itemList => {
+        //     itemStorage.map(item => {
+        //         if (itemList.seller == item.seller) {
+        //             itemList.newStorage.push(item)
+        //         }
+        //     })
+        // })
 
 
         // localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
@@ -163,7 +164,7 @@ const main = new Vue({
                 data: { loggnedInId },
                 success: function (res) {
                     console.log(res);
-                    self.membersPoints = res[0].MEMBER_POINTS;
+                    self.membersPoints = parseInt(res[0].MEMBER_POINTS);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -190,12 +191,11 @@ const main = new Vue({
 
         add(index) {
             // alert("!!!");
-            this.newStorage[index].goodList.qty++;
+            this.newStorage[index, i].goodList.qty++;
         },
-        reduce(i,index) {
-            if (this.newStorage[index].goodList.qty >= 1) {
-                this.newStorage[index].goodList.qty--;
-
+        reduce(i, index) {
+            if (this.newStorage[index, i].goodList.qty >= 1) {
+                this.newStorage[index, i].goodList.qty--;
             }
         },
         del(index) {
@@ -216,15 +216,17 @@ const main = new Vue({
         // },
 
 
-        // discountAllPoints() {
+        discountAllPoints() {
 
-        //     if (inputValue > self.membersPoints){
+            const self = this;
 
-        //     }
+            if (this.inputValue >= self.membersPoints) {
+                this.inputValue = self.membersPoints;
+            } else {
+                this.inputValue = this.total;
+            }
 
-
-
-        // }
+        },
 
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
