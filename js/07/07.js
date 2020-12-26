@@ -205,7 +205,7 @@ let all = new Vue({
                         self.tableData[index].timer = null
                     }
                 }
-                console.log(res)
+                // console.log(res)
                 for (let index = 0; index < res.length; index++) {
                     res[index].hours = 0
                     res[index].days = 0
@@ -253,7 +253,7 @@ let all = new Vue({
                             self.tableData[index].days = days
                             self.tableData[index].minutes = minutes
                             self.tableData[index].seconds = seconds
-                            console.log(self.tableData[index].seconds);
+                            // console.log(self.tableData[index].seconds);
                         }
                     }
                     clearInterval(self.tableData[index].timer)
