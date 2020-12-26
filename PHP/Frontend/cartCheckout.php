@@ -31,7 +31,7 @@ $statementSelectDetailMaxId  = $Util->getPDO()->prepare($sqlSelectDetailMaxId);
 $statementSelectDetailMaxId->execute();
 $maxDetailId = $statementSelectDetailMaxId->fetch();
 
-$maxDetailNumber = substr( $maxDetailId[0], 2, 7) + 1;
+$maxDetailNumber = substr($maxDetailId[0], 2, 7) + 1;
 
 $insertDetailId = "";
 
@@ -47,6 +47,9 @@ if($maxDetailNumber < 10){
     $insertDetailId = "ODD00000".$maxDetailNumber;
 }
 
+//變數接值
+
+
 $sqlUpdatePoints = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS - ? WHERE MEMBER_ID = ?";
 
 $sqlInsertOrder = "INSERT INTO `ORDER` (ORDER_ID, ORDER_DATE, MEMBER_ID_for_OD, ORDER_STATUS, ORDER_PICKUP_DATE, ORDER_DISCOUNT, ORDER_PICKUP_METHOD, MRT_PICKUP_SITE_ID_for_OD)
@@ -58,14 +61,14 @@ $statementUpdatePoints = $Util->getPDO()->prepare($sqlUpdatePoints);
 $statementInsertOrderDetails = $Util->getPDO()->prepare($sqlInsertOrderDetails);
 $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
 
-$statementUpdatePoints->bindValue(1, $_POST["discount"]);
-$statementUpdatePoints->bindValue(2, $loggnedInId);
+$statementUpdatePoints->bindValue(1, $_POST["totalDiscount"]);
+$statementUpdatePoints->bindValue(2, $_POST["memberId"]);
 $statementUpdatePoints->execute();
 $dataUP = $statementUpdatePoints->fetchAll(PDO::FETCH_ASSOC);
 
 $statementInsertOrder->bindValue(1, $insertOrderId);
-$statementInsertOrder->bindValue(2, $memberId);
-$statementInsertOrder->bindValue(3, $discount);
+$statementInsertOrder->bindValue(2, $_POST["memberId"]);
+$statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
 $statementInsertOrder->bindValue(4, $pickupMethod);
 $statementInsertOrder->bindValue(5, $pickUpId);
 $statementInsertOrder->execute();
