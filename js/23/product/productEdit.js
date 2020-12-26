@@ -59,9 +59,16 @@ const app = new Vue({
                          })
                          pageNow = 0;
                          setTimeout(() => {
-                                 $('#pagination').find('a').eq(1).css({
-                                     backgroundColor:'#887664',
-                                     color:'#FFF'})
+                                    let aLabel = $('#pagination').find('a')
+                                    for(i=1;i<aLabel.length-1;i++){
+                                        $(aLabel).eq(i).css({
+                                            backgroundColor:'transparent',
+                                            color:'#887664'})
+                                    }
+                                    $(aLabel).eq(1).css({
+                                        backgroundColor:'#887664',
+                                        color:'#FFF'})
+                                    
                              }, 1);
                            
    
