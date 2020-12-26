@@ -30,14 +30,14 @@ new Vue({
         //localStorage取值
         let test = JSON.parse(localStorage.getItem("newStorage"));
         this.newStorage = test;
-        console.log(this.newStorage);
+        // console.log(this.newStorage);
         // console.log(this.newStorage[0].goodList[0].id);
         // console.log(this.newStorage[0].goodList[0].qty);
 
         for (let i = 0; i < this.newStorage.length; i++) {
             for (let j = 0; j < this.newStorage[i].goodList.length; j++) {
-                console.log(this.newStorage[i].goodList[j].id);
-                console.log(this.newStorage[i].goodList[j].qty);
+                // console.log(this.newStorage[i].goodList[j].id);
+                // console.log(this.newStorage[i].goodList[j].qty);
             }
         }
 
@@ -50,8 +50,8 @@ new Vue({
         this.discountPoints = JSON.parse(localStorage.getItem('discountPoints'));
         this.sessionId = JSON.parse(localStorage.getItem('memberId'));
 
-        console.log(this.sessionId);
-        console.log(this.discountPoints);
+        // console.log(this.sessionId);
+        // console.log(this.discountPoints);
     },
     updated() {
         // 看看是一般會員或是賣家會員
@@ -84,8 +84,8 @@ new Vue({
                 orders.push(order);
             }
 
-            console.log(orders);
-            console.log(productQuantity);
+            // console.log(orders);
+            // console.log(productQuantity);
 
             $.ajax({
                 url: '../PHP/Frontend/cartCheckout.php',
@@ -231,7 +231,7 @@ new Vue({
                 for (var i in this.newStorage[index].goodList) {
                     total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
                 }
-                console.log(i);
+                // console.log(i);
             }
             return total;
         },
