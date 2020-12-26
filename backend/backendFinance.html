@@ -8,9 +8,8 @@
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
-    <!-- 圖表套件 -->
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
+    <!-- 圖表套件 -->
     <script src="../node_modules/highcharts/highstock.js"></script>
 
 </head>
@@ -268,14 +267,14 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div id="pagination">
-                            <a href="#0">＜</a>
-                            <a href="#0">1</a>
-                            <a href="#0">2</a>
-                            <a href="#0">3</a>
-                            <a href="#0">4</a>
-                            <a href="#0">5</a>
-                            <a href="#0">＞</a>
+                        <div class="pagination" v-if="pageView">
+                            <a href="#0" @click="pageChange(0)">＜</a>
+                            <a href="#0" @click="pageChange(1)">1</a>
+                            <a href="#0" @click="pageChange(2)">2</a>
+                            <a href="#0" @click="pageChange(3)">3</a>
+                            <a href="#0" @click="pageChange(4)">4</a>
+                            <a href="#0" @click="pageChange(5)">5</a>
+                            <a href="#0" @click="pageChange('next')">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
@@ -328,7 +327,8 @@
         </div>
     </div>
 
-    <script src="../js/22/financeAjaxVue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../js/22/backendFinance.js"></script>
 
 </body>
 

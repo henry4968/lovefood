@@ -1,4 +1,3 @@
-
 Vue.component('user', {
     template: `
     <div>
@@ -30,7 +29,9 @@ const app = new Vue({
         donationLog: null,
         totalDonation: null,
         showTab: true,
-        showDetails: true
+        showDetails: true,
+        pageView: null,
+        pageNow: null,
     },
 
     mounted() {
@@ -155,9 +156,9 @@ const app = new Vue({
                 self.totalDonation = totalDonation;
                 console.log(self.totalDonation);
 
-                let queryDateStart = document.querySelector("#queryDateStart");
+                let queryDateStart = document.querySelector("#queryDonationDateStart");
                 let showDateStart = document.querySelector("#showDateStart");
-                let queryDateEnd = document.querySelector("#queryDateEnd");
+                let queryDateEnd = document.querySelector("#queryDonationDateEnd");
                 let showDateEnd = document.querySelector("#showDateEnd");
 
                 showDateStart.innerHTML = queryDateStart.value;
@@ -421,9 +422,9 @@ const app = new Vue({
                     self.totalDonation = totalDonation;
                     console.log(self.totalDonation);
 
-                    let queryDateStart = document.querySelector("#queryDateStart");
+                    let queryDateStart = document.querySelector("#queryDonationDateStart");
                     let showDateStart = document.querySelector("#showDateStart");
-                    let queryDateEnd = document.querySelector("#queryDateEnd");
+                    let queryDateEnd = document.querySelector("#queryDonationDateEnd");
                     let showDateEnd = document.querySelector("#showDateEnd");
 
                     showDateStart.innerHTML = queryDateStart.value;
@@ -556,7 +557,74 @@ const app = new Vue({
 
         backToPreviousPage() {
             this.showDetails = true;
-        }
+        },
+
+        pageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.pageView = self.issuanceLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#pagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#pagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#pagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 5) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#pagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#pagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.pageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.pageView);
+        },
 
 
     },

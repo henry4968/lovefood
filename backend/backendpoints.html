@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOVEFOOD管理中心</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
     <link rel="stylesheet" href="../css/backstage/backstageAll.css">
     <script src="../node_modules/moment/min/moment.min.js"></script>
     <script src="../node_modules/bootstrap-datetimepicker-sass/src/js/bootstrap-datetimepicker.js"></script>
@@ -233,8 +232,7 @@
                             </tr>
                         </tbody>
                     </table>
-
-                    <div id="pagination">
+                    <div class="pagination">
                         <a href="#0">＜</a>
                         <a href="#0">1</a>
                         <a href="#0">2</a>
@@ -288,6 +286,16 @@
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
+                        <div class="pagination" v-if="pageView">
+                            <a href="#0" @click="pageChange(0)">＜</a>
+                            <a href="#0" @click="pageChange(1)">1</a>
+                            <a href="#0" @click="pageChange(2)">2</a>
+                            <a href="#0" @click="pageChange(3)">3</a>
+                            <a href="#0" @click="pageChange(4)">4</a>
+                            <a href="#0" @click="pageChange(5)">5</a>
+                            <a href="#0" @click="pageChange('next')">＞</a>
+                            <a href="#0">最末頁</a>
+                        </div>
                     </div>
                 </div>
                 <div id="pointsIssuanceLogData" class="pointsDataArea" v-show="showTab && showIssuanceDetails">
@@ -334,7 +342,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div id="pagination" v-if="pageView">
+                    <div class="pagination" v-if="pageView">
                         <a href="#0" @click="pageChange(0)">＜</a>
                         <a href="#0" @click="pageChange(1)">1</a>
                         <a href="#0" @click="pageChange(2)">2</a>
@@ -371,11 +379,22 @@
                             </tr>
                         </tbody>
                     </table>
+                    <div class="pagination" v-if="pageView">
+                        <a href="#0" @click="pageChange(0)">＜</a>
+                        <a href="#0" @click="pageChange(1)">1</a>
+                        <a href="#0" @click="pageChange(2)">2</a>
+                        <a href="#0" @click="pageChange(3)">3</a>
+                        <a href="#0" @click="pageChange(4)">4</a>
+                        <a href="#0" @click="pageChange(5)">5</a>
+                        <a href="#0" @click="pageChange('next')">＞</a>
+                        <a href="#0">最末頁</a>
+                    </div>
                 </div>
             </main>
         </div>
     </div>
-    <script src="../js/22/pointsAjaxVue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="../js/22/backendpoints.js"></script>
 
 </body>
 

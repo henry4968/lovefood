@@ -1,4 +1,3 @@
-
 Vue.component('user', {
     template: `
     <div>
