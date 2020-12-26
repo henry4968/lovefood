@@ -133,7 +133,7 @@ const main = new Vue({
                 data,
                 type: 'POST',
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     for (let index = 0; index < res.length; index++) {
                         res[index].quantity = 0
                         res[index].hours = 0
