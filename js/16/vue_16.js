@@ -215,6 +215,7 @@ const main = new Vue({
         confirmPay() {
             console.log(this.newStorage);
             localStorage.setItem('newStorage', JSON.stringify(this.newStorage));
+            localStorage.setItem('discountPoints', JSON.stringify(this.inputValue));
         },
 
 
