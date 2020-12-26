@@ -45,7 +45,7 @@ $(function () {
         }
     });
     let percentage = $('#goalmoney').text();
-    console.log(percentage);
+    // console.log(percentage);
 
     $.keyframe.define([{
         name: 'widthChange',
@@ -293,11 +293,11 @@ const app = new Vue({
             url: '../PHP/Frontend/donationQuery.php',
             success: function (res) {
                 self.donationLog = res;
-                console.log(self.donationLog);
+                // console.log(self.donationLog);
             },
             dataType: "JSON",
             error: function (res) {
-                console.log(res);
+                // console.log(res);
             }
         })
     },

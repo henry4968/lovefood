@@ -682,7 +682,7 @@ const vm = new Vue({
                 type: 'POST',
                 success: function (res) {
 
-                    console.log(res);
+                    // console.log(res);
 
                     res.splice(6);
 

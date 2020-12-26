@@ -110,7 +110,7 @@ const main = new Vue({
         let test = JSON.parse(localStorage.getItem("itemStorage"));
         this.itemStorage = test;
 
-        console.log(this.itemStorage);
+        // console.log(this.itemStorage);
         let seller = this.seller;
         let newStorage = this.newStorage;
         let itemStorage = this.itemStorage;
@@ -142,7 +142,7 @@ const main = new Vue({
 
 
         // localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
-        console.log(newStorage);
+        // console.log(newStorage);
 
         $.ajax({
             url: '../PHP/Frontend/sessionR.php',
@@ -150,11 +150,11 @@ const main = new Vue({
             dataType: "text",
             success: function (res) {
                 self.sessionId = res;
-                console.log(self.sessionId);
+                // console.log(self.sessionId);
             },
             error: function (res) {
                 console.log("回傳失敗！");
-                console.log(res.responseText);
+                // console.log(res.responseText);
             },
         });
 
@@ -169,7 +169,7 @@ const main = new Vue({
                 dataType: "JSON",
                 data: { loggnedInId },
                 success: function (res) {
-                    console.log(res);
+                    // console.log(res);
                     self.membersPoints = parseInt(res[0].MEMBER_POINTS);
                 },
                 error: function (error) {
@@ -383,7 +383,7 @@ const main = new Vue({
                 for (var i in this.newStorage[index].goodList) {
                     total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
                 }
-                console.log(i);
+                // console.log(i);
             }
             return total;
         },
