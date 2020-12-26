@@ -204,6 +204,10 @@ Vue.component('memhead', {
         this.onhover();
         // leave回到原狀
         this.onout();
+        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+        if (cartAllItems) {
+            this.itemQty = cartAllItems.length
+        }
     },
 });
 let header = new Vue({

@@ -31,7 +31,7 @@ new Vue({
         //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         if (cartAllItems) {
-            self.itemQty = cartAllItems.length
+            this.itemQty = cartAllItems.length
         }
     },
     updated() {

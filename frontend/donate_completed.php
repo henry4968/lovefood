@@ -10,20 +10,20 @@ $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
 $statementSelectMaxId->execute();
 $maxId = $statementSelectMaxId->fetch();
 
-$maxNumber = substr( $maxId[0], 2, 7) + 1;
+$maxNumber = substr($maxId[0], 2, 7) + 1;
 
 $insertId = "";
 
-if($maxNumber < 10){
-    $insertId = "DN000000".$maxNumber;
-}else if($maxNumber < 100 && $maxNumber >= 10){
-    $insertId = "DN00000".$maxNumber;
-}else if($maxNumber < 1000 && $maxNumber>=100){
-    $insertId = "DN0000".$maxNumber;
-}else if($maxNumber < 10000 && $maxNumber>=1000){
-    $insertId = "DN000".$maxNumber;
-}else if($maxNumber < 100000 && $maxNumber>=10000){
-    $insertId = "DN00".$maxNumber;
+if ($maxNumber < 10) {
+    $insertId = "DN000000" . $maxNumber;
+} else if ($maxNumber < 100 && $maxNumber >= 10) {
+    $insertId = "DN00000" . $maxNumber;
+} else if ($maxNumber < 1000 && $maxNumber >= 100) {
+    $insertId = "DN0000" . $maxNumber;
+} else if ($maxNumber < 10000 && $maxNumber >= 1000) {
+    $insertId = "DN000" . $maxNumber;
+} else if ($maxNumber < 100000 && $maxNumber >= 10000) {
+    $insertId = "DN00" . $maxNumber;
 }
 
 // 植入流水號後的捐款輸入語法
@@ -39,28 +39,28 @@ $gender = !empty($_POST["gender"]) ? $_POST["gender"] : null;
 $birthday = !empty($_POST["birthday"]) ? $_POST["birthday"] : null;
 $deliveryMethod = !empty($_POST["deliveryMethod"]) ? $_POST["deliveryMethod"] : null;
 
-$sqlStatment->bindValue(1,$insertId);
-$sqlStatment->bindValue(2,$_POST["donationPlan"]);
-$sqlStatment->bindValue(3,$_POST["donationMethod"]);
-$sqlStatment->bindValue(4,$_POST["amount"]);
-$sqlStatment->bindValue(5,$_POST["name"]);
-$sqlStatment->bindValue(6,$nationlity);
-$sqlStatment->bindValue(7,$_POST["pID_tID"]);
-$sqlStatment->bindValue(8,$birthday);
-$sqlStatment->bindValue(9,$_POST["address"]);
-$sqlStatment->bindValue(10,$_POST["email"]);
-$sqlStatment->bindValue(11,$gender);
-$sqlStatment->bindValue(12,$_POST["remarks"]);
-$sqlStatment->bindValue(13,$_POST["receiptTitle"]);
-$sqlStatment->bindValue(14,$_POST["receipt_pID_tID"]);
-$sqlStatment->bindValue(15,$deliveryMethod);
+$sqlStatment->bindValue(1, $insertId);
+$sqlStatment->bindValue(2, $_POST["donationPlan"]);
+$sqlStatment->bindValue(3, $_POST["donationMethod"]);
+$sqlStatment->bindValue(4, $_POST["amount"]);
+$sqlStatment->bindValue(5, $_POST["name"]);
+$sqlStatment->bindValue(6, $nationlity);
+$sqlStatment->bindValue(7, $_POST["pID_tID"]);
+$sqlStatment->bindValue(8, $birthday);
+$sqlStatment->bindValue(9, $_POST["address"]);
+$sqlStatment->bindValue(10, $_POST["email"]);
+$sqlStatment->bindValue(11, $gender);
+$sqlStatment->bindValue(12, $_POST["remarks"]);
+$sqlStatment->bindValue(13, $_POST["receiptTitle"]);
+$sqlStatment->bindValue(14, $_POST["receipt_pID_tID"]);
+$sqlStatment->bindValue(15, $deliveryMethod);
 
 $sqlStatment->execute();
 
 $sqlDonationCompleted = "SELECT DONATION_ID, DONATION_AMOUNT, DONATION_METHOD, year(DONATION_DATE), month(DONATION_DATE), day(DONATION_DATE) FROM DONATION WHERE DONATION_ID = ?";
 
 $statementDonationCompleted = $Util->getPDO()->prepare($sqlDonationCompleted);
-$statementDonationCompleted->bindValue(1,$insertId);
+$statementDonationCompleted->bindValue(1, $insertId);
 $statementDonationCompleted->execute();
 
 $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
@@ -131,8 +131,7 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             <!-- 桌機版導覽列開始 -->
             <nav id="navigationForPC">
                 <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
-                    @click="sellogIncheck">賣家專區</a>
+                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}" @click="sellogIncheck">賣家專區</a>
                 <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                 <a href="./donate_now.html" id="navSepcialAnchor">
                     <div>
@@ -144,13 +143,11 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
                     <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
                 <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
-                    <div
-                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">
                         {{itemQty}}</div>
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
-                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
                     <img v-if="login" :src='Bigpicchange'>
                     <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
                 </a>
@@ -158,15 +155,12 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             <!-- 桌機版導覽列結束 -->
             <!-- 行動版次級導覽列開始 -->
             <nav id="subNavigationForMobile">
-                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
-                    style="position: relative;margin-left: 0px;">
-                    <div
-                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile" style="position: relative;margin-left: 0px;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
                         {{itemQty}}</div>
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
-                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
                     <img v-if="login" :src='Bigpicchange'>
                     <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
                 </a>
@@ -232,13 +226,13 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
                                 </div>
                                 <!-- 明細內容 -->
                                 <div class="detailContent">
-                                    <?php if($dataDC[0]['DONATION_METHOD'] == 1){
-                                                    echo '定期捐款';
-                                            } else if($dataDC[0]['DONATION_METHOD'] == 2){
-                                                    echo '單次扣款';
-                                            }else{
-                                                    echo '資料錯誤';
-                                            }?>
+                                    <?php if ($dataDC[0]['DONATION_METHOD'] == 1) {
+                                        echo '定期捐款';
+                                    } else if ($dataDC[0]['DONATION_METHOD'] == 2) {
+                                        echo '單次扣款';
+                                    } else {
+                                        echo '資料錯誤';
+                                    } ?>
                                 </div>
                             </div>
 
@@ -429,7 +423,7 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             //換頁載入＝＝＝＝＝
             let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
             if (cartAllItems) {
-                self.itemQty = cartAllItems.length
+                this.itemQty = cartAllItems.length
             }
         },
         updated() {
@@ -437,6 +431,10 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             this.checklogin();
             // 大頭貼切換假如沒大頭貼就用預設如果有就切換
             this.Bitpicupdate();
+            let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+            if (cartAllItems) {
+                this.itemQty = cartAllItems.length
+            }
         },
     });
 </script>
