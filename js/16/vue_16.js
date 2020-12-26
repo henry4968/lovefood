@@ -332,6 +332,17 @@ const main = new Vue({
                 }
             });
         },
+        // 出現放大鏡
+        longsearch() {
+            // 桌機板search bar js
+            $("#navIcons01").focus(function () {
+                $("#searchInputForWeb").addClass('block');
+                $("#searchInputForWeb").focus();
+            })
+            $("#searchInputForWeb").blur(function () {
+                $("#searchInputForWeb").removeClass('block');
+            });
+        },
 
     },
     // watch: {

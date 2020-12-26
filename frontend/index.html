@@ -78,8 +78,9 @@
                         立即捐款
                     </div>
                 </a>
-                <a href="#0" id="navIcons01" class="navIcons">
+                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
                     <img src="../img/22/index/ch01_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
                 <a href="#0" id="navIcons02" class="navIcons">
                     <img src="../img/22/index/ch01_nav_cart.png" alt="">
@@ -757,7 +758,17 @@
                         }
                     });
                 },
-
+                // 出現放大鏡
+                longsearch() {
+                    // 桌機板search bar js
+                    $("#navIcons01").focus(function () {
+                        $("#searchInputForWeb").addClass('block');
+                        $("#searchInputForWeb").focus();
+                    })
+                    $("#searchInputForWeb").blur(function () {
+                        $("#searchInputForWeb").removeClass('block');
+                    });
+                },
             },
             mounted() {
                 // 看看是一般會員或是賣家會員
