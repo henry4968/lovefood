@@ -622,7 +622,7 @@
         @include newRwd("mediumPhone"){
             width: 570px;
             margin: 100px auto; 
-            min-height: 2550px;
+            min-height: 250px;
         }
         @include newRwd("newSmallPhone"){
             width: 375px;
