@@ -93,16 +93,23 @@ Vue.component('member', {
         this.signInsendcheckcode = '驗證碼不可空白';
         this.redbordercolorsendcheck = true;
         event.preventDefault();
-      }
-
-      // 密碼及確認密碼需相同
-      if (this.signInpasssend != this.signInpassconfsend) {
+        // 密碼及確認密碼需相同
+      } else if (this.signInpasssend != this.signInpassconfsend) {
         this.passtotex = 'text';
         this.passtotexconfir = 'text',
           this.signInpasssend = '',
           this.signInpassconfsend = '',
           this.signInpass = '與確認密碼相異';
         this.signInpassconf = '與密碼相異';
+        this.redbordercolorsignInpass = true;
+        this.redbordercolorsignInpassconf = true;
+        event.preventDefault();
+        // 密碼字數限制
+      } else if (this.signInpasssend.length < 8) {
+        this.signInpasssend = '';
+        this.signInpassconfsend = '';
+        this.signInpass = '密碼字數小於8位數';
+        this.signInpassconf = '密碼字數小於8位數';
         this.redbordercolorsignInpass = true;
         this.redbordercolorsignInpassconf = true;
         event.preventDefault();
@@ -116,17 +123,6 @@ Vue.component('member', {
         this.emailSend = '';
         this.signInemail = '信箱格式錯誤';
         this.redbordercolorsignInemail = true;
-        event.preventDefault();
-      }
-
-      // 密碼字數限制
-      if (this.signInpasssend.length < 8) {
-        this.signInpasssend = '';
-        this.signInpassconfsend = '';
-        this.signInpass = '密碼字數小於8位數';
-        this.signInpassconf = '密碼字數小於8位數';
-        this.redbordercolorsignInpass = true;
-        this.redbordercolorsignInpassconf = true;
         event.preventDefault();
       }
 
@@ -315,10 +311,9 @@ Vue.component('seller', {
         this.selsignUppacfpla = '確認密碼不可為空白';
         this.selsignUppacf = true;
         event.preventDefault();
-      }
 
-      // 密碼及確認密碼需相同
-      if (this.selsignUppahtml != this.selsignUppacfhtml) {
+        // 密碼及確認密碼需相同
+      } else if (this.selsignUppahtml != this.selsignUppacfhtml) {
         this.selsignUppahtml = '';
         this.selsignUppacfhtml = '';
         this.selsignUppapla = '與確認密碼相異';
@@ -326,10 +321,9 @@ Vue.component('seller', {
         this.selsignUppa = true;
         this.selsignUppacf = true;
         event.preventDefault();
-      }
 
-      // 密碼字數限制
-      if (this.selsignUppahtml.length < 8) {
+        // 密碼字數限制
+      } else if (this.selsignUppahtml.length < 8) {
         this.selsignUppahtml = '';
         this.selsignUppacfhtml = '';
         this.selsignUppapla = '密碼字數小於8位數';
@@ -386,10 +380,10 @@ Vue.component('seller', {
       }
 
       // 檢查電話號碼前兩碼必須為09
-      if (this.modphone.substr(0, 2) != 09) {
-        this.modphone = '';
-        this.telpla = '手機格式錯誤';
-        this.inpredtel = true;
+      if (this.selphonehtml.substr(0, 2) != 09) {
+        this.selphonehtml = '';
+        this.selphonepla = '手機格式錯誤';
+        this.selphone = true;
       }
 
       // 聯絡電話只能是數字及數字需大於等於10碼
