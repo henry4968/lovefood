@@ -1,6 +1,6 @@
 Vue.component('selfPickUp', {
     template: `
-    <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
+    <div class="mapIconW pickUpLocal">台北市 松山區 南京東路三段253號<img
      src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div>
     `,
 });
@@ -46,7 +46,7 @@ Vue.component('showMap', {
             id="Liuzhangli" src="../img/16/IconYellow.png">
     </div>
 
-    <ul id="MRT_Select">
+    <ul id="MRT_Select"  style="display: none;">
         <li><label for="">請選擇：</label></li>
         <li class="mrtSelect" id="mrt1"><input type="checkbox">捷運市政府站</li>
         <li class="mrtSelect" id="mrt2"><input type="checkbox">捷運南京復興站</li>
@@ -232,11 +232,12 @@ const main = new Vue({
         discountAllPoints() {
 
             const self = this;
+            var value = document.querySelector("#inputDiscount").value;
 
-            if (this.inputValue >= self.membersPoints) {
-                this.inputValue = self.membersPoints;
-            } else {
+            if (self.membersPoints >= this.total) {
                 this.inputValue = this.total;
+            } else {
+                this.inputValue = self.membersPoints;
             }
 
         },

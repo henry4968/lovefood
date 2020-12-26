@@ -205,40 +205,47 @@
                                     </div>
                         </template>
                     </div>
-                </div>
-            </div>
 
-            <div class="cart_16FinalCount">
-                <div class="cart_16FinalCount_Main">
-                    <div class="keepShop">
-                        <a href="store_1.html"><img src="../img/16/backArrow.png">繼續購物</a>
+
+                    <div class="cart_16FinalCount">
+                        <div class="cart_16FinalCount_Main">
+                            <div class="keepShop">
+                                <a href="store_1.html"><img src="../img/16/backArrow.png">繼續購物</a>
+                            </div>
+                            <div class="pointsDetails">
+                                <img src="../img/16/pointsIcon.png">
+                                <div>
+                                    <label v-if="membersPoints >= inputValue">您的點數尚餘：{{membersPoints -
+                                        inputValue}}點</label>
+                                    <label v-else-if="membersPoints == 0 && inputValue == null">您的點數尚餘：{{membersPoints -
+                                        inputValue}}點</label>
+                                    <label v-else-if="membersPoints < inputValue">您的點數尚餘：{{membersPoints -
+                                        membersPoints}}點<span style="color:rgb(170, 0, 0)">（折抵超過餘額，請更正！）</span></label>
+                                    <br>
+                                    <span>
+                                        <label for="points">使用</label>
+                                        <input type="number" id="inputDiscount" name="discount" min="0" max=""
+                                            v-model="inputValue">
+                                        <label for="">點</label>
+                                    </span>
+                                    <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
+                                    <p>註：一點為一元</p>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
-                    <div class="pointsDetails">
-                        <img src="../img/16/pointsIcon.png">
+                    <div class="item2">
                         <div>
-                            <label v-if="membersPoints >= inputValue">您的點數尚餘：{{membersPoints - inputValue}}點</label>
-                            <label v-else-if="membersPoints == 0 && inputValue == null">您的點數尚餘：{{membersPoints -
-                                inputValue}}點</label>
-                            <label v-else-if="membersPoints < inputValue">您的點數尚餘：{{membersPoints -
-                                membersPoints}}點<span style="color:rgb(170, 0, 0)">（折抵超過餘額，請更正！）</span></label>
-                            <br>
-                            <span>
-                                <label for="points">使用</label>
-                                <input type="number" name="discount" min="0" max="" v-model="inputValue">
-                                <label for="">點</label>
-                            </span>
-                            <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
-                            <p>註：一點為一元</p>
+                            <span>結帳總金額：</sapn>
+                                <span class="dollars">${{total}}</span>
+                                <button @click="confirmPay" v-if="membersPoints >= inputValue"><a
+                                        href="./store_4.html">$結帳</a></button>
+                                <button v-else disabled
+                                    style="background-color: #DEDEDE; cursor: not-allowed;">$結帳</a></button>
+
                         </div>
                     </div>
-                </div>
-
-            </div>
-            <div class="item2">
-                <div>
-                    <span>結帳總金額：</sapn>
-                        <span class="dollars">${{total}}</span>
-                        <button @click="confirmPay"><a href="./store_4.html">$結帳</a></button>
                 </div>
             </div>
 

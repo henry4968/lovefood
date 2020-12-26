@@ -1197,6 +1197,7 @@
                                         margin: 10px auto;
                                         font-size: 14px;
                                     }
+
                                     
                                     .locationIcon{
                                         width: 30px;
@@ -1213,6 +1214,7 @@
                                     color: #c00202;
                                 }
                                 .mapIconW{
+                                    // border:1px solid blue;
                                     width: 400px;
                                     margin-left: 40px;
                                     @include newRwd("bigPhone"){
@@ -1233,10 +1235,12 @@
                                         width: 15px;
                                         height: 20px;
                                         margin-top: 6px;
+                                        margin-left:5px;
                                         
                                     }
                                 }
                                 input{
+                                
                                 margin-left: 65px;
                                 margin-top: 20px;
                                 @include newRwd("newSmallPhone"){
@@ -1474,15 +1478,18 @@
                                     line-height: 2;
                                     font-size: 18px;
                                     color: #707070;
-                                    display: none;
+                                   
                                     @include newRwd("newSmallPhone"){
                                         display: flex;
                                         flex-wrap: wrap;
+                                        display:block;
                                     }
                                     @include newRwd("miniPhone"){
                                         width: 290px;
+                                        display:block;
                                     }
                                     .mrtSelect{
+                                       
                                         @include newRwd("newSmallPhone"){
                                             width:150px;
                                             margin: 5px auto;
@@ -1618,9 +1625,10 @@
             }
 
             .pointsDetails{
+                // border:1px solid red;
                 display: flex;
                 flex-wrap: wrap;
-                justify-content: flex-end;
+                justify-content: flex-start;
                 width: 500px;
 
                 @include newRwd("mediumPhone"){
@@ -1682,7 +1690,7 @@
                             }
                         }
                         .pointsDiscount{
-                            width: 110px;
+                            width: 88px;
                             height: 30px;
                             border: none;
                             border-radius: 13px;
@@ -1691,6 +1699,7 @@
                             font-size: 16px;
                             cursor: pointer;
                             line-height: 30px;
+                            margin-left:20px
     
                         }
                      }
@@ -1749,10 +1758,14 @@
                 margin: 24px 20px;
                 outline: none;
                 cursor: pointer;
+                text-decoration: none;
                 &:hover{
                        background-color: #c0b28d;
                        }
                 a{
+                    text-decoration: none;
+                    outline: none;
+                    color: #ffffff;
                  &:visited{
                     color: #ffffff;
                     }
@@ -1764,6 +1777,7 @@
                     margin: 15px 70px;
                     justify-content: center;
                 }
+               
             }
          }
     }
