@@ -213,9 +213,12 @@ const main = new Vue({
         },
         //結帳
         confirmPay() {
+            const self = this;
+
             console.log(this.newStorage);
             localStorage.setItem('newStorage', JSON.stringify(this.newStorage));
             localStorage.setItem('discountPoints', JSON.stringify(this.inputValue));
+            localStorage.setItem('memberId', JSON.stringify(self.sessionId));
         },
 
 

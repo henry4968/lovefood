@@ -63,60 +63,61 @@
                             立即捐款
                         </div>
                     </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- 漢堡選單結束 -->
-        <div id="headerContentContainer">
-            <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
-            </a>
+                    </li>
+                    </ul>
+                </nav>
+                <!-- 漢堡選單結束 -->
+                <div id="headerContentContainer">
+                    <a href="./index.html">
+                        <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                    </a>
 
-            <!-- 導覽列開始 -->
-            <nav id="navigationForPC">
-                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
-                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
-                    @click="sellogIncheck">賣家專區</a>
-                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
-                <a href="./donate_now.html" id="navSepcialAnchor">
-                    <div>
-                        立即捐款
-                    </div>
-                </a>
-                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
-                    <img src="../img/22/index/ch05_nav_search.png" alt="">
-                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
-                </a>
-                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
-                    <div
-                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">
-                        {{itemQty}}</div>
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                </a>
-                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
-                    <img v-if="login" :src='Bigpicchange'>
-                    <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
-                </a>
-            </nav>
-            <nav id="subNavigationForMobile">
-                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
-                    style="position: relative;margin-left: 0px;">
-                    <div
-                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
-                        {{itemQty}}</div>
-                    <img src="../img/22/index/ch05_nav_cart.png" alt="">
-                </a>
-                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
-                    @mouseout="onout">
-                    <img v-if="login" :src='Bigpicchange'>
-                    <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
-                </a>
-            </nav>
-            <!-- 導覽列結束 -->
-        </div>
-    </header>
-    <!-- 標頭結束 -->
+                    <!-- 導覽列開始 -->
+                    <nav id="navigationForPC">
+                        <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                        <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                            @click="sellogIncheck">賣家專區</a>
+                        <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                        <a href="./donate_now.html" id="navSepcialAnchor">
+                            <div>
+                                立即捐款
+                            </div>
+                        </a>
+                        <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
+                            <img src="../img/22/index/ch05_nav_search.png" alt="">
+                            <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
+                        </a>
+                        <a href="./store_3.html" id="navIcons02" class="navIcons"
+                            style="position: relative;margin-left: 0px;">
+                            <div
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">
+                                {{itemQty}}</div>
+                            <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        </a>
+                        <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                            @mouseout="onout">
+                            <img v-if="login" :src='Bigpicchange'>
+                            <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                        </a>
+                    </nav>
+                    <nav id="subNavigationForMobile">
+                        <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
+                            style="position: relative;margin-left: 0px;">
+                            <div
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
+                                {{itemQty}}</div>
+                            <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        </a>
+                        <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck"
+                            @mouseover="onhover" @mouseout="onout">
+                            <img v-if="login" :src='Bigpicchange'>
+                            <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                        </a>
+                    </nav>
+                    <!-- 導覽列結束 -->
+                </div>
+        </header>
+        <!-- 標頭結束 -->
 
 
         <article id="store_16">
@@ -274,7 +275,8 @@
                             <div>
                                 <span d="pay-now">結帳總金額：</sapn>
                                     <span class="dollars">${{total}}</span>
-                                    <button type="button" class="btn_modal" id="confirm-purchase">$結帳</button>
+                                    <button type="button" class="btn_modal" id="confirm-purchase"
+                                        @click="checkOut">$結帳</button>
 
                                     <div class="overlay">
                                         <article>

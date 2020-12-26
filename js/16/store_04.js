@@ -18,6 +18,8 @@ new Vue({
         goodList: [],
         // 商品數量
         itemQty: 0,
+        sessionId: null,
+        discountPoints: null
     },
 
     mounted() {
@@ -28,11 +30,18 @@ new Vue({
         //localStorage取值
         let test = JSON.parse(localStorage.getItem("newStorage"));
         this.newStorage = test;
+        console.log(this.newStorage);
         //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         if (cartAllItems) {
             self.itemQty = cartAllItems.length
         }
+
+        this.discountPoints = JSON.parse(localStorage.getItem('discountPoints'));
+        this.sessionId = JSON.parse(localStorage.getItem('memberId'));
+
+        console.log(this.sessionId);
+        console.log(this.discountPoints);
     },
     updated() {
         // 看看是一般會員或是賣家會員
@@ -43,17 +52,20 @@ new Vue({
 
     methods: {
 
+        // 正式結帳
         checkOut() {
 
             const self = this;
 
-            let discount = $("input[name='discount']").val();
+            let totalDiscount = this.discountPoints;
+            let memberId = this.sessionId;
+            let allData = self.newStorage;
 
             $.ajax({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "text",
-                data: { discount },
+                data: { memberId, totalDiscount, allData},
                 success: function (res) {
                     console.log(res);
                 },
