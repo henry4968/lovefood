@@ -22,7 +22,7 @@
         }
         @include newRwd("bigPhone"){
             top: 50px;
-            margin-bottom: 49px;
+            // margin-bottom: 49px;
         }
     
             div{
@@ -35,11 +35,11 @@
                 align-items: center;
                 font-family: "PingFang-TC-Regular-thin","sans-serif";
                 @include newRwd("pad"){
-                    left: 15%;
+                    left: 10%;
                 }
                 @include newRwd("newSmallPhone"){
-                    max-width: 320px;
-                    left: 15%;
+                    max-width: 300px;
+                    left: 3%;
                 }
     
     
@@ -59,7 +59,7 @@
                     left: 150px;
                     top: 50px;
                     @include newRwd("newSmallPhone"){
-                        left:15%;
+                        left:90px;
                         top: 20px;
                         padding-left: 10px;
                         
@@ -74,6 +74,9 @@
                         @include newRwd("newSmallPhone"){
                             font-size: 42px;
                         }
+                        @include newRwd("miniPhone"){
+                            font-size: 36px;         
+                        }
                     }
                     p{
     
@@ -84,6 +87,9 @@
                         @include newRwd("newSmallPhone"){
                             font-size: 16px;
                             
+                        }
+                        @include newRwd("miniPhone"){
+                            font-size: 12px;         
                         }
                     }
                 }        

@@ -162,11 +162,11 @@
                 margin: 30px 0px 0px 0px;
                 
 
-                //當頁底線(RWD)
-                #shopPage{
-                    padding: 3px;
-                    border-bottom: 2px solid #959076;
-                }
+                // //當頁底線(RWD)
+                // #shopPage{
+                //     padding: 3px;
+                //     border-bottom: 2px solid #959076;
+                // }
                 
                 a{
                     color: #515151;
@@ -256,14 +256,25 @@
                 width: 625px;
                 align-items: center;
             }
-
-            // 當頁底線(桌機)
-            #shopPageWeb{
-                border-bottom: 2px solid #8F8770;
+            @include newRwd("bigPhone"){
+                width: 525px;
+                align-items: center;
             }
+            @include newRwd("mediumPhone"){
+                width: 425px;
+                align-items: center;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 200px;
+                align-items: center;
+            }
+            // // 當頁底線(桌機)
+            // #shopPageWeb{
+            //     border-bottom: 2px solid #8F8770;
+            // }
 
             a{
-                white-space: nowrap;
+                // white-space: nowrap;
                 font-size: 30px;
                 @include newRwd("laptop"){
                     font-size: 20px;

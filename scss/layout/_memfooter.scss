@@ -16,6 +16,7 @@ footer#memfooter{
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     @include rwd(w700){
       height: 200px;
     }
