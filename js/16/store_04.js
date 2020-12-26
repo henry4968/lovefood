@@ -31,6 +31,16 @@ new Vue({
         let test = JSON.parse(localStorage.getItem("newStorage"));
         this.newStorage = test;
         console.log(this.newStorage);
+        // console.log(this.newStorage[0].goodList[0].id);
+        // console.log(this.newStorage[0].goodList[0].qty);
+
+        for (let i = 0; i < this.newStorage.length; i++) {
+            for (let j = 0; j < this.newStorage[i].goodList.length; j++) {
+                console.log(this.newStorage[i].goodList[j].id);
+                console.log(this.newStorage[i].goodList[j].qty);
+            }
+        }
+
         //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         if (cartAllItems) {
@@ -59,13 +69,29 @@ new Vue({
 
             let totalDiscount = this.discountPoints;
             let memberId = this.sessionId;
-            let allData = self.newStorage;
+            let orders = [];
+            let productQuantity = 0;
+
+            for (let i = 0; i < this.newStorage.length; i++) {
+                let order = [];
+                for (let j = 0; j < this.newStorage[i].goodList.length; j++) {
+                    let product = [];
+                    product.push(this.newStorage[i].goodList[j].id);
+                    product.push(this.newStorage[i].goodList[j].qty);
+                    order.push(product);
+                    productQuantity++;
+                }
+                orders.push(order);
+            }
+
+            console.log(orders);
+            console.log(productQuantity);
 
             $.ajax({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "text",
-                data: { memberId, totalDiscount, allData},
+                data: { memberId, totalDiscount, orders, productQuantity },
                 success: function (res) {
                     console.log(res);
                 },
