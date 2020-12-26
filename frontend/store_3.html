@@ -70,7 +70,7 @@
                         <img src="../img/22/index/ch05_nav_search.png" alt="">
                     </a>
                     <a href="#0" id="navIcons02" class="navIcons">
-                        {{cartItems}}<img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        {{itemQty}}<img src="../img/22/index/ch05_nav_cart.png" alt="">
                     </a>
                     <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
                         @mouseout="onout">
@@ -201,7 +201,7 @@
 
                                     <hr>
                                     <div class="orderCount">
-                                        <p>單筆訂單金額：${{total}}</p>
+                                        <p>單筆訂單金額：${{subtotal[index]}}</p>
                                     </div>
                         </template>
                     </div>
@@ -238,7 +238,7 @@
                 <div>
                     <span>結帳總金額：</sapn>
                         <span class="dollars">${{total}}</span>
-                        <button type="submit"><a href="./store_4.html">$結帳</a></button>
+                        <button @click="confirmPay"><a href="./store_4.html">$結帳</a></button>
                 </div>
             </div>
 

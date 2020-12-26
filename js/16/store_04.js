@@ -170,10 +170,14 @@ new Vue({
 
     },
     computed: {
+        //計算總金額
         total() {
             var total = 0;
-            for (var i in this.goodList) {
-                total += this.goodList[i].price * this.goodList[i].qty;
+            for (var index in this.newStorage) {
+                for (var i in this.newStorage[index].goodList) {
+                    total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
+                }
+                console.log(i);
             }
             return total;
         },
