@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>樂腹商城-商品詳情</title>
+    <title>Love food|樂腹商城-商品詳情</title>
     <link rel="stylesheet" href="../css/store2.css">
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <!-- <link rel="stylesheet" href="../js/07/uikit-3.5.9 /css/uikit.min.css"/>
     <script src="../js/07/uikit-3.5.9 /js/uikit.min.js"></script>
     <script src="../js/07/uikit-3.5.9 /js/uikit-icons.min.js"></script> -->
@@ -39,7 +40,7 @@
                         <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
                     </li>
                     <li>
-                        <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
+                        <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
                     </li>
                     <li>
                         <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
@@ -62,38 +63,47 @@
                 <!-- 桌機版導覽列開始 -->
                 <nav id="navigationForPC">
                     <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
-                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
+                    <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                        @click="sellogIncheck">賣家專區</a>
                     <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
                     <a href="./donate_now.html" id="navSepcialAnchor">
                         <div>
                             立即捐款
                         </div>
                     </a>
-                    <a href="#0" id="navIcons01" class="navIcons">
-                        <img src="../img/22/index/ch05_nav_search.png" alt="">
+                    <!-- 點放大鏡伸縮搜尋欄 -->
+                    <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
+                        <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                        <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                     </a>
-                    <a href="./store_3.html" id="navIcons02" class="navIcons">
+                    <a href="./store_3.html" id="navIcons02" class="navIcons" style="margin-left: 0px;z-index: -1;">
                         <span style="position: relative;">
                             <div
-                                style="width: 25px; height: 23px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; top: -40%;">
-                                {{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -40%;">
+                                {{itemQty}}</div>
+                            <img src="../img/22/index/ch05_nav_cart.png" alt="">
                         </span>
                     </a>
-                    <a href="./memberInformation.html" id="navIcons03" class="navIcons">
-                        <img src="../img/22/index/ch05_nav_member.png" alt="">
+                    <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                        @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
                     </a>
                 </nav>
                 <!-- 桌機版導覽列結束 -->
                 <!-- 行動版次級導覽列開始 -->
                 <nav id="subNavigationForMobile">
-                    <a href="./store_3.html" id="navIcons02" class="navIcons">
+                    <a href="./store_3.html" id="navIcons04" class="navIcons" style="margin-left: 0px;;">
                         <span style="position: relative;">
-                            <div style="width: 25px; height: 23px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%;
-top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                            <div
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px; top: -40%;">
+                                {{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
                         </span>
                     </a>
-                    <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
-                        <img src="../img/22/index/ch05_nav_member.png" alt="">
+                    <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck"
+                        @mouseover="onhover" @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
                     </a>
                 </nav>
                 <!-- 行動版次級導覽列結束 -->
@@ -312,7 +322,7 @@ top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt=""
 </body>
 <!-- js -->
 <!-- <script src="../js/07/temp.js"></script> -->
-<script src="../js/07/store_1.js"></script>
+<!-- <script src="../js/07/store_1.js"></script> -->
 <script src="../js/07/07.js"></script>
 
 </html>
