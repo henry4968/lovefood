@@ -177,8 +177,8 @@
             // 首頁由js控制代替的hover變色
             &:hover{
               content: url('../img/03/memlogochange.png');
-              width: 220px;
-              height: 42px;
+            //   width: 268px;
+            //   height: 50px;
               transition: all .3s;
               @include newRwd("desktop"){
                 width: 268px;
