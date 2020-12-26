@@ -48,11 +48,11 @@ Vue.component('memhead', {
                         立即捐款
                     </div>
                 </a>
-                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
+                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch" style="z-index: 99;">
                     <img src="../img/03/memmagnifier.png">
                     <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
-                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px; z-index: -1;">
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">{{itemQty}}</div>
                     <img src="../img/03/memcart.png">
                 </a>
