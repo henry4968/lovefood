@@ -70,7 +70,7 @@
                         <img src="../img/22/index/ch05_nav_search.png" alt="">
                     </a>
                     <a href="#0" id="navIcons02" class="navIcons">
-                        <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        {{cartItems}}<img src="../img/22/index/ch05_nav_cart.png" alt="">
                     </a>
                     <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
                         @mouseout="onout">
@@ -264,7 +264,7 @@
     <!-- <script src="../js/16/store_03.js"></script> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <script src="../js/16/vue_16.js"></script>
-    <script src="../js/16/store_03.js"></script>
+    <!-- <script src="../js/16/store_03.js"></script> -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 
 

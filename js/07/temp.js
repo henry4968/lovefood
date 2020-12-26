@@ -95,6 +95,8 @@ const main = new Vue({
                 seller: item.SUPPLIER_NAME,
                 price: item.PRODUCT_SELLING_PRICE,
                 id: item.PRODUCT_ID,
+                img: item.PRODUCT_IMG,
+                exp: item.PRODUCT_EXP_DATE
             }
             let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
             console.log(cartAllItems);

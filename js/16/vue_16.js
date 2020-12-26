@@ -77,10 +77,13 @@ const main = new Vue({
         content: 'selfPickUp',
         exp: '',
         sessionId: null,
-        storgeValue: null,
+        // ↓購物車幾項商品
+        // storgeValue: null,
+        // ↓會員點數
         membersPoints: null,
-        inputValue: null,
+        // ↓依賣家姓名整理後新陣列，陣列裡有陣列goodList放商品
         newStorage: [],
+        // ↓賣家名稱
         seller: [],
 
         // 一般會員 href
@@ -121,6 +124,7 @@ const main = new Vue({
                         price: item.price,
                         id: item.id,
                         img: item.img,
+                        exp: item.exp,
                     }]
                 });
                 seller.push(item.seller)
@@ -166,9 +170,9 @@ const main = new Vue({
                     console.log(res);
                     self.membersPoints = parseInt(res[0].MEMBER_POINTS);
                 },
-                error: function (res) {
+                error: function (error) {
                     console.log("回傳失敗！");
-                    console.log(res.responseText);
+                    console.log(error);
                 },
             });
 
@@ -178,6 +182,8 @@ const main = new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
+
+
 
     },
     updated() {
@@ -201,6 +207,7 @@ const main = new Vue({
         del(index) {
             this.newStorage.splice(index, 1);
         },
+        
 
 
         // sum() {
@@ -350,17 +357,21 @@ const main = new Vue({
         //計算總金額
         total() {
             var total = 0;
-            for (var i in this.itemStorage) {
+            for (var index in this.newStorage) {
+                for(var i in this.newStorage[index].goodList){
+                    total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
+                }
                 console.log(i);
-                total += this.itemStorage[i].price * this.itemStorage[i].qty;
             }
             return total;
         },
-
-        inputKeyUp() {
-
-
-
-        },
+        //購物車
+        cartItems(){
+            if(this.newStorage == []){
+                return 0;
+            }else{
+                return this.newStorage.length 
+            }
+        }
     },
 });
