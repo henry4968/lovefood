@@ -98,6 +98,7 @@ const main = new Vue({
         login: '',
         // 判斷賣家會員是否登入
         sellogin: '',
+        inputValue: null,
 
     },
 
@@ -195,19 +196,24 @@ const main = new Vue({
 
     methods: {
 
-        add(index) {
+        add(i, index) {
             // alert("!!!");
-            this.newStorage[index, i].goodList.qty++;
+            this.newStorage[index].goodList[i].qty++;
         },
         reduce(i, index) {
-            if (this.newStorage[index, i].goodList.qty >= 1) {
-                this.newStorage[index, i].goodList.qty--;
+            if (this.newStorage[index].goodList[i].qty >= 1) {
+                this.newStorage[index].goodList[i].qty--;
             }
         },
         del(index) {
             this.newStorage.splice(index, 1);
         },
-        
+        //結帳
+        confirmPay() {
+            console.log(this.newStorage);
+            localStorage.setItem('newStorage', JSON.stringify(this.newStorage));
+        },
+
 
 
         // sum() {
@@ -358,19 +364,29 @@ const main = new Vue({
         total() {
             var total = 0;
             for (var index in this.newStorage) {
-                for(var i in this.newStorage[index].goodList){
+                for (var i in this.newStorage[index].goodList) {
                     total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
                 }
                 console.log(i);
             }
             return total;
         },
+        //單筆訂單金額
+        subtotal() {
+            var subtotal = [];
+            for (var index in this.newStorage) {
+                for (var i in this.newStorage[index].goodList) {
+                    subtotal.push(this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty);
+                }
+            }
+            return subtotal;
+        },
         //購物車
-        cartItems(){
-            if(this.newStorage == []){
+        itemQty() {
+            if (this.newStorage == []) {
                 return 0;
-            }else{
-                return this.newStorage.length 
+            } else {
+                return this.newStorage.length
             }
         }
     },
