@@ -142,7 +142,7 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
                     <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
                     <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
-                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;z-index: -1;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">
                         {{itemQty}}</div>
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
