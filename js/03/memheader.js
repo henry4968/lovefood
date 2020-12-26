@@ -48,10 +48,12 @@ Vue.component('memhead', {
                         立即捐款
                     </div>
                 </a>
-                <a href="#0" id="navIcons01" class="navIcons">
+                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch">
                     <img src="../img/03/memmagnifier.png">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
                 </a>
-                <a href="#0" id="navIcons02" class="navIcons">
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">{{itemQty}}</div>
                     <img src="../img/03/memcart.png">
                 </a>
                 <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
@@ -62,7 +64,8 @@ Vue.component('memhead', {
             <!-- 桌機版導覽列結束 -->
             <!-- 行動版次級導覽列開始 -->
             <nav id="subNavigationForMobile">
-                <a href="#0" id="navIcons04" class="navIconsForMobile">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile" style="position: relative;margin-left: 0px;">
+                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">{{itemQty}}</div>
                     <img src="../img/03/memcart.png" alt="">
                 </a>
                 <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
@@ -84,6 +87,8 @@ Vue.component('memhead', {
             selloginchangemem: '',
             // 會員大頭貼
             Bigpicchange: "../img/03/mempeoplecirclechange.png",
+            // 商品數量
+            itemQty: 0,
         }
     },
     props: ['prop', 'sleprop'],
@@ -166,6 +171,18 @@ Vue.component('memhead', {
                 }
             });
         },
+        // 出現放大鏡
+        longsearch() {
+            // 桌機板search bar js
+            $("#navIcons01").focus(function () {
+                $("#searchInputForWeb").addClass('block');
+                $("#searchInputForWeb").focus();
+            })
+            $("#searchInputForWeb").blur(function () {
+                $("#searchInputForWeb").removeClass('block');
+            });
+        },
+
     },
     mounted() {
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
@@ -174,6 +191,11 @@ Vue.component('memhead', {
         this.onhover();
         // leave回到原狀
         this.onout();
+        //換頁載入＝＝＝＝＝
+        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+        if (cartAllItems) {
+            this.itemQty = cartAllItems.length
+        }
     },
     updated() {
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
@@ -183,7 +205,6 @@ Vue.component('memhead', {
         // leave回到原狀
         this.onout();
     },
-
 });
 let header = new Vue({
     el: '#memheader',

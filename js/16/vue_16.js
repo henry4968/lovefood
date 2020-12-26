@@ -99,7 +99,8 @@ const main = new Vue({
         // 判斷賣家會員是否登入
         sellogin: '',
         inputValue: null,
-
+        // 商品數量
+        itemQty: 0,
     },
 
     mounted() {
@@ -183,9 +184,11 @@ const main = new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
-
-
-
+        //換頁載入＝＝＝＝＝
+        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+        if (cartAllItems) {
+            self.itemQty = cartAllItems.length
+        }
     },
     updated() {
         // 看看是一般會員或是賣家會員
@@ -346,6 +349,17 @@ const main = new Vue({
                     $('#navIcons03 img').attr('src', atob(data));
                     $('#navIcons05 img').attr('src', atob(data));
                 }
+            });
+        },
+        // 出現放大鏡
+        longsearch() {
+            // 桌機板search bar js
+            $("#navIcons01").focus(function () {
+                $("#searchInputForWeb").addClass('block');
+                $("#searchInputForWeb").focus();
+            })
+            $("#searchInputForWeb").blur(function () {
+                $("#searchInputForWeb").removeClass('block');
             });
         },
 

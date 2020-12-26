@@ -328,6 +328,42 @@
             #navIcons02, #navIcons03{
                 margin-left: 20px;
             }
+            // 點放大鏡伸縮搜尋欄 scss
+            #navIcons01{
+                position: relative;
+            }
+            #searchInputForWeb{
+                width: 25px;
+                height: 48px;
+                border: #8f7086;
+                border-radius: 26px;
+                background-color: #ececec;
+                align-self: center;
+                outline: none;
+                padding-left: 20px;
+                font-size: 17px;
+                padding: 3px 3px 3px 10px;
+                position: absolute;
+                left: -30px;
+                bottom: -3px;
+                background-image: url(../img/22/index/ch04_nav_search.png);
+                background-repeat: no-repeat;
+                background-position: right 6% bottom 45%;
+                background-size: 13%;
+                margin-left: 20px;
+                transition: all 0.8s;
+                opacity: 0;
+                &.block{
+                    width: 207px;
+                    opacity: 1;
+                    @include newRwd("laptop"){
+                        left: -26px;
+                        width: 150px;
+                        height: 38px;
+                    }
+                }
+
+            }
         }
         // 桌機版導覽列結束
         // 行動版次導覽列開始
