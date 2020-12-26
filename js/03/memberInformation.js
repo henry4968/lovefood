@@ -664,7 +664,7 @@ Vue.component('order', {
                   <div class="samebotBorder getlocation">
                     <span class="getlocationtitlecancel" v-if="order.ORDER_STATUS == '取消'">取貨地點: </span>
                     <span class="getlocationtitle" v-else>取貨地點: </span>
-                    <span class="getlocation" v-if="order.ORDER_STATUS != '取消' " >{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
+                    <span class="getlocation" v-if="order.ORDER_STATUS != '取消'" >{{order.detail[0].MRT_PICKUP_SITE_NAME}}</span>
                   </div>
                 </div>
               </div>
@@ -1254,7 +1254,7 @@ Vue.component('order', {
 
       axios.post('../PHP/Frontend/selectALL.php').then(res => {
         // 撈order 測試
-        // console.log(atob(res.data));
+        // console.log((res.data));
         this.orderList = res.data
 
         this.orderList.forEach(q => {
