@@ -4,7 +4,7 @@ include("Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 $orders = $_POST["orders"];
-$productQuantity = $_POST["productQuantity"];
+// $productQuantity = $_POST["productQuantity"];
 
 $sqlSelectOrderMaxId = "SELECT max(ORDER_ID) FROM `ORDER`";
 
@@ -33,48 +33,51 @@ if(count($orders) > 1){
     
     $insertOrderId = "";
     
-    if($orderMaxNumber < 10){
-        $insertOrderId = "OD000000".$orderMaxNumber;
-    }else if($orderMaxNumber < 100 && $orderMaxNumber >= 10){
-        $insertOrderId = "OD00000".$orderMaxNumber;
-    }else if($orderMaxNumber < 1000 && $orderMaxNumber>=100){
-        $insertOrderId = "OD0000".$maxNumber;
-    }else if($orderMaxNumber < 10000 && $orderMaxNumber>=1000){
-        $insertOrderId = "OD000".$maxNumber;
-    }else if($orderMaxNumber < 100000 && $maxNumber>=10000){
-        $insertOrderId = "OD00".$orderMaxNumber;
-    }
-    
-    $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
-    
-    $statementInsertOrder->bindValue(1, $insertOrderId);
-    $statementInsertOrder->bindValue(2, $_POST["memberId"]);
-    $statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
-    $statementInsertOrder->bindValue(4, 1);
-    $statementInsertOrder->bindValue(5, null);
-    $statementInsertOrder->execute();
-
-    $statementSelectDetailMaxId = $Util->getPDO()->prepare($sqlSelectDetailMaxId);
-    $statementSelectDetailMaxId->execute();
-    $maxDetailId = $statementSelectDetailMaxId->fetch();
-    
-    $maxDetailNumber = substr($maxDetailId[0], 3, 10) + 1;
-    
-    $insertDetailId = "";
-    
-    if($maxDetailNumber < 10){
-        $insertDetailId = "ODD000000000".$maxDetailNumber;
-    }else if($maxDetailNumber < 100 && $maxDetailNumber >= 10){
-        $insertDetailId = "ODD00000000".$maxDetailNumber;
-    }else if($maxDetailNumber < 1000 && $maxDetailNumber>=100){
-        $insertDetailId = "ODD0000000".$maxDetailNumber;
-    }else if($maxDetailNumber < 10000 && $maxDetailNumber>=1000){
-        $insertDetailId = "ODD000000".$maxDetailNumber;
-     }else if($maxDetailNumber < 100000 && $maxDetailNumber>=10000){
-        $insertDetailId = "ODD00000".$maxDetailNumber;
-    }
     
     for($i = 0; $i < count($orders[0]); $i++){
+
+        if($orderMaxNumber < 10){
+            $insertOrderId = "OD000000".$orderMaxNumber;
+        }else if($orderMaxNumber < 100 && $orderMaxNumber >= 10){
+            $insertOrderId = "OD00000".$orderMaxNumber;
+        }else if($orderMaxNumber < 1000 && $orderMaxNumber>=100){
+            $insertOrderId = "OD0000".$maxNumber;
+        }else if($orderMaxNumber < 10000 && $orderMaxNumber>=1000){
+            $insertOrderId = "OD000".$maxNumber;
+        }else if($orderMaxNumber < 100000 && $maxNumber>=10000){
+            $insertOrderId = "OD00".$orderMaxNumber;
+        }
+        
+        $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
+        
+        $statementInsertOrder->bindValue(1, $insertOrderId);
+        $statementInsertOrder->bindValue(2, $_POST["memberId"]);
+        $statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
+        $statementInsertOrder->bindValue(4, 1);
+        $statementInsertOrder->bindValue(5, null);
+        $statementInsertOrder->execute();
+    
+        $statementSelectDetailMaxId = $Util->getPDO()->prepare($sqlSelectDetailMaxId);
+        $statementSelectDetailMaxId->execute();
+        $maxDetailId = $statementSelectDetailMaxId->fetch();
+        
+        $maxDetailNumber = substr($maxDetailId[0], 3, 10) + 1;
+        
+        $insertDetailId = "";
+        
+        if($maxDetailNumber < 10){
+            $insertDetailId = "ODD000000000".$maxDetailNumber;
+        }else if($maxDetailNumber < 100 && $maxDetailNumber >= 10){
+            $insertDetailId = "ODD00000000".$maxDetailNumber;
+        }else if($maxDetailNumber < 1000 && $maxDetailNumber>=100){
+            $insertDetailId = "ODD0000000".$maxDetailNumber;
+        }else if($maxDetailNumber < 10000 && $maxDetailNumber>=1000){
+            $insertDetailId = "ODD000000".$maxDetailNumber;
+         }else if($maxDetailNumber < 100000 && $maxDetailNumber>=10000){
+            $insertDetailId = "ODD00000".$maxDetailNumber;
+        }
+
+
 
         $statementInsertOrderDetails = $Util->getPDO()->prepare($sqlInsertOrderDetails);
     
@@ -157,36 +160,37 @@ if(count($orders) > 1){
 
 }else{
 
-    $statementSelectOrderMaxId  = $Util->getPDO()->prepare($sqlSelectOrderMaxId);
-    $statementSelectOrderMaxId->execute();
-    $orderMaxId = $statementSelectOrderMaxId->fetch();
-    
-    $orderMaxNumber = substr( $orderMaxId[0], 2, 7) + 1;
-    
-    $insertOrderId = "";
-    
-    if($orderMaxNumber < 10){
-        $insertOrderId = "OD000000".$orderMaxNumber;
-    }else if($orderMaxNumber < 100 && $orderMaxNumber >= 10){
-        $insertOrderId = "OD00000".$orderMaxNumber;
-    }else if($orderMaxNumber < 1000 && $orderMaxNumber>=100){
-        $insertOrderId = "OD0000".$maxNumber;
-    }else if($orderMaxNumber < 10000 && $orderMaxNumber>=1000){
-        $insertOrderId = "OD000".$maxNumber;
-    }else if($orderMaxNumber < 100000 && $maxNumber>=10000){
-        $insertOrderId = "OD00".$orderMaxNumber;
-    }
-    
-    $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
-    
-    $statementInsertOrder->bindValue(1, $insertOrderId);
-    $statementInsertOrder->bindValue(2, $_POST["memberId"]);
-    $statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
-    $statementInsertOrder->bindValue(4, 1);
-    $statementInsertOrder->bindValue(5, null);
-    $statementInsertOrder->execute();
 
     for($i = 0; $i < count($orders); $i++){
+
+        $statementSelectOrderMaxId  = $Util->getPDO()->prepare($sqlSelectOrderMaxId);
+        $statementSelectOrderMaxId->execute();
+        $orderMaxId = $statementSelectOrderMaxId->fetch();
+    
+        $orderMaxNumber = substr( $orderMaxId[0], 2, 7) + 1;
+    
+        $insertOrderId = "";
+    
+        if($orderMaxNumber < 10){
+            $insertOrderId = "OD000000".$orderMaxNumber;
+        }else if($orderMaxNumber < 100 && $orderMaxNumber >= 10){
+            $insertOrderId = "OD00000".$orderMaxNumber;
+        }else if($orderMaxNumber < 1000 && $orderMaxNumber>=100){
+            $insertOrderId = "OD0000".$maxNumber;
+        }else if($orderMaxNumber < 10000 && $orderMaxNumber>=1000){
+            $insertOrderId = "OD000".$maxNumber;
+        }else if($orderMaxNumber < 100000 && $maxNumber>=10000){
+            $insertOrderId = "OD00".$orderMaxNumber;
+        }
+    
+        $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
+    
+        $statementInsertOrder->bindValue(1, $insertOrderId);
+        $statementInsertOrder->bindValue(2, $_POST["memberId"]);
+        $statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
+        $statementInsertOrder->bindValue(4, 1);
+        $statementInsertOrder->bindValue(5, null);
+        $statementInsertOrder->execute();
     
         $statementSelectDetailMaxId  = $Util->getPDO()->prepare($sqlSelectDetailMaxId);
         $statementSelectDetailMaxId->execute();

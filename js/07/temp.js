@@ -105,17 +105,41 @@ const main = new Vue({
                 price: item.PRODUCT_SELLING_PRICE,
                 id: item.PRODUCT_ID,
                 img: item.PRODUCT_IMG,
-                exp: item.PRODUCT_EXP_DATE
+                exp: item.PRODUCT_EXP_DATE,
+                address: item.SUPPLIER_ADDRESS,
             }
             let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
             console.log(cartAllItems);
             if (item.quantity > 0) {
-                // localStorage
-                self.itemStorage.push(produ);
-                self.itemQty++;
+                if (cartAllItems == null) { //不存在localstorage
+                    self.itemStorage.push(produ);
+                    self.itemQty++;
+                    localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
+                } else {
+                    var temp = cartAllItems.some(function (item) {
+                        return item.name == produ.name;
+                    })
+                    if (temp) {
+                        for (i = 0; i < cartAllItems.length; i++) {
+                            if (cartAllItems[i].name == produ.name) {
+                                cartAllItems[i].qty += item.quantity
+                            }
+                            // alert('相同')
+                        }
+                    } else {
+                        cartAllItems.push(produ);
+                        self.itemQty++;//購物車圖標
+                        // alert('不同')
+                    }
+                    localStorage.setItem('itemStorage', JSON.stringify(cartAllItems));
+                    console.log(self.itemStorage);
+                    // alert('寫入')
+                }
+                alert('成功加入購物車');
+            } else {
+                alert('請選擇數量');
             }
-            console.log(self.itemStorage);
-            localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
+            item.quantity = 0;
         },
         queryData(url, data = null) {
             const self = this
@@ -379,7 +403,7 @@ const main = new Vue({
         //換頁載入＝＝＝＝＝
         setTimeout(() => {
             self.pageView = self.tableData.filter(function (item, index, array) {
-                return index < 9;
+                return index < 8;
             })
             pageNow = 0;
             $('#pagination').find('a').eq(1).css({
@@ -388,22 +412,10 @@ const main = new Vue({
             })
         }, 1000);
         //換頁載入＝＝＝＝＝
-        // $.ajax({
-        //     url:'../PHP/Frontend/EC_07/storeCard.php',
-        //     type: 'POST',
-        //         success: function (res) {
-        //             // let aaa = JSON.parse(res);
-        //             // console.log(res);
-        //             for (let index = 0; index < res.length; index++) {
-        //                 res[index].quantity = 0
-        //             }
-        //             self.tableData = res;
-        //         },
-        //         error: function (res) {
-        //             console.log('bbb');
-        //         },
-        //     dataType:'JSON',
-        // })
+        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+        if (cartAllItems) {
+            self.itemQty = cartAllItems.length
+        }
 
         // 看看是一般會員或是賣家會員
         this.checklogin();

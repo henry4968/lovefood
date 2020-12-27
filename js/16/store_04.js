@@ -79,19 +79,19 @@ new Vue({
                     product.push(this.newStorage[i].goodList[j].id);
                     product.push(this.newStorage[i].goodList[j].qty);
                     order.push(product);
-                    productQuantity++;
+                    // productQuantity++;
                 }
                 orders.push(order);
             }
 
-            // console.log(orders);
-            // console.log(productQuantity);
+            console.log(orders);
+            console.log(productQuantity);
 
             $.ajax({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "text",
-                data: { memberId, totalDiscount, orders, productQuantity },
+                data: { memberId, totalDiscount, orders },
                 success: function (res) {
                     console.log(res);
                 },
@@ -231,37 +231,31 @@ new Vue({
                 for (var i in this.newStorage[index].goodList) {
                     total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
                 }
-                // console.log(i);
+                console.log(i);
             }
             return total;
         },
+        mrtStation() {
+            siteNum = [];
+            iNum = [];
+            site = ['MPS00001', 'MPS00002', 'MPS00003', 'MPS00004', 'MPS00005', 'MPS00006', 'MPS00007', 'MPS00008', 'MPS00009', 'MPS00010', 'MPS00011', 'MPS00012', 'MPS00013', 'MPS00014', 'MPS00015'];
+            newSite = ['捷運市政府站', '捷運南京復興站', '捷運忠孝復興站', '捷運大安站', '捷運中山站', '捷運台北車站', '捷運西門站', '捷運中正紀念堂站', '捷運大橋頭站', '捷運民權西路站', '捷運石牌站', '捷運內湖站', '捷運南港站', '捷運古亭站', '捷運六張犁站'];
+            for (i in this.newStorage) {
+                siteNum.push(this.newStorage[i].pickUpSite)
+            }
+            for (i in siteNum) {
+                iNum.push(site.indexOf(siteNum[i]));
+            }
+            let abc = newSite.filter(function (item, index, array) {
+                for (i in iNum) {
+                    if (index == iNum[i]) {
+                        return true
+                    }
+                }
+            })
+            return abc;
+        }
     }
 
 });
-
-
-// $(function () {
-
-//     // 開啟 Modal 彈跳視窗
-//     $("button.btn_modal").on("click", function () {
-//         $("div.overlay").addClass("-on");
-//     });
-
-//     // 關閉 Modal
-//     $("button.btn_modal_close").on("click", function () {
-//         $("div.overlay").addClass("-opacity-zero");
-
-//         // 設定隔一秒後，移除相關 class
-//         setTimeout(function () {
-//             $("div.overlay").removeClass("-on -opacity-zero");
-//         }, 1000);
-//     });
-
-//     //點擊其他地方關閉 Madal
-//     $("div.overlay").on("click", function () {
-//         $("div.overlay").removeClass("-on -opacity-zero");
-//     });
-
-// });
-
 

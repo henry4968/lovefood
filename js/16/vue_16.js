@@ -1,80 +1,54 @@
 Vue.component('selfPickUp', {
+    props: ['newStorage'],
     template: `
-    <div class="mapIconW pickUpLocal">台北市 松山區 南京東路三段253號<img
+    <div class="mapIconW pickUpLocal">{{newStorage.address}}<img
      src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div>
     `,
 });
 Vue.component('showMap', {
+    props: ['index', 'value',],
+    methods: {
+        sync() {
+            this.$emit('my-emit', this.count);
+        }
+    },
     template: `
     <div>
-    <div class="mapIconW pickUpLocal" v-text="MRT">{{MRT}}
-    <img src="../img/16/Icon awesome-map-marker-alt.png"
-        class="mapIcon">
-    </div>
-    <div class="MRT">
-    <div class="mapImg">
-        <img src="../img/16/MRT.jpg" class="imgMRT">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運市政府站"
-            id="TaipeiCityHall" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運南京復興站"
-            id="Nanjing" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運忠孝復興站"
-            id="Zhongxiao" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運大安站"
-            id="Daan" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運中山站"
-            id="Zhongshan" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運台北車站"
-            id="TaipeiMainStaiton" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運西門站"
-            id="Ximen" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運中正紀念堂站"
-            id="MemorialHal" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運大橋頭站"
-            id="Daqiaotou" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運民權西路站"
-            id="MinquanWRoad" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運石牌站"
-            id="Shipai" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運內湖站"
-            id="Neihu" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運南港站"
-            id="Nanggong" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運古亭站"
-            id="Guting" src="../img/16/IconYellow.png">
-        <img class="mapLocate" data-toggle="tooltip" title="捷運六張犁站"
-            id="Liuzhangli" src="../img/16/IconYellow.png">
-    </div>
+        <div class="mapIconW pickUpLocal">
+            <img src="../img/16/Icon awesome-map-marker-alt.png"
+                class="mapIcon">
+        </div>
+        <div class="MRT">
 
-    <ul id="MRT_Select"  style="display: none;">
-        <li><label for="">請選擇：</label></li>
-        <li class="mrtSelect" id="mrt1"><input type="checkbox">捷運市政府站</li>
-        <li class="mrtSelect" id="mrt2"><input type="checkbox">捷運南京復興站</li>
-        <li class="mrtSelect" id="mrt3"><input type="checkbox">捷運忠教復興站</li>
-        <li class="mrtSelect" id="mrt4"><input type="checkbox">捷運大安站</li>
-        <li class="mrtSelect" id="mrt5"><input type="checkbox">捷運中山站</li>
-        <li class="mrtSelect" id="mrt6"><input type="checkbox">捷運台北車站</li>
-        <li class="mrtSelect" id="mrt7"><input type="checkbox">捷運西門站</li>
-        <li class="mrtSelect" id="mrt8"><input type="checkbox">捷運中正紀念堂站</li>
-        <li class="mrtSelect" id="mrt9"><input type="checkbox">捷運大橋頭站</li>
-        <li class="mrtSelect" id="mrt10"><input type="checkbox">捷運民權西路站</li>
-        <li class="mrtSelect" id="mrt11"><input type="checkbox">捷運石牌站</li>
-        <li class="mrtSelect" id="mrt12"><input type="checkbox">捷運內湖站</li>
-        <li class="mrtSelect" id="mrt13"><input type="checkbox">捷運南港站</li>
-        <li class="mrtSelect" id="mrt14"><input type="checkbox">捷運古亭站</li>
-        <li class="mrtSelect" id="mrt15"><input type="checkbox">捷運六張犁站</li>
-    </ul>
+            <ul id="MRT_Select">
+                <li><label for="">請選擇：</label></li>
+                <li class="mrtSelect" id="mrt1"><input type="radio" :name="'mrt['+index+']'" value="MPS00001" v-model="value.pickUpSite">捷運市政府站</li>
+                <li class="mrtSelect" id="mrt2"><input type="radio" :name="'mrt['+index+']'" value="MPS00002" v-model="value.pickUpSite">捷運南京復興站</li>
+                <li class="mrtSelect" id="mrt3"><input type="radio" :name="'mrt['+index+']'" value="MPS00003" v-model="value.pickUpSite">捷運忠孝復興站</li>
+                <li class="mrtSelect" id="mrt4"><input type="radio" :name="'mrt['+index+']'" value="MPS00004" v-model="value.pickUpSite">捷運大安站</li>
+                <li class="mrtSelect" id="mrt5"><input type="radio" :name="'mrt['+index+']'" value="MPS00005" v-model="value.pickUpSite">捷運中山站</li>
+                <li class="mrtSelect" id="mrt6"><input type="radio" :name="'mrt['+index+']'" value="MPS00006" v-model="value.pickUpSite">捷運台北車站</li>
+                <li class="mrtSelect" id="mrt7"><input type="radio" :name="'mrt['+index+']'" value="MPS00007" v-model="value.pickUpSite">捷運西門站</li>
+                <li class="mrtSelect" id="mrt8"><input type="radio" :name="'mrt['+index+']'" value="MPS00008" v-model="value.pickUpSite">捷運中正紀念堂站</li>
+                <li class="mrtSelect" id="mrt9"><input type="radio" :name="'mrt['+index+']'" value="MPS00009" v-model="value.pickUpSite">捷運大橋頭站</li>
+                <li class="mrtSelect" id="mrt10"><input type="radio":name="'mrt['+index+']'"" value="MPS00010" v-model="value.pickUpSite">捷運民權西路站</li>
+                <li class="mrtSelect" id="mrt11"><input type="radio":name="'mrt['+index+']'"" value="MPS00011" v-model="value.pickUpSite">捷運石牌站</li>
+                <li class="mrtSelect" id="mrt12"><input type="radio":name="'mrt['+index+']'"" value="MPS00012" v-model="value.pickUpSite">捷運內湖站</li>
+                <li class="mrtSelect" id="mrt13"><input type="radio":name="'mrt['+index+']'"" value="MPS00013" v-model="value.pickUpSite">捷運南港站</li>
+                <li class="mrtSelect" id="mrt14"><input type="radio":name="'mrt['+index+']'"" value="MPS00014" v-model="value.pickUpSite">捷運古亭站</li>
+                <li class="mrtSelect" id="mrt15"><input type="radio":name="'mrt['+index+']'"" value="MPS00015" v-model="value.pickUpSite">捷運六張犁站</li>
+            </ul>
+        </div>
+    </div>`,
 
-</div>
-    `,
 });
+
 
 
 const main = new Vue({
     el: '#all',
     data: {
         itemStorage: [],
-        content: 'selfPickUp',
         exp: '',
         sessionId: null,
         // ↓購物車幾項商品
@@ -85,7 +59,6 @@ const main = new Vue({
         newStorage: [],
         // ↓賣家名稱
         seller: [],
-
         // 一般會員 href
         jumppage: '',
         // 賣家會員 href
@@ -100,13 +73,9 @@ const main = new Vue({
         sellogin: '',
         inputValue: null,
         // 商品數量
-        itemQty: 0,
     },
-
     mounted() {
-
         const self = this;
-
         let test = JSON.parse(localStorage.getItem("itemStorage"));
         this.itemStorage = test;
 
@@ -114,36 +83,40 @@ const main = new Vue({
         let seller = this.seller;
         let newStorage = this.newStorage;
         let itemStorage = this.itemStorage;
-
         itemStorage.map(item => {
             if (seller.indexOf(item.seller) === -1) {
                 newStorage.push({
                     seller: item.seller,
-                    goodList: [{
-                        name: item.name,
-                        qty: item.qty,
-                        seller: item.seller,
-                        price: item.price,
-                        id: item.id,
-                        img: item.img,
-                        exp: item.exp,
-                    }]
+                    address: item.address,
+                    content: "",
+                    goodList: [],
+                    pickUpDateArray: '',
+                    //折抵點數只塞到此會員的第一張訂單
+                    ORDER_DISCOUNT: 0,
+                    pickUpMethod: '',
+                    pickUpSite: '',
                 });
                 seller.push(item.seller)
             }
         });
-        // newStorage.map(itemList => {
-        //     itemStorage.map(item => {
-        //         if (itemList.seller == item.seller) {
-        //             itemList.newStorage.push(item)
-        //         }
-        //     })
-        // })
-
-
-        // localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
-        // console.log(newStorage);
-
+        for (i = 0; i < itemStorage.length; i++) {
+            // alert();
+            for (k = 0; k < newStorage.length; k++) {
+                if (itemStorage[i].seller == newStorage[k].seller) {
+                    // alert(itemStorage[i].seller);
+                    newStorage[k].goodList.push({
+                        name: itemStorage[i].name,
+                        qty: itemStorage[i].qty,
+                        seller: itemStorage[i].seller,
+                        price: itemStorage[i].price,
+                        id: itemStorage[i].id,
+                        img: itemStorage[i].img,
+                        exp: itemStorage[i].exp,
+                        address: itemStorage[i].address,
+                    })
+                }
+            }
+        }
         $.ajax({
             url: '../PHP/Frontend/sessionR.php',
             type: 'POST',
@@ -160,9 +133,7 @@ const main = new Vue({
 
 
         setTimeout(function () {
-
             let loggnedInId = self.sessionId;
-
             $.ajax({
                 url: '../PHP/Frontend/cartShowPoints.php',
                 type: 'POST',
@@ -214,28 +185,11 @@ const main = new Vue({
         //結帳
         confirmPay() {
             const self = this;
-
             console.log(this.newStorage);
-            localStorage.setItem('newStorage', JSON.stringify(this.newStorage));
-            localStorage.setItem('discountPoints', JSON.stringify(this.inputValue));
+            localStorage.setItem('newStorage', JSON.stringify(self.newStorage));
+            localStorage.setItem('discountPoints', JSON.stringify(self.inputValue));
             localStorage.setItem('memberId', JSON.stringify(self.sessionId));
         },
-
-
-
-        // sum() {
-        // var sum = 0
-        // for (var i in this.itemStorage) {
-        //     sum += parseInt(this.itemStorage[i].price) * parseFloat(this.price)
-        // }
-        // return total
-        // },
-        // pickUpExp() {
-        // 先把時間、日期轉成分鐘數，比較大小，再轉日期、時間。
-        // this.itemStorage.exp
-        // },
-
-
         discountAllPoints() {
 
             const self = this;
@@ -246,9 +200,7 @@ const main = new Vue({
             } else {
                 this.inputValue = self.membersPoints;
             }
-
         },
-
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
             if (checkdata != '') {
@@ -369,14 +321,6 @@ const main = new Vue({
         },
 
     },
-    // watch: {
-    //     inputValue: function () {
-    //         if (this.inputValue > this.membersPoints) {
-    //             alert('超過啦');
-    //         }
-    //     }
-    // },
-
     computed: {
 
         //計算總金額
@@ -393,20 +337,78 @@ const main = new Vue({
         //單筆訂單金額
         subtotal() {
             var subtotal = [];
+            var itemPrice = 0;
+            let abc = 0
             for (var index in this.newStorage) {
                 for (var i in this.newStorage[index].goodList) {
-                    subtotal.push(this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty);
+                    itemPrice += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty
                 }
+                itemPrice -= abc
+                subtotal.push(itemPrice);
+                abc = itemPrice
+
             }
             return subtotal;
         },
-        //購物車
-        // itemQty() {
-        //     if (this.newStorage == []) {
-        //         return 0;
-        //     } else {
-        //         return this.newStorage.length
-        //     }
-        // }
+        // 購物車幾樣商品
+        itemQty() {
+            if (this.newStorage == []) {
+                return 0;
+            } else {
+                return this.newStorage.length
+            }
+        },
+        pickUpDate() {
+            //日期格式轉換
+            Date.prototype.Format = function (fmt) {
+                //author: meizz
+                var o = {
+                    "M+": this.getMonth() + 1, //月份
+                    "d+": this.getDate(), //日
+                    "h+": this.getHours(), //小时
+                    "m+": this.getMinutes(), //分
+                    "s+": this.getSeconds(), //秒
+                    "q+": Math.floor((this.getMonth() + 3) / 3), //季度
+                    S: this.getMilliseconds() //毫秒
+                };
+                if (/(y+)/.test(fmt))
+                    fmt = fmt.replace(
+                        RegExp.$1,
+                        (this.getFullYear() + "").substr(4 - RegExp.$1.length)
+                    );
+                for (var k in o)
+                    if (new RegExp("(" + k + ")").test(fmt))
+                        fmt = fmt.replace(
+                            RegExp.$1,
+                            RegExp.$1.length == 1
+                                ? o[k]
+                                : ("00" + o[k]).substr(("" + o[k]).length)
+                        );
+                return fmt;
+            };
+            //   開始計算取貨區間
+            let pickUpTimeOrder = [];
+            for (var index in this.newStorage) {
+                //確保最後一個是最快到期 
+                this.newStorage[index].goodList.sort(function (a, b) {
+                    return -((+new Date(a.exp)) - (+new Date(b.exp)));
+                });
+                for (var i in this.newStorage[index].goodList) {
+                    dt1 = (+new Date(this.newStorage[index].goodList[i].exp));
+                    //有效期限前三小時
+                    dt2 = 3 * 60 * 60 * 1000;
+                    a = new Date(parseInt(dt1 - dt2)).Format("yyyy-MM-dd hh:mm:ss")
+                }
+                pickUpTimeOrder.push(a);
+            }
+            // for(i<0;i<this.newStorage.length;i++){
+            //     this.newStorage[i].pickUpDateArray.push(pickUpTimeOrder[i]);
+            // }
+            for (var i in this.newStorage) {
+                console.log(this.newStorage[i])
+                this.newStorage[i].pickUpTimeOrder = pickUpTimeOrder[i];//塞日期進newStorage
+            }
+            return pickUpTimeOrder;
+        },
     },
 });
