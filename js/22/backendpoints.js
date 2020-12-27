@@ -91,6 +91,27 @@ const app = new Vue({
             },
         });
 
+        $.ajax({
+            url: '../PHP/Frontend/sessionR.php',
+            success: function (res) {
+                $.cookie('account', `${res}`, 3);
+                self.loginAccount = res;
+
+                if (res.substr(0, 2) != 'SP') {
+                    console.log(self.loginAccount);
+                    location.href = "../frontend/signUp_signIn.html";
+                    alert('尚未登入請重新登入');
+                } else if (res == '') {
+                    location.href = "../frontend/signUp_signIn.html";
+                    alert('尚未登入請重新登入');
+                }
+            },
+            dataType: "text",
+            error: function (res) {
+                console.log(res);
+            }
+        });
+
     },
 
     methods: {
