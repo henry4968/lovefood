@@ -1,4 +1,3 @@
-
 Vue.component('user', {
     template: `
     <div>
@@ -18,11 +17,9 @@ Vue.component('user', {
 const app = new Vue({
     el: '.containerSellerOrder',
     data: {
-
         tableData: null,
         tableDataOne: null,
         isShow: false, //綁定 v-show值
-        paymentMethod: null,
         detail: null,
         code: '',
     },
