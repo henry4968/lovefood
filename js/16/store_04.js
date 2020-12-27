@@ -71,7 +71,7 @@ new Vue({
             let memberId = this.sessionId;
             let orders = [];
             let productQuantity = 0;
-
+            let totalPack = self.newStorage;
             for (let i = 0; i < this.newStorage.length; i++) {
                 let order = [];
                 for (let j = 0; j < this.newStorage[i].goodList.length; j++) {
@@ -91,7 +91,7 @@ new Vue({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "text",
-                data: { memberId, totalDiscount, orders },
+                data: { memberId, totalDiscount, orders, totalPack },
                 success: function (res) {
                     console.log(res);
                 },
