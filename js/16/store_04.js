@@ -72,7 +72,6 @@ new Vue({
             let orders = [];
             let productQuantity = 0;
             let totalPack = self.newStorage;
-
             for (let i = 0; i < this.newStorage.length; i++) {
                 let order = [];
                 for (let j = 0; j < this.newStorage[i].goodList.length; j++) {

@@ -187,13 +187,12 @@ if(count($orders) > 1){
 
     $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
 
-    statementInsertOrder->bindValue(1, $insertOrderId);
+    $statementInsertOrder->bindValue(1, $insertOrderId);
     $statementInsertOrder->bindValue(2, $_POST["memberId"]);
-    $statementInsertOrder->bindValue(3, $totalPack[0]['pickUpTimeOrder']);
-    $statementInsertOrder->bindValue(4, $_POST["totalDiscount"]);
-    $statementInsertOrder->bindValue(5, $totalPack[0]['pickUpMethod']);
-    $statementInsertOrder->bindValue(6, $mrtPickSite);
-    $statementInsertOrder->execute(); 
+    $statementInsertOrder->bindValue(3, $_POST["totalDiscount"]);
+    $statementInsertOrder->bindValue(4, 1);
+    $statementInsertOrder->bindValue(5, null);
+    $statementInsertOrder->execute();
 
     for($i = 0; $i < count($orders); $i++){
     
