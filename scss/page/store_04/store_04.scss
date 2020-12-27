@@ -1177,6 +1177,7 @@
                     text-align: right;
                     margin: 30px 20px;
                 }
+                //信用卡區域開始===========
                 .creditCardForm{
                     // border: 1px solid red;
                     margin: 30px auto;
@@ -1204,6 +1205,12 @@
                     .formGroup{
                         width:350px;
                         margin: 10px 0px;
+                        @include newRwd("mediumPhone"){
+                            font-size: 24px;
+                        }
+                        @include newRwd("newSmallPhone"){
+                            font-size: 20px;
+                        }
                         
                         .formControl{
                             width: 170px;
@@ -1215,6 +1222,12 @@
                             box-shadow:3px 3px 6px rgba(0,0,0,0.2);
                             &:focus{
                                 border: 2px solid #C9BE9F;
+                            }
+                            @include newRwd("mediumPhone"){
+                                width: 150px;
+                            }
+                            @include newRwd("newSmallPhone"){
+                                width: 150px;
                             }
                         }
 
@@ -1233,6 +1246,7 @@
                         }
                         @include newRwd("newSmallPhone"){
                             width: 310px;
+                            margin:10px auto;
                         }
                         @include newRwd("miniPhone"){
                             width: 290px;
@@ -1258,14 +1272,16 @@
                                 width: 100px;
                             }
                             @include newRwd("mediumPhone"){
-                                width: 72px;
-                                height: 30px;
+                                width: 150px;
+                                height: 35px;
                              }
                              @include newRwd("newSmallPhone"){
-                                width: 60px;
+                                width: 150px;
+                                font-size: 14px;
                              }
                              @include newRwd("miniPhone"){
-                                width: 55px;
+                                width: 150px;
+                                font-size: 14px;
                             }
                             }
                             #creditCardRwd{
@@ -1280,8 +1296,6 @@
                     .creditInfo2{
                         display: flex;
                         flex-wrap: wrap;
-                        // justify-content: space-between;
-
                         width: 780px;
                         @include newRwd("pad"){
                             width: 600px;
@@ -1317,12 +1331,12 @@
                                 width: 135px;
                             }
                             @include newRwd("mediumPhone"){
-                                width: 72px;
-                                height: 30px;
+                                width: 50px;
+                                height: 35px;
                                 font-size: 12px;
                             }
                             @include newRwd("miniPhone"){
-                                width: 66px;
+                                width: 50px;
                             }
                         }
                         .expYear{
@@ -1344,10 +1358,10 @@
                             }
                             @include newRwd("mediumPhone"){
                                 width: 72px;
-                                height: 30px;
+                                height: 35px;
                                 font-size: 12px;
                             }
-                            @include newRwd("miniPhone"){
+                            @include newRwd("newSmallPhone"){
                                 width: 66px;
                             }
 
@@ -1356,8 +1370,16 @@
                             margin-left: 50px;
                             @include newRwd("pad"){
                                 margin-top: 20px;
+                                margin-left: 20px;
                             }
-                           
+                            @include newRwd("mediumPhone"){
+                                margin-top: 10px;
+                                margin-left: 20px;
+                            }
+                            @include newRwd("newSmallPhone"){
+                                margin-top: 10px;
+                                margin-left: 0px;
+                            }
                             .securityCode1{
                                 width: 80px;
                                 height: 35px;
@@ -1374,9 +1396,9 @@
                                     width: 80px;
                                 }
                                 @include newRwd("mediumPhone"){
-                                    width: 50px;
-                                    height: 30px;
-                                    font-size: 12px;
+                                    width: 80px;
+                                    height: 35px;
+                                    font-size: 14px;
                                 }
                             }
                         }
@@ -1400,6 +1422,7 @@
                     }
                     
                 }
+                //信用卡區域結束===========
 
             }
             hr{
