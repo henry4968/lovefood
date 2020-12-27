@@ -90,7 +90,7 @@ const app = new Vue({
                 $.cookie('account', `${res}`, 3);
                 self.loginAccount = res;
 
-                if (res.substr(0, 2) != 'SP') {
+                if (res != 'SP0001') {
                     console.log(self.loginAccount);
                     location.href = "../frontend/signUp_signIn.html";
                     alert('尚未登入請重新登入');
