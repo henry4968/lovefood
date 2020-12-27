@@ -125,10 +125,10 @@
                         <p>取貨資訊</p>
                     </div>
                     <section class="mainArea">
-                        <template v-for="(item, index) in newStorage">
-                            <ul class="list_h">
+                        <template v-for="(item, i) in newStorage">
+                            <ul class="list_h" v-for="(detail, i) in item.goodList">
                                 <li><img src="../img/16/sellerIcon.png"></li>
-                                <li>{{item.seller}}</li>
+                                <li>{{detail.seller}}</li>
                                 <li>單價</li>
                                 <li>數量</li>
                                 <li>總計</li>
@@ -139,12 +139,12 @@
                                     <div>
                                         <ul>
                                             <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
-                                                <span>{{item.address}}{{mrtStation[index]}}<img
+                                                <span>{{detail.pickUp}}<img
                                                         src="../img/16/Icon awesome-map-marker-alt.png"
                                                         class="mapIcon"></span>
                                             </li>
                                             <li><img src="../img/16/locationIcon.png"
-                                                    class="locationIcon">取貨區間：{{item.pickUpTimeOrder}}
+                                                    class="locationIcon">取貨區間：{{detail.exp}}
                                             </li>
                                         </ul>
 

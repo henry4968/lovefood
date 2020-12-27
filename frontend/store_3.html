@@ -131,9 +131,9 @@
                     </div>
                     <div class="mainArea">
                         <template v-for="(item, index) in newStorage">
-                            <ul class="list_h">
+                            <ul class="list_h" v-for="(detail, i) in item.goodList">
                                 <li><img src="../img/16/sellerIcon.png"></li>
-                                <li>{{item.seller}}</li>
+                                <li>{{detail.seller}}</li>
                                 <li>單價</li>
                                 <li>數量</li>
                                 <li>總計</li>
@@ -160,7 +160,7 @@
                                                 <li>數量</li>
                                                 <li>總計</li>
                                             </ul>
-                                            <ul class="orders">
+                                            <ul class="orders" v-for="(detail, i) in item.goodList">
 
                                                 <li class="price">${{detail.price}}</li>
                                                 <li class="quantity">
@@ -184,32 +184,27 @@
                                         <p>取貨資訊</p>
                                         <div>
                                             <ul>
-                                                <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨期限：
-                                                    {{pickUpDate[index]}}
+                                                <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨區間：
+                                                    <!-- {{pickUpExp}} -->
                                                 </li>
                                                 <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨方式：
                                                     <br>
-                                                    <input type="radio" :name="'pickUpLocation['+index+']'"
-                                                        @click="item.content='selfPickUp'" value="1"
-                                                        v-model="newStorage[index].pickUpMethod">
+                                                    <input type="radio" name="pickUpLocation"
+                                                        @click="content='selfPickUp'" checked>
                                                     <span>到店自取</span>
                                                     <!-- <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
                                                     src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div> -->
                                                     <br>
-                                                    <input type="radio" :name="'pickUpLocation['+index+']'"
-                                                        @click="item.content='showMap'" value="2"
-                                                        v-model="newStorage[index].pickUpMethod">
+                                                    <input type="radio" name="pickUpLocation"
+                                                        @click="content='showMap'">
                                                     <span>捷運站取貨</span>
                                                     <!-- <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
                                                     src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
                                             </div> -->
                                                 </li>
                                                 <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
-                                                    <component @input="$emit('input', $event.target.value)"
-                                                        v-model:new-storage="newStorage[index]" :index="index"
-                                                        :is="item.content"></component>
+                                                    <component :is="content"></component>
                                                 </li>
-                                            </ul>
                                         </div>
                                     </div>
 
@@ -239,7 +234,7 @@
                                     <span>
                                         <label for="points">使用</label>
                                         <input type="number" id="inputDiscount" name="discount" min="0" max=""
-                                            v-model="newStorage[0].ORDER_DISCOUNT">
+                                            v-model="inputValue">
                                         <label for="">點</label>
                                     </span>
                                     <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
@@ -254,8 +249,6 @@
                             <span>結帳總金額：</sapn>
                                 <span class="dollars">${{total}}</span>
                                 <button @click="confirmPay" v-if="membersPoints >= inputValue"><a
-                                        href="./store_4.html">$結帳</a></button>
-                                <button @click="confirmPay" v-else="membersPoints == null"><a
                                         href="./store_4.html">$結帳</a></button>
                                 <button v-else disabled
                                     style="background-color: #DEDEDE; cursor: not-allowed;">$結帳</a></button>

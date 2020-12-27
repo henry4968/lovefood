@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>樂腹商城</title>
+    <title>Love food|樂腹商城</title>
     <link rel="stylesheet" href="../css/store_1.css">
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
     <!-- axios套件 -->
@@ -14,85 +15,94 @@
 
 
 <body>
-   
     <div id="all">
-<!-- 標頭開始 -->
-<div id="all">
-    <header id="header">
-        <!-- 漢堡選單開始 -->
-        <input type="checkbox" id="hamburgerMenuToggle">
-        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
-            <span></span>
-        </label>
-        <!-- 行動版行動導覽列開始 -->
-        <nav id="navigationForMobile">
-            <div id="searchBarForMobile">
-                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
-            </div>
-            <ul>
-                <li>
-                    <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
-                </li>
-                <li>
-                    <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchorsForMobile">賣家專區</a>
-                </li>
-                <li>
-                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
-                </li>
-                <li>
-                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+        <!-- 標頭開始 -->
+        <header id="header">
+            <!-- 漢堡選單開始 -->
+            <input type="checkbox" id="hamburgerMenuToggle">
+            <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+                <span></span>
+            </label>
+            <!-- 行動版行動導覽列開始 -->
+            <nav id="navigationForMobile">
+                <div id="searchBarForMobile">
+                    <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+                </div>
+                <ul>
+                    <li>
+                        <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
+                    </li>
+                    <li>
+                        <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
+                    </li>
+                    <li>
+                        <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+                    </li>
+                    <li>
+                        <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                            <div>
+                                立即捐款
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- 行動版導覽列結束 -->
+            <!-- 漢堡選單結束 -->
+            <div id="headerContentContainer">
+                <a href="./index.html">
+                    <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                </a>
+                <!-- 桌機版導覽列開始 -->
+                <nav id="navigationForPC">
+                    <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+                    <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                        @click="sellogIncheck">賣家專區</a>
+                    <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                    <a href="./donate_now.html" id="navSepcialAnchor">
                         <div>
                             立即捐款
                         </div>
                     </a>
-                </li>
-            </ul>
-        </nav>
-        <!-- 行動版導覽列結束 -->
-        <!-- 漢堡選單結束 -->
-        <div id="headerContentContainer">
-            <a href="./index.html">
-                <img id="logo" src="../img/22/index/ch05_header_logo.png">
-            </a>
-            <!-- 桌機版導覽列開始 -->
-            <nav id="navigationForPC">
-                <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
-                <a href="../frontend/sellerSignUp_SignIn.html" class="navGeneralAnchors">賣家專區</a>
-                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
-                <a href="./donate_now.html" id="navSepcialAnchor">
-                    <div>
-                        立即捐款
-                    </div>
-                </a>
-                <a href="#0" id="navIcons01" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_search.png" alt="">
-                </a>
-                <a href="./store_3.html" id="navIcons02" class="navIcons">
-                    <span style="position: relative;">
-                        <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;
-    top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
-                    </span>
-                </a>
-                <a href="./memberInformation.html" id="navIcons03" class="navIcons">
-                    <img src="../img/22/index/ch05_nav_member.png" alt="">
-                </a>
-            </nav>
-            <!-- 桌機版導覽列結束 -->
-            <!-- 行動版次級導覽列開始 -->
-            <nav id="subNavigationForMobile">
-                <a href="./store_3.html" id="navIcons02" class="navIcons">
-                    <span style="position: relative;">
-                        <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px; top: -40%;">{{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
-                    </span>
-                </a>
-                <a href="./memberInformation.html" id="navIcons05" class="navIconsForMobile">
-                    <img src="../img/22/index/ch05_nav_member.png" alt="">
-                </a>
-            </nav>
-            <!-- 行動版次級導覽列結束 -->
-        </div>
-    </header>
-    <!-- 標頭結束 -->
+                    <!-- 點放大鏡伸縮搜尋欄 -->
+                    <a href="#0" id="navIcons01" class="navIcons" @click="longsearch" style="z-index: 99;">
+                        <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                        <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
+                    </a>
+                    <a href="./store_3.html" id="navIcons02" class="navIcons" style="margin-left: 0px;">
+                        <span style="position: relative;">
+                            <div
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -40%;">
+                                {{itemQty}}</div>
+                            <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        </span>
+                    </a>
+                    <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                        @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                    </a>
+                </nav>
+                <!-- 桌機版導覽列結束 -->
+                <!-- 行動版次級導覽列開始 -->
+                <nav id="subNavigationForMobile">
+                    <a href="./store_3.html" id="navIcons04" class="navIcons" style="margin-left: 0px;;">
+                        <span style="position: relative;">
+                            <div
+                                style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px; top: -40%;">
+                                {{itemQty}}</div><img src="../img/22/index/ch05_nav_cart.png" alt="">
+                        </span>
+                    </a>
+                    <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck"
+                        @mouseover="onhover" @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                    </a>
+                </nav>
+                <!-- 行動版次級導覽列結束 -->
+            </div>
+        </header>
+        <!-- 標頭結束 -->
         <div class="wrap">
             <!-- store_banner開始 -->
             <section class=banner_16>
@@ -115,7 +125,8 @@
                                 <span id="span">
                                     <img src="../img/07/Iconfilter.png" alt="" class="Iconfilter">條件篩選</span>
                                 <li class="areaName" id="selectAll"><input type="checkbox" name="Name" value="1"
-                                        class="searchName" style="width:20px; height:20px;" id="option1"><label for="option1">全選</label>
+                                        class="searchName" style="width:20px; height:20px;" id="option1"><label
+                                        for="option1">全選</label>
 
                                 </li>
                                 <li class="areaName"><input type="checkbox" name="Name" value="2" class="searchName"
@@ -123,10 +134,11 @@
                                 </li>
                                 <li class="areaName"><input type="checkbox" name="Name" value="3" class="searchName"
                                         style="width:20px; height:20px;" id="option3"><label for="option3">商家</label>
-                                    
+
                                 </li>
                                 <li class="areaName"><input type="checkbox" name="Name" value="4" id=""
-                                        class="searchName" style="width:20px; height:20px;" id="option4"><label for="option4">食品種類</label>
+                                        class="searchName" style="width:20px; height:20px;" id="option4"><label
+                                        for="option4">食品種類</label>
                                 </li>
 
                                 <a href="#" class="btnMap" id="btnMap">
@@ -144,31 +156,55 @@
                                 <p class="pText">區域</p>
                                 <div class="item1">
                                     <div class="group" id="group1">
-                                        <span><input type="checkbox" name="dist1[0]" value="100" style="width: 20px; height: 20px;" id="option1-1"><label for="option1-1">中正區</label>
+                                        <span><input type="checkbox" name="dist1[0]" value="100"
+                                                style="width: 20px; height: 20px;" id="option1-1"><label
+                                                for="option1-1">中正區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[1]" value="115" style="width: 20px; height: 20px;" id="option1-2"><label for="option1-2">南港區</label>
+                                        <span><input type="checkbox" name="dist1[1]" value="115"
+                                                style="width: 20px; height: 20px;" id="option1-2"><label
+                                                for="option1-2">南港區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[2]" value="116" style="width: 20px; height: 20px;" id="option1-3"><label for="option1-3">文山區</label>
+                                        <span><input type="checkbox" name="dist1[2]" value="116"
+                                                style="width: 20px; height: 20px;" id="option1-3"><label
+                                                for="option1-3">文山區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[3]" value="108" style="width: 20px; height: 20px;" id="option1-4"><label for="option1-4">萬華區</label>
+                                        <span><input type="checkbox" name="dist1[3]" value="108"
+                                                style="width: 20px; height: 20px;" id="option1-4"><label
+                                                for="option1-4">萬華區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[4]" value="103" style="width: 20px; height: 20px;" id="option1-5"><label for="option1-5">大同區</label>
+                                        <span><input type="checkbox" name="dist1[4]" value="103"
+                                                style="width: 20px; height: 20px;" id="option1-5"><label
+                                                for="option1-5">大同區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[5]" value="110" style="width: 20px; height: 20px;" id="option1-6"><label for="option1-6">信義區</label>
+                                        <span><input type="checkbox" name="dist1[5]" value="110"
+                                                style="width: 20px; height: 20px;" id="option1-6"><label
+                                                for="option1-6">信義區</label>
                                         </span>
                                     </div>
                                     <div class="group" id="group2">
-                                        <span><input type="checkbox" name="dist1[6]" value="104" style="width: 20px; height: 20px;" id="option1-7"><label for="option1-7">中山區</label>
+                                        <span><input type="checkbox" name="dist1[6]" value="104"
+                                                style="width: 20px; height: 20px;" id="option1-7"><label
+                                                for="option1-7">中山區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[7]" value="105" style="width: 20px; height: 20px;" id="option1-8"><label for="option1-8">松山區</label>
+                                        <span><input type="checkbox" name="dist1[7]" value="105"
+                                                style="width: 20px; height: 20px;" id="option1-8"><label
+                                                for="option1-8">松山區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[8]" value="106" style="width: 20px; height: 20px;" id="option1-9"><label for="option1-9">大安區</label>
+                                        <span><input type="checkbox" name="dist1[8]" value="106"
+                                                style="width: 20px; height: 20px;" id="option1-9"><label
+                                                for="option1-9">大安區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[9]" value="112" style="width: 20px; height: 20px;" id="option1-10"><label for="option1-10">北投區</label>
+                                        <span><input type="checkbox" name="dist1[9]" value="112"
+                                                style="width: 20px; height: 20px;" id="option1-10"><label
+                                                for="option1-10">北投區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[10]" value="114" style="width: 20px; height: 20px;" id="option1-11"><label for="option1-11">內湖區</label>
+                                        <span><input type="checkbox" name="dist1[10]" value="114"
+                                                style="width: 20px; height: 20px;" id="option1-11"><label
+                                                for="option1-11">內湖區</label>
                                         </span>
-                                        <span><input type="checkbox" name="dist1[11]" value="111" style="width: 20px; height: 20px;" id="option1-12"><label for="option1-12">士林區</label>
+                                        <span><input type="checkbox" name="dist1[11]" value="111"
+                                                style="width: 20px; height: 20px;" id="option1-12"><label
+                                                for="option1-12">士林區</label>
                                         </span>
                                     </div>
                                 </div>
@@ -179,13 +215,16 @@
                                 <div class="itemName2Wth">
                                     <div class="group" id="group3">
                                         <span><input type="checkbox" name="seller1[0]" value="OG0000002"
-                                                style="width: 20px; height: 20px;" id="option2-1"><label for="option2-1">全家</label>
+                                                style="width: 20px; height: 20px;" id="option2-1"><label
+                                                for="option2-1">全家</label>
                                         </span>
                                         <span><input type="checkbox" name="seller1[1]" value="OG0000003"
-                                                style="width: 20px; height: 20px;" id="option2-2"><label for="option2-2">ＯＫ</label>
+                                                style="width: 20px; height: 20px;" id="option2-2"><label
+                                                for="option2-2">ＯＫ</label>
                                         </span>
                                         <span><input type="checkbox" name="seller1[2]" value="OG0000001"
-                                                style="width: 20px; height: 20px;" id="option2-3"><label for="option2-3">7-11</label>
+                                                style="width: 20px; height: 20px;" id="option2-3"><label
+                                                for="option2-3">7-11</label>
                                         </span>
                                         <span><input type="checkbox" name="seller1[3]" value="OG0000004"
                                                 style="width: 20px; height: 20px;">萊爾富
@@ -318,27 +357,37 @@
                                 <p>商家</p>
 
                                 <!-- <div class="group" id="group3"> -->
-                                <span><input type="checkbox" name="seller2[0]" value="OG0000002" style="width: 20px; height: 20px;">全家
+                                <span><input type="checkbox" name="seller2[0]" value="OG0000002"
+                                        style="width: 20px; height: 20px;">全家
                                 </span>
-                                <span><input type="checkbox" name="seller2[1]" value="OG0000003" style="width: 20px; height: 20px;">ＯＫ
+                                <span><input type="checkbox" name="seller2[1]" value="OG0000003"
+                                        style="width: 20px; height: 20px;">ＯＫ
                                 </span>
-                                <span><input type="checkbox" name="seller2[2]" value="" style="width: 20px; height: 20px;">7-11
+                                <span><input type="checkbox" name="seller2[2]" value=""
+                                        style="width: 20px; height: 20px;">7-11
                                 </span>
-                                <span><input type="checkbox" name="seller2[3]" value="OG0000004" style="width: 20px; height: 20px;">萊爾富
+                                <span><input type="checkbox" name="seller2[3]" value="OG0000004"
+                                        style="width: 20px; height: 20px;">萊爾富
                                 </span>
-                                <span><input type="checkbox" name="seller2[4]" value="OG0000005" style="width: 20px; height: 20px;">全聯
+                                <span><input type="checkbox" name="seller2[4]" value="OG0000005"
+                                        style="width: 20px; height: 20px;">全聯
                                 </span>
                                 <!-- </div> -->
                                 <!-- <div class="group" id="group4"> -->
-                                <span><input type="checkbox" name="seller2[5]" value="OG0000008" style="width: 20px; height: 20px;">家樂福
+                                <span><input type="checkbox" name="seller2[5]" value="OG0000008"
+                                        style="width: 20px; height: 20px;">家樂福
                                 </span>
-                                <span><input type="checkbox" name="seller2[6]" value="OG0000006" style="width: 20px; height: 20px;">頂好
+                                <span><input type="checkbox" name="seller2[6]" value="OG0000006"
+                                        style="width: 20px; height: 20px;">頂好
                                 </span>
-                                <span><input type="checkbox" name="seller2[7]" value="OG0000007" style="width: 20px; height: 20px;">愛買
+                                <span><input type="checkbox" name="seller2[7]" value="OG0000007"
+                                        style="width: 20px; height: 20px;">愛買
                                 </span>
-                                <span><input type="checkbox" name="seller2[8]" value="OG0000009" style="width: 20px; height: 20px;">美廉社
+                                <span><input type="checkbox" name="seller2[8]" value="OG0000009"
+                                        style="width: 20px; height: 20px;">美廉社
                                 </span>
-                                <span><input type="checkbox" name="seller2[9]" value="OG0000010" style="width: 20px; height: 20px;">農會
+                                <span><input type="checkbox" name="seller2[9]" value="OG0000010"
+                                        style="width: 20px; height: 20px;">農會
                                 </span>
                                 <!-- </div> -->
                             </div>
@@ -400,30 +449,42 @@
                             <div class="itemName" id="itemName4">
                                 <p>地圖</p>
 
-                                <span><input type="checkbox" name="map[0]" value="100" style="width: 20px; height: 20px;">中正區
+                                <span><input type="checkbox" name="map[0]" value="100"
+                                        style="width: 20px; height: 20px;">中正區
                                 </span>
-                                <span><input type="checkbox" name="map[1]" value="115" style="width: 20px; height: 20px;">南港區
+                                <span><input type="checkbox" name="map[1]" value="115"
+                                        style="width: 20px; height: 20px;">南港區
                                 </span>
-                                <span><input type="checkbox" name="map[2]" value="116" style="width: 20px; height: 20px;">文山區
+                                <span><input type="checkbox" name="map[2]" value="116"
+                                        style="width: 20px; height: 20px;">文山區
                                 </span>
-                                <span><input type="checkbox" name="map[3]" value="108" style="width: 20px; height: 20px;">萬華區
+                                <span><input type="checkbox" name="map[3]" value="108"
+                                        style="width: 20px; height: 20px;">萬華區
                                 </span>
-                                <span><input type="checkbox" name="map[4]" value="103" style="width: 20px; height: 20px;">大同區
+                                <span><input type="checkbox" name="map[4]" value="103"
+                                        style="width: 20px; height: 20px;">大同區
                                 </span>
-                                <span><input type="checkbox" name="map[5]" value="110" style="width: 20px; height: 20px;">信義區
+                                <span><input type="checkbox" name="map[5]" value="110"
+                                        style="width: 20px; height: 20px;">信義區
                                 </span>
 
-                                <span><input type="checkbox" name="map[6]" value="104" style="width: 20px; height: 20px;">中山區
+                                <span><input type="checkbox" name="map[6]" value="104"
+                                        style="width: 20px; height: 20px;">中山區
                                 </span>
-                                <span><input type="checkbox" name="map[7]" value="105" style="width: 20px; height: 20px;">松山區
+                                <span><input type="checkbox" name="map[7]" value="105"
+                                        style="width: 20px; height: 20px;">松山區
                                 </span>
-                                <span><input type="checkbox" name="map[8]" value="106" style="width: 20px; height: 20px;">大安區
+                                <span><input type="checkbox" name="map[8]" value="106"
+                                        style="width: 20px; height: 20px;">大安區
                                 </span>
-                                <span><input type="checkbox" name="map[9]" value="112" style="width: 20px; height: 20px;">北投區
+                                <span><input type="checkbox" name="map[9]" value="112"
+                                        style="width: 20px; height: 20px;">北投區
                                 </span>
-                                <span><input type="checkbox" name="map[10]" value="114" style="width: 20px; height: 20px;">內湖區
+                                <span><input type="checkbox" name="map[10]" value="114"
+                                        style="width: 20px; height: 20px;">內湖區
                                 </span>
-                                <span><input type="checkbox" name="map[11]" value="111" style="width: 20px; height: 20px;">士林區
+                                <span><input type="checkbox" name="map[11]" value="111"
+                                        style="width: 20px; height: 20px;">士林區
                                 </span>
                             </div>
                         </div>
@@ -455,11 +516,12 @@
                 <!-- 商品 -->
                 <div class="context" v-if="pageView !== null ">
                     <section class="productArea">
-                        <div class="width_2P" >
-                            <template  v-for="(item, index) in pageView">
-                            <!-- {{item}} -->
-                                <div class="product" v-if="!(item.hours === 0 && item.days === 0 && item.seconds === 0 && item.minutes === 0 )">
-                                    
+                        <div class="width_2P">
+                            <template v-for="(item, index) in pageView">
+                                <!-- {{item}} -->
+                                <div class="product"
+                                    v-if="!(item.hours === 0 && item.days === 0 && item.seconds === 0 && item.minutes === 0 )">
+
                                     <div class="pdtText">
                                         <span class="pdtTime">
                                             下架倒數
@@ -468,15 +530,16 @@
                                             <span class="minutes" v-text="item.minutes"></span>分
                                             <span class="seconds" v-text="item.seconds"></span>秒
                                         </span>
-                                        
+
                                     </div>
                                     <div class="productCenter">
-                                        <a 
-                                        :href="'store_2.html?pdID='+item.PRODUCT_ID"><img :src="item.PRODUCT_IMG" alt="" class="pdtImg"></a>
-                                     
+                                        <a :href="'store_2.html?pdID='+item.PRODUCT_ID"><img :src="item.PRODUCT_IMG"
+                                                alt="" class="pdtImg"></a>
+
                                         <div class="pdtExplanation">
                                             <ul class="pdtTitle">
-                                                <a :href="'store_2.html?pdID='+item.PRODUCT_ID">{{item.PRODUCT_NAME}}</a>
+                                                <a
+                                                    :href="'store_2.html?pdID='+item.PRODUCT_ID">{{item.PRODUCT_NAME}}</a>
                                                 <li id="liM">{{item.PRODUCT_CATEGORY_NAME}}</li>
                                                 <li>{{item.SUPPLIER_NAME}}</li>
                                             </ul>
