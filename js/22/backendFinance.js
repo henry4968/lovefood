@@ -288,6 +288,8 @@ const app = new Vue({
                     var totalSoldGoodsAmount = 0;
                     var pieChartAllData = [];
 
+                    console.log(rSG);
+
                     if (rSG.length == 0) {
 
                         let pieChartData = {};
@@ -297,22 +299,44 @@ const app = new Vue({
 
                     } else {
 
+                        Array.prototype.groupBy = function (prop) {
+                            return this.reduce(function (groups, item) {
+                                const val = item[prop];
+                                groups[val] = groups[val] || [];
+                                groups[val].push(item);
+                                return groups;
+                            }, {});
+                        };
+
                         for (let i = 0; i < rSG.length; i++) {
                             totalSoldGoodsAmount = totalSoldGoodsAmount + parseInt(rSG[i].ORDER_DETAIL_QUANTITY);
                         }
 
-                        for (let i = 0; i < rSG.length; i++) {
+                        const goodsGroupByName = rSG.groupBy('PRODUCT_NAME');
+                        console.log(goodsGroupByName);
+
+                        for (let i in goodsGroupByName) {
+
                             let pieChartData = {};
-                            pieChartData.name = rSG[i].PRODUCT_NAME;
-                            pieChartData.y = parseInt(rSG[i].ORDER_DETAIL_QUANTITY) / totalSoldGoodsAmount;
-                            pieChartData.y = pieChartData.y.toFixed(4) * 100;
+                            pieChartData.name = i;
+                            pieChartData.y = 0;
+
+                            for (let j = 0; j < goodsGroupByName[i].length; j++) {
+                                pieChartData.y = pieChartData.y + parseInt(goodsGroupByName[i][j].ORDER_DETAIL_QUANTITY);
+                            }
+
+                            pieChartData.y = pieChartData.y / totalSoldGoodsAmount;
+                            pieChartData.y = pieChartData.y.toFixed(3) * 100;
                             pieChartAllData.push(pieChartData);
+
+                            // console.log(pieChartData);
                         }
 
                     }
 
+                    console.log(pieChartAllData);
                     self.pieChartAllData = pieChartAllData;
-                    // console.log(self.pieChartAllData);
+
 
                     // 填入折線圖
                     Highcharts.stockChart('lineChartBlock', {
@@ -385,6 +409,7 @@ const app = new Vue({
 
         queryDonation() {
 
+            this.showDetails = true;
             const self = this;
 
             let DONATION_ID = $("input[name='DONATION_ID']").val();
@@ -468,6 +493,14 @@ const app = new Vue({
 
                         let sDD = self.donationDetals;
 
+                        if (sDD[i].DONATION_NATIONALITY == 1) {
+                            self.donationDetals[i].DONATION_NATIONALITY = "本國";
+                        } else if (sDD[i].DONATION_NATIONALITY == 2) {
+                            self.donationDetals[i].DONATION_NATIONALITY = "外國";
+                        } else {
+                            self.donationDetals[i].DONATION_NATIONALITY = "資料錯誤";
+                        }
+
                         if (sDD[i].DONATION_GENDER == 1) {
                             self.donationDetals[i].DONATION_GENDER = "男";
                         } else if (sDD[i].DONATION_GENDER == 2) {
@@ -503,8 +536,6 @@ const app = new Vue({
                         });
 
                     }
-
-                    console.log(res);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -526,7 +557,7 @@ const app = new Vue({
             let address_ED = $("input[name='address_ED']").val();
             let email_ED = $("input[name='email_ED']").val();
             let gender_ED = $("input[name='gender_ED']").val();
-            let remarks_ED = $("input[name='remarks_ED']").val();
+            let remarks_ED = $("textarea[name='remarks_ED']").val();
             let receiptTitle_ED = $("input[name='receiptTitle_ED']").val();
             let receipt_pID_tID_ED = $("input[name='receipt_pID_tID_ED']").val();
             let deliveryMethod_ED = $("input[name='deliveryMethod_ED']").val();
@@ -540,11 +571,23 @@ const app = new Vue({
                 gender_ED = 3;
             }
 
+            if (nationality_ED == '本國') {
+                nationality_ED = 1;
+            } else if (nationality_ED == '外國') {
+                nationality_ED = 2;
+            } else {
+                deliveryMethod_ED = 3;
+            }
+
             if (deliveryMethod_ED == '免寄收據') {
                 deliveryMethod_ED = 1;
-            } else {
+            } else if (deliveryMethod_ED == '每次寄發') {
                 deliveryMethod_ED = 2;
+            } else {
+                deliveryMethod_ED = 3;
             }
+
+            alert("修改完成！");
 
             $.ajax({
                 url: '../PHP/backStage/finance/donationUpdate.php',

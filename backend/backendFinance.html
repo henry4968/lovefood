@@ -206,7 +206,7 @@
                             <div class="infoCards">
                                 平均訂單金額<br><br>
                                 <span v-if="financeTotalOrder == 0">0元</span>
-                                <span v-else>{{financeTotalSelling / financeTotalOrder}}元</span>
+                                <span v-else>{{parseInt(financeTotalSelling / financeTotalOrder)}}元</span>
                             </div>
                             <div class="infoCards">
                                 <div>

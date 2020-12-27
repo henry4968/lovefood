@@ -288,12 +288,9 @@ const app = new Vue({
                 this.pointsOfMember[0].MEMBER_POINTS = points02;
             }
 
-
             for (let i = 0; i < updatePointsInput.length; i++) {
                 updatePointsInput[i].value = "";
             }
-
-
 
         },
 
