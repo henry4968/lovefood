@@ -92,7 +92,7 @@ new Vue({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "text",
-                data: { memberId, totalDiscount, orders, totalPack },
+                data: { memberId, totalDiscount, orders },
                 success: function (res) {
                     console.log(res);
                 },
