@@ -1572,7 +1572,8 @@ Vue.component('points', {
         this.pointList = res.data;
         // console.log(res.data);
         // 給會員編號
-        that.memberId = res.data.get[0].MEMBER_ID_for_PI
+        // that.memberId = res.data.get[0].MEMBER_ID_for_PI
+
         // console.log(this.pointList);
         if (that.catchclass == '特殊會員') {
           // 只取日期:獲取
@@ -1596,6 +1597,20 @@ Vue.component('points', {
           });
           // 點數總和
           that.Allpoints = tt - ss
+        }
+      });
+    },
+    // 將ID塞入會員編號
+    ID() {
+      let that = this;
+      // 用箭頭函式(res=>{})才能解決父傳子傳值的問題
+      axios.post('../PHP/Frontend/sessionR.php').then(res => {
+
+        checkdata = res.data;
+        // console.log(checkdata);
+        if (checkdata != '') {
+          that.memberId = checkdata;
+          // console.log(that.idmemin);
         }
       });
     },
@@ -1641,6 +1656,8 @@ Vue.component('points', {
     this.memberInf();
     // 撈點數
     this.mypoint();
+    // 撈ID
+    this.ID();
   },
 
 });
