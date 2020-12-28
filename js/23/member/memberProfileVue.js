@@ -46,18 +46,23 @@ const app = new Vue({
             let urlParams = new URLSearchParams(window.location.search);
             let phone1 = $("input[name='phoneUpdate']").val();
             let address = $("input[name='address']").val();
+            let name = self.tableData[0].MEMBER_NAME;
+            let status = self.tableData[0].MEMBER_STATUS;
             let id = urlParams.get('id');
             $.ajax({
                 url: '../PHP/backStage/member/profileUpdate.php',
                 type: 'POST',
-                data: { phone1, address, id },
+                data: { phone1, address, id, name, status },
                 success: function (res) {
                     console.log(123);
-
+                    console.log(name);
                     console.log(res);
                     self.tableData = res;
                 },
                 dataType: "json",
+                error: function (error) {
+                    console.log(error);
+                }
             })
         },
     },
