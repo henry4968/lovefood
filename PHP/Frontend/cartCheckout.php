@@ -45,6 +45,7 @@ if(count($orders) > 1){
         $insertOrderId = "OD00".$orderMaxNumber;
     }
     
+    $mrtPickSite = !empty($totalPack[0]['pickUpSite']) ? $totalPack[0]['pickUpSite'] : null;
     // echo $mrtPickSite;
 
     $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
