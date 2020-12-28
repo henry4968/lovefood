@@ -100,6 +100,8 @@ new Vue({
                     console.log(res.responseText);
                 },
             });
+            let clearStorage = JSON.parse(localStorage.clear());
+            this.newStorage = clearStorage;
         },
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
