@@ -50,10 +50,10 @@ Vue.component('memhead', {
                 </a>
                 <a href="#0" id="navIcons01" class="navIcons" @click="longsearch" style="z-index: 99;">
                     <img src="../img/03/memmagnifier.png">
-                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur" style="height:55px;">
                 </a>
                 <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
-                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -30%;">{{itemQty}}</div>
+                    <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -15%;">{{itemQty}}</div>
                     <img src="../img/03/memcart.png">
                 </a>
                 <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
