@@ -63,13 +63,6 @@ new Vue({
     },
 
     methods: {
-        //qr code
-        ship(e) {//出貨生成QR code
-            const self = this;
-            let orderNum = $(e.target).val();
-            console.log(orderNum)
-            
-        },
 
         // 正式結帳
         checkOut() {
@@ -113,9 +106,8 @@ new Vue({
             qrcode = "";
             setTimeout(() => {
                 qrcode = self.newOrder[0].ORDER_ID;
-            }, 20);
+                //qr code
             $.ajax({
-
                 url: '../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
                 data: {qrcode},
                 type: 'GET',
@@ -127,11 +119,13 @@ new Vue({
                     self.code = res;
                     console.log(self.code);
                 },
-                error: function (res) {
-                    console.log(res);
+                error: function (error) {
+                    console.log(error);
                 },
             });
-            localStorage.clear();
+                localStorage.clear();
+            }, 2000);
+            
         },
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
