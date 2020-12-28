@@ -129,8 +129,8 @@
                         <div class="btn-brown pageLabel-s">單筆上架</div>
                         <div class="eachOne">
                             <div class="eachOneLeft">
-                                <span>賣家編號<input name="sellerNum" class="form-control" type="text" placeholder="SP0001"
-                                        value="SP0001" disabled></span>
+                                <span>賣家編號<input name="sellerNum" class="form-control" type="text" v-model="seller"
+                                        ></span>
                                 <span>商品種類
                                     <select class="categories">
                                         <option name="categories" :value="data.PRODUCT_CATEGORY_ID"
@@ -250,7 +250,9 @@
                                         data-toggle="tooltip" data-placement="top" title="商品描述不得為空"></textarea>
                                 </span>
                                 <span>
+                                    <form action="">
                                     <button id="upload" class="btn-m btn-brown" @click="upload">上傳</button>
+                                    </form>
                                 </span>
                             </div>
                         </div>

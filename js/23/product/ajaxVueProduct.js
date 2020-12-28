@@ -62,6 +62,7 @@ const app = new Vue({
         dropZone: [0, 1, 2, 3],
         cover: ['封面圖片', '圖片1', '圖片2', '圖片3'],
         photo: ['photo1', 'photo2', 'photo3', 'photo4'],
+        seller:'SP0001',
     },
 
 
