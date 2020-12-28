@@ -35,11 +35,15 @@ let all = new Vue({
                 seller: item.SUPPLIER_NAME,
                 price: item.PRODUCT_SELLING_PRICE,
                 id: item.PRODUCT_ID,
+                img: item.PRODUCT_IMG,
+                exp: item.PRODUCT_EXP_DATE,
+                address: item.SUPPLIER_ADDRESS,
             }
+
             // console.log(cartAllItems);
             if (self.count > 0) {
                 if (self.getStorage == null) { //不存在localstorage
-                    self.itemStorage.push(produ);
+                    getStorage.push(produ);
                     self.itemQty++;
                     localStorage.setItem('itemStorage', JSON.stringify(self.itemStorage));
                 } else {
@@ -263,9 +267,12 @@ let all = new Vue({
                 // self.tableData[0].seconds = 123;
 
             })
-
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
-        self.getStorage = cartAllItems;//購物車items陣列
+        if (cartAllItems) {
+            self.getStorage = cartAllItems;//購物車items陣列
+        } else {
+            self.getStorage = [];//購物車items陣列
+        }
         self.itemQty = cartAllItems.length//購物車圖標
         // 看看是一般會員或是賣家會員
         this.checklogin();
