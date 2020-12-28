@@ -1575,8 +1575,11 @@
                             }
                             #qrCode{
                             position: absolute;
-                            top: 50%;
-                            left: 50%;
+                            top: 43%;
+                            left: 72%;
+                            @include newRwd("newSmallPhone"){
+                                width: 25%;
+                            }
                                 
                             }
                             .btn_modal_close{
@@ -1590,7 +1593,7 @@
                                 margin: 25px 0px;
                                 outline: none;
                                 position: relative;
-                                left: 43%;
+                                left: 40%;
                                 @include newRwd("newSmallPhone"){
                                     left: 37%;
                                 }
