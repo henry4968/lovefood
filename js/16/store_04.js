@@ -93,7 +93,7 @@ new Vue({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "JSON",
-                data: { memberId, totalDiscount, orders, totalPack},
+                data: { memberId, totalDiscount, orders, totalPack },
                 success: function (res) {
                     console.log(res);
                     self.newOrder = res;
@@ -107,25 +107,25 @@ new Vue({
             setTimeout(() => {
                 qrcode = self.newOrder[0].ORDER_ID;
                 //qr code
-            $.ajax({
-                url: '../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
-                data: {qrcode},
-                type: 'GET',
-                dataType: 'text',
-                traditional: true,
-                success: function (res) {
-                    console.log(qrcode);
-                     console.log(res);
-                    self.code = res;
-                    console.log(self.code);
-                },
-                error: function (error) {
-                    console.log(error);
-                },
-            });
+                $.ajax({
+                    url: '../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                    data: { qrcode },
+                    type: 'GET',
+                    dataType: 'text',
+                    traditional: true,
+                    success: function (res) {
+                        console.log(qrcode);
+                        console.log(res);
+                        self.code = res;
+                        console.log(self.code);
+                    },
+                    error: function (error) {
+                        console.log(error);
+                    },
+                });
                 localStorage.clear();
             }, 2000);
-            
+
         },
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
