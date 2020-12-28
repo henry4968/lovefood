@@ -34,7 +34,7 @@ if ($maxValue < 10) {
 
 // 買家帳號重複問題解決
 //建立SQL
-$sql = "SELECT * FROM member WHERE MEMBER_CLASS = 0 and MEMBER_ACCOUNT = ?";
+$sql = "SELECT * FROM member WHERE (MEMBER_CLASS = 0 or MEMBER_CLASS = 1) and MEMBER_ACCOUNT = ?";
 
 //執行
 $statement = $Util->getPDO()->prepare($sql);
@@ -46,7 +46,7 @@ $data = $statement->fetchAll();
 
 // 賣家帳號重複問題解決
 //建立SQL
-$slesql = "SELECT * FROM supplier WHERE SUPPLIER_STATUS = 1 and SUPPLIER_ACCOUNT = ?";
+$slesql = "SELECT * FROM supplier WHERE (SUPPLIER_STATUS = 1 or SUPPLIER_STATUS = 2) and SUPPLIER_ACCOUNT = ?";
 
 //執行
 $selstatement = $Util->getPDO()->prepare($slesql);
