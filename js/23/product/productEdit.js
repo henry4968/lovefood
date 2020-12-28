@@ -169,6 +169,7 @@ const app = new Vue({
             return self.isShow = true;
         },
         offBoard(e) {
+            confirm('確定下架?');
             let off = $(e.target).val();
             $.ajax({
                 url: '../PHP/backStage/product/productEdit.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
@@ -178,7 +179,6 @@ const app = new Vue({
                 traditional: true,
                 success: function (res) {
                     console.log(res);
-                    alert();
                 },
                 error: function (res) {
                     console.log(res);

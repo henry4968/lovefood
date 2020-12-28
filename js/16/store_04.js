@@ -19,7 +19,9 @@ new Vue({
         // 商品數量
         itemQty: 0,
         sessionId: null,
-        discountPoints: null
+        discountPoints: null,
+        newOrder: null,
+        code: null,
     },
 
     mounted() {
@@ -61,6 +63,13 @@ new Vue({
     },
 
     methods: {
+        //qr code
+        ship(e) {//出貨生成QR code
+            const self = this;
+            let orderNum = $(e.target).val();
+            console.log(orderNum)
+            
+        },
 
         // 正式結帳
         checkOut() {
@@ -90,18 +99,44 @@ new Vue({
             $.ajax({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
-                dataType: "text",
+                dataType: "JSON",
                 data: { memberId, totalDiscount, orders, totalPack },
                 success: function (res) {
                     console.log(res);
+                    self.newOrder = res;
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
                     console.log(res.responseText);
                 },
             });
+<<<<<<< HEAD
             let clearStorage = JSON.parse(localStorage.clear());
             this.newStorage = clearStorage;
+=======
+            qrcode = "";
+            setTimeout(() => {
+                qrcode = self.newOrder[0].ORDER_ID;
+            }, 20);
+            $.ajax({
+
+                url: '../PHP/backStage/order/test.php', //檔案請注意路徑,是相對於引用檔並非相對於此檔案
+                data: {qrcode},
+                type: 'GET',
+                dataType: 'text',
+                traditional: true,
+                success: function (res) {
+                    console.log(qrcode);
+                     console.log(res);
+                    self.code = res;
+                    console.log(self.code);
+                },
+                error: function (res) {
+                    console.log(res);
+                },
+            });
+            
+>>>>>>> Chou
         },
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
