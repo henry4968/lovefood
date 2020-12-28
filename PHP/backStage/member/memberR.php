@@ -6,6 +6,6 @@
     $sql = "SELECT * FROM Lovefood.MEMBER";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->execute();
-    $data = $statement->fetchAll(PDO::FETCH_NUM);
+    $data = $statement->fetchAll();
     print json_encode($data);
 ?>

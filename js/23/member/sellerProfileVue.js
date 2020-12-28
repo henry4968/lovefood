@@ -1,14 +1,14 @@
 //v-model="select"綁定從資料庫取出來的值,從nuw Vue向下傳遞 props給profile,用select接selected
 Vue.component('profile', {
-    props: ['change', 'select'],
+    props: ['value'],
     template: `<div>
                         <h2 class="btn-brown">賣家檔案</h2>
-                        <h3>會員編號 <input class="input-xl" type="text" name="numberUp" :placeholder="change[0][0]" disabled></h3>
-                        <h3>會員帳號 <input class="input-xl" type="text" name="accountUp" :placeholder="change[0][1]" disabled></h3>
-                        <h3>公司名稱 <input class="input-xl" type="password" name="nameUp" :placeholder="change[0][4]" disabled></h3>
-                        <h3>公司電話 <input class="input-xl" type="text" name="phoneUp" :placeholder="change[0][7]"></h3>
-                        <h3>登記地址 <input class="input-xl" type="text" name="addressUp" :placeholder="change[0][6]" size="45"></h3>
-                        <h3>停權原因 <select name="terminateUp" id="" v-model="select">
+                        <h3>會員編號 <input class="input-xl" type="text" name="numberUp" :placeholder="value.SUPPLIER_ID" disabled></h3>
+                        <h3>會員帳號 <input class="input-xl" type="text" name="accountUp" :placeholder="value.SUPPLIER_ACCOUNT" disabled></h3>
+                        <h3>公司名稱 <input class="input-xl" type="password" name="nameUp" :placeholder="value.SUPPLIER_NAME" disabled></h3>
+                        <h3>公司電話 <input class="input-xl" type="text" name="phoneUp" v-model="value.SUPPLIER_PHONE" :placeholder="value.SUPPLIER_PHONE"></h3>
+                        <h3>登記地址 <input class="input-xl" type="text" name="addressUp" v-model="value.SUPPLIER_ADDRESS" :placeholder="value.SUPPLIER_ADDRESS" size="45"></h3>
+                        <h3>停權原因 <select name="terminateUp" id="" v-model="value.SUPPLIER_STATUS">
                                         <option value="0">00 - 無</option>
                                         <option value="1">01 - 賣家嚴重違法上架規範</option>
                                         <option value="2">02 - 賣家上架違禁商品</option>
@@ -19,13 +19,31 @@ Vue.component('profile', {
                                         <option value="7">07 - 其他</option>
                                     </select>
                         </h3>
-                        <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown">儲存</button></span>
+                        <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown" @click="save">儲存</button></span>
                       </div>`,
     data() {
         return {
             tableDataOne: null,
             selected: null,
+            savedata: this.value,
         };
+    },
+    methods:{
+        save(){
+                confirm('確定保存資料?');
+                const self = this;
+                save = self.savedata;
+                console.log(save);
+                $.ajax({
+                    url: '../PHP/backStage/member/seller/selProfileUpdate.php',
+                    type: 'POST',
+                    data: {save},
+                    success: function (res) {
+                        console.log(res);
+                        console.log(123);
+                    },
+                })
+        },
     },
 })
 
@@ -98,18 +116,15 @@ const app = new Vue({
                 })
             }, 1);
         },
-        update() {
-            let id = $("input[name='id']").val();
-
+        update(e) {
+            let id = $(e.target).val();
             const self = this;
             $.ajax({
                 url: '../PHP/backStage/member/seller/sellerProfileR.php',
                 type: 'GET',
                 data: { id },
                 success: function (res) {
-                    console.log(res[0][0]);
                     self.tableDataOne = res;
-                    self.selected = res[0][8];//assign選單預設值
                 },
                 dataType: "json",
             })
@@ -159,9 +174,9 @@ const app = new Vue({
                 }
                 //==============下一頁=============
             } else if (page == 'next') {
-                alert('這是page後' + page)
-                alert('這是pageNow' + pageNow)
-                if (pageNow == Math.floor(self.tableData.length / 5)) {
+                // alert('這是page後' + page)
+                // alert('這是pageNow' + pageNow)
+                if (pageNow == Math.ceil(self.tableData.length / 5)-1) {
                     alert('當前已是最末頁，無法繼續前進');
                 } else {
                     //頁碼變色
