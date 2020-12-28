@@ -6,12 +6,12 @@
     
 
     $validation = $_POST["validation"];
-    //上架: 1  下架: 2 
+    //上架: 2  下架: 1
     if($validation == 1){ //下架
         $off = $_POST["off"];
         //sql語法
         $sql = "UPDATE PRODUCT
-        SET PRODUCT_STATUS = 2
+        SET PRODUCT_STATUS = 1
         WHERE PRODUCT_ID = ?
         ";
         $statement = $Util->getPDO()->prepare($sql);

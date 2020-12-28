@@ -264,8 +264,11 @@
                                                 <h1>訂購完成</h1>
                                             </div>
                                             <h2>Thank you for your order !</h2>
-                                            <p>訂單編號：ORD2020110101</p>
+                                            <p v-for="(data,key) in newOrder">訂單{{key+1}}:
+                                                <span>{{data.ORDER_ID}}</span>
+                                            </p>
                                             <p>感謝您的支持與訂購！</p>
+                                            <img :src="code" alt="">
                                             <button type="button" class="btn_modal_close">
                                                 <a href="store_1.html">返回商城</a></button>
                                         </article>

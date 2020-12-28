@@ -45,8 +45,7 @@ if(count($orders) > 1){
         $insertOrderId = "OD00".$orderMaxNumber;
     }
     
-    $mrtPickSite = !empty($totalPack[0]['pickUpSite']) ? $totalPack[0]['pickUpSite'] : null;
-    echo $mrtPickSite;
+    // echo $mrtPickSite;
 
     $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
     
@@ -60,6 +59,8 @@ if(count($orders) > 1){
     
     
     for($i = 0; $i < count($orders[0]); $i++){
+        $mrtPickSite = !empty($totalPack[$i]['pickUpSite']) ? $totalPack[$i]['pickUpSite'] : null;
+
     
         $statementSelectDetailMaxId = $Util->getPDO()->prepare($sqlSelectDetailMaxId);
         $statementSelectDetailMaxId->execute();
@@ -165,6 +166,8 @@ if(count($orders) > 1){
 
 }else{
 
+    $mrtPickSite = !empty($totalPack[0]['pickUpSite']) ? $totalPack[0]['pickUpSite'] : null;
+
     $statementSelectOrderMaxId  = $Util->getPDO()->prepare($sqlSelectOrderMaxId);
     $statementSelectOrderMaxId->execute();
     $orderMaxId = $statementSelectOrderMaxId->fetch();
@@ -172,6 +175,7 @@ if(count($orders) > 1){
     $orderMaxNumber = substr( $orderMaxId[0], 2, 7) + 1;
 
     $insertOrderId = "";
+    
 
     if($orderMaxNumber < 10){
         $insertOrderId = "OD000000".$orderMaxNumber;
@@ -234,5 +238,12 @@ if(count($orders) > 1){
 
 
 }
-
+$a = count($orders);
+// echo intval(count($orders));
+$sql = "SELECT * FROM `ORDER` order by ORDER_DATE desc limit $a ";
+$stat = $Util->getPDO()->prepare($sql);
+// $stat->bindValue(1,);
+$stat->execute();
+$data = $stat->fetchAll(PDO::FETCH_ASSOC);
+print json_encode($data);
 ?>

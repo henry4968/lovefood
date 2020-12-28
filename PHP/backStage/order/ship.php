@@ -9,7 +9,7 @@
     //1--待取貨
     //2--取貨完成
 
-    $sql = "UPDATE `ORDER` SET ORDER_STATUS = 1 WHERE ORDER_ID = ?";
+    $sql = "UPDATE `ORDER` SET ORDER_STATUS = 3 WHERE ORDER_ID = ?";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->bindValue(1,$orderNum);
     $statement->execute();
