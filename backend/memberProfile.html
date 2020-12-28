@@ -157,7 +157,7 @@
                                 <td>{{data[2]}}</td>
                                 <td>{{data[7]}}</td>
                                 <td>{{data[4]}}</td>
-                                <td>{{data[9]}}</td>
+                                <td>{{data.MEMBER_STATUS}}</td>
                             </tr>
                         </tbody>
 
@@ -167,13 +167,13 @@
                         <h3>會員編號 <input class="input-xl" type="text" :placeholder="data[0]" disabled></h3>
                         <h3>會員帳號 <input class="input-xl" type="text" :placeholder="data[2]" disabled></h3>
                         <h3>會員生日 <input class="input-xl" type="text" :placeholder="data[5]" disabled></h3>
-                        <h3>會員手機 <input class="input-xl" name="phoneUpdate" :value="data[7]"></h3>
+                        <h3>會員手機 <input class="input-xl" name="phoneUpdate" v-model="data[7]"></h3>
                         <h3>通訊地址 <input class="input-xl" name="address" type="text" :value="data[6]" size="45"></h3>
-                        <h3>停權原因 <select name="" id="" disabled>
-                                <option value="">00 - 無</option>
-                                <option value="">01 - 會員嚴重違反取貨規則</option>
-                                <option value="">02 - 買家會員與賣家會員發生不可歸責之糾紛</option>
-                                <option value="">03 - 其他</option>
+                        <h3>停權原因 <select name="" id="" v-model="data.MEMBER_STATUS">
+                                <option value="0">00 - 無</option>
+                                <option value="1">01 - 會員嚴重違反取貨規則</option>
+                                <option value="2">02 - 買家會員與賣家會員發生不可歸責之糾紛</option>
+                                <option value="3">03 - 其他</option>
                             </select>
                         </h3>
                         <span><button class="btn-s btn-brown">返回</button><button class="btn-s btn-brown"

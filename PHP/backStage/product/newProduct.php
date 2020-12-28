@@ -45,7 +45,7 @@
         $pdNum = "PD"."000".$subMaxId;
     }
     //最終寫入PRODUCT_ID為 $pdNum;
-    $sql = "INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, `NAME`, `DESCRIPTION`, ORIGINAL_PRICE,SELLING_PRICE ,STOCK, UPLOAD_DATE, EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
+    $sql = "INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_ORIGINAL_PRICE,PRODUCT_SELLING_PRICE ,PRODUCT_STOCK, PRODUCT_UPLOAD_DATE, PRODUCT_EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
     VALUES (?,?,?,?,?,?,?,?,NOW(),?,?,?);";
     $statement = $Util->getPDO()->prepare($sql);
 
@@ -59,7 +59,7 @@
     $statement->bindValue(7,$spePrice);
     $statement->bindValue(8,$quantity);
     $statement->bindValue(9,$exp);
-    $statement->bindValue(10,1);//商品狀態 上架為1
+    $statement->bindValue(10,2);//商品狀態 上架為2
     $statement->bindValue(11,$fileUpload);
 
     $statement->execute();

@@ -26,7 +26,7 @@ const app = new Vue({
         detail: null,
         categories: null,
         //以下圖片for拖放區域
-        imgSrc: ['', '', '', ''],
+        imgSrc: [],
         hover: [false, false, false, false],
         cover: ['封面圖片', '圖片1', '圖片2', '圖片3'],
         photo: ['photo1', 'photo2', 'photo3', 'photo4'],
@@ -163,7 +163,7 @@ const app = new Vue({
             }
             // console.log(filterArr);
             console.log(filterArr); //過濾後的陣列
-            // self.imgSrc = filterArr[0].PRODUCT_IMG;
+            self.imgSrc.push(filterArr[0].PRODUCT_IMG); 
             self.filterData = filterArr;
             self.exp = filterArr[0].PRODUCT_EXP_DATE.split(' ');//有效期限轉日期與時間陣列
             return self.isShow = true;

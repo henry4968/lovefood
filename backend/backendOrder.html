@@ -145,9 +145,9 @@
                                 <th>功能鍵</th>
                             </tr>
                         </thead>
-                        <tbody v-if="tableData">
+                        <tbody v-if="pageView">
 
-                            <template v-for="(data,key) in tableData">
+                            <template v-for="(data,key) in pageView">
                                 <tr>
                                     <td>{{key+1}}</td>
                                     <td>{{data[0]}}</td>
@@ -186,6 +186,16 @@
                     </table>
                     <img :src="code" alt="">
                 </main>
+                <div id="pagination" v-if = "pageView">
+                    <a href="#0" @click="pageChange(0)">＜</a>
+                    <template v-for="(item,key) in Math.ceil(tableData.length/5)">
+                        <div>
+                            <a href="#0" @click="pageChange(key+1)">{{key+1}}</a>
+                        </div>
+                    </template>
+                    <a href="#0" @click="pageChange('next')">＞</a>
+                    <a href="#0">最末頁</a>
+                </div>
             </div>
         </div>
     </div>

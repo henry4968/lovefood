@@ -147,14 +147,14 @@
                                 <th>序號</th>
                                 <th>會員編號</th>
                                 <th>會員帳號</th>
-                                <th>會員手機</th>
+                                <th>會員姓名</th>
                                 <th>會員手機</th>
                                 <th>會員狀態</th>
                                 <th>功能鍵</th>
                             </tr>
                         </thead>
                         <tbody v-if="tableData">
-                            <tr v-for="(data,key) in tableData">
+                            <tr v-for="(data,key) in pageView">
                                 <td>{{key+1}}</td>
                                 <td>{{data[0]}}</td>
                                 <td>{{data[2]}}</td>
@@ -172,6 +172,16 @@
 
                         </tbody>
                     </table>
+                    <div id="pagination" v-if = "pageView">
+                        <a href="#0" @click="pageChange(0)">＜</a>
+                        <template v-for="(item,key) in Math.ceil(tableData.length/5)">
+                            <div>
+                                <a href="#0" @click="pageChange(key+1)">{{key+1}}</a>
+                            </div>
+                        </template>
+                        <a href="#0" @click="pageChange('next')">＞</a>
+                    </div>
+                    
                 </main>
             </div>
         </div>
