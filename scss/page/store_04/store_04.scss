@@ -622,7 +622,6 @@
         @include newRwd("mediumPhone"){
             width: 570px;
             margin: 100px auto; 
-            min-height: 250px;
         }
         @include newRwd("newSmallPhone"){
             width: 375px;
@@ -1586,6 +1585,9 @@
                                 outline: none;
                                 position: relative;
                                 left: 43%;
+                                @include newRwd("newSmallPhone"){
+                                    left: 37%;
+                                }
                                 &:hover{
                                     background-color: #c0b28d;
                                 }

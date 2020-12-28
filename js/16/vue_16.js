@@ -14,29 +14,26 @@ Vue.component('showMap', {
     },
     template: `
     <div>
-        <div class="mapIconW pickUpLocal">
-            <img src="../img/16/Icon awesome-map-marker-alt.png"
-                class="mapIcon">
-        </div>
+       
         <div class="MRT">
 
             <ul id="MRT_Select">
                 <li><label for="">請選擇：</label></li>
-                <li class="mrtSelect" id="mrt1"><input type="radio" :name="'mrt['+index+']'" value="MPS00001" v-model="value.pickUpSite">捷運市政府站</li>
                 <li class="mrtSelect" id="mrt2"><input type="radio" :name="'mrt['+index+']'" value="MPS00002" v-model="value.pickUpSite">捷運南京復興站</li>
                 <li class="mrtSelect" id="mrt3"><input type="radio" :name="'mrt['+index+']'" value="MPS00003" v-model="value.pickUpSite">捷運忠孝復興站</li>
+                <li class="mrtSelect" id="mrt10"><input type="radio":name="'mrt['+index+']'" value="MPS00010" v-model="value.pickUpSite">捷運民權西路站</li>
+                <li class="mrtSelect" id="mrt8"><input type="radio" :name="'mrt['+index+']'" value="MPS00008" v-model="value.pickUpSite">捷運中正紀念堂站</li>
+                <li class="mrtSelect" id="mrt15"><input type="radio":name="'mrt['+index+']'" value="MPS00015" v-model="value.pickUpSite">捷運六張犁站</li>
+                <li class="mrtSelect" id="mrt6"><input type="radio" :name="'mrt['+index+']'" value="MPS00006" v-model="value.pickUpSite">捷運台北車站</li>
+                <li class="mrtSelect" id="mrt1"><input type="radio" :name="'mrt['+index+']'" value="MPS00001" v-model="value.pickUpSite">捷運市政府站</li>
+                <li class="mrtSelect" id="mrt9"><input type="radio" :name="'mrt['+index+']'" value="MPS00009" v-model="value.pickUpSite">捷運大橋頭站</li>
+                <li class="mrtSelect" id="mrt11"><input type="radio":name="'mrt['+index+']'" value="MPS00011" v-model="value.pickUpSite">捷運石牌站</li>
+                <li class="mrtSelect" id="mrt12"><input type="radio":name="'mrt['+index+']'" value="MPS00012" v-model="value.pickUpSite">捷運內湖站</li>
+                <li class="mrtSelect" id="mrt13"><input type="radio":name="'mrt['+index+']'" value="MPS00013" v-model="value.pickUpSite">捷運南港站</li>
+                <li class="mrtSelect" id="mrt14"><input type="radio":name="'mrt['+index+']'" value="MPS00014" v-model="value.pickUpSite">捷運古亭站</li>
                 <li class="mrtSelect" id="mrt4"><input type="radio" :name="'mrt['+index+']'" value="MPS00004" v-model="value.pickUpSite">捷運大安站</li>
                 <li class="mrtSelect" id="mrt5"><input type="radio" :name="'mrt['+index+']'" value="MPS00005" v-model="value.pickUpSite">捷運中山站</li>
-                <li class="mrtSelect" id="mrt6"><input type="radio" :name="'mrt['+index+']'" value="MPS00006" v-model="value.pickUpSite">捷運台北車站</li>
                 <li class="mrtSelect" id="mrt7"><input type="radio" :name="'mrt['+index+']'" value="MPS00007" v-model="value.pickUpSite">捷運西門站</li>
-                <li class="mrtSelect" id="mrt8"><input type="radio" :name="'mrt['+index+']'" value="MPS00008" v-model="value.pickUpSite">捷運中正紀念堂站</li>
-                <li class="mrtSelect" id="mrt9"><input type="radio" :name="'mrt['+index+']'" value="MPS00009" v-model="value.pickUpSite">捷運大橋頭站</li>
-                <li class="mrtSelect" id="mrt10"><input type="radio":name="'mrt['+index+']'"" value="MPS00010" v-model="value.pickUpSite">捷運民權西路站</li>
-                <li class="mrtSelect" id="mrt11"><input type="radio":name="'mrt['+index+']'"" value="MPS00011" v-model="value.pickUpSite">捷運石牌站</li>
-                <li class="mrtSelect" id="mrt12"><input type="radio":name="'mrt['+index+']'"" value="MPS00012" v-model="value.pickUpSite">捷運內湖站</li>
-                <li class="mrtSelect" id="mrt13"><input type="radio":name="'mrt['+index+']'"" value="MPS00013" v-model="value.pickUpSite">捷運南港站</li>
-                <li class="mrtSelect" id="mrt14"><input type="radio":name="'mrt['+index+']'"" value="MPS00014" v-model="value.pickUpSite">捷運古亭站</li>
-                <li class="mrtSelect" id="mrt15"><input type="radio":name="'mrt['+index+']'"" value="MPS00015" v-model="value.pickUpSite">捷運六張犁站</li>
             </ul>
         </div>
     </div>`,
@@ -180,9 +177,11 @@ const main = new Vue({
             }
         },
         del(index) {
+            // alert(i);
             this.newStorage.splice(index, 1);
+
         },
-        //結帳
+        //結帳s
         confirmPay() {
             const self = this;
             console.log(this.newStorage);

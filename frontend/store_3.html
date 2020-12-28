@@ -203,7 +203,8 @@
                                                     src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
                                             </div> -->
                                                 </li>
-                                                <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點：
+                                                <li>
+                                                    <!-- <img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點： -->
                                                     <component @input="$emit('input', $event.target.value)"
                                                         v-model:new-storage="newStorage[index]" :index="index"
                                                         :is="item.content"></component>

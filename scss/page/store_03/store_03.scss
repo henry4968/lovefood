@@ -1242,7 +1242,7 @@
                                 
                                 li{ 
                                     
-                                    margin: 50px 20px 20px 20px;
+                                    margin: 20px;
                                     font-size: 18px;
                                     color: #707070;
                                     // width: ;
@@ -1316,7 +1316,7 @@
                             .MRT{
                                 // margin-left: 70px;
                                 
-                                width: 500px;
+                                width: 800px;
                                 overflow: hidden;
                                 // position: relative;
                                 
@@ -1333,214 +1333,30 @@
                                     margin: 10px auto;
                                     width: 290px;
                                 }
-
-                                
-                                .mapImg{
-                                    margin-left: 40px;
-                                    width: 500px;
-                                    position: relative;
-
-                                    .imgMRT{
-                                        margin-top: 30px;
-                                        // position: relative;
-                                        // right: 10%;
-                                        top: 0px;
-    
-                                        @include newRwd("mediumPhone"){
-                                            margin-top: 20px;
-                                            width: 406px;
-                                        }
-                                        @include newRwd("newSmallPhone"){
-                                            display: none;
-                                        }
-                                        
-                                    }
-                                    
-                                    .mapLocate{
-                                        width: 23px;
-                                        position: absolute;
-                    
-                                        &:hover{
-                                            opacity: 1;
-                                            // transform: rotate(30deg);
-                                            // cursor: pointer;
-                                            
-                                        }
-                                        @include  newRwd("miniPhone"){
-                                            width: 23px;
-                                        }
-
-                                    }
-                                    @keyframes icon {
-                                        from {
-                                            transform: scaleY(0); 
-                                          }
-                                        
-                                          to {
-                                            transform: scaleY(1);
-                                          }
-                                        
-                                    }
-                                    #TaipeiCityHall{
-                                        opacity: 0;
-                                        left: 293px;
-                                        top: 339px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                    
-                                    }
-                                    #Nanjing{
-                                        opacity: 0;
-                                        left: 239px;
-                                        top: 301px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 2s;
-                                            // &::after{
-                                            //     content: '';
-                                            //     display: block;
-                                            //     width: 40px;
-                                            //     height: 3px;
-                                            //     border-radius: 10px;
-                                            //     position: absolute;
-                                            //     transition-duration: .3s;
-                                            //     background-color: #8F8770;
-                                    }
-
-                                }
-                                    #Zhongxiao{
-                                        opacity: 0;
-                                        left: 239px;
-                                        top: 340px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                        
-                                    }
-                                    #Daan{
-                                        opacity: 0;
-                                        left: 239px;
-                                        top: 374px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Zhongshan{
-                                        opacity: 0;
-                                        left: 167px;
-                                        top: 303px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #TaipeiMainStaiton{
-                                        opacity: 0;
-                                        left: 168px;
-                                        top: 340px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Ximen{
-                                        opacity: 0;
-                                        left: 139px;
-                                        top: 348px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #MemorialHal{
-                                        opacity: 0;
-                                        left: 167px;
-                                        top: 374px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Daqiaotou{
-                                        opacity: 0;
-                                        left: 136px;
-                                        top: 264px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #MinquanWRoad{
-                                        opacity: 0;
-                                        left: 167px;
-                                        top: 264px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Shipai{
-                                        opacity: 0;
-                                        left: 158px;
-                                        top: 159px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Neihu{
-                                        opacity: 0;
-                                        left: 350px;
-                                        top: 227px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Nanggong{
-                                        opacity: 0;
-                                        left: 356px;
-                                        top: 339px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Guting{
-                                        opacity: 0;
-                                        left: 183px;
-                                        top: 389px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-                                    #Liuzhangli{
-                                        opacity: 0;
-                                        left: 262px;
-                                        top: 402px;
-                                        &:hover{
-                                            opacity: 1;
-                                            animation: icon 1s;
-                                        }
-                                    }
-
                                 #MRT_Select{
                                     line-height: 2;
                                     font-size: 18px;
                                     color: #707070;
-                                   
+                                    width: 800px;
+                                    display: flex;
+                                    flex-wrap: wrap;
+
+                                    li:first-child{
+                                        width: 800px;
+                                    }
+                                    @include newRwd("pad"){
+                                        width: 800px;
+                                    }
+                                    @include newRwd("mediumPhone"){
+                                        width: 290px;
+                                    }
                                     @include newRwd("newSmallPhone"){
                                         display: flex;
                                         flex-wrap: wrap;
-                                        display:block;
+                                        
                                     }
                                     @include newRwd("miniPhone"){
-                                        width: 290px;
+                                        width: 280px;
                                         display:block;
                                     }
                                     .mrtSelect{
@@ -1563,7 +1379,204 @@
                                         
                                     }
                                 }
-                             }
+
+                                
+                            //     .mapImg{
+                            //         margin-left: 40px;
+                            //         width: 500px;
+                            //         position: relative;
+
+                            //         .imgMRT{
+                            //             margin-top: 30px;
+                            //             // position: relative;
+                            //             // right: 10%;
+                            //             top: 0px;
+    
+                            //             @include newRwd("mediumPhone"){
+                            //                 margin-top: 20px;
+                            //                 width: 406px;
+                            //             }
+                            //             @include newRwd("newSmallPhone"){
+                            //                 display: none;
+                            //             }
+                                        
+                            //         }
+                                    
+                            //         .mapLocate{
+                            //             width: 23px;
+                            //             position: absolute;
+                    
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 // transform: rotate(30deg);
+                            //                 // cursor: pointer;
+                                            
+                            //             }
+                            //             @include  newRwd("miniPhone"){
+                            //                 width: 23px;
+                            //             }
+
+                            //         }
+                            //         @keyframes icon {
+                            //             from {
+                            //                 transform: scaleY(0); 
+                            //               }
+                                        
+                            //               to {
+                            //                 transform: scaleY(1);
+                            //               }
+                                        
+                            //         }
+                            //         #TaipeiCityHall{
+                            //             opacity: 0;
+                            //             left: 293px;
+                            //             top: 339px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                    
+                            //         }
+                            //         #Nanjing{
+                            //             opacity: 0;
+                            //             left: 239px;
+                            //             top: 301px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 2s;
+                            //                 // &::after{
+                            //                 //     content: '';
+                            //                 //     display: block;
+                            //                 //     width: 40px;
+                            //                 //     height: 3px;
+                            //                 //     border-radius: 10px;
+                            //                 //     position: absolute;
+                            //                 //     transition-duration: .3s;
+                            //                 //     background-color: #8F8770;
+                            //         }
+
+                            //     }
+                            //         #Zhongxiao{
+                            //             opacity: 0;
+                            //             left: 239px;
+                            //             top: 340px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                                        
+                            //         }
+                            //         #Daan{
+                            //             opacity: 0;
+                            //             left: 239px;
+                            //             top: 374px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Zhongshan{
+                            //             opacity: 0;
+                            //             left: 167px;
+                            //             top: 303px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #TaipeiMainStaiton{
+                            //             opacity: 0;
+                            //             left: 168px;
+                            //             top: 340px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Ximen{
+                            //             opacity: 0;
+                            //             left: 139px;
+                            //             top: 348px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #MemorialHal{
+                            //             opacity: 0;
+                            //             left: 167px;
+                            //             top: 374px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Daqiaotou{
+                            //             opacity: 0;
+                            //             left: 136px;
+                            //             top: 264px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #MinquanWRoad{
+                            //             opacity: 0;
+                            //             left: 167px;
+                            //             top: 264px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Shipai{
+                            //             opacity: 0;
+                            //             left: 158px;
+                            //             top: 159px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Neihu{
+                            //             opacity: 0;
+                            //             left: 350px;
+                            //             top: 227px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Nanggong{
+                            //             opacity: 0;
+                            //             left: 356px;
+                            //             top: 339px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Guting{
+                            //             opacity: 0;
+                            //             left: 183px;
+                            //             top: 389px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+                            //         #Liuzhangli{
+                            //             opacity: 0;
+                            //             left: 262px;
+                            //             top: 402px;
+                            //             &:hover{
+                            //                 opacity: 1;
+                            //                 animation: icon 1s;
+                            //             }
+                            //         }
+
+                               
+                            //  }
     
                                 
                             }
