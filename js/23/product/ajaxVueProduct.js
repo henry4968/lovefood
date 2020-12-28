@@ -103,6 +103,7 @@ const app = new Vue({
     methods: {
 
         upload() {
+            confirm('確定上傳');
             const self = this;
             let sellerNum = $("input[name='sellerNum']").val();
             let categories = $("option[name='categories']:selected").val();

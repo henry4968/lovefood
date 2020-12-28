@@ -41,6 +41,7 @@ const app = new Vue({
     },
     methods: {
         update() {
+            confirm('確定保存資訊?');
             const self = this;
             let urlParams = new URLSearchParams(window.location.search);
             let phone1 = $("input[name='phoneUpdate']").val();

@@ -145,29 +145,28 @@
                         <tbody v-if="pageView">
                             <tr v-for="(data,key) in pageView">
                                 <td>{{key+1}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[1]}}</td>
-                                <td>{{data[7]}}</td>
-                                <td>{{data[3]}}</td>
-                                <td>{{data[10]}}</td>
+                                <td>{{data.SUPPLIER_ID}}</td>
+                                <td>{{data.SUPPLIER_ACCOUNT}}</td>
+                                <td>{{data.SUPPLIER_PHONE}}</td>
+                                <td>{{data.SUPPLIER_REG_DATE}}</td>
+                                <td>{{data.SUPPLIER_STATUS}}</td>
                                 <td>
-                                    <button class="btn-s btn-brown" @click="update">編輯</button>
-                                    <input type="hidden" name="id" :value="data[0]">
-
+                                    <button class="btn-s btn-brown" name="id" :value="data.SUPPLIER_ID" @click="update">編輯</button>
                                 </td>
                             </tr>
                         </tbody>
 
                     </table>
                     <!-- ============ vue-component ==============-->
-                    <profile v-if="tableDataOne" class="profile" v-for="(key,data) in tableDataOne"
-                    :change="tableDataOne" :select="selected">
+                    <profile v-if="tableDataOne" 
+                    class="profile" v-for="(key,data) in tableDataOne"
+                    v-model:table-data-one="tableDataOne[0]">
                     
                 </profile>
             </main>
             <div id="pagination" v-if = "pageView">
                 <a href="#0" @click="pageChange(0)">＜</a>
-                <template v-for="(item,key) in Math.floor(tableData.length/5)+1">
+                <template v-for="(item,key) in Math.ceil(tableData.length/5)">
                     <div>
                         <a href="#0" @click="pageChange(key+1)">{{key+1}}</a>
                     </div>

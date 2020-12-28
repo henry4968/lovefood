@@ -1,11 +1,13 @@
 <?php 
-    include("../Lib/backendUtilClass.php");
+    include("../../Lib/backendUtilClass.php");
     $Util = new UtilClass();
-    $sql = "UPDATE LoveFood.SUPPLIER SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
+    $sql = "UPDATE SUPPLIER SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
     
-    $statement->bindValue(1,$_POST['address']);
-    $statement->bindValue(2,$_POST['phone1']);
-    $statement->bindValue(3,$_POST['id']);
+    $save = $_POST['save'];
+    // echo $save['SUPPLIER_ADDRESS'];
+    $statement->bindValue(1,$save['SUPPLIER_ADDRESS']);
+    $statement->bindValue(2,$save['SUPPLIER_PHONE']);
+    $statement->bindValue(3,$save['SUPPLIER_ID']);
     $statement->execute();
 ?>
