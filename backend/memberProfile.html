@@ -153,10 +153,10 @@
                         <tbody>
                             <tr v-for="(data,key) in tableData">
                                 <td>{{key+1}}</td>
-                                <td>{{data[0]}}</td>
-                                <td>{{data[2]}}</td>
-                                <td>{{data[7]}}</td>
-                                <td>{{data[4]}}</td>
+                                <td>{{data.MEMBER_ID}}</td>
+                                <td>{{data.MEMBER_ACCOUNT}}</td>
+                                <td>{{data.MEMBER_PHONE}}</td>
+                                <td>{{data.MEMBER_REG_DATE}}</td>
                                 <td>{{data.MEMBER_STATUS}}</td>
                             </tr>
                         </tbody>
@@ -164,11 +164,15 @@
                     </table>
                     <div class="profile" v-for="(data,key) in tableData">
                         <h2 class="btn-brown">會員檔案</h2>
-                        <h3>會員編號 <input class="input-xl" type="text" :placeholder="data[0]" disabled></h3>
-                        <h3>會員帳號 <input class="input-xl" type="text" :placeholder="data[2]" disabled></h3>
-                        <h3>會員生日 <input class="input-xl" type="text" :placeholder="data[5]" disabled></h3>
-                        <h3>會員手機 <input class="input-xl" name="phoneUpdate" v-model="data[7]"></h3>
-                        <h3>通訊地址 <input class="input-xl" name="address" type="text" :value="data[6]" size="45"></h3>
+                        <h3>會員編號 <input class="input-xl" type="text" v-model="data.MEMBER_ID" :placeholder="data.MEMBER_ID"
+                                disabled></h3>
+                        <h3>會員帳號 <input class="input-xl" type="text" v-model="data.MEMBER_ACCOUNT"
+                                :placeholder="data.MEMBER_ACCOUNT" disabled></h3>
+                        <h3>註冊日期 <input class="input-xl" type="text" v-model="data.MEMBER_ACCOUNT"
+                                :placeholder="data.MEMBER_ACCOUNT" disabled></h3>
+                        <h3>會員手機 <input class="input-xl" name="phoneUpdate" v-model="data.MEMBER_PHONE"></h3>
+                        <h3>通訊地址 <input class="input-xl" name="address" type="text" v-model="data.MEMBER_ADDRESS" size="45">
+                        </h3>
                         <h3>停權原因 <select name="" id="" v-model="data.MEMBER_STATUS">
                                 <option value="0">00 - 無</option>
                                 <option value="1">01 - 會員嚴重違反取貨規則</option>
