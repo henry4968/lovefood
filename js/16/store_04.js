@@ -100,7 +100,7 @@ new Vue({
                 url: '../PHP/Frontend/cartCheckout.php',
                 type: 'POST',
                 dataType: "JSON",
-                data: { memberId, totalDiscount, orders, totalPack },
+                data: { memberId, totalDiscount, orders, totalPack},
                 success: function (res) {
                     console.log(res);
                     self.newOrder = res;
@@ -110,10 +110,6 @@ new Vue({
                     console.log(res.responseText);
                 },
             });
-<<<<<<< HEAD
-            let clearStorage = JSON.parse(localStorage.clear());
-            this.newStorage = clearStorage;
-=======
             qrcode = "";
             setTimeout(() => {
                 qrcode = self.newOrder[0].ORDER_ID;
@@ -136,7 +132,6 @@ new Vue({
                 },
             });
             
->>>>>>> Chou
         },
         // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
         logIncheck() {
