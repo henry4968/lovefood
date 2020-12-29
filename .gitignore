@@ -1,10 +1,3 @@
-css/style.css
-css/style.css.map
-css/reset
-css/*.css
-css/*.css.map
-css/reset/*.css
-css/reset/*.css.map
 node_modules
 fonts
 css/backstage
