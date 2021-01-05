@@ -135,7 +135,7 @@
                                 <div class="form-group">
                                     <label class="sr-only">Time Pick</label>
                                     <div class="input-group DateDemo" id="">
-                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
+                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2021-01-01"
                                             class="form-control" id="queryDateStart" />
                                         <span class="input-group-btn">
                                             <button class="btn btn-brown" type="button"><i
@@ -149,7 +149,7 @@
                                 <div class="form-group">
                                     <label class="sr-only">Time Pick</label>
                                     <div class="input-group DateDemo">
-                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
+                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2021-12-31"
                                             class="form-control" id="queryDateEnd" />
                                         <span class="input-l input-group-btn">
                                             <button class="btn btn-brown" type="button"><i
@@ -186,8 +186,8 @@
                             <th>查閱詳情</th>
                         </tr>
                         <tbody v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
-                            <h4>▊ 查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
-                                    id="showDateEnd">2020-12-31</span>】
+                            <h4>▊ 查詢區間：【<span id="showDateStart">2021-01-01</span>】至【<span
+                                    id="showDateEnd">2021-12-31</span>】
                             </h4><br>
                             <tr>
                                 <td>{{key+1}}</td>
@@ -266,12 +266,17 @@
                         </div>
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
-                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            發放點數：<input class="input-xl issuancePointsInput" type="number" name="points01"
-                                placeholder="不超過單筆3000的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            現有點數：
+                            <input class="input-xl pointsOfMember" id="pointsOfMember01" type="text"
+                                :value="data['MEMBER_POINTS']" disabled><br>
+                            發放點數：
+                            <input class="input-xl issuancePointsInput" id="issuancePointsInput01" type="number"
+                                name="points01" placeholder="不超過單筆3000的整數"
+                                onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                             <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
-                            刪減點數：<input class="input-xl cutPointsInput" type="number" name="points03"
-                                placeholder="不超過餘額的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            刪減點數：
+                            <input class="input-xl cutPointsInput" id="cutPointsInput01" type="number" name="points03"
+                                placeholder="不超過現有點數的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                             <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>
@@ -325,10 +330,17 @@
                         </div>
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
-                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            發放點數：<input class="input-xl issuancePointsInput" type="text" name="points02">
+                            現有點數：
+                            <input class="input-xl pointsOfMember" id="pointsOfMember02" type="text"
+                                :value="data['MEMBER_POINTS']" disabled><br>
+                            發放點數：
+                            <input class="input-xl issuancePointsInput" id="issuancePointsInput02" type="number"
+                                name="points02" placeholder="不超過單筆3000的整數"
+                                onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                             <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
-                            刪減點數：<input class="input-xl cutPointsInput" type="text" name="points04">
+                            刪減點數：
+                            <input class="input-xl cutPointsInput" id="cutPointsInput02" type="number" name="points04"
+                                placeholder="不超過現有點數的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                             <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>

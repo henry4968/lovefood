@@ -114,6 +114,60 @@ const app = new Vue({
 
     },
 
+    updated() {
+
+        $('.issuancePointsInput').focus(function () {
+            $('.cutPointsInput').val("");
+        });
+
+        $('.cutPointsInput').focus(function () {
+            $('.issuancePointsInput').val("");
+        });
+
+        $('#issuancePointsInput01').keyup(function () {
+            let n = parseInt($('#issuancePointsInput01').val(), 10);
+            if (n < 0) {
+                $('#issuancePointsInput01').val(0);
+            }
+            if (n > 3000) {
+                $('#issuancePointsInput01').val(3000);
+            }
+        });
+
+        $('#cutPointsInput01').keyup(function () {
+            let n01 = parseInt($('#cutPointsInput01').val(), 10);
+            let n02 = parseInt($('#pointsOfMember01').val(), 10);
+            if (n01 < 0) {
+                $('#cutPointsInput01').val(0);
+            }
+            if (n01 > n02) {
+                $('#cutPointsInput01').val(n02);
+            }
+        });
+
+        $('#issuancePointsInput02').keyup(function () {
+            let n = parseInt($('#issuancePointsInput02').val(), 10);
+            if (n < 0) {
+                $('#issuancePointsInput02').val(0);
+            }
+            if (n > 3000) {
+                $('#issuancePointsInput02').val(3000);
+            }
+        });
+
+        $('#cutPointsInput02').keyup(function () {
+            let n01 = parseInt($('#cutPointsInput02').val(), 10);
+            let n02 = parseInt($('#pointsOfMember02').val(), 10);
+            if (n01 < 0) {
+                $('#cutPointsInput02').val(0);
+            }
+            if (n01 > n02) {
+                $('#cutPointsInput02').val(n02);
+            }
+        });
+
+    },
+
     methods: {
 
         showIssuanceLog(e) {
@@ -191,6 +245,8 @@ const app = new Vue({
 
             this.showUsingDetails = false;
             this.showIssuanceDetails = false;
+            $(".issuancePointsInput").val("");
+            $(".cutPointsInput").val("");
 
             let id = $("input[name='id']").val();
             let account = $("input[name='account']").val();
@@ -281,6 +337,10 @@ const app = new Vue({
                 dataType: "text",
             });
 
+            if (points01 == "" && points02 == "") {
+                alert("請輸入發放點數！");
+            }
+
             if (points01) {
                 this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) + parseInt(points01);
             } else if (points02) {
@@ -315,6 +375,10 @@ const app = new Vue({
                 },
                 dataType: "text",
             });
+
+            if (points03 == "" && points04 == "") {
+                alert("請輸入刪減點數！");
+            }
 
             if (points03) {
                 this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) - parseInt(points03);
