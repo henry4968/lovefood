@@ -4,8 +4,8 @@
     $Util = new UtilClass();
 
     $sqlMember = "SELECT MEMBER_ID, `MEMBER_ACCOUNT`, `MEMBER_NAME`, MEMBER_PHONE, MEMBER_POINTS FROM `MEMBER` WHERE MEMBER_CLASS = 1 and MEMBER_ID like ? and MEMBER_ACCOUNT like ? and `MEMBER_NAME` like ? and MEMBER_PHONE like ?";
-    $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM Lovefood.POINTS_ISSUANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.POINTS_ISSUANCE_DATE >= MB.MEMBER_REG_DATE && PI.POINTS_ISSUANCE_DATE <= ? GROUP BY MEMBER_ID";
-    $sqlTotalDiscount = "SELECT MEMBER_ID_for_OD, sum(ifnull(ORDER_DISCOUNT, 0)) as TOTAL_DISCOUNT FROM Lovefood.ORDER WHERE MEMBER_ID_for_OD like ? && ORDER_DATE >= ? && ORDER_DATE <= ? GROUP BY MEMBER_ID_for_OD";
+    $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM POINTS_ISSUANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.POINTS_ISSUANCE_DATE >= MB.MEMBER_REG_DATE && PI.POINTS_ISSUANCE_DATE <= ? GROUP BY MEMBER_ID";
+    $sqlTotalDiscount = "SELECT MEMBER_ID_for_OD, sum(ifnull(ORDER_DISCOUNT, 0)) as TOTAL_DISCOUNT FROM `ORDER` WHERE MEMBER_ID_for_OD like ? && ORDER_DATE >= ? && ORDER_DATE <= ? GROUP BY MEMBER_ID_for_OD";
 
     $statesmentMember = $Util->getPDO()->prepare($sqlMember);
     $statesmentTotalIssuance = $Util->getPDO()->prepare($sqlTotalIssuance);
@@ -51,21 +51,6 @@
         foreach($dataMB as $row => $data){
             echo $data;
         }
-
-        // foreach ($qData as $qIndex => $qRow) {
-        //     $qCurrent = $qData[$qIndex];
-        //     echo "<section class='inQuiz' style='background-image: url(../images/quiz/background/" . $qCurrent["qBackground"] . ");'>" . "<div class='blueBg'>" . "<div class='question' data-answer='" . $qRow["qAnswer"] . "'>" . htmlspecialchars($qRow["qContent"]) . "</div>" . "<div class='answer'>";
-        //     foreach ($sData as $sIndex => $sRow) {
-        //         $sCurrent = $sData[$sIndex];
-        //         if ($sCurrent["sQuiz"] === $qCurrent["qNumber"]) {
-        //             echo  "<label>" . "<input class='selection' value='" . $sRow["sOption"] . "' type='radio' name='selection'>" . $sRow["sOption"] . ". " . htmlspecialchars($sRow["sContent"]) . "</label>";
-        //         }
-        //     }
-        //     echo "</div>" . "</div>" . "<button class='nextQuestion'>下一題</button>" . "</section>";
-        // }
-        
-        // echo json_encode($dataMB);
-        
     }
 
     function is_Date($string){
