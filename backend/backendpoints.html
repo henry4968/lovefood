@@ -270,9 +270,9 @@
                             發放點數：<input class="input-xl issuancePointsInput" type="number" name="points01"
                                 placeholder="不超過單筆3000的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
                             <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
-                            <!-- 刪減點數：<input class="input-xl cutPointsInput" type="number" name="points03"
+                            刪減點數：<input class="input-xl cutPointsInput" type="number" name="points03"
                                 placeholder="不超過餘額的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
-                            <button class="btn-xs btn-brown" @click="updatePoints">確認刪減</button> -->
+                            <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -328,8 +328,8 @@
                             擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
                             發放點數：<input class="input-xl issuancePointsInput" type="text" name="points02">
                             <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
-                            <!-- 刪減點數：<input class="input-xl cutPointsInput" type="text" name="points04">
-                            <button class="btn-xs btn-brown" @click="updatePoints">確認刪減</button> -->
+                            刪減點數：<input class="input-xl cutPointsInput" type="text" name="points04">
+                            <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">

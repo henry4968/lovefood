@@ -10,7 +10,7 @@
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM Lovefood.POINTS_ISSUANCE";
+                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM POINTS_ISSUANCE";
 
                 $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
                 $statementSelectMaxId->execute();
