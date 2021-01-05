@@ -258,19 +258,54 @@ const app = new Vue({
             });
         },
 
-        updatePoints() {
+        // updatePoints() {
+        //     const self = this;
+
+        //     let selectedId = $("input[name='selectedId']").val();
+        //     let points = $("input[name='points']").val();
+        //     let points01 = $("input[name='points01']").val();
+        //     let points02 = $("input[name='points02']").val();
+        //     let updatePointsInput = document.getElementsByClassName("updatePointsInput");
+
+        //     $.ajax({
+        //         url: '../PHP/backStage/points/pointsUpdate.php',
+        //         type: 'POST',
+        //         data: { points, points01, points02, selectedId },
+        //         success: function (res) {
+        //             self.pointsUpdating = res;
+        //             console.log(res)
+        //         },
+        //         error: function (res) {
+        //             console.log("回傳失敗！");
+        //             console.log(res.responseText);
+        //         },
+        //         dataType: "text",
+        //     });
+
+        //     if (points01) {
+        //         this.pointsOfMember[0].MEMBER_POINTS = points01;
+        //     } else if (points02) {
+        //         this.pointsOfMember[0].MEMBER_POINTS = points02;
+        //     }
+
+        //     for (let i = 0; i < updatePointsInput.length; i++) {
+        //         updatePointsInput[i].value = "";
+        //     }
+
+        // },
+
+        issuancePoints() {
             const self = this;
 
             let selectedId = $("input[name='selectedId']").val();
-            let points = $("input[name='points']").val();
             let points01 = $("input[name='points01']").val();
             let points02 = $("input[name='points02']").val();
-            let updatePointsInput = document.getElementsByClassName("updatePointsInput");
+            let issuancePointsInput = document.getElementsByClassName("issuancePointsInput");
 
             $.ajax({
-                url: '../PHP/backStage/points/pointsUpdate.php',
+                url: '../PHP/backStage/points/pointsIssuance.php',
                 type: 'POST',
-                data: { points, points01, points02, selectedId },
+                data: { points01, points02, selectedId },
                 success: function (res) {
                     self.pointsUpdating = res;
                     console.log(res)
@@ -283,13 +318,48 @@ const app = new Vue({
             });
 
             if (points01) {
-                this.pointsOfMember[0].MEMBER_POINTS = points01;
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) + parseInt(points01);
             } else if (points02) {
-                this.pointsOfMember[0].MEMBER_POINTS = points02;
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) + parseInt(points02);
             }
 
-            for (let i = 0; i < updatePointsInput.length; i++) {
-                updatePointsInput[i].value = "";
+            for (let i = 0; i < issuancePointsInput.length; i++) {
+                issuancePointsInput[i].value = "";
+            }
+
+        },
+
+        cutPoints() {
+            const self = this;
+
+            let selectedId = $("input[name='selectedId']").val();
+            let points01 = $("input[name='points03']").val();
+            let points02 = $("input[name='points04']").val();
+            let cutPointsInput = document.getElementsByClassName("cutPointsInput");
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsCut.php',
+                type: 'POST',
+                data: { points03, points04, selectedId },
+                success: function (res) {
+                    self.pointsUpdating = res;
+                    console.log(res)
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+                dataType: "text",
+            });
+
+            if (points03) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) - parseInt(points01);
+            } else if (points04) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) - parseInt(points02);
+            }
+
+            for (let i = 0; i < cutPointsInput.length; i++) {
+                cutPointsInput[i].value = "";
             }
 
         },
