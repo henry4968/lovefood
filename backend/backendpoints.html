@@ -286,7 +286,7 @@
                             <thead>
                                 <tr>
                                     <th>序號</th>
-                                    <th>訂單編號</th>
+                                    <th>訂單編號／刪減編號</th>
                                     <th>使用點數</th>
                                     <th>使用時間</th>
                                 </tr>
@@ -294,7 +294,8 @@
                             <tbody v-if="discountLog">
                                 <tr v-for="(data,key) in singleDiscountPageView">
                                     <td>{{key+1}}</td>
-                                    <td>{{data["ORDER_ID"]}}</td>
+                                    <td v-if='data["ORDER_ID"].indexOf("SC") != -1'>{{data["ORDER_ID"]}}（系統刪減）</td>
+                                    <td v-else>{{data["ORDER_ID"]}}</td>
                                     <td>{{data["ORDER_DISCOUNT"]}}</td>
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>

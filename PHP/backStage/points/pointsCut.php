@@ -13,15 +13,15 @@
     $insertOrderId = "";
 
     if($orderMaxNumber < 10){
-        $insertOrderId = "OD000000".$orderMaxNumber;
+        $insertOrderId = "SC000000".$orderMaxNumber;
     }else if($orderMaxNumber < 100 && $orderMaxNumber >= 10){
-        $insertOrderId = "OD00000".$orderMaxNumber;
+        $insertOrderId = "SC00000".$orderMaxNumber;
     }else if($orderMaxNumber < 1000 && $orderMaxNumber>=100){
-        $insertOrderId = "OD0000".$maxNumber;
+        $insertOrderId = "SC0000".$maxNumber;
     }else if($orderMaxNumber < 10000 && $orderMaxNumber>=1000){
-        $insertOrderId = "OD000".$maxNumber;
+        $insertOrderId = "SC000".$maxNumber;
     }else if($orderMaxNumber < 100000 && $maxNumber>=10000){
-        $insertOrderId = "OD00".$orderMaxNumber;
+        $insertOrderId = "SC00".$orderMaxNumber;
     }
 
     $sqlInsertOrder = "INSERT INTO `ORDER` (ORDER_ID, ORDER_DATE, MEMBER_ID_for_OD, ORDER_STATUS, ORDER_PICKUP_DATE, ORDER_DISCOUNT, ORDER_PICKUP_METHOD, MRT_PICKUP_SITE_ID_for_OD)
