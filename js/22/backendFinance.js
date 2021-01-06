@@ -543,12 +543,12 @@ const app = new Vue({
                             self.donationDetals[i].DONATION_METHOD = "信用卡";
                         }
 
-                        if (sDD[i].DONATION_DELIVERY_METHOD == 1) {
+                        if (parseInt(sDD[i].DONATION_DELIVERY_METHOD) == 1) {
                             self.donationDetals[i].DONATION_DELIVERY_METHOD = "免寄收據";
-                        } else if (sDD[i].DELIVERY_METHOD == 2) {
+                        } else if (parseInt(sDD[i].DELIVERY_METHOD) == 2) {
                             self.donationDetals[i].DONATION_DELIVERY_METHOD = "每次寄發";
                         } else {
-                            self.donationDetals[i].DONATION_DELIVERY_METHOD = "資料錯誤";
+                            self.donationDetals[i].DONATION_DELIVERY_METHOD = "每次寄發";
                         }
 
                         Object.keys(self.donationDetals[0]).forEach(function (key) {
