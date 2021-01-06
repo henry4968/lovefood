@@ -523,7 +523,7 @@ const app = new Vue({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.membersListPageView = self.tableData.filter(function (item, index, array) {
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
                         return index >= 10 * (pageNow - 1) && index < 10 * (pageNow);
                     })
                     pageNow = pageNow - 1;
@@ -532,7 +532,7 @@ const app = new Vue({
             } else if (page == 'next') {
                 alert('這是page後' + page)
                 alert('這是pageNow' + pageNow)
-                if (pageNow == Math.floor(self.tableData.length / 10) - 1) {
+                if (pageNow == Math.floor(self.pointsOfMember.length / 10) - 1) {
                     alert('當前已是最末頁，無法繼續前進');
                 } else {
                     //頁碼變色
@@ -544,7 +544,7 @@ const app = new Vue({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.membersListPageView = self.tableData.filter(function (item, index, array) {
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
                         return index >= 10 * (pageNow + 1) && index < 10 * (pageNow + 2);
                     })
                     pageNow = pageNow + 1;

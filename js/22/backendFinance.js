@@ -171,6 +171,17 @@ const app = new Vue({
                 showDateStart.innerHTML = queryDateStart.value;
                 showDateEnd.innerHTML = queryDateEnd.value;
 
+                self.pageView = self.donationLog.filter(function (item, index, array) {
+                    return index < 10;
+                })
+                pageNow = 0;
+                setTimeout(() => {
+                    $('#pagination').find('a').eq(1).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                }, 1);
+
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -462,6 +473,17 @@ const app = new Vue({
                     showDateStart.innerHTML = queryDateStart.value;
                     showDateEnd.innerHTML = queryDateEnd.value;
 
+                    self.pageView = self.donationLog.filter(function (item, index, array) {
+                        return index < 10;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -534,6 +556,17 @@ const app = new Vue({
                                 self.donationDetals[0][key] = "未填寫";
                             }
                         });
+
+                        self.batchIssuancePageView = self.uploadCSVLog.filter(function (item, index, array) {
+                            return index < 10;
+                        })
+                        pageNow = 0;
+                        setTimeout(() => {
+                            $('#pagination').find('a').eq(1).css({
+                                backgroundColor: '#887664',
+                                color: '#FFF'
+                            })
+                        }, 1);
 
                     }
                 },
@@ -609,7 +642,7 @@ const app = new Vue({
             this.showDetails = true;
         },
 
-        pageChange(page) {
+        donationPageChange(page) {
             //==============標記當前在第幾頁=============
             const self = this;
             if (self.pageNow == 0) {
@@ -617,7 +650,7 @@ const app = new Vue({
             }
             //==============直接換頁=============
             if (page > 0) {
-                self.pageView = self.issuanceLog.filter(function (item, index, array) {
+                self.pageView = self.donationLog.filter(function (item, index, array) {
                     return index >= 5 * (page - 1) && index < 5 * (page);
                 })
                 pageNow = page - 1;
@@ -646,7 +679,7 @@ const app = new Vue({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.pageView = self.donationLog.filter(function (item, index, array) {
                         return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
                     })
                     pageNow = pageNow - 1;
@@ -655,7 +688,7 @@ const app = new Vue({
             } else if (page == 'next') {
                 alert('這是page後' + page)
                 alert('這是pageNow' + pageNow)
-                if (pageNow == Math.floor(self.tableData.length / 5) - 1) {
+                if (pageNow == Math.floor(self.donationLog.length / 5) - 1) {
                     alert('當前已是最末頁，無法繼續前進');
                 } else {
                     //頁碼變色
@@ -667,7 +700,7 @@ const app = new Vue({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.pageView = self.donationLog.filter(function (item, index, array) {
                         return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
                     })
                     pageNow = pageNow + 1;

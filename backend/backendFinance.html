@@ -257,7 +257,7 @@
                                 <th>編輯詳情</th>
                             </tr>
                             <tbody v-if="donationLog">
-                                <tr v-for="(data,key) in donationLog">
+                                <tr v-for="(data,key) in pageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["DONATION_ID"]}}</td>
                                     <td>{{data["DONATION_NAME"]}}</td>
@@ -273,14 +273,14 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="pagination" v-if="pageView">
-                            <a href="#0" @click="pageChange(0)">＜</a>
-                            <a href="#0" @click="pageChange(1)">1</a>
-                            <a href="#0" @click="pageChange(2)">2</a>
-                            <a href="#0" @click="pageChange(3)">3</a>
-                            <a href="#0" @click="pageChange(4)">4</a>
-                            <a href="#0" @click="pageChange(5)">5</a>
-                            <a href="#0" @click="pageChange('next')">＞</a>
+                        <div class="pagination" id="donationListPagination" v-if="pageView">
+                            <a href="#0" @click="donationPageChange(0)">＜</a>
+                            <a href="#0" @click="donationPageChange(1)">1</a>
+                            <a href="#0" @click="donationPageChange(2)">2</a>
+                            <a href="#0" @click="donationPageChange(3)">3</a>
+                            <a href="#0" @click="donationPageChange(4)">4</a>
+                            <a href="#0" @click="donationPageChange(5)">5</a>
+                            <a href="#0" @click="donationPageChange('next')">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
