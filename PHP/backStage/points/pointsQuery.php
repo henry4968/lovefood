@@ -4,7 +4,8 @@
     $Util = new UtilClass();
 
     $sqlMember = "SELECT MEMBER_ID, `MEMBER_ACCOUNT`, `MEMBER_NAME`, MEMBER_PHONE, MEMBER_POINTS FROM `MEMBER` WHERE MEMBER_CLASS = 1 and MEMBER_ID like ? and MEMBER_ACCOUNT like ? and `MEMBER_NAME` like ? and MEMBER_PHONE like ?";
-    $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM POINTS_ISSUANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.POINTS_ISSUANCE_DATE >= MB.MEMBER_REG_DATE && PI.POINTS_ISSUANCE_DATE <= ? GROUP BY MEMBER_ID";
+    // $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM POINTS_ISSUANCE PI JOIN `MEMBER` MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE MEMBER_ID_for_PI like ? && PI.POINTS_ISSUANCE_DATE >= MB.MEMBER_REG_DATE && PI.POINTS_ISSUANCE_DATE <= ? GROUP BY MEMBER_ID";
+    $sqlTotalIssuance = "SELECT MEMBER_ID_for_PI, sum(POINTS_ISSUANCE_NUM) as TOTAL_ISSUANCE FROM POINTS_ISSUANCE WHERE MEMBER_ID_for_PI like ? && POINTS_ISSUANCE_DATE between ? and ? GROUP BY MEMBER_ID_for_PI";
     $sqlTotalDiscount = "SELECT MEMBER_ID_for_OD, sum(ifnull(ORDER_DISCOUNT, 0)) as TOTAL_DISCOUNT FROM `ORDER` WHERE MEMBER_ID_for_OD like ? && ORDER_DATE >= ? && ORDER_DATE <= ? GROUP BY MEMBER_ID_for_OD";
 
     $statesmentMember = $Util->getPDO()->prepare($sqlMember);
@@ -15,7 +16,8 @@
     if(is_Date($_POST["dateStart"]) && is_Date($_POST["dateEnd"])){
 
         $statesmentTotalIssuance->bindValue(1,'%'.@$_POST["id"].'%');
-        $statesmentTotalIssuance->bindValue(2,$_POST["dateEnd"]);
+        $statesmentTotalIssuance->bindValue(2,$_POST["dateStart"]);
+        $statesmentTotalIssuance->bindValue(3,$_POST["dateEnd"]);
 
         $statesmentTotalIssuance->execute();
         $dataIS = $statesmentTotalIssuance->fetchAll(PDO::FETCH_ASSOC);
