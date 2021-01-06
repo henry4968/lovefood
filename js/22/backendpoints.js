@@ -1,3 +1,5 @@
+// const { NULL } = require("node-sass");
+
 Vue.component('user', {
     template: `
     <div>
@@ -27,7 +29,10 @@ const app = new Vue({
         showIssuanceDetails: false,
         showUsingDetails: false,
         uploadCSVLog: null,
-        pageView: null,
+        membersListPageView: null,
+        singleDiscountPageView: null,
+        singleIssuancePageView: null,
+        batchIssuancePageView: null,
         pageNow: null,
     },
 
@@ -84,6 +89,17 @@ const app = new Vue({
                 console.log(rPD);
                 console.log(rIL);
                 console.log(rDL);
+
+                self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                    return index < 10;
+                })
+                pageNow = 0;
+                setTimeout(() => {
+                    $('#pagination').find('a').eq(1).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                }, 1);
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -190,7 +206,7 @@ const app = new Vue({
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
 
-                    self.pageView = res.issuanceLog.filter(function (item, index, array) {
+                    self.singleIssuancePageView = res.issuanceLog.filter(function (item, index, array) {
                         return index < 5;
                     })
                     pageNow = 0;
@@ -230,6 +246,17 @@ const app = new Vue({
                     self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
+
+                    self.singleDiscountPageView = res.discountLog.filter(function (item, index, array) {
+                        return index < 5;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -304,6 +331,17 @@ const app = new Vue({
 
                     showDateStart.innerHTML = queryDateStart.value;
                     showDateEnd.innerHTML = queryDateEnd.value;
+
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                        return index < 10;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
 
                 },
                 error: function (res) {
@@ -420,6 +458,17 @@ const app = new Vue({
                     alert("上傳成功！");
                     self.uploadCSVLog = res;
                     console.log(res);
+
+                    self.batchIssuancePageView = self.uploadCSVLog.filter(function (item, index, array) {
+                        return index < 10;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
                 },
                 error: function (res) {
                     alert("上傳失敗！請檢察控制台日誌訊息。");
@@ -437,7 +486,7 @@ const app = new Vue({
             labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
         },
 
-        pageChange(page) {
+        membersListPageChange(page) {
             //==============標記當前在第幾頁=============
             const self = this;
             if (self.pageNow == 0) {
@@ -445,16 +494,16 @@ const app = new Vue({
             }
             //==============直接換頁=============
             if (page > 0) {
-                self.pageView = self.issuanceLog.filter(function (item, index, array) {
-                    return index >= 5 * (page - 1) && index < 5 * (page);
+                self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                    return index >= 10 * (page - 1) && index < 10 * (page);
                 })
                 pageNow = page - 1;
                 //頁碼變色
-                $('#pagination').find('a').css({
+                $('#membersListPagination').find('a').css({
                     backgroundColor: 'transparent',
                     color: '#887664'
                 })
-                $('#pagination').find('a').eq(`${page}`).css({
+                $('#membersListPagination').find('a').eq(`${page}`).css({
                     backgroundColor: '#887664',
                     color: '#FFF'
                 })
@@ -466,15 +515,82 @@ const app = new Vue({
                     alert('當前已是最前頁，無法繼續後退');
                 } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({
+                    $('#membersListPagination').find('a').css({
                         backgroundColor: 'transparent',
                         color: '#887664'
                     })
-                    $('#pagination').find('a').eq(`${pageNow}`).css({
+                    $('#membersListPagination').find('a').eq(`${pageNow}`).css({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.membersListPageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow - 1) && index < 10 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 10) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#membersListPagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#membersListPagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.membersListPageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow + 1) && index < 10 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.membersListPageView);
+        },
+
+        singleDiscountpageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.singleDiscountPageView = self.discountLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#singleDiscountPagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#singleDiscountPagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#singleDiscountPagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleDiscountPagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleDiscountPageView = self.tableData.filter(function (item, index, array) {
                         return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
                     })
                     pageNow = pageNow - 1;
@@ -487,21 +603,155 @@ const app = new Vue({
                     alert('當前已是最末頁，無法繼續前進');
                 } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({
+                    $('#singleDiscountPagination').find('a').css({
                         backgroundColor: 'transparent',
                         color: '#887664'
                     })
-                    $('#pagination').find('a').eq(`${pageNow + 2}`).css({
+                    $('#singleDiscountPagination').find('a').eq(`${pageNow + 2}`).css({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.singleDiscountPageView = self.tableData.filter(function (item, index, array) {
                         return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
                     })
                     pageNow = pageNow + 1;
                 }
             }
-            console.log(self.pageView);
+            console.log(self.singleDiscountPageView);
+        },
+
+        singleIssuancePageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.singleIssuancePageView = self.issuanceLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#singleIssuancePagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#singleIssuancePagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#singleIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleIssuancePagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 5) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#singleIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleIssuancePagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.singleIssuancePageView);
+        },
+
+        batchIssuancePageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.batchIssuancePageView = self.uploadCSVLog.filter(function (item, index, array) {
+                    return index >= 10 * (page - 1) && index < 10 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#batchIssuancePagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#batchIssuancePagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#batchIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#batchIssuancePagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.batchIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow - 1) && index < 10 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 10) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#batchIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#batchIssuancePagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.batchIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow + 1) && index < 10 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.batchIssuancePageView);
         },
 
     }

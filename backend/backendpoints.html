@@ -219,7 +219,7 @@
                             </tr>
                         </tbody>
                         <tbody v-else="pointsOfMember">
-                            <tr v-for="(data,key) in pointsOfMember">
+                            <tr v-for="(data,key) in membersListPageView">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["MEMBER_ACCOUNT"]}}</td>
@@ -236,14 +236,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pagination">
-                        <a href="#0">＜</a>
-                        <a href="#0">1</a>
-                        <a href="#0">2</a>
-                        <a href="#0">3</a>
-                        <a href="#0">4</a>
-                        <a href="#0">5</a>
-                        <a href="#0">＞</a>
+                    <div class="pagination" id="membersListPagination" v-if="membersListPageView">
+                        <a href="#0" @click="membersListPageChange(0)">＜</a>
+                        <a href="#0" @click="membersListPageChange(1)">1</a>
+                        <a href="#0" @click="membersListPageChange(2)">2</a>
+                        <a href="#0" @click="membersListPageChange(3)">3</a>
+                        <a href="#0" @click="membersListPageChange(4)">4</a>
+                        <a href="#0" @click="membersListPageChange(5)">5</a>
+                        <a href="#0" @click="membersListPageChange('next')">＞</a>
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
@@ -292,21 +292,21 @@
                                 </tr>
                             </thead>
                             <tbody v-if="discountLog">
-                                <tr v-for="(data,key) in discountLog">
+                                <tr v-for="(data,key) in singleDiscountPageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["ORDER_ID"]}}</td>
                                     <td>{{data["ORDER_DISCOUNT"]}}</td>
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
-                        <div class="pagination" v-if="pageView">
-                            <a href="#0" @click="pageChange(0)">＜</a>
-                            <a href="#0" @click="pageChange(1)">1</a>
-                            <a href="#0" @click="pageChange(2)">2</a>
-                            <a href="#0" @click="pageChange(3)">3</a>
-                            <a href="#0" @click="pageChange(4)">4</a>
-                            <a href="#0" @click="pageChange(5)">5</a>
-                            <a href="#0" @click="pageChange('next')">＞</a>
+                        <div class="pagination" id="singleDiscountPagination" v-if="singleDiscountPageView">
+                            <a href="#0" @click="singleDiscountpageChange(0)">＜</a>
+                            <a href="#0" @click="singleDiscountpageChange(1)">1</a>
+                            <a href="#0" @click="singleDiscountpageChange(2)">2</a>
+                            <a href="#0" @click="singleDiscountpageChange(3)">3</a>
+                            <a href="#0" @click="singleDiscountpageChange(4)">4</a>
+                            <a href="#0" @click="singleDiscountpageChange(5)">5</a>
+                            <a href="#0" @click="singleDiscountpageChange('next')">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
@@ -356,23 +356,23 @@
                                 </tr>
                             </thead>
                             <tbody v-if="issuanceLog">
-                                <tr v-for="(data,key) in pageView">
+                                <tr v-for="(data,key) in singleIssuancePageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_NUM"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_DATE"]}}</td>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="pagination" v-if="pageView">
-                        <a href="#0" @click="pageChange(0)">＜</a>
-                        <a href="#0" @click="pageChange(1)">1</a>
-                        <a href="#0" @click="pageChange(2)">2</a>
-                        <a href="#0" @click="pageChange(3)">3</a>
-                        <a href="#0" @click="pageChange(4)">4</a>
-                        <a href="#0" @click="pageChange(5)">5</a>
-                        <a href="#0" @click="pageChange('next')">＞</a>
-                        <a href="#0">最末頁</a>
+                        <div class="pagination" id="singleIssuancePagination" v-if="singleIssuancePageView">
+                            <a href="#0" @click="singleIssuancePageChange(0)">＜</a>
+                            <a href="#0" @click="singleIssuancePageChange(1)">1</a>
+                            <a href="#0" @click="singleIssuancePageChange(2)">2</a>
+                            <a href="#0" @click="singleIssuancePageChange(3)">3</a>
+                            <a href="#0" @click="singleIssuancePageChange(4)">4</a>
+                            <a href="#0" @click="singleIssuancePageChange(5)">5</a>
+                            <a href="#0" @click="singleIssuancePageChange('next')">＞</a>
+                            <a href="#0">最末頁</a>
+                        </div>
                     </div>
                 </div>
                 <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">
@@ -386,9 +386,9 @@
                             <th>會員姓名</th>
                             <th>發放點數</th>
                             <th>發放時間</th>
-                            <th>會員剩餘點數</th>
+                            <th>會員現有點數</th>
                         </tr>
-                        <tbody v-if="uploadCSVLog" v-for="(data,key) in uploadCSVLog">
+                        <tbody v-if="uploadCSVLog" v-for="(data,key) in batchIssuancePageView">
                             <tr>
                                 <td>{{key+1}}</td>
                                 <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
@@ -401,14 +401,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pagination" v-if="pageView">
-                        <a href="#0" @click="pageChange(0)">＜</a>
-                        <a href="#0" @click="pageChange(1)">1</a>
-                        <a href="#0" @click="pageChange(2)">2</a>
-                        <a href="#0" @click="pageChange(3)">3</a>
-                        <a href="#0" @click="pageChange(4)">4</a>
-                        <a href="#0" @click="pageChange(5)">5</a>
-                        <a href="#0" @click="pageChange('next')">＞</a>
+                    <div class="pagination" id="batchIssuancePagination" v-if="batchIssuancePageView">
+                        <a href="#0" @click="batchIssuancePageChange(0)">＜</a>
+                        <a href="#0" @click="batchIssuancePageChange(1)">1</a>
+                        <a href="#0" @click="batchIssuancePageChange(2)">2</a>
+                        <a href="#0" @click="batchIssuancePageChange(3)">3</a>
+                        <a href="#0" @click="batchIssuancePageChange(4)">4</a>
+                        <a href="#0" @click="batchIssuancePageChange(5)">5</a>
+                        <a href="#0" @click="batchIssuancePageChange('next')">＞</a>
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
