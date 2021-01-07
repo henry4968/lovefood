@@ -554,7 +554,7 @@ Vue.component('order', {
 
           <div v-if="orderList.length > 0 && dateCheck(order)" class="orderdetailBorder" v-for="(order,i) in orderList">
             <!-- <div class="cancelorder" v-if=" order.ORDER_STATUS == '取消' "></div> -->
-            <div class="catalogBorder">
+            <div class="catalogBorder" v-if="order.ORDER_STATUS != 9">
               <div class="detailsame orderdateBorder">
                 <div class="cattitle">
                   <h3 class="cattitle orderdate">訂單日期</h3>
@@ -594,7 +594,7 @@ Vue.component('order', {
             </div>
 
 
-            <div class="itemdetailBorder itemdetailBorderdb">
+            <div class="itemdetailBorder itemdetailBorderdb" v-if="order.ORDER_STATUS != 9">
               <div class="itemstatusBorder">
                 <div class="itemstopBorder">
                   <div class="fourcircleBorder">
@@ -1257,11 +1257,11 @@ Vue.component('order', {
         // console.log((res.data));
         this.orderList = res.data
 
-        this.orderList.forEach(q => {
-          q.detail.forEach(qq => {
-            // console.log(qq.PRODUCT_IMG);
-          })
-        })
+        // this.orderList.forEach(q => {
+        //   q.detail.forEach(qq => {
+        //     console.log(qq.PRODUCT_IMG);
+        //   })
+        // })
 
 
         // 回復原狀
@@ -1506,7 +1506,8 @@ Vue.component('points', {
                   </div>
                   <div class="rightdateandidBorder">
                     <span class="itempointidtitle">訂單編號：</span>
-                    <span class="itempointidcontent">{{point.ORDER_ID}}</span>
+                    <span class="itempointidcontent" v-if='point.ORDER_ID.indexOf("SC") != -1'>{{point.ORDER_ID}}-系統刪減</span>
+                    <span class="itempointidcontent" v-else>{{point.ORDER_ID}}</span>
                   </div>
                 </div>
                 <span class="itempointplus">-{{point.ORDER_DISCOUNT}}點</span>

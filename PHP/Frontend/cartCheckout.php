@@ -58,7 +58,6 @@ if(count($orders) > 1){
     $statementInsertOrder->bindValue(6, $mrtPickSite);
     $statementInsertOrder->execute();    
     
-    
     for($i = 0; $i < count($orders[0]); $i++){
         $mrtPickSite = !empty($totalPack[$i]['pickUpSite']) ? $totalPack[$i]['pickUpSite'] : null;
 
