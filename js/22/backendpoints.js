@@ -1,3 +1,5 @@
+// const { NULL } = require("node-sass");
+
 Vue.component('user', {
     template: `
     <div>
@@ -27,7 +29,10 @@ const app = new Vue({
         showIssuanceDetails: false,
         showUsingDetails: false,
         uploadCSVLog: null,
-        pageView: null,
+        membersListPageView: null,
+        singleDiscountPageView: null,
+        singleIssuancePageView: null,
+        batchIssuancePageView: null,
         pageNow: null,
     },
 
@@ -84,6 +89,17 @@ const app = new Vue({
                 console.log(rPD);
                 console.log(rIL);
                 console.log(rDL);
+
+                self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                    return index < 10;
+                })
+                pageNow = 0;
+                setTimeout(() => {
+                    $('#pagination').find('a').eq(1).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                }, 1);
             },
             error: function (res) {
                 console.log("回傳失敗！");
@@ -114,6 +130,60 @@ const app = new Vue({
 
     },
 
+    updated() {
+
+        $('.issuancePointsInput').focus(function () {
+            $('.cutPointsInput').val("");
+        });
+
+        $('.cutPointsInput').focus(function () {
+            $('.issuancePointsInput').val("");
+        });
+
+        $('#issuancePointsInput01').keyup(function () {
+            let n = parseInt($('#issuancePointsInput01').val(), 10);
+            if (n < 0) {
+                $('#issuancePointsInput01').val(0);
+            }
+            if (n > 3000) {
+                $('#issuancePointsInput01').val(3000);
+            }
+        });
+
+        $('#cutPointsInput01').keyup(function () {
+            let n01 = parseInt($('#cutPointsInput01').val(), 10);
+            let n02 = parseInt($('#pointsOfMember01').val(), 10);
+            if (n01 < 0) {
+                $('#cutPointsInput01').val(0);
+            }
+            if (n01 > n02) {
+                $('#cutPointsInput01').val(n02);
+            }
+        });
+
+        $('#issuancePointsInput02').keyup(function () {
+            let n = parseInt($('#issuancePointsInput02').val(), 10);
+            if (n < 0) {
+                $('#issuancePointsInput02').val(0);
+            }
+            if (n > 3000) {
+                $('#issuancePointsInput02').val(3000);
+            }
+        });
+
+        $('#cutPointsInput02').keyup(function () {
+            let n01 = parseInt($('#cutPointsInput02').val(), 10);
+            let n02 = parseInt($('#pointsOfMember02').val(), 10);
+            if (n01 < 0) {
+                $('#cutPointsInput02').val(0);
+            }
+            if (n01 > n02) {
+                $('#cutPointsInput02').val(n02);
+            }
+        });
+
+    },
+
     methods: {
 
         showIssuanceLog(e) {
@@ -136,7 +206,7 @@ const app = new Vue({
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
 
-                    self.pageView = res.issuanceLog.filter(function (item, index, array) {
+                    self.singleIssuancePageView = res.issuanceLog.filter(function (item, index, array) {
                         return index < 5;
                     })
                     pageNow = 0;
@@ -176,6 +246,17 @@ const app = new Vue({
                     self.issuanceLog = res.issuanceLog;
                     self.discountLog = res.discountLog;
                     self.pointsOfMember = res.pointsOfMember;
+
+                    self.singleDiscountPageView = res.discountLog.filter(function (item, index, array) {
+                        return index < 5;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -191,6 +272,8 @@ const app = new Vue({
 
             this.showUsingDetails = false;
             this.showIssuanceDetails = false;
+            $(".issuancePointsInput").val("");
+            $(".cutPointsInput").val("");
 
             let id = $("input[name='id']").val();
             let account = $("input[name='account']").val();
@@ -249,6 +332,17 @@ const app = new Vue({
                     showDateStart.innerHTML = queryDateStart.value;
                     showDateEnd.innerHTML = queryDateEnd.value;
 
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                        return index < 10;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
+
                 },
                 error: function (res) {
                     console.log("回傳失敗！");
@@ -258,19 +352,18 @@ const app = new Vue({
             });
         },
 
-        updatePoints() {
+        issuancePoints() {
             const self = this;
 
             let selectedId = $("input[name='selectedId']").val();
-            let points = $("input[name='points']").val();
             let points01 = $("input[name='points01']").val();
             let points02 = $("input[name='points02']").val();
-            let updatePointsInput = document.getElementsByClassName("updatePointsInput");
+            let issuancePointsInput = document.getElementsByClassName("issuancePointsInput");
 
             $.ajax({
-                url: '../PHP/backStage/points/pointsUpdate.php',
+                url: '../PHP/backStage/points/pointsIssuance.php',
                 type: 'POST',
-                data: { points, points01, points02, selectedId },
+                data: { points01, points02, selectedId },
                 success: function (res) {
                     self.pointsUpdating = res;
                     console.log(res)
@@ -282,14 +375,57 @@ const app = new Vue({
                 dataType: "text",
             });
 
-            if (points01) {
-                this.pointsOfMember[0].MEMBER_POINTS = points01;
-            } else if (points02) {
-                this.pointsOfMember[0].MEMBER_POINTS = points02;
+            if (points01 == "" && points02 == "") {
+                alert("請輸入發放點數！");
             }
 
-            for (let i = 0; i < updatePointsInput.length; i++) {
-                updatePointsInput[i].value = "";
+            if (points01) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) + parseInt(points01);
+            } else if (points02) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) + parseInt(points02);
+            }
+
+            for (let i = 0; i < issuancePointsInput.length; i++) {
+                issuancePointsInput[i].value = "";
+            }
+
+        },
+
+        cutPoints() {
+            const self = this;
+
+            let selectedId = $("input[name='selectedId']").val();
+            let points03 = $("input[name='points03']").val();
+            let points04 = $("input[name='points04']").val();
+            let cutPointsInput = document.getElementsByClassName("cutPointsInput");
+
+            $.ajax({
+                url: '../PHP/backStage/points/pointsCut.php',
+                type: 'POST',
+                data: { points03, points04, selectedId },
+                success: function (res) {
+                    self.pointsUpdating = res;
+                    console.log(res)
+                },
+                error: function (res) {
+                    console.log("回傳失敗！");
+                    console.log(res.responseText);
+                },
+                dataType: "text",
+            });
+
+            if (points03 == "" && points04 == "") {
+                alert("請輸入刪減點數！");
+            }
+
+            if (points03) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) - parseInt(points03);
+            } else if (points04) {
+                this.pointsOfMember[0].MEMBER_POINTS = parseInt(this.pointsOfMember[0].MEMBER_POINTS) - parseInt(points04);
+            }
+
+            for (let i = 0; i < cutPointsInput.length; i++) {
+                cutPointsInput[i].value = "";
             }
 
         },
@@ -322,6 +458,17 @@ const app = new Vue({
                     alert("上傳成功！");
                     self.uploadCSVLog = res;
                     console.log(res);
+
+                    self.batchIssuancePageView = self.uploadCSVLog.filter(function (item, index, array) {
+                        return index < 10;
+                    })
+                    pageNow = 0;
+                    setTimeout(() => {
+                        $('#pagination').find('a').eq(1).css({
+                            backgroundColor: '#887664',
+                            color: '#FFF'
+                        })
+                    }, 1);
                 },
                 error: function (res) {
                     alert("上傳失敗！請檢察控制台日誌訊息。");
@@ -339,7 +486,7 @@ const app = new Vue({
             labelForCSVFileInput.innerHTML = csvFileInput.value.replace("C:\\fakepath\\", "已選擇：");
         },
 
-        pageChange(page) {
+        membersListPageChange(page) {
             //==============標記當前在第幾頁=============
             const self = this;
             if (self.pageNow == 0) {
@@ -347,16 +494,16 @@ const app = new Vue({
             }
             //==============直接換頁=============
             if (page > 0) {
-                self.pageView = self.issuanceLog.filter(function (item, index, array) {
-                    return index >= 5 * (page - 1) && index < 5 * (page);
+                self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                    return index >= 10 * (page - 1) && index < 10 * (page);
                 })
                 pageNow = page - 1;
                 //頁碼變色
-                $('#pagination').find('a').css({
+                $('#membersListPagination').find('a').css({
                     backgroundColor: 'transparent',
                     color: '#887664'
                 })
-                $('#pagination').find('a').eq(`${page}`).css({
+                $('#membersListPagination').find('a').eq(`${page}`).css({
                     backgroundColor: '#887664',
                     color: '#FFF'
                 })
@@ -368,15 +515,82 @@ const app = new Vue({
                     alert('當前已是最前頁，無法繼續後退');
                 } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({
+                    $('#membersListPagination').find('a').css({
                         backgroundColor: 'transparent',
                         color: '#887664'
                     })
-                    $('#pagination').find('a').eq(`${pageNow}`).css({
+                    $('#membersListPagination').find('a').eq(`${pageNow}`).css({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow - 1) && index < 10 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.pointsOfMember.length / 10) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#membersListPagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#membersListPagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.membersListPageView = self.pointsOfMember.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow + 1) && index < 10 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.membersListPageView);
+        },
+
+        singleDiscountpageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.singleDiscountPageView = self.discountLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#singleDiscountPagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#singleDiscountPagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#singleDiscountPagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleDiscountPagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleDiscountPageView = self.tableData.filter(function (item, index, array) {
                         return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
                     })
                     pageNow = pageNow - 1;
@@ -389,21 +603,155 @@ const app = new Vue({
                     alert('當前已是最末頁，無法繼續前進');
                 } else {
                     //頁碼變色
-                    $('#pagination').find('a').css({
+                    $('#singleDiscountPagination').find('a').css({
                         backgroundColor: 'transparent',
                         color: '#887664'
                     })
-                    $('#pagination').find('a').eq(`${pageNow + 2}`).css({
+                    $('#singleDiscountPagination').find('a').eq(`${pageNow + 2}`).css({
                         backgroundColor: '#887664',
                         color: '#FFF'
                     })
-                    self.pageView = self.tableData.filter(function (item, index, array) {
+                    self.singleDiscountPageView = self.tableData.filter(function (item, index, array) {
                         return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
                     })
                     pageNow = pageNow + 1;
                 }
             }
-            console.log(self.pageView);
+            console.log(self.singleDiscountPageView);
+        },
+
+        singleIssuancePageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.singleIssuancePageView = self.issuanceLog.filter(function (item, index, array) {
+                    return index >= 5 * (page - 1) && index < 5 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#singleIssuancePagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#singleIssuancePagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#singleIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleIssuancePagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow - 1) && index < 5 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 5) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#singleIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#singleIssuancePagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.singleIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 5 * (pageNow + 1) && index < 5 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.singleIssuancePageView);
+        },
+
+        batchIssuancePageChange(page) {
+            //==============標記當前在第幾頁=============
+            const self = this;
+            if (self.pageNow == 0) {
+                page = pageNow + 1;
+            }
+            //==============直接換頁=============
+            if (page > 0) {
+                self.batchIssuancePageView = self.uploadCSVLog.filter(function (item, index, array) {
+                    return index >= 10 * (page - 1) && index < 10 * (page);
+                })
+                pageNow = page - 1;
+                //頁碼變色
+                $('#batchIssuancePagination').find('a').css({
+                    backgroundColor: 'transparent',
+                    color: '#887664'
+                })
+                $('#batchIssuancePagination').find('a').eq(`${page}`).css({
+                    backgroundColor: '#887664',
+                    color: '#FFF'
+                })
+                //==============上一頁=============
+            } else if (page == 0) {
+                //    alert('這是page前'+page)
+                //    alert('這是pageNow'+pageNow)
+                if (pageNow == 0) { //已經在最前頁
+                    alert('當前已是最前頁，無法繼續後退');
+                } else {
+                    //頁碼變色
+                    $('#batchIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#batchIssuancePagination').find('a').eq(`${pageNow}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.batchIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow - 1) && index < 10 * (pageNow);
+                    })
+                    pageNow = pageNow - 1;
+                }
+                //==============下一頁=============
+            } else if (page == 'next') {
+                alert('這是page後' + page)
+                alert('這是pageNow' + pageNow)
+                if (pageNow == Math.floor(self.tableData.length / 10) - 1) {
+                    alert('當前已是最末頁，無法繼續前進');
+                } else {
+                    //頁碼變色
+                    $('#batchIssuancePagination').find('a').css({
+                        backgroundColor: 'transparent',
+                        color: '#887664'
+                    })
+                    $('#batchIssuancePagination').find('a').eq(`${pageNow + 2}`).css({
+                        backgroundColor: '#887664',
+                        color: '#FFF'
+                    })
+                    self.batchIssuancePageView = self.tableData.filter(function (item, index, array) {
+                        return index >= 10 * (pageNow + 1) && index < 10 * (pageNow + 2);
+                    })
+                    pageNow = pageNow + 1;
+                }
+            }
+            console.log(self.batchIssuancePageView);
         },
 
     }

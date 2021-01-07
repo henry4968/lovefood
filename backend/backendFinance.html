@@ -130,7 +130,7 @@
                                 <label class="sr-only">Time Pick</label>
                                 <div class="input-group DateDemo" id="">
                                     <input type="text" name="financeQueryDateStart" data-format="MM/DD/YYYY"
-                                        value="2020-01-01" class="form-control" id="queryDateStart" />
+                                        value="2021-01-01" class="form-control" id="queryDateStart" />
                                     <span class="input-group-btn">
                                         <button class="btn btn-brown" type="button"><i
                                                 class="glyphicon glyphicon-calendar fa-4x"></i></button>
@@ -144,7 +144,7 @@
                                 <label class="sr-only">Time Pick</label>
                                 <div class="input-group DateDemo">
                                     <input type="text" name="financeQueryDateEnd" data-format="MM/DD/YYYY"
-                                        value="2020-12-31" class="form-control" id="queryDateEnd" />
+                                        value="2021-12-31" class="form-control" id="queryDateEnd" />
                                     <span class="input-l input-group-btn">
                                         <button class="btn btn-brown" type="button"><i
                                                 class="glyphicon glyphicon-calendar fa-4x"></i></button>
@@ -187,7 +187,7 @@
                                 <label class="sr-only">Time Pick</label>
                                 <div class="input-group DateDemo">
                                     <input type="text" name="donationQueryDateEnd" data-format="MM/DD/YYYY"
-                                        value="2020-12-31" class="form-control" id="queryDonationDateEnd" />
+                                        value="2021-12-31" class="form-control" id="queryDonationDateEnd" />
                                     <span class="input-l input-group-btn">
                                         <button class="btn btn-brown" type="button"><i
                                                 class="glyphicon glyphicon-calendar fa-4x"></i></button>
@@ -238,7 +238,7 @@
                         <div id="donationDate">
                             <h4>
                                 ▊ 查詢區間：【<span id="showDateStart">2016-01-01</span>】至【<span
-                                    id="showDateEnd">2020-12-31</span>】
+                                    id="showDateEnd">2021-12-31</span>】
                             </h4>
                         </div>
                         <div id="donationAmount">
@@ -257,7 +257,7 @@
                                 <th>編輯詳情</th>
                             </tr>
                             <tbody v-if="donationLog">
-                                <tr v-for="(data,key) in donationLog">
+                                <tr v-for="(data,key) in pageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["DONATION_ID"]}}</td>
                                     <td>{{data["DONATION_NAME"]}}</td>
@@ -273,14 +273,14 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="pagination" v-if="pageView">
-                            <a href="#0" @click="pageChange(0)">＜</a>
-                            <a href="#0" @click="pageChange(1)">1</a>
-                            <a href="#0" @click="pageChange(2)">2</a>
-                            <a href="#0" @click="pageChange(3)">3</a>
-                            <a href="#0" @click="pageChange(4)">4</a>
-                            <a href="#0" @click="pageChange(5)">5</a>
-                            <a href="#0" @click="pageChange('next')">＞</a>
+                        <div class="pagination" id="donationListPagination" v-if="pageView">
+                            <a href="#0" @click="donationPageChange(0)">＜</a>
+                            <a href="#0" @click="donationPageChange(1)">1</a>
+                            <a href="#0" @click="donationPageChange(2)">2</a>
+                            <a href="#0" @click="donationPageChange(3)">3</a>
+                            <a href="#0" @click="donationPageChange(4)">4</a>
+                            <a href="#0" @click="donationPageChange(5)">5</a>
+                            <a href="#0" @click="donationPageChange('next')">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
                     </div>

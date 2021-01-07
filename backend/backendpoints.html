@@ -135,7 +135,7 @@
                                 <div class="form-group">
                                     <label class="sr-only">Time Pick</label>
                                     <div class="input-group DateDemo" id="">
-                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2020-01-01"
+                                        <input type="text" name="dateStart" data-format="MM/DD/YYYY" value="2021-01-01"
                                             class="form-control" id="queryDateStart" />
                                         <span class="input-group-btn">
                                             <button class="btn btn-brown" type="button"><i
@@ -149,7 +149,7 @@
                                 <div class="form-group">
                                     <label class="sr-only">Time Pick</label>
                                     <div class="input-group DateDemo">
-                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2020-12-31"
+                                        <input type="text" name="dateEnd" data-format="MM/DD/YYYY" value="2021-12-31"
                                             class="form-control" id="queryDateEnd" />
                                         <span class="input-l input-group-btn">
                                             <button class="btn btn-brown" type="button"><i
@@ -181,12 +181,13 @@
                             <th>會員帳號</th>
                             <th>會員姓名</th>
                             <th>會員手機</th>
-                            <th>擁有點數</th>
+                            <th>區間點數浮動</th>
+                            <th>現有點數</th>
                             <th>查閱詳情</th>
                         </tr>
-                        <tbody v-if="pointsOfMember" v-for="(data,key) in pointsOfMember">
-                            <h4>▊ 查詢區間：【<span id="showDateStart">2020-01-01</span>】至【<span
-                                    id="showDateEnd">2020-12-31</span>】
+                        <tbody v-if="pointsOfMember" v-for="(data,key) in membersListPageView">
+                            <h4>▊ 查詢區間：【<span id="showDateStart">2021-01-01</span>】至【<span
+                                    id="showDateEnd">2021-12-31</span>】
                             </h4><br>
                             <tr>
                                 <td>{{key+1}}</td>
@@ -201,10 +202,13 @@
                                     {{data["TOTAL_ISSUANCE"] - 0}}
                                 </td>
                                 <td v-else-if='!data["TOTAL_ISSUANCE"] && data["TOTAL_DISCOUNT"]'>
-                                    {{0 - data["TOTAL_ISSUANCE"]}}
+                                    {{0 - data["TOTAL_DISCOUNT"]}}
                                 </td>
                                 <td v-else>
                                     0
+                                </td>
+                                <td>
+                                    {{data["MEMBER_POINTS"]}}
                                 </td>
                                 <td>
                                     <button type="submit" class="btn-xs btn-brown" @click="showUsingLog"
@@ -215,7 +219,7 @@
                             </tr>
                         </tbody>
                         <tbody v-else="pointsOfMember">
-                            <tr v-for="(data,key) in pointsOfMember">
+                            <tr v-for="(data,key) in membersListPageView">
                                 <td>{{key+1}}</td>
                                 <td>{{data["MEMBER_ID"]}}</td>
                                 <td>{{data["MEMBER_ACCOUNT"]}}</td>
@@ -232,14 +236,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pagination">
-                        <a href="#0">＜</a>
-                        <a href="#0">1</a>
-                        <a href="#0">2</a>
-                        <a href="#0">3</a>
-                        <a href="#0">4</a>
-                        <a href="#0">5</a>
-                        <a href="#0">＞</a>
+                    <div class="pagination" id="membersListPagination" v-if="membersListPageView">
+                        <a href="#0" @click="membersListPageChange(0)">＜</a>
+                        <a href="#0" @click="membersListPageChange(1)">1</a>
+                        <a href="#0" @click="membersListPageChange(2)">2</a>
+                        <a href="#0" @click="membersListPageChange(3)">3</a>
+                        <a href="#0" @click="membersListPageChange(4)">4</a>
+                        <a href="#0" @click="membersListPageChange(5)">5</a>
+                        <a href="#0" @click="membersListPageChange('next')">＞</a>
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
@@ -262,9 +266,18 @@
                         </div>
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
-                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl updatePointsInput" type="text" name="points01">
-                            <button class="btn-xs btn-brown" @click="updatePoints">確認修改</button>
+                            現有點數：
+                            <input class="input-xl pointsOfMember" id="pointsOfMember01" type="text"
+                                :value="data['MEMBER_POINTS']" disabled><br>
+                            發放點數：
+                            <input class="input-xl issuancePointsInput" id="issuancePointsInput01" type="number"
+                                name="points01" placeholder="不超過單筆3000的整數"
+                                onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
+                            刪減點數：
+                            <input class="input-xl cutPointsInput" id="cutPointsInput01" type="number" name="points03"
+                                placeholder="不超過現有點數的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -273,27 +286,28 @@
                             <thead>
                                 <tr>
                                     <th>序號</th>
-                                    <th>訂單編號</th>
+                                    <th>訂單編號／刪減編號</th>
                                     <th>使用點數</th>
                                     <th>使用時間</th>
                                 </tr>
                             </thead>
                             <tbody v-if="discountLog">
-                                <tr v-for="(data,key) in discountLog">
+                                <tr v-for="(data,key) in singleDiscountPageView">
                                     <td>{{key+1}}</td>
-                                    <td>{{data["ORDER_ID"]}}</td>
+                                    <td v-if='data["ORDER_ID"].indexOf("SC") != -1'>{{data["ORDER_ID"]}}（系統刪減）</td>
+                                    <td v-else>{{data["ORDER_ID"]}}</td>
                                     <td>{{data["ORDER_DISCOUNT"]}}</td>
                                     <td>{{data["ORDER_DATE"]}}</td>
                             </tbody>
                         </table>
-                        <div class="pagination" v-if="pageView">
-                            <a href="#0" @click="pageChange(0)">＜</a>
-                            <a href="#0" @click="pageChange(1)">1</a>
-                            <a href="#0" @click="pageChange(2)">2</a>
-                            <a href="#0" @click="pageChange(3)">3</a>
-                            <a href="#0" @click="pageChange(4)">4</a>
-                            <a href="#0" @click="pageChange(5)">5</a>
-                            <a href="#0" @click="pageChange('next')">＞</a>
+                        <div class="pagination" id="singleDiscountPagination" v-if="singleDiscountPageView">
+                            <a href="#0" @click="singleDiscountpageChange(0)">＜</a>
+                            <a href="#0" @click="singleDiscountpageChange(1)">1</a>
+                            <a href="#0" @click="singleDiscountpageChange(2)">2</a>
+                            <a href="#0" @click="singleDiscountpageChange(3)">3</a>
+                            <a href="#0" @click="singleDiscountpageChange(4)">4</a>
+                            <a href="#0" @click="singleDiscountpageChange(5)">5</a>
+                            <a href="#0" @click="singleDiscountpageChange('next')">＞</a>
                             <a href="#0">最末頁</a>
                         </div>
                     </div>
@@ -317,9 +331,18 @@
                         </div>
                         <div class="memberPointsInput" v-for="(data,key) in pointsOfMember">
                             <h4>▊ 點數修改</h4>
-                            擁有點數：<input class="input-xl" type="text" :value="data['MEMBER_POINTS']" disabled><br>
-                            修改點數：<input class="input-xl updatePointsInput" type="text" name="points02">
-                            <button class="btn-xs btn-brown" @click="updatePoints">確認修改</button>
+                            現有點數：
+                            <input class="input-xl pointsOfMember" id="pointsOfMember02" type="text"
+                                :value="data['MEMBER_POINTS']" disabled><br>
+                            發放點數：
+                            <input class="input-xl issuancePointsInput" id="issuancePointsInput02" type="number"
+                                name="points02" placeholder="不超過單筆3000的整數"
+                                onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            <button class="btn-xs btn-brown" @click="issuancePoints">確認發放</button><br>
+                            刪減點數：
+                            <input class="input-xl cutPointsInput" id="cutPointsInput02" type="number" name="points04"
+                                placeholder="不超過現有點數的整數" onkeyup="value=value.replace(/^(0+)|[^\d]+/g,'')">
+                            <button class="btn-xs btn-brown" @click="cutPoints">確認刪減</button>
                         </div>
                     </div>
                     <div class="systemLogBlock">
@@ -334,23 +357,23 @@
                                 </tr>
                             </thead>
                             <tbody v-if="issuanceLog">
-                                <tr v-for="(data,key) in pageView">
+                                <tr v-for="(data,key) in singleIssuancePageView">
                                     <td>{{key+1}}</td>
                                     <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_NUM"]}}</td>
                                     <td>{{data["POINTS_ISSUANCE_DATE"]}}</td>
                             </tbody>
                         </table>
-                    </div>
-                    <div class="pagination" v-if="pageView">
-                        <a href="#0" @click="pageChange(0)">＜</a>
-                        <a href="#0" @click="pageChange(1)">1</a>
-                        <a href="#0" @click="pageChange(2)">2</a>
-                        <a href="#0" @click="pageChange(3)">3</a>
-                        <a href="#0" @click="pageChange(4)">4</a>
-                        <a href="#0" @click="pageChange(5)">5</a>
-                        <a href="#0" @click="pageChange('next')">＞</a>
-                        <a href="#0">最末頁</a>
+                        <div class="pagination" id="singleIssuancePagination" v-if="singleIssuancePageView">
+                            <a href="#0" @click="singleIssuancePageChange(0)">＜</a>
+                            <a href="#0" @click="singleIssuancePageChange(1)">1</a>
+                            <a href="#0" @click="singleIssuancePageChange(2)">2</a>
+                            <a href="#0" @click="singleIssuancePageChange(3)">3</a>
+                            <a href="#0" @click="singleIssuancePageChange(4)">4</a>
+                            <a href="#0" @click="singleIssuancePageChange(5)">5</a>
+                            <a href="#0" @click="singleIssuancePageChange('next')">＞</a>
+                            <a href="#0">最末頁</a>
+                        </div>
                     </div>
                 </div>
                 <div id="pointsUploadData" class="pointsDataArea" v-show="!showTab">
@@ -364,9 +387,9 @@
                             <th>會員姓名</th>
                             <th>發放點數</th>
                             <th>發放時間</th>
-                            <th>會員剩餘點數</th>
+                            <th>會員現有點數</th>
                         </tr>
-                        <tbody v-if="uploadCSVLog" v-for="(data,key) in uploadCSVLog">
+                        <tbody v-if="uploadCSVLog" v-for="(data,key) in batchIssuancePageView">
                             <tr>
                                 <td>{{key+1}}</td>
                                 <td>{{data["POINTS_ISSUANCE_ID"]}}</td>
@@ -379,14 +402,14 @@
                             </tr>
                         </tbody>
                     </table>
-                    <div class="pagination" v-if="pageView">
-                        <a href="#0" @click="pageChange(0)">＜</a>
-                        <a href="#0" @click="pageChange(1)">1</a>
-                        <a href="#0" @click="pageChange(2)">2</a>
-                        <a href="#0" @click="pageChange(3)">3</a>
-                        <a href="#0" @click="pageChange(4)">4</a>
-                        <a href="#0" @click="pageChange(5)">5</a>
-                        <a href="#0" @click="pageChange('next')">＞</a>
+                    <div class="pagination" id="batchIssuancePagination" v-if="batchIssuancePageView">
+                        <a href="#0" @click="batchIssuancePageChange(0)">＜</a>
+                        <a href="#0" @click="batchIssuancePageChange(1)">1</a>
+                        <a href="#0" @click="batchIssuancePageChange(2)">2</a>
+                        <a href="#0" @click="batchIssuancePageChange(3)">3</a>
+                        <a href="#0" @click="batchIssuancePageChange(4)">4</a>
+                        <a href="#0" @click="batchIssuancePageChange(5)">5</a>
+                        <a href="#0" @click="batchIssuancePageChange('next')">＞</a>
                         <a href="#0">最末頁</a>
                     </div>
                 </div>
