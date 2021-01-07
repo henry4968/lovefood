@@ -11,7 +11,7 @@ $Member = $Member->getMemberID();
 
 //======================================================== 
 //建立SQL 訂單
-$sqlod = "SELECT * FROM `ORDER` where MEMBER_ID_for_OD = ?";
+$sqlod = "SELECT * FROM `order` where MEMBER_ID_for_OD = ?";
 
 // 執行
 $order = $Util->getPDO()->prepare($sqlod);
@@ -24,7 +24,7 @@ $dataorder = $order->fetchAll();
 //======================================================== 
 //建立SQL 訂單細節
 $sqloddel = "SELECT *
-        FROM `ORDER` as aa
+        FROM `order` as aa
         join order_detail as bb
         on
         aa.ORDER_ID = bb.ORDER_ID_for_ODD
