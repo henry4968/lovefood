@@ -809,7 +809,7 @@
         });
         // 強硬撈圖片
         function scrolltest() {
-            for (let i = 0; i < 5000; i += 10) {
+            for (let i = 0; i < 2000; i += 100) {
                 setTimeout(function () {
                     // 撈圖片
                     axios.post('../PHP/Frontend/appearImg.php').then(res => {
@@ -827,7 +827,7 @@
             }
         }
         // 全域撈圖片
-        window.addEventListener('scroll', scrolltest);
+        // window.addEventListener('scroll', scrolltest);
         window.addEventListener('keydown', scrolltest);
     </script>
     <!-- 輪播套件js -->
