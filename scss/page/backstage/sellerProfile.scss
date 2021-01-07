@@ -1,0 +1,101 @@
+.containerSeller{
+    .asideMainWrapper{
+        padding-top:110px;
+        display: flex;
+        flex-direction: row;
+        width:1200px;
+        margin:0 auto;
+        .headerMainWrapper{
+            position: relative;
+            margin-left:10px;
+            flex-grow: 1;
+            .headerWrapper{
+                margin-bottom: 10px;
+                header{
+                    background-color: $y;
+                        div{
+                            position: relative;
+                            display: flex;
+                            flex-direction: row;
+                            padding:5px;
+                            span{
+                                input{
+                                    margin-left:8px;
+                                    border-radius: 8px;
+                                    border: 1px solid gray;
+                                    font-size: 12px;
+                                    line-height: 20px;
+                                }
+                            }
+                            svg{
+                                top: 3px;
+                                position: relative;
+                            }
+                            button{
+        
+                                right:3px;
+                            }
+                        }
+                     
+                    div:nth-child(2){
+                        justify-content: space-between;
+                    }
+                    div:nth-child(3){
+                        padding: 0;
+                        justify-content: space-between;
+                        div span input{
+                            text-align: right;
+                        }
+                    }
+                }
+            }
+            main{
+                background-color: $y;
+                height: 100%;
+                table{
+                    width: 94%;
+                    margin: 0 auto;
+                    position: relative;
+                    top: 25px;
+                }
+                div{
+                    margin-top: 60px;
+                    position: relative;
+                }
+                .profile{
+                    display: flex;
+                    flex-direction: column;
+                    width: 90%;
+                    margin: 0 auto;
+                    position: relative;
+                    top: 25px;
+                    .btn-brown{
+                        width:125px;
+                        color:#fff;
+                    }
+                    h3, h2{
+                        color:$brown;
+                        select{
+                            margin: 0 8px;
+                        }
+                    }
+                    span{
+                        align-self: flex-end;
+                        button{
+                            margin-left:8px;
+                        }
+                    }
+                    
+                }
+                
+                }
+                #pagination{
+                    bottom: -60px;
+                }
+        }
+    }
+    
+}
+
+
+

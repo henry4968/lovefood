@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love food|購物車</title>
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
+    <link rel="stylesheet" href="../css/store_03.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <!-- <script src="../node_modules/jquery/dist/jquery.js"></script> -->
+
+
+</head>
+
+<body>
+    <!-- 標頭開始 -->
+    <div id="all">
+        <header id="header">
+            <!-- 漢堡選單開始 -->
+            <input type="checkbox" id="hamburgerMenuToggle">
+            <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+                <span></span>
+            </label>
+            <!-- 行動版行動導覽列開始 -->
+            <nav id="navigationForMobile">
+                <div id="searchBarForMobile">
+                    <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+                </div>
+                <ul>
+                    <li>
+                        <a href="./store_1.html" class="navGeneralAnchorsForMobile" id="shopPage">樂腹商城</a>
+                    </li>
+                    <li>
+                        <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
+                    </li>
+                    <li>
+                        <a href="./donation_description.html" class="navGeneralAnchorsForMobile">捐款說明</a>
+                    </li>
+                    <li>
+                        <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                            <div>
+                                立即捐款
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- 行動版導覽列結束 -->
+            <!-- 漢堡選單結束 -->
+            <div id="headerContentContainer">
+                <a href="./index.html">
+                    <img id="logo" src="../img/22/index/ch05_header_logo.png">
+                </a>
+                <!-- 桌機版導覽列開始 -->
+                <nav id="navigationForPC">
+                    <a href="./store_1.html" class="navGeneralAnchors" id="shopPageWeb">樂腹商城</a>
+                    <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                        @click="sellogIncheck">賣家專區</a>
+                    <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                    <a href="./donate_now.html" id="navSepcialAnchor">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                    <a href="#0" id="navIcons01" class="navIcons" @click="longsearch" style="z-index: 99;">
+                        <img src="../img/22/index/ch05_nav_search.png" alt="">
+                        <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur"
+                            style="height: 55px;">
+                    </a>
+                    <a href="./store_3.html" id="navIcons02" class="navIcons"
+                        style="position: relative;margin-left: 0px;">
+                        <div
+                            style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -15%;">
+                            {{itemQty}}</div>
+                        <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    </a>
+                    <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                        @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                    </a>
+                </nav>
+                <!-- 桌機版導覽列結束 -->
+                <!-- 行動版次級導覽列開始 -->
+                <nav id="subNavigationForMobile">
+                    <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
+                        style="position: relative;margin-left: 0px;">
+                        <div
+                            style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
+                            {{itemQty}}</div>
+                        <img src="../img/22/index/ch05_nav_cart.png" alt="">
+                    </a>
+                    <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck"
+                        @mouseover="onhover" @mouseout="onout">
+                        <img v-if="login" :src='Bigpicchange'>
+                        <img v-else="login" src='../img/22/index/ch05_nav_member.png'>
+                    </a>
+                </nav>
+                <!-- 行動版次級導覽列結束 -->
+            </div>
+        </header>
+        <!-- 標頭結束 -->
+
+
+        <article id="store_16">
+            <!-- store_banner開始 -->
+            <section class=banner_16>
+                <div>
+                    <img src="../img/16/storeApple.png">
+                    <div>
+                        <h1>樂腹商城</h1>
+                        <p>Food waste, not in good taste.</p>
+                    </div>
+                </div>
+            </section>
+            <section class="breadcrumb_16">
+                <div>
+                    <span>樂腹商城</span>
+                    <span>|</span>
+                    <span>購物車</span>
+                </div>
+            </section>
+            <!-- store_banner結束 -->
+            <div class="cartbgc_16">
+                <div class="cart_16">
+                    <div class="item1">
+                        <p>惜食清單</p>
+                    </div>
+                    <div class="mainArea">
+                        <template v-for="(item, index) in newStorage">
+                            <ul class="list_h">
+                                <li><img src="../img/16/sellerIcon.png"></li>
+                                <li>{{item.seller}}</li>
+                                <li>單價</li>
+                                <li>數量</li>
+                                <li>總計</li>
+                            </ul>
+                            <div class="content">
+                                <div class="orderItem">
+
+                                    <div class="orderInfo" v-for="(detail, i) in item.goodList">
+                                        <div class="imgBlock">
+                                            <img :src="detail.img">
+                                        </div>
+                                        <!-- v-for="(detail, i) in item.goodList -->
+                                        <div class="orderDetails">
+                                            <ul>
+                                                <li class="productName">{{detail.name}}</li>
+                                                <li class="exp">有效期限：{{detail.exp}}</li>
+                                            </ul>
+                                        </div>
+
+                                        <div class="orderDetails1">
+                                            <ul class="orderTitle">
+                                                <li>單價</li>
+                                                <li>數量</li>
+                                                <li>總計</li>
+                                            </ul>
+                                            <ul class="orders">
+                                                <!-- v-for="(detail, i) in item.goodList" -->
+                                                <li class="price">${{detail.price}}</li>
+                                                <li class="quantity">
+                                                    <div>
+                                                        <button class="btn qtyReduce"
+                                                            @click="reduce(i,index)">-</button>
+                                                        <input type="text" name="quantity" class="inputQty"
+                                                            v-model="detail.qty" />
+                                                        <button class="btn qtyAdd" @click="add(i,index)">+</button>
+                                                    </div>
+                                                </li>
+                                                <li class="amount">${{detail.price * detail.qty}}</li>
+                                                <li><img src="../img/16/trashcanIcon.png" @click="del(index)"></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <hr>
+
+
+                                    <div class="pickUpInfo">
+                                        <p>取貨資訊</p>
+                                        <div>
+                                            <ul>
+                                                <li><img src="../img/16/locationIcon.png" class="locationIcon">取貨期限：
+                                                    {{pickUpDate[index]}}
+                                                </li>
+                                                <li><img src="../img/16/locationIcon2.png" class="locationIcon">取貨方式：
+                                                    <br>
+                                                    <input type="radio" :name="'pickUpLocation['+index+']'"
+                                                        @click="item.content='selfPickUp'" value="1"
+                                                        v-model="newStorage[index].pickUpMethod">
+                                                    <span>到店自取</span>
+                                                    <!-- <div class="pickUpLocal">台北市 松山區 南京東路三段253號<img
+                                                    src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon"></div> -->
+                                                    <br>
+                                                    <input type="radio" :name="'pickUpLocation['+index+']'"
+                                                        @click="item.content='showMap'" value="2"
+                                                        v-model="newStorage[index].pickUpMethod">
+                                                    <span>捷運站取貨</span>
+                                                    <!-- <div class="mapIconW pickUpLocal">捷運南京復興站 8號出口<img
+                                                    src="../img/16/Icon awesome-map-marker-alt.png" class="mapIcon">
+                                            </div> -->
+                                                </li>
+                                                <li>
+                                                    <!-- <img src="../img/16/locationIcon2.png" class="locationIcon">取貨地點： -->
+                                                    <component @input="$emit('input', $event.target.value)"
+                                                        v-model:new-storage="newStorage[index]" :index="index"
+                                                        :is="item.content"></component>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+                                    <div class="orderCount">
+                                        <p>單筆訂單金額：${{subtotal[index]}}</p>
+                                    </div>
+                        </template>
+                    </div>
+
+
+                    <div class="cart_16FinalCount">
+                        <div class="cart_16FinalCount_Main">
+                            <div class="keepShop">
+                                <a href="store_1.html"><img src="../img/16/backArrow.png">繼續購物</a>
+                            </div>
+                            <div class="pointsDetails">
+                                <img src="../img/16/pointsIcon.png">
+                                <div>
+                                    <label v-if="membersPoints >= inputValue">您的點數尚餘：{{membersPoints -
+                                        inputValue}}點</label>
+                                    <label v-else-if="membersPoints == 0 && inputValue == null">您的點數尚餘：{{membersPoints -
+                                        inputValue}}點</label>
+                                    <label v-else-if="membersPoints < inputValue">您的點數尚餘：{{membersPoints -
+                                        membersPoints}}點<span style="color:rgb(170, 0, 0)">（折抵超過餘額，請更正！）</span></label>
+                                    <br>
+                                    <span>
+                                        <label for="points">使用</label>
+                                        <input type="number" id="inputDiscount" name="discount" min="0" max=""
+                                            v-model="inputValue">
+                                        <!-- v-model="newStorage[0].ORDER_DISCOUNT" -->
+                                        <label for="">點</label>
+                                    </span>
+                                    <button class="pointsDiscount" @click="discountAllPoints">全部扺用</button>
+                                    <p>註：一點為一元</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="item2">
+                        <div>
+                            <span>結帳總金額：</sapn>
+                                <span class="dollars">${{total}}</span>
+                                <button @click="confirmPay" v-if="membersPoints >= inputValue"><a
+                                        href="./store_4.html">$結帳</a></button>
+                                <button @click="confirmPay" v-else="membersPoints == null"><a
+                                        href="./store_4.html">$結帳</a></button>
+                                <button v-else disabled
+                                    style="background-color: #DEDEDE; cursor: not-allowed;">$結帳</a></button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <footer>
+                <div class="footerBlock">
+                    <div>
+                        <div class="footer_logo">
+                            <a href="index.html"><img src="../img/16/footerLogo.png"></a>
+                            <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                        </div>
+                        <div class="info">
+                            <a href="#"><img src="../img/16/footerLocationIcon.png">台北市南京東路三段215號5樓</a><br>
+                            <a href="#"><img src="../img/16/footerPhoneIcon.png">02-24708053</a><br>
+                            <a href="#"><img src="../img/16/footerEmailIcon.png">service@lovefood.com</a>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </article>
+    </div>
+    <!-- <script src="../js/16/store_03.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.2/vue.js"></script>
+    <script src="../js/16/vue_16.js"></script>
+    <!-- <script src="../js/16/store_03.js"></script> -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+
+</body>
+
+</html>

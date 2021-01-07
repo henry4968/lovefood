@@ -1,0 +1,33 @@
+@import "../base/var";
+@import "../mixin/mixins";
+// @import "../../node_modules/normalize-scss/sass/normalize/import-now"; //reset
+@import '../bootstrap-sass/assets/stylesheets/_bootstrap.scss'; //更改請至此支檔案選擇需要的功
+
+
+//modules
+@import "../modules/button";
+@import "../modules/pageLabel";
+@import "../modules/input";
+@import "../modules/table";
+@import "../modules/label";
+@import "../modules/tooltip";
+@import "../modules/pagination";
+
+
+//頁面
+@import "../page/backstage/backstageIndex"; //Backstage homepage 會員管理
+@import "../page/backstage/memberProfile"; //Backstage homepage 會員管理--買家會員
+@import "../page/backstage/sellerProfile"; //Backstage homepage 會員管理--賣家會員
+@import "../page/backstage/sellerIndex";//賣家載入頁
+@import "../page/backstage/sellerOrder";//賣家訂單頁
+@import "../page/backstage/sellerProduct";//賣家產品頁
+@import "../page/backstage/backstageOrder"; //訂單管理
+@import "../page/backstage/backstageProduct"; //商品管理
+@import "../page/backstage/productEdit"; //商品編輯
+@import "../page/backstage/backstagePoints.scss"; //點數管理
+@import "../page/backstage/backstageFinance.scss"; //財務管理
+
+//layout
+@import "../layout/_backstageNav.scss";
+@import "../layout/_backstageSidebar.scss";
+@import "../layout/_backstageHeader.scss";

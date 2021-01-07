@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0">
+    <title>Love food│散播食物 ‧ 散播愛</title>
+    <!-- 自訂css -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- <link rel="stylesheet" href="../css/fonts.css"> -->
+    <!-- 全屏滾動套件css（客製化） -->
+    <link rel="stylesheet" href="../css/fullpage.css">
+    <!-- 輪播套件css（客製化） -->
+    <link rel="stylesheet" href="../css/lightslider.css">
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <!-- 計數套件 -->
+    <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <!-- 全屏滾動套件js -->
+    <script src="../node_modules/fullpage.js/dist/fullpage.js"></script>
+    <script src="../node_modules/fullpage.js/vendors/easings.min.js"></script>
+    <script src="../node_modules/fullpage.js/vendors/scrolloverflow.min.js"></script>
+    <script src="../node_modules/fullpage.js/dist/fullpage.extensions.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+</head>
+
+<body>
+
+    <!-- 標頭開始 -->
+    <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <!-- 行動版行動導覽列開始 -->
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a :href="seljumpage" class="navGeneralAnchors" @click="sellogIncheck">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile" id="donationPage">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 行動版導覽列結束 -->
+        <!-- 漢堡選單結束 -->
+        <div id="headerContentContainer">
+            <a href="./index.html">
+                <img id="logo" src="../img/22/index/ch01_header_logo.png">
+            </a>
+            <!-- 桌機版導覽列開始 -->
+            <nav id="navigationForPC">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                    @click="sellogIncheck">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
+                    <div>
+                        立即捐款
+                    </div>
+                </a>
+                <a href="#0" id="navIcons01" class="navIcons" @click="longsearch" style="z-index: 99;">
+                    <img src="../img/22/index/ch01_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur"
+                        style="height: 54px;">
+                </a>
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 0; right: -14%; font-size: 17px;top: -20%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch01_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch01_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
+            <nav id="subNavigationForMobile">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
+                    style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -10%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch01_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 行動版次級導覽列結束 -->
+        </div>
+    </header>
+    <!-- 標頭結束 -->
+
+    <!-- 主要內容開始 -->
+    <main id="main">
+
+        <!-- 第一章：「組織訴求」開始 -->
+        <article id="chapter01" class="section">
+            <div id="ch01Slide01" class="slide">
+
+                <!-- 閃爍動畫圖開始 -->
+                <img src="../img/22/index/ch0101_bg_shining02.png" id="ch01BgShining01" class="ch01BgShining">
+                <img src="../img/22/index/ch0101_bg_shining03.png" id="ch01BgShining02" class="ch01BgShining">
+                <img src="../img/22/index/ch0101_bg_fruit_and_table2.png" id="ch01BgFruit">
+                <!-- 閃爍動畫圖結束 -->
+
+                <section id="mainSlogan01" class="mainSlogan">
+                    <h3>│即期食品銷售平台│</h3>
+                    <h2>珍惜食物 ‧ 關愛台灣</h2>
+                    <div>
+                        <a href="#WhatIsLoveFood/2" class="mainSloganIcon" data-id="mainSloganIcon01">
+                            <img src="../img/22/index/ch0101_shake_head_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/3" class="mainSloganIcon" data-id="mainSloganIcon02">
+                            <img src="../img/22/index/ch0101_touch_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/1" class="mainSloganIcon" data-id="mainSloganIcon03">
+                            <img src="../img/22/index/ch0101_eco_icon.png" alt="">
+                        </a>
+                    </div>
+                </section>
+            </div>
+            <div id="ch01Slide02" class="slide">
+                <section id="mainSlogan02" class="mainSlogan">
+                    <h3>│即期食品銷售平台│</h3>
+                    <h2>珍惜食物 ‧ 關愛台灣</h2>
+                    <div>
+                        <a href="#WhatIsLoveFood/2" class="mainSloganIcon" data-id="mainSloganIcon01">
+                            <img src="../img/22/index/ch0102_shake_head_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/3" class="mainSloganIcon" data-id="mainSloganIcon02">
+                            <img src="../img/22/index/ch0102_touch_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/1" class="mainSloganIcon" data-id="mainSloganIcon03">
+                            <img src="../img/22/index/ch0102_eco_icon.png" alt="">
+                        </a>
+                    </div>
+                </section>
+                <section id="subSlogan01" class="subSlogan">
+                    <div class="subSloganContent">
+                        <h3>LOVE FOOD 在做什麼？</h3>
+                        <h2>消費端食物利用最佳化</h2>
+                        <p>
+                            提供最完善的<br id="ch0102Ss02br01">即期食品銷售平台，<br>
+                            全站統一優惠折扣。<br>
+                            精打細算，同時也能愛護地球。
+                        </p>
+                        <img src="../img/22/index/ch01_sub_solgan01_img.png" alt="">
+                    </div>
+                </section>
+            </div>
+            <div id="ch01Slide03" class="slide">
+                <section id="mainSlogan03" class="mainSlogan">
+                    <h3>│即期食品銷售平台│</h3>
+                    <h2>珍惜食物 ‧ 關愛台灣</h2>
+                    <div>
+                        <a href="#WhatIsLoveFood/2" class="mainSloganIcon" data-id="mainSloganIcon01">
+                            <img src="../img/22/index/ch0101_shake_head_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/3" class="mainSloganIcon" data-id="mainSloganIcon02">
+                            <img src="../img/22/index/ch0101_touch_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/1" class="mainSloganIcon" data-id="mainSloganIcon03">
+                            <img src="../img/22/index/ch0101_eco_icon.png" alt="">
+                        </a>
+                    </div>
+                </section>
+                <section id="subSlogan02" class="subSlogan">
+                    <div class="subSloganContent">
+                        <h3>LOVE FOOD 在做什麼？</h3>
+                        <h2>分享愛心關懷弱勢</h2>
+                        <p>
+                            歡迎您捐款！<br id="ch0102Ss02br02">每月善款將轉換為平台幣，<br>
+                            並發放予需要幫助的特殊會員，<br>
+                            以保證透明且正確地運用。
+                        </p>
+                        <img src="../img/22/index/ch01_sub_solgan02_img.png" alt="">
+                    </div>
+                </section>
+            </div>
+            <div id="ch01Slide04" class="slide">
+                <section id="mainSlogan04" class="mainSlogan">
+                    <h3>│即期食品銷售平台│</h3>
+                    <h2>珍惜食物 ‧ 關愛台灣</h2>
+                    <div>
+                        <a href="#WhatIsLoveFood/2" class="mainSloganIcon" data-id="mainSloganIcon01">
+                            <img src="../img/22/index/ch0102_shake_head_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/3" class="mainSloganIcon" data-id="mainSloganIcon02">
+                            <img src="../img/22/index/ch0102_touch_icon.png" alt="">
+                        </a>
+                        <a href="#WhatIsLoveFood/1" class="mainSloganIcon" data-id="mainSloganIcon03">
+                            <img src="../img/22/index/ch0102_eco_icon.png" alt="">
+                        </a>
+                    </div>
+                </section>
+                <section id="subSlogan03" class="subSlogan">
+                    <div class="subSloganContent">
+                        <h3>LOVE FOOD 在做什麼？</h3>
+                        <h2>追求節約但不失便利</h2>
+                        <p>
+                            下單後，<br id="ch0102Ss02br03">持QRcode掃描取件：<br>
+                            到店直取，或至指定供應櫃提領。<br>
+                            在避免物流浪費下，力求便捷。
+                        </p>
+                        <img src="../img/22/index/ch01_sub_solgan03_img.png" alt="">
+                    </div>
+                </section>
+            </div>
+        </article>
+        <!-- 第一章：「組織訴求」結束 -->
+
+        <!-- 第二章：「浪費換算」開始 -->
+        <article id="chapter02" class="section">
+
+            <!-- 第二章背景圖開始 -->
+            <img src="../img/22/index/ch02_bg_elephants.png" alt="" class="ch02Bg" id="ch02Bg01">
+            <img src="../img/22/index/ch02_bg_yacht.png" alt="" class="ch02Bg" id="ch02Bg02">
+            <img src="../img/22/index/ch02_bg_planes.png" alt="" class="ch02Bg" id="ch02Bg03">
+            <img src="../img/22/index/ch02_bg_cars.png" alt="" class="ch02Bg" id="ch02Bg04">
+            <!-- 第二章背景圖結束 -->
+
+            <div id="conversionUnitIconBlock">
+                <a href="#HowMuchWeWasted">
+                    <img src="../img/22/index/ch02_icon_elephant_light.png" id="elephantIcon"
+                        class="conversionUnitIcon">
+                </a>
+                <a href="#HowMuchWeWasted">
+                    <img src="../img/22/index/ch02_icon_cruise_ship_dark.png" id="cruiseShipIcon"
+                        class="conversionUnitIcon">
+                </a>
+                <a href="#HowMuchWeWasted">
+                    <img src="../img/22/index/ch02_icon_plane_dark.png" id="planeIcon" class="conversionUnitIcon">
+                </a>
+                <a href="#HowMuchWeWasted">
+                    <img src="../img/22/index/ch02_icon_car_dark.png" id="carIcon" class="conversionUnitIcon">
+                </a>
+            </div>
+
+            <div class="conversionTitle">
+                台灣每年浪費的食物高達359萬噸，<br>重量相當於
+            </div>
+
+            <!-- 第二章換算單位開始 -->
+            <div class="conversionNumBlock" id="conversionNumBlock01">
+                <div class="conversionNum" id="conversionNum01">510,000</div>
+                <div class="conversionUnit" id="conversionUnit01">頭非洲象</div>
+            </div>
+
+            <div class="conversionNumBlock" id="conversionNumBlock02">
+                <div class="conversionNum" id="conversionNum02">10,530</div>
+                <div class="conversionUnit" id="conversionUnit02">艘豪華遊艇</div>
+            </div>
+
+            <div class="conversionNumBlock" id="conversionNumBlock03">
+                <div class="conversionNum" id="conversionNum03">8,178</div>
+                <div class="conversionUnit" id="conversionUnit03">架波音客機</div>
+            </div>
+
+            <div class="conversionNumBlock" id="conversionNumBlock04">
+                <div class="conversionNum" id="conversionNum04">1,790,000</div>
+                <div class="conversionUnit" id="conversionUnit04">輛大型轎車</div>
+            </div>
+            <!-- 第二章換算單位結束 -->
+
+        </article>
+        <!-- 第二章：「浪費換算」結束 -->
+
+        <!-- 第三章：「浪費影響」開始 -->
+        <article id="chapter03" class="section">
+
+            <div id="ch03MainSolgan">
+                大自然若向人類索取糧食浪費處理費<br>
+                一年得付上7000億美元！
+            </div>
+
+            <div id="solganCardsContainer">
+                <ul id="solganCarouselList">
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_waste_land.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">浪費土地</div>
+                                <p class="ch03CardParagraph">
+                                    全球近14億公頃產出的糧食被浪費，這些土地面積比加拿大還大
+                                </p>
+                                <div id="ch03Shelter01" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_mountain.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_waste_water.png.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">浪費水資源</div>
+                                <p class="ch03CardParagraph">
+                                    全球近250立方公里的水間接被浪費，這些水足夠世界人口使用一年
+                                </p>
+                                <div id="ch03Shelter02" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_water.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_greenhouse_effect.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">加劇全球暖化</div>
+                                <p class="ch03CardParagraph">
+                                    2011年，全球食物浪費所產生的碳排放高達44億噸
+                                </p>
+                                <div id="ch03Shelter03" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_degree.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_waste_land.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">浪費土地</div>
+                                <p class="ch03CardParagraph">
+                                    全球近14億公頃產出的糧食被浪費，這些土地面積比加拿大還大
+                                </p>
+                                <div id="ch03Shelter01" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_mountain.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_waste_water.png.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">浪費水資源</div>
+                                <p class="ch03CardParagraph">
+                                    全球近250立方公里的水間接被浪費，這些水足夠世界人口使用一年
+                                </p>
+                                <div id="ch03Shelter02" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_water.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                    <li class="solganCarouseItem">
+                        <div class="solganCard">
+                            <div class="cardDecorativeFrame">
+                                <div class="avatarDecorativeFrame">
+                                    <div class="avatarBlock">
+                                        <img src="../img/22/index/ch03_avatar_greenhouse_effect.jpg">
+                                    </div>
+                                </div>
+                                <div class="ch03CardTitle">加劇全球暖化</div>
+                                <p class="ch03CardParagraph">
+                                    2011年，全球食物浪費所產生的碳排放高達44億噸
+                                </p>
+                                <div id="ch03Shelter03" class="ch03Shelter">
+                                    <img src="../img/22/index/ch03_img_degree.png" alt="">
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+
+                </ul>
+            </div>
+
+        </article>
+        <!-- 第三章：「浪費影響」結束 -->
+
+        <!-- 第四章：「樂腹商城」開始 -->
+        <article id="chapter04" class="section">
+
+            <h3>惜食 ‧ 從這一餐開始</h3>
+
+            <!-- 商城輪播開始 -->
+            <div id="productCarouselContainer">
+                <ul id="productCarouselList">
+
+                    <template v-for="(data, index) in tableData">
+                        <li class="productCarouseItem">
+                            <div class="productCard">
+
+                                <div class="supplierName">
+                                    <span>{{data.SUPPLIER_NAME}}</span>
+                                </div>
+                                <div class="productAvatarBlock">
+                                    <a :href="'store_2.html?pdID='+data.PRODUCT_ID">
+                                        <div class="productAvatar">
+                                            <img :src="data.PRODUCT_IMG" alt="">
+                                        </div>
+                                        <div class="productMainInfo">
+
+                                            <span class="productName">{{data.PRODUCT_NAME}}</span>
+                                            <span class="productSellingPrice">＄{{data.PRODUCT_SELLING_PRICE}}</span>
+
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="productSubInfo">
+                                    <span class="ProductCategory">{{data.PRODUCT_CATEGORY_NAME}}</span>
+                                    <span class="productOriginalPrice">原價{{data.PRODUCT_ORIGINAL_PRICE}}元</span>
+                                </div>
+                            </div>
+                        </li>
+                    </template>
+
+                </ul>
+            </div>
+
+            <!-- 商城輪播結束 -->
+
+            <h4>合作夥伴</h4>
+
+            <!-- 合作夥伴開始 -->
+            <div id="suppliersList">
+                <div class="supplierLogoBlock" id="supplierLogoBlock01">
+                    <img src="../img/22/index/ch04_supplier_logo01.png" id="supplier01">
+                </div>
+
+                <div class="supplierLogoBlock" id="supplierLogoBlock02">
+                    <img src="../img/22/index/ch04_supplier_logo02.png" id="supplier02">
+                </div>
+
+                <div class="supplierLogoBlock" id="supplierLogoBlock03">
+                    <img src="../img/22/index/ch04_supplier_logo03.png" id="supplier03">
+                </div>
+
+                <div class="supplierLogoBlock" id="supplierLogoBlock04">
+                    <img src="../img/22/index/ch04_supplier_logo04.png" id="supplier04">
+                </div>
+
+                <div class="supplierLogoBlock" id="supplierLogoBlock05">
+                    <img src="../img/22/index/ch04_supplier_logo05.png" id="supplier05">
+                </div>
+            </div>
+            <!-- 合作夥伴結束 -->
+
+        </article>
+        <!-- 第四章：「樂腹商城」結束 -->
+
+        <!-- 第五章：「捐款說明」開始 -->
+        <article id="chapter05" class="section">
+
+            <img src="../img/22/index/ch05_bg_flower_left.png" class="ch05BgFlower" id="ch05BgFlower01">
+            <img src="../img/22/index/ch05_bg_flower_right.png.png" class="ch05BgFlower" id="ch05BgFlower02">
+
+            <div id="ch05MemoContainer">
+                <div id="ch05MainTtile">
+                    讓愛循環不止
+                </div>
+
+                <!-- 故事便籤開始 -->
+                <div class="ch05Memo" id="ch05Memo01">
+                    <div class="ch05MemoTape" id="ch05MemoTape01"></div>
+                    <h3>「食」在的愛</h3>
+                    <p>
+                        丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世......
+                        <a href="http://localhost/Lovefood/frontend/donation_description.html#loveRecycle_id">（前往閱讀）</a>
+                    </p>
+                    <img src="../img/22/index/ch05_memo_icon01.png" alt="">
+                </div>
+
+                <div class="ch05Memo" id="ch05Memo02">
+                    <div class="ch05MemoTape" id="ch05MemoTape02"></div>
+                    <h3>有愛就有希望</h3>
+                    <p>
+                        小必（化名）使用LOVE FOOD換取餐食的時候，露出了開心的笑容......<a
+                            href="http://localhost/Lovefood/frontend/donation_description.html#loveRecycle_id">（前往閱讀）</a>
+                    </p>
+                    <img src="../img/22/index/ch05_memo_icon02.png" alt="">
+                </div>
+
+                <div class="ch05Memo" id="ch05Memo03">
+                    <div class="ch05MemoTape" id="ch05MemoTape03"></div>
+                    <h3>讓愛分「饗」</h3>
+                    <p>
+                        小賈（化名）一出生就患有罕見疾病，從小頻繁進出急診室......<a
+                            href="http://localhost/Lovefood/frontend/donation_description.html#loveRecycle_id">（前往閱讀）</a>
+                    </p>
+                    <img src="../img/22/index/ch05_memo_icon03.png" alt="">
+                </div>
+                <!-- 故事便籤結束 -->
+
+                <a href="../frontend/donation_description.html">
+                    <div id="ch05learnMoreButton">
+                        <div>
+                            <img src="../img/22/index/ch05_button_icon.png" alt="">
+                        </div>
+                        <span>樂腹捐款</span>
+                    </div>
+                </a>
+
+            </div>
+
+        </article>
+        <!-- 第五章：「捐款說明」結束 -->
+
+        <!-- 第六章：「聯絡我們」開始 -->
+        <article id="chapter06" class="section">
+            <div id="ch06FlexArea">
+                <div id="ch06contactUsArea">
+                    <div id="contactUsContainer">
+                        <div id="contactUsFrame">
+                            <div id="contactUsBlock">
+                                <h3>CONTACT US</h3>
+                                <div class="ch06TtileDecoration"></div>
+                                <div class="ch06TtileDecoration"></div>
+                                <div id="connectionInfoContainer">
+                                    <div id="address" class="connectionInfo">
+                                        <a href="https://reurl.cc/N63Zo9">
+                                            <img src="../img/22/index/ch06_icon_map.png">
+                                        </a>
+                                        <a href="https://reurl.cc/N63Zo9">
+                                            <span>
+                                                台北市松山區<br>
+                                                南京東路三段219號5樓
+                                            </span>
+                                        </a>
+                                    </div>
+                                    <div id="phone" class="connectionInfo">
+                                        <a href="tel:0222221234">
+                                            <img src="../img/22/index/ch06_icon_tel.png">
+                                        </a>
+                                        <a href="tel:0222221234">
+                                            <span>02- 2222-1234</span>
+                                        </a>
+                                    </div>
+                                    <div id="email" class="connectionInfo">
+                                        <a href="mailto:service@lovefood.com">
+                                            <img src="../img/22/index/ch06_icon_mail.png">
+                                        </a>
+                                        <a href="mailto:service@lovefood.com">
+                                            <span>service@lovefood.com</span>
+                                        </a>
+                                    </div>
+                                    <div id="facebook" class="connectionInfo">
+                                        <img src="../img/22/index/ch06_icon_facebook.png">
+                                        <div id="ch06SearchBar">
+                                            <span>LOVE FOOD</span>
+                                            <img src="../img/22/index/ch06_icon_search.png" alt="">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="ch06IconContainer">
+                                    <img src="../img/22/index/ch06_icon_shake_head.png">
+                                    <img src="../img/22/index/ch06_icon_touch.png">
+                                    <img src="../img/22/index/ch06_icon_eco.png">
+                                </div>
+                            </div>
+                            <div id="ch06GuideContainerForMobile">
+                                <div id="ch06ImgBlockForMobile">
+                                    <img src="../img/22/index/ch06_img_contact.png">
+                                </div>
+                                <h2>LOVE FOOD</h2>
+                                <div id="ch06GuideBlockForMobile">
+                                    <span>│即期食品銷售平台│</span>
+                                    <a href="./store_1.html">
+                                        <div id="ch06GuideButtonForMobile">
+                                            <div>
+                                                <img src="../img/22/index/ch06_button_icon.png" alt="">
+                                            </div>
+                                            <span>立即樂腹</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="ch06GuideArea">
+                    <div id="ch06GuideContainer">
+                        <div id="ch06ImgBlock">
+                            <img src="../img/22/index/ch06_img_contact.png">
+                        </div>
+                        <h2>LOVE FOOD</h2>
+                        <div id="ch06GuideBlock">
+                            <span>│即期食品銷售平台│</span>
+                            <a href="./store_1.html">
+                                <div id="ch06GuideButton">
+                                    <div>
+                                        <img src="../img/22/index/ch06_button_icon.png" alt="">
+                                    </div>
+                                    <span>立即樂腹</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- 第六章：「聯絡我們」結束 -->
+
+    </main>
+    <!-- header vue -->
+    <script>
+        new Vue({
+            el: 'header',
+            data: {
+                // 一般會員 href
+                jumppage: '',
+                // 賣家會員 href
+                seljumpage: '',
+                // 賣家會員class
+                selloginchangemem: '',
+                // 會員大頭貼
+                Bigpicchange: "",
+                // 判斷一般會員是否登入
+                login: '',
+                // 判斷賣家會員是否登入
+                sellogin: '',
+                // 商品數量
+                itemQty: 0,
+            },
+            methods: {
+                // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
+                logIncheck() {
+                    if (checkdata != '') {
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            this.jumppage = './memberInformation.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            alert('尚未登入會員，請登入會員');
+                            this.jumppage = './signUp_signIn.html';
+                        }
+                    } else {
+                        alert('尚未登入會員，請登入會員');
+                        this.jumppage = './signUp_signIn.html';
+                    }
+                },
+                // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
+                sellogIncheck() {
+                    if (checkdata != '') {
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            alert('尚未登入會員，請登入賣家會員');
+                            this.seljumpage = './signUp_signIn.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            this.seljumpage = '../backend/backendIndex.html';
+                            this.selloginchangemem = true;
+                        }
+                    } else {
+                        alert('尚未登入會員，請登入會員');
+                        this.seljumpage = './signUp_signIn.html';
+                    }
+                },
+                // 判斷是否有會員登入及是哪一種會員
+                // 看看是一般會員或是賣家會員
+                checklogin() {
+                    axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                        // console.log(res);
+                        // 賣家或是買家ID
+                        checkdata = res.data;
+                        // console.log(checkdata.substr(0, 2));
+                        // alert(checkdata);
+                        if (checkdata != '') {
+                            // 判斷是賣家會員使"賣家專區"變色
+                            if ((checkdata.substr(0, 2) == 'SP')) {
+                                // console.log(checkdata.substr(0, 2));
+                                this.sellogin = true;
+                                // console.log(this.sellogin);
+                            } else {
+                                this.sellogin = false;
+                                // console.log(this.sellogin);
+                            }
+                            // 判斷是一般會員使"會員"變色
+                            if ((checkdata.substr(0, 2) == 'MB')) {
+                                this.login = true;
+                            } else {
+                                this.login = false;
+                            }
+                        }
+                    });
+                },
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                Bitpicupdate() {
+                    // 撈圖片
+                    scrolltest();
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                },
+                // hover取到圖片
+                onhover() {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            // console.log(this.Bigpicchange);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                },
+                // leave回到原狀
+                onout() {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            // console.log(this.Bigpicchange);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                },
+                // 出現放大鏡
+                longsearch() {
+                    // 桌機板search bar js
+                    $("#navIcons01").focus(function () {
+                        $("#searchInputForWeb").addClass('block');
+                        $("#searchInputForWeb").focus();
+                    })
+                    $("#searchInputForWeb").blur(function () {
+                        $("#searchInputForWeb").removeClass('block');
+                    });
+                },
+            },
+            mounted() {
+                // 看看是一般會員或是賣家會員
+                this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                this.Bitpicupdate();
+                //換頁載入＝＝＝＝＝
+                let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+                if (cartAllItems) {
+                    this.itemQty = cartAllItems.length
+                }
+            },
+            updated() {
+                // 看看是一般會員或是賣家會員
+                this.checklogin();
+                // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+                this.Bitpicupdate();
+                let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+                if (cartAllItems) {
+                    this.itemQty = cartAllItems.length
+                }
+            },
+        });
+        // 強硬撈圖片
+        function scrolltest() {
+            for (let i = 0; i < 5000; i += 10) {
+                setTimeout(function () {
+                    // 撈圖片
+                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                        data = res.data
+                        // console.log(data);
+                        if (data != "") {
+                            // atob函数用来解碼一个已经被base-64编碼過的數據
+                            // 如果在PHP有base64_decode就不用atob
+                            // this.Bigpicchange = atob(data);
+                            $('#navIcons03 img').attr('src', atob(data));
+                            $('#navIcons05 img').attr('src', atob(data));
+                        }
+                    });
+                }, i);
+            }
+        }
+        // 全域撈圖片
+        window.addEventListener('scroll', scrolltest);
+        window.addEventListener('keydown', scrolltest);
+    </script>
+    <!-- 輪播套件js -->
+    <script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+    <!-- 自訂js -->
+    <script src="../js/07/data.js"></script>
+    <script src="../js/22/index.js"></script>
+</body>
+
+</html>

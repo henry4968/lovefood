@@ -1,0 +1,100 @@
+//寬度 ％,px
+$Wth:(
+    100: 100%,
+    80: 80%,
+    75: 75%,
+    65: 65%,
+    60: 60%,
+    50: 50%,
+    30: 30%,
+    20: 20%,
+    10: 10%
+    
+);
+$wthPX:(
+    200:200px,
+    180:180px,
+    100:100px,
+    50:50px,
+
+
+);
+//字體大小
+$font:(
+    16: 16px,
+    18: 18px,
+    20: 20px,
+    22: 22px,
+    25: 25px,
+    28: 28px,
+    30: 30px,
+    35: 35px,
+    40: 40px
+
+);
+
+//線
+    $bd1:1px;
+    $bd2:2px;
+    $bd3:3px;
+    $bd4:4px;
+    $bd5:5px;
+
+//顏色
+$R:red;
+$G:green;
+$B:blue;
+$P:purple;
+$g:#d4d4d4; //不要用
+$b:#8e8bb7; ////不要用
+$d4:#d4d4d4;
+$ff:#ffffff;
+$B3: #3B3B3B;
+$D3:#D3E4C6;
+$A4:#4A4A4A;
+$F2:#F2F0D7;
+$F3:#F3E9C0;
+$C9:#C9BE9F;
+$D7:#7D7765;
+$FB:#FBFFE0;
+$cf:#8e8bb7;
+//backstage
+$ny:#f6f7dd; //nav黃
+$t:#8c7a6b; //logo咖啡
+$y:#f3e8c4; //main黃
+$brown:#897666;//main咖啡
+$lb:#838e95;//淺咖啡
+$purple:#ebedef;//hover顏色
+$hy:RGB(246,247,215);;//header 鵝黃
+
+//按鈕顏色map
+$btn_color: (none: transparent, brown: #897666, green: RGB(210,228,201), store-brown:#C9BE9F);
+//頁籤顏色map
+$pageLabel_color:(current: $ny,others:RGB(237,235,218));
+//table顏色
+$lb:RGB(244,242,242);//
+$sh:RGB(202,192,161);//次標
+
+//位置,左右
+$left:left;
+$right:right;
+$cntr:center;
+$null: null;
+$pw:440px;
+//spacers _margin,_padding
+$pdng:(
+    10:10px,
+    20:20px,
+    0 :0px
+);
+
+//RWD 裝置
+$twoK: 1920px;
+$desktop: 1600px;
+$laptop: 1200px;
+$pad: 992px;
+$bigPhone: 768px;
+$mediumPhone: 576px;
+$newSmallPhone: 375px;
+$smallPhone: 320px;
+$miniPhone: 320px

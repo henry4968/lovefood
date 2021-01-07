@@ -1,0 +1,285 @@
+.containerFinance{
+    .asideMainWrapper{
+        position: relative;
+        padding-top:110px;
+        display: flex;
+        width:1200px;
+        margin:0 auto;
+        .headerMainWrapper{
+            .headerWrapper{
+                background-color: $y;
+            }
+        }
+    }
+    main{
+        box-sizing: border-box;
+        width: 980px;
+        #financeDataFilterArea, #financeDataArea{
+            box-sizing: border-box;
+            width: 100%;
+            background-color: #F3E9C0;
+            border-radius: 10px;
+            box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+            margin-left: 15px;
+        }
+        #financeDataFilterArea{
+            padding: 27px 30px 27px 30px;
+            #financeDataFilterBlock{
+                box-sizing: border-box;
+                width: 360px;
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+                .financeDataFilterTab{
+                    width: 180px;
+                    font-size: 24px;
+                    line-height: 55px;
+                    color: #8F8770;
+                    text-align: center;
+                    background-color: #EDEBD8;
+                    box-shadow: 3px 6px 6px 0px rgba(0, 0, 0, 0.2);
+                    cursor: pointer;
+                }
+                .tabActive{
+                    background-color: #FAFDDD;
+                }
+            }
+            .financeFilter{
+                width: 920px;
+                padding: 18px;
+                position: relative;
+            }
+            #financeFilterForSelling{
+                display: flex;
+                padding-top: 30px;
+                #financeDateFilterBlock{
+                    width: 400px;
+                    line-height: 35px;
+                    font-size: 16px;
+                    color: #7B807D;
+                    display: flex;
+                    span{
+                        margin: 0px 0px 0px 5px;
+                    }
+                }
+                #supplierID{
+                    margin-left: 10px;
+                    font-size: 16px;
+                    color: #7B807D;
+                }
+                #financeFilterButton{
+                    margin-left: 5px;
+                }
+            }
+            #financeFilterForDonation{
+                display: flex;
+                position: relative;
+                #donationSearchingBlock{
+                    width: 530px;
+                    .donationSearchingRow{
+                        width: 530px;
+                        margin-bottom: 5px;
+                        display: flex;
+                        justify-content: space-between;
+                        font-size: 16px;
+                        color: #7B807D;
+                    }
+                }
+                #donationDateFilter{
+                    // border: 1px solid red;
+                    width: 200px;
+                    margin-left: 50px;
+                    font-size: 16px;
+                    color: #7B807D;
+                    display: flex;
+                    align-items: flex-start;
+                    flex-direction: column;
+                    position: absolute;
+                    right: 100px;
+                    top: -10px;
+                    #character{
+                        position: absolute;
+                        left: -20px;
+                        bottom: 20px;
+                    }
+                    input{
+                        margin: 0;
+                    }
+                    span{
+                        margin-bottom: 10px;
+                    }
+                }
+                #financeFilterButton{
+                    position: absolute;
+                    transform: translate(-25%, -50%);
+                    right: 25px;
+                    bottom: 0;
+                }
+            }
+        }
+        #financeDataArea{
+            height: 578px;
+            margin-top: 20px;
+            padding: 27px 17px 27px 17px;
+            position: relative;
+            #financeShowSellingPage{
+                width: 100%;
+                height: 100%;
+                #infoCardsBlock{
+                    display: flex;
+                    justify-content: space-around;
+                    margin-bottom: 30px;
+                    .infoCards{
+                        width: 150px;
+                        height: 150px;
+                        border-radius: 30px;
+                        padding: 40px 15px 20px 15px;
+                        border: .5px solid #8F8770;
+                        box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                        color: #8F8770;
+                        background-color: #EDEBD8;
+                        font-size: 16px;
+                        text-align: center;
+                        span{
+                            font-size: 14px;
+                            font-weight: 700;
+                            color: darkblue;
+                        }
+                    }
+                }
+                #chartBlock{
+                    display: flex;
+                    #lineChartBlock{
+                        width: 550px;
+                        height: 350px;
+                        margin-right: 20px;
+                    }
+                    #pieChartBlock{
+                        width: 450px;
+                        height: 350px;
+                    }
+                }
+                #financeShowResultBlock{
+                    width: 300px;
+                    height: 115px;
+                    font-size: 16px;
+                    color: #707070;
+                    line-height: 30px;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    .financeShowResultRow{
+                        width: 100%;
+                        height: 30px;
+                        display: flex;
+                        .financeSearchResult{
+                            width: 150px;
+                            height: 30px;
+                            border: 1px solid #B9AF94;
+                            border-radius: 10px;
+                            background-color: #FFFFFF;
+                            margin: 0px 20px 0px 0px;
+                        }
+                    }
+                }
+                #lineChartBlock{
+                    width: 600px;
+                    height: 400px;
+                    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                }
+                #pieChartBlock{
+                    width: 600px;
+                    height: 400px;
+                    box-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.2);
+                }
+            }
+            #financeShowDonationPage{
+                width: 100%;
+                height: 100%;
+                #donationDate, #donationAmount{
+                    font-size: 16px;
+                    display: inline-block;
+                }
+                #donationDate{
+                    margin: 0px 10px 0px 0px;
+                    h4{
+                        font-weight: 600;
+                    }
+                }
+                #donationAmount{
+                    h4{
+                        font-weight: 600;
+                        span{
+                            font-size: 22px;
+                            font-weight: 700;
+                            color: rgb(180, 0, 0);
+                        }
+                    }
+                }
+                table tr, tr td{
+                    border: 1px solid #D3D3D3;
+                }
+                #donationTable{
+                    width: 945px;
+                    margin: 30px 0px 0px 0px;
+                    #donationTableHeader{
+                        height: 50px;
+                    }
+                    tr:nth-child(2n){
+                        background-color: #FFFFFF;
+                    }
+                    tr:nth-child(2n+1){
+                        background-color: #EBE8E8;
+                    }
+                    #donationTableHeader{
+                        th{
+                            background-color: #887664;
+                            color: #FFFFFF;
+                            font-size: 14px;
+                            text-align: center;
+                        }
+                    }
+                    tr{
+                        color: #A0754A;
+                        font-size: 14px;
+                        text-align: center;
+                        td{
+                            padding: 10px;
+                        }    
+                    }
+    
+                }
+            }
+            #financeShowDonationDetailsPage{
+                padding: 0px 50px;
+                position: relative;
+                #DonationDetailsBlock{
+                    display: flex;
+                    justify-content: space-between;  
+                }
+                .btn-xl{
+                    position: absolute;
+                    right: 50px;
+                    bottom: 0px;
+
+                } 
+            }
+        }
+        .pagination{
+            position: absolute;
+            transform: translate(-50% , 50%);
+            left: 50%;
+            bottom: 27px;
+            font-size: 27px;
+            a{
+                color: #887664;
+                text-decoration: none;
+                &:hover{
+                    background-color: #887664;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+}
+

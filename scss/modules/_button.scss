@@ -1,0 +1,45 @@
+// @import "../base/var";
+// @import "../mixin/mixins";
+
+%btn-common{
+    width: 60px;
+    line-height: 20px;
+    font-size: 16px;
+    background-color: transparent;
+    border-radius: 5px;
+    border: 1px solid $brown;
+    color: #fff;
+    cursor: pointer;
+}
+@each $name, $color in $btn_color{
+    @include btn_classic($name, map-get($btn_color, $name));
+}
+.btn-2xl{
+    @extend %btn-common;
+    @include btn_2xl;
+}
+
+.btn-xl{
+    @extend %btn-common;
+    @include btn_xl;
+}
+  
+.btn-m{
+    @extend %btn-common;
+    @include btn_m;
+}
+.btn-s{
+    @extend %btn-common;
+    @include btn_s;
+}
+  
+.btn-sb{  //brown字
+    color:$brown;
+    @extend %btn-common;
+    @include btn_s;
+}
+  
+.btn-xs{
+    @extend %btn-common;
+    @include btn_xs;
+}

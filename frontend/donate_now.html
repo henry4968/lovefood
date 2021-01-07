@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love food│立即捐款</title>
+    <!-- 自訂css -->
+    <link rel="stylesheet" href="../css/donate_now.css">
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
+    <!-- 自訂js -->
+
+    <!-- <script src="../js/21/donation.js"></script> -->
+    <script src="../js/21/donate_now.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+    <!-- 標頭開始 -->
+    <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <!-- 行動版行動導覽列開始 -->
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile" id="donationPage">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 行動版導覽列結束 -->
+        <!-- 漢堡選單結束 -->
+        <div id="headerContentContainer">
+            <a href="./index.html">
+                <img id="logo" src="../img/22/index/ch04_header_logo.png">
+            </a>
+            <!-- 桌機版導覽列開始 -->
+            <nav id="navigationForPC">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                    @click="sellogIncheck">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
+                    <div>
+                        立即捐款
+                    </div>
+                </a>
+                <a href="#0" id="navIcons01" class="navIcons" style="z-index: 99;">
+                    <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur"
+                        style="height: 55px;">
+                </a>
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -15%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
+            <nav id="subNavigationForMobile">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
+                    style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 行動版次級導覽列結束 -->
+        </div>
+    </header>
+    <!-- 標頭結束 -->
+
+    <!-- Go Top -->
+    <a href="#top" class="back_to_top"><img src="../img/21/donation_description/map_leaf.png" alt=""></a>
+
+    <!-- 主要內容開始 -->
+    <main id="main">
+        <div class="donateBg">
+            <div class="donateNowBg"></div>
+            <div class="donateNow"></div>
+
+
+
+            <div class="title">
+                <img src="../img/21/donation_description/title_bg.png" alt="">
+                <h2>立即捐款</h2>
+            </div>
+
+            <p>獻出一份愛心，分享滿腹的溫暖。</p>
+
+            <div class="donateForm">
+                <form id="form" action="donate_completed.php" method="post">
+                    <!-- <form id="form"> -->
+                    <div class="donateItem">
+
+                        <div class="donateLine">
+                            <div class="donateTitle">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
+                                <span>捐款項目</span>
+                            </div>
+                        </div>
+
+                        <div class="formRowGorup">
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>捐款類別：
+                                </label>
+
+                                <div class="inputArea" id="donateCategory">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input" name="donationPlan"
+                                            id="categoryRadio1" value="1">
+                                        <label class="form-radio-label" for="categoryRadio1">單次扣款</label>
+                                    </div>
+
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input" name="donationPlan"
+                                            id="categoryRadio2" value="2">
+                                        <label class="form-radio-label" for="categoryRadio2">定期捐款 (每月扣款)</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>捐款方式：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input" id="categoryRadio1"
+                                            name="donationMethod" value="1">
+                                        <label class="form-radio-label" for="categoryRadio1">信用卡</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow" id="donateMoney">
+                                <!-- 選單標題 -->
+                                <label class="formlabel" for="amounttext">
+                                    <div class="starTxt">*</div>捐款金額：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 短版表單 -->
+                                    <div class="form-text" id="form_Explanation">
+                                        <input type="number" class="form-text-input" id="amounttext" name="amount">
+                                        <div class="formExplanation">(輸入捐款金額或選取以下金額)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel"> </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 選金額 -->
+                                    <div class="form-money-box">
+                                        <div class="money-box">NT.500</div>
+                                        <div class="money-box">NT.1000</div>
+                                        <div class="money-box">NT.5000</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="donateLine">
+                            <div class="donateTitle">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
+                                <span>基本資料</span>
+                            </div>
+                            <div class="show" id="show1"></div>
+                        </div>
+
+                        <div class="formRowGorup">
+
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>姓名/公司：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="text" class="form-text-input-long" id="" placeholder=""
+                                            name="name">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    國籍：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="nationality"
+                                            id="countryRadio1" value="1">
+                                        <label class="form-radio-label" for="countryRadio1">本國</label>
+                                    </div>
+
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="nationality"
+                                            id="countryRadio2" value="2">
+                                        <label class="form-radio-label" for="countryRadio2">外國</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    身分證/統一編號：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="text" class="form-text-input-long" id=""
+                                            placeholder="填寫格式：A123456789英文需大寫" name="pID_tID">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    生日：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="date" class="form-text-input-long" id=""
+                                            placeholder="填寫格式：1992-01-01" name="birthday">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    地址：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="text" class="form-text-input-long" id="" placeholder="請填寫路街號樓"
+                                            name="address">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>Email：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="email" class="form-text-input-long" id=""
+                                            placeholder="填寫格式：lovefood@gmail.com" name="email">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    性別：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio1"
+                                            value="1">
+
+                                        <label class="form-radio-label" for="genderRadio1">男</label>
+                                    </div>
+
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio2"
+                                            value="2">
+
+                                        <label class="form-radio-label" for="genderRadio2">女</label>
+                                    </div>
+
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="gender" id="genderRadio3"
+                                            value="3">
+
+                                        <label class="form-radio-label" for="genderRadio3">其他</label>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    備註：
+                                </label>
+
+                                <div class="inputArea">
+                                    <div class="form-text-message">
+                                        <textarea id="message" cols="30" rows="10" name="remarks"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="donateLine" id="donateLine2">
+                            <div class="donateTitle">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
+                                <span>信用卡資料</span>
+                            </div>
+                            <div class="show" id="show2"></div>
+                        </div>
+
+                        <div class="formRowGorup">
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>信用卡卡別：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input " name="cardType"
+                                            id="cardTypeRadio1">
+                                        <label class="form-radio-label" for="cardTypeRadio1">Visa</label>
+                                    </div>
+
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input" name="cardType"
+                                            id="cardTypeRadio2">
+                                        <label class="form-radio-label" for="cardTypeRadio2">Master</label>
+                                    </div>
+
+                                    <div class="form-radio">
+                                        <input type="radio" class="form-radio-input" name="cardType"
+                                            id="cardTypeRadio3">
+                                        <label class="form-radio-label" for="cardTypeRadio3">JCB</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>持卡人姓名：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="name" class="form-text-input-long" name="cardName" id=""
+                                            placeholder="">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <!-- * 信用卡卡號： -->
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>信用卡卡號：
+                                </label>
+
+                                <div class="inputArea" id="input-form-text-four">
+
+                                    <!-- 信用卡卡號表單 -->
+                                    <div class="form-text-four">
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
+                                        <div class="cardNumberLine">-</div>
+                                        <input type="card" class="form-text-input-four" id="" maxlength="4"
+                                            name="cardNumberLine">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>信用卡有效期限：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 短版表單 -->
+                                    <div class="form-text" id="">
+                                        <input type="number" class="form-text-input" id="cardmonthtext" name="cardDate">
+                                        <div class="labelTxt">月
+                                        </div>
+                                        <input type="number" class="form-text-input" id="cardyeartext" name="cardDate">
+                                        <div class="labelTxt">年
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>信用卡末三碼：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 短版表單 -->
+                                    <div class="form-text">
+                                        <input type="number" class="form-text-input" id="cardthreetext"
+                                            name="cardThree">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                        <div class="donateLine">
+                            <div class="donateTitle">
+                                <img src="../img/21/donation_now/form_icon.png" alt="">
+                                <span>收據資訊</span>
+                            </div>
+                            <div class="show" id="show3"></div>
+                        </div>
+
+                        <div class="formRowGorup">
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel">
+                                    <div class="starTxt">*</div>捐款收據寄發方式：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 圓形選單 -->
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="deliveryMethod"
+                                            id="receiptRadio1" value="1">
+
+                                        <label class="form-radio-label" for="receiptRadio1">免寄收據 </label>
+                                    </div>
+
+                                    <div class="form-radio">
+
+                                        <input type="radio" class="form-radio-input" name="deliveryMethod"
+                                            id="receiptRadio2" value="2">
+
+                                        <label class="form-radio-label" for="receiptRadio2">每次寄發</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel headup">
+                                    收據抬頭：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="name" class="form-text-input-long" id="" placeholder=""
+                                            name="receiptTitle">
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="formRow">
+                                <!-- 選單標題 -->
+                                <label class="formlabel headup">
+                                    身分證/統一編號：
+                                </label>
+
+                                <div class="inputArea">
+
+                                    <!-- 長版表單 -->
+                                    <div class="form-text-long">
+                                        <input type="name" class="form-text-input-long" id="" placeholder=""
+                                            name="receipt_pID_tID">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+                        </div>
+
+
+
+
+                        <div class="dottedLine"></div>
+
+                        <!-- 詳閱確認 -->
+                        <div class="formRowGorup">
+                            <div class="formRow">
+
+                                <div class="form-check">
+                                    <div class="starTxt">*</div>
+                                    <input type="checkbox" class="form-checkbox" id="finalcheck" name="check">
+                                    <label class="form-checkbox-label" for="checkbox1">我已詳閱並同意本協會捐款規章，詳細聲明
+                                        <a class="checkInfo" href="">請參閱</a>。</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 確認按鈕1 -->
+                        <div class="formRowGorup">
+                            <div class="formRow">
+
+                                <div class="checkButton">
+                                    <input type="reset" class="Button" id="cleanButton" value=清除重填>
+                                    <input type="button" class="Button" id="sendButton" value=確認送出 disabled>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </main>
+
+
+    <div class="donateFooter">
+        <footer>
+            <div class="footerBlock">
+                <div>
+                    <div class="footer_logo">
+                        <a href="index.html"><img src="../img/21/donation_description/footer_logo.png"></a>
+                        <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                    </div>
+                    <div class="info">
+                        <a href="#"><img src="../img/21/donation_description/footer_map.png">台北市南京東路三段215號5樓</a><br>
+                        <a href="#"><img src="../img/21/donation_description/footer_tel.png">02-24708053</a><br>
+                        <a href="#"><img src="../img/21/donation_description/footer_mail.png">service@lovefood.com</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+<script src="../node_modules/vue/dist/vue.js"></script>
+<!-- header vue -->
+<script>
+    new Vue({
+        el: '#header',
+        data: {
+            // 一般會員 href
+            jumppage: '',
+            // 賣家會員 href
+            seljumpage: '',
+            // 賣家會員class
+            selloginchangemem: '',
+            // 會員大頭貼
+            Bigpicchange: '../img/22/index/ch04_nav_member.png',
+            // 判斷一般會員是否登入
+            login: '',
+            // 判斷賣家會員是否登入
+            sellogin: '',
+            // 商品數量
+            itemQty: 0,
+        },
+        methods: {
+            // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
+            logIncheck() {
+                if (checkdata != '') {
+                    if (checkdata.substr(0, 2) == 'MB') {
+                        this.jumppage = './memberInformation.html';
+                    } else if ((checkdata.substr(0, 2) == 'SP')) {
+                        alert('尚未登入會員，請登入會員');
+                        this.jumppage = './signUp_signIn.html';
+                    }
+                } else {
+                    alert('尚未登入會員，請登入會員');
+                    this.jumppage = './signUp_signIn.html';
+                }
+            },
+            // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
+            sellogIncheck() {
+                if (checkdata != '') {
+                    if (checkdata.substr(0, 2) == 'MB') {
+                        alert('尚未登入會員，請登入賣家會員');
+                        this.seljumpage = './signUp_signIn.html';
+                    } else if ((checkdata.substr(0, 2) == 'SP')) {
+                        this.seljumpage = '../backend/sellerIndex.html';
+                        this.selloginchangemem = true;
+                    }
+                } else {
+                    alert('尚未登入會員，請登入會員');
+                    this.seljumpage = './signUp_signIn.html';
+                }
+            },
+            // 判斷是否有會員登入及是哪一種會員
+            // 看看是一般會員或是賣家會員
+            checklogin() {
+                axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                    // console.log(res);
+                    // 賣家或是買家ID
+                    checkdata = res.data;
+                    // console.log(checkdata.substr(0, 2));
+                    // alert(checkdata);
+                    if (checkdata != '') {
+                        // 判斷是賣家會員使"賣家專區"變色
+                        if ((checkdata.substr(0, 2) == 'SP')) {
+                            // console.log(checkdata.substr(0, 2));
+                            this.sellogin = true;
+                            // console.log(this.sellogin);
+                        } else {
+                            this.sellogin = false;
+                            // console.log(this.sellogin);
+                        }
+                        // 判斷是一般會員使"會員"變色
+                        if ((checkdata.substr(0, 2) == 'MB')) {
+                            this.login = true;
+                        } else {
+                            this.login = false;
+                        }
+                    }
+                });
+            },
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            Bitpicupdate() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    } else {
+                        $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                        $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                    }
+                });
+            },
+            // hover取到圖片
+            onhover() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        // console.log(this.Bigpicchange);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    }
+                });
+            },
+            // leave回到原狀
+            onout() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        // console.log(this.Bigpicchange);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    }
+                });
+            },
+
+        },
+        mounted() {
+            // 看看是一般會員或是賣家會員
+            this.checklogin();
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            this.Bitpicupdate();
+            //換頁載入＝＝＝＝＝
+            let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+            if (cartAllItems) {
+                this.itemQty = cartAllItems.length
+            }
+        },
+        updated() {
+            // 看看是一般會員或是賣家會員
+            this.checklogin();
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            this.Bitpicupdate();
+            let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+            if (cartAllItems) {
+                this.itemQty = cartAllItems.length
+            }
+        },
+    });
+</script>
+
+
+</html>

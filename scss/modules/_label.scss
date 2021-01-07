@@ -1,0 +1,7 @@
+a{                     
+text-decoration: none;
+}
+@include linx($brown,#fff);
+label{
+    display: inline;
+}

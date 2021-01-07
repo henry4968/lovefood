@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love food│捐款說明</title>
+    <!-- 自訂css -->
+    <link rel="stylesheet" href="../css/donation_description.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="../node_modules/jquery/dist/jquery.js"></script>
+    <script src="../node_modules/waypoints/lib/jquery.waypoints.min.js"></script>
+    <script src="../node_modules/counterup/jquery.counterup.min.js"></script>
+    <script src="../node_modules/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="../node_modules/lightslider/dist/css/lightslider.css">
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script> -->
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css"> -->
+    <script src="../node_modules\bootstrap-sass\assets\javascripts\bootstrap.js"></script>
+    <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
+    <script src="../node_modules\jquerykeyframes\dist\jquery.keyframes.js"></script>
+    <!-- <script src="../js/21/temp.js"></script> -->
+
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+
+    <script>
+
+    </script>
+</head>
+
+<body>
+
+
+    <!-- 標頭開始 -->
+    <header id="header">
+        <!-- 漢堡選單開始 -->
+        <input type="checkbox" id="hamburgerMenuToggle">
+        <label for="hamburgerMenuToggle" id="hamburgerMenuButton">
+            <span></span>
+        </label>
+        <!-- 行動版行動導覽列開始 -->
+        <nav id="navigationForMobile">
+            <div id="searchBarForMobile">
+                <input type="text" placeholder="搜尋..." id="searchInputForMobile">
+            </div>
+            <ul>
+                <li>
+                    <a href="./store_1.html" class="navGeneralAnchorsForMobile">樂腹商城</a>
+                </li>
+                <li>
+                    <a :href="seljumpage" class="navGeneralAnchorsForMobile" @click="sellogIncheck">賣家專區</a>
+                </li>
+                <li>
+                    <a href="./donation_description.html" class="navGeneralAnchorsForMobile" id="donationPage">捐款說明</a>
+                </li>
+                <li>
+                    <a href="./donate_now.html" id="navSepcialAnchorForMobile">
+                        <div>
+                            立即捐款
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <!-- 行動版導覽列結束 -->
+        <!-- 漢堡選單結束 -->
+        <div id="headerContentContainer">
+            <a href="./index.html">
+                <img id="logo" src="../img/22/index/ch04_header_logo.png">
+            </a>
+            <!-- 桌機版導覽列開始 -->
+            <nav id="navigationForPC">
+                <a href="./store_1.html" class="navGeneralAnchors">樂腹商城</a>
+                <a :href="seljumpage" class="navGeneralAnchors" :class="{selloginchangemem:sellogin}"
+                    @click="sellogIncheck">賣家專區</a>
+                <a href="./donation_description.html" class="navGeneralAnchors" id="donatePageWeb">捐款說明</a>
+                <a href="./donate_now.html" id="navSepcialAnchor">
+                    <div>
+                        立即捐款
+                    </div>
+                </a>
+                <!-- 點放大鏡伸縮搜尋欄 -->
+                <a href="#0" id="navIcons01" class="navIcons" style="z-index: 99;">
+                    <img id="navIconsImg" src="../img/22/index/ch04_nav_search.png" alt="">
+                    <input type="text" placeholder="搜尋..." id="searchInputForWeb" class="searchInputBlur"
+                        style="height: 55px;">
+                </a>
+
+                <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -15%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 桌機版導覽列結束 -->
+            <!-- 行動版次級導覽列開始 -->
+            <nav id="subNavigationForMobile">
+                <a href="./store_3.html" id="navIcons04" class="navIconsForMobile"
+                    style="position: relative;margin-left: 0px;">
+                    <div
+                        style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
+                        {{itemQty}}</div>
+                    <img src="../img/22/index/ch04_nav_cart.png" alt="">
+                </a>
+                <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover"
+                    @mouseout="onout">
+                    <img v-if="login" :src='Bigpicchange'>
+                    <img v-else="login" src='../img/22/index/ch04_nav_member.png'>
+                </a>
+            </nav>
+            <!-- 行動版次級導覽列結束 -->
+        </div>
+    </header>
+    <!-- 標頭結束 -->
+
+    <!-- Go Top -->
+    <a href="#top" class="back_to_top"><img src="../img/21/donation_description/map_leaf.png" alt=""></a>
+
+    <!-- 主要內容開始 -->
+    <main id="main">
+
+        <!-- banner 和 五大內文標題 full page -->
+        <div class="fullPageBg">
+
+            <div class="bannerTitle">
+                食物不浪費<br>
+                弱勢有溫飽
+            </div>
+
+            <div class="bannerRound"></div>
+
+        </div>
+
+
+        <div class="secondNav">
+            <div class="bottomNav">
+                <a href="./donation_description.html#nav1">計畫詳情</a>
+                <a href="./donation_description.html#nav2">運作成果</a>
+                <a href="./donation_description.html#nav3">感恩有您</a>
+                <a href="./donation_description.html#nav4">剩食議題</a>
+                <a href="./donation_description.html#nav5">邀您一起</a>
+            </div>
+        </div>
+
+        <!-- <div class="secondNav2"> -->
+        <div class="bottomNav2">
+            <a href="./donation_description.html#nav1">計畫詳情</a>
+            <a href="./donation_description.html#nav2">運作成果</a>
+            <a href="./donation_description.html#nav3">感恩有您</a>
+            <a href="./donation_description.html#nav4">剩食議題</a>
+            <a href="./donation_description.html#nav5">邀您一起</a>
+        </div>
+        <!-- </div> -->
+
+
+        <div class="projectDetails">
+            <div class="projectDetailsBg">
+
+                <div class="projectDetailsIn">
+
+
+                    <div class="title" id="nav1">
+                        <img src="../img/21/donation_description/title_bg.png" alt="">
+                        <h2>計畫詳情</h2>
+                    </div>
+                    <div class="area1">
+                        <div class="txt">
+                            <h3>緣起</h3>
+                            <p>據臺大農業經濟系研究團隊研究，臺灣每年浪費食物量平均為359萬公噸，若以90公分桶裝，可以疊起74座101大樓。其中，消費端浪費即達五成以上（190萬公噸），倘若這些食物沒有被肆意丟棄，將足夠全臺26萬中低收入戶吃上近20年。
+                            </p>
+
+                        </div>
+                        <div class="area2TxtImg">
+
+                            <img id="area2TxtImg" src="../img/21/donation_description/fruit.png" alt="">
+
+                            <!-- <img id="area2TxtImg" src="/img/21/donation_description/fruit.png" alt=""> -->
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+
+
+            <div class="area2">
+
+                <div class="area2Txt">
+                    <img src="../img/21/donation_description/1apple.png" alt="">
+                    <div class="area2TxtTxt">
+                        <h3>即期食品的第二舞台</h3>
+                        <p>餐飲業者通常無法精確掌握實際的需求量，加上食安期效和倉儲成本等考量，通常會丟棄無法賣完的食物。以便利商店為例，為使貨架更新流暢，在食品尚未真正過期前，便會下架丟棄，每年浪費的總價值高達70億臺幣。而Lovefood的建立初衷，正是希望透過平台曝光的方式，為這些即期食品和有需要的人們爭取「黃金時間」。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="area2Txt">
+                    <img src="../img/21/donation_description/2apple.png" alt="">
+                    <div class="area2TxtTxt">
+                        <h3>上傳證明成為特殊會員</h3>
+                        <p>任何人都可以成為Lovefood的一般會員，並使用法定貨幣（新台幣）於平台進行購買。然若有需要幫助的朋友光顧，可以透過會員中心上傳政府核發的中低收入證明文件，成為Lovefood的「特殊會員」。「特殊會員」可以額外使用平台點數「Lovefood
+                            point」，對選購食品進行折抵（可全額折抵）。「Lovefood point」則由平台收到的每月善款轉換而來。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="area2Txt">
+                    <img src="../img/21/donation_description/3apple.png" alt="">
+                    <div class="area2TxtTxt">
+                        <h3>善款轉換透明直觀</h3>
+                        <p>本計畫收到的善款，會以1：1兌率轉換為「Love point」，並於每月5號發放若干額度予全站的「特殊會員」，且會於本頁刊登轉換報表供公眾檢視。「Love
+                            point」亦只用於平台選購食品，不可換現。捐款人毋須擔憂款項流向不明。此外，數位化援助也有利於「特殊會員」自行決定利用的時機與方式，避免實體物資的空間或飽鮮負擔，甚至是被迫轉賣的窘境。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="area3">
+                <div class="area3_bg">
+                </div>
+                <div class="howDo">
+                    <div class="howDoTitle">
+                        <h3>我能做什麼？
+                        </h3>
+                        <p>在您的慷慨捐助下<br>
+                            臺北市近6萬位弱勢朋友不再煩惱下一餐的著落</p>
+                    </div>
+
+                    <img id=howDoFlower src="../img/21/donation_description/flower.png" alt="">
+
+                    <!-- STEP 上排2個 -->
+                    <div class="stepArea_1">
+
+                        <div class="step">
+
+                            <!-- 對話框 -->
+                            <div class="mwt_border">
+                                <div class="arrow_b_int"></div>
+                                <p>立即捐款</p>
+                            </div>
+
+                            <img class="stepImg" src="../img/21/donation_description/step1.png" alt="">
+
+                            <div class="stepTxt">
+                                <p>STEP 1</p>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <p>每月固定捐款，幫助弱勢族群溫飽，每天好好吃頓飯。</p>
+                            </div>
+                        </div>
+
+
+                        <div class="step">
+
+                            <!-- 對話框 -->
+                            <div class="mwt_border">
+                                <div class="arrow_b_int"></div>
+                                <p>溫飽計畫</p>
+                            </div>
+
+                            <img class="stepImg" src="../img/21/donation_description/step2.png" alt="">
+
+                            <div class="stepTxt">
+                                <p>STEP 2</p>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <p>發揮人飢己飢精神，照顧弱勢朋友窮活日常。</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <!-- STEP 下排3個 -->
+                    <div class="stepArea_2">
+
+                        <div class="step">
+
+                            <!-- 對話框 -->
+                            <div class="mwt_border">
+                                <div class="arrow_b_int"></div>
+                                <p>揪團愛心</p>
+                            </div>
+
+                            <img class="stepImg" src="../img/21/donation_description/step3.png" alt="">
+
+                            <div class="stepTxt">
+                                <p>STEP 3</p>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <p>號召公司同事、親朋好友揪團做愛心。</p>
+                            </div>
+                        </div>
+
+
+                        <div class="step">
+
+                            <!-- 對話框 -->
+                            <div class="mwt_border">
+                                <div class="arrow_b_int"></div>
+                                <p>發放點數</p>
+                            </div>
+
+                            <img class="stepImg" src="../img/21/donation_description/step4.png" alt="">
+
+                            <div class="stepTxt">
+                                <p>STEP 4</p>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <p>定期發放點數予「特殊會員」，一點可抵臺幣一元。</p>
+                            </div>
+                        </div>
+
+
+                        <div class="step">
+
+                            <!-- 對話框 -->
+                            <div class="mwt_border">
+                                <div class="arrow_b_int"></div>
+                                <p>兌換餐食</p>
+                            </div>
+
+                            <img class="stepImg" src="../img/21/donation_description/step5.png" alt="">
+
+                            <div class="stepTxt">
+                                <p>STEP 5</p>
+                                <div class="line"></div>
+                                <div class="line"></div>
+                                <p>受助者可自由選擇商城內想吃的餐食，幸福飽餐。</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+        <!-- 運作成果 -->
+        <div class="operationResult">
+            <div class="title" id="nav2">
+                <img src="../img/21/donation_description/title_bg.png" alt="">
+                <h2>運作成果</h2>
+            </div>
+
+            <div class="txt">
+                <div class="txtTxt">減少剩食&nbsp;<p id="overFood">21,285</p>&nbsp;噸</div>
+                <div class="txtTxt">參與店家&nbsp;<p id="joinShop">235</p>&nbsp;店</div>
+                <div class="txtTxt">協助&nbsp;<p id="helpChild">3,542</p>&nbsp;名孩童溫飽</div>
+            </div>
+
+
+            <!-- 本月目標款項 50萬元 -->
+            <div class="goal">
+                <div class="goalTitle">
+                    <img src="../img/21/donation_description/leaf.png" alt="">
+                    <h3>本月目標款項&nbsp;&nbsp;50萬元</h3>
+                </div>
+                <div class="breadOut">
+                    <div class="bread">
+                        <img id=breadImg src="../img/21/donation_description/bread.png" alt="">
+                        <div class="breadLine"></div>
+                    </div>
+                </div>
+                <div class="txtTxt">已達&nbsp;<p id=goalmoney>80</p>
+                    <p>%</p>&nbsp;捐款&nbsp;&nbsp;&nbsp;需要您的協助
+                </div>
+            </div>
+
+            <!-- 食饗冰箱 -->
+            <div class="enjoyFood">
+
+                <div class="enjoyFoodTitle">
+                    <div class="enjoyFoodBox">食饗<br>冰箱</div>
+                    <p>合作店家遍布台北市，送暖更便利</p>
+                </div>
+
+                <div class="mapAndShop">
+                    <div class="mapImg">
+                        <img id="mapTaipei" src="../img/21/donation_description/map_Taipei.png" alt="">
+                        <!-- <div class="circle" id="circle_daan"></div> -->
+                        <img class="map_leaf" data-toggle="tooltip" title="大安區" id="leaf_Daan"
+                            src="../img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="士林區" id="leaf_Shilin"
+                            src="../img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="內湖區" id="leaf_Neihu"
+                            src="../img/21/donation_description/map_leaf.png" alt="">
+                        <img class="map_leaf" data-toggle="tooltip" title="北投區" id="leaf_Beitou"
+                            src="../img/21/donation_description/map_leaf.png" alt="">
+                    </div>
+
+                    <div class="shopChangeOutside">
+                        <div class="shopChange" id="shopChange">
+                            <div class="shop" id="shop_Daan">
+                                <p>大安區</p>
+                                <p>PAUL台北仁愛店</p>
+                                <img class=shopImg src="../img/21/donation_description/shop_1_Daan.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Shilin">
+                                <p>士林區</p>
+                                <p>STARBUCKS天玉門市</p>
+                                <img class=shopImg src="../img/21/donation_description/shop_2_Shilin.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Neihu">
+                                <p>內湖區</p>
+                                <p>Louisa Coffee內湖洲子店</p>
+                                <img class=shopImg src="../img/21/donation_description/shop_3_Neihu.jpg" alt="">
+                            </div>
+                            <div class="shop" id="shop_Beitou">
+                                <p>北投區</p>
+                                <p> Mr. Brown Coffee北投店</p>
+                                <img class=shopImg src="../img/21/donation_description/shop_4_Beitou.jpg" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 感恩有您 -->
+        <div class="thankYou" id="thankYou">
+            <div class="thankYou_bg"></div>
+            <div class="thankYouArea">
+                <div class="title" id="nav3">
+                    <img src="../img/21/donation_description/title_bg.png" alt="">
+                    <h2>感恩有您</h2>
+                </div>
+
+                <div class="heartArea" id="heartArea">
+
+                    <template v-for="(value, key) in donationLog">
+                        <div class="heart">
+                            <img src="../img/21/donation_description/heartImg.png" alt="" id="heartImg">
+                            <div class="donationData">
+                                <p class="date">{{value.MONTH}}/{{value.DAY}}</p>
+                                <p class="donation">捐贈了<span class="money">{{value.DONATION_AMOUNT}}</span>元</p>
+                                <p class="name">{{value.DONATION_NAME}}</p>
+                            </div>
+                        </div>
+                    </template>
+
+                </div>
+
+                <!-- 讓愛循環不止 -->
+                <div class="loveRecycle" id="loveRecycle_id">
+                    <div class="loveRecycleTitle">
+                        <img src="../img/21/donation_description/leaf_2.png" alt="">
+                        <h3>讓愛循環不止</h3>
+                    </div>
+
+                    <div class="storyArea" id="storyArea">
+                        <div class="storyAll" id="storyAll">
+
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="../img/21/donation_description/story_1.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>「食」在的愛</h3>
+                                        <p>丹丹（化名）還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世...</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_1">
+                                        <img src="../img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="../img/21/donation_description/story_2.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>讓愛分「饗」</h3>
+                                        <p>賈（化名）一出生就患有罕見疾病，從小頻繁進出急診室...</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_2">
+                                        <img src="../img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="storyBox">
+                                <div class="story">
+                                    <div class="storyImg">
+                                        <img src="../img/21/donation_description/story_3.png" alt="">
+                                    </div>
+                                    <div class="storyTxt">
+                                        <h3>有愛就有希望</h3>
+                                        <p>小必（化名）使用LOVE FOOD換取餐食的時候，露出了開心的笑容......　</p>
+                                    </div>
+                                    <div class="readMoreButton" id="readMoreButton_3">
+                                        <img src="../img/21/donation_description/readMoreButton.png" alt="">
+                                        <span>完整閱讀</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 剩食議題 -->
+        <div class="foodItem">
+
+            <div class="title" id="nav4">
+                <img src="../img/21/donation_description/title_bg.png" alt="">
+                <h2>剩食議題</h2>
+            </div>
+
+            <div class="overFoodBg">
+
+                <div class="txt">
+                    <div class="txt1">
+                        <h2>剩食不處理 成為台灣的骨刺</h2>
+                        <p>剩食指的就是家戶的廚餘嗎？那麼大家都把飯盡量吃光，是否就可以解決剩食問題？其實事情沒有想像中那麼簡單。元沛農坊創辦人許又仁解釋，剩食可分為生廚餘和熟廚餘，主要的來源有三種。
+                            第一類是，過保鮮期沒有販售出的農產品；第二類是，在運送過程中作廢的食物，或加工處理時被淘汰、截切的部分；第三種是餿水，屬於熟廚餘。
+                            <br>
+                            <br>
+                            「剩食這個問題很微妙，要大不大要小不小，像是身上的一個小骨刺，沒事時不會怎樣，但痛起來就會很不舒服。」許又仁認為，若不積極處理，10、20年後再來回顧，台灣的剩食問題依舊存在。
+                        </p>
+                    </div>
+
+                    <div class="txt2">
+                        <h2>改善剩食問題 走向不浪費的善循環</h2>
+                        <p>「一個人為社會付出很辛苦，但一群人就不會寂寞。」食物零浪費的議題不是高大上的國家政策，而是每個人、每天都可以舉手之勞做出改變的事。在世界地球日50周年，零剩食是地球給出的期中考題之一，如何答題才能終結食物浪費，考驗著人們的智慧。
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- 惜食從生活做起 -->
+            <div class="loveFoodLife">
+                <h2>惜食從生活做起</h2>
+
+                <div class="loveFoodArea">
+
+                    <div class="loveFood">
+                        <img src="../img/21/donation_description/life1.png" alt="" class="lifeImg">
+                        <p class="lifeTitle">[提前說]</p>
+                        <p class="lifeTxt">點餐時提前跟店家說不吃的食材</p>
+                    </div>
+
+                    <div class="loveFood">
+                        <img src="../img/21/donation_description/life2.png" alt="" class="lifeImg">
+                        <p class="lifeTitle">[少浪費]</p>
+                        <p class="lifeTxt">評估吃的下的量，請店家只給半碗飯等</p>
+                    </div>
+
+                    <div class="loveFood">
+                        <img src="../img/21/donation_description/life3.png" alt="" class="lifeImg">
+                        <p class="lifeTitle">[可打包]</p>
+                        <p class="lifeTxt">吃不完的食物打包帶走，減少廚餘產生</p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- 邀您一起 -->
+        <div class="joinUs">
+            <div class="title" id="nav5">
+                <img src="../img/21/donation_description/title_bg.png" alt="">
+                <h2>邀您一起</h2>
+            </div>
+
+            <div class="joinUsArea">
+
+                <div class="join">
+                    <h2 class="joinTitle">成為賣家</h2>
+                    <img src="../img/21/donation_description/join1.png" alt="" class="joinImg">
+
+                    <div class="joinButton">
+                        <a href="./signUp_signIn.html">
+                            <img src="../img/21/donation_description/joinButton1.png" alt="">
+                            <span>賣家專區</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="donation">
+                    <h2 class="donationTitle">愛心公益</h2>
+                    <img src="../img/21/donation_description/join2.png" alt="" class="donationImg">
+
+                    <div class="donationButton">
+                        <a href="./donate_now.html">
+                            <img src="../img/21/donation_description/joinButton2.png" alt="">
+                            <span>立即捐款</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- 讓愛循環不止 跳窗 -->
+        <div class="Overlay_All" id="Overlay_All_1">
+            <div class="storyOverlay_Bg"></div>
+            <div class="storyOverlay">
+                <article>
+                    <div class="loveRecycleTitle">
+                        <img src="../img/21/donation_description/leaf_3.png" alt="">
+                        <h3>讓愛循環不止</h3>
+                    </div>
+                    <div class="storyArea" id="story_overlay1">
+                        <div class="storyTitleTxt">
+                            <div class="storyTitle">「食」在的愛</div>
+                            <div class="storyDate">2020-02-06</div>
+                        </div>
+                        <img src="../img/21/donation_description/cross.png" alt="" class="readMore_close">
+                        <div class="storyTxtArea">
+                            <div class="storyTxt">
+
+                                　　丹丹(化名)還不到二歲，是個活潑可愛的孩子。但丹丹的爸爸因病過世，因此媽媽帶著他和三歲的姐姐，先暫住在外婆家。除了照顧丹丹和姊姊外，也要幫忙照顧年紀大的爺爺，所以無法工作。現在僅靠著社福給的特境補助一萬多元生活，相當的拮据，常常面臨經濟短缺。
+                                <br><br>
+                                　　媽媽一見到家訪員，就一直請丹丹向我們說謝謝。媽媽說很感謝申請到LOVE
+                                FOOD團體的幫助，給予每個月穩定點數換取餐食，還可以選擇想吃的品項，重視到受助者的選擇權，減輕了生活的開銷，更感受到社會的愛心，有力量為孩子堅持下去。
+                                <br><br>
+                                　　感謝社會大眾支持，讓這些身處寒冬中的家庭感受到社會的溫暖，有力量渡過難關。
+                            </div>
+                            <div class="storyImgOver">
+                                <img src="../img/21/donation_description/story_1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_modal_close">
+                </article>
+            </div>
+        </div>
+
+        <div class="Overlay_All" id="Overlay_All_2">
+            <div class="storyOverlay_Bg"></div>
+            <div class="storyOverlay">
+                <article>
+                    <div class="loveRecycleTitle">
+                        <img src="../img/21/donation_description/leaf_3.png" alt="">
+                        <h3>讓愛循環不止</h3>
+                    </div>
+                    <div class="storyArea">
+                        <div class="storyTitleTxt">
+                            <div class="storyTitle">讓愛分「饗」</div>
+                            <div class="storyDate">2020-02-03</div>
+                        </div>
+                        <img src="../img/21/donation_description/cross.png" alt="" class="readMore_close">
+                        <div class="storyTxtArea">
+                            <div class="storyTxt">
+                                　　小賈(化名)一出生就患有罕見疾病，從小頻繁進出急診室，幾乎臥病在床，家人每天不辭辛勞帶小賈搭公車回醫院復健，小賈的童年幾乎都在醫院度過。因為特殊的生理狀況，小賈需進行特殊食療，但療程單價高，無疑增加家裡的經濟負擔。全家就靠著爸爸在工地勞動負擔所有支出。
+                                <br><br>
+                                　　社福得知家裡狀況後，協助小賈家人使用LOVE FOOD平台以點數換取食物，減輕家庭經濟負擔，媽媽相當感恩的說：「謝謝LOVE FOOD的幫忙，讓我們有喘息的機會。」
+                            </div>
+                            <div class="storyImgOver">
+                                <img src="../img/21/donation_description/story_2.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_modal_close">
+                </article>
+            </div>
+        </div>
+
+        <div class="Overlay_All" id="Overlay_All_3">
+            <div class="storyOverlay_Bg"></div>
+            <div class="storyOverlay">
+                <article>
+                    <div class="loveRecycleTitle">
+                        <img src="../img/21/donation_description/leaf_3.png" alt="">
+                        <h3>讓愛循環不止</h3>
+                    </div>
+                    <div class="storyArea">
+                        <div class="storyTitleTxt">
+                            <div class="storyTitle">有愛就有希望</div>
+                            <div class="storyDate">2020-02-01</div>
+                        </div>
+                        <img src="../img/21/donation_description/cross.png" alt="" class="readMore_close">
+                        <div class="storyTxtArea">
+                            <div class="storyTxt">
+                                　　小必(化名)使用LOVE
+                                FOOD換取餐食的時候，露出了開心的笑容，尤其是看到喜歡的零食時，她難掩欣喜的說：「我好愛吃零食，平常都不敢買！」外婆在一旁感慨的說：「好久沒有見到小必這麼開心了，謝謝LOVE
+                                FOOD將歡樂重新帶回我，有快樂的童年。」
+                                <br><br>
+                                　　因小必父母早逝，祖孫三人一起生活，大家的愛心，讓LOVE FOOD能夠支援這一家人度過生活的困難，也希望小必的樂觀能繼續為這個家帶來歡笑！
+
+                            </div>
+                            <div class="storyImgOver">
+                                <img src="../img/21/donation_description/story_3.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                    <button type="button" class="btn_modal_close">
+                </article>
+            </div>
+        </div>
+
+    </main>
+
+
+    <footer>
+        <div class="footerBlock">
+            <div>
+                <div class="footer_logo">
+                    <a href="index.html"><img src="../img/21/donation_description/footer_logo.png"></a>
+                    <p class="copyright">&copy LOVE FOOD All right reserved</p>
+                </div>
+                <div class="info">
+                    <a href="#"><img src="../img/21/donation_description/footer_map.png">台北市南京東路三段215號5樓</a><br>
+                    <a href="#"><img src="../img/21/donation_description/footer_tel.png">02-24708053</a><br>
+                    <a href="#"><img src="../img/21/donation_description/footer_mail.png">service@lovefood.com</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+<script src="../node_modules/lightslider/dist/js/lightslider.js"></script>
+<!-- 自訂js -->
+<script src="../js/21/donation.js"></script>
+<!-- header vue -->
+<script>
+    new Vue({
+        el: '#header',
+        data: {
+            // 一般會員 href
+            jumppage: '',
+            // 賣家會員 href
+            seljumpage: '',
+            // 賣家會員class
+            selloginchangemem: '',
+            // 會員大頭貼
+            Bigpicchange: '../img/22/index/ch04_nav_member.png',
+            // 判斷一般會員是否登入
+            login: '',
+            // 判斷賣家會員是否登入
+            sellogin: '',
+            // 商品數量
+            itemQty: 0,
+        },
+        methods: {
+            // 點擊判斷是否有登入會員，如果有登入就跳入會員中心，如果沒有登入，就進入登入註冊頁面
+            logIncheck() {
+                if (checkdata != '') {
+                    if (checkdata.substr(0, 2) == 'MB') {
+                        this.jumppage = './memberInformation.html';
+                    } else if ((checkdata.substr(0, 2) == 'SP')) {
+                        alert('尚未登入會員，請登入會員');
+                        this.jumppage = './signUp_signIn.html';
+                    }
+                } else {
+                    alert('尚未登入會員，請登入會員');
+                    this.jumppage = './signUp_signIn.html';
+                }
+            },
+            // 點擊判斷是否有登入賣家會員，如果有登入就跳入賣家中心，如果沒有登入，就進入登入註冊頁面
+            sellogIncheck() {
+                if (checkdata != '') {
+                    if (checkdata.substr(0, 2) == 'MB') {
+                        alert('尚未登入會員，請登入賣家會員');
+                        this.seljumpage = './signUp_signIn.html';
+                    } else if ((checkdata.substr(0, 2) == 'SP')) {
+                        this.seljumpage = '../backend/sellerIndex.html';
+                        this.selloginchangemem = true;
+                    }
+                } else {
+                    alert('尚未登入會員，請登入會員');
+                    this.seljumpage = './signUp_signIn.html';
+                }
+            },
+            // 判斷是否有會員登入及是哪一種會員
+            // 看看是一般會員或是賣家會員
+            checklogin() {
+                axios.post('../PHP/Frontend/sessionR.php').then(res => {
+                    // console.log(res);
+                    // 賣家或是買家ID
+                    checkdata = res.data;
+                    // console.log(checkdata.substr(0, 2));
+                    // alert(checkdata);
+                    if (checkdata != '') {
+                        // 判斷是賣家會員使"賣家專區"變色
+                        if ((checkdata.substr(0, 2) == 'SP')) {
+                            // console.log(checkdata.substr(0, 2));
+                            this.sellogin = true;
+                            // console.log(this.sellogin);
+                        } else {
+                            this.sellogin = false;
+                            // console.log(this.sellogin);
+                        }
+                        // 判斷是一般會員使"會員"變色
+                        if ((checkdata.substr(0, 2) == 'MB')) {
+                            this.login = true;
+                        } else {
+                            this.login = false;
+                        }
+                    }
+                });
+            },
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            Bitpicupdate() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    } else {
+                        $('#navIcons03 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                        $('#navIcons05 img').attr('src', '../img/22/index/ch04_nav_member.png');
+                    }
+                });
+            },
+            // hover取到圖片
+            onhover() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        // console.log(this.Bigpicchange);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    }
+                });
+            },
+            // leave回到原狀
+            onout() {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        // console.log(this.Bigpicchange);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    }
+                });
+            },
+
+        },
+        mounted() {
+            // 看看是一般會員或是賣家會員
+            this.checklogin();
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            this.Bitpicupdate();
+            //換頁載入＝＝＝＝＝
+            let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+            if (cartAllItems) {
+                this.itemQty = cartAllItems.length
+            }
+        },
+        updated() {
+            // 看看是一般會員或是賣家會員
+            this.checklogin();
+            // 大頭貼切換假如沒大頭貼就用預設如果有就切換
+            this.Bitpicupdate();
+            let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
+            if (cartAllItems) {
+                this.itemQty = cartAllItems.length
+            }
+        },
+    });
+</script>
+
+</html>

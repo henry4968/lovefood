@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lovefood │ welcome</title>
+    <link rel="stylesheet" href="./css/welcomeIndex.css">
+    <link rel="icon" type="image/png" href="./img/21/donation_description/map_leaf.png" />
+    <!-- axios套件 -->
+    <script src="./node_modules/axios/dist/axios.min.js"></script>
+    <!-- vue -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+</head>
+
+<body>
+    <main id="background">
+        <div class="welcomeBg">
+            <img id="flower_left" src="./img/21/welcome/flower_left.png" alt="">
+            <img id="flower_right" src="./img/21/welcome/flower_right.png" alt="">
+
+        </div>
+        <div class="welcomeLogo">
+            <img src="./img/21/welcome/welcome_logo.png" alt="">
+        </div>
+        <div id="buttonContainer">
+            <a href="./frontend/index.html">
+                <div id="frontendButton" class="welcomeButton">
+                    前台
+                </div>
+            </a>
+            <a @click="session" style="cursor: pointer;">
+                <div id="backendButton" class="welcomeButton">
+                    後台
+                </div>
+            </a>
+        </div>
+
+        <section id="mainSlogan01" class="mainSlogan">
+            <span>│ 即期食品銷售平台 │</span>
+            <p>珍惜食物 ‧ 關愛台灣</p>
+            <div class="iconAll">
+                <!-- <a href="#WhatIsLoveFood/2" class="mainSloganIcon" data-id="mainSloganIcon01"> -->
+                <img class="icon" src="./img/21/welcome/icon1.png" alt="">
+                <!-- </a> -->
+                <!-- <a href="#WhatIsLoveFood/3" class="mainSloganIcon" data-id="mainSloganIcon02"> -->
+                <img class="icon" src="./img/21/welcome/icon2.png" alt="">
+                <!-- </a> -->
+                <!-- <a href="#WhatIsLoveFood/1" class="mainSloganIcon" data-id="mainSloganIcon03"> -->
+                <img class="icon" src="./img/21/welcome/icon3.png" alt="">
+                <!-- </a> -->
+            </div>
+        </section>
+    </main>
+
+</body>
+<script>
+    let page = new Vue({
+        el: '#background',
+        data: {
+            change: '',
+        },
+        methods: {
+            session() {
+                axios.post('./PHP/Frontend/sessionR.php').then(function (res) {
+                    checkdata = res.data
+                    if (checkdata != '') {
+                        if (checkdata.substr(0, 2) == 'MB') {
+                            alert('尚未登入會員，請登入賣家會員');
+                            location.href = './frontend/signUp_signIn.html';
+                        } else if ((checkdata.substr(0, 2) == 'SP')) {
+                            location.href = './backend/sellerIndex.html';
+                        }
+                    } else {
+                        alert('尚未登入會員，請登入會員');
+                        location.href = './frontend/signUp_signIn.html';
+                    }
+                });
+            },
+        },
+    });
+</script>
+
+</html>

@@ -1,0 +1,31 @@
+%pageLabel-common{
+    @include get_pageLabelsize(55px, 24px);
+    color:$brown;
+    margin: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+.pageLabel-current{    //直接加在當前頁籤的class
+    @extend %pageLabel-common;
+}
+.pageLabel-others{     //直接加在其它頁籤的class
+    @extend %pageLabel-common;
+    cursor: pointer;
+    &:hover{
+        color:#fff;
+    }
+}
+
+@each $name, $color in $pageLabel_color{   
+    @include pageLabel($name, map-get($pageLabel_color,$name));
+}
+.pageLabel-s{
+    @extend %pageLabel-common;
+    padding:0;
+    color:#fff;
+    width:120px;
+    position: relative;
+    margin-left: 20px;
+}

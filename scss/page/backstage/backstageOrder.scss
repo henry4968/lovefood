@@ -1,0 +1,40 @@
+.containerOrder{
+    .asideMainWrapper{
+        position: relative;
+        padding-top:110px;
+        display: flex;
+        width:1200px;
+        margin:0 auto;
+        .headerMainWrapper{
+            .headerWrapper{
+                background-color: $y;
+            }
+        }
+    }
+    .headerMainWrapper{
+        position: relative;
+        margin-left:10px;
+        flex-grow: 1;
+        .headerWrapper{
+            margin-bottom: 10px;
+            header{
+                    .headerMiddle, .headerTop, .headerBottom{
+                        position: relative;
+                        display: flex;
+                        flex-direction: row;
+                        padding:5px;
+                        span{
+                            margin:0 20px;
+                        }
+                        button{
+                            right:3px;
+                        }
+                    }
+                    .headerBottom{
+                        justify-content: space-between;
+                    }
+                    
+            }
+        }
+    }
+}

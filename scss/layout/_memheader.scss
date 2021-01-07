@@ -1,0 +1,402 @@
+@import "../base/var";
+@import "../mixin/mixins";
+@import "../base/fonts";
+// 標頭開始
+#memheader{
+    width: 100%;
+    min-height: 100px;
+    height: 15vh;
+    background-color: #D3E4C6;
+    font-size: 18px;
+    color: #D3E4C6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 6px 6px rgba(0,0,0,.3);
+    overflow: hidden;
+    @include newRwd("bigPhone"){
+        width: 100%;
+        height: 55px;
+    }
+    // 漢堡選單開始
+    #hamburgerMenuToggle{
+        opacity: 0;
+        &:checked + #hamburgerMenuButton > span{
+            transform: rotate(45deg);
+            &::before{
+                top: 0;
+                transform: rotate(0deg);
+            }
+            &::after{
+                top: 0;
+                transform: rotate(90deg);
+            }
+        }
+        &:checked ~ #navigationForMobile{
+            left: 0;
+        }
+    }
+    #hamburgerMenuButton{
+        width: 45px;
+        height: 35px;
+        align-self: center;
+        margin-left: 10px;
+        position: relative;
+        z-index: 30;
+        cursor: pointer;
+        display: none;
+        @include newRwd("newSmallPhone"){
+            margin-left: 5px;
+            }
+        span{
+            display: block;
+            background-color: #8F8770;
+        }
+        span, span::before, span::after{
+            content: '';
+            display: block;
+            width: 45px;
+            height: 5px;
+            border-radius: 10px;
+            background-color: #8F8770;
+            position: absolute;
+            transition-duration: .35s;
+            @include newRwd("newSmallPhone"){
+                width: 36px;
+                height: 3px;
+                }
+            }
+        span{
+            top: 45%;
+            &::before{
+                content: '';
+                top: -15px;
+                @include newRwd("newSmallPhone"){
+                    top: -10px;
+                    }
+            }
+            &::after{
+                content: '';
+                top: 15px;
+                @include newRwd("newSmallPhone"){
+                    top: 10px;
+                    }
+            } 
+        }
+        @include newRwd("bigPhone"){
+            display: block;
+        }
+    }
+    // 水平滑動漢堡選單變色用父層開始
+    .hamburgerMenuColorForCh01{
+        span, span::before, span::after{
+            background-color: #FDFBBA;
+        }
+    }
+    .hamburgerMenuColorForCh0102{
+        span, span::before, span::after{
+            background-color: #946C1E;
+        }
+    }
+    .hamburgerMenuColorForCh02{
+        span, span::before, span::after{
+            background-color: #FFFFFF;
+        }
+    }
+    // 水平滑動漢堡選單變色用父層結束
+    
+    // 漢堡選單結束
+
+    // 行動版導覽列開始
+    #navigationForMobile{
+        display: none;
+        @include newRwd("bigPhone"){
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0%;
+            left: -100%;
+            z-index: 5;
+            background-color: white;
+            opacity:80%;
+            transition-duration: .35s;
+            #searchBarForMobile{
+                width: 100%;
+                height: 100px;
+                background-color: lightgrey;
+                display: flex;
+                #searchInputForMobile{
+                    width: 80%;
+                    height: 40%;
+                    outline: none;
+                    border-radius: 20px;
+                    background-color: #FFFFFF;
+                    display: block;
+                    margin: auto;
+                    align-self: center;
+                    padding-left: 20px;
+                    @include newRwd("mediumPhone"){
+                        margin-left: 18%;
+                    }
+                }
+            }
+            li{
+                list-style: none;
+                text-align: center;
+                font-size: 24px;
+                margin: 30px 0px 0px 0px;
+                a{
+                    color: #515151;
+                }
+            }
+        }
+    }
+    // 行動版導覽列結束
+
+    #headerContentContainer{
+        width: 1180px;
+        height: 50px;
+        // margin: 38px 0px 0px 364px;
+        display: flex;
+        justify-content: space-between;
+        @include newRwd("laptop"){
+            width: 970px;
+            margin: auto;
+            align-items: center;
+        }
+        @include newRwd("pad"){
+            width: 920px;
+            margin: auto;
+            align-items: center;
+        }
+        #logo{
+            width: 264px;
+            height: 46px;
+            // 首頁由js控制代替的hover變色
+            &:hover{
+              content: url('../img/03/memlogochange.png');
+            //   width: 268px;
+            //   height: 50px;
+              transition: all .3s;
+              @include newRwd("desktop"){
+                width: 268px;
+                height: 50px;
+              }
+              @include newRwd("laptop"){
+                width: 220px;
+                height: 42px;
+              }
+              @include newRwd("pad"){
+                width: 220px;
+                height: 42px;
+              }
+              @include newRwd("bigPhone"){
+                width: 162px;
+                height: 31px;
+              }
+            }
+            @include newRwd("laptop"){
+              width: 216px;
+              height: 38px;
+              align-self: center;
+            }
+            @include newRwd("pad"){
+              width: 216px;
+              height: 38px;
+              align-self: center;
+            }
+            @include newRwd("bigPhone"){
+                position: absolute;
+                transform: translate(-50%, -50%);
+                left: 50%;
+            }
+            @include newRwd("bigPhone"){
+                width: 158px;
+                height: 27px;
+            }
+        }
+        // 桌機版導覽列開始
+        #navigationForPC{
+            width: 762px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            @include newRwd("laptop"){
+                width: 625px;
+                align-items: center;
+            }
+            @include newRwd("bigPhone"){
+                width: 525px;
+                align-items: center;
+            }
+            @include newRwd("mediumPhone"){
+                width: 425px;
+                align-items: center;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 200px;
+                align-items: center;
+            }
+            a{
+                font-size: 30px;
+                @include newRwd("laptop"){
+                    font-size: 20px;
+                }
+                @include newRwd("pad"){
+                    font-size: 20px;
+                }
+                @include newRwd("bigPhone"){
+                    display: none;
+                }
+            }
+            .navGeneralAnchors:nth-child(2).selloginchangemem{
+                color: #d4c7a5;
+            }
+            .navGeneralAnchors{
+                color: #8F8770;
+                transition: all .3s;
+                &:hover{
+                  color: #d4c7a5;
+                  transform: scale(1.03);
+                  transition: all .3s;
+                }
+            }
+            :nth-child(2),:nth-child(3){
+                margin-left: 25px;
+                @include newRwd("laptop"){
+                    margin-left: 20px;
+                }
+            } 
+            #navSepcialAnchor{
+                color: #fff;
+                div{
+                    width: 139px;
+                    height: 100%;
+                    border-radius: 3px;
+                    text-align: center;
+                    background-color: #B8AD91;
+                    transition: all .3s;
+                    &:hover{
+                      background-color: #d4c7a5;
+                      transform: scale(1.03);
+                      transition: all .3s;
+                    }
+                    margin: 0px 28px;
+                    @include newRwd("laptop"){
+                        width: 114px;
+                    }
+                }
+            }
+            .navIcons{
+                img{
+                    @include newRwd("laptop"){
+                        width: 30px;
+                        
+                    }
+                }
+            }
+            #navIcons01{
+              img{
+                &:hover{
+                  content: url('../img/03/memmagnifierchange.png');
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons02{
+              img{
+                &:hover{
+                  content: url('../img/03/memcartchange.png');
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons03{
+              img{
+                  max-width: 30px;
+                  max-height: 30px;
+                &:hover{
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+              }
+            }
+            #navIcons02, #navIcons03{
+                margin-left: 20px;
+            }
+            // 點放大鏡伸縮搜尋欄 scss
+            #navIcons01{
+                position: relative;
+            }
+            #searchInputForWeb{
+                width: 25px;
+                height: 48px;
+                border: #8f7086;
+                border-radius: 26px;
+                background-color: #ececec;
+                align-self: center;
+                outline: none;
+                padding-left: 20px;
+                font-size: 17px;
+                padding: 3px 3px 3px 10px;
+                position: absolute;
+                left: -30px;
+                bottom: -3px;
+                background-image: url(../img/22/index/ch04_nav_search.png);
+                background-repeat: no-repeat;
+                background-position: right 6% bottom 45%;
+                background-size: 13%;
+                margin-left: 20px;
+                transition: all 0.8s;
+                opacity: 0;
+                &.block{
+                    width: 207px;
+                    opacity: 1;
+                    @include newRwd("laptop"){
+                        left: -26px;
+                        width: 150px;
+                        height: 38px;
+                    }
+                }
+
+            }
+        }
+        // 桌機版導覽列結束
+        // 行動版次導覽列開始
+        #subNavigationForMobile{
+            display: none;
+            @include newRwd("bigPhone"){
+                display: block;
+                width: 96px;
+                height: 40px;
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                right: 10px;
+            }
+            @include newRwd("newSmallPhone"){
+                width: 55px;
+                right: 20px;
+                img{
+                    height: 23px;
+                    margin: 5px 0px 0px 10px;
+                }
+            }
+            #navIcons05{
+                img{
+                    max-width: 30px;
+                }
+                &:hover{
+                  transform: scale(1.05);
+                  transition: all .3s;
+                }
+            }
+        }
+        // 行動版次導覽列結束
+    }
+}

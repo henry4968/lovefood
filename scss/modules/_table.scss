@@ -1,0 +1,26 @@
+
+table{
+    border-collapse: collapse;
+    tr:nth-child(odd){
+        background-color: #fff;
+        th{
+            color:white;
+            background-color: $brown;
+        }
+        td{
+            color:$brown;
+        }
+    }
+    tr:nth-child(even){
+        background-color: $lb;
+        }
+        td{
+            color:$brown;
+    }
+}
+.subheading{
+    opacity:0.4;
+}
+.table{
+    margin: 20px 0  100px 0;
+}

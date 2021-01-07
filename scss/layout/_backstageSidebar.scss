@@ -1,0 +1,75 @@
+aside{
+    background-color: $y;
+    width: 200px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 500px;
+    div{
+       width:100%;
+            .member{
+                padding:0;
+                list-style: none;
+                li{
+                    list-style: none;
+                    font-size: 15px;
+                    padding:5px;
+                }
+                
+            }
+            .sideNav{
+                padding:0;
+                list-style: none;
+                height: 336px;
+                div{
+                    text-align:center;
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: center;
+                    svg{
+                        position: relative;
+                        width:30px;
+                        height:30px;
+                        right:15px;
+                    }
+                    li{
+                    line-height: 3;
+                    list-style: none;
+                    font-size: 20px;
+                        span{
+                            display: inline-block;
+                        }
+                    }
+                }
+                button{
+                    width: 60px;
+                    line-height: 20px;
+                    font-size: 16px;
+                    background-color: transparent;
+                    border-radius: 5px;
+                    border: 1px solid $brown;
+                    color: $brown;
+                    cursor: pointer;
+                    top: 20px;
+                    position: relative;
+                }
+        }
+                
+            
+        }
+    }
+
+    // =====變色在svg外層div加上class="currentPage"即可=====
+    .sideNav .currentPage{
+        background-color: $brown;
+    svg{
+       path{
+         fill:#fff;
+       } 
+    }
+    li{ 
+        color:#fff;
+    }
+    }

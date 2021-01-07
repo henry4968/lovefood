@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>賣家登入/註冊</title>
+    <link rel="stylesheet" href="../css/sellerLogin.css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.12/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.js"></script>
+    <!-- axios套件 -->
+    <script src="../node_modules/axios/dist/axios.min.js"></script>
+</head>
+
+<body>
+    <component id="memheader" :is="headId" :prop="login" :sleprop="sellogin"></component>
+    <main class="linWrap">
+
+        <div class="signUpsignIn" id="signUpsignIn" style="z-index: 0;">
+
+            <div class="signUp" id="signUp" :class="{signUpmm: movesignUpmm == false}">
+                <h1 class="signUp">成為賣家</h1>
+                <component :is="content"></component>
+            </div>
+
+            <div class="signIn" id="signIn" :class="{signInmm: movesignInmm == false}">
+                <h1 class="signIn">賣家登入</h1>
+                <form id="signIn" method="post" action="#">
+                    <input type="text" placeholder="帳號">
+                    <input type="password" placeholder="密碼">
+                    <div class="signforget">
+                        <div class="space"></div>
+                        <div class="button">
+                            <button class="subsignIn" type="button">
+                                <a href="../backend/backendOrder.html">
+                                    登入
+                                </a>
+                            </button>
+                        </div>
+                        <div class="forget">
+                            <a href="#">忘記密碼</a>
+                        </div>
+                    </div>
+                    <button class="changeTosignup" id="changeTosignup" type="button">註冊</button>
+                </form>
+
+
+            </div>
+
+            <div class="overlayContainer" id="overlayContainer" :class="{overL: overlay == false}">
+                <div class="container" :class="{overm: overlaycontainer == false}">
+                    <div class="signUpR" :class="{msignUpR: moveR == false}">
+                        <div class="signUpRborder">
+                            <h1>歡迎成為樂腹賣家</h1>
+                            <h3>最完善的即期食品銷售平台</h3>
+                            <h3>精打細算</h3>
+                            <h3>加入愛護地球行列</h3>
+                            <button type="button" @click="signUpR">註冊</button>
+                        </div>
+                    </div>
+                    <div class="signInL" :class="{msignInL: moveL == false}">
+                        <div class="signInLborder">
+                            <h1>歡迎回來！</h1>
+                            <h3>登入賣家使用更多服務</h3>
+                            <button type="button" @click="signInL">賣家登入</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <component id="memfooter" :is="footerId"></component>
+
+    <script src="../js/03/memheader.js"></script>
+    <script src="../js/16/sellerSignUp_SignIn.js"></script>
+    <script src="../js/03/memfooter.js"></script>
+</body>
+
+</html>

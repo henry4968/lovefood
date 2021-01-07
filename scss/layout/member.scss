@@ -1,0 +1,2026 @@
+@import 'memheader';
+@import 'memfooter';
+@import "../../node_modules/normalize-scss/sass/normalize/import-now";
+
+$maxw700:700px;
+$minw700:701px;
+@mixin rwd($breakpoint){
+  @if($breakpoint == "w700"){
+    @media all and (max-width: $maxw700){
+      @content;
+    }
+  }
+}
+
+@font-face{
+  font-family: "PingFangTC-Regular-2";
+  src: url("../fonts/PingFang-Fan-ChangGuiTi/PingFang-TC-Regular-2.otf");
+}
+
+*{
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  font-family: PingFangTC-Regular-2, sans-serif;
+  font-weight: lighter;
+}
+body{
+  main.memWrap{
+    width: 100%;
+    min-height: 700px;
+    // height: 70vh;
+    // border: 1px solid black;
+    background-image: url('../img/03/bgrev1.png');  
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 0;
+    overflow: hidden;
+    div.memBigborder{
+      width: 1200px;
+      min-height: 620px;
+      display: flex;
+      justify-content: space-around;
+      // 為了解決跳窗的問題z-index
+      z-index: 0;
+      @include newRwd("pad"){
+        width: 768px;
+      }
+      div.leftBorder.leftBordermediumPhone{
+        @include newRwd("mediumPhone"){
+          display: none;
+        }
+      }
+      div.leftBorder{
+        width: 25%;
+        height: 620px;
+        border: 1px solid #B9AF94;
+        box-shadow: 0px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #F3E9C0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        @include newRwd("mediumPhone"){
+          width: 50%;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 300px;
+        }
+        div.title{
+          margin-bottom: 7px;
+          h1.title{
+            font-size: 24px;
+            font-weight: normal;
+            color: #8F8770;
+          }
+        }
+        
+        div.contentBorder{
+          width: 80%;
+          border-radius: 13px;
+          background-color: #fff;
+          div{
+            display: flex;
+            justify-content: center;
+            background-color: #EBECE3;
+            margin-bottom: 10px;
+            box-shadow: 0px 6px 6px rgba(0,0,0,.16);
+            h1{
+              font-size: 24px;
+              font-weight: normal;
+              color: #8F8770;
+              padding: 5px 0px;
+              cursor: pointer;
+              position: relative;
+              z-index: 1;
+              &::after{
+                content: '';
+                border-bottom: 1.5px solid #B8AD91;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+              }
+            }
+          }
+          .nameBorder{
+            background-color: transparent;
+            margin: 15px 0px;
+            .username{
+              font-size: 24px;
+              color: black;
+              border: none;
+              cursor: default;
+              &::after{
+                content: '';
+                border: none;
+              }
+            }
+          }
+          div.foursameclass.bgmove{
+            position: relative;
+            overflow: hidden;
+            &::after{
+              content: '';
+              position: absolute;
+              top: 0;
+              left: -1;
+              z-index: -0;
+              height: 100%;
+              background-color: #F3E9C0;
+              transform: skewX(-45deg);
+              animation: trans 1s ease 1 forwards;
+            }
+            @keyframes trans {
+              from{
+                width: 0%;
+              }
+              to{
+                width: 150%;
+              }
+            }
+          }
+          div.foursameclass{
+            h1.addBtn{
+              border-width: 3px;
+              &::after{
+                content: '';
+                border-bottom: 3px solid #B8AD91;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                z-index: -1;
+                animation: tran 1s ease 1;
+              }
+            }
+            @keyframes tran {
+              from{
+                width: 0%;
+              }
+              to{
+                width: 100%;
+              }
+            }
+          }
+          
+          
+          div.logoutBorder{
+            border: none;
+            background-color: transparent;
+            box-shadow: none;
+            margin: 30px 0px;
+            button.logout{
+              font-size: 20px;
+              font-weight: normal;
+              color: #B9AF94;
+              outline: none;
+              border: 1px solid #B9AF94;
+              border-radius: 13px;
+              padding: 5px 30px;
+              background-color: transparent;
+              cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                box-shadow: 3px 3px 8px rgba(0,0,0,.2);
+                color: #909090;
+              }
+            }
+          }
+        }
+      }
+      // member
+      div.rightBorder.foursameBorderapp{
+        @include newRwd("mediumPhone"){
+          display: block;
+          display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
+      }
+      div.rightBorder{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        justify-content: space-around;
+        @include newRwd("pad"){
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+        @include newRwd("mediumPhone"){
+          display: none;
+        }
+        .leftInfoborder{
+          width: 65%;
+          // border: 1px solid black;
+          margin: 4% 0% 4% 2%;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-around;
+          @include newRwd("pad"){
+            order: 2;
+            width: 90%;
+          }
+          @include newRwd("mediumPhone"){
+            width: 95%;
+          }
+          .myAccountBorder{
+            .myAccount{
+              font-size: 30px;
+              font-weight: normal;
+              color: #909090;
+              margin: 0;
+              @include newRwd("pad"){
+                font-size: 24px;
+                line-height: 40px;
+              }
+            }
+          }
+          div{
+            display: flex;
+            div{
+              font-size: 24px;
+              font-weight: normal;
+              color: #909090;
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+            }
+            span{
+              font-size: 24px;
+              font-weight: normal;
+              color: #909090;
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+            }
+            
+          }
+          div.sameTile{
+            display: flex;
+            justify-content: flex-start;
+            width: 120px;
+            // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              width: 85px;
+            }
+          }
+          .identifyBorder{
+            .idTitle{
+              font-size: 26px;
+              @include newRwd("pad"){
+                font-size: 22px;
+                line-height: 30px;
+              }
+            }
+            .idContent{
+              font-size: 26px;
+              @include newRwd("pad"){
+                font-size: 22px;
+                line-height: 30px;
+              }
+            }
+          }
+          .lineBorder{
+            display: block;
+          }
+          .bigpasswordborder{
+            display: flex;
+            @include newRwd("newSmallPhone"){
+              flex-direction: column;
+            }
+            .passwordLef{
+              display: flex;
+              flex-direction: column;
+              div{
+                margin: 1.3% 0%;
+                input{
+                  width: 240px;
+                  outline: none;
+                  border: none;
+                  border-radius: 10px;
+                  padding-left: 10px;
+                  color: #909090;
+                  font-size: 24px;
+                  font-weight: normal;
+                  @include newRwd("pad"){
+                    font-size: 18px;
+                    line-height: 30px;
+                  }
+                  @include newRwd("mediumPhone"){
+                    width: 150px;
+                  }
+                }
+                input.passwordContent.inputappor.inpredpwd{
+                  border: 2px solid red;
+                  border-radius: 10px;
+                }
+                input.passwordContent.inputappor{
+                  display: block;
+                }
+                input.passwordContent{
+                  display: none;
+                }
+              }
+              div.passwordBorder{
+                span.passwordContent.spannone{
+                  display: none;
+                }
+                span.passwordContent{
+                  color: #909090;
+                  font-size: 24px;
+                  font-weight: normal;
+                  @include newRwd("pad"){
+                    font-size: 18px;
+                    line-height: 30px;
+                  }
+                }
+                input.passwordContent{
+                  @include newRwd("pad"){
+                    font-size: 18px;
+                    line-height: 30px;
+                  }
+                }
+              }
+              .newpasswordBorder.divappre{
+                display: block;
+                display: flex;
+              }
+              .newpasswordBorder{
+                display: none;
+                margin: 1.3% 0%;
+                input.newpasswordContent.inprednewpwd{
+                  border: 2px solid red;
+                  border-radius: 10px;
+                }
+                input.newpasswordContent{
+                  @include newRwd("pad"){
+                    font-size: 18px;
+                    line-height: 30px;
+                  }
+                }
+              }
+              .cfmpasswordBorder.divappse{
+                display: block;
+                display: flex;
+              }
+              .cfmpasswordBorder{
+                display: none;
+                margin: 1.3% 0%;
+                input.cfmpasswordContent.inprednewpwdcf{
+                  border: 2px solid red;
+                  border-radius: 10px;
+                }
+                input.cfmpasswordContent{
+                  @include newRwd("pad"){
+                    font-size: 18px;
+                    line-height: 30px;
+                  }
+                }
+              }
+            }
+            .changeBtnright{
+              @include newRwd("pad"){
+                margin-left: 0.5%;
+              }
+              button.savePassword.saveapp{
+                display: block;
+              }
+              button.savePassword{
+                display: none;
+                align-self: flex-end;
+                height: 40px;
+                padding: 0px 15px;
+                font-size: 20px;
+                font-weight: normal;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 15px;
+                color: white;
+                margin-left: 20px;
+                cursor: pointer;
+                &:hover{
+                  transition: all .3s;
+                  background-color: #d4c7a5;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                }
+                @include newRwd("pad"){
+                  padding: 0 10px;
+                  margin-left: 0;
+                  font-size: 18px;
+                  line-height: 30px;
+                }
+                @include newRwd("mediumPhone"){
+                  font-size: 18px;
+                }
+              }
+              button.changePassword.passnone{
+                display: none;
+              }
+              button.changePassword{
+                align-self: flex-end;
+                height: 40px;
+                padding: 0px 15px;
+                font-size: 20px;
+                font-weight: normal;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 15px;
+                color: white;
+                margin-left: 20px;
+                cursor: pointer;
+                &:hover{
+                  transition: all .3s;
+                  background-color: #d4c7a5;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                }
+                @include newRwd("pad"){
+                  font-size: 18px;
+                  line-height: 30px;
+                }
+                @include newRwd("newSmallPhone"){
+                  margin-left: 0px;
+                }
+              }
+            }
+          }
+          .nameBorder{
+            margin: 1.3% 0%;
+            input.nameContent.inputnameapp.inpredname{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
+            input.nameContent.inputnameapp{
+              display: block;
+              display: flex;
+            }
+            input.nameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+              @include newRwd("mediumPhone"){
+                width: 150px;
+              }
+            }
+            span.nameContent.spannamenone{
+              display: none;
+            }
+          }
+          .phoneBorder{
+            margin: 1.3% 0%;
+            input.phonenameContent.inpredtel{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
+            input.phonenameContent.inputphoneapp{
+              display: block;
+              display: flex;
+            }
+            input.phonenameContent{
+              display: none;
+              width: 240px;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+              @include newRwd("mediumPhone"){
+                width: 150px;
+              }
+            }
+            span.phoneContent.spanphonenone{
+              display: none;
+            }
+          }
+          .addBorder{
+            margin: 1.3% 0%;
+            input.addnameContent.inputaddnameapp.inpredadd{
+              border: 2px solid red;
+              border-radius: 10px;
+            }
+            input.addnameContent.inputaddnameapp{
+              display: block;
+              display: flex;
+            }
+            input.addnameContent{
+              display: none;
+              width: 80%;
+              outline: none;
+              border: none;
+              border-radius: 10px;
+              padding-left: 10px;
+              color: #909090;
+              font-size: 24px;
+              font-weight: normal;
+              @include newRwd("pad"){
+                width: 70%;
+                font-size: 18px;
+                line-height: 30px;
+              }
+              @include newRwd("mediumPhone"){
+                width: 200px;
+              }
+            }
+            span.addContent.spanaddnone{
+              display: none;
+            }
+          }
+          .editsaveBtn{
+            align-self: center;
+            .edit{
+              height: 40px;
+              padding: 0px 15px;
+              font-size: 20px;
+              font-weight: normal;
+              outline: none;
+              border: none;
+              background-color: #B9AF94;
+              border-radius: 15px;
+              color: white;
+              margin-left: 20px;
+              cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                background-color: #d4c7a5;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              }
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+            }
+            .save{
+              height: 40px;
+              padding: 0px 15px;
+              font-size: 20px;
+              font-weight: normal;
+              outline: none;
+              border: 1px solid #B9AF94;
+              background-color: transparent;
+              border-radius: 15px;
+              color: #B9AF94;
+              margin-left: 20px;
+              cursor: pointer;
+              &:hover{
+                transition: all .3s;
+                color: #909090;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              }
+              @include newRwd("pad"){
+                font-size: 18px;
+                line-height: 30px;
+              }
+            }
+          }
+        }
+        div.rightPicborder{
+          width: 22%;
+          // border: 1px solid black;
+          margin: 4% 2% 4% 0%;
+          @include newRwd("pad"){
+            order: 1;
+          }
+          @include newRwd("mediumPhone"){
+            width: 95%;
+          }
+          .backCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.backCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../img/03/backcategoryhover.png');
+              }
+            }
+          }
+          .uploadBorder{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .imageBorder{
+              width: 180px;
+              height: 180px;
+              border-radius: 50%;
+              background-color: #fff;
+              background-image: url('../img/03/uploadpicture.png'),url('../img/03/person.png');
+              background-repeat: no-repeat;
+              background-position: center top 80%,center;
+              background-size: 70%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              overflow: hidden;
+            }
+            .fileBorder{
+              margin-top: 5%;
+              // border: 1px solid black;
+              position: relative;
+              width: 81px;
+              height: 24.4px;
+              input#theFile{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                z-index: 2;
+                width: 81px;
+                overflow: hidden;
+                display: none;
+              }
+              #fakeBtn{
+                position: absolute;
+                left: -60%;
+                // transform: translateX(-50%);
+                z-index: 1;
+                width: 81px;
+                height: 24.4px;
+                outline: none;
+                color: #909090;
+                border-radius: 5px;
+                border: 1px solid #909090;
+                background-color: #fff;
+                cursor: pointer;
+              }
+              #uploadaxiosBtn{
+                position: absolute;
+                left: 60%;
+                // transform: translateX(-50%);
+                z-index: 1;
+                width: 81px;
+                height: 24.4px;
+                outline: none;
+                color: #909090;
+                border-radius: 5px;
+                border: 1px solid #909090;
+                background-color: #fff;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+
+      // order
+      div.rightBorderorder.foursameBorderapp{
+        @include newRwd("mediumPhone"){
+          display: block;
+          display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
+      }
+      div.rightBorderorder{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 30px 0;
+        @include newRwd("mediumPhone"){
+          display: none;
+          padding: 10px 0;
+        }
+        .centerBorder{
+          // border: 1px solid black;
+          width: 95%;
+          min-height: 100%;
+          .orderbackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+            }
+            img.orderbackCategoryBorder{
+              cursor: pointer;
+              &:hover{
+                content: url('../img/03/backcategoryhover.png');
+              }
+            }
+          }
+          .searchBorder{
+            margin-bottom: 20px;
+            @include newRwd("mediumPhone"){
+              margin-top: 10px;
+            }
+            #searchBorder{
+              display: flex;
+              align-items: center;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
+              .searchDateBoder{
+                display: flex;
+                align-items: center;
+                @include newRwd("mediumPhone"){
+                  flex-direction: column;
+                }
+                .search{
+                  font-size: 24px;
+                  font-weight: normal;
+                  color: #7B807D;
+                  margin-right: 10px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                  }
+                  @include newRwd("mediumPhone"){
+                    align-self: start;
+                  }
+                }
+                .dateFromdateTo{
+                  display: flex;
+                  @include newRwd("mediumPhone"){
+                    // border: 1px solid black;
+                    width: 420px;
+                    margin-top: 3%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    // border: 1px solid black;
+                    width: 300px;
+                    flex-direction: column;
+                  }
+                  .whitespace{
+                    margin: 0px 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                      align-self: center;
+                    }
+                  }
+                  #dateFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
+                  #dateTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("newSmallPhone"){
+                      width: 170px;
+                    }
+                  }
+                }
+              }
+              .searchBtnBorder{
+                margin: 0px 3%;
+                @include newRwd("pad"){
+                  margin: 3% 2% 0% 0%;
+                }
+                #searchBtnBorder{
+                  width: 80px;
+                  height: 30px;
+                  outline: none;
+                  border: none;
+                  background-color: #B9AF94;
+                  border-radius: 10px;
+                  color: white;
+                  font-weight: normal;
+                  cursor: pointer;
+                  transition: all .3s;
+                  &:hover{
+                    background-color: #D4C6A5;
+                  }
+                }
+              }
+              .searchNoteBorder{
+                @include newRwd("pad"){
+                  margin-top: 2%;
+                }
+                .searchNoteBorder{
+                  font-size: 18px;
+                  font-weight: normal;
+                  color: #707070;
+                }
+              }
+            }
+          }
+          .orderStatusBorder{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            div.statussame.chagestatussamebg{
+              position: relative;
+              overflow: hidden;
+              &::after{
+                content: '';
+                position: absolute;
+                top: 0;
+                left: -1;
+                z-index: -0;
+                height: 100%;
+                background-color: #F3E9C0;
+                transform: skewX(-45deg);
+                animation: trans 1s ease 1 forwards;
+              }
+              @keyframes trans {
+                from{
+                  width: 0%;
+                }
+                to{
+                  width: 150%;
+                }
+              }
+              @include newRwd("newSmallPhone"){
+                transition: all .3s;
+                box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              }
+            }
+            div.statussame{
+              // border: 1px solid black;
+              display: flex;
+              justify-content: center;
+              background-color: #E6E6E6;
+              width: 19%;
+              box-shadow: 3px 6px 6px rgba(0,0,0,.2);
+              cursor: pointer;
+              @include newRwd("newSmallPhone"){
+                width: 20%;
+                box-shadow: none;
+              }
+              p.statussame{
+                padding: 5px 0px;
+                font-size: 24px;
+                font-weight: 500;
+                color: #8F8770;
+                z-index: 1;
+                @include newRwd("pad"){
+                  font-size: 20px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+          .orderdetailBorder{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 15px;
+            position: relative;
+            .cancelorder{
+              position: absolute;
+              width: 100%;
+              height: 100%;
+              z-index: 2;
+              background-color: rgba(144, 144, 144, 0.4);
+            }
+            .catalogBorder{
+              display: flex;
+              justify-content: space-between;
+              @include newRwd("mediumPhone"){
+                flex-direction: column;
+                background-color: #F1F6ED;
+              }
+              .detailsame{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                flex-grow: 1;
+                // border: 1px solid black;
+                @include newRwd("mediumPhone"){
+                  flex-direction: row;
+                }
+                .cattitle{
+                  display: flex;
+                  justify-content: center;
+                  // border: 1px solid black;
+                  background-color: #B9AF94;
+                  width: 100%;
+                  @include newRwd("mediumPhone"){
+                    width: 100px;
+                  }
+                  h3.cattitle{
+                    font-size: 20px;
+                    font-weight: normal;
+                    color: white;
+                    padding: 10px 0px;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
+                  }
+                }
+                .contentsame{
+                  color: #909090;
+                  padding: 15px 0;
+                  font-weight: 400;
+                  // border: 1px solid black;
+                  @include newRwd("mediumPhone"){
+                    padding: 0;
+                    width: 50%;
+                    text-align: left;
+                    margin-left: 5%;
+                  }
+                }
+                p.orderid{
+                  color: blue;
+                  cursor: pointer;
+                }
+              }
+            }
+            .itemdetailBorder.itemdetailBorderdb{
+              display: none;
+            }
+            .itemdetailBorder{
+              // border: 1px solid black;
+              background-color: #EFF1E1;
+              box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              padding: 20px 0px;
+              .itemstatusBorder{
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                // border: 1px solid blue;
+                @include newRwd("pad"){
+                  width: 95%;
+                }
+                @include newRwd("mediumPhone"){
+                  width: 100%;
+                }
+                .itemstopBorder{
+                  display: flex;
+                  // border: 1px solid blue;
+                  position: relative;
+                  margin-bottom: 40px;
+                  width: 90%;
+                  @include newRwd("pad"){
+                    width: 100%;
+                  }
+                  @include newRwd("mediumPhone"){
+                    display: none;
+                  }
+                  .fourcircleBorder{
+                    display: flex;
+                    justify-content: space-between;
+                    width: 100%;
+                    z-index: 1;
+                    .orderestablishBorder{
+                      display: flex;
+                      flex-direction: column;
+                      align-items: center;
+                      // border: 1px solid red;
+                      .orderestablish{
+                        width: 36px;
+                        margin-bottom: 10px;
+                        z-index: 1;
+                      }
+                      
+                      .stablishBorder{
+                        span{
+                          color: #ED8149;
+                          font-weight: normal;
+                        }
+                        .stablishtimecancel,.stablishcancel{
+                          color: #909090;
+                        }
+                      }
+                    }
+                  }
+                  .midlineBorder{
+                    position: absolute;
+                    top: 18px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 0;
+                    border-bottom: 3px solid #ED8149;
+                    width: 85%;
+                  }
+                  .midlineBordercancel{
+                    position: absolute;
+                    top: 18px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                    z-index: 0;
+                    border-bottom: 3px solid #909090;
+                    width: 85%;
+                  }
+                }
+                .itembotBorder{
+                  display: flex;
+                  flex-wrap: wrap;
+                  margin-bottom: 15px;
+                  @include newRwd("mediumPhone"){
+                    flex-direction: column;
+                    align-items: flex-start;
+                  }
+                  .samebotBorder{
+                    width: 50%;
+                    margin-bottom: 20px;
+                    @include newRwd("mediumPhone"){
+                      width: 300px;
+                      display: flex;
+                      flex-direction: row;
+                    }
+                    span{
+                      font-size: 20px;
+                      font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
+                    }
+                    .itembotIdtitle,.itembotId,.itembotsellertitle,.itembotseller{
+                      color: #909090;
+                    }
+                    .gettimetitle,.gettime,.getlocationtitle,.getlocation{
+                      color: #ED8149;
+                    }
+                    .gettimetitlecancel{
+                      color: #909090;
+                    }
+                    .getlocationtitlecancel{
+                      color: #909090;
+                    }
+                  }
+                  .itembotId{
+                    @include newRwd("mediumPhone"){
+                      display: none;
+                    }
+                  }
+                  .gettime{
+                    @include newRwd("mediumPhone"){
+                      order: 3;
+                    }
+                  }
+                  .itembotseller{
+                    @include newRwd("mediumPhone"){
+                      order: 1;
+                    }
+                  }
+                  .getlocation{
+                    @include newRwd("mediumPhone"){
+                      order: 2;
+                    }
+                  }
+                }
+              }
+              .itemsBorder{
+                // border: 1px solid black;
+                width: 90%;
+                display: flex;
+                flex-direction: column;
+                .itemcontBorder{
+                  // border: 1px solid blue;  
+                  display: flex;
+                  flex-direction: column;
+                  width: 100%;
+                  margin-bottom: 5%;
+                  .itemconttopBorder{
+                    display: flex;
+                    margin-bottom: 15px;
+                    // border: 1px solid blue;
+                    @include newRwd("pad"){
+                      flex-direction: column;
+                    }
+                    .itempicBorder{
+                      background-color: #fff;
+                      border: 2px solid #707070;
+                      display: flex;
+                      justify-content: center;
+                      align-self: center;
+                      @include newRwd("pad"){
+                        width: 50%;
+                        display: flex;
+                        justify-content: center;
+                        align-self: center;
+                      }
+                      @include newRwd("mediumPhone"){
+                        width: 200px;
+                      }
+                      img{
+                        max-width: 200px;
+                      }
+                    }
+                    .itemmiddleBorder{
+                      width: 450px;
+                      // border: 1px solid black;
+                      @include newRwd("mediumPhone"){
+                        width: 300px;
+                      }
+                      .middleitemsame{
+                        margin: 20px 15px;
+                        display: flex;
+                        // border: 1px solid blue;
+                        flex-wrap: nowrap;
+                        @include newRwd("pad"){
+                          margin: 10px 20px;
+                        }
+                        @include newRwd("mediumPhone"){
+                          margin-left: 0px;
+                        }
+                        span,p{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
+                        }
+                      }
+                    }
+                    .itempriceunitBorder{
+                      align-self: center;
+                      display: flex;
+                      justify-content: space-between;
+                      margin-top: 3%;
+                      margin-left: 5%;
+                      // border: 1px solid black;
+                      @include newRwd("pad"){
+                        flex-direction: column;
+                        justify-content: none;
+                        align-self: start;
+                        margin-top: 0%;
+                        margin-left: 20px;
+                      }
+                      @include newRwd("mediumPhone"){
+                        margin-left: 0px;
+                      }
+                      .unitpriceBorder{
+                        padding-right: 30px;
+                        // border: 1px solid black;
+                        @include newRwd("pad"){
+                          flex-direction: row;
+                          width: 100%;
+                          margin-bottom: 10px;
+                        }
+                        span.unitpricetitle,span.unitpricecontent{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            width: 50%;
+                            font-size: 18px;
+                          }
+                        }
+                        span.unitpricetitle{
+                          color: #707070;
+                          margin-bottom: 7px;
+                        }
+                      }
+                      .countpriceBorder{
+                        span{
+                          font-size: 20px;
+                          font-weight: normal;
+                          color: #909090;
+                          @include newRwd("pad"){
+                            font-size: 18px;
+                          }
+                        }
+                        .countpricetitle{
+                          color: #707070;
+                          margin-bottom: 7px;
+                        }
+                      }
+                    }
+                  }
+                  hr{
+                    border: 1px solid #909090;
+                  }
+                }
+              }
+
+              .endingBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                width: 90%;
+                // border: 1px solid blue;
+                .endingconditionBorder{
+                  margin-bottom: 20px;
+                  .itemendingsame{
+                    margin-bottom: 5%;
+                    span{
+                      color: #909090;
+                      font-size: 20px;
+                      font-weight: normal;
+                      @include newRwd("pad"){
+                        font-size: 18px;
+                      }
+                    }
+                  }
+                }
+                .cancelBtnBorder{
+                  background-color: #ED8149;
+                  padding: 7px 10px;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  border-radius: 3px;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  img{
+                    height: 24px;
+                    @include newRwd("pad"){
+                      height: 22px;
+                    }
+                  }
+                  #cancelBtn{
+                    outline: none;
+                    border: none;
+                    font-size: 20px;
+                    color: #fff;
+                    background-color: transparent;
+                    padding-left: 10px;
+                    cursor: pointer;
+                    @include newRwd("pad"){
+                      font-size: 18px;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // points
+      div.rightBorderpoints.foursameBorderapp{
+        @include newRwd("mediumPhone"){
+          display: block;
+          display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
+      }
+      .rightBorderpoints{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1% 0;
+        @include newRwd("mediumPhone"){
+          display: none;
+        }
+        .toppointsBorder{
+          width: 98%;
+          height: auto;
+          margin: 2% 3%;
+          margin-top: 0;
+          border-radius: 10px;
+          background-color: #EFF1E1;
+          box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+          display: flex;
+          @include newRwd("pad"){
+            height: auto;
+            margin: 2% 3%;
+          }
+          .topmiddlepointsBorder{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // border: 1px solid black;
+            margin: 2% 3%;
+            .pointbackCategoryBorder{
+              margin: 0;
+              display: none;
+              @include newRwd("mediumPhone"){
+                display: block;
+                display: flex;
+              }
+              img.pointbackCategoryBorder{
+                cursor: pointer;
+                &:hover{
+                  content: url('../img/03/backcategoryhover.png');
+                }
+              }
+            }
+            .specialmemberborder{
+              margin: 2% 0%;
+              img{
+                margin: 0;
+                height: 24px;
+                @include newRwd("newSmallPhone"){
+                  height: 20px;
+                }
+              }
+              span{
+                color: #707070;
+                font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
+              }
+            }
+            .specialmemberID{
+              margin-bottom: 2%;
+              span{
+                color: #707070;
+                font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
+              }
+            }
+            .specailmemberpoints{
+              display: flex;
+              align-items: flex-end;
+              flex-wrap: nowrap;
+              margin-bottom: 2%;
+              @include newRwd("pad"){
+                flex-wrap: wrap;
+              }
+              span.specialmemtitle,span.specialmemcontent{
+                color: #707070;
+                font-size: 22px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 18px;
+                }
+              }
+              span.specialmemcontent{
+                margin-right: 10%;
+              }
+              .specialmemlimit{
+                color: #ED8149;
+                font-size: 16px;
+                @include newRwd("pad"){
+                  line-height: 32px;
+                }
+                @include newRwd("newSmallPhone"){
+                  font-size: 15.5px;
+                }
+              }
+            }
+            .specialduration{
+              margin-bottom: 2%;
+              display: flex;
+              flex-wrap: wrap;
+              // border: 1px solid black;
+              @include newRwd("pad"){
+                flex-direction: column;
+              }
+              .leftspecialduration{
+                display: flex;
+                @include newRwd("pad"){
+                  flex-direction: column;
+                }
+                .specialdurationtitle{
+                  color: #707070;
+                  font-size: 22px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
+                }
+                .durFromdurTo{
+                  // border: 1px solid black;
+                  @include newRwd("pad"){
+                    margin-top: 3%;
+                  }
+                  #durFrom{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 10px;
+                    }
+                  }
+                  .durwhitespace{
+                    margin: 0px 10px;
+                    @include newRwd("pad"){
+                      margin: 0px 5px;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      margin: 0px;
+                    }
+                  }
+                  #durTo{
+                    height: 30px;
+                    outline: none;
+                    border: 1px solid #707070;
+                    border-radius: 10px;
+                    @include newRwd("pad"){
+                      width: 130px;
+                      padding: 0;
+                    }
+                    @include newRwd("newSmallPhone"){
+                      font-size: 13px;
+                    }
+                  }
+                }
+              }
+              #dursearchBtnBorder{
+                width: 80px;
+                height: 30px;
+                outline: none;
+                border: none;
+                background-color: #B9AF94;
+                border-radius: 10px;
+                color: white;
+                margin-left: 5%;
+                font-weight: normal;
+                cursor: pointer;
+                transition: all .3s;
+                &:hover{
+                  background-color: #D4C6A5;
+                }
+                @include newRwd("pad"){
+                  margin-top: 3%;
+                  margin-left: 0%;
+                }
+              }
+            }
+          }
+        }
+        .bottompointsBorder{
+          width: 98%;
+          min-height: 452px;
+          border-radius: 10px;
+          background-color: #EFF1E1;
+          box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+          display: flex;
+          .bottommiddlepointsBorder{
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            // border: 1px solid black;
+            margin: 2% 3%;
+            .itempoint{
+              display: flex;
+              flex-direction: column;
+              margin-bottom: 3%;
+              .iteminclude{
+                display: flex;
+                justify-content: space-between;
+                span{
+                  color: #909090;
+                  font-size: 20px;
+                  // border: 1px solid black;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 18px;
+                  }
+                }
+                .dateandidBorder{
+                  display: flex;
+                  flex-wrap: nowrap;
+                  // border: 1px solid black;
+                  width: 70%;
+                  @include newRwd("pad"){
+                    width: 80%;
+                    flex-wrap: wrap;
+                  }
+                  
+                  div.leftdateandidBorder{
+                    margin-right: 15%;
+                    @include newRwd("pad"){
+                      margin-bottom: 3%;
+                    }
+                  }
+                  div.rightdateandidBorder{
+                    display: flex;
+                    @include newRwd("newSmallPhone"){
+                      flex-direction: column;
+                      margin-top: 2%;
+                    }
+                    .itempointidtitle,.itempointidcontent{
+                      color: blue;
+                    }
+                  }
+                }
+                .itempointplus{
+                  // border: 1px solid black;
+                  margin-left: 5%;
+                  @include newRwd("pad"){
+                    width: 20%;
+                    margin-left: 0%;
+                  }
+                  @include newRwd("newSmallPhone"){
+                    width: 30%;
+                  }
+                }
+              }
+              span.line{
+                width: 100%;
+                height: 3px;
+                border-top: 3px solid #B9AF94;
+              }
+            }
+          }
+        }
+      }
+
+
+      // memberApply
+      div.rightBordermemberApply.foursameBorderapp{
+        @include newRwd("mediumPhone"){
+          display: block;
+          display: flex;
+        }
+        @include newRwd("newSmallPhone"){
+          width: 310px;
+        }
+      }
+      .rightBordermemberApply{
+        width: 70%;
+        border: 1px solid #FAFDDD;
+        box-shadow: 6px 6px 6px rgba(0,0,0,.16);
+        border-radius: 13px;
+        background-color: #FAFDDD;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1% 0% 2% 0%;
+        @include newRwd("mediumPhone"){
+          display: none;
+        }
+        .middlespecialBorder.special{
+          display: none;
+        }
+        .middlespecialBorder{
+          // border: 1px solid red;
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          .topBorder{
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 3%;
+            .toptitleBorder{
+              .toptitle{
+                color: #8F8770;
+                font-size: 28px;
+                @include newRwd("newSmallPhone"){
+                  font-size: 24px;
+                }
+              }
+            }
+            .linetopbottom{
+              border-bottom: 2px solid #909090;
+            }
+          }
+          .bottomBorder{
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            @include newRwd("pad"){
+              flex-direction: column;
+            }
+            .botleft{
+              // border: 1px solid blue;
+              width: 35%;
+              display: flex;
+              flex-direction: column;
+              @include newRwd("pad"){
+                order: 2;
+                width: 100%;
+              }
+              .loveimg{
+                // border: 1px solid blue;
+                display: flex;
+                justify-content: center;
+                @include newRwd("pad"){
+                  align-self: center;
+                }
+                img{
+                  margin: 30% 0% 10% 0%;
+                  width: 80%;
+                }
+                @include newRwd("pad"){
+                  width: 50%;
+                }
+              }
+              .wordlineBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .firsttitle{
+                  color: #8F8770;
+                  margin: 0% 0% 7% 0%;
+                  font-size: 30px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 24px;
+                    margin-bottom: 3%;
+                  }
+                }
+                h4{
+                  color: #909090;
+                  margin: 3% 0%;
+                  font-size: 18px;
+                  @include newRwd("newSmallPhone"){
+                    font-size: 16px;
+                    margin: 1% 0%;
+                  }
+                }
+              }
+            }
+            .botright{
+              // border: 1px solid green;
+              width: 60%;
+              display: flex;
+              justify-content: center;
+              @include newRwd("pad"){
+                order: 1;
+                width: 100%;
+              }
+              .botrightmiddleBorder{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                background-color: #EEF0E1;
+                border-radius: 10px;
+                box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                padding: 5% 5%;
+                .memappbackCategoryBorder{
+                  display: none;
+                  @include newRwd("mediumPhone"){
+                    display: block;
+                    display: flex;
+                    align-self: start;
+                  }
+                  img.memappbackCategoryBorder{
+                    cursor: pointer;
+                    &:hover{
+                      content: url('../img/03/backcategoryhover.png');
+                    }
+                  }
+                }
+                .sametypeBorder{
+                  margin-bottom: 7%;
+                  .sametype{
+                    display: flex;
+                    flex-direction: column;
+                    color: #909090;
+                    line-height: 50px;
+                    @include newRwd("newSmallPhone"){
+                      line-height: 34px;
+                    }
+                    .samelovecontent{
+                      font-size: 20px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 18px;
+                      }
+                    }
+                    .samecontent{
+                      font-size: 18px;
+                      @include newRwd("newSmallPhone"){
+                        font-size: 16px;
+                      }
+                    }
+                  }
+                }
+                .apllyBtnBorder{
+                  .apllyBtn{
+                    outline: none;
+                    border: none;
+                    background-color: #B9AF94;
+                    color: white;
+                    font-size: 18px;
+                    padding: 10px 12px;
+                    border-radius: 15px;
+                    cursor: pointer;
+                    &:hover{
+                      transition: all .3s;
+                      background-color: #d4c7a5;
+                      box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+        .changemiddlespecailBorder.specialchange{
+          display: block;
+          display: flex;
+        }
+        .changemiddlespecailBorder{
+          // border: 1px solid black;
+          width: 90%;
+          display: flex;
+          flex-direction: column;
+          display: none;
+          @include newRwd("newSmallPhone"){
+            width: 315px;
+            align-items: center;
+          }
+          .memappcahngebackCategoryBorder{
+            display: none;
+            @include newRwd("mediumPhone"){
+              display: block;
+              display: flex;
+              align-self: start;
+              cursor: pointer;
+              margin-left: 1.5%;
+            }
+            &:hover{
+              img.memappchangebackCategoryBorder{
+                content: url('../img/03/backcategoryhover.png');
+              }
+            }
+          }
+          .topchangeBorder{
+            display: flex;
+            flex-direction: column;
+            color: #909090;
+            margin-bottom: 3%;
+            @include newRwd("newSmallPhone"){
+              display: none;
+            }
+            .topchangetitleBorder{
+              display: flex;
+              align-items: center;
+              // border: 1px solid black;
+              .topchangetitlepic{
+                height: 30px;
+                @include newRwd("pad"){
+                  height: 26px;
+                }
+              }
+              .topchangetitle{
+                font-size: 28px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                }
+              }
+            }
+            .topchangeservice{
+              font-size: 22px;
+              line-height: 60px;
+              @include newRwd("pad"){
+                font-size: 22px;
+                line-height: 30px;
+              }
+            }
+            .topfirstBorder{
+              display: flex;
+              width: 100%;
+              @include newRwd("pad"){
+                flex-direction: column;
+              }
+              .topfirsttitle{
+                align-self: flex-start;
+                // border: 1px solid black;
+                width: 21%;
+                font-size: 22px;
+                line-height: 60px;
+                margin: 0%;
+                @include newRwd("pad"){
+                  width: 50%;
+                  font-size: 20px;
+                  line-height: 50px;
+                }
+              }
+              .topfirstcontent{
+                // border: 1px solid black;
+                width: 79%;
+                font-size: 22px;
+                line-height: 60px;
+                @include newRwd("pad"){
+                  width: 100%;
+                  font-size: 20px;
+                  line-height: 40px;
+                }
+              }
+            }
+            .fourfirstBorder{
+              display: flex;
+              margin-bottom: 5%;
+              .fourfirstcontent{
+                .fourtitle{
+                  margin: 0%;
+                  font-size: 22px;
+                  line-height: 60px;
+                  @include newRwd("pad"){
+                    width: 190px;
+                    font-size: 20px;
+                    line-height: 30px;
+                  }
+                }
+              }
+              .foursecondcontent{
+                .fourtitle{
+                  margin: 0%;
+                  font-size: 22px;
+                  line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
+                }
+              }
+            }
+            .changeline{
+              width: 100%;
+              border-bottom: 1px solid #8F8770;
+            }
+          }
+         .bottomchangeBorder{
+          display: flex;
+          justify-content: space-between;
+          @include newRwd("pad"){
+            flex-direction: column;
+          }
+          .bottomchangeleftBorder{
+            // border: 1px solid black;
+            @include newRwd("newSmallPhone"){
+              margin-bottom: 5%;
+            }
+            .memberInform{
+              display: flex;
+              flex-direction: column;
+              .memtitleBorder{
+                .memtitle{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
+                }
+              }
+              .samememberBord{
+                display: flex;
+                .samemembertitleBord{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
+                }
+                .sameconten{
+                  color: #909090;
+                  font-size: 24px;
+                  margin: 0;
+                  line-height: 60px;
+                  margin-left: 1%;
+                  @include newRwd("pad"){
+                    font-size: 20px;
+                    line-height: 40px;
+                  }
+                }
+              }
+            }
+            #uploadfileBorder{
+              .apllybookBorder{
+                display: flex;
+                flex-direction: column;
+                #fileInfor{
+                  outline: none;
+                  border: none;
+                  box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  width: 350px;
+                  height: 300px;
+                  border-radius: 20px;
+                  background-image: url('../img/03/uploadpicturesecond.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 80%;
+                  color: #909090;
+                  font-size: 16px;
+                  padding: 1%;
+                  margin-bottom: 20px;
+                  @include newRwd("pad"){
+                    width: 300px;
+                    padding: 10px;
+                    background-size: 75%;
+                  }
+                }
+                #thefile{
+                  display: none;
+                }
+                #fakebtn{
+                  outline: none;
+                  border: none;
+                  color: white;
+                  width: 100px;
+                  background-color: #B9AF94;
+                  border-radius: 10px;
+                  padding: 10px 10px;
+                  margin-bottom: 40px;
+                  cursor: pointer;
+                  &:hover{
+                    transition: all .3s;
+                    background-color: #d4c7a5;
+                    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  }
+                }
+              }
+              .elecsignBorder{
+                margin-bottom: 20px;
+                canvas{
+                  width: 300px;
+                  height: 150px;
+                  border: 1px solid #B9AF94;
+                  border-radius: 10px;
+                  background-color: #fff;
+                  background-image: url('../img/03/elctricsign.png');
+                  background-repeat: no-repeat;
+                  background-position: center center;
+                  background-size: 30%;
+                }
+              }
+              .uploadBtnBorder{
+                #manyfileupload{
+                  outline: none;
+                  border: none;
+                  color: white;
+                  width: 100px;
+                  background-color: #B9AF94;
+                  border-radius: 10px;
+                  padding: 10px 10px;
+                  cursor: pointer;
+                  &:hover{
+                    transition: all .3s;
+                    background-color: #d4c7a5;
+                    box-shadow: 3px 3px 6px rgba(0,0,0,.2);
+                  }
+                }
+              }
+            }
+          }
+          .bottomchangerightBorder{
+            // border: 1px solid blue;
+            .bottomchangeloveimg{
+              // border: 1px solid blue;
+              display: flex;
+              justify-content: center;
+              img{
+                // margin: 30% 0% 10% 0%;
+                width: 80%;
+                @include newRwd("pad"){
+                  width: 50%;
+                }
+              }
+            }
+            .bottomchangewordlineBorder{
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              .firsttitlebot{
+                color: #8F8770;
+                margin: 0% 0% 7% 0%;
+                font-size: 30px;
+                @include newRwd("pad"){
+                  font-size: 24px;
+                  margin-top: 3%;
+                  margin-bottom: 3%;
+                }
+              }
+              h4{
+                color: #909090;
+                margin: 3% 0%;
+                font-size: 18px;
+              }
+            }
+          }
+         } 
+        }
+      }
+    }
+  }
+}

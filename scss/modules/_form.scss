@@ -1,0 +1,52 @@
+//frontstage donation
+.formRowGorup{
+    border: 1px solid #300bff;
+    max-width: 860px;
+    width: 100%;
+    margin: 60px auto;
+    font-size: 26px;
+    color: #616161;
+    white-space: nowrap;
+}
+.formRow{
+    border: 1px solid #1eb4f0;
+    display: flex;
+    justify-content: center;
+    max-width: 860px;
+    width: 100%;
+    margin: 0 auto 25px;
+}
+.formlabel{
+    border: 1px solid #f0591e;
+    width: 30%;
+    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+}
+.starTxt{
+    color: #F7B3B3;
+    font-size: 26px;
+    // margin: -8px 0 0 0;
+    transform: translateY(-13%);
+}
+.inputArea{
+    border: 1px solid #ff0b69;
+    display: flex;
+    width: 70%;
+}
+.form-radio{
+    border: 1px solid #0ebfeb;
+    margin: 0 20px;
+}
+.form-radio-input{
+    width: 20px;
+    height:20px;
+    margin: 0 3px;
+}
+.form-radio-label{
+    border: 1px solid #99ce1c;
+}
+
+
+
+
