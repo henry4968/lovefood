@@ -810,25 +810,23 @@
         });
         // 強硬撈圖片
         function scrolltest() {
-            for (let i = 0; i < 2000; i += 100) {
-                setTimeout(function () {
-                    // 撈圖片
-                    axios.post('../PHP/Frontend/appearImg.php').then(res => {
-                        data = res.data
-                        // console.log(data);
-                        if (data != "") {
-                            // atob函数用来解碼一个已经被base-64编碼過的數據
-                            // 如果在PHP有base64_decode就不用atob
-                            // this.Bigpicchange = atob(data);
-                            $('#navIcons03 img').attr('src', atob(data));
-                            $('#navIcons05 img').attr('src', atob(data));
-                        }
-                    });
-                }, i);
-            }
+            setTimeout(function () {
+                // 撈圖片
+                axios.post('../PHP/Frontend/appearImg.php').then(res => {
+                    data = res.data
+                    // console.log(data);
+                    if (data != "") {
+                        // atob函数用来解碼一个已经被base-64编碼過的數據
+                        // 如果在PHP有base64_decode就不用atob
+                        // this.Bigpicchange = atob(data);
+                        $('#navIcons03 img').attr('src', atob(data));
+                        $('#navIcons05 img').attr('src', atob(data));
+                    }
+                });
+            }, 10);
         }
         // 全域撈圖片
-        // window.addEventListener('scroll', scrolltest);
+        window.addEventListener('scroll', scrolltest);
         window.addEventListener('keydown', scrolltest);
     </script>
     <!-- 輪播套件js -->
