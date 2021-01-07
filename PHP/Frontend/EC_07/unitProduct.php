@@ -7,10 +7,10 @@
     
     // echo $pdNum->getPd();
     //判斷日期輸入格式有效
-    $sqlAll = "SELECT * FROM PRODUCT as aa
+    $sqlAll = "SELECT * FROM product as aa
     JOIN product_category as bb
     ON aa.PRODUCT_CATEGORY_ID_for_PD= bb.PRODUCT_CATEGORY_ID
-    JOIN SUPPLIER as cc
+    JOIN supplier as cc
     ON aa.SUPPLIER_ID_for_PD = cc.SUPPLIER_ID
     WHERE PRODUCT_ID = ?
     "; //第一步 SQL語法

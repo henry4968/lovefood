@@ -1,7 +1,7 @@
-<?php 
-    // include("../Lib/UtilClass.php");
-    // include("../Lib/UtilClass2.php");
-    include("../Lib/frontendUtilClass.php");
+<?php
+// include("../Lib/UtilClass.php");
+// include("../Lib/UtilClass2.php");
+include("../Lib/frontendUtilClass.php");
 
 $start = new UtilClass();
 
@@ -12,10 +12,10 @@ $start = new UtilClass();
 // $seller = "'".implode("','",$arrSeller)."'";
 
 //判斷日期輸入格式有效
-$sqlAll = "SELECT * FROM PRODUCT as aa 
-    JOIN PRODUCT_CATEGORY as bb 
+$sqlAll = "SELECT * FROM product as aa 
+    JOIN product_category as bb 
     on aa.PRODUCT_CATEGORY_ID_for_PD = bb.PRODUCT_CATEGORY_ID 
-    JOIN SUPPLIER as cc 
+    JOIN supplier as cc 
     on aa.SUPPLIER_ID_for_PD = cc.SUPPLIER_ID
     "; //第一步 SQL語法
 $state = $start->getPDO()->prepare($sqlAll); //第二步 連線資料庫
