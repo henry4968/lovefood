@@ -288,6 +288,11 @@ let all = new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
+        // 購買清單合併數量
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        }
     },
 });
 
