@@ -271,12 +271,12 @@ let all = new Vue({
         let test = JSON.parse(localStorage.getItem("newStorage"));
         if (test) {
             this.itemQty = test.length
-        } else if (cartAllItems) {
-            self.getStorage = cartAllItems;//購物車items陣列
+        } else if (cartAllItems != 0) {
+            self.itemQty = cartAllItems.length//購物車圖標
         } else {
             self.getStorage = [];//購物車items陣列
         }
-        self.itemQty = cartAllItems.length//購物車圖標
+        self.getStorage = cartAllItems;//購物車items陣列
 
         // 看看是一般會員或是賣家會員
         this.checklogin();
