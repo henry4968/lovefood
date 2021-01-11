@@ -268,19 +268,15 @@ let all = new Vue({
 
             })
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
-        if (cartAllItems) {
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        } else if (cartAllItems) {
             self.getStorage = cartAllItems;//購物車items陣列
         } else {
             self.getStorage = [];//購物車items陣列
         }
-        // self.itemQty = cartAllItems.length//購物車圖標
-        let test = JSON.parse(localStorage.getItem("newStorage"));
-        // 購買清單合併數量
-        if (test) {
-            this.itemQty = test.length
-        } else if (cartAllItems) {
-            this.itemQty = cartAllItems.length
-        }
+        self.itemQty = cartAllItems.length//購物車圖標
 
         // 看看是一般會員或是賣家會員
         this.checklogin();
