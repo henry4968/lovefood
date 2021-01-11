@@ -1052,12 +1052,12 @@
                                 
                                 .money-box{
                                     width: 125px;
-                                    height: 40px;
-                                    border: solid 3px #B2C6A6;
+                                    height: auto;
+                                    border: 3px solid #B2C6A6;
                                     border-radius: 3px;
                                     color: #B2C6A6;
                                     margin: 0 20px 0 0;
-                                    // padding: 3px 0 0 0;
+                                    padding: 3px 0px;
                                     // text-align: center;
                                     display: flex;
                                     justify-content: center;
