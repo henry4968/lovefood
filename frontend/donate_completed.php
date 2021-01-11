@@ -4,7 +4,7 @@ include("../PHP/Frontend/Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 // 尋找目前流水號最大者，製造下一號並裝入變數
-$sqlSelectMaxId = "SELECT max(DONATION_ID) FROM DONATION;";
+$sqlSelectMaxId = "SELECT max(DONATION_ID) FROM donation";
 
 $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
 $statementSelectMaxId->execute();
@@ -28,7 +28,7 @@ if ($maxNumber < 10) {
 
 // 植入流水號後的捐款輸入語法
 $sqlStatment = "INSERT INTO 
-DONATION(DONATION_ID, DONATION_DATE, DONATION_PLAN, DONATION_METHOD, DONATION_AMOUNT, DONATION_NAME,DONATION_NATIONALITY, 
+donation(DONATION_ID, DONATION_DATE, DONATION_PLAN, DONATION_METHOD, DONATION_AMOUNT, DONATION_NAME,DONATION_NATIONALITY, 
 DONATION_PERSONAL_ID_OR_TAX_ID,DONATION_BIRTHDAY, DONATION_ADDRESS, DONATION_EMAIL, DONATION_GENDER, DONATION_REMARKS, DONATION_RECEIPT_TITLE, 
 DONATION_PERSONAL_ID_OR_TAX_ID_OF_RECEIPT, DONATION_DELIVERY_METHOD) VALUE (?,NOW(),?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
@@ -57,7 +57,7 @@ $sqlStatment->bindValue(15, $deliveryMethod);
 
 $sqlStatment->execute();
 
-$sqlDonationCompleted = "SELECT DONATION_ID, DONATION_AMOUNT, DONATION_METHOD, year(DONATION_DATE), month(DONATION_DATE), day(DONATION_DATE) FROM DONATION WHERE DONATION_ID = ?";
+$sqlDonationCompleted = "SELECT DONATION_ID, DONATION_AMOUNT, DONATION_METHOD, year(DONATION_DATE), month(DONATION_DATE), day(DONATION_DATE) FROM donation WHERE DONATION_ID = ?";
 
 $statementDonationCompleted = $Util->getPDO()->prepare($sqlDonationCompleted);
 $statementDonationCompleted->bindValue(1, $insertId);
@@ -82,10 +82,10 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
-    <script src="../js/21/donation.js"></script>
+    <!-- <script src="../js/21/donation.js"></script> -->
 
     <!-- <script src="../js/21/donation.js"></script> -->
-    <script src="../js/21/donate_completed.js"></script>
+    <!-- <script src="../js/21/donate_completed.js"></script> -->
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
@@ -144,7 +144,8 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
                 </a>
                 <a href="./store_3.html" id="navIcons02" class="navIcons" style="position: relative;margin-left: 0px;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -15%;">
-                        {{itemQty}}</div>
+                        {{itemQty}}
+                    </div>
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
                 <a :href="jumppage" id="navIcons03" class="navIcons" @click="logIncheck" @mouseover="onhover" @mouseout="onout">
@@ -157,7 +158,8 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             <nav id="subNavigationForMobile">
                 <a href="./store_3.html" id="navIcons04" class="navIconsForMobile" style="position: relative;margin-left: 0px;">
                     <div style="width: 20px; height: 20px; border-radius: 50px; display: flex; justify-content: center; background-color: #ef8686; color: #ffffff; align-items: center; position: absolute; z-index: 1; right: -14%; font-size: 17px;top: -20%;">
-                        {{itemQty}}</div>
+                        {{itemQty}}
+                    </div>
                     <img src="../img/22/index/ch04_nav_cart.png" alt="">
                 </a>
                 <a :href="jumppage" id="navIcons05" class="navIconsForMobile" @click="logIncheck" @mouseover="onhover" @mouseout="onout">

@@ -11,7 +11,7 @@
 
     //建立SQL
     // $sql = "SELECT MEMBER_AVATAR FROM member WHERE MEMBER_ID = ? ";
-    $sql = "SELECT * FROM PRODUCT";
+    $sql = "SELECT * FROM product";
 
     //執行
     $statement = $Util->getPDO()->prepare($sql);

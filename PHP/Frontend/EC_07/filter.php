@@ -61,10 +61,10 @@ include("../Lib/frontendUtilClass.php");
     //判斷日期輸入格式有效
     // 
 
-    $sqlAll = "SELECT * FROM PRODUCT as aa 
-    JOIN PRODUCT_CATEGORY as bb 
+    $sqlAll = "SELECT * FROM product as aa 
+    JOIN product_category as bb 
     on aa.PRODUCT_CATEGORY_ID_for_PD = bb.PRODUCT_CATEGORY_ID 
-    JOIN SUPPLIER as cc 
+    JOIN supplier as cc 
     on aa.SUPPLIER_ID_for_PD = cc.SUPPLIER_ID 
     WHERE 1 = 1 ";
    
@@ -107,4 +107,3 @@ include("../Lib/frontendUtilClass.php");
     print json_encode($dataAll);
     // print_r($dataAll);
     //第六步印出來JSON格式讓ajax呼叫
-?>
