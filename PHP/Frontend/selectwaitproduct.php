@@ -15,7 +15,7 @@ $orderSatus = $_POST["num"];
 //======================================================== 
 
 //建立SQL 訂單
-$sqlod = "SELECT * FROM `ORDER` where (MEMBER_ID_for_OD = ? and ORDER_STATUS = ?)";
+$sqlod = "SELECT * FROM `order` where (MEMBER_ID_for_OD = ? and ORDER_STATUS = ?)";
 
 // 執行
 $order = $Util->getPDO()->prepare($sqlod);
@@ -29,17 +29,17 @@ $dataorder = $order->fetchAll();
 //======================================================== 
 //建立SQL 訂單細節
 $sqloddel = "SELECT *
-        FROM `ORDER` as aa
+        FROM `order` as aa
         join order_detail as bb
         on
         aa.ORDER_ID = bb.ORDER_ID_for_ODD
-        join mrt_pickup_site cc
+        join mrt_pickup_site as cc
         on
         aa.MRT_PICKUP_SITE_ID_for_OD = cc.MRT_PICKUP_SITE_ID
-        join product dd
+        join product as dd
         on
         bb.PRODUCT_ID_for_ODD = dd.PRODUCT_ID
-        join supplier ee
+        join supplier as ee
         on
         dd.SUPPLIER_ID_for_PD = ee.SUPPLIER_ID
         where (aa.MEMBER_ID_for_OD = ? and aa.ORDER_STATUS = ?)";

@@ -5,7 +5,7 @@ $Util = new UtilClass();
 
 $loggnedInId = $_POST["loggnedInId"];
 
-$sqlQueryPoints = "SELECT MEMBER_ID, MEMBER_POINTS FROM MEMBER WHERE MEMBER_ID = ?";
+$sqlQueryPoints = "SELECT MEMBER_ID, MEMBER_POINTS FROM member WHERE MEMBER_ID = ?";
 
 $statementQueryPoints = $Util->getPDO()->prepare($sqlQueryPoints);
 
@@ -14,5 +14,3 @@ $statementQueryPoints->execute();
 $dataQP = $statementQueryPoints->fetchAll(PDO::FETCH_ASSOC);
 
 print json_encode($dataQP);
-
-?>
