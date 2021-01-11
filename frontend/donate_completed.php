@@ -85,7 +85,7 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
     <!-- <script src="../js/21/donation.js"></script> -->
 
     <!-- <script src="../js/21/donation.js"></script> -->
-    <script src="../js/21/donate_completed.js"></script>
+    <!-- <script src="../js/21/donate_completed.js"></script> -->
     <!-- axios套件 -->
     <script src="../node_modules/axios/dist/axios.min.js"></script>
 </head>
