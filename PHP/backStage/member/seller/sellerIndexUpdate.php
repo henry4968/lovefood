@@ -4,7 +4,7 @@
     
     $arr = $_POST['tableDataSave'];
     $fileName = $_POST['fileName'];
-    $sql = "UPDATE LoveFood.SUPPLIER SET SUPPLIER_NAME = ?, SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ?,
+    $sql = "UPDATE supplier SET SUPPLIER_NAME = ?, SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ?,
     SUPPLIER_DOCUMENTS = ?
     WHERE SUPPLIER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
@@ -15,4 +15,3 @@
     $statement->bindValue(4,$fileName);
     $statement->bindValue(5,$arr[0]['SUPPLIER_ID']);
     $statement->execute();
-?>

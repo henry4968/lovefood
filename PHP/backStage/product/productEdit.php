@@ -10,7 +10,7 @@
     if($validation == 1){ //下架
         $off = $_POST["off"];
         //sql語法
-        $sql = "UPDATE PRODUCT
+        $sql = "UPDATE product
         SET PRODUCT_STATUS = 1
         WHERE PRODUCT_ID = ?
         ";
@@ -32,7 +32,7 @@
         $pdNum = $_POST["pdNum"];
         $exp = $expDate." ".$expTime;
 
-        $sql = "UPDATE PRODUCT 
+        $sql = "UPDATE product 
         SET PRODUCT_CATEGORY_ID_for_PD = ?, PRODUCT_NAME = ?, PRODUCT_DESCRIPTION = ?, PRODUCT_ORIGINAL_PRICE = ?,
         PRODUCT_SELLING_PRICE = ?, PRODUCT_STOCK = ?, PRODUCT_UPLOAD_DATE = NOW(),
         PRODUCT_EXP_DATE = ?, PRODUCT_IMG= ? 
@@ -52,6 +52,3 @@
         
         $statement->execute();
     }
-
-    
-?>

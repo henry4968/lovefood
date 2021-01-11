@@ -26,7 +26,7 @@
             return (isset($arr[0]) && isset($arr[1]) && isset($arr[2]) && checkdate($arr[1], $arr[2], $arr[0])) ? true : false;
     }
     //找最大值
-    $sql = "SELECT max(PRODUCT_ID) FROM PRODUCT";
+    $sql = "SELECT max(PRODUCT_ID) FROM product";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->execute();
     // $data = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -45,7 +45,7 @@
         $pdNum = "PD"."000".$subMaxId;
     }
     //最終寫入PRODUCT_ID為 $pdNum;
-    $sql = "INSERT INTO PRODUCT (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_ORIGINAL_PRICE,PRODUCT_SELLING_PRICE ,PRODUCT_STOCK, PRODUCT_UPLOAD_DATE, PRODUCT_EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
+    $sql = "INSERT INTO product (PRODUCT_ID, PRODUCT_CATEGORY_ID_for_PD, SUPPLIER_ID_for_PD, PRODUCT_NAME, PRODUCT_DESCRIPTION, PRODUCT_ORIGINAL_PRICE,PRODUCT_SELLING_PRICE ,PRODUCT_STOCK, PRODUCT_UPLOAD_DATE, PRODUCT_EXP_DATE, PRODUCT_STATUS, PRODUCT_IMG)
     VALUES (?,?,?,?,?,?,?,?,NOW(),?,?,?);";
     $statement = $Util->getPDO()->prepare($sql);
 

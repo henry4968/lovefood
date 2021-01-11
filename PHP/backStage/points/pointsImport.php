@@ -10,7 +10,7 @@
 
         while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
 
-                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM POINTS_ISSUANCE";
+                $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM points_issuance";
 
                 $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
                 $statementSelectMaxId->execute();
@@ -32,17 +32,17 @@
                     $insertId = "PI00".$maxNumber;
                 }
 
-                $sqlCSVInsert = "INSERT INTO POINTS_ISSUANCE VALUE ('$insertId','$data[0]','$data[1]',NOW())";
+                $sqlCSVInsert = "INSERT INTO points_issuance VALUE ('$insertId','$data[0]','$data[1]',NOW())";
                 $statementCSVInsert  = $Util->getPDO()->prepare($sqlCSVInsert);
                 $statementCSVInsert->execute();
 
-                $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
+                $sqlPointsUpdate = "UPDATE member SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
                 $statesmentsqlPointsUpdate = $Util->getPDO()->prepare($sqlPointsUpdate);
                 $statesmentsqlPointsUpdate->bindValue(1,$data[1]);
                 $statesmentsqlPointsUpdate->bindValue(2,$data[0]);
                 $statesmentsqlPointsUpdate->execute();
 
-                $sqlUploadRow = "SELECT PI.POINTS_ISSUANCE_ID, PI.MEMBER_ID_for_PI, MB.MEMBER_ACCOUNT, MB.MEMBER_NAME, PI.POINTS_ISSUANCE_NUM, PI.POINTS_ISSUANCE_DATE, MB.MEMBER_POINTS FROM POINTS_ISSUANCE PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSUANCE_ID like ?";
+                $sqlUploadRow = "SELECT PI.POINTS_ISSUANCE_ID, PI.MEMBER_ID_for_PI, MB.MEMBER_ACCOUNT, MB.MEMBER_NAME, PI.POINTS_ISSUANCE_NUM, PI.POINTS_ISSUANCE_DATE, MB.MEMBER_POINTS FROM points_issuance PI JOIN MEMBER MB ON PI.MEMBER_ID_for_PI = MB.MEMBER_ID WHERE PI.POINTS_ISSUANCE_ID like ?";
                 $statesmentUploadRow = $Util->getPDO()->prepare($sqlUploadRow);
                 $statesmentUploadRow->bindValue(1,'%'.@$insertId.'%');
                 $statesmentUploadRow->execute();
