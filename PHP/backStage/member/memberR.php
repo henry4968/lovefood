@@ -3,7 +3,7 @@
     include("../Lib/backendUtilClass.php");
 
     $Util = new UtilClass();
-    $sql = "SELECT * FROM Lovefood.MEMBER";
+    $sql = "SELECT * FROM member";
     $statement = $Util->getPDO()->prepare($sql);
     $statement->execute();
     $data = $statement->fetchAll();

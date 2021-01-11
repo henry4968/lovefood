@@ -2,7 +2,7 @@
     include("../Lib/backendUtilClass.php");
     $Util = new UtilClass();
 
-    $sqlSelectOrderMaxId = "SELECT max(ORDER_ID) FROM `ORDER`";
+    $sqlSelectOrderMaxId = "SELECT max(ORDER_ID) FROM `order`";
 
     $statementSelectOrderMaxId = $Util->getPDO()->prepare($sqlSelectOrderMaxId);
     $statementSelectOrderMaxId->execute();
@@ -24,7 +24,7 @@
         $insertOrderId = "SC00".$orderMaxNumber;
     }
 
-    $sqlInsertOrder = "INSERT INTO `ORDER` (ORDER_ID, ORDER_DATE, MEMBER_ID_for_OD, ORDER_STATUS, ORDER_PICKUP_DATE, ORDER_DISCOUNT, ORDER_PICKUP_METHOD, MRT_PICKUP_SITE_ID_for_OD)
+    $sqlInsertOrder = "INSERT INTO `order` (ORDER_ID, ORDER_DATE, MEMBER_ID_for_OD, ORDER_STATUS, ORDER_PICKUP_DATE, ORDER_DISCOUNT, ORDER_PICKUP_METHOD, MRT_PICKUP_SITE_ID_for_OD)
     VALUES (?, NOW(), ?, 9, NOW(), ?, 0, null)";
 
     $statementInsertOrder = $Util->getPDO()->prepare($sqlInsertOrder);
@@ -45,7 +45,7 @@
 
     }
 
-    $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS - ? WHERE MEMBER_ID = ?";
+    $sqlPointsUpdate = "UPDATE member SET MEMBER_POINTS = MEMBER_POINTS - ? WHERE MEMBER_ID = ?";
     $statesmentsqlPointsUpdate = $Util->getPDO()->prepare($sqlPointsUpdate);
 
     if(!$_POST['points03'] == ""){

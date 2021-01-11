@@ -16,7 +16,7 @@
         }
     
     if(is_Date($pick1) && is_Date($pick2) ){
-        $sql = "SELECT * FROM Lovefood.SUPPLIER WHERE SUPPLIER_ID like ? and SUPPLIER_ACCOUNT like ? and SUPPLIER_PHONE like ?  and (SUPPLIER_REG_DATE  between ? and ?)";
+        $sql = "SELECT * FROM supplier WHERE SUPPLIER_ID like ? and SUPPLIER_ACCOUNT like ? and SUPPLIER_PHONE like ?  and (SUPPLIER_REG_DATE  between ? and ?)";
         $statement = $Util->getPDO()->prepare($sql);
 
         
@@ -29,7 +29,7 @@
         $data = $statement->fetchAll();
         // echo 456;
     }else{
-        $sql = "SELECT * FROM Lovefood.SUPPLIER WHERE SUPPLIER_ID like ? and SUPPLIER_ACCOUNT like ? and SUPPLIER_PHONE like ?";
+        $sql = "SELECT * FROM supplier WHERE SUPPLIER_ID like ? and SUPPLIER_ACCOUNT like ? and SUPPLIER_PHONE like ?";
         $statement = $Util->getPDO()->prepare($sql);
 
         $statement->bindValue(1,$number);
@@ -41,8 +41,3 @@
         // echo 123;
     }
     print json_encode($data);
-
-    
-   
-    
-?>

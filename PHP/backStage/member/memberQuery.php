@@ -19,7 +19,7 @@
         }
     
     if(is_Date($_POST["pick1"]) && is_Date($_POST["pick2"]) ){
-        $sql = "SELECT * FROM Lovefood.MEMBER WHERE MEMBER_ID like ? and MEMBER_CLASS like ? and MEMBER_ACCOUNT like ? and (MEMBER_PHONE like ? or MEMBER_PHONE is null) and (MEMBER_REG_DATE between ? and ?)";
+        $sql = "SELECT * FROM member WHERE MEMBER_ID like ? and MEMBER_CLASS like ? and MEMBER_ACCOUNT like ? and (MEMBER_PHONE like ? or MEMBER_PHONE is null) and (MEMBER_REG_DATE between ? and ?)";
         $statement = $Util->getPDO()->prepare($sql);
 
         $statement->bindValue(1,$number);
@@ -31,7 +31,7 @@
         $statement->execute();
         $data = $statement->fetchAll();
     }else{
-        $sql = "SELECT * FROM Lovefood.MEMBER WHERE MEMBER_ID like ? and MEMBER_CLASS like ? and MEMBER_ACCOUNT like ? and (MEMBER_PHONE like ? or MEMBER_PHONE is null)";
+        $sql = "SELECT * FROM member WHERE MEMBER_ID like ? and MEMBER_CLASS like ? and MEMBER_ACCOUNT like ? and (MEMBER_PHONE like ? or MEMBER_PHONE is null)";
         $statement = $Util->getPDO()->prepare($sql);
 
         $statement->bindValue(1,$number);

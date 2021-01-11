@@ -8,7 +8,7 @@ $remarks_ED = !empty($_POST["remarks_ED"])? $_POST["remarks_ED"] : null;
 
 
 
-$sqlDonationUpdate = "UPDATE DONATION
+$sqlDonationUpdate = "UPDATE donation
 SET DONATION_NAME = ?, DONATION_NATIONALITY = ?, DONATION_PERSONAL_ID_OR_TAX_ID = ?, DONATION_BIRTHDAY = ?, DONATION_ADDRESS = ?, DONATION_EMAIL = ?, DONATION_GENDER = ?, DONATION_REMARKS = ?, DONATION_RECEIPT_TITLE = ?, DONATION_PERSONAL_ID_OR_TAX_ID_OF_RECEIPT = ?, DONATION_DELIVERY_METHOD = ?
 WHERE DONATION_ID = ?";
 
@@ -30,5 +30,3 @@ $statesmentDonationUpdate->bindValue(12,$_POST["selectedId_ED"]);
 $statesmentDonationUpdate->execute();
 
 echo "修改執行了！";
-
-?>

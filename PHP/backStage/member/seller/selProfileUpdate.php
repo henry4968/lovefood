@@ -1,7 +1,7 @@
 <?php 
     include("../../Lib/backendUtilClass.php");
     $Util = new UtilClass();
-    $sql = "UPDATE SUPPLIER SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
+    $sql = "UPDATE supplier SET SUPPLIER_ADDRESS = ?, SUPPLIER_PHONE = ? WHERE SUPPLIER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
     
     $save = $_POST['save'];

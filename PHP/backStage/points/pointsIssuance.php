@@ -2,7 +2,7 @@
     include("../Lib/backendUtilClass.php");
     $Util = new UtilClass();
 
-    $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM POINTS_ISSUANCE";
+    $sqlSelectMaxId = "SELECT max(POINTS_ISSUANCE_ID) FROM points_issuance";
 
     $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
     $statementSelectMaxId->execute();
@@ -24,7 +24,7 @@
         $insertId = "PI00".$maxNumber;
     }
 
-    $sqlIssuancePoints = "INSERT INTO POINTS_ISSUANCE VALUE ('$insertId', ?, ?, NOW())";
+    $sqlIssuancePoints = "INSERT INTO points_issuance VALUE ('$insertId', ?, ?, NOW())";
     $statementIssuancePoints  = $Util->getPDO()->prepare($sqlIssuancePoints);
 
     if(!$_POST['points01'] == ""){
@@ -42,7 +42,7 @@
 
     $statementIssuancePoints->execute();
 
-    $sqlPointsUpdate = "UPDATE MEMBER SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
+    $sqlPointsUpdate = "UPDATE member SET MEMBER_POINTS = MEMBER_POINTS + ? WHERE MEMBER_ID = ?";
     $statesmentsqlPointsUpdate = $Util->getPDO()->prepare($sqlPointsUpdate);
 
     if(!$_POST['points01'] == ""){

@@ -3,7 +3,7 @@
     include("../Lib/backendUtilClass.php");
 
     $Util = new UtilClass();
-    $sql = "UPDATE MEMBER SET MEMBER_STATUS = ?, MEMBER_PHONE = ?, MEMBER_NAME = ? WHERE MEMBER_ID= ?";
+    $sql = "UPDATE member SET MEMBER_STATUS = ?, MEMBER_PHONE = ?, MEMBER_NAME = ? WHERE MEMBER_ID= ?";
     $statement = $Util->getPDO()->prepare($sql);
     
     $statement->bindValue(1,$_POST['status']);
