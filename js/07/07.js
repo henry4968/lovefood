@@ -273,7 +273,14 @@ let all = new Vue({
         } else {
             self.getStorage = [];//購物車items陣列
         }
-        self.itemQty = cartAllItems.length//購物車圖標
+        // self.itemQty = cartAllItems.length//購物車圖標
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        // 購買清單合併數量
+        if (test) {
+            this.itemQty = test.length
+        } else if (cartAllItems) {
+            this.itemQty = cartAllItems.length
+        }
 
         // 看看是一般會員或是賣家會員
         this.checklogin();
@@ -286,9 +293,14 @@ let all = new Vue({
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
         // 購買清單合併數量
+        //換頁載入＝＝＝＝＝
+        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
         let test = JSON.parse(localStorage.getItem("newStorage"));
+        // 購買清單合併數量
         if (test) {
             this.itemQty = test.length
+        } else if (cartAllItems) {
+            this.itemQty = cartAllItems.length
         }
     },
 });
