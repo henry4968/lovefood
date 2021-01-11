@@ -208,6 +208,10 @@ Vue.component('memhead', {
         if (cartAllItems) {
             this.itemQty = cartAllItems.length
         }
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        }
     },
 });
 let header = new Vue({

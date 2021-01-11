@@ -427,6 +427,10 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
             if (cartAllItems) {
                 this.itemQty = cartAllItems.length
             }
+            let test = JSON.parse(localStorage.getItem("newStorage"));
+            if (test) {
+                this.itemQty = test.length
+            }
         },
         updated() {
             // 看看是一般會員或是賣家會員

@@ -274,6 +274,10 @@ let all = new Vue({
             self.getStorage = [];//購物車items陣列
         }
         self.itemQty = cartAllItems.length//購物車圖標
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        }
         // 看看是一般會員或是賣家會員
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換

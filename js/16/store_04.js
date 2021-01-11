@@ -49,6 +49,10 @@ new Vue({
             this.itemQty = cartAllItems.length
         }
 
+        if (test){
+            this.itemQty = test.length
+        }
+
         this.discountPoints = JSON.parse(localStorage.getItem('discountPoints'));
         this.sessionId = JSON.parse(localStorage.getItem('memberId'));
 
