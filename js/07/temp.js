@@ -416,7 +416,11 @@ const main = new Vue({
         if (cartAllItems) {
             self.itemQty = cartAllItems.length
         }
-
+        // 購買清單合併數量
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        }
         // 看看是一般會員或是賣家會員
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
@@ -427,6 +431,11 @@ const main = new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
+        // 購買清單合併數量
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        if (test) {
+            this.itemQty = test.length
+        }
     },
 
 })

@@ -193,7 +193,11 @@ Vue.component('memhead', {
         this.onout();
         //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
-        if (cartAllItems) {
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        // 購買清單合併數量
+        if (test) {
+            this.itemQty = test.length
+        } else if (cartAllItems) {
             this.itemQty = cartAllItems.length
         }
     },
@@ -204,8 +208,13 @@ Vue.component('memhead', {
         this.onhover();
         // leave回到原狀
         this.onout();
+        //換頁載入＝＝＝＝＝
         let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
-        if (cartAllItems) {
+        let test = JSON.parse(localStorage.getItem("newStorage"));
+        // 購買清單合併數量
+        if (test) {
+            this.itemQty = test.length
+        } else if (cartAllItems) {
             this.itemQty = cartAllItems.length
         }
     },

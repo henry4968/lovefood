@@ -49,6 +49,10 @@ new Vue({
             this.itemQty = cartAllItems.length
         }
 
+        if (test){
+            this.itemQty = test.length
+        }
+
         this.discountPoints = JSON.parse(localStorage.getItem('discountPoints'));
         this.sessionId = JSON.parse(localStorage.getItem('memberId'));
 
@@ -257,7 +261,7 @@ new Vue({
                 for (var i in this.newStorage[index].goodList) {
                     total += this.newStorage[index].goodList[i].price * this.newStorage[index].goodList[i].qty;
                 }
-                console.log(i);
+                // console.log(i);
             }
             return total;
         },
