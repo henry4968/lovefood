@@ -404,7 +404,7 @@ const main = new Vue({
             //     this.newStorage[i].pickUpDateArray.push(pickUpTimeOrder[i]);
             // }
             for (var i in this.newStorage) {
-                console.log(this.newStorage[i])
+                // console.log(this.newStorage[i])
                 this.newStorage[i].pickUpTimeOrder = pickUpTimeOrder[i];//塞日期進newStorage
             }
             return pickUpTimeOrder;
