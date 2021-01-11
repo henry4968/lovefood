@@ -82,7 +82,7 @@ $dataDC = $statementDonationCompleted->fetchAll(PDO::FETCH_ASSOC);
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
     <link rel="icon" type="image/png" href="../img/21/donation_description/map_leaf.png" />
     <!-- 自訂js -->
-    <script src="../js/21/donation.js"></script>
+    <!-- <script src="../js/21/donation.js"></script> -->
 
     <!-- <script src="../js/21/donation.js"></script> -->
     <script src="../js/21/donate_completed.js"></script>
