@@ -152,11 +152,6 @@ const main = new Vue({
         this.checklogin();
         // 大頭貼切換假如沒大頭貼就用預設如果有就切換
         this.Bitpicupdate();
-        //換頁載入＝＝＝＝＝
-        let cartAllItems = JSON.parse(localStorage.getItem('itemStorage'));
-        if (cartAllItems) {
-            this.itemQty = cartAllItems.length
-        }
     },
     updated() {
         // 看看是一般會員或是賣家會員
