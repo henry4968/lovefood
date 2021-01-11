@@ -4,7 +4,7 @@ include("../PHP/Frontend/Lib/frontendUtilClass.php");
 $Util = new UtilClass();
 
 // 尋找目前流水號最大者，製造下一號並裝入變數
-$sqlSelectMaxId = "SELECT max(DONATION_ID) FROM donation;";
+$sqlSelectMaxId = "SELECT max(DONATION_ID) FROM donation";
 
 $statementSelectMaxId  = $Util->getPDO()->prepare($sqlSelectMaxId);
 $statementSelectMaxId->execute();
