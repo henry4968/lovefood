@@ -129,7 +129,7 @@ const app = new Vue({
         let dateEnd = $("input[name='donationQueryDateEnd']").val();
 
         $.ajax({
-            url: '../PHP/backStage/finance/donationQuery.php',
+            url: '../PHP/backStage/Finance/donationQuery.php',
             type: 'POST',
             dataType: "JSON",
             data: { DONATION_ID, name, email, pID_tID, dateStart, dateEnd },
@@ -204,7 +204,7 @@ const app = new Vue({
             let supplierId = $("input[name='supplierId']").val();
 
             $.ajax({
-                url: '../PHP/backStage/finance/financeQuery.php',
+                url: '../PHP/backStage/Finance/financeQuery.php',
                 type: 'POST',
                 data: { dateStart, dateEnd, supplierId },
                 dataType: 'JSON',
@@ -499,7 +499,7 @@ const app = new Vue({
             let DONATION_ID = $(e.target).data('id');
 
             $.ajax({
-                url: '../PHP/backStage/finance/donationDetails.php',
+                url: '../PHP/backStage/Finance/donationDetails.php',
                 type: 'POST',
                 data: { DONATION_ID },
                 dataType: "JSON",
@@ -623,7 +623,7 @@ const app = new Vue({
             alert("修改完成！");
 
             $.ajax({
-                url: '../PHP/backStage/finance/donationUpdate.php',
+                url: '../PHP/backStage/Finance/donationUpdate.php',
                 type: 'POST',
                 data: { name_ED, nationality_ED, pID_tID_ED, birthday_ED, address_ED, email_ED, gender_ED, remarks_ED, receiptTitle_ED, receipt_pID_tID_ED, deliveryMethod_ED, selectedId_ED },
                 success: function (res) {
